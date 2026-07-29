@@ -1,44 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { AgentConfig, TelecomPackage } from './types';
-import { VIETTEL_PACKAGES } from './data/packages';
-import Header from './components/Header';
-import HeroCarousel from './components/HeroCarousel';
-import SimLookup from './components/SimLookup';
-import PackageGrid from './components/PackageGrid';
-import FaqAccordion from './components/FaqAccordion';
-import Footer from './components/Footer';
-import AgentSettings from './components/AgentSettings';
-import PackageModal from './components/PackageModal';
-import AdsGuideModal from './components/AdsGuideModal';
-import PolicyModal from './components/PolicyModal';
-import DynamicPostPage from './components/DynamicPostPage';
+import { AgentConfig, TelecomPackage } from '../types';
+import { VIETTEL_PACKAGES } from '../data/packages';
+import Header from './Header';
+import HeroCarousel from './HeroCarousel';
+import SimLookup from './SimLookup';
+import PackageGrid from './PackageGrid';
+import FaqAccordion from './FaqAccordion';
+import Footer from './Footer';
+import AgentSettings from './AgentSettings';
+import PackageModal from './PackageModal';
+import AdsGuideModal from './AdsGuideModal';
+import PolicyModal from './PolicyModal';
+import DynamicPostPage from './DynamicPostPage';
 import About from './pages/About';
 import Privacy from './pages/Privacy';
-import MarkdownPostPage from './components/MarkdownPostPage';
+import MarkdownPostPage from './MarkdownPostPage';
 
-export default function App() {
-  // Routing State for Programmatic SEO
-  const [currentPath, setCurrentPath] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return window.location.pathname.toLowerCase().replace(/^\/|\/$/g, '');
-    }
-    return '';
-  });
-
-  useEffect(() => {
-    const handleLocationChange = () => {
-      setCurrentPath(window.location.pathname.toLowerCase().replace(/^\/|\/$/g, ''));
-    };
-    window.addEventListener('popstate', handleLocationChange);
-    return () => window.removeEventListener('popstate', handleLocationChange);
-  }, []);
-
-  const handleBackToHome = () => {
-    window.history.pushState({}, '', '/');
-    setCurrentPath('');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
+export default function HomeApp() {
   // 1. Initialize Agent Configuration with local storage persistent synchronization
   const [config, setConfig] = useState<AgentConfig>(() => {
     try {
@@ -72,37 +50,8 @@ export default function App() {
   const [selectedPkgId, setSelectedPkgId] = useState<string | null>(null);
   const [modalTab, setModalTab] = useState<'sms' | 'qr' | 'details'>('sms');
 
-  // E-E-A-T Routing (About & Privacy Pages)
-  if (currentPath === 've-chung-toi') {
-    return <About config={config} onSearchChange={(q: string) => { setSearchQuery(q); handleBackToHome(); }} />;
-  }
-  if (currentPath === 'chinh-sach-bao-mat') {
-    return <Privacy config={config} onSearchChange={(q: string) => { setSearchQuery(q); handleBackToHome(); }} />;
-  }
-
-  // Markdown Posts Routing (AEO Content Factory)
-  if (currentPath.startsWith('posts/')) {
-    const slug = currentPath.replace('posts/', '');
-    return <MarkdownPostPage slug={slug} config={config} onBack={handleBackToHome} onSearchChange={(q: string) => { setSearchQuery(q); handleBackToHome(); }} />;
-  }
-
   // Find currently active package for instructions modal
   const activePackage = VIETTEL_PACKAGES.find((p) => p.id === selectedPkgId) || null;
-
-  const matchedPkg = currentPath && currentPath.includes('goi-cuoc/') 
-    ? VIETTEL_PACKAGES.find(pkg => currentPath.endsWith(pkg.id.toLowerCase())) 
-    : null;
-
-  if (matchedPkg) {
-    return (
-      <DynamicPostPage
-        pkg={matchedPkg}
-        config={config}
-        rawPath={currentPath}
-        onBack={handleBackToHome}
-      />
-    );
-  }
 
   // Handles fast action selectors
   const handleSelectPackage = (pkgId: string) => {

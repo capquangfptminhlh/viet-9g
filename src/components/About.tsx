@@ -5,18 +5,8 @@ import Footer from '../components/Footer';
 
 export default function About({ config, onSearchChange }: any) {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
-      <Header
-        config={config}
-        onOpenSettings={() => {}}
-        onOpenAdsGuide={() => {}}
-        searchQuery=""
-        onSearchChange={onSearchChange}
-        onCategorySelect={() => {}}
-        selectedCategory="all"
-      />
-      
-      <main className="flex-1 max-w-4xl mx-auto px-4 py-12 w-full space-y-8">
+    <div className="bg-gray-50 flex flex-col font-sans">
+      <main className="flex-1 max-w-4xl mx-auto px-4 py-12 pt-28 w-full space-y-8">
         <div className="bg-white p-8 sm:p-12 rounded-2xl shadow-sm border border-gray-100 space-y-8">
           <div className="text-center space-y-4 pb-8 border-b border-gray-100">
             <h1 className="text-3xl sm:text-4xl font-black text-[#D71920] uppercase tracking-tight">Về Chúng Tôi</h1>
@@ -64,8 +54,6 @@ export default function About({ config, onSearchChange }: any) {
 
         </div>
       </main>
-      
-      <Footer />
     </div>
   );
 }

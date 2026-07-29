@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+// Giả lập config rỗng cho Header/Footer (vì chúng được fetch từ local storage ở client)
+const mockConfig = { agentCode: '352525287', supportPhone: '1800.8098', zaloLink: 'https://zalo.me/18008098', agentName: 'Kênh CTV' };
+---
+<BaseLayout title={`${entry.slug} - Hướng dẫn Viettel`}>
+  <Header config={mockConfig} client:load />
+  
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-28 min-h-screen">
+    <div class="bg-white rounded-2xl shadow-xl shadow-red-900/5 p-6 md:p-10 border border-red-100">
+      <article class="prose prose-red max-w-none prose-headings:font-bold prose-h1:text-red-700 prose-a:text-red-600 hover:prose-a:text-red-500">
+        <Content />
+      </article>
+      
+      <div class="mt-12 pt-8 border-t border-gray-100">
+        <a href="/" class="inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-semibold bg-red-50 text-red-600 hover:bg-red-100 transition-colors">
+          ← Quay lại trang chủ
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <Footer config={mockConfig} client:load />
+</BaseLayout>

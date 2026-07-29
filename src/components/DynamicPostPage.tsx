@@ -5,15 +5,16 @@ import { ShieldCheck, Phone, ArrowLeft, Send } from 'lucide-react';
 interface DynamicPostPageProps {
   pkg: TelecomPackage;
   config: AgentConfig;
-  rawPath: string;
-  onBack: () => void;
+  rawPath?: string;
 }
 
-export default function DynamicPostPage({ pkg, config, rawPath, onBack }: DynamicPostPageProps) {
+export default function DynamicPostPage({ pkg, config, rawPath }: DynamicPostPageProps) {
   // Convert URL path back to readable title query
   const titleQuery = rawPath
-    .replace(/-/g, ' ')
-    .replace(/\b[a-z]/g, (letter) => letter.toUpperCase());
+    ? rawPath
+        .replace(/-/g, ' ')
+        .replace(/\b[a-z]/g, (letter) => letter.toUpperCase())
+    : pkg.name;
 
   const smsSyntax = `${pkg.name} ${config.agentCode}`;
 
@@ -22,13 +23,13 @@ export default function DynamicPostPage({ pkg, config, rawPath, onBack }: Dynami
       {/* Mini Brand Banner */}
       <div className="bg-[#D71920] text-white text-xs py-3 px-4 shadow-xs">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
-          <button 
-            onClick={onBack} 
+          <a 
+            href="/" 
             className="flex items-center gap-1 hover:underline font-bold text-xs cursor-pointer text-white/90 hover:text-white"
           >
             <ArrowLeft className="w-4 h-4" />
             Quay lại trang chủ
-          </button>
+          </a>
           <a href={`tel:${config.supportPhone.replace(/\./g, '')}`} className="flex items-center gap-1 hover:underline font-bold text-xs">
             <Phone className="w-3.5 h-3.5 fill-white" />
             Hotline: {config.supportPhone}
@@ -181,13 +182,13 @@ export default function DynamicPostPage({ pkg, config, rawPath, onBack }: Dynami
 
         {/* Back Button bottom */}
         <div className="text-center">
-          <button 
-            onClick={onBack} 
+          <a 
+            href="/"
             className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-gray-800 text-white text-xs font-bold rounded-full hover:bg-gray-900 shadow-sm transition-all cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
             QUAY LẠI TRANG CHỦ TRACUUGOICUOC.COM
-          </button>
+          </a>
         </div>
       </main>
 

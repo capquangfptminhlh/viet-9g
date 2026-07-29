@@ -1,0 +1,49 @@
+---
+import '../index.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { 
+  title = "Tra Cứu Gói Cước Viettel | Cổng Đăng Ký 4G/5G Di Động Trực Tuyến", 
+  description = "Tra cứu và đăng ký các gói cước 4G/5G Viettel siêu tốc mới nhất 2026. Hướng dẫn soạn tin nhắn SMS đăng ký chính thức qua tổng đài 290 miễn phí dịch vụ." 
+} = Astro.props;
+
+const GA_ID = import.meta.env.PUBLIC_GA_ID;
+---
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={Astro.url.href} />
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://tracuugoicuoc.com/og-image.jpg" />
+    
+    <slot name="head" />
+
+    {GA_ID && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+        <script is:inline define:vars={{ GA_ID }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', GA_ID);
+        </script>
+      </>
+    )}
+  </head>
+  <body class="bg-gray-50 text-slate-800 antialiased selection:bg-red-500 selection:text-white">
+    <slot />
+  </body>
+</html>

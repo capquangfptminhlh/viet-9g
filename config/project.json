@@ -1,0 +1,35 @@
+{
+  "domain": "https://www.tracuugoicuoc.com",
+  "canonicalHost": "www.tracuugoicuoc.com",
+  "siteName": "Tracuugoicuoc",
+  "language": "vi",
+  "market": "VN",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "niche": "Viễn thông",
+  "audience": "Người dùng mạng Viettel toàn quốc",
+  "primaryConversion": "generate_lead",
+  "sourceOfTruth": "data/facts.json",
+  "ymyl": false,
+  "trailingSlash": "never",
+  "maxPostsPerDay": 3,
+  "rampSchedule": [
+    { "afterDays": 0, "maxPerDay": 1 },
+    { "afterDays": 14, "maxPerDay": 3 },
+    { "afterDays": 45, "maxPerDay": 5 }
+  ],
+  "qualityGate": {
+    "minVerificationScore": 0.95,
+    "requireHumanReview": true,
+    "requireExpertReviewForYmyl": true
+  },
+  "killSwitch": {
+    "minimumDailyImpressions": 100,
+    "comparisonWindowDays": 7,
+    "baselineWindowDays": 28,
+    "consecutiveBreaches": 3,
+    "impressionDropPct": 40,
+    "avgPositionDrop": 10,
+    "onManualAction": true,
+    "onSecurityIssue": true
+  }
+}

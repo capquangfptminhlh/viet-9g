@@ -4,18 +4,8 @@ import Footer from '../components/Footer';
 
 export default function Privacy({ config, onSearchChange }: any) {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
-      <Header
-        config={config}
-        onOpenSettings={() => {}}
-        onOpenAdsGuide={() => {}}
-        searchQuery=""
-        onSearchChange={onSearchChange}
-        onCategorySelect={() => {}}
-        selectedCategory="all"
-      />
-      
-      <main className="flex-1 max-w-4xl mx-auto px-4 py-12 w-full space-y-8">
+    <div className="bg-gray-50 flex flex-col font-sans">
+      <main className="flex-1 max-w-4xl mx-auto px-4 py-12 pt-28 w-full space-y-8">
         <div className="bg-white p-8 sm:p-12 rounded-2xl shadow-sm border border-gray-100 space-y-6">
           <div className="text-center space-y-2 pb-6 border-b border-gray-100">
             <h1 className="text-2xl sm:text-3xl font-black text-gray-900 uppercase tracking-tight">Chính Sách Bảo Mật</h1>
@@ -43,8 +33,6 @@ export default function Privacy({ config, onSearchChange }: any) {
           </div>
         </div>
       </main>
-      
-      <Footer />
     </div>
   );
 }

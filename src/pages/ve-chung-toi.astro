@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import About from '../components/About';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
+const mockConfig = { agentCode: '352525287', supportPhone: '1800.8098', zaloLink: 'https://zalo.me/18008098', agentName: 'Kênh CTV' };
+---
+<BaseLayout title="Về Chúng Tôi | Tra Cứu Gói Cước Viettel">
+  <Header config={mockConfig} client:load />
+  <About config={mockConfig} client:load />
+  <Footer config={mockConfig} client:load />
+</BaseLayout>
