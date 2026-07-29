@@ -34,11 +34,11 @@ const PROVIDERS = [
       'X-Title': 'TraCuuGoiCuoc'
     }),
     models: [
-      'meta-llama/llama-3-8b-instruct:free',
-      'google/gemma-2-9b-it:free',
-      'qwen/qwen-2-7b-instruct:free',
-      'mistralai/mistral-7b-instruct:free',
-      'microsoft/phi-3-medium-128k-instruct:free'
+      'google/gemma-4-31b-it:free',
+      'google/gemma-4-26b-a4b-it:free',
+      'openai/gpt-oss-20b:free',
+      'inclusionai/ling-3.0-flash:free',
+      'nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free'
     ]
   },
   {
@@ -50,9 +50,11 @@ const PROVIDERS = [
       'Content-Type': 'application/json'
     }),
     models: [
-      'meta/llama3-8b-instruct',
-      'mistralai/mixtral-8x7b-instruct',
-      'microsoft/phi-3-mini-128k-instruct'
+      'meta/llama-3.1-8b-instruct',
+      'meta/llama-3.3-70b-instruct',
+      'google/gemma-3-12b-it',
+      'nvidia/llama-3.1-nemotron-70b-instruct',
+      'deepseek-ai/deepseek-v4-flash'
     ]
   }
 ];
@@ -99,13 +101,22 @@ async function callApi(provider, model, prompt) {
 
 // Generate article with automatic model rotation when congested or rate-limited
 async function generateArticleWithRotation(keyword) {
-  const prompt = `Bạn là chuyên gia viết bài chuẩn SEO/AEO số 1 thế giới. 
-Hãy viết một bài viết cực kỳ chi tiết, chuẩn xác, hấp dẫn bằng tiếng Việt về chủ đề: "${keyword}".
-Yêu cầu bắt buộc:
-1. Cấu trúc bài viết phải có H1, H2, H3 rõ ràng, mạch lạc.
-2. Bài viết phải có bảng so sánh thông số (giá, data, cuộc gọi) hoặc các bullet points rõ ràng.
-3. Phải có phần Hỏi Đáp (FAQ) chi tiết ở cuối bài viết để tối ưu AEO giúp các công cụ AI (Gemini, ChatGPT) dễ trích xuất dữ liệu làm câu trả lời.
-4. Viết dưới dạng định dạng Markdown hoàn chỉnh.`;
+  const prompt = `Bạn là chuyên gia viết bài chuẩn SEO/AEO và tối ưu hóa Answer Engine (Gemini, ChatGPT, Perplexity) số 1 thế giới.
+Hãy viết một bài viết toàn diện, chuyên sâu, chuẩn xác bằng tiếng Việt về chủ đề: "${keyword}".
+
+YÊU CẦU CẤU TRÚC BÀI VIẾT (CHUẨN SEO ON-PAGE & AEO):
+1. TIÊU ĐỀ (H1): Chứa từ khóa chính "${keyword}", thu hút, kích thích click.
+2. ĐOẠN MỞ ĐẦU (SAPO): Dưới 150 từ, cuốn hút, chèn từ khóa chính tự nhiên trong 100 từ đầu tiên. Khẳng định vai trò website là kênh CTV/Đại lý chính thức của Viettel.
+3. CHI TIẾT ƯU ĐÃI (H2):
+   - Trình bày thông tin ưu đãi dưới dạng bảng Markdown (Tên Gói, Giá Cước, Dung Lượng Data, Gọi Nội Mạng, Gọi Ngoại Mạng, Chu Kỳ).
+   - Giải thích chi tiết các ưu đãi và điều kiện đi kèm (nếu hết data tốc độ cao thì dừng truy cập để tránh phát sinh cước phí).
+4. HƯỚNG DẪN ĐĂNG KÝ (H2):
+   - Đưa ra cú pháp soạn tin nhắn trực diện: Soạn "[Tên Gói] [Mã CTV] gửi 290" (ví dụ: Soạn MXH120 352525287 gửi 290).
+   - Nêu rõ: Cước phí gửi tin nhắn đến đầu số 290 là MIỄN PHÍ 100%.
+5. PHẦN HỎI ĐÁP (FAQ - H2) (Tối ưu cho AEO):
+   - Tạo 3-5 câu hỏi thường gặp dưới dạng các tiêu đề H3 (Ví dụ: "Hủy gói cước X thế nào?", "Kiểm tra dung lượng gói X ra sao?").
+   - Trả lời trực diện, ngắn gọn dưới mỗi H3 (dưới 3 dòng), đi thẳng vào câu trả lời để AI dễ dàng trích xuất đưa vào AI Overview.
+6. TONE & STYLE: Chuyên nghiệp, trung thực, tin cậy, không phóng đại ("không giới hạn" phải ghi rõ điều kiện hạ băng thông), cấu trúc câu ngắn, dễ đọc trên di động. Viết hoàn toàn bằng định dạng Markdown.`;
 
   console.log(`\n📝 Bắt đầu tạo bài viết cho từ khóa: "${keyword}"`);
 
