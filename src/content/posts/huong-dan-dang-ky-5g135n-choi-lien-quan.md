@@ -1,5 +1,6 @@
 # Hướng Dẫn Đăng Ký Gói 5G135N Viettel: Cày Liên Quân, Lướt Web Không Cần Wifi
 
+![Đăng ký 5G135N chơi game mượt mà](/images/5g-gaming.jpg)
 Để đăng ký gói cước 5G135N Viettel nhận ngay 6GB Data siêu tốc độ mỗi ngày, bạn soạn tin nhắn theo cú pháp: **5G135N GB gửi 290** (Miễn phí cước SMS). Hệ thống sẽ tự động trừ 135.000đ vào tài khoản chính và kích hoạt ưu đãi.
 
 ## Gói 5G135N Có Đủ Chơi Liên Quân Mobile Không?

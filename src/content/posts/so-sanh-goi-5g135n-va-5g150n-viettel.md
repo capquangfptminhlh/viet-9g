@@ -1,5 +1,6 @@
 # So Sánh Gói 5G135N và 5G150N Viettel: Nên Chọn Gói Cước Nào Tốt Nhất?
 
+![So sánh gói 5G135N và 5G150N](/images/5g-compare.jpg)
 Cả hai gói **5G135N** và **5G150N** đều là những gói cước 5G Data "khủng" nhất vừa được Viettel ra mắt. Mức chênh lệch chỉ 15.000đ/tháng khiến nhiều người dùng phân vân. Hãy cùng xem bảng so sánh chi tiết dưới đây để quyết định chọn gói nào phù hợp nhất với nhu cầu của bạn.
 
 ## Bảng So Sánh Chi Tiết 5G135N vs 5G150N
