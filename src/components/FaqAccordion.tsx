@@ -9,8 +9,22 @@ export default function FaqAccordion() {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  const schemaFAQ = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": FAQS.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
   return (
     <section id="faq" className="max-w-7xl mx-auto px-4 py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaFAQ) }} />
       <div className="bg-white rounded-3xl border border-gray-150 p-6 sm:p-8 lg:p-10 space-y-6 sm:space-y-8">
         
         {/* Headline Header */}

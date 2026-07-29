@@ -4,22 +4,22 @@ import { AgentConfig } from '../types';
 
 interface HeaderProps {
   config: AgentConfig;
-  onOpenSettings: () => void;
-  onOpenAdsGuide: () => void;
-  searchQuery: string;
-  onSearchChange: (query: string) => void;
-  onCategorySelect: (category: string) => void;
-  selectedCategory: string;
+  onOpenSettings?: () => void;
+  onOpenAdsGuide?: () => void;
+  searchQuery?: string;
+  onSearchChange?: (query: string) => void;
+  onCategorySelect?: (category: string) => void;
+  selectedCategory?: string;
 }
 
 export default function Header({ 
   config, 
-  onOpenSettings, 
-  onOpenAdsGuide,
-  searchQuery, 
-  onSearchChange,
-  onCategorySelect,
-  selectedCategory
+  onOpenSettings = () => {}, 
+  onOpenAdsGuide = () => {},
+  searchQuery = '', 
+  onSearchChange = () => {},
+  onCategorySelect = () => {},
+  selectedCategory = 'all'
 }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 

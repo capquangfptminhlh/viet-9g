@@ -42,6 +42,18 @@ const GA_ID = import.meta.env.PUBLIC_GA_ID;
         </script>
       </>
     )}
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://tracuugoicuoc.com/",
+      "name": "Tra Cứu Gói Cước Viettel",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://tracuugoicuoc.com/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    })} />
   </head>
   <body class="bg-gray-50 text-slate-800 antialiased selection:bg-red-500 selection:text-white">
     <slot />

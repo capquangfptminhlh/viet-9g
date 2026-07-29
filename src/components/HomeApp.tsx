@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { AgentConfig, TelecomPackage } from '../types';
 import { VIETTEL_PACKAGES } from '../data/packages';
 import Header from './Header';
@@ -11,11 +11,6 @@ import AgentSettings from './AgentSettings';
 import PackageModal from './PackageModal';
 import AdsGuideModal from './AdsGuideModal';
 import PolicyModal from './PolicyModal';
-import DynamicPostPage from './DynamicPostPage';
-import About from './pages/About';
-import Privacy from './pages/Privacy';
-import MarkdownPostPage from './MarkdownPostPage';
-
 export default function HomeApp() {
   // 1. Initialize Agent Configuration with local storage persistent synchronization
   const [config, setConfig] = useState<AgentConfig>(() => {

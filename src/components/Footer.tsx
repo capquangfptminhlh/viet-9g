@@ -4,10 +4,10 @@ import { AgentConfig } from '../types';
 
 interface FooterProps {
   config: AgentConfig;
-  onOpenPolicy: (type: 'privacy' | 'terms' | 'disclaimer') => void;
+  onOpenPolicy?: (type: 'privacy' | 'terms' | 'disclaimer') => void;
 }
 
-export default function Footer({ config, onOpenPolicy }: FooterProps) {
+export default function Footer({ config, onOpenPolicy = () => {} }: FooterProps) {
   return (
     <footer className="bg-[#0b0f19] text-slate-300 border-t border-slate-800/80 font-sans shadow-2xl relative z-10">
       

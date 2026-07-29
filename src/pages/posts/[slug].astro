@@ -6,18 +6,20 @@ import Footer from '../../components/Footer';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
-  return posts.map(entry => ({
+  return posts.map((entry: any) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));
 }
 
 const { entry } = Astro.props;
+// @ts-ignore
 const { Content } = await entry.render();
 
 // Giả lập config rỗng cho Header/Footer (vì chúng được fetch từ local storage ở client)
 const mockConfig = { agentCode: '352525287', supportPhone: '1800.8098', zaloLink: 'https://zalo.me/18008098', agentName: 'Kênh CTV' };
 ---
+// @ts-ignore
 <BaseLayout title={`${entry.slug} - Hướng dẫn Viettel`}>
   <Header config={mockConfig} client:load />
   
