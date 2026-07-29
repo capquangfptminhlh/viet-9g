@@ -116,6 +116,21 @@ function generateSSG() {
     console.log(`✅ Đã render SSG: /goi-cuoc/${pkg.id}`);
   });
 
+  // Render HTML tĩnh cho TRANG CHỦ (Homepage)
+  const homeSeoHtml = `
+    <div id="seo-content" style="opacity: 0; position: absolute; z-index: -1;">
+      <h1>Tra Cứu & Đăng Ký Gói Cước 4G/5G Viettel Mới Nhất 2026</h1>
+      <p>Chào mừng bạn đến với Cổng thông tin tra cứu và đăng ký gói cước mạng Viettel chính thức qua tổng đài 290. Dưới đây là danh sách các gói data, combo gọi thoại giá rẻ cực hot:</p>
+      <h2>Danh sách các gói cước Viettel tiêu biểu</h2>
+      <ul>
+        ${packages.map(p => `<li><strong>Gói ${p.name}</strong>: ${p.price.toLocaleString('vi-VN')}đ/ ${p.duration} - Có ${p.dataLimit} Data. Cú pháp: ${p.name} DA gửi 290</li>`).join('\n        ')}
+      </ul>
+    </div>
+  `;
+  const homeHtml = baseHtml.replace('<div id="root"></div>', `<div id="root">${homeSeoHtml}</div>`);
+  fs.writeFileSync(INDEX_HTML, homeHtml, 'utf-8');
+  console.log('✅ Đã render SSG cho Trang Chủ (Homepage).');
+
   console.log('✅ Hoàn tất quá trình Pre-render SSG cho SEO.');
 }
 
