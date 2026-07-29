@@ -59,13 +59,29 @@ const PROVIDERS = [
   }
 ];
 
-// List of target keywords to capture
+// Danh sách từ khóa ngách bao phủ 100% thị trường để lên Top 1
 const KEYWORDS = [
   "đăng ký mxh120 viettel",
-  "gói cước mxh150 viettel ưu đãi khủng",
-  "gói 4g viettel rẻ nhất cho học sinh",
-  "hướng dẫn hủy gói cước viettel tránh trừ tiền",
-  "cách đăng ký 4g viettel 1 ngày siêu tốc"
+  "đăng ký mxh150 viettel",
+  "đăng ký v120b viettel",
+  "đăng ký sd90 viettel",
+  "đăng ký sd120 viettel",
+  "đăng ký st5k viettel",
+  "đăng ký st90k viettel",
+  "đăng ký sd135 viettel",
+  "đăng ký v200b viettel",
+  "đăng ký mxh100 viettel",
+  "đăng ký v90b viettel",
+  "gói 4g viettel rẻ nhất cho học sinh sinh viên",
+  "gói cước 4g viettel không giới hạn dung lượng",
+  "gói cước viettel xem tiktok youtube facebook miễn phí data",
+  "gói combo viettel data thoại rẻ nhất",
+  "cách đăng ký 4g viettel 1 ngày siêu tốc giá rẻ",
+  "đăng ký mạng viettel tháng ưu đãi khủng nhất",
+  "hướng dẫn hủy gói cước viettel tránh trừ tiền tự động",
+  "cú pháp kiểm tra dung lượng data 4g viettel còn lại",
+  "lỗi đăng ký 4g viettel không thành công và cách khắc phục",
+  "cách đăng ký mạng viettel cho sim mới kích hoạt"
 ];
 
 // Call API helper
