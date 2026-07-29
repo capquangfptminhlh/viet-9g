@@ -698,7 +698,215 @@ export const VIETTEL_PACKAGES: TelecomPackage[] = [
       'Số dư tài khoản chính đạt 1.200.000đ trở lên phục vụ thanh toán.'
     ]
   }
+,  // NEW 5G PACKAGES (2026)
+  {
+    id: '5g135n',
+    name: '5G135N',
+    price: 135000,
+    duration: '30 ngày',
+    dataLimit: '180 GB',
+    dataPerDay: '6 GB/ngày',
+    category: 'combo',
+    description: 'Trải nghiệm đỉnh cao công nghệ 5G Viettel với lượng data khổng lồ lên tới 6GB/ngày. Đáp ứng hoàn hảo mọi nhu cầu lướt web, làm việc trực tuyến và xem phim 4K siêu mượt không độ trễ.',
+    benefits: [
+      '6 GB/ngày tốc độ siêu tốc 5G Viettel (Tổng 180GB/Tháng)',
+      'Miễn phí 100% dung lượng xem truyền hình TV360 Basic (chuẩn 4K)',
+      'Tặng kèm 20GB lưu trữ đám mây Mybox Viettel an toàn tuyệt đối',
+      'Phủ sóng 5G toàn quốc với độ trễ cực thấp'
+    ],
+    rules: [
+      'Áp dụng cho mọi thuê bao di động Viettel đủ điều kiện đăng ký 5G',
+      'Tài khoản chính tối thiểu 135.000đ khi thực hiện đăng ký'
+    ]
+  },
+  {
+    id: '5g150n',
+    name: '5G150N',
+    price: 150000,
+    duration: '30 ngày',
+    dataLimit: '240 GB',
+    dataPerDay: '8 GB/ngày',
+    category: 'combo',
+    description: 'Thoải mái tận hưởng mạng di động 5G bùng nổ cùng 8GB data mỗi ngày. Tự tin livestream, chơi game đồ họa nặng hay tải các tập tin khổng lồ chỉ trong chớp mắt mà không lo hết dung lượng giữa chừng.',
+    benefits: [
+      '8 GB data 5G/4G siêu tốc mỗi ngày (Cực khủng với 240GB/Tháng)',
+      'Miễn phí tài khoản TV360 Basic xem thể thao, phim truyện',
+      'Bao gồm 20GB không gian lưu trữ dữ liệu cá nhân trên Mybox',
+      'Ưu tiên dải băng thông 5G lớn nhất tại khu vực sử dụng'
+    ],
+    rules: [
+      'Áp dụng rộng rãi cho các thuê bao di động trả trước/trả sau',
+      'Số dư tài khoản chính đủ 150.000đ để kích hoạt gói'
+    ]
+  },
+  {
+    id: '5g180b',
+    name: '5G180B',
+    price: 180000,
+    duration: '30 ngày',
+    dataLimit: '180 GB',
+    dataPerDay: '6 GB/ngày',
+    calls: {
+      internal: 'Miễn phí gọi nội mạng < 10 phút',
+      external: '50 phút gọi ngoại mạng/tháng'
+    },
+    category: 'combo',
+    description: 'Gói combo 5G đa năng hoàn hảo, cung cấp đầy đủ cả data cực mạnh lẫn số phút gọi thoại miễn phí dồi dào. Lựa chọn số 1 cho các doanh nhân hay người thường xuyên liên lạc và di chuyển.',
+    benefits: [
+      '6 GB tốc độ 5G Viettel siêu cấp mỗi ngày (Tổng 180GB)',
+      'Miễn phí tất cả các cuộc gọi nội mạng Viettel thời lượng dưới 10 phút',
+      'Tặng miễn phí 50 phút gọi ngoại mạng toàn quốc',
+      'Bao trọn gói TV360 Basic và 20GB Data lưu trữ Mybox'
+    ],
+    rules: [
+      'Áp dụng cho thuê bao Viettel nhận được khuyến mãi',
+      'Tài khoản chính có tối thiểu 180.000đ'
+    ]
+  },
+  {
+    id: '5glq190',
+    name: '5GLQ190',
+    price: 190000,
+    duration: '30 ngày',
+    dataLimit: '120 GB',
+    dataPerDay: '4 GB/ngày',
+    social: ['lienquan'],
+    category: 'social',
+    description: 'Vũ khí tối thượng của các Kiện Tướng Liên Quân Mobile! Gói cước độc quyền mang đến đường truyền 5G miễn phí Ping siêu thấp (chỉ ~5ms) khi chiến game, kết hợp data lướt web mỗi ngày.',
+    benefits: [
+      'Miễn phí 100% dung lượng Data 5G siêu tốc độ khi chơi game Liên Quân Mobile',
+      'Đường truyền chuyên biệt, ưu tiên ping cực thấp, không giật lag',
+      'Cộng thêm 4 GB data/ngày để phục vụ nhu cầu vào mạng khác',
+      'Tặng tài khoản TV360 Basic và 20GB không gian lưu trữ Mybox'
+    ],
+    rules: [
+      'Dành cho thuê bao di động đang hoạt động 2 chiều của Viettel',
+      'Tài khoản gốc đảm bảo số dư 190.000đ khi đăng ký'
+    ]
+  },
+  {
+    id: '5glq210',
+    name: '5GLQ210',
+    price: 210000,
+    duration: '30 ngày',
+    dataLimit: '180 GB',
+    dataPerDay: '6 GB/ngày',
+    calls: {
+      internal: 'Miễn phí gọi nội mạng < 10 phút',
+      external: '50 phút gọi ngoại mạng/tháng'
+    },
+    social: ['lienquan'],
+    category: 'combo',
+    description: 'Gói cước All-in-One hoàn mỹ cho Gamer. Vừa đắm chìm vào những trận rank Liên Quân rực lửa với Data miễn phí, vừa có ngay 6GB/ngày dùng web và thả ga gọi điện thoại không tốn tiền.',
+    benefits: [
+      'Miễn phí hoàn toàn cước Data tốc độ 5G chơi Liên Quân Mobile không giới hạn',
+      'Sở hữu 6 GB/ngày data ngoài (Tổng 180 GB dùng các nhu cầu khác)',
+      'Free hoàn toàn các cuộc gọi nội mạng dưới 10 phút',
+      'Tặng thêm 50 phút thoại ngoại mạng và gói giải trí TV360 + 20GB Mybox'
+    ],
+    rules: [
+      'Áp dụng cho khách hàng sử dụng dịch vụ di động Viettel theo danh sách',
+      'Tài khoản chính có tối thiểu 210.000đ'
+    ]
+  },
+  {
+    id: '5g280b',
+    name: '5G280B',
+    price: 280000,
+    duration: '30 ngày',
+    dataLimit: '300 GB',
+    dataPerDay: '10 GB/ngày',
+    calls: {
+      internal: 'Miễn phí gọi nội mạng < 10 phút',
+      external: '100 phút gọi ngoại mạng/tháng'
+    },
+    category: 'combo',
+    description: 'Sức mạnh vượt trội dành cho nhóm khách hàng doanh nghiệp hoặc VIP. Cung cấp đến 10GB Data 5G siêu cấp mỗi ngày và 100 phút ngoại mạng miễn phí.',
+    benefits: [
+      '10 GB dung lượng 5G Viettel siêu cấp mỗi ngày (Tương đương 300GB/Tháng)',
+      'Miễn phí toàn bộ các cuộc gọi nội mạng thời lượng dưới 10 phút',
+      'Nhận ngay 100 phút gọi ngoại mạng trong nước miễn phí',
+      'Bao gồm ưu đãi ứng dụng xem TV360 Basic và lưu trữ Mybox 20GB'
+    ],
+    rules: [
+      'Thuê bao di động nhận được lời mời tham gia gói qua tin nhắn SMS',
+      'Tài khoản chính duy trì tối thiểu 280.000đ'
+    ]
+  },
+  {
+    id: '5g330b',
+    name: '5G330B',
+    price: 330000,
+    duration: '30 ngày',
+    dataLimit: '360 GB',
+    dataPerDay: '12 GB/ngày',
+    calls: {
+      internal: 'Miễn phí gọi nội mạng < 10 phút',
+      external: '150 phút gọi ngoại mạng/tháng'
+    },
+    category: 'combo',
+    description: 'Trải nghiệm giới hạn tối đa với gói cước 5G cao cấp hàng đầu. Gói 5G330B cung cấp dung lượng kết nối đỉnh cao cho các chuyến công tác hoặc chia sẻ mạng wifi với nhiều thiết bị.',
+    benefits: [
+      'Khối lượng Data khổng lồ: 12 GB 5G/4G mỗi ngày (Tổng 360GB)',
+      'Giao tiếp thả ga với miễn phí 100% cước nội mạng (cuộc gọi < 10 phút)',
+      'Quà tặng 150 phút thoại ngoại mạng không giới hạn nhà mạng',
+      'Tận hưởng kho phim TV360 Basic và bộ nhớ cá nhân Mybox 20GB'
+    ],
+    rules: [
+      'Dành cho thuê bao Viettel đủ điều kiện (thuê bao VIP/trả sau/trả trước theo danh sách)',
+      'Số dư lúc đăng ký tối thiểu 330.000đ'
+    ]
+  },
+  {
+    id: '5g380b',
+    name: '5G380B',
+    price: 380000,
+    duration: '30 ngày',
+    dataLimit: '450 GB',
+    dataPerDay: '15 GB/ngày',
+    calls: {
+      internal: 'Miễn phí gọi nội mạng < 10 phút',
+      external: '200 phút gọi ngoại mạng/tháng'
+    },
+    category: 'combo',
+    description: 'Thổi bay mọi rào cản kết nối với 15GB dữ liệu 5G Viettel tinh khiết mỗi ngày! Giải pháp thay thế hoàn hảo cho wifi cáp quang tại những nơi chưa có hạ tầng.',
+    benefits: [
+      'Đại tiệc Data 5G: Cung cấp 15 GB tốc độ cao mỗi ngày (Tổng 450 GB/Tháng)',
+      'Gọi cháy máy nội mạng Viettel miễn phí 100% (áp dụng dưới 10 phút/cuộc)',
+      'Có sẵn 200 phút gọi số di động ngoại mạng toàn quốc',
+      'Kèm khuyến mại TV360 Basic xem truyền hình và Mybox (20GB)'
+    ],
+    rules: [
+      'Áp dụng cho mọi thuê bao đáp ứng được chính sách khuyến mãi Viettel',
+      'Tài khoản chính có tối thiểu 380.000đ'
+    ]
+  },
+  {
+    id: '5g480b',
+    name: '5G480B',
+    price: 480000,
+    duration: '30 ngày',
+    dataLimit: '600 GB',
+    dataPerDay: '20 GB/ngày',
+    calls: {
+      internal: 'Miễn phí gọi nội mạng < 10 phút',
+      external: '250 phút gọi ngoại mạng/tháng'
+    },
+    category: 'combo',
+    description: 'Vị vua của thế hệ mạng 5G. Gói cước thượng hạng nhất hiện nay mang đến 20GB Data/ngày tốc độ siêu thực, giúp mọi tác vụ mạng của bạn và đối tác diễn ra trong chớp mắt.',
+    benefits: [
+      'Băng thông 5G bất tận với 20 GB/ngày (Đạt mốc siêu tưởng 600 GB/Tháng)',
+      'Xóa nhòa khoảng cách với mọi cuộc gọi nội mạng dưới 10 phút đều bằng 0đ',
+      'Đàm thoại ngoại mạng thoải mái với 250 phút tặng sẵn',
+      'Bao trọn hệ sinh thái giải trí: TV360 Basic xem thể thao và kho lưu trữ Mybox'
+    ],
+    rules: [
+      'Dành riêng cho khách hàng VIP của Viettel hoặc thuê bao đủ điều kiện đặc quyền',
+      'Chi phí khấu trừ: 480.000đ từ tài khoản gốc'
+    ]
+  }
 ];
+
 
 export const FAQS: FAQItem[] = [
   {
