@@ -48,9 +48,26 @@ export default function SmartRecommender({ onSelectPackage, onOpenDetails }: Sma
       const comboMatches = matches.filter(p => p.calls && (p.calls.internal || p.calls.external));
       if (comboMatches.length > 0) matches = comboMatches;
     } else if (need === 'data') {
-      matches.sort((a, b) => parseFloat(b.dataPerDay) - parseFloat(a.dataPerDay));
+      const parseQuota = (str: string) => {
+        const lower = str.toLowerCase();
+        const num = parseFloat(str) || 0;
+        if (lower.includes('mb')) return num / 1024;
+        return num;
+      };
+      matches.sort((a, b) => parseQuota(b.dataPerDay) - parseQuota(a.dataPerDay));
     } else if (need === 'long_term') {
-      const longTerm = matches.filter(p => p.duration !== '30 Ngày' && parseInt(p.duration) > 30);
+      const longTerm = matches.filter(p => {
+        const durLower = p.duration.toLowerCase();
+        if (durLower.includes('tháng')) {
+          const m = parseInt(durLower) || 1;
+          return m >= 3;
+        }
+        if (durLower.includes('ngày')) {
+          const d = parseInt(durLower) || 30;
+          return d > 30;
+        }
+        return false;
+      });
       if (longTerm.length > 0) matches = longTerm;
     }
 
@@ -229,14 +246,14 @@ export default function SmartRecommender({ onSelectPackage, onOpenDetails }: Sma
                       <button
                         type="button"
                         onClick={() => onOpenDetails(pkg)}
-                        className="flex-1 py-2 text-xs font-bold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+                        className="flex-1 py-2.5 min-h-[44px] text-xs font-bold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors flex items-center justify-center"
                       >
                         Chi tiết
                       </button>
                       <button
                         type="button"
                         onClick={() => onSelectPackage(pkg.id)}
-                        className="flex-1 py-2 text-xs font-bold text-white bg-[#e60000] hover:bg-red-700 rounded-lg shadow-sm transition-colors"
+                        className="flex-1 py-2.5 min-h-[44px] text-xs font-bold text-white bg-[#e60000] hover:bg-red-700 rounded-lg shadow-sm transition-colors flex items-center justify-center"
                       >
                         Đăng ký
                       </button>
