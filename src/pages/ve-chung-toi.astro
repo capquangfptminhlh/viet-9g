@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-const mockConfig = { agentCode: 'GB', supportPhone: '[SỐ ĐIỆN THOẠI HỖ TRỢ]', zaloLink: 'https://zalo.me/[SỐ_ĐIỆN_THOẠI]', agentName: '[TÊN ĐẠI LÝ]' };
+const mockConfig = { agentCode: 'GB', supportPhone: '18008098', zaloLink: 'https://zalo.me/', agentName: '' };
 ---
 <BaseLayout title="Về Chúng Tôi | Đại Lý Tra Cứu Gói Cước Viettel">
   <Header config={mockConfig} client:load />
@@ -28,7 +28,7 @@ const mockConfig = { agentCode: 'GB', supportPhone: '[SỐ ĐIỆN THOẠI HỖ 
       <section>
         <h2 class="text-xl font-bold text-red-700 mb-3">Mã Đại Lý và Tổng Đài 290 là gì?</h2>
         <p>
-          Khi quý khách đăng ký gói cước qua website của chúng tôi bằng cú pháp SMS gửi đến <strong>290</strong> kèm theo mã đại lý <strong>GA</strong>, hệ thống sẽ tự động ghi nhận doanh số cho điểm bán hàng của chúng tôi. 
+          Khi quý khách đăng ký gói cước qua website của chúng tôi bằng cú pháp SMS gửi đến <strong>290</strong> kèm theo mã đại lý <strong>GB</strong>, hệ thống sẽ tự động ghi nhận doanh số cho điểm bán hàng của chúng tôi. 
         </p>
         <p class="mt-2">
           Việc đăng ký thông qua mã đại lý là hoàn toàn <strong>miễn phí</strong> (quý khách chỉ thanh toán đúng cước phí niêm yết của gói cước, bị trừ vào tài khoản chính của SIM). 
@@ -38,12 +38,9 @@ const mockConfig = { agentCode: 'GB', supportPhone: '[SỐ ĐIỆN THOẠI HỖ 
 
       <section>
         <h2 class="text-xl font-bold text-red-700 mb-3">Thông Tin Liên Hệ</h2>
-        <ul class="list-disc pl-5 space-y-2">
-          <li><strong>Đơn vị vận hành:</strong> [TÊN ĐẠI LÝ]</li>
-          <li><strong>Khu vực hoạt động:</strong> [ĐỊA CHỈ HOẶC KHU VỰC PHỤC VỤ]</li>
-          <li><strong>Số điện thoại hỗ trợ:</strong> [SỐ ĐIỆN THOẠI HỖ TRỢ]</li>
-          <li><strong>Email liên hệ:</strong> [EMAIL HỖ TRỢ]</li>
-        </ul>
+        <p>
+          Mọi thắc mắc cần hỗ trợ hoặc tư vấn thêm về dịch vụ, quý khách vui lòng truy cập trang <a href="/lien-he" class="text-blue-600 hover:underline font-bold">Liên hệ</a> để biết thêm chi tiết.
+        </p>
       </section>
     </div>
   </main>
