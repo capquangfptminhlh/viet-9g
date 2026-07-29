@@ -72,7 +72,9 @@ export default function App() {
   // Find currently active package for instructions modal
   const activePackage = VIETTEL_PACKAGES.find((p) => p.id === selectedPkgId) || null;
 
-  const matchedPkg = currentPath ? VIETTEL_PACKAGES.find(pkg => currentPath.includes(pkg.id.toLowerCase())) : null;
+  const matchedPkg = currentPath && currentPath.includes('goi-cuoc/') 
+    ? VIETTEL_PACKAGES.find(pkg => currentPath.endsWith(pkg.id.toLowerCase())) 
+    : null;
 
   if (matchedPkg) {
     return (

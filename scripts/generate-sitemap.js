@@ -7,76 +7,36 @@ const __dirname = path.dirname(__filename);
 
 const SITEMAP_FILE = path.join(__dirname, '..', 'public', 'sitemap.xml');
 
-// List of Viettel packages
+// List of Viettel packages (17 Pillar Pages)
 const PACKAGES = [
   'mxh120', 'mxh150', 'v120b', 'sd90', 'sd120', 'st5k', 'st70k', 'st90k', 
   'v150b', 'v200b', 'sd135', 'sd150', 'mxh100', 'v90b', 'sd70', '6mxh120', '12mxh120'
 ];
 
-// Permutations for Programmatic SEO URL Generation
-const PREFIXES = [
-  'dang-ky',
-  'goi-cuoc',
-  'cach-dang-ky',
-  'cu-phap-dang-ky',
-  'huong-dan-dang-ky',
-  'dang-ky-4g',
-  'dang-ky-5g',
-  'mua-goi-data',
-  'uu-dai-goi',
-  'huong-dan-dang-ky-goi',
-  'cu-phap-soan-tin',
-  'dang-ky-mang',
-  'cai-dat-goi',
-  'dang-ky-nhanh',
-  'dang-ky-sim',
-  'cach-cai-dat-goi',
-  'soan-tin-dang-ky'
-];
-
-const SUFFIXES = [
-  'viettel',
-  'viettel-re-nhat',
-  'viettel-cho-hoc-sinh',
-  'viettel-cho-sinh-vien',
-  'viettel-khong-gioi-han',
-  'viettel-uu-dai-khung',
-  'viettel-thang',
-  'viettel-1-ngay',
-  'viettel-cho-sim-moi',
-  'viettel-gia-re',
-  'viettel-online',
-  'viettel-chinh-thuc',
-  'viettel-moi-nhat',
-  'viettel-tot-nhat',
-  'viettel-2026',
-  'viettel-mien-phi-sms',
-  'viettel-moi-nhat-2026',
-  'viettel-khong-phat-sinh-cuoc',
-  'viettel-gia-re-nhat'
-];
-
 function generateSitemap() {
-  console.log('🔄 Bắt đầu sinh 5000+ từ khóa ngách Programmatic SEO sitemap...');
+  console.log('🔄 Bắt đầu sinh sitemap chuẩn Whitehat SEO...');
 
   const urls = [];
   // 1. Add Homepage
-  urls.push('https://tracuugoicuoc.com/');
+  urls.push('https://www.tracuugoicuoc.com/');
 
-  // 2. Generate combined dynamic URLs
+  // 2. Add Pillar Pages
   for (const pkg of PACKAGES) {
-    for (const prefix of PREFIXES) {
-      for (const suffix of SUFFIXES) {
-        // e.g., dang-ky-mxh120-viettel-re-nhat
-        const urlPath = `${prefix}-${pkg}-${suffix}`;
-        urls.push(`https://tracuugoicuoc.com/${urlPath}`);
-      }
+    urls.push(`https://www.tracuugoicuoc.com/goi-cuoc/${pkg}`);
+  }
+
+  // 3. Add Blog Posts from public/posts directory
+  const POSTS_DIR = path.join(__dirname, '..', 'public', 'posts');
+  if (fs.existsSync(POSTS_DIR)) {
+    const files = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.md'));
+    for (const file of files) {
+      urls.push(`https://www.tracuugoicuoc.com/posts/${file.replace('.md', '')}`);
     }
   }
 
-  console.log(`📊 Đã sinh tổng cộng ${urls.length} liên kết từ khóa ngách.`);
+  console.log(`📊 Đã sinh tổng cộng ${urls.length} liên kết chất lượng (Pillar Pages + Posts).`);
 
-  // 3. Build XML content
+  // 4. Build XML content
   const today = new Date().toISOString().split('T')[0];
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
   xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';

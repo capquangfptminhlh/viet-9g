@@ -144,12 +144,12 @@ export default function Footer({ config, onOpenPolicy }: FooterProps) {
               Kênh Đăng Ký Gói Cước Di Động Trực Tuyến <span className="text-slate-700 font-normal">|</span> <span className="text-slate-400 italic">Mọi thông tin gói cước và dịch vụ được cập nhật & đồng bộ hóa chính xác theo chính sách chính thức của Viettel Telecom</span>
             </p>
           </div>
-          <div className="flex flex-wrap gap-x-4 gap-y-1.5 justify-center text-[11px] shrink-0 border-t border-slate-800/50 pt-3 lg:pt-0 lg:border-t-0">
-            <button onClick={() => onOpenPolicy('privacy')} className="hover:text-red-400 text-slate-300 font-bold bg-transparent border-none p-0 inline-block transition-colors cursor-pointer">Chính sách bảo mật</button>
+          <div className="flex flex-wrap gap-x-4 gap-y-1.5 justify-center items-center text-[11px] shrink-0 border-t border-slate-800/50 pt-3 lg:pt-0 lg:border-t-0">
+            <button onClick={() => onOpenPolicy('privacy')} className="hover:text-red-400 text-slate-300 font-bold bg-transparent border-none py-3 px-2 min-h-[48px] inline-flex items-center transition-colors cursor-pointer">Chính sách bảo mật</button>
             <span className="text-slate-800 select-none">/</span>
-            <button onClick={() => onOpenPolicy('terms')} className="hover:text-red-400 text-slate-300 font-bold bg-transparent border-none p-0 inline-block transition-colors cursor-pointer">Điều khoản sử dụng</button>
+            <button onClick={() => onOpenPolicy('terms')} className="hover:text-red-400 text-slate-300 font-bold bg-transparent border-none py-3 px-2 min-h-[48px] inline-flex items-center transition-colors cursor-pointer">Điều khoản sử dụng</button>
             <span className="text-slate-800 select-none">/</span>
-            <button onClick={() => onOpenPolicy('disclaimer')} className="hover:text-red-400 text-slate-300 font-bold bg-transparent border-none p-0 inline-block transition-colors cursor-pointer">Miễn trừ trách nhiệm</button>
+            <button onClick={() => onOpenPolicy('disclaimer')} className="hover:text-red-400 text-slate-300 font-bold bg-transparent border-none py-3 px-2 min-h-[48px] inline-flex items-center transition-colors cursor-pointer">Miễn trừ trách nhiệm</button>
           </div>
         </div>
       </div>

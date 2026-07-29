@@ -43,7 +43,7 @@ export default function FaqAccordion() {
                 <button
                   type="button"
                   onClick={() => toggleAccordion(index)}
-                  className="w-full text-left px-5 py-4 sm:py-5 flex items-start justify-between gap-4 font-bold text-gray-850 text-sm sm:text-base cursor-pointer focus:outline-none focus:bg-gray-50 transition-colors"
+                  className="w-full min-h-[48px] text-left px-5 py-4 sm:py-5 flex items-start justify-between gap-4 font-bold text-gray-850 text-sm sm:text-base cursor-pointer focus:outline-none focus:bg-gray-50 transition-colors"
                 >
                   <span className="flex items-start gap-3">
                     <HelpCircle className={`w-5 h-5 mt-0.5 shrink-0 ${isOpen ? 'text-red-605' : 'text-gray-400'}`} />

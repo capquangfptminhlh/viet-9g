@@ -41,7 +41,7 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
             <button
               type="button"
               onClick={onClose}
-              className="p-1 rounded hover:bg-white/10 text-white transition-colors cursor-pointer"
+              className="p-3 min-h-[48px] min-w-[48px] flex items-center justify-center rounded hover:bg-white/10 text-white transition-colors cursor-pointer"
               aria-label="Đóng"
             >
               <X className="w-5 h-5" />
@@ -68,7 +68,7 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
           <button
             type="button"
             onClick={() => setActiveTab('sms')}
-            className={`flex-1 py-2.5 px-2.5 border-b-2 text-center transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+            className={`flex-1 py-3.5 px-2.5 min-h-[48px] border-b-2 text-center transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
               activeTab === 'sms' ? 'border-[#D71920] text-[#D71920] bg-white' : 'border-transparent hover:text-gray-800'
             }`}
           >
@@ -78,7 +78,7 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
           <button
             type="button"
             onClick={() => setActiveTab('qr')}
-            className={`flex-1 py-2.5 px-2.5 border-b-2 text-center transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+            className={`flex-1 py-3.5 px-2.5 min-h-[48px] border-b-2 text-center transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
               activeTab === 'qr' ? 'border-[#D71920] text-[#D71920] bg-white' : 'border-transparent hover:text-gray-800'
             }`}
           >
@@ -88,7 +88,7 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
           <button
             type="button"
             onClick={() => setActiveTab('details')}
-            className={`flex-1 py-2.5 px-2.5 border-b-2 text-center transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+            className={`flex-1 py-3.5 px-2.5 min-h-[48px] border-b-2 text-center transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
               activeTab === 'details' ? 'border-[#D71920] text-[#D71920] bg-white' : 'border-transparent hover:text-gray-800'
             }`}
           >
@@ -124,7 +124,7 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
                 <button
                   type="button"
                   onClick={handleCopy}
-                  className="w-full py-2 px-3 bg-white hover:bg-slate-50 text-gray-800 text-xs font-bold rounded border border-gray-300 flex items-center justify-center gap-1.5 cursor-pointer transition-all active:scale-98"
+                  className="w-full py-3 px-3 min-h-[48px] bg-white hover:bg-slate-50 text-gray-800 text-xs font-bold rounded border border-gray-300 flex items-center justify-center gap-1.5 cursor-pointer transition-all active:scale-98"
                 >
                   {copied ? (
                     <>
@@ -141,7 +141,7 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
 
                 <a
                   href={getSmsHref()}
-                  className="w-full py-2 px-3 bg-[#D71920] hover:bg-red-700 text-white text-xs font-bold rounded shadow-3xs flex items-center justify-center gap-1.5 cursor-pointer transition-all active:scale-98"
+                  className="w-full py-3 px-3 min-h-[48px] bg-[#D71920] hover:bg-red-700 text-white text-xs font-bold rounded shadow-3xs flex items-center justify-center gap-1.5 cursor-pointer transition-all active:scale-98"
                 >
                   <ExternalLink className="w-4 h-4" />
                   Gửi SMS Đăng Ký Ngay
@@ -174,6 +174,7 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
                   className="w-full h-full object-contain"
                   referrerPolicy="no-referrer"
                   loading="lazy"
+                  decoding="async"
                 />
                 
                 {/* Visual marker/overlay in the center of the QR code */}
@@ -252,7 +253,7 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2 text-xs font-semibold text-gray-600 hover:text-gray-900 hover:bg-gray-200 rounded-lg transition-colors cursor-pointer"
+            className="px-4 py-3 min-h-[48px] flex items-center justify-center text-xs font-semibold text-gray-600 hover:text-gray-900 hover:bg-gray-200 rounded-lg transition-colors cursor-pointer"
           >
             Đóng Lại
           </button>

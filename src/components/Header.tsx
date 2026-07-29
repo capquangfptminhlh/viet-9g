@@ -119,7 +119,7 @@ export default function Header({
             <button
               type="button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-lg hover:bg-gray-100 transition-colors text-gray-700"
+              className="p-3 min-h-[48px] min-w-[48px] flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors text-gray-700"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -179,7 +179,7 @@ export default function Header({
                     onCategorySelect(item.action);
                     setIsMobileMenuOpen(false);
                   }}
-                  className={`w-full text-left px-5 py-3 flex items-center justify-between cursor-pointer ${
+                  className={`w-full min-h-[48px] text-left px-5 py-3.5 flex items-center justify-between cursor-pointer ${
                     selectedCategory === item.action 
                       ? 'bg-red-50 text-red-600 font-bold' 
                       : 'text-gray-700 hover:bg-gray-50'
@@ -197,13 +197,13 @@ export default function Header({
                 href={config.zaloLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-2 bg-blue-600 text-white text-center text-xs font-bold rounded-lg block shadow-sm hover:bg-blue-700 hover:shadow-md transition-all"
+                className="w-full min-h-[48px] py-3 px-4 flex items-center justify-center bg-blue-600 text-white text-center text-xs font-bold rounded-lg shadow-sm hover:bg-blue-700 hover:shadow-md transition-all"
               >
                 Hỗ Trợ Đại Lý Qua Zalo
               </a>
               <a
                 href={`tel:${config.supportPhone.replace(/\./g, '')}`}
-                className="w-full py-2 bg-[#D71920] text-white text-center text-xs font-extrabold rounded-lg block shadow-sm"
+                className="w-full min-h-[48px] py-3 px-4 flex items-center justify-center bg-[#D71920] text-white text-center text-xs font-extrabold rounded-lg shadow-sm"
               >
                 ⚡ Gọi Điện Hotline {config.supportPhone}
               </a>

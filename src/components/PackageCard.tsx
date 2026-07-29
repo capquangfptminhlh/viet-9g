@@ -161,7 +161,7 @@ export default function PackageCard({ pkg, onSelect, onOpenDetails }: PackageCar
         <button
           type="button"
           onClick={() => onOpenDetails(pkg)}
-          className="flex-1 py-1.5 bg-white hover:bg-slate-100 border border-gray-200 text-gray-700 text-xs font-bold rounded text-center cursor-pointer transition-colors"
+          className="flex-1 min-h-[48px] py-3 px-4 flex items-center justify-center bg-white hover:bg-slate-100 border border-gray-200 text-gray-700 text-xs font-bold rounded text-center cursor-pointer transition-colors"
         >
           Chi Tiết
         </button>
@@ -169,7 +169,7 @@ export default function PackageCard({ pkg, onSelect, onOpenDetails }: PackageCar
         <button
           type="button"
           onClick={() => onSelect(pkg.id)}
-          className="flex-1 py-1.5 bg-[#D71920] hover:bg-red-700 active:bg-red-800 text-white text-xs font-bold rounded text-center shadow-2xs cursor-pointer transition-colors"
+          className="flex-1 min-h-[48px] py-3 px-4 flex items-center justify-center bg-[#D71920] hover:bg-red-700 active:bg-red-800 text-white text-xs font-bold rounded text-center shadow-2xs cursor-pointer transition-colors"
         >
           Đăng Ký
         </button>

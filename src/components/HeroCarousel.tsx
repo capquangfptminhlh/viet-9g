@@ -143,7 +143,7 @@ export default function HeroCarousel({ config, onSelectPackage, onOpenSettings }
                   <button
                     type="button"
                     onClick={() => onSelectPackage(slides[currentSlide].packageId)}
-                    className="px-5 py-2 bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-slate-900 font-black text-xs uppercase tracking-wide rounded-full shadow-md transition-all flex items-center gap-1.5 cursor-pointer"
+                    className="px-5 py-3 min-h-[48px] bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-slate-900 font-black text-xs uppercase tracking-wide rounded-full shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                   >
                     Đăng Ký Ngay
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -154,7 +154,7 @@ export default function HeroCarousel({ config, onSelectPackage, onOpenSettings }
                     target="_blank"
                     aria-label="Liên hệ Zalo hỗ trợ kỹ thuật"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 bg-white/10 hover:bg-white/20 text-white border border-white/25 text-xs font-bold rounded-full transition-all flex items-center gap-1.5 cursor-pointer"
+                    className="px-4 py-3 min-h-[48px] bg-white/10 hover:bg-white/20 text-white border border-white/25 text-xs font-bold rounded-full transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                   >
                     <PhoneCall className="w-3.5 h-3.5 text-yellow-300" />
                     Hỏi Đại Lý
@@ -187,7 +187,7 @@ export default function HeroCarousel({ config, onSelectPackage, onOpenSettings }
               <button
                 type="button"
                 onClick={prevSlide}
-                className="p-1.5 rounded-full bg-white/5 hover:bg-white/10 active:bg-white/20 border border-white/5 text-gray-300 hover:text-white transition-all cursor-pointer"
+                className="p-3 min-h-[48px] min-w-[48px] flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 active:bg-white/20 border border-white/5 text-gray-300 hover:text-white transition-all cursor-pointer"
                 aria-label="Slide trước"
               >
                 <ArrowLeft className="w-4.5 h-4.5" />
@@ -195,7 +195,7 @@ export default function HeroCarousel({ config, onSelectPackage, onOpenSettings }
               <button
                 type="button"
                 onClick={nextSlide}
-                className="p-1.5 rounded-full bg-white/5 hover:bg-white/10 active:bg-white/20 border border-white/5 text-gray-300 hover:text-white transition-all cursor-pointer"
+                className="p-3 min-h-[48px] min-w-[48px] flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 active:bg-white/20 border border-white/5 text-gray-300 hover:text-white transition-all cursor-pointer"
                 aria-label="Slide sau"
               >
                 <ArrowRight className="w-4.5 h-4.5" />

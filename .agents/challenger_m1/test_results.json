@@ -1,0 +1,202 @@
+{
+  "total": 39,
+  "passedCount": 39,
+  "failedCount": 0,
+  "results": [
+    {
+      "testName": "JSON-LD Syntax Parsing (WebSite)",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "testName": "JSON-LD Syntax Parsing (FAQPage)",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "testName": "FAQPage Schema Found",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "testName": "Parse FAQS from src/data/packages.ts",
+      "passed": true,
+      "details": "Found 5 FAQs"
+    },
+    {
+      "testName": "FAQ Count Match",
+      "passed": true,
+      "details": "schema: 5, ts: 5"
+    },
+    {
+      "testName": "FAQ Item #1 Question Match",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "testName": "FAQ Item #1 Answer Match",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "testName": "FAQ Item #2 Question Match",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "testName": "FAQ Item #2 Answer Match",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "testName": "FAQ Item #3 Question Match",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "testName": "FAQ Item #3 Answer Match",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "testName": "FAQ Item #4 Question Match",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "testName": "FAQ Item #4 Answer Match",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "testName": "FAQ Item #5 Question Match",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "testName": "FAQ Item #5 Answer Match",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "testName": "Meta Tag og:type",
+      "passed": true,
+      "details": "Actual: \"website\""
+    },
+    {
+      "testName": "Meta Tag og:url",
+      "passed": true,
+      "details": "Actual: \"https://tracuugoicuoc.com/\""
+    },
+    {
+      "testName": "Meta Tag og:title",
+      "passed": true,
+      "details": "Actual: \"Tra Cứu Gói Cước Viettel | Đăng Ký 4G/5G Trực Tuyến\""
+    },
+    {
+      "testName": "Meta Tag og:description",
+      "passed": true,
+      "details": "Actual: \"Tra cứu và đăng ký nhanh các gói cước 4G/5G Viettel siêu tốc mới nhất. Đăng ký qua tổng đài 290 miễn phí dịch vụ.\""
+    },
+    {
+      "testName": "Meta Tag og:image",
+      "passed": true,
+      "details": "Actual: \"https://tracuugoicuoc.com/og-image.jpg\""
+    },
+    {
+      "testName": "Meta Tag og:site_name",
+      "passed": true,
+      "details": "Actual: \"Tra Cứu Gói Cước Viettel\""
+    },
+    {
+      "testName": "Meta Tag og:locale",
+      "passed": true,
+      "details": "Actual: \"vi_VN\""
+    },
+    {
+      "testName": "Meta Tag og:image:width",
+      "passed": true,
+      "details": "Actual: \"1200\""
+    },
+    {
+      "testName": "Meta Tag og:image:height",
+      "passed": true,
+      "details": "Actual: \"630\""
+    },
+    {
+      "testName": "Meta Tag og:image:alt",
+      "passed": true,
+      "details": "Actual: \"Tra Cứu Gói Cước Viettel 4G 5G\""
+    },
+    {
+      "testName": "Meta Tag twitter:card",
+      "passed": true,
+      "details": "Actual: \"summary_large_image\""
+    },
+    {
+      "testName": "Meta Tag twitter:url",
+      "passed": true,
+      "details": "Actual: \"https://tracuugoicuoc.com/\""
+    },
+    {
+      "testName": "Meta Tag twitter:title",
+      "passed": true,
+      "details": "Actual: \"Tra Cứu Gói Cước Viettel | Đăng Ký 4G/5G Trực Tuyến\""
+    },
+    {
+      "testName": "Meta Tag twitter:description",
+      "passed": true,
+      "details": "Actual: \"Tra cứu và đăng ký nhanh các gói cước 4G/5G Viettel siêu tốc mới nhất. Đăng ký qua tổng đài 290 miễn phí dịch vụ.\""
+    },
+    {
+      "testName": "public/robots.txt Exists",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "testName": "robots.txt Allow *",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "testName": "robots.txt GPTBot",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "testName": "robots.txt ClaudeBot",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "testName": "robots.txt PerplexityBot",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "testName": "robots.txt Google-Extended",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "testName": "robots.txt Sitemap directive",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "testName": "public/sitemap.xml Exists",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "testName": "sitemap.xml URL loc",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "testName": "sitemap.xml valid structure",
+      "passed": true,
+      "details": ""
+    }
+  ]
+}
