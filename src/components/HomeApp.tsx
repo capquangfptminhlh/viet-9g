@@ -12,24 +12,12 @@ import PackageModal from './PackageModal';
 import AdsGuideModal from './AdsGuideModal';
 import PolicyModal from './PolicyModal';
 export default function HomeApp() {
-  // 1. Initialize Agent Configuration with local storage persistent synchronization
-  const [config, setConfig] = useState<AgentConfig>(() => {
-    if (typeof window !== 'undefined') {
-      const savedConfig = localStorage.getItem('viettel_agent_config_v2');
-      if (savedConfig) {
-        try {
-          return JSON.parse(savedConfig);
-        } catch (e) {
-          console.error("Failed to parse config from localStorage");
-        }
-      }
-    }
-    return {
-      agentCode: 'GA', // Realistic default affiliate partner code
-      supportPhone: '1800.8098', // Viettel customer center hotline
-      zaloLink: 'https://zalo.me/18008098', // Zalo chat connect
-      agentName: 'Kênh CTV tiếp thị di động Viettel'
-    };
+  // 1. Initialize Agent Configuration with hardcoded compliance values
+  const [config, setConfig] = useState<AgentConfig>({
+    agentCode: 'GA',
+    supportPhone: '1800.8098',
+    zaloLink: 'https://zalo.me/18008098',
+    agentName: 'Kênh CTV tiếp thị di động Viettel'
   });
 
   // Persistent configuration updates

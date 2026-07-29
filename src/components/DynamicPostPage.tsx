@@ -116,7 +116,7 @@ export default function DynamicPostPage({ pkg, config, rawPath }: DynamicPostPag
           <div className="bg-red-50/50 border border-red-200 rounded-3xl p-6 space-y-4">
             <h2 className="text-lg sm:text-xl font-extrabold text-red-950 flex items-center gap-1.5">
               <ShieldCheck className="w-5 h-5 text-red-600" />
-              2. Cú Pháp Soạn SMS Đăng Ký Gói {pkg.name} Chính Thức
+              2. Hướng Dẫn Cú Pháp Soạn SMS Đăng Ký
             </h2>
             <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
               Để đăng ký nhanh gói cước <strong>{pkg.name}</strong> qua cổng tổng đài 290 của Viettel, bạn chỉ cần soạn tin nhắn điện thoại theo cú pháp chuẩn sau:
@@ -133,7 +133,7 @@ export default function DynamicPostPage({ pkg, config, rawPath }: DynamicPostPag
               className="w-full min-h-[48px] bg-[#D71920] text-white font-extrabold rounded-2xl flex items-center justify-center gap-2 hover:bg-red-700 shadow-sm hover:shadow-md transition-all text-sm sm:text-base cursor-pointer"
             >
               <Send className="w-4 h-4 fill-white" />
-              BẤM ĐĂNG KÝ TỰ ĐỘNG QUA SMS
+              Mở ứng dụng SMS
             </a>
             <p className="text-[11px] text-gray-400 text-center italic">
               (Miễn phí 100% cước gửi tin nhắn đến đầu số 290. Bạn chỉ trả đúng {(pkg.price).toLocaleString('vi-VN')}đ tiền gói cước đăng ký)
