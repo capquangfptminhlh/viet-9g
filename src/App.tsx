@@ -11,8 +11,31 @@ import AgentSettings from './components/AgentSettings';
 import PackageModal from './components/PackageModal';
 import AdsGuideModal from './components/AdsGuideModal';
 import PolicyModal from './components/PolicyModal';
+import DynamicPostPage from './components/DynamicPostPage';
 
 export default function App() {
+  // Routing State for Programmatic SEO
+  const [currentPath, setCurrentPath] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.location.pathname.toLowerCase().replace(/^\/|\/$/g, '');
+    }
+    return '';
+  });
+
+  useEffect(() => {
+    const handleLocationChange = () => {
+      setCurrentPath(window.location.pathname.toLowerCase().replace(/^\/|\/$/g, ''));
+    };
+    window.addEventListener('popstate', handleLocationChange);
+    return () => window.removeEventListener('popstate', handleLocationChange);
+  }, []);
+
+  const handleBackToHome = () => {
+    window.history.pushState({}, '', '/');
+    setCurrentPath('');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   // 1. Initialize Agent Configuration with local storage persistent synchronization
   const [config, setConfig] = useState<AgentConfig>(() => {
     try {
@@ -48,6 +71,19 @@ export default function App() {
 
   // Find currently active package for instructions modal
   const activePackage = VIETTEL_PACKAGES.find((p) => p.id === selectedPkgId) || null;
+
+  const matchedPkg = currentPath ? VIETTEL_PACKAGES.find(pkg => currentPath.includes(pkg.id.toLowerCase())) : null;
+
+  if (matchedPkg) {
+    return (
+      <DynamicPostPage
+        pkg={matchedPkg}
+        config={config}
+        rawPath={currentPath}
+        onBack={handleBackToHome}
+      />
+    );
+  }
 
   // Handles fast action selectors
   const handleSelectPackage = (pkgId: string) => {
