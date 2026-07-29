@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Phone, Settings, Menu, X, Smartphone, Globe, ShieldCheck, BookOpen } from 'lucide-react';
+import { Search, Phone, Menu, X, Globe, ShieldCheck, Home, Zap, MonitorPlay, Layers, Crown } from 'lucide-react';
 import { AgentConfig } from '../types';
 import { trackConversion } from '../utils/tracking';
 
@@ -15,8 +15,6 @@ interface HeaderProps {
 
 export default function Header({ 
   config, 
-  onOpenSettings = () => {}, 
-  onOpenAdsGuide = () => {},
   searchQuery = '', 
   onSearchChange = () => {},
   onCategorySelect = () => {},
@@ -25,195 +23,177 @@ export default function Header({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const menuItems = [
-    { label: 'Trang Chủ', action: 'all', id: 'all' },
-    { label: '🔥 Gói Hot', action: 'hot', id: 'hot' },
-    { label: '⚡ Siêu Tốc Data', action: 'data', id: 'data' },
-    { label: '📱 Gói MXH', action: 'social', id: 'social' },
-    { label: '📞 Combo Thoại', action: 'combo', id: 'combo' },
-    { label: '⏳ Chu Kỳ Dài', action: 'long_term', id: 'long_term' },
+    { label: 'TRANG CHỦ', action: 'all', id: 'all', icon: Home },
+    { label: 'GÓI HOT', action: 'hot', id: 'hot', icon: Zap, iconColor: 'text-red-500' },
+    { label: 'SIÊU TỐC DATA', action: 'data', id: 'data', icon: Zap, iconColor: 'text-orange-500' },
+    { label: 'GÓI MXH', action: 'social', id: 'social', icon: MonitorPlay, iconColor: 'text-blue-500' },
+    { label: 'COMBO THOẠI', action: 'combo', id: 'combo', icon: Phone, iconColor: 'text-red-400' },
+    { label: 'CHU KỲ DÀI', action: 'long_term', id: 'long_term', icon: Crown, iconColor: 'text-red-600' },
   ];
 
   return (
-    <header className="sticky top-0 z-40 bg-white border-b border-gray-100 shadow-sm">
-      {/* Top small info bar */}
-      <div className="bg-[#D71920] text-white text-[11px] sm:text-xs">
-        <div className="max-w-7xl mx-auto px-4 h-8 flex items-center justify-between font-medium">
-          <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1 text-[11px]">
-              <ShieldCheck className="w-3.5 h-3.5 text-red-100" />
+    <header className="w-full bg-white font-sans border-b border-gray-100">
+      {/* Top Red Bar */}
+      <div className="bg-[#e60000] text-white text-[11px] sm:text-xs">
+        <div className="max-w-7xl mx-auto px-4 h-9 flex items-center justify-between font-medium">
+          <div className="flex items-center gap-6">
+            <span className="flex items-center gap-1.5">
+              <ShieldCheck className="w-4 h-4" />
               Soạn SMS gửi tổng đài Viettel 290 (Miễn phí 100% dịch vụ)
             </span>
-            <span className="hidden md:inline-flex items-center gap-1 text-red-100 text-[11px]">
-              <Globe className="w-3.5 h-3.5" />
-              Kênh đại lý tiếp thị gói cước độc lập
+            <span className="hidden md:flex items-center gap-1.5">
+              <Globe className="w-4 h-4" />
+              Kênh đại lý ủy quyền của Viettel
             </span>
           </div>
-          <div className="flex items-center gap-3">
-            <a 
-              href={`tel:${config.supportPhone.replace(/\./g, '')}`} 
-              className="flex items-center gap-1 hover:underline font-bold text-[11px]"
-            >
-              <Phone className="w-3 h-3 fill-white" />
-              Hotline: {config.supportPhone}
-            </a>
-          </div>
+          <a 
+            href={`tel:${config.supportPhone.replace(/\./g, '')}`} 
+            className="flex items-center gap-1.5 hover:underline font-bold"
+          >
+            <Phone className="w-3.5 h-3.5 fill-white" />
+            Hotline: {config.supportPhone}
+          </a>
         </div>
       </div>
 
-      {/* Main header block */}
-      <div className="bg-white">
-        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
-          
-          {/* Logo Section */}
-          <div className="flex items-center gap-2 shrink-0">
-            <div className="w-10 h-10 bg-[#D71920] rounded-full flex items-center justify-center shadow-xs">
-              <span className="text-white font-black text-sm tracking-tighter italic">5G</span>
-            </div>
-            <div className="leading-tight flex flex-col">
-              <div className="flex items-baseline gap-1">
-                <span className="text-[#D71920] font-black text-lg sm:text-xl tracking-tighter italic uppercase font-sans">
-                  TRACUU
-                </span>
-                <span className="bg-[#D71920] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-xs tracking-wider font-mono">GOICUOC.COM</span>
-              </div>
-              <span className="text-[8px] font-bold text-gray-500 tracking-wider leading-none">KÊNH ĐẠI LÝ BÁN HÀNG VÀ TIẾP THỊ GÓI CƯỚC</span>
-            </div>
+      {/* Main Header */}
+      <div className="max-w-7xl mx-auto px-4 py-4 lg:py-5 flex items-center justify-between gap-6">
+        
+        {/* Logo Section */}
+        <div className="flex items-center gap-2.5 shrink-0 cursor-pointer" onClick={() => onCategorySelect('all')}>
+          <div className="w-12 h-12 bg-[#e60000] rounded-full flex items-center justify-center text-white font-black text-xl italic shadow-md">
+            5G
           </div>
-
-          {/* Search bar inside header (Desktop size) */}
-          <div className="hidden md:flex flex-1 max-w-md relative">
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => onSearchChange(e.target.value)}
-              placeholder="Tìm kiếm gói cước (ví dụ: SD135, V200B, MXH120...)"
-              className="w-full pl-9 pr-4 py-1.5 text-xs border border-gray-200 rounded-full bg-gray-50 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#D71920] focus:border-[#D71920] transition-all placeholder:text-gray-400"
-            />
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+          <div className="flex flex-col">
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-[#e60000] font-black text-2xl italic tracking-tight uppercase">
+                TRACUU
+              </span>
+              <span className="bg-[#e60000] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-sm tracking-wider">
+                goicuoc.com
+              </span>
+            </div>
+            <span className="text-[10px] font-medium text-gray-500 tracking-wide mt-0.5">
+              Kênh tra cứu & đăng ký gói cước Viettel
+            </span>
           </div>
+        </div>
 
-          {/* Quick Support contacts (Desktop Size) */}
-          <div className="hidden sm:flex items-center gap-3 shrink-0">
-            <a
-              href={config.zaloLink}
-              target="_blank"
-              onClick={() => trackConversion('click_zalo')}
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1 bg-red-50 text-[#D71920] text-xs font-semibold rounded-full border border-red-100 hover:bg-red-100 transition-colors"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-ping"></span>
-              Trợ giúp Zalo
-            </a>
+        {/* Search Bar */}
+        <div className="hidden md:flex flex-1 max-w-2xl relative">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => onSearchChange(e.target.value)}
+            placeholder="Tìm kiếm gói cước (ví dụ: SD135, V200B, MXH120...)"
+            className="w-full pl-11 pr-14 py-3 text-sm border-2 border-gray-100 rounded-full bg-gray-50 focus:bg-white focus:outline-none focus:border-[#e60000] transition-colors"
+          />
+          <button className="absolute right-1 top-1 bottom-1 px-4 bg-[#e60000] hover:bg-red-700 text-white rounded-full transition-colors flex items-center justify-center">
+            <Search className="w-4 h-4" />
+          </button>
+        </div>
 
-            <div className="text-right h-8 border-l border-gray-150 pl-3 flex flex-col justify-center">
-              <p className="text-[9px] text-gray-400 font-medium leading-none mb-0.5">Hotline 24/7</p>
+        {/* Contacts */}
+        <div className="hidden lg:flex items-center gap-4 shrink-0">
+          <a
+            href={config.zaloLink}
+            target="_blank"
+            onClick={() => trackConversion('click_zalo')}
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 hover:border-blue-500 hover:bg-blue-50 text-blue-600 text-sm font-bold rounded-full transition-all"
+          >
+            <div className="w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center text-white text-[10px] font-black">Zalo</div>
+            Trợ giúp Zalo
+          </a>
+          <div className="flex items-center gap-2 pl-4 border-l border-gray-200">
+            <div className="w-9 h-9 rounded-full bg-red-50 flex items-center justify-center">
+              <Phone className="w-4 h-4 text-[#e60000]" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[10px] text-gray-500 font-medium">Hotline 24/7</span>
               <a 
-                href={`tel:${config.supportPhone.replace(/\./g, '')}`} 
-                onClick={() => trackConversion('click_hotline')}
-                className="text-xs font-black text-[#D71920] hover:underline leading-none"
+                href={`tel:${config.supportPhone.replace(/\./g, '')}`}
+                onClick={() => trackConversion('click_hotline')} 
+                className="text-sm font-black text-gray-900 hover:text-[#e60000]"
               >
                 {config.supportPhone}
               </a>
             </div>
           </div>
-
-          {/* Mobile buttons */}
-          <div className="flex md:hidden items-center gap-2">
-            <button
-              type="button"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-3 min-h-[48px] min-w-[48px] flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors text-gray-700"
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-          </div>
         </div>
+
+        {/* Mobile Menu Toggle */}
+        <button
+          className="lg:hidden p-2 text-gray-600"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
       </div>
 
-      {/* Categories Navigation Bar (Desktop Size) */}
-      <nav className="hidden md:block bg-[#D71920]">
-        <div className="max-w-7xl mx-auto px-4">
-          <ul className="flex items-center h-10 text-white font-medium text-xs">
-            {menuItems.map((item) => (
-              <li key={item.id} className="h-full">
+      {/* Navigation Menu Desktop */}
+      <nav className="hidden lg:block border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 flex justify-between items-center h-14">
+          <div className="flex items-center h-full gap-2">
+            {menuItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = selectedCategory === item.action;
+              return (
                 <button
-                  type="button"
+                  key={item.id}
                   onClick={() => onCategorySelect(item.action)}
-                  className={`px-4 lg:px-5 h-full flex items-center relative transition-all duration-150 hover:bg-black/10 cursor-pointer uppercase font-bold tracking-wider ${
-                    (selectedCategory === item.action)
-                      ? 'bg-black/20 text-white'
-                      : 'text-red-100'
+                  className={`h-full px-5 flex items-center gap-2 text-sm font-bold uppercase tracking-wide transition-colors ${
+                    isActive 
+                      ? 'bg-[#e60000] text-white' 
+                      : 'text-gray-700 hover:text-[#e60000] hover:bg-red-50'
                   }`}
                 >
+                  <Icon className={`w-4 h-4 ${isActive ? 'text-white' : item.iconColor || 'text-gray-400'}`} />
                   {item.label}
-                  {selectedCategory === item.action && (
-                    <span className="absolute bottom-0 left-0 right-0 h-1 bg-yellow-400"></span>
-                  )}
                 </button>
-              </li>
-            ))}
-          </ul>
+              );
+            })}
+          </div>
         </div>
       </nav>
 
-      {/* Mobile Menu & Search Dropdown */}
+      {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="md:hidden border-t border-gray-100 bg-white">
-          <div className="px-4 py-3 border-b border-gray-100">
-            <div className="relative">
+        <div className="lg:hidden bg-white border-t border-gray-100 py-2">
+          <div className="px-4 pb-4">
+             <div className="relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
               <input
                 type="text"
                 value={searchQuery}
-                aria-label="Tìm nhanh gói cước"
                 onChange={(e) => onSearchChange(e.target.value)}
-                placeholder="Tìm nhanh gói cước (ví dụ: SD120...)"
-                className="w-full pl-10 pr-4 py-2 text-sm border border-gray-200 rounded-lg bg-gray-50 focus:bg-white focus:outline-none"
+                placeholder="Tìm gói cước..."
+                className="w-full pl-9 pr-4 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-[#e60000]"
               />
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
             </div>
           </div>
-          <ul className="py-2 text-sm font-semibold divide-y divide-gray-50">
-            {menuItems.map((item) => (
-              <li key={item.id}>
+          <div className="flex flex-col">
+            {menuItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = selectedCategory === item.action;
+              return (
                 <button
-                  type="button"
+                  key={item.id}
                   onClick={() => {
                     onCategorySelect(item.action);
                     setIsMobileMenuOpen(false);
                   }}
-                  className={`w-full min-h-[48px] text-left px-5 py-3.5 flex items-center justify-between cursor-pointer ${
-                    selectedCategory === item.action 
-                      ? 'bg-red-50 text-red-600 font-bold' 
-                      : 'text-gray-700 hover:bg-gray-50'
+                  className={`px-6 py-3 flex items-center gap-3 text-sm font-bold uppercase ${
+                    isActive ? 'bg-[#e60000] text-white' : 'text-gray-700 hover:bg-gray-50'
                   }`}
                 >
+                  <Icon className={`w-5 h-5 ${isActive ? 'text-white' : item.iconColor}`} />
                   {item.label}
-                  <span className="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-mono font-normal">
-                    {item.action === 'all' ? 'Tất cả' : item.action.toUpperCase()}
-                  </span>
                 </button>
-              </li>
-            ))}
-            <li className="px-5 py-4 flex flex-col gap-2.5 bg-gray-50">
-              <a
-                href={config.zaloLink}
-                target="_blank"
-                onClick={() => trackConversion('click_zalo')}
-                rel="noopener noreferrer"
-                className="w-full min-h-[48px] py-3 px-4 flex items-center justify-center bg-blue-600 text-white text-center text-xs font-bold rounded-lg shadow-sm hover:bg-blue-700 hover:shadow-md transition-all"
-              >
-                Hỗ Trợ Đại Lý Qua Zalo
-              </a>
-              <a
-                href={`tel:${config.supportPhone.replace(/\./g, '')}`}
-                onClick={() => trackConversion('click_hotline')}
-                className="w-full min-h-[48px] py-3 px-4 flex items-center justify-center bg-[#D71920] text-white text-center text-xs font-extrabold rounded-lg shadow-sm"
-              >
-                ⚡ Gọi Điện Hotline {config.supportPhone}
-              </a>
-            </li>
-          </ul>
+              );
+            })}
+          </div>
         </div>
       )}
     </header>
