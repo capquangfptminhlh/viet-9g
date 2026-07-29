@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Search, Phone, Settings, Menu, X, Smartphone, Globe, ShieldCheck, BookOpen } from 'lucide-react';
 import { AgentConfig } from '../types';
+import { trackConversion } from '../utils/tracking';
 
 interface HeaderProps {
   config: AgentConfig;
@@ -96,6 +97,7 @@ export default function Header({
             <a
               href={config.zaloLink}
               target="_blank"
+              onClick={() => trackConversion('click_zalo')}
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-3 py-1 bg-red-50 text-[#D71920] text-xs font-semibold rounded-full border border-red-100 hover:bg-red-100 transition-colors"
             >
@@ -107,6 +109,7 @@ export default function Header({
               <p className="text-[9px] text-gray-400 font-medium leading-none mb-0.5">Hotline 24/7</p>
               <a 
                 href={`tel:${config.supportPhone.replace(/\./g, '')}`} 
+                onClick={() => trackConversion('click_hotline')}
                 className="text-xs font-black text-[#D71920] hover:underline leading-none"
               >
                 {config.supportPhone}
@@ -196,6 +199,7 @@ export default function Header({
               <a
                 href={config.zaloLink}
                 target="_blank"
+                onClick={() => trackConversion('click_zalo')}
                 rel="noopener noreferrer"
                 className="w-full min-h-[48px] py-3 px-4 flex items-center justify-center bg-blue-600 text-white text-center text-xs font-bold rounded-lg shadow-sm hover:bg-blue-700 hover:shadow-md transition-all"
               >
@@ -203,6 +207,7 @@ export default function Header({
               </a>
               <a
                 href={`tel:${config.supportPhone.replace(/\./g, '')}`}
+                onClick={() => trackConversion('click_hotline')}
                 className="w-full min-h-[48px] py-3 px-4 flex items-center justify-center bg-[#D71920] text-white text-center text-xs font-extrabold rounded-lg shadow-sm"
               >
                 ⚡ Gọi Điện Hotline {config.supportPhone}

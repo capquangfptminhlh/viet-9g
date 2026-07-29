@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, MessageSquareCode, Copy, ClipboardCheck, ExternalLink, QrCode, Phone, Sparkles, Youtube, Check } from 'lucide-react';
 import { TelecomPackage, AgentConfig } from '../types';
+import { trackConversion } from '../utils/tracking';
 
 interface PackageModalProps {
   pkg: TelecomPackage | null;
@@ -141,6 +142,7 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
 
                 <a
                   href={getSmsHref()}
+                  onClick={() => trackConversion('click_open_sms_app', { package_id: pkg.id, price: pkg.price, name: pkg.name })}
                   className="w-full py-3 px-3 min-h-[48px] bg-[#D71920] hover:bg-red-700 text-white text-xs font-bold rounded shadow-3xs flex items-center justify-center gap-1.5 cursor-pointer transition-all active:scale-98"
                 >
                   <ExternalLink className="w-4 h-4" />

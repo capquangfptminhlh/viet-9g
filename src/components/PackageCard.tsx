@@ -1,6 +1,7 @@
 import React from 'react';
 import { Smartphone, Zap, PhoneCall, Globe, Sparkles, Youtube, CheckCircle2 } from 'lucide-react';
 import { TelecomPackage } from '../types';
+import { trackConversion } from '../utils/tracking';
 
 interface PackageCardProps {
   key?: any;
@@ -168,7 +169,10 @@ export default function PackageCard({ pkg, onSelect, onOpenDetails }: PackageCar
 
         <button
           type="button"
-          onClick={() => onSelect(pkg.id)}
+          onClick={() => {
+            trackConversion('click_register_sms', { package_id: pkg.id, price: pkg.price, name: pkg.name });
+            onSelect(pkg.id);
+          }}
           className="flex-1 min-h-[48px] py-3 px-4 flex items-center justify-center bg-[#D71920] hover:bg-red-700 active:bg-red-800 text-white text-xs font-bold rounded text-center shadow-2xs cursor-pointer transition-colors"
         >
           Soạn tin đăng ký
