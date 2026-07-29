@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
+const mockConfig = { agentCode: 'GA', supportPhone: '[SỐ ĐIỆN THOẠI HỖ TRỢ]', zaloLink: 'https://zalo.me/[SỐ_ĐIỆN_THOẠI]', agentName: '[TÊN ĐẠI LÝ]' };
+---
+<BaseLayout title="Liên Hệ Hỗ Trợ | Đại Lý Tra Cứu Gói Cước Viettel">
+  <Header config={mockConfig} client:load />
+  
+  <main class="max-w-4xl mx-auto px-4 py-12 bg-white rounded-xl shadow-sm my-8 font-sans">
+    <h1 class="text-3xl font-black text-gray-900 mb-6 border-b-2 border-red-600 pb-2 inline-block uppercase">Liên Hệ Hỗ Trợ</h1>
+    
+    <div class="space-y-6 text-gray-700 leading-relaxed">
+      <p>
+        Nếu bạn gặp khó khăn trong quá trình tra cứu thông tin hoặc cần hỗ trợ kiểm tra nguyên nhân đăng ký gói cước không thành công, hãy liên hệ với chúng tôi theo các thông tin dưới đây. Đội ngũ của <strong>[TÊN ĐẠI LÝ]</strong> luôn sẵn lòng giải đáp!
+      </p>
+
+      <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 my-6">
+        <h2 class="text-xl font-bold text-gray-900 mb-4">Thông tin trực tiếp</h2>
+        <ul class="space-y-3">
+          <li class="flex items-center gap-3">
+            <span class="font-bold min-w-[120px]">Người phụ trách:</span>
+            <span>[TÊN ĐƠN VỊ / NGƯỜI PHỤ TRÁCH]</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="font-bold min-w-[120px]">Điện thoại:</span>
+            <a href="tel:[SỐ ĐIỆN THOẠI HỖ TRỢ]" class="text-red-600 font-bold hover:underline">[SỐ ĐIỆN THOẠI HỖ TRỢ]</a>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="font-bold min-w-[120px]">Email hỗ trợ:</span>
+            <a href="mailto:[EMAIL HỖ TRỢ]" class="text-blue-600 hover:underline">[EMAIL HỖ TRỢ]</a>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="font-bold min-w-[120px]">Khu vực phục vụ:</span>
+            <span>[ĐỊA CHỈ HOẶC KHU VỰC PHỤC VỤ]</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="font-bold min-w-[120px]">Thời gian hỗ trợ:</span>
+            <span>[THỜI GIAN LÀM VIỆC - ví dụ: 08:00 - 22:00]</span>
+          </li>
+        </ul>
+      </div>
+
+      <section>
+        <h2 class="text-xl font-bold text-red-700 mb-3">Kênh Tiếp Nhận Khiếu Nại</h2>
+        <p>
+          Trong trường hợp có thắc mắc về cước phí bị trừ không đúng, hoặc cần phản ánh về chất lượng dịch vụ của nhà mạng, xin lưu ý rằng <strong>chúng tôi là đơn vị đại lý tiếp thị, không có quyền can thiệp vào tài khoản viễn thông của khách hàng</strong>.
+        </p>
+        <p class="mt-2">
+          Tuy nhiên, bạn có thể gọi cho tổng đài chính thức của nhà mạng Viettel qua số <strong>198</strong> hoặc <strong>1800.8098</strong> (miễn phí) để được kiểm tra trực tiếp trên hệ thống tổng.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <Footer config={mockConfig} client:load />
+</BaseLayout>

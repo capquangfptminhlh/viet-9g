@@ -1,13 +1,53 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import About from '../components/About';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-const mockConfig = { agentCode: '352525287', supportPhone: '1800.8098', zaloLink: 'https://zalo.me/18008098', agentName: 'Kênh CTV' };
+const mockConfig = { agentCode: 'GA', supportPhone: '[SỐ ĐIỆN THOẠI HỖ TRỢ]', zaloLink: 'https://zalo.me/[SỐ_ĐIỆN_THOẠI]', agentName: '[TÊN ĐẠI LÝ]' };
 ---
-<BaseLayout title="Về Chúng Tôi | Tra Cứu Gói Cước Viettel">
+<BaseLayout title="Về Chúng Tôi | Đại Lý Tra Cứu Gói Cước Viettel">
   <Header config={mockConfig} client:load />
-  <About config={mockConfig} client:load />
+  
+  <main class="max-w-4xl mx-auto px-4 py-12 bg-white rounded-xl shadow-sm my-8 font-sans">
+    <h1 class="text-3xl font-black text-gray-900 mb-6 border-b-2 border-red-600 pb-2 inline-block uppercase">Về Chúng Tôi</h1>
+    
+    <div class="space-y-6 text-gray-700 leading-relaxed">
+      <section>
+        <h2 class="text-xl font-bold text-red-700 mb-3">TraCuuGoiCuoc.com là ai?</h2>
+        <p>
+          Chào mừng quý khách đến với <strong>TraCuuGoiCuoc.com</strong>! Chúng tôi là website do <strong>[TÊN ĐẠI LÝ / CÁ NHÂN VẬN HÀNH]</strong> vận hành. 
+          Vai trò của chúng tôi là một <strong>điểm cung cấp dịch vụ và đại lý tiếp thị gói cước</strong> độc lập, hỗ trợ khách hàng dễ dàng tìm kiếm, so sánh và đăng ký các gói cước 4G/5G của Viettel Telecom thông qua mã đại lý được cấp phép.
+        </p>
+        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mt-4">
+          <p class="text-sm text-yellow-900 italic font-medium">
+            <strong>Miễn trừ trách nhiệm:</strong> Trang web này <strong>KHÔNG</strong> phải là trang web chính thức của Tổng Công Ty Viễn Thông Viettel (Viettel Telecom). 
+            Tất cả mức giá, ưu đãi và điều kiện đăng ký đều phụ thuộc hoàn toàn vào hệ thống của nhà mạng tại thời điểm đăng ký.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-red-700 mb-3">Mã Đại Lý và Tổng Đài 290 là gì?</h2>
+        <p>
+          Khi quý khách đăng ký gói cước qua website của chúng tôi bằng cú pháp SMS gửi đến <strong>290</strong> kèm theo mã đại lý <strong>GA</strong>, hệ thống sẽ tự động ghi nhận doanh số cho điểm bán hàng của chúng tôi. 
+        </p>
+        <p class="mt-2">
+          Việc đăng ký thông qua mã đại lý là hoàn toàn <strong>miễn phí</strong> (quý khách chỉ thanh toán đúng cước phí niêm yết của gói cước, bị trừ vào tài khoản chính của SIM). 
+          Tổng đài <strong>290</strong> là kênh tiếp nhận đăng ký dịch vụ di động chính thức dành cho kênh đại lý của Viettel.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-red-700 mb-3">Thông Tin Liên Hệ</h2>
+        <ul class="list-disc pl-5 space-y-2">
+          <li><strong>Đơn vị vận hành:</strong> [TÊN ĐẠI LÝ]</li>
+          <li><strong>Khu vực hoạt động:</strong> [ĐỊA CHỈ HOẶC KHU VỰC PHỤC VỤ]</li>
+          <li><strong>Số điện thoại hỗ trợ:</strong> [SỐ ĐIỆN THOẠI HỖ TRỢ]</li>
+          <li><strong>Email liên hệ:</strong> [EMAIL HỖ TRỢ]</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
   <Footer config={mockConfig} client:load />
 </BaseLayout>

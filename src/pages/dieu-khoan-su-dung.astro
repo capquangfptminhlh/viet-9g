@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
+const mockConfig = { agentCode: 'GA', supportPhone: '[SỐ ĐIỆN THOẠI HỖ TRỢ]', zaloLink: 'https://zalo.me/[SỐ_ĐIỆN_THOẠI]', agentName: '[TÊN ĐẠI LÝ]' };
+---
+<BaseLayout title="Điều Khoản Sử Dụng | Đại Lý Tra Cứu Gói Cước Viettel">
+  <Header config={mockConfig} client:load />
+  
+  <main class="max-w-4xl mx-auto px-4 py-12 bg-white rounded-xl shadow-sm my-8 font-sans">
+    <h1 class="text-3xl font-black text-gray-900 mb-6 border-b-2 border-red-600 pb-2 inline-block uppercase">Điều Khoản Sử Dụng</h1>
+    
+    <div class="space-y-6 text-gray-700 leading-relaxed">
+      <section>
+        <p>
+          Khi truy cập và sử dụng dịch vụ thông tin tại <strong>TraCuuGoiCuoc.com</strong>, bạn đồng ý với các điều khoản dưới đây. Xin vui lòng đọc kỹ trước khi thao tác lấy cú pháp đăng ký gói cước.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">1. Vai trò của chúng tôi</h2>
+        <p>
+          TraCuuGoiCuoc.com là một điểm cung cấp thông tin và tiếp thị liên kết các dịch vụ viễn thông của Viettel do <strong>[TÊN ĐẠI LÝ]</strong> vận hành. Chúng tôi <strong>không phải là hệ thống của Tổng Công ty Viễn thông Viettel</strong>.
+        </p>
+        <p class="mt-2">
+          Hệ thống cung cấp cú pháp tin nhắn giúp khách hàng đăng ký dịch vụ dễ dàng qua tổng đài <strong>290</strong> (Tổng đài ghi nhận doanh số đại lý). Chúng tôi không trực tiếp cung cấp dịch vụ viễn thông, không can thiệp vào SIM của khách hàng và không trực tiếp thu tiền.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">2. Điều kiện đăng ký và Trừ cước</h2>
+        <ul class="list-disc pl-5 space-y-2 mt-2">
+          <li><strong>Giá cước:</strong> Số tiền hiển thị trên website là giá niêm yết. Khi bạn gửi tin nhắn đăng ký thành công, số tiền này sẽ được <strong>trừ trực tiếp vào tài khoản gốc (đối với thuê bao trả trước)</strong> hoặc <strong>cộng vào hóa đơn cuối tháng (đối với thuê bao trả sau)</strong> bởi hệ thống của Viettel.</li>
+          <li><strong>Điều kiện thuê bao:</strong> Không phải mọi thuê bao đều có thể đăng ký thành công mọi gói cước. Việc đăng ký có thành công hay không phụ thuộc hoàn toàn vào danh sách khuyến mãi riêng biệt của từng SIM do hệ thống Viettel quy định tại thời điểm đăng ký.</li>
+          <li><strong>Gia hạn tự động:</strong> Hầu hết các gói cước đều có tính năng tự động gia hạn sau khi hết chu kỳ (30 ngày, 90 ngày...). Nếu không có nhu cầu sử dụng tiếp, khách hàng cần chủ động hủy gia hạn.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">3. Cách hủy gia hạn / Hủy gói cước</h2>
+        <p>Nếu bạn muốn ngừng sử dụng gói cước để tránh bị trừ tiền tự động ở chu kỳ tiếp theo, vui lòng thực hiện nhắn tin theo cú pháp của Viettel:</p>
+        <ul class="list-disc pl-5 mt-2 space-y-1">
+          <li><strong>Hủy gia hạn (Bảo lưu ưu đãi còn lại):</strong> Soạn <code>HUY</code> gửi <strong>191</strong>.</li>
+          <li><strong>Hủy hoàn toàn gói cước (Mất ưu đãi còn lại):</strong> Soạn <code>HUYDATA</code> gửi <strong>191</strong>.</li>
+        </ul>
+        <p class="mt-2 italic text-sm text-gray-500">* Chi tiết vui lòng làm theo hướng dẫn trong tin nhắn phản hồi từ 191.</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">4. Miễn trừ trách nhiệm</h2>
+        <p>Chúng tôi nỗ lực cập nhật thông tin mới nhất từ nhà mạng. Tuy nhiên, các chính sách, mức giá và ưu đãi có thể thay đổi từ phía nhà cung cấp mà không được báo trước. Chúng tôi không chịu trách nhiệm bồi thường nếu việc đăng ký không thành công do không đủ điều kiện hoặc do thay đổi chính sách từ phía Viettel.</p>
+        <p class="mt-2">Trong trường hợp gặp sự cố về chất lượng mạng hoặc trừ cước sai lệch, vui lòng gọi điện thoại trực tiếp đến tổng đài CSKH của Viettel: <strong>198</strong> (Miễn phí) để được hỗ trợ kiểm tra trên hệ thống tổng.</p>
+      </section>
+
+      <section>
+        <p class="text-sm text-gray-500 italic mt-8 border-t pt-4">
+          Bản cập nhật gần nhất: [NGÀY THÁNG NĂM]
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <Footer config={mockConfig} client:load />
+</BaseLayout>

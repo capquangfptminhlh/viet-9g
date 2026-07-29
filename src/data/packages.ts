@@ -703,7 +703,7 @@ export const VIETTEL_PACKAGES: TelecomPackage[] = [
 export const FAQS: FAQItem[] = [
   {
     question: 'Mã đại lý 290 là gì? Đăng ký có mất thêm chi phí trung gian không?',
-    answer: 'Tổng đài 290 là kênh đăng ký dịch vụ di động trực tuyến chính thức của Tổng Công Ty Viễn Thông Viettel. Khi bạn đăng ký có kèm mã số đại lý (ví dụ: DA, 352525287), hệ thống ghi nhận doanh số cho đại lý phát triển thuê bao. Bạn hoàn toàn KHÔNG MẤT thêm bất kỳ chi phí phát sinh nào, giá cước gói đăng ký được trừ trực tiếp vào tài khoản chính của SIM tương đương đúng bảng giá niêm yết của Viettel.'
+    answer: 'Tổng đài 290 là kênh đăng ký dịch vụ di động trực tuyến chính thức của Tổng Công Ty Viễn Thông Viettel. Khi bạn đăng ký có kèm mã số đại lý (ví dụ: DA, GA), hệ thống ghi nhận doanh số cho đại lý phát triển thuê bao. Bạn hoàn toàn KHÔNG MẤT thêm bất kỳ chi phí phát sinh nào, giá cước gói đăng ký được trừ trực tiếp vào tài khoản chính của SIM tương đương đúng bảng giá niêm yết của Viettel.'
   },
   {
     question: 'Điều kiện để đăng ký thành công các gói cước 4G/5G Viettel là gì?',

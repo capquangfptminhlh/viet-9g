@@ -14,16 +14,18 @@ import PolicyModal from './PolicyModal';
 export default function HomeApp() {
   // 1. Initialize Agent Configuration with local storage persistent synchronization
   const [config, setConfig] = useState<AgentConfig>(() => {
-    try {
-      const stored = localStorage.getItem('viettel_agent_config');
-      if (stored) {
-        return JSON.parse(stored);
+    if (typeof window !== 'undefined') {
+      const savedConfig = localStorage.getItem('viettel_agent_config_v2');
+      if (savedConfig) {
+        try {
+          return JSON.parse(savedConfig);
+        } catch (e) {
+          console.error("Failed to parse config from localStorage");
+        }
       }
-    } catch (e) {
-      console.error('Failed to load agent config', e);
     }
     return {
-      agentCode: '352525287', // Realistic default affiliate partner code
+      agentCode: 'GA', // Realistic default affiliate partner code
       supportPhone: '1800.8098', // Viettel customer center hotline
       zaloLink: 'https://zalo.me/18008098', // Zalo chat connect
       agentName: 'Kênh CTV tiếp thị di động Viettel'
@@ -33,7 +35,9 @@ export default function HomeApp() {
   // Persistent configuration updates
   const handleSaveConfig = (newConfig: AgentConfig) => {
     setConfig(newConfig);
-    localStorage.setItem('viettel_agent_config', JSON.stringify(newConfig));
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('viettel_agent_config_v2', JSON.stringify(newConfig));
+    }
   };
 
   // 2. Global State management for modals and search parameters

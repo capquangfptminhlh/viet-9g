@@ -44,7 +44,7 @@ export default function Header({
             </span>
             <span className="hidden md:inline-flex items-center gap-1 text-red-100 text-[11px]">
               <Globe className="w-3.5 h-3.5" />
-              Kênh CTV tiếp thị số đại lý Viettel độc lập
+              Kênh đại lý tiếp thị gói cước độc lập
             </span>
           </div>
           <div className="flex items-center gap-3">
@@ -75,7 +75,7 @@ export default function Header({
                 </span>
                 <span className="bg-[#D71920] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-xs tracking-wider font-mono">GOICUOC.COM</span>
               </div>
-              <span className="text-[8px] font-bold text-gray-500 tracking-wider leading-none">KÊNH CTV TIẾP THỊ ỦY QUYỀN VIETTEL DUYỆT CHUẨN</span>
+              <span className="text-[8px] font-bold text-gray-500 tracking-wider leading-none">KÊNH ĐẠI LÝ BÁN HÀNG VÀ TIẾP THỊ GÓI CƯỚC</span>
             </div>
           </div>
 

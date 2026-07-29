@@ -146,8 +146,8 @@ export default function Footer({ config, onOpenPolicy = () => {} }: FooterProps)
               © 2026 tracuugoicuoc.com
             </span>
             <span className="hidden sm:inline text-slate-800 text-[10px]">•</span>
-            <p className="text-slate-300 text-[11px] leading-relaxed font-normal">
-              Kênh Đăng Ký Gói Cước Di Động Trực Tuyến <span className="text-slate-700 font-normal">|</span> <span className="text-slate-400 italic">Mọi thông tin gói cước và dịch vụ được cập nhật & đồng bộ hóa chính xác theo chính sách chính thức của Viettel Telecom</span>
+            <p className="text-slate-300 text-[11px] leading-relaxed font-normal max-w-4xl text-justify sm:text-left">
+              TraCuuGoiCuoc.com là website do <strong>[TÊN ĐẠI LÝ]</strong> vận hành, hỗ trợ khách hàng tra cứu và đăng ký gói cước Viettel qua tổng đài 290 theo mã đại lý. Website không phải trang chủ do Viettel Telecom sở hữu. Giá cước, điều kiện áp dụng và việc kích hoạt dịch vụ do hệ thống Viettel xác nhận.
             </p>
           </div>
           <div className="flex flex-wrap gap-x-4 gap-y-1.5 justify-center items-center text-[11px] shrink-0 border-t border-slate-800/50 pt-3 lg:pt-0 lg:border-t-0">
@@ -155,9 +155,9 @@ export default function Footer({ config, onOpenPolicy = () => {} }: FooterProps)
             <span className="text-slate-800 select-none">/</span>
             <a href="/chinh-sach-bao-mat" className="hover:text-red-400 text-slate-300 font-bold bg-transparent border-none py-3 px-2 min-h-[48px] inline-flex items-center transition-colors cursor-pointer">Chính sách bảo mật</a>
             <span className="text-slate-800 select-none">/</span>
-            <button onClick={() => onOpenPolicy('terms')} className="hover:text-red-400 text-slate-300 font-bold bg-transparent border-none py-3 px-2 min-h-[48px] inline-flex items-center transition-colors cursor-pointer">Điều khoản sử dụng</button>
+            <a href="/dieu-khoan-su-dung" className="hover:text-red-400 text-slate-300 font-bold bg-transparent border-none py-3 px-2 min-h-[48px] inline-flex items-center transition-colors cursor-pointer">Điều khoản sử dụng</a>
             <span className="text-slate-800 select-none">/</span>
-            <button onClick={() => onOpenPolicy('disclaimer')} className="hover:text-red-400 text-slate-300 font-bold bg-transparent border-none py-3 px-2 min-h-[48px] inline-flex items-center transition-colors cursor-pointer">Miễn trừ trách nhiệm</button>
+            <a href="/lien-he" className="hover:text-red-400 text-slate-300 font-bold bg-transparent border-none py-3 px-2 min-h-[48px] inline-flex items-center transition-colors cursor-pointer">Liên hệ</a>
           </div>
         </div>
       </div>

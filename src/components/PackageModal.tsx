@@ -49,7 +49,7 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
           </div>
           <div className="space-y-1 pr-8">
             <span className="text-[9px] font-black uppercase tracking-wider bg-yellow-400 text-neutral-900 px-2 py-0.5 rounded inline-block">
-              ĐĂNG KÝ ONLINE CHÍNH THỨC
+              HƯỚNG DẪN CÚ PHÁP ĐĂNG KÝ
             </span>
             <h3 className="text-xl font-black flex items-baseline gap-1.5 font-mono uppercase">
               GÓI CƯỚC {pkg.name}
@@ -144,7 +144,7 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
                   className="w-full py-3 px-3 min-h-[48px] bg-[#D71920] hover:bg-red-700 text-white text-xs font-bold rounded shadow-3xs flex items-center justify-center gap-1.5 cursor-pointer transition-all active:scale-98"
                 >
                   <ExternalLink className="w-4 h-4" />
-                  Gửi SMS Đăng Ký Ngay
+                  Mở ứng dụng SMS
                 </a>
               </div>
 
@@ -157,6 +157,11 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
                 <p className="mt-1">
                   * Hệ thống gửi trả tin nhắn xác nhận hoàn toàn miễn phí. Hãy chuẩn bị sẵn số dư tối thiểu trong tài khoản chính là <strong className="text-red-700">{pkg.price.toLocaleString('vi-VN')}đ</strong>.
                 </p>
+              </div>
+
+              {/* Disclaimer */}
+              <div className="text-[10px] text-gray-500 italic text-center px-2">
+                * Giá cước sẽ được trừ trực tiếp từ tài khoản gốc theo hệ thống của Viettel khi đăng ký thành công.
               </div>
             </div>
           )}
@@ -248,7 +253,7 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
         <div className="p-4 border-t border-gray-100 bg-gray-50 flex items-center justify-between shrink-0">
           <div className="text-xs text-gray-400 flex items-center gap-1">
             <span>Kênh bảo trợ:</span>
-            <span className="font-medium text-gray-600">Đại lý ủy quyền 290</span>
+            <span className="font-medium text-gray-600">Điểm cung cấp gói cước</span>
           </div>
           <button
             type="button"

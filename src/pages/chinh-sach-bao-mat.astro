@@ -1,13 +1,60 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Privacy from '../components/Privacy';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-const mockConfig = { agentCode: '352525287', supportPhone: '1800.8098', zaloLink: 'https://zalo.me/18008098', agentName: 'Kênh CTV' };
+const mockConfig = { agentCode: 'GA', supportPhone: '[SỐ ĐIỆN THOẠI HỖ TRỢ]', zaloLink: 'https://zalo.me/[SỐ_ĐIỆN_THOẠI]', agentName: '[TÊN ĐẠI LÝ]' };
 ---
-<BaseLayout title="Chính Sách Bảo Mật | Tra Cứu Gói Cước Viettel">
+<BaseLayout title="Chính Sách Bảo Mật | Đại Lý Tra Cứu Gói Cước Viettel">
   <Header config={mockConfig} client:load />
-  <Privacy config={mockConfig} client:load />
+  
+  <main class="max-w-4xl mx-auto px-4 py-12 bg-white rounded-xl shadow-sm my-8 font-sans">
+    <h1 class="text-3xl font-black text-gray-900 mb-6 border-b-2 border-red-600 pb-2 inline-block uppercase">Chính Sách Bảo Mật</h1>
+    
+    <div class="space-y-6 text-gray-700 leading-relaxed">
+      <section>
+        <p>
+          Bảo mật thông tin của khách hàng là ưu tiên hàng đầu của chúng tôi. Chính sách này mô tả cách thức <strong>[TÊN ĐẠI LÝ]</strong> (đơn vị vận hành website TraCuuGoiCuoc.com) thu thập, sử dụng và bảo vệ dữ liệu của bạn khi truy cập trang web này.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">1. Dữ liệu chúng tôi thu thập</h2>
+        <p>Chúng tôi cam kết <strong>KHÔNG</strong> yêu cầu hoặc lưu trữ các dữ liệu nhạy cảm như mật khẩu, tài khoản ngân hàng, mã OTP hay thông tin cá nhân định danh của người dùng.</p>
+        <p class="mt-2">Tuy nhiên, khi bạn duyệt web, hệ thống tự động thu thập một số thông tin kỹ thuật nhằm mục đích thống kê và cải thiện trải nghiệm, bao gồm:</p>
+        <ul class="list-disc pl-5 mt-2 space-y-1">
+          <li><strong>Dữ liệu phân tích (Analytics):</strong> Địa chỉ IP (đã ẩn danh), trình duyệt sử dụng, thời gian truy cập, thiết bị và các trang đã xem thông qua dịch vụ của bên thứ ba (Google Analytics).</li>
+          <li><strong>Cookie lưu trữ (LocalStorage):</strong> Trạng thái cấu hình giao diện của bạn (ví dụ: đã đóng banner quảng cáo hay chưa) được lưu ở máy khách (client-side) chứ không truyền về máy chủ.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">2. Mục đích sử dụng dữ liệu</h2>
+        <p>Thông tin thu thập được chỉ sử dụng cho các mục đích hợp pháp sau:</p>
+        <ul class="list-disc pl-5 mt-2 space-y-1">
+          <li>Phân tích lưu lượng truy cập để nâng cấp hạ tầng website (thông qua Vercel Analytics / Google Analytics).</li>
+          <li>Đo lường mức độ quan tâm đối với từng gói cước để đề xuất nội dung phù hợp.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">3. Dịch vụ bên thứ ba</h2>
+        <p>Website này có sử dụng Google Analytics để theo dõi lưu lượng. Google Analytics có thể sử dụng cookie để thu thập dữ liệu về cách người dùng tương tác với trang. Bạn có thể tham khảo <a href="https://policies.google.com/privacy" class="text-blue-600 hover:underline" target="_blank" rel="nofollow">Chính sách bảo mật của Google</a> để biết thêm chi tiết.</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">4. Quyền của người dùng</h2>
+        <p>Bạn có toàn quyền từ chối việc sử dụng cookie bằng cách thay đổi cài đặt trên trình duyệt của mình. Việc này sẽ không ảnh hưởng đến khả năng xem nội dung các gói cước và thao tác lấy cú pháp đăng ký trên website.</p>
+        <p class="mt-2">Để yêu cầu truy vấn, sửa đổi hoặc xóa bất kỳ thông tin nào liên quan, vui lòng liên hệ qua email: <strong>[EMAIL HỖ TRỢ]</strong>.</p>
+      </section>
+
+      <section>
+        <p class="text-sm text-gray-500 italic mt-8 border-t pt-4">
+          Bản cập nhật gần nhất: [NGÀY THÁNG NĂM]
+        </p>
+      </section>
+    </div>
+  </main>
+
   <Footer config={mockConfig} client:load />
 </BaseLayout>

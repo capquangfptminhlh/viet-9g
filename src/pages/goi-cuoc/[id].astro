@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 const { pkg } = Astro.props;
 
 // Mock persistent config
-const mockConfig = { agentCode: '352525287', supportPhone: '1800.8098', zaloLink: 'https://zalo.me/18008098', agentName: 'Kênh CTV' };
+const mockConfig = { agentCode: 'GA', supportPhone: '1800.8098', zaloLink: 'https://zalo.me/18008098', agentName: 'Kênh CTV' };
 ---
 <BaseLayout title={`Đăng ký gói cước ${pkg.name} Viettel`} description={pkg.description}>
   <div class="flex-1">

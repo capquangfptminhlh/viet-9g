@@ -12,12 +12,16 @@ export async function getStaticPaths() {
   }));
 }
 
+interface Props {
+  entry: any;
+}
+
 const { entry } = Astro.props;
 // @ts-ignore
 const { Content } = await entry.render();
 
 // Giả lập config rỗng cho Header/Footer (vì chúng được fetch từ local storage ở client)
-const mockConfig = { agentCode: '352525287', supportPhone: '1800.8098', zaloLink: 'https://zalo.me/18008098', agentName: 'Kênh CTV' };
+const mockConfig = { agentCode: 'GA', supportPhone: '1800.8098', zaloLink: 'https://zalo.me/18008098', agentName: 'Kênh CTV' };
 ---
 // @ts-ignore
 <BaseLayout title={`${entry.slug} - Hướng dẫn Viettel`}>

@@ -22,7 +22,7 @@ export interface TelecomPackage {
 }
 
 export interface AgentConfig {
-  agentCode: string; // The affiliate ID, e.g., "352525287" or "DA"
+  agentCode: string; // The affiliate ID, e.g., "GA" or "DA"
   supportPhone: string; // e.g., "0981.234.567"
   zaloLink: string; // e.g., "https://zalo.me/0981234567"
   agentName: string; // e.g., "Đại Lý Cước Viettel Online"

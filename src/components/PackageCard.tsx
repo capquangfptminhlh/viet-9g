@@ -171,7 +171,7 @@ export default function PackageCard({ pkg, onSelect, onOpenDetails }: PackageCar
           onClick={() => onSelect(pkg.id)}
           className="flex-1 min-h-[48px] py-3 px-4 flex items-center justify-center bg-[#D71920] hover:bg-red-700 active:bg-red-800 text-white text-xs font-bold rounded text-center shadow-2xs cursor-pointer transition-colors"
         >
-          Đăng Ký
+          Soạn tin đăng ký
         </button>
       </div>
 
