@@ -48,13 +48,15 @@ export default function Header({
             </span>
           </div>
           <div className="flex items-center gap-3">
-            <button
-              onClick={onOpenSettings}
-              className="text-red-100 hover:text-white flex items-center gap-1 bg-white/10 px-2 py-0.5 rounded-sm border border-white/20 cursor-pointer text-[11px] transition-colors"
-            >
-              <Settings className="w-3 h-3" />
-              Cấu hình Website
-            </button>
+            {typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('config') === 'true' && (
+              <button
+                onClick={onOpenSettings}
+                className="text-red-100 hover:text-white flex items-center gap-1 bg-white/10 px-2 py-0.5 rounded-sm border border-white/20 cursor-pointer text-[11px] transition-colors"
+              >
+                <Settings className="w-3 h-3" />
+                Cấu hình Website
+              </button>
+            )}
             <a 
               href={`tel:${config.supportPhone.replace(/\./g, '')}`} 
               className="flex items-center gap-1 hover:underline font-bold text-[11px]"
