@@ -90,9 +90,24 @@
           }
         ]
       }
+    <!-- Google Analytics 4 (GA4) -->
+    <script>
+      const GA_ID = "%VITE_GA_ID%";
+      // Chỉ load GA4 nếu biến môi trường thực sự tồn tại (không ở chế độ DEV rỗng)
+      if (GA_ID && GA_ID !== "%VITE_GA_ID%" && GA_ID !== "undefined") {
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+        document.head.appendChild(script);
+        
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', GA_ID);
+      }
     </script>
-    <script type="module" crossorigin src="./assets/index-KRsaAwwQ.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-De6k5lIX.css">
+    <script type="module" crossorigin src="./assets/index-En2Ci-Bk.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-C1crDHAM.css">
   
       <script type="application/ld+json">
         {"@context":"https://schema.org/","@type":"Product","name":"Gói cước 4G 5G150 Viettel","description":"Sự lựa chọn hoàn hảo cho tín đồ công nghệ cần truyền tải lượng thông tin cực lớn qua kết nối 5G siêu mượt. Sở hữu ngay 6 GB lưu lượng siêu tốc mỗi ngày thỏa thích truyền phát hoặc tải tệp nặng.","offers":{"@type":"Offer","url":"https://tracuugoicuoc.com/goi-cuoc/5g150","priceCurrency":"VND","price":150000}}

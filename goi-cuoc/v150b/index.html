@@ -90,9 +90,24 @@
           }
         ]
       }
+    <!-- Google Analytics 4 (GA4) -->
+    <script>
+      const GA_ID = "%VITE_GA_ID%";
+      // Chỉ load GA4 nếu biến môi trường thực sự tồn tại (không ở chế độ DEV rỗng)
+      if (GA_ID && GA_ID !== "%VITE_GA_ID%" && GA_ID !== "undefined") {
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+        document.head.appendChild(script);
+        
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', GA_ID);
+      }
     </script>
-    <script type="module" crossorigin src="./assets/index-KRsaAwwQ.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-De6k5lIX.css">
+    <script type="module" crossorigin src="./assets/index-En2Ci-Bk.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-C1crDHAM.css">
   
       <script type="application/ld+json">
         {"@context":"https://schema.org/","@type":"Product","name":"Gói cước 4G V150B Viettel","description":"Combo VIP dành cho các cá nhân kinh doanh, bán hàng online thường xuyên trao đổi với khách hàng qua số điện thoại di động chính. Dung lượng 2GB/ngày thoải mái gửi tài liệu hành chính.","offers":{"@type":"Offer","url":"https://tracuugoicuoc.com/goi-cuoc/v150b","priceCurrency":"VND","price":150000}}
