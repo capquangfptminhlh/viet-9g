@@ -14,6 +14,7 @@ import PolicyModal from './components/PolicyModal';
 import DynamicPostPage from './components/DynamicPostPage';
 import About from './pages/About';
 import Privacy from './pages/Privacy';
+import MarkdownPostPage from './components/MarkdownPostPage';
 
 export default function App() {
   // Routing State for Programmatic SEO
@@ -77,6 +78,12 @@ export default function App() {
   }
   if (currentPath === 'chinh-sach-bao-mat') {
     return <Privacy config={config} onSearchChange={(q: string) => { setSearchQuery(q); handleBackToHome(); }} />;
+  }
+
+  // Markdown Posts Routing (AEO Content Factory)
+  if (currentPath.startsWith('posts/')) {
+    const slug = currentPath.replace('posts/', '');
+    return <MarkdownPostPage slug={slug} config={config} onBack={handleBackToHome} onSearchChange={(q: string) => { setSearchQuery(q); handleBackToHome(); }} />;
   }
 
   // Find currently active package for instructions modal

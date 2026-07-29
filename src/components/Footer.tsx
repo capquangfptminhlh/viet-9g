@@ -97,9 +97,15 @@ export default function Footer({ config, onOpenPolicy }: FooterProps) {
 
           <h4 className="font-bold text-white uppercase tracking-widest border-l-2 border-red-500 pl-2 pt-3">Hướng dẫn bổ ích</h4>
           <ul className="space-y-2.5 text-slate-300">
-            <li>• Cách hủy gia hạn 4G Viettel (HUY gửi 191)</li>
-            <li>• Cách kiểm tra tài khoản chính (*101# gọi)</li>
-            <li>• Đăng ký MultiSIM Viettel sử dụng song song</li>
+            <li>
+              <a href="/posts/cach-huy-gia-han-4g-viettel" className="hover:text-red-400 transition-colors block">• Cách hủy gia hạn 4G Viettel (HUY gửi 191)</a>
+            </li>
+            <li>
+              <a href="/posts/cach-kiem-tra-tai-khoan-chinh" className="hover:text-red-400 transition-colors block">• Cách kiểm tra tài khoản chính (*101# gọi)</a>
+            </li>
+            <li>
+              <a href="/posts/dang-ky-multisim-viettel" className="hover:text-red-400 transition-colors block">• Đăng ký MultiSIM Viettel sử dụng song song</a>
+            </li>
           </ul>
         </div>
 

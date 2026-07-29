@@ -131,7 +131,66 @@ function generateSSG() {
   fs.writeFileSync(INDEX_HTML, homeHtml, 'utf-8');
   console.log('✅ Đã render SSG cho Trang Chủ (Homepage).');
 
-  console.log('✅ Hoàn tất quá trình Pre-render SSG cho SEO.');
+  console.log('✅ Hoàn tất quá trình Pre-render SSG cho 17 Pillar Pages.');
 }
 
-generateSSG();
+// ==========================================
+// 4. SSG PRERENDER CHO CÁC BÀI VIẾT MARKDOWN
+// ==========================================
+import { marked } from 'marked';
+
+async function prerenderMarkdownPosts() {
+  const POSTS_DIR = path.join(__dirname, '..', 'public', 'posts');
+  const POSTS_OUTPUT_DIR = path.join(DIST_DIR, 'posts');
+  
+  if (!fs.existsSync(POSTS_DIR)) return;
+  fs.mkdirSync(POSTS_OUTPUT_DIR, { recursive: true });
+
+  const files = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.md'));
+  if (files.length === 0) return;
+
+  console.log(`🔄 Bắt đầu sinh HTML tĩnh cho ${files.length} bài Markdown...`);
+  
+  if (!fs.existsSync(INDEX_HTML)) {
+    console.error('❌ Không tìm thấy dist/index.html. Hãy chạy vite build trước.');
+    return;
+  }
+  const baseHtml = fs.readFileSync(INDEX_HTML, 'utf-8');
+
+  for (const file of files) {
+    const slug = file.replace('.md', '');
+    const mdContent = fs.readFileSync(path.join(POSTS_DIR, file), 'utf-8');
+    
+    // Parse Markdown to HTML
+    const htmlSnippet = await marked.parse(mdContent);
+
+    // Tiêm vào thẻ <div id="markdown-seo-content">
+    let newHtml = baseHtml.replace(
+      '<div id="markdown-seo-content" className="hidden"></div>',
+      `<div id="markdown-seo-content" class="hidden">${htmlSnippet}</div>`
+    );
+
+    // Bổ sung Title cho bài viết (lấy từ H1 đầu tiên)
+    const titleMatch = mdContent.match(/^#\s+(.+)$/m);
+    if (titleMatch) {
+      const pageTitle = `${titleMatch[1]} - Tracuugoicuoc`;
+      newHtml = newHtml.replace(
+        /<title>.*<\/title>/,
+        `<title>${pageTitle}</title>`
+      );
+    }
+
+    const outputPath = path.join(POSTS_OUTPUT_DIR, `${slug}.html`);
+    fs.writeFileSync(outputPath, newHtml, 'utf-8');
+    console.log(`✅ Đã render SSG bài viết: /posts/${slug}`);
+  }
+  console.log('✅ Hoàn tất quá trình Pre-render SSG cho Markdown Posts.');
+}
+
+// Run all Prerender tasks sequentially
+async function runAll() {
+  generateSSG();
+  await prerenderMarkdownPosts();
+}
+
+runAll();
