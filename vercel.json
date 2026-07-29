@@ -1,16 +1,4 @@
 {
-  "rewrites": [
-    {
-      "source": "/goi-cuoc/:pkg",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/posts/:post",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ]
+  "cleanUrls": true,
+  "trailingSlash": false
 }

@@ -112,9 +112,9 @@ export default function HeroCarousel({ config, onSelectPackage, onOpenSettings }
 
               {/* Title Header */}
               <div className="space-y-1">
-                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-3.5xl font-black italic text-white tracking-tight leading-tight transition-all duration-500 uppercase">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-3.5xl font-black italic text-white tracking-tight leading-tight transition-all duration-500 uppercase">
                   {slides[currentSlide].title}
-                </h1>
+                </h2>
                 <p className="text-white/95 text-xs sm:text-sm leading-relaxed transition-all duration-500 font-medium">
                   {slides[currentSlide].subtitle}
                 </p>

@@ -7,6 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://www.tracuugoicuoc.com',
   output: 'static',
+  trailingSlash: 'never',
   integrations: [
     react(),
     sitemap()
