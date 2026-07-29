@@ -14,7 +14,7 @@ import PolicyModal from './PolicyModal';
 export default function HomeApp() {
   // 1. Initialize Agent Configuration with hardcoded compliance values
   const [config, setConfig] = useState<AgentConfig>({
-    agentCode: 'GA',
+    agentCode: 'GB',
     supportPhone: '1800.8098',
     zaloLink: 'https://zalo.me/18008098',
     agentName: 'Kênh CTV tiếp thị di động Viettel'
