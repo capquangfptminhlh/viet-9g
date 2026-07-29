@@ -147,7 +147,7 @@ export default function Footer({ config, onOpenPolicy = () => {} }: FooterProps)
             </span>
             <span className="hidden sm:inline text-slate-800 text-[10px]">•</span>
             <p className="text-slate-300 text-[11px] leading-relaxed font-normal max-w-4xl text-justify sm:text-left">
-              TraCuuGoiCuoc.com là website do <strong>[TÊN ĐẠI LÝ]</strong> vận hành, hỗ trợ khách hàng tra cứu và đăng ký gói cước Viettel qua tổng đài 290 theo mã đại lý. Website không phải trang chủ do Viettel Telecom sở hữu. Giá cước, điều kiện áp dụng và việc kích hoạt dịch vụ do hệ thống Viettel xác nhận.
+              TraCuuGoiCuoc.com là kênh tiếp thị độc lập chuyên hỗ trợ khách hàng tra cứu và đăng ký gói cước Viettel qua tổng đài 290 theo mã đại lý. Website không phải trang chủ do Viettel Telecom sở hữu. Giá cước, điều kiện áp dụng và việc kích hoạt dịch vụ do hệ thống Viettel xác nhận.
             </p>
           </div>
           <div className="flex flex-wrap gap-x-4 gap-y-1.5 justify-center items-center text-[11px] shrink-0 border-t border-slate-800/50 pt-3 lg:pt-0 lg:border-t-0">
