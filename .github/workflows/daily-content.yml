@@ -1,0 +1,35 @@
+name: Subnet 1 - Auto Content Factory
+
+on:
+  schedule:
+    # Chạy vào 00:00 (Midnight) mỗi ngày theo giờ UTC (tương đương 07:00 sáng VN)
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Cho phép kích hoạt thủ công từ giao diện GitHub
+
+jobs:
+  run-content-factory:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kiểm tra mã nguồn
+        uses: actions/checkout@v3
+
+      - name: Cài đặt Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Chạy Nhà máy Nội dung Tự động (WRT-4 & VER-7)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: node scripts/auto-content-factory.js
+
+      - name: Build lại toàn bộ HTML tĩnh (SSG-9) & Sitemap
+        run: npm install && npm run build
+
+      - name: Commit và Đẩy nội dung mới lên Web
+        run: |
+          git config --global user.name 'Subnet-1-Bot'
+          git config --global user.email 'bot@tracuugoicuoc.com'
+          git add data/keywords.txt public/posts/
+          git commit -m "Auto Content: Cập nhật bài viết ngách mới chuẩn AEO" || exit 0
+          git push
