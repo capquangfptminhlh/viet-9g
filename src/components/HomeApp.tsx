@@ -4,6 +4,7 @@ import { VIETTEL_PACKAGES } from '../data/packages';
 import Header from './Header';
 import HeroCarousel from './HeroCarousel';
 import SimLookup from './SimLookup';
+import SmartRecommender from './SmartRecommender';
 import PackageGrid from './PackageGrid';
 import FaqAccordion from './FaqAccordion';
 import Footer from './Footer';
@@ -114,6 +115,12 @@ export default function HomeApp() {
           config={config}
           onSelectPackage={handleSelectPackage}
           onOpenSettings={() => setIsSettingsOpen(true)}
+        />
+
+        {/* 2.5 Smart AI Recommender Quiz */}
+        <SmartRecommender
+          onSelectPackage={handleSelectPackage}
+          onOpenDetails={handleOpenDetails}
         />
 
         {/* 3. Interactive SIM Eligibility Verification Form */}
