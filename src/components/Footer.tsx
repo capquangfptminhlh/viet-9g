@@ -145,7 +145,9 @@ export default function Footer({ config, onOpenPolicy }: FooterProps) {
             </p>
           </div>
           <div className="flex flex-wrap gap-x-4 gap-y-1.5 justify-center items-center text-[11px] shrink-0 border-t border-slate-800/50 pt-3 lg:pt-0 lg:border-t-0">
-            <button onClick={() => onOpenPolicy('privacy')} className="hover:text-red-400 text-slate-300 font-bold bg-transparent border-none py-3 px-2 min-h-[48px] inline-flex items-center transition-colors cursor-pointer">Chính sách bảo mật</button>
+            <a href="/ve-chung-toi" className="hover:text-red-400 text-slate-300 font-bold bg-transparent border-none py-3 px-2 min-h-[48px] inline-flex items-center transition-colors cursor-pointer">Về chúng tôi</a>
+            <span className="text-slate-800 select-none">/</span>
+            <a href="/chinh-sach-bao-mat" className="hover:text-red-400 text-slate-300 font-bold bg-transparent border-none py-3 px-2 min-h-[48px] inline-flex items-center transition-colors cursor-pointer">Chính sách bảo mật</a>
             <span className="text-slate-800 select-none">/</span>
             <button onClick={() => onOpenPolicy('terms')} className="hover:text-red-400 text-slate-300 font-bold bg-transparent border-none py-3 px-2 min-h-[48px] inline-flex items-center transition-colors cursor-pointer">Điều khoản sử dụng</button>
             <span className="text-slate-800 select-none">/</span>

@@ -12,6 +12,8 @@ import PackageModal from './components/PackageModal';
 import AdsGuideModal from './components/AdsGuideModal';
 import PolicyModal from './components/PolicyModal';
 import DynamicPostPage from './components/DynamicPostPage';
+import About from './pages/About';
+import Privacy from './pages/Privacy';
 
 export default function App() {
   // Routing State for Programmatic SEO
@@ -68,6 +70,14 @@ export default function App() {
   const [activePolicy, setActivePolicy] = useState<'privacy' | 'terms' | 'disclaimer' | null>(null);
   const [selectedPkgId, setSelectedPkgId] = useState<string | null>(null);
   const [modalTab, setModalTab] = useState<'sms' | 'qr' | 'details'>('sms');
+
+  // E-E-A-T Routing (About & Privacy Pages)
+  if (currentPath === 've-chung-toi') {
+    return <About config={config} onSearchChange={(q: string) => { setSearchQuery(q); handleBackToHome(); }} />;
+  }
+  if (currentPath === 'chinh-sach-bao-mat') {
+    return <Privacy config={config} onSearchChange={(q: string) => { setSearchQuery(q); handleBackToHome(); }} />;
+  }
 
   // Find currently active package for instructions modal
   const activePackage = VIETTEL_PACKAGES.find((p) => p.id === selectedPkgId) || null;

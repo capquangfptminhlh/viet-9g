@@ -5,7 +5,9 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const SITEMAP_FILE = path.join(__dirname, '..', 'public', 'sitemap.xml');
+const PUBLIC_DIR = path.join(__dirname, '..', 'public');
+const SITEMAP_FILE = path.join(PUBLIC_DIR, 'sitemap.xml');
+const BASE_URL = 'https://www.tracuugoicuoc.com';
 
 // List of Viettel packages (17 Pillar Pages)
 const PACKAGES = [
@@ -18,25 +20,29 @@ function generateSitemap() {
 
   const urls = [];
   // 1. Add Homepage
-  urls.push('https://www.tracuugoicuoc.com/');
+  urls.push(`${BASE_URL}/`);
 
   // 2. Add Pillar Pages
   for (const pkg of PACKAGES) {
-    urls.push(`https://www.tracuugoicuoc.com/goi-cuoc/${pkg}`);
+    urls.push(`${BASE_URL}/goi-cuoc/${pkg}`);
   }
 
   // 3. Add Blog Posts from public/posts directory
-  const POSTS_DIR = path.join(__dirname, '..', 'public', 'posts');
+  const POSTS_DIR = path.join(PUBLIC_DIR, 'posts');
   if (fs.existsSync(POSTS_DIR)) {
     const files = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.md'));
     for (const file of files) {
-      urls.push(`https://www.tracuugoicuoc.com/posts/${file.replace('.md', '')}`);
+      urls.push(`${BASE_URL}/posts/${file.replace('.md', '')}`);
     }
   }
 
-  console.log(`📊 Đã sinh tổng cộng ${urls.length} liên kết chất lượng (Pillar Pages + Posts).`);
+  // 4. Add E-E-A-T Pages
+  urls.push(`${BASE_URL}/ve-chung-toi`);
+  urls.push(`${BASE_URL}/chinh-sach-bao-mat`);
 
-  // 4. Build XML content
+  console.log(`📊 Đã sinh tổng cộng ${urls.length} liên kết chất lượng (Pillar Pages + Posts + EEAT).`);
+
+  // 5. Build XML content
   const today = new Date().toISOString().split('T')[0];
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
   xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
@@ -53,10 +59,18 @@ function generateSitemap() {
   xml += '</urlset>\n';
 
   // Ensure public folder exists and write file
-  fs.mkdirSync(path.dirname(SITEMAP_FILE), { recursive: true });
+  fs.mkdirSync(PUBLIC_DIR, { recursive: true });
   fs.writeFileSync(SITEMAP_FILE, xml, 'utf-8');
+  console.log('✅ Thành công! Sitemap đã được lưu tại:', SITEMAP_FILE);
 
-  console.log(`✅ Thành công! Sitemap đã được lưu tại: ${SITEMAP_FILE}`);
+  // SINH FILE robots.txt
+  const robotsTxtContent = `User-agent: *
+Allow: /
+Sitemap: ${BASE_URL}/sitemap.xml`;
+  
+  const robotsFile = path.join(PUBLIC_DIR, 'robots.txt');
+  fs.writeFileSync(robotsFile, robotsTxtContent, 'utf-8');
+  console.log('✅ Thành công! robots.txt đã được lưu tại:', robotsFile);
 }
 
 generateSitemap();
