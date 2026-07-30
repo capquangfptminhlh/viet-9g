@@ -25,19 +25,28 @@ const contentStr = entry.body || '';
 const titleMatch = contentStr.match(/^#\s+(.+)$/m);
 const displayTitle = titleMatch ? titleMatch[1] : entry.slug.replace(/-/g, ' ');
 
-// Hàm chọn ảnh minh họa cao cấp theo nội dung gói cước
+// Hàm chọn ảnh minh họa cao cấp khớp chính xác với từng nội dung bài viết
 function getPostImage(slug: string, title: string) {
   const s = (slug + ' ' + title).toLowerCase();
+  if (s.includes('kiem-tra') || s.includes('kiểm tra') || s.includes('kiểm-tra') || s.includes('tai-khoan') || s.includes('tài khoản') || s.includes('so-dien-thoai') || s.includes('số điện thoại') || s.includes('dung-luong') || s.includes('dung lượng')) {
+    return '/images/viettel-check-balance-banner.jpg';
+  }
+  if (s.includes('huy') || s.includes('hủy') || s.includes('tranh-tru-tien') || s.includes('tránh trừ tiền') || s.includes('gia-han') || s.includes('gia hạn')) {
+    return '/images/viettel-cancel-package-banner.jpg';
+  }
+  if (s.includes('combo') || s.includes('thoai') || s.includes('thoại') || s.includes('v90b') || s.includes('v120b') || s.includes('v150b') || s.includes('v200b') || s.includes('v300b')) {
+    return '/images/viettel-combo-call-data-banner.jpg';
+  }
   if (s.includes('mxh') || s.includes('tiktok') || s.includes('youtube') || s.includes('social') || s.includes('facebook')) {
     return '/images/viettel-4g-social-banner.jpg';
   }
-  if (s.includes('lien-quan') || s.includes('game') || s.includes('5g135') || s.includes('5g150') || s.includes('gaming')) {
+  if (s.includes('lien-quan') || s.includes('liên quân') || s.includes('game') || s.includes('gaming')) {
     return '/images/5g-gaming.jpg';
   }
-  if (s.includes('loi') || s.includes('khong-thanh-cong') || s.includes('huy') || s.includes('kiem-tra') || s.includes('khac-phuc')) {
+  if (s.includes('loi') || s.includes('lỗi') || s.includes('khong-thanh-cong') || s.includes('không thành công') || s.includes('khac-phuc') || s.includes('khắc phục')) {
     return '/images/5g-error.jpg';
   }
-  if (s.includes('so-sanh') || s.includes('combo') || s.includes('v120b') || s.includes('v150b') || s.includes('v200b') || s.includes('v90b')) {
+  if (s.includes('so-sanh') || s.includes('so sánh') || s.includes('multisim')) {
     return '/images/5g-compare.jpg';
   }
   return '/images/viettel-4g-speed-banner.jpg';
