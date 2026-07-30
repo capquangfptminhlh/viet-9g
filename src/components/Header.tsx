@@ -154,6 +154,13 @@ export default function Header({
                 </button>
               );
             })}
+            <a
+              href="/tin-tuc"
+              className="h-full px-5 flex items-center gap-2 text-sm font-bold uppercase tracking-wide transition-colors text-gray-700 hover:text-[#e60000] hover:bg-red-50"
+            >
+              <Layers className="w-4 h-4 text-red-500" />
+              TIN TỨC & HƯỚNG DẪN
+            </a>
           </div>
         </div>
       </nav>
@@ -193,6 +200,13 @@ export default function Header({
                 </button>
               );
             })}
+            <a
+              href="/tin-tuc"
+              className="px-6 py-3 flex items-center gap-3 text-sm font-bold uppercase text-gray-700 hover:bg-gray-50 min-h-[48px]"
+            >
+              <Layers className="w-5 h-5 text-red-500" />
+              TIN TỨC & HƯỚNG DẪN
+            </a>
           </div>
         </div>
       )}

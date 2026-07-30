@@ -1,0 +1,101 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
+const posts = await getCollection('posts');
+
+// Chuẩn bị danh sách bài viết với tiêu đề và tóm tắt rút trích từ nội dung markdown
+const formattedPosts = posts.map((post: any) => {
+  const content = post.body || '';
+  const titleMatch = content.match(/^#\s+(.+)$/m);
+  const title = titleMatch ? titleMatch[1] : post.slug.replace(/-/g, ' ');
+  
+  // Rút trích đoạn văn đầu tiên (không phải heading hoặc quote) để làm mô tả
+  const lines = content.split('\n');
+  let excerpt = 'Hướng dẫn chi tiết cú pháp đăng ký, tra cứu và sử dụng ưu đãi dịch vụ di động Viettel mới nhất năm 2026.';
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (trimmed && !trimmed.startsWith('#') && !trimmed.startsWith('---') && !trimmed.startsWith('*') && trimmed.length > 30) {
+      excerpt = trimmed.replace(/\*\*/g, '').slice(0, 160) + '...';
+      break;
+    }
+  }
+
+  return {
+    slug: post.slug,
+    title,
+    excerpt
+  };
+});
+
+// Giả lập config rỗng cho Header/Footer
+const mockConfig = { agentCode: 'GB', supportPhone: '1800.8098', zaloLink: 'https://zalo.me/18008098', agentName: 'Kênh CTV' };
+---
+<BaseLayout title="Tin Tức & Hướng Dẫn Đăng Ký Gói Cước Viettel 2026 | tracuugoicuoc.com">
+  <Header config={mockConfig} client:load />
+  
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 pt-24 min-h-screen font-sans">
+    {/* Header banner */}
+    <div class="bg-gradient-to-r from-red-600 to-red-700 rounded-2xl shadow-xl p-6 sm:p-10 text-white mb-10">
+      <div class="max-w-3xl">
+        <span class="inline-block bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3">
+          Kênh Kiến Thức & AEO/SEO
+        </span>
+        <h1 class="text-3xl sm:text-4xl font-black uppercase tracking-tight leading-tight">
+          Tin Tức & Hướng Dẫn Viettel
+        </h1>
+        <p class="text-red-100 text-sm sm:text-base mt-3 leading-relaxed">
+          Tổng hợp đầy đủ cách đăng ký, hủy gói cước, tra cứu lưu lượng Data 4G/5G và giải đáp thắc mắc liên quan đến dịch vụ di động Viettel chính thức.
+        </p>
+      </div>
+    </div>
+
+    {/* Posts Grid */}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {formattedPosts.map((item) => (
+        <article class="bg-white rounded-xl border border-gray-200 hover:border-red-500 hover:shadow-lg transition-all duration-300 flex flex-col justify-between p-6">
+          <div>
+            <div class="flex items-center gap-2 text-xs font-bold text-red-600 uppercase tracking-wider mb-2">
+              <span class="w-2 h-2 rounded-full bg-red-600"></span>
+              Hướng dẫn di động
+            </div>
+            <h2 class="text-lg font-bold text-gray-900 hover:text-red-600 transition-colors line-clamp-2 leading-snug mb-3">
+              <a href={`/posts/${item.slug}/`} class="hover:underline">
+                {item.title}
+              </a>
+            </h2>
+            <p class="text-sm text-gray-600 line-clamp-3 leading-relaxed">
+              {item.excerpt}
+            </p>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between">
+            <a 
+              href={`/posts/${item.slug}/`}
+              class="inline-flex items-center gap-1.5 text-sm font-bold text-red-600 hover:text-red-700 min-h-[44px] py-2"
+            >
+              Đọc chi tiết
+              <span aria-hidden="true">→</span>
+            </a>
+            <span class="text-xs text-gray-400 font-medium">Miễn phí SMS 290</span>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    {/* Call to action footer box */}
+    <div class="mt-12 bg-red-50 border border-red-200 rounded-2xl p-6 text-center">
+      <h3 class="text-lg font-bold text-red-800">Cần tư vấn chọn gói cước phù hợp nhất?</h3>
+      <p class="text-sm text-red-700 mt-1">Liên hệ ngay tổng đài chăm sóc khách hàng Viettel 1800.8098 (Miễn phí).</p>
+      <div class="mt-4">
+        <a href="/" class="inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-bold bg-red-600 text-white hover:bg-red-700 shadow-md transition-colors min-h-[44px]">
+          ← Về trang tra cứu gói cước
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <Footer config={mockConfig} client:load />
+</BaseLayout>
