@@ -1,9 +1,9 @@
 name: Antigravity Daily SEO/AEO Pipeline
 
 on:
-  schedule:
+  # schedule (disabled by user):
     # 18:00 UTC = 01:00 AM Asia/Ho_Chi_Minh (UTC+7)
-    - cron: '0 18 * * *'
+    # - cron: '0 18 * * *'
   workflow_dispatch:
 
 concurrency:
