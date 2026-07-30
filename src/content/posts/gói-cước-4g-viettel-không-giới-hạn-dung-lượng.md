@@ -1,4 +1,4 @@
-# Tổng Hợp Các Gói Cước 4G Viettel Không Giới Hạn Dung Lượng Mới Nhất 2024
+﻿# Tổng Hợp Các Gói Cước 4G Viettel Không Giới Hạn Dung Lượng Mới Nhất 2024
 
 Bạn đang tìm kiếm một **gói cước 4G Viettel không giới hạn dung lượng** để thoải mái xem phim, livestream và chơi game mà không lo hết data giữa chừng? Việc sử dụng internet liên tục khiến bạn lo lắng về vấn đề phát sinh cước phí? Đừng lo lắng, bài viết này sẽ giải đáp tất cả cho bạn.
 
@@ -25,7 +25,7 @@ Dưới đây là bảng tổng hợp các gói cước 4G Viettel đang đượ
 
 **Cú pháp:** `[Tên Gói] [Mã CTV] gửi 290`
 
-* **Ví dụ:** Nếu bạn muốn đăng ký gói MXH120, hãy soạn: **MXH120 352525287 gửi 290**
+* **Ví dụ:** Nếu bạn muốn đăng ký gói MXH120, hãy soạn: **MXH120 GB gửi 290**
 
 > **Lưu ý đặc biệt:** Cước phí gửi tin nhắn đến đầu số 290 là **MIỄN PHÍ 100%**. Bạn không mất bất kỳ chi phí nào khi thực hiện thao tác đăng ký này.
 

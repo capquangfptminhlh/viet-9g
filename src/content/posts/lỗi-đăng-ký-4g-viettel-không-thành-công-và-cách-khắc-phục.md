@@ -1,4 +1,4 @@
-# Lỗi đăng ký 4G Viettel không thành công và cách khắc phục triệt để nhất
+﻿# Lỗi đăng ký 4G Viettel không thành công và cách khắc phục triệt để nhất
 
 Bạn đang cần truy cập mạng gấp nhưng gặp phải tình trạng **lỗi đăng ký 4G Viettel không thành công**? Đừng lo lắng, đây là vấn đề rất phổ biến mà người dùng thường gặp phải. Với tư cách là **đối tác/đại lý chính thức của Viettel**, chúng tôi sẽ giúp bạn phân tích chính xác nguyên nhân và hướng dẫn cách xử lý nhanh nhất để bạn có thể tận hưởng dịch vụ data tốc độ cao ngay lập tức.
 
@@ -24,7 +24,7 @@ Bạn đang cần truy cập mạng gấp nhưng gặp phải tình trạng **l�
 **Cú pháp đăng ký:**
 > **Soạn: [Tên Gói] [Mã CTV] gửi 290**
 
-*Ví dụ: Để đăng ký gói MXH120, bạn soạn: **MXH120 352525287 gửi 290***
+*Ví dụ: Để đăng ký gói MXH120, bạn soạn: **MXH120 GB gửi 290***
 
 **Thông tin cần lưu ý:**
 *   **Cước phí tin nhắn:** Việc gửi tin nhắn đến đầu số **290 là hoàn toàn MIỄN PHÍ 100%**.

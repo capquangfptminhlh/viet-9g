@@ -1,4 +1,4 @@
-# Cách Kiểm Tra Cú Pháp Kiểm Tra Dung Lượng Data 4G Viettel Còn Lại Nhanh Nhất 2024
+﻿# Cách Kiểm Tra Cú Pháp Kiểm Tra Dung Lượng Data 4G Viettel Còn Lại Nhanh Nhất 2024
 
 Bạn đang lo lắng vì lỡ dùng hết dung lượng cao giữa chừng khi đang làm việc hoặc giải trí? Việc nắm rõ **cú pháp kiểm tra dung lượng data 4G Viettel còn lại** là cực kỳ quan trọng để chủ động quản lý chi tiêu và tránh phát sinh cước phí ngoài ý muốn. Là đơn vị CTV/Đại lý chính thức của Viettel, chúng tôi cam kết cung cấp những thông tin chính xác, cập nhật nhất giúp bạn quản lý gói cước một cách tối ưu nhất.
 
@@ -24,7 +24,7 @@ Bạn đang lo lắng vì lỡ dùng hết dung lượng cao giữa chừng khi 
 **Cú pháp soạn tin:**
 > **[Tên Gói] [Mã CTV] gửi 290**
 
-*Ví dụ: Để đăng ký gói MXH120, bạn soạn: **MXH120 352525287 gửi 290***
+*Ví dụ: Để đăng ký gói MXH120, bạn soạn: **MXH120 GB gửi 290***
 
 **Thông tin về cước phí:**
 *   **Cước phí gửi tin nhắn đến đầu số 290 là MIỄN PHÍ 100%**. Bạn không mất bất kỳ chi phí nào để thực hiện thao tác đăng ký này.

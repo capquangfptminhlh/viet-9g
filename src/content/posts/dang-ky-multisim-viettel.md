@@ -1,4 +1,4 @@
-# Đăng ký MultiSIM Viettel sử dụng song song trên nhiều thiết bị
+﻿# Đăng ký MultiSIM Viettel sử dụng song song trên nhiều thiết bị
 
 **MultiSIM là giải pháp hoàn hảo cho những ai đang sở hữu cùng lúc điện thoại, đồng hồ thông minh (Apple Watch, Galaxy Watch) và máy tính bảng.**
 

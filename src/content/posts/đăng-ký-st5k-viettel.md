@@ -1,4 +1,4 @@
-# Cách Đăng Ký ST5K Viettel Siêu Nhanh: Nhận Ngay 500MB Data Chỉ Với 5.000đ
+﻿# Cách Đăng Ký ST5K Viettel Siêu Nhanh: Nhận Ngay 500MB Data Chỉ Với 5.000đ
 
 Bạn đang tìm kiếm một gói cước data dung lượng lớn, giá rẻ để lướt web, xem phim hay chơi game mà không lo về cước phí? **Đăng ký ST5K Viettel** chính là giải pháp hoàn hảo dành cho bạn. Bài viết này được cung cấp bởi **Kênh Đại lý/CTV chính thức của Viettel**, cam kết mang đến thông tin chính xác, cập nhật mới nhất giúp bạn đăng ký thành công ngay lập tức.
 
@@ -22,7 +22,7 @@ Gói cước ST5K là một trong những gói data ngắn ngày được ưa ch
 **Cú pháp đăng ký:**
 > **Soạn: ST5K [Mã CTV] gửi 290**
 
-*(Ví dụ: Soạn ST5K 352525287 gửi 290)*
+*(Ví dụ: Soạn ST5K GB gửi 290)*
 
 **Lưu ý đặc biệt:**
 *   **Cước phí gửi tin nhắn:** Việc gửi tin nhắn đến đầu số 290 để đăng ký là **MIỄN PHÍ 100%**. Bạn không cần phải có sẵn tiền trong tài khoản để gửi tin nhắn đăng ký.

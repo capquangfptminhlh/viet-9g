@@ -1,4 +1,4 @@
-# Đăng ký mạng Viettel tháng ưu đãi khủng nhất: Bảng giá và Cách đăng ký mới nhất
+﻿# Đăng ký mạng Viettel tháng ưu đãi khủng nhất: Bảng giá và Cách đăng ký mới nhất
 
 Bạn đang tìm kiếm giải pháp **đăng ký mạng Viettel tháng ưu đãi khủng nhất** để thỏa mãn nhu cầu xem phim, lướt TikTok và làm việc online không gián đoạn? Đừng bỏ lỡ bài viết này! Với tư cách là **Đại lý/CTV chính thức của Viettel**, chúng tôi cam kết cung cấp danh sách các gói cước mới nhất, chính xác nhất, giúp bạn tối ưu chi phí sử dụng data và phút gọi hàng tháng.
 
@@ -26,8 +26,8 @@ Dưới đây là bảng tổng hợp các gói cước data và gọi thoại �
 **Cú pháp:** `[Tên Gói] [Mã CTV] gửi 290`
 
 **Ví dụ cụ thể:**
-* Để đăng ký gói MXH120: Soạn **MXH120 352525287 gửi 290**
-* Để đăng ký gói SD120: Soạn **SD120 352525287 gửi 290**
+* Để đăng ký gói MXH120: Soạn **MXH120 GB gửi 290**
+* Để đăng ký gói SD120: Soạn **SD120 GB gửi 290**
 
 ⚠️ **Lưu ý đặc biệt:** Cước phí gửi tin nhắn đến đầu số 290 là **MIỄN PHÍ 100%**. Bạn không mất thêm bất kỳ chi phí nào để thực hiện thao tác đăng ký này.
 

@@ -1,4 +1,4 @@
-# Cách Đăng Ký SD135 Viettel Siêu Nhanh: Nhận Ngay Combo Data Khủng & Gọi Miễn Phí
+﻿# Cách Đăng Ký SD135 Viettel Siêu Nhanh: Nhận Ngay Combo Data Khủng & Gọi Miễn Phí
 
 Bạn đang tìm kiếm một gói cước data dung lượng lớn kèm ưu đãi gọi thoại để tiết kiệm chi phí liên lạc hàng tháng? **Đăng ký SD135 Viettel** chính là giải pháp hoàn hảo dành cho bạn. Bài viết này được thực hiện bởi đội ngũ **Đại lý/CTV chính thức của Viettel**, cam kết cung cấp thông tin chính xác, cập nhật mới nhất để giúp bạn tối ưu hóa chi tiêu viễn thông.
 
@@ -22,7 +22,7 @@ Gói cước SD135 là một trong những gói cước "quốc dân" của Viet
 **Cú pháp đăng ký:**
 > **SD135 [Mã CTV] gửi 290**
 
-*(Ví dụ: Soạn **SD135 352525287 gửi 290**)*
+*(Ví dụ: Soạn **SD135 GB gửi 290**)*
 
 **Lưu ý cực kỳ quan trọng:**
 *   **Cước phí gửi tin nhắn đến đầu số 290 là MIỄN PHÍ 100%**. Bạn không mất bất kỳ chi phí nào để gửi cú pháp đăng ký trên.

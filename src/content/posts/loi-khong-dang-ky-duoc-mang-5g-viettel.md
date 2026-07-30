@@ -1,4 +1,4 @@
-# 4 Lỗi Không Đăng Ký Được Mạng 5G Viettel Và Cách Khắc Phục Ngay Lập Tức
+﻿# 4 Lỗi Không Đăng Ký Được Mạng 5G Viettel Và Cách Khắc Phục Ngay Lập Tức
 
 ![Lỗi không đăng ký được mạng 5G](/images/5g-error.jpg)
 Khi soạn tin nhắn đăng ký các gói cước 5G Viettel (Ví dụ: 5G135N, 5G280B) gửi tổng đài 290 hoặc 191, nhiều khách hàng nhận được tin báo lỗi hệ thống từ chối. Dưới đây là 4 nguyên nhân phổ biến nhất và cách xử lý trong vòng 1 phút.

@@ -1,4 +1,4 @@
-# Hướng dẫn đăng ký SD120 Viettel: Nhận ngay 3GB/ngày và ưu đãi gọi miễn phí
+﻿# Hướng dẫn đăng ký SD120 Viettel: Nhận ngay 3GB/ngày và ưu đãi gọi miễn phí
 
 Bạn đang tìm kiếm một gói cước data khủng để xem phim, lướt TikTok hay làm việc từ xa mà không lo hết dung lượng? **Đăng ký SD120 Viettel** chính là giải pháp hoàn hảo dành cho bạn. Với ưu đãi lên đến 3GB/ngày, đây là gói cước "quốc dân" được săn đón nhất hiện nay.
 
@@ -24,7 +24,7 @@ Gói cước SD120 của Viettel được thiết kế đặc biệt cho những
 **Cú pháp đăng ký:**
 > **SD120 [Mã CTV] gửi 290**
 
-*(Ví dụ: Soạn **SD120 352525287 gửi 290**)*
+*(Ví dụ: Soạn **SD120 GB gửi 290**)*
 
 **Lưu ý quan trọng:**
 * **Cước phí gửi tin nhắn:** Việc gửi tin nhắn đến đầu số 290 để đăng ký là **MIỄN PHÍ 100%**.

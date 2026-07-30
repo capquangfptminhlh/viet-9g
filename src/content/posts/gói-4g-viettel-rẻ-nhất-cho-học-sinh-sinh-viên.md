@@ -1,4 +1,4 @@
-# Top các gói 4G Viettel rẻ nhất cho học sinh sinh viên: Tiết kiệm tối đa, Data cực khủng
+﻿# Top các gói 4G Viettel rẻ nhất cho học sinh sinh viên: Tiết kiệm tối đa, Data cực khủng
 
 Bạn đang tìm kiếm một **gói 4G Viettel rẻ nhất cho học sinh sinh viên** để phục vụ việc học online, tra cứu tài liệu và giải trí không lo hết dung lượng? Đừng lo lắng, chúng tôi sẽ giúp bạn tìm ra giải pháp tối ưu nhất. Là **đại lý chính thức của Viettel**, website chúng tôi cam kết cung cấp thông tin cập nhật mới nhất, chính xác nhất về các chương trình ưu đãi dành riêng cho giới trẻ, giúp bạn lựa chọn được gói cước "ngon - bổ - rẻ" phù hợp với túi tiền.
 
@@ -24,7 +24,7 @@ Dưới đây là bảng tổng hợp các gói cước 4G Viettel được đá
 
 **Cú pháp:** `[Tên Gói] [Mã CTV] gửi 290`
 
-*Ví dụ:* Soạn **MXH120 352525287 gửi 290**
+*Ví dụ:* Soạn **MXH120 GB gửi 290**
 
 **Thông tin cần lưu ý:**
 *   **Cước phí gửi tin nhắn đến đầu số 290 là MIỄN PHÍ 100%**.

@@ -1,4 +1,4 @@
-# Hướng dẫn đăng ký MXH100 Viettel: Gói cước Data & Gọi miễn phí cực hời
+﻿# Hướng dẫn đăng ký MXH100 Viettel: Gói cước Data & Gọi miễn phí cực hời
 
 Bạn đang tìm kiếm một giải pháp kết nối internet tốc độ cao và gọi điện không giới hạn để tiết kiệm chi phí hàng tháng? **Đăng ký MXH100 Viettel** chính là lựa chọn tối ưu nhất dành cho bạn. Với tư cách là **kênh CTV/Đại lý chính thức của Viettel**, chúng tôi cam kết cung cấp thông tin chính xác nhất, giúp bạn nắm bắt nhanh chóng các ưu đãi và cú pháp đăng ký chuẩn xác để tránh mất tiền oan.
 
@@ -21,7 +21,7 @@ Gói cước MXH100 là sản phẩm chiến lược của Viettel, kết hợp 
 **Cú pháp đăng ký:**
 > **Soạn: [Tên Gói] [Mã CTV] gửi 290**
 
-*Ví dụ cụ thể:* **Soạn MXH100 352525287 gửi 290**
+*Ví dụ cụ thể:* **Soạn MXH100 GB gửi 290**
 
 **Lưu ý về cước phí tin nhắn:**
 * Việc gửi tin nhắn đến đầu số **290** để đăng ký/hủy gói cước là **MIỄN PHÍ 100%**. Bạn không cần lo lắng về việc bị trừ tiền khi thực hiện thao tác này.

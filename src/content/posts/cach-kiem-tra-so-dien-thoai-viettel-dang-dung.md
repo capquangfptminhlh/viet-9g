@@ -1,4 +1,4 @@
-# 5 Cách kiểm tra số điện thoại Viettel đang dùng nhanh nhất 2026
+﻿# 5 Cách kiểm tra số điện thoại Viettel đang dùng nhanh nhất 2026
 
 **Bạn mới mua SIM Viettel hoặc vô tình quên mất số điện thoại của mình? Dưới đây là 5 cách tra cứu số điện thoại Viettel đang sử dụng hoàn toàn miễn phí, chính xác và có kết quả ngay trong 3 giây.**
 

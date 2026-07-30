@@ -1,4 +1,4 @@
-# Hướng dẫn cách đăng ký mạng Viettel cho sim mới kích hoạt nhanh nhất và tiết kiệm nhất
+﻿# Hướng dẫn cách đăng ký mạng Viettel cho sim mới kích hoạt nhanh nhất và tiết kiệm nhất
 
 Bạn vừa mua một chiếc SIM Viettel mới và đang muốn tìm kiếm **cách đăng ký mạng Viettel cho sim mới kích hoạt** để có thể sử dụng 4G/5G tốc độ cao ngay lập tức? Việc lựa chọn đúng gói cước không chỉ giúp bạn tiết kiệm chi phí mà còn đảm bảo trải nghiệm lướt web, xem phim không bị gián đoạn. 
 
@@ -31,8 +31,8 @@ Dưới đây là bảng tổng hợp các gói cước Data và Thoại cực k
 > **[Tên Gói] [Mã CTV] gửi 290**
 
 **Ví dụ cụ thể:**
-* Nếu bạn muốn đăng ký gói **MXH120**, hãy soạn: `MXH120 352525287 gửi 290`
-* Nếu bạn muốn đăng ký gói **SD90**, hãy soạn: `SD90 352525287 gửi 290`
+* Nếu bạn muốn đăng ký gói **MXH120**, hãy soạn: `MXH120 GB gửi 290`
+* Nếu bạn muốn đăng ký gói **SD90**, hãy soạn: `SD90 GB gửi 290`
 
 **Ưu điểm khi đăng ký qua kênh này:**
 * **Cước phí gửi tin nhắn đến đầu số 290 là MIỄN PHÍ 100%.**

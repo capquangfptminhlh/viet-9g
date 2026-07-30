@@ -1,4 +1,4 @@
-# Hướng dẫn đăng ký MXH120 Viettel: Gói cước siêu ưu đãi, Data khủng, Gọi miễn phí
+﻿# Hướng dẫn đăng ký MXH120 Viettel: Gói cước siêu ưu đãi, Data khủng, Gọi miễn phí
 
 Bạn đang tìm kiếm một giải pháp kết nối không giới hạn để lướt web, xem phim và gọi điện liên tục mà không lo hết dung lượng hay tốn cước phí? **Đăng ký MXH120 Viettel** chính là câu trả lời hoàn hảo dành cho bạn. Là kênh đại lý chính thức của Viettel, chúng tôi cam kết cung cấp thông tin chính xác, minh bạch nhất về các gói cước để quý khách hàng có lựa chọn tối ưu nhất.
 
@@ -21,7 +21,7 @@ Gói cước MXH120 là một trong những gói cước "quốc dân" của Vie
 **Cú pháp đăng ký:**
 > **Soạn: MXH120 [Mã CTV] gửi 290**
 
-*(Ví dụ cụ thể: Soạn **MXH120 352525287 gửi 290**)*
+*(Ví dụ cụ thể: Soạn **MXH120 GB gửi 290**)*
 
 **Thông tin lưu ý khi soạn tin:**
 *   **Cước phí gửi tin nhắn:** Việc gửi tin nhắn đến đầu số **290** để đăng ký gói cước là **MIỄN PHÍ 100%**.

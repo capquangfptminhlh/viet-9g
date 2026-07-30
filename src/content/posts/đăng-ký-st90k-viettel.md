@@ -1,4 +1,4 @@
-# Hướng dẫn đăng ký ST90K Viettel: Chi tiết ưu đãi và cách đăng ký chuẩn nhất
+﻿# Hướng dẫn đăng ký ST90K Viettel: Chi tiết ưu đãi và cách đăng ký chuẩn nhất
 
 Bạn đang tìm cách **đăng ký ST90K Viettel** để sở hữu gói cước data khủng với chi phí tiết kiệm? Bài viết này sẽ cung cấp cho bạn mọi thông tin chi tiết nhất về dung lượng, giá cước và cú pháp đăng ký chính xác. 
 
@@ -25,7 +25,7 @@ Gói cước ST90K là một trong những gói cước data phổ biến của 
 **Cú pháp đăng ký:**
 > **ST90K [Mã CTV] gửi 290**
 
-*(Ví dụ: Soạn **ST90K 352525287 gửi 290**)*
+*(Ví dụ: Soạn **ST90K GB gửi 290**)*
 
 **Lưu ý quan trọng:**
 * **Cước phí gửi tin nhắn:** Việc gửi tin nhắn đến đầu số 290 để đăng ký gói cước là **MIỄN PHÍ 100%**.

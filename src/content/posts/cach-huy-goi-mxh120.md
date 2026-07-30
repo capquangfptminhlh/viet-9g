@@ -1,4 +1,4 @@
-# Cách hủy gói cước MXH120 Viettel nhanh chóng và miễn phí
+﻿# Cách hủy gói cước MXH120 Viettel nhanh chóng và miễn phí
 
 Để hủy gói MXH120 Viettel, bạn soạn tin nhắn theo cú pháp: **HUY MXH120 gửi 191** (Miễn phí cước SMS). Sau đó, bạn tiếp tục soạn **Y gửi 191** để xác nhận yêu cầu hủy. Toàn bộ thao tác chỉ mất chưa tới 1 phút và được miễn phí hoàn toàn.
 

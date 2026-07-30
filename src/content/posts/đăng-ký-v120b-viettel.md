@@ -1,4 +1,4 @@
-# Hướng Dẫn Đăng Ký V120B Viettel Chi Tiết: Nhận Ngay Combo Data Khủng & Gọi Miễn Phí
+﻿# Hướng Dẫn Đăng Ký V120B Viettel Chi Tiết: Nhận Ngay Combo Data Khủng & Gọi Miễn Phí
 
 Bạn đang tìm kiếm một giải pháp mạng di động vừa có dung lượng Data lớn để xem phim, lướt TikTok, vừa có thể gọi điện không giới hạn để tiết kiệm chi phí? **Đăng ký V120B Viettel** chính là câu trả lời hoàn hảo dành cho bạn. 
 
@@ -24,7 +24,7 @@ Gói V120B là một trong những gói cước "quốc dân" của Viettel, k�
 **Cú pháp soạn tin nhắn:**
 > **V120B [Mã CTV] gửi 290**
 
-*(Ví dụ: Soạn **V120B 352525287 gửi 290**)*
+*(Ví dụ: Soạn **V120B GB gửi 290**)*
 
 **Lưu ý đặc biệt:**
 * Cước phí gửi tin nhắn đến đầu số 290 là **MIỄN PHÍ 100%**.

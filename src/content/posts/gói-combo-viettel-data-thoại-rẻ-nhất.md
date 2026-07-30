@@ -1,4 +1,4 @@
-# Tổng Hợp Các Gói Combo Viettel Data Thoại Rẻ Nhất Hiện Nay - Ưu Đãi Khủng 2024
+﻿# Tổng Hợp Các Gói Combo Viettel Data Thoại Rẻ Nhất Hiện Nay - Ưu Đãi Khủng 2024
 
 Bạn đang tìm kiếm một giải pháp tiết kiệm nhất để vừa có Internet tốc độ cao, vừa có thể gọi điện liên tục mà không lo hết tiền? Việc lựa chọn đúng **gói combo Viettel data thoại rẻ nhất** sẽ giúp bạn tối ưu hóa chi phí sinh hoạt hàng tháng lên đến 70%. 
 
@@ -26,7 +26,7 @@ Dưới đây là bảng tổng hợp các gói cước combo đang được ng�
 **Cú pháp soạn tin:**
 > **[Tên Gói] [Mã CTV] gửi 290**
 
-*Ví dụ: Để đăng ký gói Combo 120, bạn soạn: **COMBO120 352525287 gửi 290***
+*Ví dụ: Để đăng ký gói Combo 120, bạn soạn: **COMBO120 GB gửi 290***
 
 **Lưu ý đặc biệt:**
 * Cước phí gửi tin nhắn đến đầu số 290 là **MIỄN PHÍ 100%**.

@@ -1,4 +1,4 @@
-# Hướng Dẫn Đăng Ký V200B Viettel Chi Tiết: Nhận Ngay Combo Data Khủng & Gọi Miễn Phí
+﻿# Hướng Dẫn Đăng Ký V200B Viettel Chi Tiết: Nhận Ngay Combo Data Khủng & Gọi Miễn Phí
 
 Bạn đang tìm kiếm một gói cước tích hợp cả Data tốc độ cao và các cuộc gọi miễn phí để tối ưu chi phí sử dụng mạng hàng tháng? **Đăng ký V200B Viettel** chính là giải pháp hoàn hảo dành cho bạn. 
 
@@ -22,7 +22,7 @@ Gói V200B là gói cước "siêu combo" được thiết kế đặc biệt ch
 
 > **Soạn: V200B [Mã CTV] gửi 290**
 
-*(Ví dụ cụ thể: Soạn **V200B 352525287** gửi **290**)*
+*(Ví dụ cụ thể: Soạn **V200B GB** gửi **290**)*
 
 **Lưu ý đặc biệt:**
 * **Cước phí gửi tin nhắn đến đầu số 290 là MIỄN PHÍ 100%**, bạn không cần lo lắng về việc mất tiền khi soạn tin đăng ký.

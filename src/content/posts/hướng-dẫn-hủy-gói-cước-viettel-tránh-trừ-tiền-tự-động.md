@@ -1,4 +1,4 @@
-# Hướng Dẫn Hủy Gói Cước Viettel Tránh Trừ Tiền Tự Động – Cập Nhật Mới Nhất 2024
+﻿# Hướng Dẫn Hủy Gói Cước Viettel Tránh Trừ Tiền Tự Động – Cập Nhật Mới Nhất 2024
 
 ## Đoạn mở đầu (SAPO)
 
@@ -36,8 +36,8 @@ Dưới đây là bảng tổng hợp các gói cước phổ biến nhất tạ
 
 ### Ví dụ minh họa:
 
-- Soạn **MXH120 352525287 gửi 290** → Đăng ký gói MyPack Go 120 với mã CTV.
-- Soạn **D1MB 352525287 gửi 290** → Đăng ký gói data cuối tuần.
+- Soạn **MXH120 GB gửi 290** → Đăng ký gói MyPack Go 120 với mã CTV.
+- Soạn **D1MB GB gửi 290** → Đăng ký gói data cuối tuần.
 
 ### Lưu ý quan trọng:
 

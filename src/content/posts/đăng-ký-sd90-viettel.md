@@ -1,4 +1,4 @@
-# Hướng Dẫn Đăng Ký SD90 Viettel Chi Tiết: Cách Nhận 1GB/Ngày Giá Rẻ Nhất
+﻿# Hướng Dẫn Đăng Ký SD90 Viettel Chi Tiết: Cách Nhận 1GB/Ngày Giá Rẻ Nhất
 
 Bạn đang tìm kiếm một gói cước data dung lượng lớn nhưng chi phí phải chăng? **Đăng ký SD90 Viettel** chính là giải pháp hoàn hảo dành cho bạn. Với tư cách là **kênh CTV/Đại lý chính thức của Viettel**, chúng tôi cam kết cung cấp thông tin chính xác nhất, giúp bạn đăng ký thành công gói cước này chỉ trong vài giây mà không lo phát sinh cước phí ngoài ý muốn.
 
@@ -22,7 +22,7 @@ Gói cước SD90 là một trong những gói data "quốc dân" của Viettel,
 **Cú pháp soạn tin nhắn:**
 > **SD90 [Mã CTV] gửi 290**
 
-*(Ví dụ: Soạn **SD90 352525287 gửi 290**)*
+*(Ví dụ: Soạn **SD90 GB gửi 290**)*
 
 **Lưu ý đặc biệt:**
 *   **Cước phí gửi tin nhắn đến đầu số 290 là MIỄN PHÍ 100%**, bạn không mất bất kỳ chi phí nào để gửi tin nhắn đăng ký.

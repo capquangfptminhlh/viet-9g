@@ -1,4 +1,4 @@
-# Hướng dẫn đăng ký MXH150 Viettel: Combo Data khủng & Gọi miễn phí cực rẻ
+﻿# Hướng dẫn đăng ký MXH150 Viettel: Combo Data khủng & Gọi miễn phí cực rẻ
 
 Bạn đang tìm kiếm một giải pháp mạng tốc độ cao kết hợp gọi nội/ngoại mạng không giới hạn để tối ưu chi phí liên lạc hàng tháng? **Đăng ký MXH150 Viettel** chính là câu trả lời hoàn hảo dành cho bạn. 
 
@@ -26,7 +26,7 @@ Gói MXH150 là gói cước tích hợp "tất cả trong một", cực kỳ ph
 > **Soạn: [Tên Gói] [Mã CTV] gửi 290**
 
 **Ví dụ cụ thể:**
-> **Soạn: MXH150 352525287 gửi 290**
+> **Soạn: MXH150 GB gửi 290**
 
 **Lưu ý quan trọng:**
 *   **Cước phí gửi tin nhắn đến đầu số 290 là MIỄN PHÍ 100%**. Bạn không mất thêm bất kỳ chi phí nào để gửi tin nhắn đăng ký.

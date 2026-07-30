@@ -1,4 +1,4 @@
-# Hướng dẫn đăng ký V90B Viettel chi tiết: Ưu đãi Data khủng, Gọi miễn phí cực rẻ
+﻿# Hướng dẫn đăng ký V90B Viettel chi tiết: Ưu đãi Data khủng, Gọi miễn phí cực rẻ
 
 Bạn đang tìm kiếm một gói cước vừa có dung lượng Data lớn để giải trí, vừa có thể gọi nội mạng miễn phí để tiết kiệm chi phí liên lạc? **Đăng ký V90B Viettel** chính là giải pháp hoàn hảo dành cho bạn. 
 
@@ -25,7 +25,7 @@ Gói V90B là một trong những gói cước "quốc dân" của Viettel dành
 
 **Cú pháp:** `V90B [Mã CTV] gửi 290`
 
-*(Ví dụ: Soạn **V90B 352525287 gửi 290**)*
+*(Ví dụ: Soạn **V90B GB gửi 290**)*
 
 **Lưu ý quan trọng:**
 *   **Cước phí gửi tin nhắn:** Việc gửi tin nhắn đến đầu số 290 là **MIỄN PHÍ 100%**.

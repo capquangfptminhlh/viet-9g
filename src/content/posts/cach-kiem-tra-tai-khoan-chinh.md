@@ -1,4 +1,4 @@
-# Cách kiểm tra tài khoản chính Viettel và Data còn lại
+﻿# Cách kiểm tra tài khoản chính Viettel và Data còn lại
 
 **Bỏ túi ngay các cú pháp USSD và tin nhắn quan trọng nhất để làm chủ tài khoản điện thoại của bạn.**
 

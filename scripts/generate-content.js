@@ -1,4 +1,4 @@
-import fs from 'fs';
+﻿import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -127,7 +127,7 @@ YÊU CẦU CẤU TRÚC BÀI VIẾT (CHUẨN SEO ON-PAGE & AEO):
    - Trình bày thông tin ưu đãi dưới dạng bảng Markdown (Tên Gói, Giá Cước, Dung Lượng Data, Gọi Nội Mạng, Gọi Ngoại Mạng, Chu Kỳ).
    - Giải thích chi tiết các ưu đãi và điều kiện đi kèm (nếu hết data tốc độ cao thì dừng truy cập để tránh phát sinh cước phí).
 4. HƯỚNG DẪN ĐĂNG KÝ (H2):
-   - Đưa ra cú pháp soạn tin nhắn trực diện: Soạn "[Tên Gói] [Mã CTV] gửi 290" (ví dụ: Soạn MXH120 352525287 gửi 290).
+   - Đưa ra cú pháp soạn tin nhắn trực diện: Soạn "[Tên Gói] [Mã CTV] gửi 290" (ví dụ: Soạn MXH120 GB gửi 290).
    - Nêu rõ: Cước phí gửi tin nhắn đến đầu số 290 là MIỄN PHÍ 100%.
 5. PHẦN HỎI ĐÁP (FAQ - H2) (Tối ưu cho AEO):
    - Tạo 3-5 câu hỏi thường gặp dưới dạng các tiêu đề H3 (Ví dụ: "Hủy gói cước X thế nào?", "Kiểm tra dung lượng gói X ra sao?").

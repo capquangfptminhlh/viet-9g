@@ -1,4 +1,4 @@
-# Cách đăng ký 4G Viettel 1 ngày siêu tốc giá rẻ: Top gói cước cực hời 2024
+﻿# Cách đăng ký 4G Viettel 1 ngày siêu tốc giá rẻ: Top gói cước cực hời 2024
 
 Bạn đang cần gấp dung lượng lớn để xem phim, livestream hay làm việc nhưng không muốn đăng ký các gói cước tháng dài hạn? Bạn đang tìm kiếm **cách đăng ký 4G Viettel 1 ngày siêu tốc giá rẻ** để tiết kiệm chi phí tối đa? Đừng lo lắng, bài viết này sẽ hướng dẫn bạn chi tiết các gói cước dùng theo ngày "ngon - bổ - rẻ" nhất hiện nay.
 
@@ -27,9 +27,9 @@ Dưới đây là bảng tổng hợp các gói cước 4G Viettel theo chu kỳ
 > **Soạn [Tên Gói] [Mã CTV] gửi 290**
 
 *Ví dụ cụ thể:*
-*   Đăng ký gói ST15K: Soạn **ST15K 352525287 gửi 290**
-*   Đăng ký gói ST30K: Soạn **ST30K 352525287 gửi 290**
-*   Đăng ký gói ST90K: Soạn **ST90K 352525287 gửi 290**
+*   Đăng ký gói ST15K: Soạn **ST15K GB gửi 290**
+*   Đăng ký gói ST30K: Soạn **ST30K GB gửi 290**
+*   Đăng ký gói ST90K: Soạn **ST90K GB gửi 290**
 
 **Lưu ý quan trọng:**
 *   Cước phí gửi tin nhắn đến đầu số **290 là MIỄN PHÍ 100%**, bạn không mất thêm bất kỳ chi phí soạn tin nào.

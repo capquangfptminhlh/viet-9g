@@ -1,4 +1,4 @@
-# Đăng ký gói cước SD70 Viettel: 30 GB Data tốc độ cao giá chỉ 70.000đ
+﻿# Đăng ký gói cước SD70 Viettel: 30 GB Data tốc độ cao giá chỉ 70.000đ
 
 **Gói cước SD70 của Viettel là sự lựa chọn hàng đầu cho khách hàng có nhu cầu sử dụng Internet di động tốc độ cao với mức chi phí tối ưu nhất năm 2026.**
 
