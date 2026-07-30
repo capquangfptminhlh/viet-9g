@@ -20,26 +20,274 @@ const { entry } = Astro.props;
 // @ts-ignore
 const { Content } = await entry.render();
 
+// Rút trích tiêu đề H1 từ markdown nếu có, hoặc dùng slug
+const contentStr = entry.body || '';
+const titleMatch = contentStr.match(/^#\s+(.+)$/m);
+const displayTitle = titleMatch ? titleMatch[1] : entry.slug.replace(/-/g, ' ');
+
 // Giả lập config rỗng cho Header/Footer (vì chúng được fetch từ local storage ở client)
 const mockConfig = { agentCode: 'GB', supportPhone: '1800.8098', zaloLink: 'https://zalo.me/18008098', agentName: 'Kênh CTV' };
 ---
-// @ts-ignore
-<BaseLayout title={`${entry.slug} - Hướng dẫn Viettel`}>
+<BaseLayout title={`${displayTitle} | Tra cứu & Đăng ký Viettel`}>
   <Header config={mockConfig} client:load />
   
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-28 min-h-screen">
-    <div class="bg-white rounded-2xl shadow-xl shadow-red-900/5 p-6 md:p-10 border border-red-100">
-      <article class="prose prose-red max-w-none prose-headings:font-bold prose-h1:text-red-700 prose-a:text-red-600 hover:prose-a:text-red-500">
-        <Content />
-      </article>
+  <div class="bg-[#f8fafc] min-h-screen py-8 pt-24 font-sans">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="mt-12 pt-8 border-t border-gray-100">
-        <a href="/" class="inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-semibold bg-red-50 text-red-600 hover:bg-red-100 transition-colors">
-          ← Quay lại trang chủ
-        </a>
+      {/* Breadcrumb Navigation */}
+      <nav class="flex items-center gap-2 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-6">
+        <a href="/" class="hover:text-red-600 transition-colors">Trang chủ</a>
+        <span>/</span>
+        <a href="/tin-tuc" class="hover:text-red-600 transition-colors">Tin tức & Hướng dẫn</a>
+        <span>/</span>
+        <span class="text-red-600 truncate max-w-[200px] sm:max-w-xs">{displayTitle}</span>
+      </nav>
+
+      {/* Main Article Container */}
+      <div class="bg-white rounded-2xl shadow-xl shadow-slate-900/5 p-6 sm:p-10 md:p-12 border border-gray-100">
+        
+        {/* Article Top Meta */}
+        <div class="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 border-b border-gray-100">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-red-600 text-white font-black text-sm flex items-center justify-center italic shadow-sm">
+              5G
+            </div>
+            <div>
+              <p class="text-xs font-extrabold text-gray-900 uppercase">Kênh Tiếp Thị Đại Lý Viettel</p>
+              <p class="text-[11px] text-gray-500">Cú pháp SMS 290 miễn phí • Cập nhật 2026</p>
+            </div>
+          </div>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-red-50 text-red-600 border border-red-100">
+            ✓ Thông tin chính thức
+          </span>
+        </div>
+
+        {/* Formatted Markdown Body */}
+        <article class="viettel-post-content">
+          <Content />
+        </article>
+
+        {/* Bottom Interactive CTA Box */}
+        <div class="mt-14 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg relative overflow-hidden">
+          <div class="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-widest bg-white/20 px-2.5 py-1 rounded-full">
+                Hỗ Trợ Nhanh 24/7
+              </span>
+              <h3 class="text-xl sm:text-2xl font-black mt-2">
+                Bạn cần tìm gói cước phù hợp với SIM của mình?
+              </h3>
+              <p class="text-sm text-red-100 mt-1">
+                Tra cứu ưu đãi Data & Thoại chính xác nhất hoặc liên hệ tổng đài chăm sóc khách hàng miễn phí.
+              </p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3 shrink-0 w-full sm:w-auto">
+              <a
+                href="/"
+                class="inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-extrabold bg-white text-red-600 hover:bg-red-50 transition-colors shadow-md min-h-[48px]"
+              >
+                Tra Cứu Gói Cước Ngay →
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        {/* Footer Navigation Buttons */}
+        <div class="mt-8 pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <a
+            href="/tin-tuc"
+            class="inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-bold bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors min-h-[44px] w-full sm:w-auto"
+          >
+            ← Xem tất cả 30+ hướng dẫn Viettel
+          </a>
+          <a
+            href="tel:18008098"
+            class="inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-bold bg-red-50 text-red-600 hover:bg-red-100 transition-colors min-h-[44px] w-full sm:w-auto"
+          >
+            📞 Gọi tổng đài Viettel: 1800.8098
+          </a>
+        </div>
+
       </div>
     </div>
   </div>
 
   <Footer config={mockConfig} client:load />
 </BaseLayout>
+
+<style is:global>
+  /* DESIGN SYSTEM CAO CẤP CHO NỘI DUNG BÀI VIẾT VIETTEL */
+  
+  /* Headings */
+  .viettel-post-content h1 {
+    font-size: 1.75rem;
+    line-height: 1.3;
+    font-weight: 900;
+    color: #b91c1c;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #fee2e2;
+  }
+  @media (min-width: 640px) {
+    .viettel-post-content h1 {
+      font-size: 2.25rem;
+    }
+  }
+
+  .viettel-post-content h2 {
+    font-size: 1.35rem;
+    line-height: 1.4;
+    font-weight: 800;
+    color: #111827;
+    margin-top: 2.25rem;
+    margin-bottom: 1rem;
+    padding: 0.6rem 1rem;
+    background-color: #fef2f2;
+    border-left: 5px solid #dc2626;
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+  @media (min-width: 640px) {
+    .viettel-post-content h2 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .viettel-post-content h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Paragraphs */
+  .viettel-post-content p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #374151;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Bold / Strong */
+  .viettel-post-content strong, 
+  .viettel-post-content b {
+    font-weight: 700;
+    color: #111827;
+  }
+
+  /* Links */
+  .viettel-post-content a {
+    color: #dc2626;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+  .viettel-post-content a:hover {
+    color: #991b1b;
+  }
+
+  /* Lists */
+  .viettel-post-content ul, 
+  .viettel-post-content ol {
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  .viettel-post-content ul {
+    list-style-type: disc;
+  }
+  .viettel-post-content ol {
+    list-style-type: decimal;
+  }
+  .viettel-post-content li {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #374151;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Tables - CHUẨN SHOWROOM CAO CẤP */
+  .viettel-post-content table {
+    width: 100%;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  @media (min-width: 640px) {
+    .viettel-post-content table {
+      display: table;
+      white-space: normal;
+    }
+  }
+
+  .viettel-post-content thead {
+    background-color: #dc2626;
+    color: #ffffff;
+  }
+  .viettel-post-content th {
+    padding: 0.85rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: left;
+    border-bottom: 2px solid #b91c1c;
+  }
+  .viettel-post-content tbody tr {
+    transition: background-color 0.15s;
+  }
+  .viettel-post-content tbody tr:nth-child(even) {
+    background-color: #f8fafc;
+  }
+  .viettel-post-content tbody tr:hover {
+    background-color: #fef2f2;
+  }
+  .viettel-post-content td {
+    padding: 0.85rem 1rem;
+    font-size: 0.95rem;
+    color: #1f2937;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .viettel-post-content td:first-child {
+    font-weight: 800;
+    color: #dc2626;
+  }
+
+  /* Blockquote / SMS Syntax Box - CARD NỔI BẬT */
+  .viettel-post-content blockquote {
+    background: linear-gradient(135deg, #fff1f2 0%, #fffbeb 100%);
+    border: 2px dashed #f87171;
+    border-radius: 1rem;
+    padding: 1.25rem 1.5rem;
+    margin: 1.75rem 0;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #991b1b;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(220, 38, 38, 0.08);
+  }
+  .viettel-post-content blockquote p {
+    margin: 0;
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  /* Horizontal Rules */
+  .viettel-post-content hr {
+    border: 0;
+    height: 1px;
+    background-color: #e5e7eb;
+    margin: 2rem 0;
+  }
+</style>
