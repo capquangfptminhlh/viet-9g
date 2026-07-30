@@ -6,7 +6,25 @@ import Footer from '../components/Footer';
 
 const posts = await getCollection('posts');
 
-// Chuẩn bị danh sách bài viết với tiêu đề và tóm tắt rút trích từ nội dung markdown
+// Hàm chọn ảnh minh họa theo chủ đề bài viết
+function getPostImage(slug: string, title: string) {
+  const s = (slug + ' ' + title).toLowerCase();
+  if (s.includes('mxh') || s.includes('tiktok') || s.includes('youtube') || s.includes('social') || s.includes('facebook')) {
+    return '/images/viettel-4g-social-banner.jpg';
+  }
+  if (s.includes('lien-quan') || s.includes('game') || s.includes('5g135') || s.includes('5g150') || s.includes('gaming')) {
+    return '/images/5g-gaming.jpg';
+  }
+  if (s.includes('loi') || s.includes('khong-thanh-cong') || s.includes('huy') || s.includes('kiem-tra') || s.includes('khac-phuc')) {
+    return '/images/5g-error.jpg';
+  }
+  if (s.includes('so-sanh') || s.includes('combo') || s.includes('v120b') || s.includes('v150b') || s.includes('v200b') || s.includes('v90b')) {
+    return '/images/5g-compare.jpg';
+  }
+  return '/images/viettel-4g-speed-banner.jpg';
+}
+
+// Chuẩn bị danh sách bài viết với tiêu đề, tóm tắt và ảnh thumbnail rút trích từ nội dung markdown
 const formattedPosts = posts.map((post: any) => {
   const content = post.body || '';
   const titleMatch = content.match(/^#\s+(.+)$/m);
@@ -23,10 +41,13 @@ const formattedPosts = posts.map((post: any) => {
     }
   }
 
+  const image = getPostImage(post.slug, title);
+
   return {
     slug: post.slug,
     title,
-    excerpt
+    excerpt,
+    image
   };
 });
 
@@ -55,23 +76,37 @@ const mockConfig = { agentCode: 'GB', supportPhone: '1800.8098', zaloLink: 'http
     {/* Posts Grid */}
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {formattedPosts.map((item) => (
-        <article class="bg-white rounded-xl border border-gray-200 hover:border-red-500 hover:shadow-lg transition-all duration-300 flex flex-col justify-between p-6">
+        <article class="bg-white rounded-xl border border-gray-200 hover:border-red-500 hover:shadow-lg transition-all duration-300 flex flex-col justify-between overflow-hidden group">
           <div>
-            <div class="flex items-center gap-2 text-xs font-bold text-red-600 uppercase tracking-wider mb-2">
-              <span class="w-2 h-2 rounded-full bg-red-600"></span>
-              Hướng dẫn di động
+            <a href={`/posts/${item.slug}/`} class="block overflow-hidden h-48 w-full relative">
+              <img 
+                src={item.image} 
+                alt={item.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                loading="lazy"
+              />
+              <span class="absolute top-3 left-3 bg-red-600/90 text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider shadow-sm">
+                Viettel 2026
+              </span>
+            </a>
+
+            <div class="p-6 pb-2">
+              <div class="flex items-center gap-2 text-xs font-bold text-red-600 uppercase tracking-wider mb-2">
+                <span class="w-2 h-2 rounded-full bg-red-600"></span>
+                Hướng dẫn di động
+              </div>
+              <h2 class="text-lg font-bold text-gray-900 hover:text-red-600 transition-colors line-clamp-2 leading-snug mb-3">
+                <a href={`/posts/${item.slug}/`} class="hover:underline">
+                  {item.title}
+                </a>
+              </h2>
+              <p class="text-sm text-gray-600 line-clamp-3 leading-relaxed">
+                {item.excerpt}
+              </p>
             </div>
-            <h2 class="text-lg font-bold text-gray-900 hover:text-red-600 transition-colors line-clamp-2 leading-snug mb-3">
-              <a href={`/posts/${item.slug}/`} class="hover:underline">
-                {item.title}
-              </a>
-            </h2>
-            <p class="text-sm text-gray-600 line-clamp-3 leading-relaxed">
-              {item.excerpt}
-            </p>
           </div>
 
-          <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between">
+          <div class="px-6 pb-6 pt-4 border-t border-gray-100 flex items-center justify-between">
             <a 
               href={`/posts/${item.slug}/`}
               class="inline-flex items-center gap-1.5 text-sm font-bold text-red-600 hover:text-red-700 min-h-[44px] py-2"

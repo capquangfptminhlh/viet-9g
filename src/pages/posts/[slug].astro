@@ -25,6 +25,26 @@ const contentStr = entry.body || '';
 const titleMatch = contentStr.match(/^#\s+(.+)$/m);
 const displayTitle = titleMatch ? titleMatch[1] : entry.slug.replace(/-/g, ' ');
 
+// Hàm chọn ảnh minh họa cao cấp theo nội dung gói cước
+function getPostImage(slug: string, title: string) {
+  const s = (slug + ' ' + title).toLowerCase();
+  if (s.includes('mxh') || s.includes('tiktok') || s.includes('youtube') || s.includes('social') || s.includes('facebook')) {
+    return '/images/viettel-4g-social-banner.jpg';
+  }
+  if (s.includes('lien-quan') || s.includes('game') || s.includes('5g135') || s.includes('5g150') || s.includes('gaming')) {
+    return '/images/5g-gaming.jpg';
+  }
+  if (s.includes('loi') || s.includes('khong-thanh-cong') || s.includes('huy') || s.includes('kiem-tra') || s.includes('khac-phuc')) {
+    return '/images/5g-error.jpg';
+  }
+  if (s.includes('so-sanh') || s.includes('combo') || s.includes('v120b') || s.includes('v150b') || s.includes('v200b') || s.includes('v90b')) {
+    return '/images/5g-compare.jpg';
+  }
+  return '/images/viettel-4g-speed-banner.jpg';
+}
+
+const heroImage = getPostImage(entry.slug, displayTitle);
+
 // Giả lập config rỗng cho Header/Footer (vì chúng được fetch từ local storage ở client)
 const mockConfig = { agentCode: 'GB', supportPhone: '1800.8098', zaloLink: 'https://zalo.me/18008098', agentName: 'Kênh CTV' };
 ---
@@ -47,7 +67,7 @@ const mockConfig = { agentCode: 'GB', supportPhone: '1800.8098', zaloLink: 'http
       <div class="bg-white rounded-2xl shadow-xl shadow-slate-900/5 p-6 sm:p-10 md:p-12 border border-gray-100">
         
         {/* Article Top Meta */}
-        <div class="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 border-b border-gray-100">
+        <div class="flex flex-wrap items-center justify-between gap-4 pb-6 mb-6 border-b border-gray-100">
           <div class="flex items-center gap-3">
             <div class="w-10 h-10 rounded-full bg-red-600 text-white font-black text-sm flex items-center justify-center italic shadow-sm">
               5G
@@ -60,6 +80,24 @@ const mockConfig = { agentCode: 'GB', supportPhone: '1800.8098', zaloLink: 'http
           <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-red-50 text-red-600 border border-red-100">
             ✓ Thông tin chính thức
           </span>
+        </div>
+
+        {/* Article Hero Banner Image */}
+        <div class="mb-8 rounded-2xl overflow-hidden shadow-md border border-gray-200 relative group">
+          <img 
+            src={heroImage} 
+            alt={displayTitle} 
+            class="w-full h-[240px] sm:h-[340px] md:h-[400px] object-cover group-hover:scale-105 transition-transform duration-700"
+            loading="eager"
+          />
+          <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 sm:p-6 text-white">
+            <span class="inline-block bg-red-600 text-white text-[10px] sm:text-xs font-extrabold px-2.5 py-0.5 rounded uppercase tracking-wider mb-1">
+              Ưu Đãi Viettel 2026
+            </span>
+            <p class="text-xs sm:text-sm text-gray-200 font-medium truncate">
+              Hình minh họa: {displayTitle}
+            </p>
+          </div>
         </div>
 
         {/* Formatted Markdown Body */}
