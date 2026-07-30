@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0",
+  "reportId": "rpt_weekly_2026_W31",
+  "agentId": "RPT-27",
+  "period": "weekly",
+  "week": "2026-W31",
+  "startDate": "2026-07-30",
+  "endDate": "2026-07-30",
+  "generatedAt": "2026-07-30T17:42:48.188Z",
+  "aggregatedMetrics": {
+    "articlesCreated": 0,
+    "articlesUpdated": 0,
+    "totalCostUsd": 0,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "imagesGenerated": 0,
+    "passCount": 0,
+    "needsReviewCount": 0,
+    "blockCount": 0,
+    "backlogPending": 0
+  },
+  "dailyBreakdown": [
+    {
+      "date": "2026-07-30",
+      "articlesCreated": 0,
+      "articlesUpdated": 0,
+      "totalCostUsd": 0
+    }
+  ],
+  "summary": "Weekly Report for 2026-W31: 0 created, 0 updated across 1 active days. Total cost: $0.0000."
+}

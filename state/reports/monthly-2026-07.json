@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0",
+  "reportId": "rpt_monthly_2026_07",
+  "agentId": "RPT-27",
+  "period": "monthly",
+  "month": "2026-07",
+  "generatedAt": "2026-07-30T17:42:48.189Z",
+  "aggregatedMetrics": {
+    "articlesCreated": 0,
+    "articlesUpdated": 0,
+    "totalCostUsd": 0,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "imagesGenerated": 0,
+    "passCount": 0,
+    "needsReviewCount": 0,
+    "blockCount": 0,
+    "backlogPending": 0
+  },
+  "budgetStatus": {
+    "monthlyBudgetUsd": 30,
+    "totalSpentUsd": 0,
+    "remainingBudgetUsd": 30,
+    "breachRisk": false
+  },
+  "summary": "Monthly Report for 2026-07: 0 created, 0 updated. Total cost: $0.0000 of $30 budget."
+}

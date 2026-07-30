@@ -1,0 +1,17 @@
+{
+  "dailyBudgetUsd": 1.0,
+  "monthlyBudgetUsd": 30.0,
+  "runs": [
+    {
+      "date": "2026-07-30",
+      "articlesCreated": 0,
+      "articlesUpdated": 0,
+      "totalCostUsd": 0.0,
+      "details": {
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "imagesGenerated": 0
+      }
+    }
+  ]
+}

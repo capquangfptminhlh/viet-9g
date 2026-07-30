@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://tracuugoicuoc.com/schemas/image-brief.schema.json",
+  "title": "ImageBrief",
+  "description": "JSON Schema for Image Brief according to MASTER_SPEC v3.2 section 12",
+  "type": "object",
+  "properties": {
+    "imageBriefId": {
+      "type": "string",
+      "pattern": "^imgbrief_[a-zA-Z0-9_-]+$"
+    },
+    "purpose": {
+      "type": "string",
+      "enum": ["article_cover", "diagram", "comparison", "infographic", "social_og"]
+    },
+    "aspectRatio": {
+      "type": "string"
+    },
+    "style": {
+      "type": "string"
+    },
+    "requiredElements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "overlayText": {
+      "type": "object",
+      "properties": {
+        "headline": {
+          "type": "string"
+        },
+        "subheadline": {
+          "type": "string"
+        },
+        "renderMode": {
+          "type": "string",
+          "enum": ["svg", "html", "canvas", "none"]
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "required": ["headline", "renderMode"],
+      "additionalProperties": true
+    },
+    "prohibited": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "imageBriefId",
+    "purpose",
+    "aspectRatio",
+    "style",
+    "requiredElements",
+    "prohibited",
+    "outputs"
+  ],
+  "additionalProperties": true
+}

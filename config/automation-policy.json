@@ -1,0 +1,61 @@
+{
+  "automationMode": "dry_run",
+  "allowedModes": ["dry_run", "review_required", "conditional_auto", "full_auto"],
+  "escalationPolicy": {
+    "direction": "one_way_up",
+    "allowAgentEscalation": true,
+    "allowAgentDowngrade": false,
+    "downgradeRequiresHumanPR": true
+  },
+  "riskTierRules": {
+    "high": {
+      "tier": "high",
+      "approvalRequired": true,
+      "autoPublishAllowed": false,
+      "conditions": [
+        "ymyl == true",
+        "topic in ['medical', 'financial', 'legal', 'tax', 'safety']",
+        "has_competitor_claims == true",
+        "has_performance_guarantee == true",
+        "has_legal_contract_content == true"
+      ],
+      "description": "YMYL, thông tin nhạy cảm, pháp lý, cam kết hoặc so sánh đối thủ. Luôn cần người duyệt."
+    },
+    "medium": {
+      "tier": "medium",
+      "approvalRequiredInConditionalAuto": true,
+      "autoPublishAllowedInFullAuto": "update_only_with_verified_facts",
+      "conditions": [
+        "has_pricing_or_promotions == true",
+        "has_package_conditions == true",
+        "has_brand_comparison == true",
+        "is_top20_traffic_url == true",
+        "has_slug_or_canonical_or_redirect_changes == true",
+        "targets_sensitive_brands == true"
+      ],
+      "description": "Nội dung giá, khuyến mãi, điều kiện gói, top-20 URL hoặc thay đổi cấu trúc URL. Cần duyệt ở conditional_auto."
+    },
+    "low": {
+      "tier": "low",
+      "approvalRequired": false,
+      "autoPublishAllowed": true,
+      "conditions": [
+        "is_informational_without_price == true",
+        "is_fact_timestamp_update == true",
+        "is_minor_fix_preserving_intent == true",
+        "is_internal_link_update == true",
+        "is_illustration_image_update == true"
+      ],
+      "description": "Bài thông tin không có giá, cập nhật timestamp fact, sửa lỗi nhỏ hoặc link nội bộ. Tự đăng khi mọi gate PASS."
+    }
+  },
+  "publishPolicy": {
+    "publishViaPR": true,
+    "autoMergeModes": {
+      "conditional_auto": ["low"],
+      "full_auto": ["low", "medium_update_only"]
+    },
+    "requireAllGatesPass": true,
+    "killSwitchEnabled": true
+  }
+}

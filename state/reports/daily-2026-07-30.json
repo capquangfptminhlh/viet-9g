@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0",
+  "reportId": "rpt_daily_20260730",
+  "agentId": "RPT-27",
+  "period": "daily",
+  "date": "2026-07-30",
+  "generatedAt": "2026-07-30T17:42:48.182Z",
+  "metrics": {
+    "articlesCreated": 0,
+    "articlesUpdated": 0,
+    "totalCostUsd": 0,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "imagesGenerated": 0,
+    "passCount": 0,
+    "needsReviewCount": 0,
+    "blockCount": 0,
+    "backlogPending": 0
+  },
+  "costStatus": {
+    "dailyBudgetUsd": 1,
+    "dailySpentUsd": 0,
+    "budgetBreached": false
+  },
+  "summary": "Daily Report for 2026-07-30: 0 created, 0 updated. Total cost: $0.0000."
+}

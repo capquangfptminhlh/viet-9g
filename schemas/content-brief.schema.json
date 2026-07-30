@@ -1,0 +1,120 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://tracuugoicuoc.com/schemas/content-brief.schema.json",
+  "title": "ContentBrief",
+  "description": "JSON Schema for Content Brief according to MASTER_SPEC v3.2 section 10.1",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "default": "1.0"
+    },
+    "contentId": {
+      "type": "string",
+      "pattern": "^cnt_[a-zA-Z0-9_-]+$"
+    },
+    "candidateId": {
+      "type": "string",
+      "pattern": "^cand_[a-zA-Z0-9_-]+$"
+    },
+    "decision": {
+      "type": "string",
+      "enum": ["CREATE_NEW", "UPDATE", "EXPAND", "MERGE", "REDIRECT", "NO_ACTION"]
+    },
+    "primaryQuery": {
+      "type": "string"
+    },
+    "intent": {
+      "type": "string"
+    },
+    "audience": {
+      "type": "string"
+    },
+    "businessGoal": {
+      "type": "string"
+    },
+    "answerTarget": {
+      "type": "string"
+    },
+    "requiredSections": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "requiredClaims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "claimId": {
+            "type": "string"
+          },
+          "factIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "required": {
+            "type": "boolean"
+          }
+        },
+        "required": ["claimId", "factIds", "required"],
+        "additionalProperties": true
+      }
+    },
+    "internalLinkTargets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "schemaTypes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "cta": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": ["type", "message"],
+      "additionalProperties": true
+    },
+    "imageBriefIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "authorId": {
+      "type": "string"
+    },
+    "riskTier": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "contentId",
+    "candidateId",
+    "decision",
+    "primaryQuery",
+    "intent",
+    "audience",
+    "businessGoal",
+    "answerTarget",
+    "requiredClaims",
+    "riskTier"
+  ],
+  "additionalProperties": true
+}
