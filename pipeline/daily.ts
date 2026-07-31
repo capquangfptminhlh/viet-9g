@@ -2,12 +2,12 @@
  * Main Daily Pipeline Orchestrator (ORC-0)
  * MASTER_SPEC v3.2 - Section 6.1b (Worker Mapping) & Section 8 (Daily Workflow)
  * 
- * 5 Workers:
+ * 5 Workers (31 Agents):
  * - W1 Orchestrate: init(), finalize() [ORC-0, CST-26, ALM-23, RPT-27]
- * - W2 Research: discover() [ING-1, KW-2, INT-3, GAP-4, CAN-5, PRI-6]
+ * - W2 Research & Entity: discover() [ING-1, KW-2, INT-3, GAP-4, CAN-5, PRI-6, ENT-28]
  * - W3 Content: produce() [SRC-7, BRF-8, WRT-9, DAT-10, EDT-11, VER-12]
- * - W4 Media + Package: package() [IMG-13, ONP-14, LNK-15, SCH-16, TEC-17]
- * - W5 Release: release() [AUD-18, PUB-19, PVF-20, IDX-21]
+ * - W4 Media + Package: package() [IMG-13, ONP-14, LNK-15, SCH-16, TEC-17, AGT-31]
+ * - W5 Release & Monitor: release() [AUD-18, PUB-19, PVF-20, IDX-21, RNK-22, AIV-29, CPG-30]
  */
 
 export interface JobResult {
@@ -30,7 +30,6 @@ export interface PipelineRunContext {
 /**
  * Job 1: init (Worker W1 - Orchestrate)
  * Agents: ORC-0, CST-26, ALM-23
- * Trách nhiệm: Validate config, check kill-switch, verify budget & environment.
  */
 export async function init(): Promise<JobResult> {
   console.log('[W1:Orchestrate][init] Initializing daily pipeline run...');
@@ -53,13 +52,13 @@ export async function init(): Promise<JobResult> {
 }
 
 /**
- * Job 2: discover (Worker W2 - Research)
- * Agents: ING-1, KW-2, INT-3, GAP-4, CAN-5, PRI-6
- * Trách nhiệm: Ingestion data, keyword discovery, intent classification, gap analysis, cannibalization check & priority scoring.
+ * Job 2: discover (Worker W2 - Research & Entity)
+ * Agents: ING-1, ENT-28, KW-2, INT-3, GAP-4, CAN-5, PRI-6
  */
 export async function discover(): Promise<JobResult> {
-  console.log('[W2:Research][discover] Starting keyword discovery and opportunity research...');
-  console.log('[ING-1] Ingesting owned data, GSC/GA4 metrics, and fact inventory...');
+  console.log('[W2:Research][discover] Starting data sync, entity normalization, and keyword discovery...');
+  console.log('[ING-1] Ingesting owned data, GSC/GA4 metrics, and content inventory...');
+  console.log('[ENT-28] Normalizing canonical entities, aliases, and resolving contradictions (GEO Foundation)...');
   console.log('[KW-2] Discovering keyword candidates from search queries and seed topics...');
   console.log('[INT-3] Classifying search intents (Informational / Commercial / Transactional)...');
   console.log('[GAP-4] Performing gap analysis against existing content coverage...');
@@ -70,7 +69,7 @@ export async function discover(): Promise<JobResult> {
     jobName: 'discover',
     status: 'SUCCESS',
     worker: 'W2 Research',
-    agents: ['ING-1', 'KW-2', 'INT-3', 'GAP-4', 'CAN-5', 'PRI-6'],
+    agents: ['ING-1', 'ENT-28', 'KW-2', 'INT-3', 'GAP-4', 'CAN-5', 'PRI-6'],
     timestamp: new Date().toISOString(),
     data: {
       candidatesFound: 0,
@@ -82,13 +81,12 @@ export async function discover(): Promise<JobResult> {
 /**
  * Job 3: produce (Worker W3 - Content)
  * Agents: SRC-7, BRF-8, WRT-9, DAT-10, EDT-11, VER-12
- * Trách nhiệm: Source retrieval, brief building, answer-first writing, claim ledger binding, editing, 2-tier verification gate.
  */
 export async function produce(): Promise<JobResult> {
   console.log('[W3:Content][produce] Starting content production pipeline...');
   console.log('[SRC-7] Retrieving facts and authoritative source snapshots...');
-  console.log('[BRF-8] Building typed content brief and schema targets...');
-  console.log('[WRT-9] Draft generation with answer-first approach (40-100 words lead)...');
+  console.log('[BRF-8] Building typed content brief and GEO schema targets...');
+  console.log('[WRT-9] Draft generation with answer-first approach (AI Grounding focus)...');
   console.log('[DAT-10] Binding claims to fact/source IDs in Claim Ledger...');
   console.log('[EDT-11] Editing draft for clarity, readability flow, and tone...');
   console.log('[VER-12] Executing 2-Tier Verification Gate (Evidence, Contradiction, Expiry, Policy)...');
@@ -108,8 +106,7 @@ export async function produce(): Promise<JobResult> {
 
 /**
  * Job 4: package (Worker W4 - Media + Package)
- * Agents: IMG-13, ONP-14, LNK-15, SCH-16, TEC-17
- * Trách nhiệm: Image generation & SVG text overlay, on-page SEO, internal linking graph, JSON-LD schema, technical controls.
+ * Agents: IMG-13, ONP-14, LNK-15, SCH-16, TEC-17, AGT-31
  */
 export async function packageJob(): Promise<JobResult> {
   console.log('[W4:Media+Package][package] Packaging content bundle and media assets...');
@@ -118,12 +115,13 @@ export async function packageJob(): Promise<JobResult> {
   console.log('[LNK-15] Building topical internal linking graph and anchor texts...');
   console.log('[SCH-16] Generating structured data JSON-LD (Article, BreadcrumbList, FAQ)...');
   console.log('[TEC-17] Applying technical controls, sitemap validation, and status checks...');
+  console.log('[AGT-31] Auditing Agentic Readiness (Accessibility tree, ARIA, forms/actions for AI bots)...');
 
   return {
     jobName: 'package',
     status: 'SUCCESS',
     worker: 'W4 Media+Package',
-    agents: ['IMG-13', 'ONP-14', 'LNK-15', 'SCH-16', 'TEC-17'],
+    agents: ['IMG-13', 'ONP-14', 'LNK-15', 'SCH-16', 'TEC-17', 'AGT-31'],
     timestamp: new Date().toISOString(),
     data: {
       packaged: true,
@@ -135,22 +133,24 @@ export async function packageJob(): Promise<JobResult> {
 export { packageJob as package };
 
 /**
- * Job 5: release (Worker W5 - Release)
- * Agents: AUD-18, PUB-19, PVF-20, IDX-21
- * Trách nhiệm: Dist build audit (AUD-21), auto-publish/PR creation, production verification, IndexNow notification.
+ * Job 5: release (Worker W5 - Release & Monitor)
+ * Agents: CPG-30, AUD-18, PUB-19, PVF-20, IDX-21, RNK-22, AIV-29
  */
 export async function release(): Promise<JobResult> {
-  console.log('[W5:Release][release] Performing release checks and deployment...');
-  console.log('[AUD-18] Running dist build auditor (AUD-21 static audit)...');
+  console.log('[W5:Release][release] Performing release checks, deployment, and visibility measurement...');
+  console.log('[CPG-30] Managing Crawler Policy Governance (Robots.txt, training opt-outs)...');
+  console.log('[AUD-18] Running dist build auditor (static audit)...');
   console.log('[PUB-19] Executing release policy (Pull Request or Direct Publish according to Risk Tier)...');
   console.log('[PVF-20] Verifying live production URL and asset integrity...');
   console.log('[IDX-21] Submitting modified/created URLs to IndexNow & Search Engines...');
+  console.log('[RNK-22] Normalizing standard Search metrics (GSC, GA4, Bing)...');
+  console.log('[AIV-29] Measuring AI Visibility (Citations, cited pages, grounding queries, referrals)...');
 
   return {
     jobName: 'release',
     status: 'SUCCESS',
     worker: 'W5 Release',
-    agents: ['AUD-18', 'PUB-19', 'PVF-20', 'IDX-21'],
+    agents: ['CPG-30', 'AUD-18', 'PUB-19', 'PVF-20', 'IDX-21', 'RNK-22', 'AIV-29'],
     timestamp: new Date().toISOString(),
     data: {
       audResult: 'PASS',
@@ -162,11 +162,10 @@ export async function release(): Promise<JobResult> {
 /**
  * Job 6: finalize (Worker W1 - Orchestrate)
  * Agents: RPT-27
- * Trách nhiệm: Daily report generation, state commit, metrics logging. Always executed.
  */
 export async function finalize(context: PipelineRunContext): Promise<JobResult> {
   console.log('[W1:Orchestrate][finalize] Finalizing daily pipeline run...');
-  console.log('[RPT-27] Generating daily summary report, updating audit trail and state...');
+  console.log('[RPT-27] Generating daily summary report (Search + AI visibility), updating audit trail and state...');
   console.log('[ORC-0] Pipeline execution status:', context.status);
 
   return {
@@ -184,12 +183,11 @@ export async function finalize(context: PipelineRunContext): Promise<JobResult> 
 /**
  * Orchestrator Main Runner: runDailyPipeline()
  * Sequential execution of 5 Workers: W1 -> W2 -> W3 -> W4 -> W5 -> W1(finalize)
- * Guarantees finalize() execution via try...finally block.
  */
 export async function runDailyPipeline(): Promise<PipelineRunContext> {
   const runId = `daily-${Date.now()}`;
   console.log(`\n==================================================`);
-  console.log(`🚀 Starting Daily SEO/AEO Autonomous Pipeline [Run ID: ${runId}]`);
+  console.log(`🚀 Starting Daily SEO/AEO/GEO/AIO Autonomous Pipeline [Run ID: ${runId}]`);
   console.log(`==================================================\n`);
 
   const context: PipelineRunContext = {
@@ -200,35 +198,20 @@ export async function runDailyPipeline(): Promise<PipelineRunContext> {
   };
 
   try {
-    // Step 1: W1 init
     context.jobResults.init = await init();
-    if (context.jobResults.init.status !== 'SUCCESS') {
-      throw new Error('init job failed, aborting pipeline');
-    }
+    if (context.jobResults.init.status !== 'SUCCESS') throw new Error('init failed');
 
-    // Step 2: W2 discover
     context.jobResults.discover = await discover();
-    if (context.jobResults.discover.status !== 'SUCCESS') {
-      throw new Error('discover job failed, aborting pipeline');
-    }
+    if (context.jobResults.discover.status !== 'SUCCESS') throw new Error('discover failed');
 
-    // Step 3: W3 produce
     context.jobResults.produce = await produce();
-    if (context.jobResults.produce.status !== 'SUCCESS') {
-      throw new Error('produce job failed, aborting pipeline');
-    }
+    if (context.jobResults.produce.status !== 'SUCCESS') throw new Error('produce failed');
 
-    // Step 4: W4 package
     context.jobResults.package = await packageJob();
-    if (context.jobResults.package.status !== 'SUCCESS') {
-      throw new Error('package job failed, aborting pipeline');
-    }
+    if (context.jobResults.package.status !== 'SUCCESS') throw new Error('package failed');
 
-    // Step 5: W5 release
     context.jobResults.release = await release();
-    if (context.jobResults.release.status !== 'SUCCESS') {
-      throw new Error('release job failed, aborting pipeline');
-    }
+    if (context.jobResults.release.status !== 'SUCCESS') throw new Error('release failed');
 
     context.status = 'COMPLETED';
     console.log(`\n✅ All daily pipeline stages completed successfully!`);
@@ -237,7 +220,6 @@ export async function runDailyPipeline(): Promise<PipelineRunContext> {
     context.status = 'FAILED';
     console.error(`\n❌ Pipeline execution failed: ${error?.message || error}`);
   } finally {
-    // Step 6: W1 finalize (Always executed regardless of success/failure)
     context.jobResults.finalize = await finalize(context);
     console.log(`\n==================================================`);
     console.log(`🏁 Daily Pipeline Run Finished [Status: ${context.status}]`);
@@ -247,7 +229,6 @@ export async function runDailyPipeline(): Promise<PipelineRunContext> {
   return context;
 }
 
-// Allow direct execution via npx tsx pipeline/daily.ts
 if (import.meta.url === `file://${process.argv[1]}` || process.argv[1]?.endsWith('daily.ts')) {
   runDailyPipeline().catch((err) => {
     console.error('Fatal error running daily pipeline:', err);
