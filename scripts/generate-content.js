@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { execSync } from 'child_process';
+import sharp from 'sharp';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -124,8 +125,51 @@ async function callApi(provider, model, apiKey, prompt) {
   return content;
 }
 
+// Generate banner using sharp
+async function generateBanner(keyword, fileNamePrefix) {
+  const packageMatch = keyword.match(/đăng ký ([a-z0-9]+)/i);
+  const packageName = packageMatch ? packageMatch[1].toUpperCase() : 'VIETTEL';
+  
+  const width = 1200;
+  const height = 630;
+  const svgImage = `
+    <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#EE0033" />
+          <stop offset="100%" stop-color="#880011" />
+        </linearGradient>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#bg)" />
+      <text x="50%" y="35%" font-family="Arial, sans-serif" font-size="80" font-weight="bold" fill="white" text-anchor="middle">CÚ PHÁP ĐĂNG KÝ</text>
+      <text x="50%" y="60%" font-family="Arial, sans-serif" font-size="160" font-weight="900" fill="#FFD700" text-anchor="middle">GÓI ${packageName}</text>
+      <text x="50%" y="80%" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="white" text-anchor="middle">SOẠN: ${packageName} GB GỬI 290</text>
+    </svg>
+  `;
+
+  const bannerPath = path.join(__dirname, '..', 'public', 'images', `${fileNamePrefix}.jpg`);
+  fs.mkdirSync(path.dirname(bannerPath), { recursive: true });
+  
+  await sharp(Buffer.from(svgImage))
+    .jpeg({ quality: 90 })
+    .toFile(bannerPath);
+    
+  console.log(`🎨 Đã tạo banner ảnh: ${bannerPath}`);
+}
+
 // Generate article with automatic model rotation when congested or rate-limited
 async function generateArticleWithRotation(keyword) {
+  const fileName = keyword.toLowerCase().replace(/[^a-z0-9àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ\s]/g, '').replace(/\s+/g, '-') + '.md';
+  const filePath = path.join(__dirname, '..', 'src', 'content', 'posts', fileName);
+  
+  if (fs.existsSync(filePath)) {
+    console.log(`⏭️ Bài viết "${keyword}" đã tồn tại. Bỏ qua.`);
+    return null;
+  }
+
+  // Generate banner first
+  await generateBanner(keyword, path.parse(fileName).name);
+
   const prompt = `Bạn là chuyên gia viết bài chuẩn SEO/AEO và tối ưu hóa Answer Engine (Gemini, ChatGPT, Perplexity) số 1 thế giới.
 Hãy viết một bài viết toàn diện, chuyên sâu, chuẩn xác bằng tiếng Việt về chủ đề: "${keyword}".
 
@@ -138,6 +182,9 @@ pubDate: "${new Date().toISOString()}"
 author: "Antigravity AI"
 tags: ["viettel", "goi-cuoc"]
 ---
+
+2. Ngay bên dưới dòng tiêu đề (H1), bạn PHẢI chèn chính xác thẻ ảnh Markdown này:
+![Đăng ký ${keyword}](/images/${path.parse(fileName).name}.jpg)
 
 YÊU CẦU CẤU TRÚC BÀI VIẾT (CHUẨN SEO ON-PAGE & AEO):
 1. TIÊU ĐỀ (H1): Chứa từ khóa chính "${keyword}", thu hút, kích thích click.
@@ -184,9 +231,6 @@ YÊU CẦU CẤU TRÚC BÀI VIẾT (CHUẨN SEO ON-PAGE & AEO):
       const content = await callApi(provider, model, apiKey, prompt);
       
       // Save article to file in src/content/posts
-      const fileName = keyword.toLowerCase().replace(/[^a-z0-9àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ\s]/g, '').replace(/\s+/g, '-') + '.md';
-      const filePath = path.join(__dirname, '..', 'src', 'content', 'posts', fileName);
-      
       fs.mkdirSync(path.dirname(filePath), { recursive: true });
       fs.writeFileSync(filePath, content, 'utf-8');
       
@@ -205,15 +249,30 @@ YÊU CẦU CẤU TRÚC BÀI VIẾT (CHUẨN SEO ON-PAGE & AEO):
 }
 
 async function start() {
-  // Chỉ lấy 1 keyword đầu tiên để đăng auto
-  const kw = KEYWORDS[0];
-  const filePath = await generateArticleWithRotation(kw);
+  // Tìm keyword chưa được viết
+  let targetKw = null;
+  let targetFilePath = null;
+  for (const kw of KEYWORDS) {
+    const fileName = kw.toLowerCase().replace(/[^a-z0-9àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ\s]/g, '').replace(/\s+/g, '-') + '.md';
+    const filePath = path.join(__dirname, '..', 'src', 'content', 'posts', fileName);
+    if (!fs.existsSync(filePath)) {
+      targetKw = kw;
+      break;
+    }
+  }
+
+  if (!targetKw) {
+    console.log("🎉 Đã viết xong toàn bộ keyword trong danh sách!");
+    return;
+  }
+
+  const filePath = await generateArticleWithRotation(targetKw);
   
   if (filePath) {
     console.log(`🚀 Tiến hành Auto Publish lên GitHub...`);
     try {
       execSync('git add .');
-      execSync('git commit -m "content: auto publish bài mới ' + kw + '"');
+      execSync('git commit -m "content: auto publish bài mới ' + targetKw + ' kèm banner"');
       execSync('git push origin main');
       console.log(`✅ Đã push thành công lên GitHub! Vercel sẽ tự động build.`);
     } catch (e) {
