@@ -142,7 +142,7 @@ Xây một “Autonomous Organic & AI Visibility Operating System” cho phép d
 
 1. Tối ưu đồng thời khả năng crawl/index, trải nghiệm người đọc, conversion và khả năng được trích dẫn.
 
-1. Duy trì khả năng rollback, audit và ngừng tự động khi có bất thường.
+1. Duy trì khả năng rollback, audit và ngừng tự động khi có bất bất thường.
 
 1. Kiểm soát chi phí LLM/image/search API theo ngân sách ngày và tháng.
 
@@ -1417,7 +1417,7 @@ STOP CONDITIONS
 
 ☐ ChatGPT/AI referrals are verified by UTM/referrer; sampled audits have coverage/confidence.
 
-☐ Fake citation/mention, page-per-fanout and llms.txt-as-ranking-signal fixtures are blocked.
+☐ Fake citation/mention, page-per-fanout and llms.txt-as-Google-signal fixtures are blocked.
 
 ## Guardrails và quyền tự động
 
@@ -1467,6 +1467,12 @@ STOP CONDITIONS
 
 - web.dev: Build agent-friendly websites: https://web.dev/articles/ai-agent-site-ux
 
+- Google Business Profile: Overview of policies: https://support.google.com/business/answer/13762416
+
+- Google Business Profile: Tips to get more reviews: https://support.google.com/business/answer/3474122
+
+- Google Analytics: Avoid sending PII: https://support.google.com/analytics/answer/6366371
+
 # 25. Definition of Done
 
 1. Hệ thống chạy end-to-end ở dry-run và conditional-auto với test fixtures.
@@ -1498,6 +1504,109 @@ STOP CONDITIONS
 14. Fake citation/mention, page-per-fanout và llms.txt-as-Google-signal fixtures làm gate FAIL.
 
 15. Daily report có Search + AI visibility, coverage/confidence và không suy đoán dữ liệu vắng mặt.
+
+# 26. Evidence-to-Revenue Operating System (bổ sung v3.2.1)
+
+Mục này mở rộng v3.2 để vận hành đồng thời Organic Search, Local/Maps và AI visibility theo một mục tiêu kinh doanh có thể kiểm chứng. Đây không phải cam kết thứ hạng, index, citation, lưu lượng hay doanh thu.
+
+## 26.1 North-star, guardrails và thứ tự ưu tiên
+
+North-star metric là **verified incremental qualified revenue**: doanh thu tăng thêm được ghi nhận từ lead hợp lệ, có quy tắc attribution, khoảng thời gian đánh giá và baseline rõ ràng. Nếu doanh thu chưa nối được tới CRM, dùng **qualified lead** làm proxy tạm thời; không dùng traffic, ranking, số URL, review count hay citation count thay thế.
+
+Thứ tự ưu tiên khi các metric mâu thuẫn:
+
+1. Tuân thủ pháp luật, consent, chính sách nền tảng và an toàn thương hiệu.
+2. Độ chính xác của fact/entity, trải nghiệm người dùng và khả năng chuyển đổi thật.
+3. Qualified lead, doanh thu và giá trị vòng đời theo kênh/cluster.
+4. Search, Maps và AI visibility có nguồn xác minh.
+5. Chỉ số hỗ trợ như impressions, rank, CTR, citation hay số bài.
+
+Không được đánh đổi tầng 1-2 để cải thiện tầng 3-5. Không được hứa hẹn “top Maps”, “AI citation guaranteed”, “index guaranteed” hoặc kết quả kinh doanh trước khi có dữ liệu; các tuyên bố đó phải bị policy gate chặn.
+
+## 26.2 Unified truth and entity graph
+
+### Entity contract bắt buộc
+
+Mỗi business/location/service/person/product có một `entityId` bất biến và các trường tối thiểu: `name`, `entityType`, `status`, `owner`, `effectiveFrom`, `evidenceIds`, `sourceOfTruth`, `lastVerifiedAt`, `expiresAt`, `riskTier`.
+
+Business/location phải thêm `legalName` (nếu áp dụng), `address`, `phone`, `hours`, `serviceArea`, `primaryCategory`, `officialProfileUrls`, `sameAsOwnership`. Giá, ưu đãi, tồn kho, giờ mở cửa và service area là fact có hạn; thiếu `expiresAt` phải BLOCK publish khi claim có thể nhanh thay đổi.
+
+### Consistency gate
+
+- Visible content, JSON-LD, Google Business Profile, Bing Places, feed và facts registry phải cùng `entityId` và không mâu thuẫn ở field trọng yếu.
+- Một nguồn bên ngoài chỉ là evidence, không tự động trở thành source of truth.
+- Entity conflict tạo `ENTITY_CONFLICT`, khóa URL/profile liên quan và đưa vào review queue; không để LLM tự “chọn” fact.
+- `sameAs` chỉ chứa profile do business sở hữu hoặc đã xác minh quyền kiểm soát.
+
+Acceptance: fixture khác NAP/hours giữa facts, schema và profile phải FAIL; fixture hết hạn phải bị block hoặc xuất `UPDATE_FACT_REQUIRED`.
+
+## 26.3 Local / Maps operating policy
+
+Local/Maps chỉ được kích hoạt cho location hoặc service area có thật, có bằng chứng vận hành và owner được ủy quyền bằng văn bản. Không tạo profile, địa chỉ, service area, category, ảnh, post, Q&A, review hay listing giả; không claim profile của bên thứ ba.
+
+- Trang địa phương phải có giá trị riêng: dịch vụ thực cung cấp, phạm vi phục vụ, quy trình, bằng chứng hoặc thông tin hữu ích tại địa phương. Cấm nhân bản template đổi tên quận/huyện/thành phố.
+- Review workflow chỉ được nhắc mọi khách hàng thật một cách trung lập sau khi có trải nghiệm; không incentive, không review-gating, không yêu cầu sửa/xóa đánh giá xấu, không tự đăng hay mua review.
+- Hệ thống có thể soạn nháp phản hồi review nhưng chỉ auto-send nếu owner cho phép, nội dung không tiết lộ PII/chi tiết giao dịch, không tranh cãi, không chẩn đoán YMYL; review có nguy cơ pháp lý/nhạy cảm luôn NEEDS_REVIEW.
+- Đồng bộ GBP/Bing Places chỉ là `review_required` mặc định. Thay đổi tên, địa chỉ, primary category, ownership, giờ đặc biệt hoặc service area luôn NEEDS_REVIEW.
+
+Acceptance: policy fixtures cho fake location, keyword-stuffed name, incentivized review, review-gating và doorway local pages phải FAIL. Mọi profile mutation cần `authorizationId`, before/after snapshot, provider response và rollback instruction.
+
+## 26.4 Revenue attribution và privacy boundary
+
+Mỗi conversion event phải có `eventId`, `occurredAt`, `consentState`, `channel`, `surface`, `landingUrl`, `campaign`, `entityId` (nếu áp dụng), `attributionModelVersion` và `evidenceRef`. Mô hình attribution mặc định là **source-aware, non-PII**: lưu click/session pseudonymous ở analytics khi consent hợp lệ; mapping tới CRM chỉ ở hệ thống được owner phê duyệt.
+
+- Không đưa email, số điện thoại, tên đầy đủ, địa chỉ, free-text form, medical/legal/financial details hoặc định danh trực tiếp vào URL, GA4, logs, prompts, evaluation datasets hay AI provider.
+- Offline/CRM revenue chỉ được ingest bằng ID băm/khóa tham chiếu đã phê duyệt; raw CRM record không được dùng làm prompt context.
+- Report phải hiển thị `attributionWindow`, `modelVersion`, sample size, unknown/unattributed share và confidence; không kết luận causal chỉ từ tương quan.
+- Khi consent, tracking hoặc CRM mapping lỗi, dừng optimization dựa trên revenue và ghi `ATTRIBUTION_UNTRUSTWORTHY`; vẫn được chạy monitoring không-mutation.
+
+Acceptance: secret/PII fixtures trong URL, event payload, log và prompt artifact phải FAIL. Một lead không đủ điều kiện không được tính là qualified lead; một conversion duplicate bị deduplicate theo `eventId`.
+
+## 26.5 Experimentation and decision engine
+
+Mọi mutation ảnh hưởng trải nghiệm, content, CTA, local profile hoặc crawler policy phải có experiment record: `experimentId`, hypothesis, target audience/entity/URLs, primary metric, guardrail metrics, baseline window, minimum observation window, stop rules, owner, risk tier và rollback plan.
+
+Quy tắc:
+
+- Không dùng rank/citation đơn lẻ làm lý do scale một tactic. Scale chỉ khi data đủ chất lượng, guardrails không xấu đi và kết quả có ý nghĩa thực tế theo business context.
+- Với traffic thấp, dùng decision `INCONCLUSIVE` thay vì suy diễn thắng/thua; ưu tiên qualitative evidence, UX review hoặc thu thập thêm dữ liệu.
+- Không chạy đồng thời các thay đổi cạnh tranh trên cùng URL/cluster nếu không tách được ảnh hưởng.
+- Canary trước; chỉ rollout theo cohort rõ ràng. Critical regression ở conversion, indexability, policy, entity consistency hoặc privacy kích hoạt kill-switch/rollback.
+- LLM không được tự thay đổi threshold, attribution model, stop rule hoặc declare causal impact.
+
+Acceptance: một experiment thiếu baseline/stop rule phải BLOCK; một result có sample không đủ phải `INCONCLUSIVE`; fixture guardrail regression phải rollback hoặc NEEDS_REVIEW, không được auto-scale.
+
+## 26.6 AI visibility observatory
+
+Mỗi observation phải có `measurementClass` (`OFFICIAL`, `VERIFIED_REFERRAL`, `SAMPLED`), `surface`, `observedAt`, `queryClass` (nếu có), `locale`, `device`, `coverage`, `confidence`, `evidenceRef`, `collectorVersion` và `policySnapshotId`.
+
+- `OFFICIAL`: lấy nguyên trạng từ báo cáo nền tảng; không biến đổi thành claim rank/citation placement nếu báo cáo không cung cấp.
+- `VERIFIED_REFERRAL`: xác nhận qua referrer/UTM/server evidence; attribution vẫn có thể unknown nếu không nối được conversion.
+- `SAMPLED`: chỉ mô tả mẫu kiểm tra theo phương pháp đã công bố, không đại diện cho toàn bộ câu trả lời hoặc thị trường.
+- Crawler policy có registry với bot, purpose, robots directive, IP-verification method, checkedAt và expiresAt. Tách rõ search, training và user-initiated agent access; mọi thay đổi mặc định NEEDS_REVIEW.
+
+Acceptance: report thiếu coverage/confidence cho sampled result phải FAIL; bot không được xác minh IP không được xem là crawler chính thức; observed citation không được suy ra revenue hay ranking.
+
+## 26.7 Portfolio, capacity và economic control
+
+Opportunity score phải tách bốn thành phần: `customerValue`, `evidenceReadiness`, `executionCost`, `risk`. Một candidate chỉ eligible khi evidence đủ, intent không trùng, entity hợp lệ và expected value vượt opportunity cost; `NO_ACTION`, `UPDATE_EXISTING` và `MERGE_URLS` là outcome ưu tiên ngang `CREATE_NEW`.
+
+- Chỉ mở rộng sang cluster/location/surface mới sau khi baseline tracking, capacity phục vụ và owner approval tồn tại.
+- Nếu team không thể xử lý lead, booking hoặc review trong SLA cấu hình, giảm/pause acquisition actions thay vì tiếp tục tăng traffic.
+- Tất cả costs phải ghi theo provider, run, content/entity/experiment, currency và budget period. Budget breach dừng generation/mutation, không xóa data hay tắt monitoring.
+- Báo cáo tuần/tháng phải gồm: leads, qualified leads, revenue (nếu có), unknown attribution share, local actions, search visibility, AI measurements phân loại, cost, margin proxy, policy incidents, experiments và decisions/rollback.
+
+## 26.8 New reason codes và Definition of Done
+
+Thêm reason codes: `ATTRIBUTION_UNTRUSTWORTHY`, `CONSENT_MISSING`, `PII_DETECTED`, `UNAUTHORIZED_PROFILE_CHANGE`, `LOCAL_DOORWAY_RISK`, `FAKE_ENGAGEMENT_RISK`, `EXPERIMENT_INCONCLUSIVE`, `BASELINE_MISSING`, `GUARDRAIL_REGRESSION`, `CAPACITY_CONSTRAINED`, `UPDATE_FACT_REQUIRED`, `UNREALISTIC_RESULT_CLAIM`.
+
+Definition of Done bổ sung:
+
+16. Một entity/location có facts, evidence, expiry, profile ownership và visible/schema consistency PASS.
+17. Một local change hợp lệ đi qua authorization + review; các fixture fake engagement, review-gating và local doorway bị block.
+18. Một conversion được deduplicate, consent-aware và nối đúng revenue/qualified-lead khi có evidence; PII fixture bị block ở mọi boundary.
+19. Một experiment có baseline/guardrail/rollback đạt verdict `RETAIN`, `ROLLBACK` hoặc `INCONCLUSIVE` bằng dữ liệu ghi rõ confidence.
+20. Báo cáo hợp nhất phân biệt Search, Maps và AI observation; không suy diễn causal impact hay ranking từ metric không hỗ trợ.
 
 # Phụ lục A - Reason codes chuẩn
 
@@ -1554,12 +1663,26 @@ STOP CONDITIONS
 
 2. Cập nhật theo hướng dẫn Google ngày 10/07/2026: AEO/GEO vẫn là SEO trong Google Search; không cần llms.txt, special schema hoặc forced chunking.
 
-3. Bổ sung entity registry, AI surface registry, crawler governance và measurement integrity.
+3. Bổ tự đồng bộ thực thể, AI surface registry, crawler governance và measurement integrity.
 
 4. Bổ sung dữ liệu Google Generative AI, Bing AI Performance, ChatGPT referral và sampled audit có confidence/coverage.
 
 5. Bổ sung ENT-28, AIV-29, CPG-30 và AGT-31; cập nhật workflow, phases, tests, risks, reason codes và Master Prompt.
 
 6. Bổ sung denylist chống fake mentions/citations, page-per-fanout, GEO hacks và crawler misconfiguration.
+
+# Phụ lục E - Changelog v3.2 → v3.2.1
+
+1. Bổ sung Evidence-to-Revenue Operating System liên kết Search, Local/Maps và AI visibility với qualified lead/doanh thu có evidence, không dùng vanity metrics làm north-star.
+
+2. Bổ sung entity contract có expiry, consistency gate và quy tắc source-of-truth cho website, schema, profiles và feeds.
+
+3. Bổ sung Local/Maps operating policy: chỉ location/service area thật, cấm fake engagement/review-gating/local doorway, mọi profile mutation nhạy cảm cần authorization + review.
+
+4. Bổ sung attribution privacy boundary, consent controls, PII scan, CRM reference hashing và stop rule khi attribution không đáng tin cậy.
+
+5. Bổ sung experimentation contract có hypothesis, baseline, guardrails, canary, rollback và verdict `INCONCLUSIVE`.
+
+6. Bổ sung portfolio/capacity controls, reason codes và Definition of Done cho lead, revenue, local operations và AI measurement.
 
 HẾT TÀI LIỆU - MASTER SEO + AEO + GEO + AI VISIBILITY AUTONOMOUS SYSTEM v3.2
