@@ -1,0 +1,28 @@
+name: Daily GSC Ranking Report
+
+on:
+  schedule:
+    # Run every day at 01:00 UTC (08:00 ICT)
+    - cron: '0 1 * * *'
+  workflow_dispatch: # Cho phép chạy thủ công
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci || npm install
+
+      - name: Run GSC Report Script
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: node scripts/gsc-report.js
