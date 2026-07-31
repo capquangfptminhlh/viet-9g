@@ -1,12 +1,12 @@
 /**
  * Main Daily Pipeline Orchestrator (ORC-0)
- * MASTER_SPEC v3.2 - Section 6.1b (Worker Mapping) & Section 8 (Daily Workflow)
+ * MASTER_SPEC v3.2.1 - Section 6.1b (Worker Mapping) & Section 8 & Section 26
  * 
- * 5 Workers (31 Agents):
+ * 5 Workers (34 Agents):
  * - W1 Orchestrate: init(), finalize() [ORC-0, CST-26, ALM-23, RPT-27]
- * - W2 Research & Entity: discover() [ING-1, KW-2, INT-3, GAP-4, CAN-5, PRI-6, ENT-28]
+ * - W2 Research & Entity: discover() [ING-1, REV-33, ENT-28, KW-2, INT-3, GAP-4, CAN-5, PRI-6, EXP-34]
  * - W3 Content: produce() [SRC-7, BRF-8, WRT-9, DAT-10, EDT-11, VER-12]
- * - W4 Media + Package: package() [IMG-13, ONP-14, LNK-15, SCH-16, TEC-17, AGT-31]
+ * - W4 Media + Package: package() [IMG-13, ONP-14, LNK-15, SCH-16, TEC-17, AGT-31, LOC-32]
  * - W5 Release & Monitor: release() [AUD-18, PUB-19, PVF-20, IDX-21, RNK-22, AIV-29, CPG-30]
  */
 
@@ -53,23 +53,25 @@ export async function init(): Promise<JobResult> {
 
 /**
  * Job 2: discover (Worker W2 - Research & Entity)
- * Agents: ING-1, ENT-28, KW-2, INT-3, GAP-4, CAN-5, PRI-6
+ * Agents: ING-1, REV-33, ENT-28, KW-2, INT-3, GAP-4, CAN-5, PRI-6, EXP-34
  */
 export async function discover(): Promise<JobResult> {
   console.log('[W2:Research][discover] Starting data sync, entity normalization, and keyword discovery...');
   console.log('[ING-1] Ingesting owned data, GSC/GA4 metrics, and content inventory...');
+  console.log('[REV-33] Ingesting & deduplicating conversion events with Privacy/PII Boundary check...');
   console.log('[ENT-28] Normalizing canonical entities, aliases, and resolving contradictions (GEO Foundation)...');
   console.log('[KW-2] Discovering keyword candidates from search queries and seed topics...');
   console.log('[INT-3] Classifying search intents (Informational / Commercial / Transactional)...');
   console.log('[GAP-4] Performing gap analysis against existing content coverage...');
   console.log('[CAN-5] Running cannibalization risk check & intent deduplication...');
   console.log('[PRI-6] Scoring priority for candidate opportunities (priorityScore algorithm)...');
+  console.log('[EXP-34] Evaluating ongoing A/B experiments and proposing new baselines...');
 
   return {
     jobName: 'discover',
     status: 'SUCCESS',
     worker: 'W2 Research',
-    agents: ['ING-1', 'ENT-28', 'KW-2', 'INT-3', 'GAP-4', 'CAN-5', 'PRI-6'],
+    agents: ['ING-1', 'REV-33', 'ENT-28', 'KW-2', 'INT-3', 'GAP-4', 'CAN-5', 'PRI-6', 'EXP-34'],
     timestamp: new Date().toISOString(),
     data: {
       candidatesFound: 0,
@@ -106,7 +108,7 @@ export async function produce(): Promise<JobResult> {
 
 /**
  * Job 4: package (Worker W4 - Media + Package)
- * Agents: IMG-13, ONP-14, LNK-15, SCH-16, TEC-17, AGT-31
+ * Agents: IMG-13, ONP-14, LNK-15, SCH-16, TEC-17, AGT-31, LOC-32
  */
 export async function packageJob(): Promise<JobResult> {
   console.log('[W4:Media+Package][package] Packaging content bundle and media assets...');
@@ -116,12 +118,13 @@ export async function packageJob(): Promise<JobResult> {
   console.log('[SCH-16] Generating structured data JSON-LD (Article, BreadcrumbList, FAQ)...');
   console.log('[TEC-17] Applying technical controls, sitemap validation, and status checks...');
   console.log('[AGT-31] Auditing Agentic Readiness (Accessibility tree, ARIA, forms/actions for AI bots)...');
+  console.log('[LOC-32] Preparing Local/Maps update package & verifying Fake Engagement rules...');
 
   return {
     jobName: 'package',
     status: 'SUCCESS',
     worker: 'W4 Media+Package',
-    agents: ['IMG-13', 'ONP-14', 'LNK-15', 'SCH-16', 'TEC-17', 'AGT-31'],
+    agents: ['IMG-13', 'ONP-14', 'LNK-15', 'SCH-16', 'TEC-17', 'AGT-31', 'LOC-32'],
     timestamp: new Date().toISOString(),
     data: {
       packaged: true,
