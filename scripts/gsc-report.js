@@ -44,6 +44,21 @@ async function getGscReport() {
 
     if (!res.data.rows || res.data.rows.length === 0) {
       console.log('⚠️ Không có dữ liệu từ khóa nào trong khoảng thời gian này.');
+      
+      const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+      const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+      if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
+        const tgUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+        await fetch(tgUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: TELEGRAM_CHAT_ID,
+            text: `📊 *Báo Cáo Thực Hạng GSC (${SITE_URL})*\n\n⚠️ Hiện tại website chưa có dữ liệu từ khóa (Traffic = 0) trên Google Search Console trong 90 ngày qua.\n_Có thể do website còn mới hoặc chưa được index đủ sâu._`,
+            parse_mode: 'Markdown'
+          })
+        });
+      }
       return;
     }
 
