@@ -1,4 +1,4 @@
-import crypto from 'crypto';
+﻿import crypto from 'crypto';
 import fs from 'fs';
 
 import { RealBloggerClient } from '../packages/connectors/blogger/blogger.client';
@@ -84,7 +84,7 @@ export async function runAutoBlogger(options: {
       const refUrl = generateReferralUrl(selectedSite.allowedDestination || 'tracuugoicuoc.com', selectedTopic.topicId);
       const payload = generateBloggerDraftPayload({
         blogId: selectedSite.blogId, title: selectedTopic.title,
-        htmlBody: createTopicDraftHtml(selectedTopic.title, facts.filter((f: any) => (selectedTopic!.sourceFactIds || []).includes(f.id)), refUrl), labels: ['4G Viettel', 'Tin tức']
+        htmlBody: createTopicDraftHtml(selectedTopic.title, facts.filter((f: any) => (selectedTopic!.sourceFactIds || []).includes(f.id)), refUrl, selectedTopic.intent), labels: ['4G Viettel', 'Tin tá»©c']
       });
       console.log(`Inserting draft for topic ${selectedTopic.topicId} on blog ${selectedSite.blogId}...`);
       const attempt = { idempotencyKey, blogId: selectedSite.blogId, topicId: selectedTopic.topicId, contentHash: selectedContentSignature, status: 'INSERT_STARTED', createdAt: new Date().toISOString() };
@@ -109,7 +109,7 @@ export async function runAutoBlogger(options: {
   }
   if (env.GITHUB_STEP_SUMMARY && draftReviewUrl) {
     try {
-      fs.appendFileSync(env.GITHUB_STEP_SUMMARY, `### ✅ Blogger Draft Created\n- **Blog ID**: ${selectedSite.blogId}\n- **Post ID**: ${postId}\n- **Review & Publish**: [Open in Blogger](${draftReviewUrl})\n`, 'utf-8');
+      fs.appendFileSync(env.GITHUB_STEP_SUMMARY, `### âœ… Blogger Draft Created\n- **Blog ID**: ${selectedSite.blogId}\n- **Post ID**: ${postId}\n- **Review & Publish**: [Open in Blogger](${draftReviewUrl})\n`, 'utf-8');
     } catch (err) { console.error('Failed writing to GITHUB_STEP_SUMMARY', err); }
   }
   return { status: 'SUCCESS', exitCode: 0, attemptedBlogIds: [selectedSite.blogId], draftReviewUrl, selectedTopicId: selectedTopic.topicId };
@@ -119,3 +119,4 @@ const isMain = process.argv[1] && (process.argv[1].endsWith('auto-blogger.ts') |
 if (isMain) {
   runAutoBlogger({}).then((result) => { console.log('Result:', result); process.exit(result.exitCode); }).catch((err) => { console.error('Fatal:', err); process.exit(1); });
 }
+
