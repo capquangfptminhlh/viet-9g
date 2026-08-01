@@ -25,7 +25,7 @@ export function toTelecomPackage(
     ...pkg.facts.map((fact) => [fact.id, fact] as const),
   ]);
   const price = asNumber(factValue(pkg, facts, 'priceVnd'), fallback?.price ?? 0);
-  const registrationEligible = pkg.status === 'active' && pkg.factIds.length > 0 && Boolean(pkg.registration);
+  const registrationEligible = pkg.status === 'operator_verified' || (pkg.status === 'active' && pkg.factIds.length > 0 && Boolean(pkg.registration));
 
   return {
     id: pkg.id,

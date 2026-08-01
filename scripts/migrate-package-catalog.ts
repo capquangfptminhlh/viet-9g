@@ -18,23 +18,25 @@ function stable(value: unknown): string {
 export function buildPackageCatalog(existing?: any) {
   const source = fs.readFileSync(sourcePath);
   const sha256 = crypto.createHash('sha256').update(source).digest('hex');
+  const prior = new Map<string, any>((existing?.packages || []).map((pkg: any) => [pkg.id, pkg] as [string, any]));
   return {
     schemaVersion: '1.0.0',
     catalogVersion: existing?.catalogVersion || '1.0.0',
     generatedAt: existing?.generatedAt || '2026-08-02T00:00:00.000Z',
     sourceSnapshot: { path: 'src/data/packages.ts', sha256 },
-    packages: VIETTEL_PACKAGES.map((pkg) => ({
-      id: pkg.id,
-      code: pkg.name,
-      status: 'unverified',
-      category: pkg.category,
-      factIds: [],
-      display: {
-        name: pkg.name,
-        description: pkg.description,
-      },
-      facts: [],
-    })),
+    packages: VIETTEL_PACKAGES.map((pkg) => {
+      const previous = prior.get(pkg.id) || {};
+      return {
+        ...previous,
+        id: pkg.id,
+        code: pkg.name,
+        category: pkg.category,
+        display: { name: pkg.name, description: pkg.description, ...(previous.display || {}) },
+        status: previous.status || 'unverified',
+        factIds: previous.factIds || [],
+        facts: previous.facts || [],
+      };
+    }),
   };
 }
 

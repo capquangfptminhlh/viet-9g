@@ -20,7 +20,7 @@ export interface TelecomPackage {
   benefits: string[];
   rules: string[];
   popular?: boolean;
-  status?: 'active' | 'eligibility_required' | 'hold' | 'retired' | 'unverified';
+  status?: 'active' | 'eligibility_required' | 'hold' | 'retired' | 'unverified' | 'operator_verified';
   registrationEligible?: boolean;
 }
 

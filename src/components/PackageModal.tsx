@@ -17,7 +17,7 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
 
   if (!pkg) return null;
 
-  const registrationEligible = pkg.registrationEligible === true && pkg.status === 'active';
+  const registrationEligible = pkg.registrationEligible === true && ['active', 'operator_verified'].includes(pkg.status || '');
   const packageCode = pkg.code ?? pkg.name;
   const smsBody = registrationEligible ? buildSmsSyntax(packageCode) : '';
   const smsNumber = SMS_NUMBER;

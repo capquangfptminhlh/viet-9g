@@ -43,7 +43,7 @@ export const PackageRegistrationSchema = z.object({
 export const PackageSchema = z.object({
   id: z.string().regex(/^[a-z0-9-]+$/),
   code: z.string().min(1),
-  status: z.enum(['active', 'eligibility_required', 'hold', 'retired', 'unverified']),
+  status: z.enum(['active', 'eligibility_required', 'hold', 'retired', 'unverified', 'operator_verified']),
   category: z.enum(['hot', 'data', 'social', 'combo', 'long_term']),
   factIds: z.array(z.string().min(1)),
   display: PackageDisplaySchema,

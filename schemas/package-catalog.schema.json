@@ -34,7 +34,7 @@
       "type": "object", "required": ["id", "code", "status", "category", "factIds", "display", "facts"],
       "properties": {
         "id": { "type": "string", "pattern": "^[a-z0-9-]+$" }, "code": { "type": "string", "minLength": 1 },
-        "status": { "enum": ["active", "eligibility_required", "hold", "retired", "unverified"] },
+        "status": { "enum": ["active", "eligibility_required", "hold", "retired", "unverified", "operator_verified"] },
         "category": { "enum": ["hot", "data", "social", "combo", "long_term"] },
         "factIds": { "type": "array", "items": { "type": "string", "minLength": 1 } },
         "display": { "type": "object", "required": ["name", "description"], "properties": { "name": { "type": "string" }, "description": { "type": "string" }, "benefits": { "type": "array", "items": { "type": "string" } }, "eligibility": { "type": "array", "items": { "type": "string" } } }, "additionalProperties": true },
