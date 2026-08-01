@@ -1,4 +1,4 @@
-import { DraftPayload } from '../connectors/blogger/blogger.types';
+﻿import { DraftPayload } from '../connectors/blogger/blogger.types';
 import { sanitizeBloggerHtml } from '../policy-engine/blogger-html-policy';
 import { enforceBloggerLinks } from '../policy-engine/blogger-link-policy';
 

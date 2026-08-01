@@ -13,7 +13,7 @@ describe('Blogger Content Generator - Structural Tests', () => {
     const html = createTopicDraftHtml(topicTitle, inputFacts, "https://tracuugoicuoc.com/huong-dan/huy-goi-cuoc-viettel/?utm_source=blogger", topicIntent);
     
     // Positive Assertions: Title and Headings
-    expect(html).toContain(<h2>\</h2>);
+    expect(html).toContain(`<h2>${topicTitle}</h2>`);
     expect(html).toContain("<h3>1. Hướng dẫn thực hiện</h3>");
     expect(html).toContain("<h3>2. Các lưu ý quan trọng</h3>");
     expect(html).toContain("<h3>Câu hỏi thường gặp (FAQ)</h3>");
