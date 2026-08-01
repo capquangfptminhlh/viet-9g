@@ -22,7 +22,7 @@ export class RealBloggerClient implements BloggerClient {
   }
 
   async getPost(blogId: string, postId: string): Promise<BloggerPostResponse> {
-    const res = await this.client.posts.get({ blogId, postId });
+    const res = await this.client.posts.get({ blogId, postId, view: 'ADMIN' });
     return res.data;
   }
 
@@ -31,3 +31,4 @@ export class RealBloggerClient implements BloggerClient {
     return res.data.items || [];
   }
 }
+
