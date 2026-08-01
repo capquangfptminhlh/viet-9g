@@ -1,4 +1,4 @@
-﻿import { DraftPayload } from '../connectors/blogger/blogger.types';
+import { DraftPayload } from '../connectors/blogger/blogger.types';
 import { sanitizeBloggerHtml } from '../policy-engine/blogger-html-policy';
 import { enforceBloggerLinks } from '../policy-engine/blogger-link-policy';
 
@@ -26,7 +26,6 @@ export function createTopicDraftHtml(title: string, facts: any[], referralUrl?: 
   const linkHtml = referralUrl ? `<a href="${referralUrl}" rel="nofollow noopener noreferrer">xem hướng dẫn chi tiết tại đây</a>` : 'tham khảo thêm trên website';
 
   let html = `<h2>${title}</h2>\n`;
-  html += `<p>Chào mừng bạn đến với bài viết về <strong>${title}</strong>. Nếu bạn đang tìm kiếm thông tin nhanh chóng và chuẩn xác, nội dung dưới đây sẽ giải đáp trực tiếp vấn đề bạn quan tâm.</p>\n`;
   
   if (intent === 'informational') {
     html += `<h3>1. Hướng dẫn thực hiện</h3>\n`;
