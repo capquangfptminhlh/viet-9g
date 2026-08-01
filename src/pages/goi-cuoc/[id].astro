@@ -1,10 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import DynamicPostPage from '../../components/DynamicPostPage';
-import { VIETTEL_PACKAGES } from '../../data/packages';
+import { getPackageRoutes } from '../../data/package-routes';
 
 export async function getStaticPaths() {
-  return VIETTEL_PACKAGES.map(pkg => ({
+  return getPackageRoutes().map(pkg => ({
     params: { id: pkg.id.toLowerCase() },
     props: { pkg },
   }));

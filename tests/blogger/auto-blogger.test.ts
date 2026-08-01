@@ -88,6 +88,15 @@ describe('Auto Blogger Orchestration', () => {
     expect(result).toMatchObject({ status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1, attemptedBlogIds: [] });
   });
 
+  it('holds an unverified package topic without creating a draft', async () => {
+    const result = await runAutoBlogger({
+      sites: [{ blogId: 'a', enabled: true }],
+      topics: [{ topicId: 'pkg-topic', packageId: 'v120b', status: 'QUEUE', targetBlogId: 'a', intent: 'review', title: 'V120B review', sourceFactIds: ['f1'] }],
+      env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }]
+    });
+    expect(result).toMatchObject({ status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1 });
+  });
+
   it('creates topic-specific editorial text with structured sections', () => {
     const draft = createTopicDraftHtml('Cách kiểm tra dung lượng 4G', [{ claim: 'Bấm *098#' }]);
     expect(draft).toContain('Cách kiểm tra dung lượng 4G');

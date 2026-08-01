@@ -9,8 +9,10 @@ import { generateBloggerDraftPayload, createTopicDraftHtml } from '../packages/c
 import { detectDuplicate } from '../packages/content-engine/blogger-duplicate-detector';
 import { Claim, validateBloggerFacts } from '../packages/content-engine/blogger-fact-validator';
 import { generateReferralUrl } from '../packages/measurement-engine/blogger-referral-tracker';
+import { getPackageById, getRenderablePackages, loadPackageCatalog } from '../src/data/package-catalog';
+import type { PackageCatalog } from '../src/data/package-catalog';
 
-type Topic = { topicId: string; targetBlogId: string; intent: string; title: string; sourceFactIds?: string[]; status?: string; targetUrlPath?: string; reviewData?: any; };
+type Topic = { topicId: string; targetBlogId: string; intent: string; title: string; packageId?: string; contentVersion?: string; sourceFactIds?: string[]; status?: string; targetUrlPath?: string; reviewData?: any; };
 type Site = { blogId: string; enabled: boolean; allowedDestination?: string };
 type Result = { status: string; exitCode: number; attemptedBlogIds: string[]; draftReviewUrl?: string; selectedTopicId?: string };
 
@@ -58,10 +60,17 @@ export async function runAutoBlogger(options: {
 
   const selectedSite = sites[0];
   let selectedTopic: Topic | undefined;
+  let catalog: PackageCatalog | undefined;
   let idempotencyKey = '';
   let selectedContentSignature = '';
   for (const topic of topics) {
     if (topic.targetBlogId !== selectedSite.blogId) continue;
+    if (topic.packageId) {
+      if (!catalog) catalog = loadPackageCatalog();
+      const pkg = getPackageById(catalog, topic.packageId);
+      const renderable = getRenderablePackages(catalog, options.now || new Date()).some((item) => item.id === pkg?.id);
+      if (!pkg || pkg.status !== 'active' || !renderable) continue;
+    }
     const claim: Claim = { text: topic.title, sourceFactIds: topic.sourceFactIds || [] };
     if (validateBloggerFacts({ claims: [claim] }, facts).decision !== 'PASS') continue;
     const currentKey = createIdempotencyKey(selectedSite.blogId, topic.topicId, 'v1');
@@ -90,7 +99,7 @@ export async function runAutoBlogger(options: {
         htmlBody: createTopicDraftHtml(selectedTopic.title, facts.filter((f: any) => (selectedTopic!.sourceFactIds || []).includes(f.id)), refUrl, selectedTopic.intent, selectedTopic.reviewData), labels: ['4G Viettel', 'Tin tức']
       });
       console.log(`Inserting draft for topic ${selectedTopic.topicId} on blog ${selectedSite.blogId}...`);
-      const attempt = { idempotencyKey, blogId: selectedSite.blogId, topicId: selectedTopic.topicId, contentHash: selectedContentSignature, status: 'INSERT_STARTED', createdAt: new Date().toISOString() };
+      const attempt = { idempotencyKey, blogId: selectedSite.blogId, topicId: selectedTopic.topicId, packageId: selectedTopic.packageId, catalogVersion: catalog?.catalogVersion, contentHash: selectedContentSignature, status: 'INSERT_STARTED', createdAt: new Date().toISOString() };
       ledger.push(attempt);
       fs.writeFileSync('state/blogger-publication-ledger.json', JSON.stringify(ledger, null, 2));
       const response = await publisher.createDraft(payload);
@@ -103,7 +112,7 @@ export async function runAutoBlogger(options: {
       console.error('Blogger API Error:', err);
       const existing = ledger.find((entry) => entry.idempotencyKey === idempotencyKey);
       if (existing) Object.assign(existing, { postId, status: 'VERIFY_FAILED' });
-      else ledger.push({ idempotencyKey, blogId: selectedSite.blogId, topicId: selectedTopic.topicId, contentHash: selectedContentSignature, postId, status: 'VERIFY_FAILED', createdAt: new Date().toISOString() });
+      else ledger.push({ idempotencyKey, blogId: selectedSite.blogId, topicId: selectedTopic.topicId, packageId: selectedTopic.packageId, catalogVersion: catalog?.catalogVersion, contentHash: selectedContentSignature, postId, status: 'VERIFY_FAILED', createdAt: new Date().toISOString() });
       fs.writeFileSync('state/blogger-publication-ledger.json', JSON.stringify(ledger, null, 2));
       return { status: 'ERROR', exitCode: 1, attemptedBlogIds: [selectedSite.blogId], selectedTopicId: selectedTopic.topicId };
     }
