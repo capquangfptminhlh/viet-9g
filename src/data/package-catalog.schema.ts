@@ -47,7 +47,7 @@ export const PackageSchema = z.object({
   category: z.enum(['hot', 'data', 'social', 'combo', 'long_term']),
   factIds: z.array(z.string().min(1)),
   display: PackageDisplaySchema,
-  registration: PackageRegistrationSchema,
+  registration: PackageRegistrationSchema.optional(),
   facts: z.array(CatalogFactSchema).default([]),
 }).passthrough();
 

@@ -9,7 +9,7 @@
       "package IDs and codes are globally unique",
       "fact IDs are globally unique and every package factIds entry resolves locally or globally",
       "facts require HTTPS sourceUrl on the viettel.vn hostname allowlist and valid effective/expiry ordering",
-      "active packages require current evidence and registration data; renderable records require expiry strictly after now and effectiveAt at or before now"
+      "active packages require current evidence and registration data; hold, unverified, eligibility_required, and retired packages may omit registration; renderable records require expiry strictly after now and effectiveAt at or before now"
     ]
   },
   "properties": {
@@ -31,7 +31,7 @@
       }, "additionalProperties": false
     },
     "package": {
-      "type": "object", "required": ["id", "code", "status", "category", "factIds", "display", "registration", "facts"],
+      "type": "object", "required": ["id", "code", "status", "category", "factIds", "display", "facts"],
       "properties": {
         "id": { "type": "string", "pattern": "^[a-z0-9-]+$" }, "code": { "type": "string", "minLength": 1 },
         "status": { "enum": ["active", "eligibility_required", "hold", "retired", "unverified"] },

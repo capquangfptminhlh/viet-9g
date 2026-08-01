@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
-import { getRenderablePackages, parsePackageCatalog } from '../../src/data/package-catalog';
+import os from 'node:os';
+import path from 'node:path';
+import { getPackageById, getRenderablePackages, loadPackageCatalog, parsePackageCatalog } from '../../src/data/package-catalog';
 
 type CatalogFactFixture = {
   id: string;
@@ -216,5 +218,37 @@ describe('package catalog schema', () => {
       expect.stringMatching(/globally unique/),
       expect.stringMatching(/renderable.*expiry/i),
     ]));
+  });
+
+  it.each(['hold', 'unverified', 'eligibility_required', 'retired'])('allows %s package without registration', (status) => {
+    const catalog = createCatalog();
+    catalog.packages[0].status = status;
+    delete (catalog.packages[0] as Partial<PackageFixture>).registration;
+    expect(() => parsePackageCatalog(catalog)).not.toThrow();
+  });
+
+  it('requires registration only for active packages', () => {
+    const catalog = createCatalog();
+    delete (catalog.packages[0] as Partial<PackageFixture>).registration;
+    expect(() => parsePackageCatalog(catalog)).toThrow(/registration/i);
+  });
+
+  it('loads a UTF-8 BOM-prefixed catalog from a path', () => {
+    const file = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'catalog-')), 'catalog.json');
+    fs.writeFileSync(file, `\uFEFF${JSON.stringify(createCatalog())}`, 'utf8');
+    expect(loadPackageCatalog(file).packages[0].id).toBe('v120b');
+  });
+
+  it('reports malformed JSON when loading a path', () => {
+    const file = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'catalog-')), 'catalog.json');
+    fs.writeFileSync(file, '{bad json', 'utf8');
+    expect(() => loadPackageCatalog(file)).toThrow();
+  });
+
+  it('looks up packages by stable id or display code', () => {
+    const catalog = parsePackageCatalog(createCatalog());
+    expect(getPackageById(catalog, 'v120b')?.id).toBe('v120b');
+    expect(getPackageById(catalog, 'V120B')?.id).toBe('v120b');
+    expect(getPackageById(catalog, 'missing')).toBeUndefined();
   });
 });
