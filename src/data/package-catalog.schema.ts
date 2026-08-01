@@ -13,10 +13,10 @@ const isoDateTime = z.string().refine((value) => {
 export const CatalogFactSchema = z.object({
   id: z.string().min(1),
   key: z.string().min(1),
-  value: z.union([z.string(), z.number(), z.boolean()]),
+  value: z.union([z.string(), z.number().finite().positive(), z.boolean()]),
   unit: z.string().optional(),
   claim: z.string().min(1),
-  sourceUrl: z.string().url().optional(),
+  sourceUrl: z.string().url(),
   retrievedAt: isoDateTime,
   effectiveAt: isoDate,
   expiresAt: isoDateTime,
@@ -47,7 +47,7 @@ export const PackageSchema = z.object({
   category: z.enum(['hot', 'data', 'social', 'combo', 'long_term']),
   factIds: z.array(z.string().min(1)),
   display: PackageDisplaySchema,
-  registration: PackageRegistrationSchema.optional(),
+  registration: PackageRegistrationSchema,
   facts: z.array(CatalogFactSchema).default([]),
 }).passthrough();
 

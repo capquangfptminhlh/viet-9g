@@ -13,16 +13,16 @@
   },
   "$defs": {
     "fact": {
-      "type": "object", "required": ["id", "key", "value", "claim", "retrievedAt", "effectiveAt", "expiresAt"],
+      "type": "object", "required": ["id", "key", "value", "claim", "sourceUrl", "retrievedAt", "effectiveAt", "expiresAt"],
       "properties": {
         "id": { "type": "string", "minLength": 1 }, "key": { "type": "string", "minLength": 1 },
-        "value": {}, "unit": { "type": "string" }, "claim": { "type": "string", "minLength": 1 },
-        "sourceUrl": { "type": "string", "format": "uri" }, "retrievedAt": { "type": "string", "format": "date-time" },
+        "value": { "oneOf": [{ "type": "string" }, { "type": "number", "exclusiveMinimum": 0 }, { "type": "boolean" }] }, "unit": { "type": "string" }, "claim": { "type": "string", "minLength": 1 },
+        "sourceUrl": { "type": "string", "format": "uri", "pattern": "^https://([^.]+\\.)*viettel\\.vn(/|$)" }, "retrievedAt": { "type": "string", "format": "date-time" },
         "effectiveAt": { "type": "string", "format": "date" }, "expiresAt": { "type": "string", "format": "date-time" }
       }, "additionalProperties": false
     },
     "package": {
-      "type": "object", "required": ["id", "code", "status", "category", "factIds", "display", "facts"],
+      "type": "object", "required": ["id", "code", "status", "category", "factIds", "display", "registration", "facts"],
       "properties": {
         "id": { "type": "string", "pattern": "^[a-z0-9-]+$" }, "code": { "type": "string", "minLength": 1 },
         "status": { "enum": ["active", "eligibility_required", "hold", "retired", "unverified"] },

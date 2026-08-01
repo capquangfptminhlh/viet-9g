@@ -160,4 +160,30 @@ describe('package catalog schema', () => {
 
     expect(() => parsePackageCatalog(catalog)).toThrow(/expired|expiresAt|expiry/i);
   });
+
+  it('requires source evidence for every fact', () => {
+    const catalog = createCatalog();
+    delete catalog.packages[0].facts[0].sourceUrl;
+    catalog.packages[0].status = 'unverified';
+    expect(() => parsePackageCatalog(catalog)).toThrow(/sourceUrl|evidence/i);
+  });
+
+  it('rejects non-positive numeric fact values', () => {
+    const catalog = createCatalog();
+    catalog.packages[0].facts[0].value = 0;
+    expect(() => parsePackageCatalog(catalog)).toThrow(/positive|value|numeric/i);
+  });
+
+  it('rejects an https violation even on a non-active package', () => {
+    const catalog = createCatalog();
+    catalog.packages[0].status = 'eligibility_required';
+    catalog.packages[0].facts[0].sourceUrl = 'http://viettel.vn/goi-cuoc/v120b';
+    expect(() => parsePackageCatalog(catalog)).toThrow(/https|sourceUrl|official/i);
+  });
+
+  it('treats expiry equal to catalog generation as stale', () => {
+    const catalog = createCatalog();
+    catalog.packages[0].facts[0].expiresAt = catalog.generatedAt;
+    expect(() => parsePackageCatalog(catalog)).toThrow(/expired|expiresAt|expiry/i);
+  });
 });

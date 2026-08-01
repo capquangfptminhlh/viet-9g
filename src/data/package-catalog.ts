@@ -16,8 +16,9 @@ function duplicate(values: string[]) {
 function isOfficial(url?: string) {
   if (!url) return false;
   try {
-    const host = new URL(url).hostname.toLowerCase();
-    return host === 'viettel.vn' || host.endsWith('.viettel.vn');
+    const parsed = new URL(url);
+    const host = parsed.hostname.toLowerCase();
+    return parsed.protocol === 'https:' && (host === 'viettel.vn' || host.endsWith('.viettel.vn'));
   } catch { return false; }
 }
 
@@ -34,6 +35,12 @@ export function parsePackageCatalog(input: unknown): PackageCatalog {
   const factMap = new Map(allFacts.map((fact) => [fact.id, fact]));
   const generated = Date.parse(catalog.generatedAt);
 
+  for (const fact of allFacts) {
+    if (!isOfficial(fact.sourceUrl)) throw new Error(`sourceUrl for fact ${fact.id} must be HTTPS official viettel.vn evidence`);
+    if (typeof fact.value === 'number' && fact.value <= 0) throw new Error(`fact ${fact.id} value must be positive`);
+    if (Date.parse(fact.expiresAt) <= Date.parse(fact.effectiveAt)) throw new Error(`invalid expiry for fact ${fact.id}`);
+  }
+
   for (const pkg of catalog.packages) {
     const refs = duplicate(pkg.factIds);
     if (refs) throw new Error(`duplicate fact ID reference in package ${pkg.id}: ${refs}`);
@@ -47,10 +54,8 @@ export function parsePackageCatalog(input: unknown): PackageCatalog {
     for (const id of pkg.factIds) {
       const fact = factMap.get(id)!;
       const expires = Date.parse(fact.expiresAt);
-      if (expires <= Date.parse(fact.effectiveAt)) throw new Error(`invalid expiry for fact ${id}`);
       if (pkg.status === 'active') {
-        if (expires < generated) throw new Error(`expired fact ${id} for active package ${pkg.id}`);
-        if (!isOfficial(fact.sourceUrl)) throw new Error(`sourceUrl for fact ${id} must be official viettel.vn evidence`);
+        if (expires <= generated) throw new Error(`expired fact ${id} for active package ${pkg.id}`);
       }
     }
   }
