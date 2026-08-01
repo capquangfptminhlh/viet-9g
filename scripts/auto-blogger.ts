@@ -27,7 +27,7 @@ export async function runAutoBlogger(options: {
     if (!fs.existsSync('data/facts.json')) {
       throw new Error('FACT_STORE_EMPTY: data/facts.json does not exist');
     }
-    facts = JSON.parse(fs.readFileSync('data/facts.json', 'utf-8'));
+    facts = JSON.parse(fs.readFileSync('data/facts.json', 'utf-8').replace(/^\uFEFF/, ''));
   }
   if (!facts || facts.length === 0) {
     throw new Error('FACT_STORE_EMPTY: Cannot run with an empty canonical fact store');
@@ -38,7 +38,7 @@ export async function runAutoBlogger(options: {
     if (!fs.existsSync('config/blogger-sites.json')) {
       throw new Error('CONFIG_ERROR: config/blogger-sites.json does not exist');
     }
-    sites = JSON.parse(fs.readFileSync('config/blogger-sites.json', 'utf-8')).sites;
+    sites = JSON.parse(fs.readFileSync('config/blogger-sites.json', 'utf-8').replace(/^\uFEFF/, '')).sites;
   }
   sites = (sites || []).filter((s: any) => s.enabled);
   if (sites.length === 0) {
@@ -50,7 +50,7 @@ export async function runAutoBlogger(options: {
     if (!fs.existsSync('config/topics.json')) {
       throw new Error('CONFIG_ERROR: config/topics.json does not exist');
     }
-    topics = JSON.parse(fs.readFileSync('config/topics.json', 'utf-8'));
+    topics = JSON.parse(fs.readFileSync('config/topics.json', 'utf-8').replace(/^\uFEFF/, ''));
   }
   topics = (topics || []).filter((t: any) => t.status !== 'PUBLISHED');
   if (topics.length === 0) {
@@ -59,7 +59,8 @@ export async function runAutoBlogger(options: {
 
   let ledger: LedgerEntry[] = [];
   if (fs.existsSync('state/blogger-publication-ledger.json')) {
-    ledger = JSON.parse(fs.readFileSync('state/blogger-publication-ledger.json', 'utf-8'));
+    const ledgerJson = fs.readFileSync('state/blogger-publication-ledger.json', 'utf-8').replace(/^\uFEFF/, '');
+    ledger = JSON.parse(ledgerJson);
   }
 
   const selectedSite = sites[0];
@@ -106,7 +107,7 @@ export async function runAutoBlogger(options: {
       const payload = generateBloggerDraftPayload({
         blogId: selectedSite.blogId,
         title: selectedTopic.title,
-        htmlBody: `<h2>${selectedTopic.title}</h2><p>Đăng ký gói cước Viettel nhanh chóng với nhiều ưu đãi.</p><p><a href="${refUrl}">Xem chi tiết gói cước tại đây</a>.</p>`,
+        htmlBody: `<h2>${selectedTopic.title}</h2><p>Đây là hướng dẫn độc lập theo chủ đề ${selectedTopic.title}.</p><p><a href="${refUrl}" rel="nofollow noopener noreferrer">Xem thông tin liên quan</a>.</p>`,
         labels: ['4G Viettel', 'Tin tức']
       });
 
@@ -176,3 +177,4 @@ if (isMain) {
     process.exit(1);
   });
 }
+

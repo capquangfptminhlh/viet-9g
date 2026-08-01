@@ -12,4 +12,9 @@ describe('Blogger policies', () => {
     expect(() => enforceBloggerLinks('<a href="https://tracuugoicuoc.com/a?utm_source=blogger">one</a><a href="https://tracuugoicuoc.com/b?utm_source=blogger">two</a>'))
       .toThrow(/one link/i);
   });
+
+  it('rejects a link without the required destination, UTM, and rel policy', () => {
+    expect(() => enforceBloggerLinks('<a href="http://example.com/x">read</a>'))
+      .toThrow(/https|destination|utm|rel/i);
+  });
 });

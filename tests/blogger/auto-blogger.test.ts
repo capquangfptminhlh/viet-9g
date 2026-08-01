@@ -2,6 +2,17 @@
 import { runAutoBlogger } from '../../scripts/auto-blogger';
 
 describe('Auto Blogger Orchestration', () => {
+  it('accepts a BOM-prefixed durable ledger', async () => {
+    const result = await runAutoBlogger({
+      sites: [{ blogId: 'a', enabled: true }],
+      topics: [{ topicId: 't1', targetBlogId: 'a', intent: 'info', title: 'T1', sourceFactIds: ['f1'] }],
+      env: { BLOGGER_ENABLED: 'true' },
+      facts: [{ id: 'f1' }]
+    });
+
+    expect(result.status).toBe('SUCCESS');
+  });
+
   it('skips a topic if fact validation fails and picks the next valid topic', async () => {
     const result = await runAutoBlogger({
       sites: [{ blogId: 'a', enabled: true }],

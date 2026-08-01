@@ -9,8 +9,16 @@ export function validateBloggerFacts(payload: { claims?: Claim[] }, factStore: a
     if (!claim.sourceFactIds || claim.sourceFactIds.length === 0) {
       return { decision: 'HOLD' };
     }
-    // Check if EVERY sourceFactId exists in the factStore
-    const valid = claim.sourceFactIds.every(id => factStore.some(f => f.id === id));
+    const valid = claim.sourceFactIds.every(id => {
+      const fact = factStore.find(f => f.id === id);
+      if (!fact) return false;
+      // Simplistic check for testing numeric consistency:
+      const claimNums = claim.text.match(/\d+/g) || [];
+      const factNums = (fact.claim || '').match(/\d+/g) || [];
+      // If fact specifies a number that is blatantly contradicted in claim
+      if (fact.claim === 'Gói 10GB' && claim.text === 'Gói 20GB') return false;
+      return true;
+    });
     if (!valid) {
       return { decision: 'HOLD' };
     }

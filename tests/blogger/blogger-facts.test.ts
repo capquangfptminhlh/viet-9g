@@ -11,6 +11,13 @@ describe('Blogger fact validation', () => {
   it('fails startup when the canonical fact store is empty', () => {
     expect(() => requireFactStore([])).toThrow(/FACT_STORE_EMPTY/);
   });
+
+  it('holds a claim whose text does not match its referenced fact', () => {
+    expect(validateBloggerFacts(
+      { claims: [{ text: 'Gói 20GB', sourceFactIds: ['f1'] }] },
+      [{ id: 'f1', claim: 'Gói 10GB' }]
+    )).toMatchObject({ decision: 'HOLD' });
+  });
 });
 
 describe('Blogger duplicate detection', () => {
