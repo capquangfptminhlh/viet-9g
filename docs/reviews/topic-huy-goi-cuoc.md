@@ -1,5 +1,5 @@
 ﻿# Draft Preview: Cách hủy gói data Viettel qua SMS 191
-*Intent: informational*
+*Intent: cancellation*
 *Lưu ý: Mã HTML đã chạy qua bộ lọc `sanitizeBloggerHtml` và `enforceBloggerLinks` y hệt Production.*
 
 ```html

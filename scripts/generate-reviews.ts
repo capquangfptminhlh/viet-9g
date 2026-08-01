@@ -12,9 +12,12 @@ for (const topicId of reviewTopics) {
   if (!topic) continue;
 
   const topicFacts = facts.filter((f: any) => (topic.sourceFactIds || []).includes(f.id));
-  const refUrl = generateReferralUrl('tracuugoicuoc.com/huong-dan/huy-goi-cuoc-viettel/', topic.topicId);
+  let refUrl;
+  if (topic.targetUrlPath) {
+    refUrl = generateReferralUrl('tracuugoicuoc.com', topic.targetUrlPath, topic.topicId);
+  }
   
-  const rawHtml = createTopicDraftHtml(topic.title, topicFacts, refUrl, topic.intent);
+  const rawHtml = createTopicDraftHtml(topic.title, topicFacts, refUrl, topic.intent, topic.reviewData);
   
   // Full production pipeline: sanitize + validate links
   const payload = generateBloggerDraftPayload({

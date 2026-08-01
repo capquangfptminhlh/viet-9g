@@ -1,4 +1,4 @@
-﻿import crypto from 'crypto';
+import crypto from 'crypto';
 import fs from 'fs';
 
 import { RealBloggerClient } from '../packages/connectors/blogger/blogger.client';
@@ -81,10 +81,14 @@ export async function runAutoBlogger(options: {
     try {
       const client = new RealBloggerClient();
       const publisher = new BloggerPublisher(client);
-      const refUrl = generateReferralUrl(selectedSite.allowedDestination || 'tracuugoicuoc.com', selectedTopic.topicId);
+      let refUrl = generateReferralUrl(selectedSite.allowedDestination || 'tracuugoicuoc.com', selectedTopic.topicId);
+      if (selectedTopic.targetUrlPath) {
+        refUrl = generateReferralUrl(selectedSite.allowedDestination || 'tracuugoicuoc.com', selectedTopic.targetUrlPath, selectedTopic.topicId);
+      }
+      
       const payload = generateBloggerDraftPayload({
         blogId: selectedSite.blogId, title: selectedTopic.title,
-        htmlBody: createTopicDraftHtml(selectedTopic.title, facts.filter((f: any) => (selectedTopic!.sourceFactIds || []).includes(f.id)), refUrl, selectedTopic.intent), labels: ['4G Viettel', 'Tin tá»©c']
+        htmlBody: createTopicDraftHtml(selectedTopic.title, facts.filter((f: any) => (selectedTopic!.sourceFactIds || []).includes(f.id)), refUrl, selectedTopic.intent, selectedTopic.reviewData), labels: ['4G Viettel', 'Tin tức']
       });
       console.log(`Inserting draft for topic ${selectedTopic.topicId} on blog ${selectedSite.blogId}...`);
       const attempt = { idempotencyKey, blogId: selectedSite.blogId, topicId: selectedTopic.topicId, contentHash: selectedContentSignature, status: 'INSERT_STARTED', createdAt: new Date().toISOString() };

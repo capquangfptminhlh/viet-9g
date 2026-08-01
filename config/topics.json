@@ -48,7 +48,7 @@
         "targetBlogId":  "5229528996284551001"
     },
     {
-        "intent":  "informational",
+        "intent":  "cancellation",
         "contentVersion":  "v1",
         "title":  "Cách hủy gói data Viettel qua SMS 191",
         "status":  "QUEUE",
@@ -57,30 +57,45 @@
         "sourceFactIds":  [
                               "fact-5"
                           ],
-        "targetBlogId":  "5229528996284551001"
+        "targetBlogId":  "5229528996284551001",
+        "targetUrlPath":  "/huong-dan/huy-goi-cuoc-viettel/"
     },
     {
         "intent":  "informational",
         "contentVersion":  "v1",
         "title":  "Cách Kiểm Tra Tốc Độ Mạng 4G Viettel Nhanh Và Chính Xác Nhất",
-        "status":  "QUEUE",
+        "status":  "HOLD",
         "contentCharter":  "Hướng dẫn chi tiết cách đo tốc độ mạng 4G thực tế",
         "topicId":  "topic-kiem-tra-toc-do",
         "sourceFactIds":  [
                               "fact-6"
                           ],
-        "targetBlogId":  "5229528996284551001"
+        "targetBlogId":  "5229528996284551001",
+        "targetUrlPath":  "/huong-dan/kiem-tra-toc-do-mang/"
     },
     {
         "intent":  "review",
         "contentVersion":  "v1",
         "title":  "Đánh Giá Gói ST15K Viettel: Có Nên Đăng Ký Dùng 3 Ngày?",
-        "status":  "QUEUE",
+        "status":  "HOLD",
         "contentCharter":  "Review nhanh gói ST15K cho người cần data ngắn hạn",
         "topicId":  "topic-st15k-review",
         "sourceFactIds":  [
                               "fact-7"
                           ],
-        "targetBlogId":  "5229528996284551001"
+        "targetBlogId":  "5229528996284551001",
+        "targetUrlPath":  "/goi-cuoc/st15k/",
+        "reviewData":  {
+                           "considerations":  "Cần kiểm tra kỹ số dư và thao tác hủy gia hạn nếu chỉ định dùng 1 lần",
+                           "pros":  [
+                                        "Giá rẻ, linh hoạt dùng trong 3 ngày",
+                                        "Dung lượng lớn (3GB) đủ lướt web, xem video ngắn"
+                                    ],
+                           "suitableFor":  "Người đi du lịch ngắn ngày, đi công tác, hoặc cần chữa cháy khi Wi-Fi hỏng",
+                           "cons":  [
+                                        "Tự động gia hạn nếu không để ý",
+                                        "Hết 3GB ngừng truy cập, không có data tốc độ thường"
+                                    ]
+                       }
     }
 ]

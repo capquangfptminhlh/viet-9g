@@ -1,40 +1,84 @@
-﻿import { describe, it, expect } from 'vitest';
-import { createTopicDraftHtml } from '../../packages/content-engine/blogger-content-generator';
+﻿﻿import { describe, it, expect } from 'vitest';
+import { createTopicDraftHtml, generateBloggerDraftPayload } from '../../packages/content-engine/blogger-content-generator';
+import { generateReferralUrl } from '../../packages/measurement-engine/blogger-referral-tracker';
 import fs from 'fs';
 
-describe('Blogger Content Generator - Structural Tests', () => {
-  it('should correctly structure an informational post about package cancellation', () => {
-    const factsStore = JSON.parse(fs.readFileSync('data/facts.json', 'utf-8').replace(/^\uFEFF/, ''));
-    const topicTitle = "Cách Hủy Gói Cước 4G Viettel Đơn Giản, Miễn Phí Qua 191";
-    const topicIntent = "informational";
-    const topicSourceFactIds = ["fact-5"];
-    
-    const inputFacts = factsStore.filter((f: any) => topicSourceFactIds.includes(f.id));
-    const html = createTopicDraftHtml(topicTitle, inputFacts, "https://tracuugoicuoc.com/huong-dan/huy-goi-cuoc-viettel/?utm_source=blogger", topicIntent);
-    
-    // Positive Assertions: Title and Headings
-    expect(html).toContain(`<h2>${topicTitle}</h2>`);
-    expect(html).toContain("<h3>1. Hướng dẫn thực hiện</h3>");
-    expect(html).toContain("<h3>2. Các lưu ý quan trọng</h3>");
-    expect(html).toContain("<h3>Câu hỏi thường gặp (FAQ)</h3>");
-    
-    // Positive Assertions: Facts
-    expect(html).toContain("HUY TÊN_GÓI gửi 191");
-    expect(html).toContain("HUYDATA TÊN_GÓI gửi 191");
-    
-    // Positive Assertions: New Boilerplate
-    expect(html).toContain("Theo hướng dẫn của Viettel, tùy gói cước");
-    expect(html).toContain("kiểm tra lại SMS phản hồi");
-    expect(html).toContain("mất ưu đãi/data còn lại");
-    
-    // Negative Assertions: Must NOT contain boilerplate from 'review' intent
-    expect(html).not.toContain("Nạp đủ số dư cước phí");
-    expect(html).not.toContain("Thực hiện thao tác đăng ký");
-    expect(html).not.toContain("Thông tin chi tiết gói cước");
+const factsStore = JSON.parse(fs.readFileSync('data/facts.json', 'utf-8').replace(/^\uFEFF/, ''));
 
-    // Negative Assertions: Must NOT contain *098# or "tra cứu" for cancellation
-    expect(html).not.toContain("*098#");
-    expect(html).not.toContain("tra cứu");
-    expect(html).not.toContain("Theo quy định mới nhất từ nhà mạng");
+describe('Blogger Content Generator - Multi-Intent Tests', () => {
+  it('Cancellation Intent: should have proper structure, correct link, and data loss warning', () => {
+    const title = "Cách hủy gói data Viettel qua SMS 191";
+    const refUrl = generateReferralUrl("tracuugoicuoc.com", "/huong-dan/huy-goi-cuoc-viettel/", "topic-huy-goi-cuoc");
+    const inputFacts = factsStore.filter((f: any) => f.id === 'fact-5');
+    const html = createTopicDraftHtml(title, inputFacts, refUrl, "cancellation");
+    const payload = generateBloggerDraftPayload({ blogId: "test", title, htmlBody: html });
+    const resultHtml = payload.sanitizedHtml;
+
+    expect(resultHtml).toContain('<h2>' + title + '</h2>');
+    expect(resultHtml).toContain("HUY TÊN_GÓI gửi 191");
+    expect(resultHtml).toContain("mất ưu đãi/data còn lại");
+    expect(resultHtml).toContain("<h3>Câu hỏi thường gặp (FAQ)</h3>");
+    expect(resultHtml).toContain('href="https://tracuugoicuoc.com/huong-dan/huy-goi-cuoc-viettel/?utm_source=blogger');
+    
+    // Cross-contamination
+    expect(resultHtml).not.toContain("đăng ký");
+    expect(resultHtml).not.toContain("Ai nên dùng");
+    expect(resultHtml).not.toContain("undefined");
+    expect(resultHtml).not.toContain("..");
+  });
+
+  it('Informational Intent: should not have data loss warning or review elements', () => {
+    const title = "Cách Kiểm Tra Tốc Độ Mạng";
+    const refUrl = generateReferralUrl("tracuugoicuoc.com", "/huong-dan/kiem-tra-toc-do-mang/", "topic-kiem-tra-toc-do");
+    const inputFacts = factsStore.filter((f: any) => f.id === 'fact-6');
+    const html = createTopicDraftHtml(title, inputFacts, refUrl, "informational");
+    const payload = generateBloggerDraftPayload({ blogId: "test", title, htmlBody: html });
+    const resultHtml = payload.sanitizedHtml;
+
+    expect(resultHtml).toContain('<h2>' + title + '</h2>');
+    expect(resultHtml).toContain("<h3>Câu hỏi thường gặp (FAQ)</h3>");
+    expect(resultHtml).toContain('href="https://tracuugoicuoc.com/huong-dan/kiem-tra-toc-do-mang/?utm_source=blogger');
+    
+    // Cross-contamination
+    expect(resultHtml).not.toContain("mất ưu đãi/data còn lại");
+    expect(resultHtml).not.toContain("hủy gói");
+    expect(resultHtml).not.toContain("Ai nên dùng");
+    expect(resultHtml).not.toContain("undefined");
+    expect(resultHtml).not.toContain("..");
+  });
+
+  it('Review Intent: should require reviewData and format pros/cons correctly', () => {
+    const title = "Đánh Giá Gói ST15K";
+    const refUrl = generateReferralUrl("tracuugoicuoc.com", "/goi-cuoc/st15k/", "topic-st15k-review");
+    const inputFacts = factsStore.filter((f: any) => f.id === 'fact-7');
+    const reviewData = {
+      pros: ["Giá rẻ"],
+      cons: ["Tự động gia hạn"],
+      suitableFor: "Khách đi công tác",
+      considerations: "Kiểm tra kỹ"
+    };
+    const html = createTopicDraftHtml(title, inputFacts, refUrl, "review", reviewData);
+    const payload = generateBloggerDraftPayload({ blogId: "test", title, htmlBody: html });
+    const resultHtml = payload.sanitizedHtml;
+
+    expect(resultHtml).toContain('<h2>' + title + '</h2>');
+    expect(resultHtml).toContain("<h3>Câu hỏi thường gặp (FAQ)</h3>");
+    expect(resultHtml).toContain("Ai nên dùng");
+    expect(resultHtml).toContain("Giá rẻ");
+    expect(resultHtml).toContain('href="https://tracuugoicuoc.com/goi-cuoc/st15k/?utm_source=blogger');
+    
+    // Cross-contamination
+    expect(resultHtml).not.toContain("mất ưu đãi/data còn lại");
+    expect(resultHtml).not.toContain("hủy hoàn toàn gói cước");
+    expect(resultHtml).not.toContain("undefined");
+    expect(resultHtml).not.toContain("..");
+  });
+
+  it('Review Intent: should throw if reviewData is missing', () => {
+    const title = "Đánh Giá Gói ST15K";
+    const inputFacts = factsStore.filter((f: any) => f.id === 'fact-7');
+    expect(() => {
+      createTopicDraftHtml(title, inputFacts, "url", "review");
+    }).toThrow(/Missing structured reviewData/);
   });
 });
