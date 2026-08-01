@@ -31,6 +31,15 @@ Draft phải có đủ:
 - Không sao chép bài web chính; không dùng template chung chung như “nhiều ưu đãi” hoặc “xem thêm”.
 - Nếu có link: chỉ một link liên quan trực tiếp, anchor tự nhiên, UTM + rel đúng policy.
 
+## Chính sách ảnh cho web chính và Blogger
+
+1. Mỗi bài mới phải có một ảnh AI tạo mới, bám sát topic và nội dung thực tế của bài; không tái sử dụng ảnh giữa các topic khác nhau.
+2. Một asset gốc được tạo cho từng bài, lưu trước ở web chính; Blogger dùng chính asset đó hoặc phiên bản tối ưu cùng nội dung. Không hotlink ảnh bên thứ ba.
+3. Prompt ảnh phải tránh logo/nhãn hiệu bị mô phỏng sai, người thật có thể nhận diện, watermark và chữ chứa giá/cú pháp chưa fact-check.
+4. Lưu asset với tên mô tả, nén WebP/JPEG hợp lý, có `alt` mô tả trung thực. Không tải lại ảnh từ Google Images, website đối thủ hoặc mạng xã hội.
+5. Với ảnh thông tin gói cước/cú pháp, chỉ đưa số liệu đã có fact ID còn hiệu lực. Nếu không thể tạo ảnh an toàn, bài phải HOLD thay vì dùng ảnh không liên quan.
+6. Trước Publish, reviewer xác nhận: ảnh đúng topic, không có claim sai, alt text đúng, hiển thị tốt trên desktop/mobile và cùng asset được dùng nhất quán ở web chính/Blogger.
+
 ## Quy trình mỗi lần chạy
 
 1. Chạy workflow thủ công **Blogger Owned Media Draft** trên `main`.
