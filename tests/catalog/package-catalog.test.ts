@@ -10,13 +10,14 @@ const validCatalog = () => ({
     code: 'V120B',
     status: 'active',
     category: 'combo',
+    factIds: ['price-vnd'],
     display: {
       name: 'V120B',
       description: 'Gói data và thoại V120B',
     },
     registration: {
       syntax: 'V120B GB',
-      shortcode: '290',
+      smsNumber: 290,
       channel: 'sms',
     },
     facts: [{
@@ -52,6 +53,26 @@ describe('package catalog schema', () => {
     expect(() => parsePackageCatalog(catalog)).toThrow(/duplicate.*fact|fact.*duplicate/i);
   });
 
+  it('rejects a fact ID reused by a different package', () => {
+    const catalog = validCatalog();
+    catalog.packages.push({
+      ...catalog.packages[0],
+      id: 'v90b',
+      code: 'V90B',
+      display: { name: 'V90B', description: 'Gói data và thoại V90B' },
+      registration: { syntax: 'V90B GB', smsNumber: 290, channel: 'sms' },
+    });
+
+    expect(() => parsePackageCatalog(catalog)).toThrow(/duplicate.*fact|fact.*duplicate/i);
+  });
+
+  it('rejects a package fact reference that cannot be resolved locally', () => {
+    const catalog = validCatalog();
+    catalog.packages[0].factIds = ['missing-fact'];
+
+    expect(() => parsePackageCatalog(catalog)).toThrow(/factIds|reference|missing/i);
+  });
+
   it('rejects an active fact without source evidence', () => {
     const catalog = validCatalog();
     delete (catalog.packages[0].facts[0] as Partial<(typeof catalog.packages)[number]['facts'][number]>).sourceUrl;
@@ -66,15 +87,37 @@ describe('package catalog schema', () => {
     expect(() => parsePackageCatalog(catalog)).toThrow(/viettel\.vn|official|sourceUrl/i);
   });
 
-  it('rejects registration data without the GB code, 290 shortcode, and sms channel', () => {
+  it('rejects registration syntax without the GB code', () => {
     const catalog = validCatalog();
     catalog.packages[0].registration = {
       syntax: 'V120B',
-      shortcode: '191',
+      smsNumber: 290,
+      channel: 'sms',
+    };
+
+    expect(() => parsePackageCatalog(catalog)).toThrow(/GB|syntax|registration/i);
+  });
+
+  it('rejects registration data without SMS number 290', () => {
+    const catalog = validCatalog();
+    catalog.packages[0].registration = {
+      syntax: 'V120B GB',
+      smsNumber: 191,
+      channel: 'sms',
+    };
+
+    expect(() => parsePackageCatalog(catalog)).toThrow(/290|smsNumber|registration/i);
+  });
+
+  it('rejects registration data whose channel is not sms', () => {
+    const catalog = validCatalog();
+    catalog.packages[0].registration = {
+      syntax: 'V120B GB',
+      smsNumber: 290,
       channel: 'web',
     };
 
-    expect(() => parsePackageCatalog(catalog)).toThrow(/GB|290|sms|registration/i);
+    expect(() => parsePackageCatalog(catalog)).toThrow(/sms|channel|registration/i);
   });
 
   it('rejects facts expired before the catalog generation time', () => {
