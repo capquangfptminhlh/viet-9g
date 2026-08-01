@@ -1,7 +1,8 @@
 import crypto from 'crypto';
 import fs from 'fs';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { createTopicDraftHtml, runAutoBlogger } from '../../scripts/auto-blogger';
+import { runAutoBlogger } from '../../scripts/auto-blogger';
+import { createTopicDraftHtml } from '../../packages/content-engine/blogger-content-generator';
 
 afterEach(() => vi.restoreAllMocks());
 
@@ -87,9 +88,10 @@ describe('Auto Blogger Orchestration', () => {
     expect(result).toMatchObject({ status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1, attemptedBlogIds: [] });
   });
 
-  it('creates topic-specific editorial text without a commercial keyword template', () => {
-    const draft = createTopicDraftHtml('Cách kiểm tra dung lượng 4G');
+  it('creates topic-specific editorial text with structured sections', () => {
+    const draft = createTopicDraftHtml('Cách kiểm tra dung lượng 4G', [{ claim: 'Bấm *098#' }]);
     expect(draft).toContain('Cách kiểm tra dung lượng 4G');
-    expect(draft).not.toMatch(/mua ngay|khuyến mãi|ưu đãi|đăng ký gói/i);
+    expect(draft).toContain('Bấm *098#');
+    expect(draft).toContain('Câu hỏi thường gặp (FAQ)');
   });
 });

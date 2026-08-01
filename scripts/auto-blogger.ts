@@ -5,7 +5,7 @@ import { RealBloggerClient } from '../packages/connectors/blogger/blogger.client
 import { BloggerPublisher } from '../packages/connectors/blogger/blogger.publisher';
 import { canInsertDraft, createIdempotencyKey, LedgerEntry } from '../packages/connectors/blogger/blogger.idempotency';
 import { verifyCreatedDraft } from '../packages/connectors/blogger/blogger.verify';
-import { generateBloggerDraftPayload } from '../packages/content-engine/blogger-content-generator';
+import { generateBloggerDraftPayload, createTopicDraftHtml } from '../packages/content-engine/blogger-content-generator';
 import { detectDuplicate } from '../packages/content-engine/blogger-duplicate-detector';
 import { Claim, validateBloggerFacts } from '../packages/content-engine/blogger-fact-validator';
 import { generateReferralUrl } from '../packages/measurement-engine/blogger-referral-tracker';
@@ -16,13 +16,6 @@ type Result = { status: string; exitCode: number; attemptedBlogIds: string[]; dr
 
 function contentSignature(blogId: string, title: string): string {
   return crypto.createHash('sha256').update(`${blogId}:${title.trim().toLowerCase().replace(/\s+/g, ' ')}`).digest('hex');
-}
-
-export function createTopicDraftHtml(title: string, referralUrl?: string): string {
-  const reference = referralUrl
-    ? `<p><a href="${referralUrl}" rel="nofollow noopener noreferrer">Tài liệu tham khảo</a>.</p>`
-    : '';
-  return `<h2>${title}</h2><p>Nội dung dưới đây tập trung vào ${title}, với các bước và lưu ý để bạn tự đối chiếu thông tin.</p>${reference}`;
 }
 
 export async function runAutoBlogger(options: {
@@ -91,7 +84,7 @@ export async function runAutoBlogger(options: {
       const refUrl = generateReferralUrl(selectedSite.allowedDestination || 'tracuugoicuoc.com', selectedTopic.topicId);
       const payload = generateBloggerDraftPayload({
         blogId: selectedSite.blogId, title: selectedTopic.title,
-        htmlBody: createTopicDraftHtml(selectedTopic.title, refUrl), labels: ['4G Viettel', 'Tin tức']
+        htmlBody: createTopicDraftHtml(selectedTopic.title, facts.filter((f: any) => (selectedTopic!.sourceFactIds || []).includes(f.id)), refUrl), labels: ['4G Viettel', 'Tin tức']
       });
       console.log(`Inserting draft for topic ${selectedTopic.topicId} on blog ${selectedSite.blogId}...`);
       const attempt = { idempotencyKey, blogId: selectedSite.blogId, topicId: selectedTopic.topicId, contentHash: selectedContentSignature, status: 'INSERT_STARTED', createdAt: new Date().toISOString() };
