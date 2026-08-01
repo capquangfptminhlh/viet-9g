@@ -1,10 +1,10 @@
-﻿import { describe, it, expect } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { createTopicDraftHtml } from '../../packages/content-engine/blogger-content-generator';
 import fs from 'fs';
 
 describe('Blogger Content Generator - Structural Tests', () => {
   it('should correctly structure an informational post about package cancellation', () => {
-    const factsStore = JSON.parse(fs.readFileSync('data/facts.json', 'utf-8'));
+    const factsStore = JSON.parse(fs.readFileSync('data/facts.json', 'utf-8').replace(/^\uFEFF/, ''));
     const topicTitle = "Cách Hủy Gói Cước 4G Viettel Đơn Giản, Miễn Phí Qua 191";
     const topicIntent = "informational";
     const topicSourceFactIds = ["fact-5"];
@@ -13,7 +13,7 @@ describe('Blogger Content Generator - Structural Tests', () => {
     const html = createTopicDraftHtml(topicTitle, inputFacts, "https://tracuugoicuoc.com/huong-dan/huy-goi-cuoc-viettel/", topicIntent);
     
     // Positive Assertions: Title and Headings
-    expect(html).toContain(<h2></h2>);
+    expect(html).toContain(`<h2>${topicTitle}</h2>`);
     expect(html).toContain("<h3>1. Hướng dẫn thực hiện</h3>");
     expect(html).toContain("<h3>2. Các lưu ý quan trọng</h3>");
     expect(html).toContain("<h3>Câu hỏi thường gặp (FAQ)</h3>");
