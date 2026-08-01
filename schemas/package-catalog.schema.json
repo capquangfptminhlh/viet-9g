@@ -3,6 +3,15 @@
   "$id": "https://4viettel.local/schemas/package-catalog.schema.json",
   "type": "object",
   "required": ["schemaVersion", "catalogVersion", "generatedAt", "packages"],
+  "x-runtimeConstraints": {
+    "authoritativeValidator": "src/data/package-catalog.ts#parsePackageCatalog",
+    "rules": [
+      "package IDs and codes are globally unique",
+      "fact IDs are globally unique and every package factIds entry resolves locally or globally",
+      "facts require HTTPS sourceUrl on the viettel.vn hostname allowlist and valid effective/expiry ordering",
+      "active packages require current evidence and registration data; renderable records require expiry strictly after now and effectiveAt at or before now"
+    ]
+  },
   "properties": {
     "schemaVersion": { "const": "1.0.0" },
     "catalogVersion": { "type": "string", "minLength": 1 },

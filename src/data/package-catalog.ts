@@ -83,7 +83,7 @@ export function getRenderablePackages(catalog: PackageCatalog, now = new Date())
     if (!['active', 'eligibility_required'].includes(pkg.status)) return false;
     return pkg.factIds.length > 0 && pkg.factIds.every((id) => {
       const fact = facts.get(id);
-      return !!fact && Date.parse(fact.expiresAt) >= at && Date.parse(fact.effectiveAt) <= at;
+      return !!fact && isOfficial(fact.sourceUrl) && Date.parse(fact.expiresAt) > at && Date.parse(fact.effectiveAt) <= at;
     });
   });
 }

@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { parsePackageCatalog } from '../../src/data/package-catalog';
+import fs from 'node:fs';
+import { getRenderablePackages, parsePackageCatalog } from '../../src/data/package-catalog';
 
 type CatalogFactFixture = {
   id: string;
@@ -185,5 +186,35 @@ describe('package catalog schema', () => {
     const catalog = createCatalog();
     catalog.packages[0].facts[0].expiresAt = catalog.generatedAt;
     expect(() => parsePackageCatalog(catalog)).toThrow(/expired|expiresAt|expiry/i);
+  });
+
+  it('excludes packages when expiry is exactly now', () => {
+    const catalog = parsePackageCatalog(createCatalog());
+    const now = new Date('2026-08-02T00:00:00.000Z');
+    catalog.packages[0].facts[0].expiresAt = now.toISOString();
+    expect(getRenderablePackages(catalog, now)).toHaveLength(0);
+  });
+
+  it('excludes packages whose evidence starts in the future', () => {
+    const catalog = parsePackageCatalog(createCatalog());
+    const now = new Date('2026-08-02T00:00:00.000Z');
+    catalog.packages[0].facts[0].effectiveAt = '2026-08-03T00:00:00.000Z';
+    expect(getRenderablePackages(catalog, now)).toHaveLength(0);
+  });
+
+  it('defensively excludes non-official evidence if a parsed catalog is mutated', () => {
+    const catalog = parsePackageCatalog(createCatalog());
+    const now = new Date('2026-08-02T00:00:00.000Z');
+    catalog.packages[0].facts[0].sourceUrl = 'http://viettel.vn/goi-cuoc/v120b';
+    expect(getRenderablePackages(catalog, now)).toHaveLength(0);
+  });
+
+  it('documents runtime-only cross-field constraints in the JSON Schema', () => {
+    const schema = JSON.parse(fs.readFileSync('schemas/package-catalog.schema.json', 'utf8'));
+    expect(schema['x-runtimeConstraints'].authoritativeValidator).toContain('parsePackageCatalog');
+    expect(schema['x-runtimeConstraints'].rules).toEqual(expect.arrayContaining([
+      expect.stringMatching(/globally unique/),
+      expect.stringMatching(/renderable.*expiry/i),
+    ]));
   });
 });
