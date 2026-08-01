@@ -1,0 +1,14 @@
+{
+  "sites": [
+    {
+      "blogId": "5229528996284551001",
+      "name": "Cẩm nang 4G Viettel",
+      "url": "https://camnang4gviettel.blogspot.com",
+      "enabled": true,
+      "cadenceDays": 1,
+      "contentCharter": "Independent informational content about 4G",
+      "allowedDestination": "tracuugoicuoc.com",
+      "defaultLabels": ["4G Viettel", "Tin tức"]
+    }
+  ]
+}

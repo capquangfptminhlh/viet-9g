@@ -1,0 +1,12 @@
+[
+  {
+    "topicId": "topic-1",
+    "targetBlogId": "5229528996284551001",
+    "contentCharter": "Independent informational content about 4G",
+    "title": "Hướng dẫn sử dụng 4G hiệu quả",
+    "intent": "informational",
+    "contentVersion": "v1",
+    "sourceFactIds": ["fact-1"],
+    "status": "QUEUE"
+  }
+]
