@@ -7,5 +7,14 @@
     "status": "DRAFT_CREATED",
     "createdAt": "2026-08-01T10:22:04.651Z",
     "postId": "1896879891909378170"
+  },
+  {
+    "idempotencyKey": "19ca795bea7f8a1b288c56f0bb2a356ee9cdc8abe97a1aa7aa035ddf7f9f6139",
+    "blogId": "5229528996284551001",
+    "topicId": "topic-sd90-review",
+    "contentHash": "9635f3f685ddc718db38519431918a9f24ec62afae584c30f02bf6242dc68d78",
+    "status": "DRAFT_CREATED",
+    "createdAt": "2026-08-01T10:33:36.505Z",
+    "postId": "2743076729597462790"
   }
 ]
