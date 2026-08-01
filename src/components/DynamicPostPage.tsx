@@ -1,6 +1,7 @@
 import React from 'react';
 import { TelecomPackage, AgentConfig } from '../types';
 import { ShieldCheck, Phone, ArrowLeft, Send } from 'lucide-react';
+import { SMS_NUMBER, buildSmsSyntax, buildSmsUri } from '../config/agent-code';
 
 interface DynamicPostPageProps {
   pkg: TelecomPackage;
@@ -16,7 +17,9 @@ export default function DynamicPostPage({ pkg, config, rawPath }: DynamicPostPag
         .replace(/\b[a-z]/g, (letter) => letter.toUpperCase())
     : pkg.name;
 
-  const smsSyntax = `${pkg.name} ${config.agentCode}`;
+  const registrationEligible = pkg.registrationEligible !== false;
+  const packageCode = pkg.code ?? pkg.name;
+  const smsSyntax = registrationEligible ? buildSmsSyntax(packageCode) : '';
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col font-sans selection:bg-red-200 selection:text-red-900">
@@ -100,10 +103,12 @@ export default function DynamicPostPage({ pkg, config, rawPath }: DynamicPostPag
                       <td className="px-4 py-3 capitalize">Miễn phí data truy cập {pkg.social.join(', ')}</td>
                     </tr>
                   )}
-                  <tr>
-                    <td className="px-4 py-3 font-semibold bg-gray-50/50">Cú Pháp Đăng Ký</td>
-                    <td className="px-4 py-3 font-mono font-bold text-[#D71920]">{smsSyntax} gửi 290</td>
-                  </tr>
+                  {registrationEligible && (
+                    <tr>
+                      <td className="px-4 py-3 font-semibold bg-gray-50/50">Cú Pháp Đăng Ký</td>
+                      <td className="px-4 py-3 font-mono font-bold text-[#D71920]">{smsSyntax} gửi {SMS_NUMBER}</td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </div>
@@ -113,7 +118,7 @@ export default function DynamicPostPage({ pkg, config, rawPath }: DynamicPostPag
           </div>
 
           {/* Registration Section */}
-          <div className="bg-red-50/50 border border-red-200 rounded-3xl p-6 space-y-4">
+          {registrationEligible ? <div className="bg-red-50/50 border border-red-200 rounded-3xl p-6 space-y-4">
             <h2 className="text-lg sm:text-xl font-extrabold text-red-950 flex items-center gap-1.5">
               <ShieldCheck className="w-5 h-5 text-red-600" />
               2. Hướng Dẫn Cú Pháp Soạn SMS Đăng Ký
@@ -128,17 +133,25 @@ export default function DynamicPostPage({ pkg, config, rawPath }: DynamicPostPag
               </span>
               <span className="text-gray-450 text-[11px] block leading-none">Gửi đến Tổng Đài: <strong className="text-red-700">290</strong></span>
             </div>
-            <a 
-              href={`sms:290?body=${encodeURIComponent(smsSyntax)}`}
+            {registrationEligible ? <a
+              href={buildSmsUri(packageCode)}
               className="w-full min-h-[48px] bg-[#D71920] text-white font-extrabold rounded-2xl flex items-center justify-center gap-2 hover:bg-red-700 shadow-sm hover:shadow-md transition-all text-sm sm:text-base cursor-pointer"
             >
               <Send className="w-4 h-4 fill-white" />
               Mở ứng dụng SMS
-            </a>
+            </a> : (
+              <p className="w-full min-h-[48px] rounded-2xl bg-gray-100 px-4 text-center text-sm font-bold text-gray-600 flex items-center justify-center">
+                Thông tin đăng ký đang chờ xác minh.
+              </p>
+            )}
             <p className="text-[11px] text-gray-400 text-center italic">
               (Miễn phí 100% cước gửi tin nhắn đến đầu số 290. Bạn chỉ trả đúng {(pkg.price).toLocaleString('vi-VN')}đ tiền gói cước đăng ký)
             </p>
-          </div>
+          </div> : (
+            <div className="rounded-3xl border border-amber-200 bg-amber-50 p-6 text-center text-sm font-semibold text-amber-900">
+              Thông tin đăng ký đang chờ xác minh.
+            </div>
+          )}
 
           {/* FAQ Section (AEO optimized) */}
           <div className="space-y-4">

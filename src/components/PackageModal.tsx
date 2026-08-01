@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { X, MessageSquare, Copy, ClipboardCheck, Send, QrCode, Sparkles, Phone, Calculator } from 'lucide-react';
 import { TelecomPackage, AgentConfig } from '../types';
 import { trackConversion } from '../utils/tracking';
+import { SMS_NUMBER, buildSmsSyntax, buildSmsUri } from '../config/agent-code';
 
 interface PackageModalProps {
   pkg: TelecomPackage | null;
@@ -16,11 +17,13 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
 
   if (!pkg) return null;
 
-  const smsBody = `${pkg.name} ${config.agentCode}`;
-  const smsNumber = '290';
+  const registrationEligible = pkg.registrationEligible !== false;
+  const packageCode = pkg.code ?? pkg.name;
+  const smsBody = registrationEligible ? buildSmsSyntax(packageCode) : '';
+  const smsNumber = SMS_NUMBER;
   
   const getSmsHref = () => {
-    return `sms:${smsNumber}?body=${encodeURIComponent(smsBody)}`;
+    return buildSmsUri(packageCode);
   };
 
   const handleCopy = () => {
@@ -83,7 +86,7 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
             <MessageSquare className="w-4.5 h-4.5" />
             Cú Pháp SMS
           </button>
-          <button
+          {pkg.registrationEligible !== false && <button
             type="button"
             onClick={() => setActiveTab('qr')}
             className={`flex-1 py-4 px-2 text-center transition-all cursor-pointer flex items-center justify-center gap-2 border-b-2 ${
@@ -92,7 +95,7 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
           >
             <QrCode className="w-4.5 h-4.5" />
             Quét Mã QR
-          </button>
+          </button>}
           <button
             type="button"
             onClick={() => setActiveTab('details')}
@@ -110,6 +113,7 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
           
           {/* TAB 1: SMS SYNTAX */}
           {activeTab === 'sms' && (
+            registrationEligible ? (
             <div className="space-y-5 animate-fade-in">
               <div className="flex items-center justify-center gap-3 text-[#e60000] text-[11px] sm:text-xs font-bold uppercase tracking-widest">
                 <span className="w-6 h-[1px] bg-[#e60000]"></span>
@@ -163,14 +167,14 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
                   )}
                 </button>
 
-                <a
+                {pkg.registrationEligible !== false && <a
                   href={getSmsHref()}
                   onClick={() => trackConversion('click_open_sms_app', { package_id: pkg.id, price: pkg.price, name: pkg.name })}
                   className="w-full py-3.5 px-4 min-h-[50px] bg-[#e60000] hover:bg-red-700 active:bg-red-800 text-white text-sm font-bold rounded-xl shadow-md flex items-center justify-center gap-2 cursor-pointer transition-all"
                 >
                   <Send className="w-5 h-5" />
                   Mở ứng dụng SMS
-                </a>
+                </a>}
               </div>
 
               {/* Instructions Box */}
@@ -194,10 +198,15 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
                 * Giá cước sẽ được trừ trực tiếp từ tài khoản gốc theo hệ thống của Viettel khi đăng ký thành công.
               </p>
             </div>
+            ) : (
+              <div className="rounded-xl border border-amber-200 bg-amber-50 p-6 text-center text-sm font-semibold text-amber-900">
+                Thông tin đăng ký đang chờ xác minh.
+              </div>
+            )
           )}
 
           {/* TAB 2: QR CODE SCAN */}
-          {activeTab === 'qr' && (
+          {registrationEligible && activeTab === 'qr' && (
             <div className="space-y-6 flex flex-col items-center animate-fade-in py-4">
               <p className="text-sm font-bold text-gray-500 uppercase tracking-widest text-center">Quét Thẻ Để Soạn Tin Bản Nháp</p>
               

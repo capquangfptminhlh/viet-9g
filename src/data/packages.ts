@@ -1,6 +1,9 @@
 import { TelecomPackage, FAQItem } from '../types';
+import catalogJson from '../../data/package-catalog.v1.json';
+import { catalogToTelecomPackages } from '../../packages/catalog/package-adapters';
+import { parsePackageCatalog } from './package-catalog';
 
-export const VIETTEL_PACKAGES: TelecomPackage[] = [
+const LEGACY_VIETTEL_PACKAGES: TelecomPackage[] = [
   // CORES / POPULAR
   {
     id: 'mxh120',
@@ -906,6 +909,11 @@ export const VIETTEL_PACKAGES: TelecomPackage[] = [
     ]
   }
 ];
+
+const PACKAGE_CATALOG = parsePackageCatalog(catalogJson);
+const LEGACY_BY_ID = Object.fromEntries(LEGACY_VIETTEL_PACKAGES.map((pkg) => [pkg.id, pkg]));
+
+export const VIETTEL_PACKAGES: TelecomPackage[] = catalogToTelecomPackages(PACKAGE_CATALOG, LEGACY_BY_ID);
 
 
 export const FAQS: FAQItem[] = [

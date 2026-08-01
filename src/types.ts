@@ -7,6 +7,7 @@ export type PackageCategory = 'hot' | 'data' | 'social' | 'combo' | 'long_term';
 
 export interface TelecomPackage {
   id: string;
+  code?: string;
   name: string;
   price: number;
   duration: string;
@@ -19,6 +20,8 @@ export interface TelecomPackage {
   benefits: string[];
   rules: string[];
   popular?: boolean;
+  status?: 'active' | 'eligibility_required' | 'hold' | 'retired' | 'unverified';
+  registrationEligible?: boolean;
 }
 
 export interface AgentConfig {
