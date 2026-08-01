@@ -65,7 +65,8 @@ const PROVIDERS = [
 ];
 
 // Danh sách từ khóa ngách bao phủ 100% thị trường để lên Top 1
-const KEYWORDS = [
+// Đọc danh sách từ khóa tự động từ file data/keywords.txt (hoặc fallback nếu không có file)
+let KEYWORDS = [
   "đăng ký mxh150 viettel",
   "đăng ký sd90 viettel",
   "đăng ký sd120 viettel",
@@ -76,6 +77,18 @@ const KEYWORDS = [
   "đăng ký mxh100 viettel",
   "đăng ký v90b viettel"
 ];
+
+const keywordsFilePath = path.join(__dirname, '..', 'data', 'keywords.txt');
+if (fs.existsSync(keywordsFilePath)) {
+  const fileKw = fs.readFileSync(keywordsFilePath, 'utf-8')
+    .split('\n')
+    .map(kw => kw.trim())
+    .filter(kw => kw && !kw.startsWith('#'));
+  if (fileKw.length > 0) {
+    KEYWORDS = fileKw;
+    console.log(`📚 Đã nạp thành công ${KEYWORDS.length} từ khóa từ file data/keywords.txt`);
+  }
+}
 
 // Call API helper
 async function callApi(provider, model, apiKey, prompt) {
