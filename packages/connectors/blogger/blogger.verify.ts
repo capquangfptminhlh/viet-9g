@@ -3,6 +3,9 @@ import { enforceBloggerLinks } from '../../policy-engine/blogger-link-policy';
 
 export async function verifyCreatedDraft(client: BloggerClient, blogId: string, postId: string, expected: DraftPayload): Promise<void> {
   const post = await client.getPost(blogId, postId);
+  if (post.blog?.id !== blogId) {
+    throw new Error(`Verification failed: Expected blogId ${blogId}, got ${post.blog?.id || 'missing'}`);
+  }
   
   if (post.status !== 'DRAFT') {
     throw new Error(`Verification failed: Expected status DRAFT, got ${post.status}`);
@@ -17,16 +20,13 @@ export async function verifyCreatedDraft(client: BloggerClient, blogId: string, 
     throw new Error(`Verification failed: Expected title "${expected.title}", got "${post.title}"`);
   }
 
-  if (expected.labels && expected.labels.length > 0) {
-    const returnedLabels = post.labels || [];
-    const missing = expected.labels.filter(l => !returnedLabels.includes(l));
-    if (missing.length > 0) {
-      throw new Error(`Verification failed: Missing labels [${missing.join(',')}]`);
-    }
+  const returnedLabels = [...(post.labels || [])].sort();
+  const expectedLabels = [...(expected.labels || [])].sort();
+  if (returnedLabels.join('\u0000') !== expectedLabels.join('\u0000')) {
+    throw new Error('Verification failed: Labels do not match');
   }
 
   // Verify that the saved content complies with link policy
-  if (post.content) {
-    enforceBloggerLinks(post.content);
-  }
+  if (!post.content) throw new Error('Verification failed: Post content is missing');
+  enforceBloggerLinks(post.content);
 }

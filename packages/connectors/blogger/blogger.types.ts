@@ -10,6 +10,7 @@
 
 export interface BloggerPostResponse {
   id: string;
+  blog?: { id?: string };
   status: string;
   title?: string;
   content?: string;

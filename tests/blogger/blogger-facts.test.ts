@@ -18,6 +18,23 @@ describe('Blogger fact validation', () => {
       [{ id: 'f1', claim: 'Gói 10GB' }]
     )).toMatchObject({ decision: 'HOLD' });
   });
+
+  it('holds a claim that references a fact which does not exist', () => {
+    expect(validateBloggerFacts(
+      { claims: [{ text: 'Gói có 10GB', sourceFactIds: ['missing'] }] },
+      [{ id: 'f1', claim: 'Gói có 10GB' }],
+    )).toMatchObject({ decision: 'HOLD' });
+  });
+
+  it('accepts normalized quantities when their values appear across referenced facts', () => {
+    expect(validateBloggerFacts(
+      { claims: [{ text: 'Gói có 10GB và 512 MB trong 30 ngày, giá 15000 VND', sourceFactIds: ['f1', 'f2'] }] },
+      [
+        { id: 'f1', claim: 'Ưu đãi 10 GB và 512MB' },
+        { id: 'f2', claim: 'Sử dụng trong 30 ngày, giá 15000 VND' },
+      ],
+    )).toMatchObject({ decision: 'PASS' });
+  });
 });
 
 describe('Blogger duplicate detection', () => {

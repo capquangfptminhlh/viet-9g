@@ -1,180 +1,128 @@
-﻿import fs from 'fs';
-import path from 'path';
+import crypto from 'crypto';
+import fs from 'fs';
 
 import { RealBloggerClient } from '../packages/connectors/blogger/blogger.client';
 import { BloggerPublisher } from '../packages/connectors/blogger/blogger.publisher';
-import { generateBloggerDraftPayload } from '../packages/content-engine/blogger-content-generator';
-import { generateReferralUrl } from '../packages/measurement-engine/blogger-referral-tracker';
-import { createIdempotencyKey, findLedgerEntry, canInsertDraft, LedgerEntry } from '../packages/connectors/blogger/blogger.idempotency';
+import { canInsertDraft, createIdempotencyKey, LedgerEntry } from '../packages/connectors/blogger/blogger.idempotency';
 import { verifyCreatedDraft } from '../packages/connectors/blogger/blogger.verify';
-import { validateBloggerFacts, Claim } from '../packages/content-engine/blogger-fact-validator';
+import { generateBloggerDraftPayload } from '../packages/content-engine/blogger-content-generator';
 import { detectDuplicate } from '../packages/content-engine/blogger-duplicate-detector';
+import { Claim, validateBloggerFacts } from '../packages/content-engine/blogger-fact-validator';
+import { generateReferralUrl } from '../packages/measurement-engine/blogger-referral-tracker';
+
+type Topic = { topicId: string; targetBlogId: string; intent: string; title: string; sourceFactIds?: string[]; status?: string };
+type Site = { blogId: string; enabled: boolean; allowedDestination?: string };
+type Result = { status: string; exitCode: number; attemptedBlogIds: string[]; draftReviewUrl?: string; selectedTopicId?: string };
+
+function contentSignature(blogId: string, title: string): string {
+  return crypto.createHash('sha256').update(`${blogId}:${title.trim().toLowerCase().replace(/\s+/g, ' ')}`).digest('hex');
+}
+
+export function createTopicDraftHtml(title: string, referralUrl?: string): string {
+  const reference = referralUrl
+    ? `<p><a href="${referralUrl}" rel="nofollow noopener noreferrer">Tài liệu tham khảo</a>.</p>`
+    : '';
+  return `<h2>${title}</h2><p>Nội dung dưới đây tập trung vào ${title}, với các bước và lưu ý để bạn tự đối chiếu thông tin.</p>${reference}`;
+}
 
 export async function runAutoBlogger(options: {
-  sites?: Array<{ blogId: string; enabled: boolean; allowedDestination?: string }>;
-  topics?: Array<{ topicId: string; targetBlogId: string; intent: string; title: string; sourceFactIds?: string[] }>;
+  sites?: Site[];
+  topics?: Topic[];
   env?: Record<string, string | undefined>;
   now?: Date;
   facts?: any[];
-}): Promise<{ status: string; exitCode: number; attemptedBlogIds: string[]; draftReviewUrl?: string }> {
+}): Promise<Result> {
   const env = options.env || process.env;
-  if (env.BLOGGER_ENABLED !== 'true') {
-    return { status: 'DISABLED', exitCode: 0, attemptedBlogIds: [] };
-  }
+  if (env.BLOGGER_ENABLED !== 'true') return { status: 'DISABLED', exitCode: 0, attemptedBlogIds: [] };
 
   let facts = options.facts;
   if (!facts) {
-    if (!fs.existsSync('data/facts.json')) {
-      throw new Error('FACT_STORE_EMPTY: data/facts.json does not exist');
-    }
+    if (!fs.existsSync('data/facts.json')) throw new Error('FACT_STORE_EMPTY: data/facts.json does not exist');
     facts = JSON.parse(fs.readFileSync('data/facts.json', 'utf-8').replace(/^\uFEFF/, ''));
   }
-  if (!facts || facts.length === 0) {
-    throw new Error('FACT_STORE_EMPTY: Cannot run with an empty canonical fact store');
-  }
+  if (!facts || facts.length === 0) throw new Error('FACT_STORE_EMPTY: Cannot run with an empty canonical fact store');
 
   let sites = options.sites;
   if (!sites) {
-    if (!fs.existsSync('config/blogger-sites.json')) {
-      throw new Error('CONFIG_ERROR: config/blogger-sites.json does not exist');
-    }
+    if (!fs.existsSync('config/blogger-sites.json')) throw new Error('CONFIG_ERROR: config/blogger-sites.json does not exist');
     sites = JSON.parse(fs.readFileSync('config/blogger-sites.json', 'utf-8').replace(/^\uFEFF/, '')).sites;
   }
-  sites = (sites || []).filter((s: any) => s.enabled);
-  if (sites.length === 0) {
-    return { status: 'NO_ELIGIBLE_SITES', exitCode: 0, attemptedBlogIds: [] };
-  }
+  sites = (sites || []).filter((site) => site.enabled);
+  if (sites.length === 0) return { status: 'NO_ELIGIBLE_SITES', exitCode: 0, attemptedBlogIds: [] };
 
   let topics = options.topics;
   if (!topics) {
-    if (!fs.existsSync('config/topics.json')) {
-      throw new Error('CONFIG_ERROR: config/topics.json does not exist');
-    }
+    if (!fs.existsSync('config/topics.json')) throw new Error('CONFIG_ERROR: config/topics.json does not exist');
     topics = JSON.parse(fs.readFileSync('config/topics.json', 'utf-8').replace(/^\uFEFF/, ''));
   }
-  topics = (topics || []).filter((t: any) => t.status !== 'PUBLISHED');
-  if (topics.length === 0) {
-    return { status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1, attemptedBlogIds: [] };
-  }
+  topics = (topics || []).filter((topic) => topic.status !== 'PUBLISHED');
+  if (topics.length === 0) return { status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1, attemptedBlogIds: [] };
 
   let ledger: LedgerEntry[] = [];
   if (fs.existsSync('state/blogger-publication-ledger.json')) {
-    const ledgerJson = fs.readFileSync('state/blogger-publication-ledger.json', 'utf-8').replace(/^\uFEFF/, '');
-    ledger = JSON.parse(ledgerJson);
+    ledger = JSON.parse(fs.readFileSync('state/blogger-publication-ledger.json', 'utf-8').replace(/^\uFEFF/, ''));
   }
 
   const selectedSite = sites[0];
-  let selectedTopic = null;
+  let selectedTopic: Topic | undefined;
   let idempotencyKey = '';
-
+  let selectedContentSignature = '';
   for (const topic of topics) {
     if (topic.targetBlogId !== selectedSite.blogId) continue;
-
-    // Gate: Fact validation
     const claim: Claim = { text: topic.title, sourceFactIds: topic.sourceFactIds || [] };
-    const factDecision = validateBloggerFacts({ claims: [claim] }, facts);
-    if (factDecision.decision !== 'PASS') continue;
-
-    // Gate: Idempotency
+    if (validateBloggerFacts({ claims: [claim] }, facts).decision !== 'PASS') continue;
     const currentKey = createIdempotencyKey(selectedSite.blogId, topic.topicId, 'v1');
     if (!canInsertDraft(ledger, currentKey)) continue;
-
-    // Gate: Duplicate detection
-    const dupDecision = detectDuplicate({ contentHash: currentKey }, ledger);
-    if (dupDecision.decision !== 'PASS') continue;
-
+    const currentSignature = contentSignature(selectedSite.blogId, topic.title);
+    if (detectDuplicate({ contentHash: currentSignature }, ledger).decision !== 'PASS') continue;
     selectedTopic = topic;
     idempotencyKey = currentKey;
+    selectedContentSignature = currentSignature;
     break;
   }
+  if (!selectedTopic) return { status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1, attemptedBlogIds: [selectedSite.blogId] };
 
-  if (!selectedTopic) {
-    return { status: 'NO_VALID_TOPICS_REMAINING', exitCode: 0, attemptedBlogIds: [selectedSite.blogId] };
-  }
-
-  let draftReviewUrl;
+  let draftReviewUrl: string | undefined;
   let postId = 'p-mock-draft';
-  
   if (!options.sites) {
-    // RUNNING IN REAL MODE
     try {
       const client = new RealBloggerClient();
       const publisher = new BloggerPublisher(client);
-      
-      const dest = selectedSite.allowedDestination || 'tracuugoicuoc.com';
-      const refUrl = generateReferralUrl(dest, selectedTopic.topicId);
-      
+      const refUrl = generateReferralUrl(selectedSite.allowedDestination || 'tracuugoicuoc.com', selectedTopic.topicId);
       const payload = generateBloggerDraftPayload({
-        blogId: selectedSite.blogId,
-        title: selectedTopic.title,
-        htmlBody: `<h2>${selectedTopic.title}</h2><p>Đây là hướng dẫn độc lập theo chủ đề ${selectedTopic.title}.</p><p><a href="${refUrl}" rel="nofollow noopener noreferrer">Xem thông tin liên quan</a>.</p>`,
-        labels: ['4G Viettel', 'Tin tức']
+        blogId: selectedSite.blogId, title: selectedTopic.title,
+        htmlBody: createTopicDraftHtml(selectedTopic.title, refUrl), labels: ['4G Viettel', 'Tin tức']
       });
-
       console.log(`Inserting draft for topic ${selectedTopic.topicId} on blog ${selectedSite.blogId}...`);
+      const attempt = { idempotencyKey, blogId: selectedSite.blogId, topicId: selectedTopic.topicId, contentHash: selectedContentSignature, status: 'INSERT_STARTED', createdAt: new Date().toISOString() };
+      ledger.push(attempt);
+      fs.writeFileSync('state/blogger-publication-ledger.json', JSON.stringify(ledger, null, 2));
       const response = await publisher.createDraft(payload);
       postId = response.id;
       draftReviewUrl = `https://www.blogger.com/blog/post/edit/${selectedSite.blogId}/${postId}`;
-      
       await verifyCreatedDraft(client, selectedSite.blogId, postId, payload);
-      
-      ledger.push({
-        idempotencyKey,
-        blogId: selectedSite.blogId,
-        topicId: selectedTopic.topicId,
-        contentHash: idempotencyKey,
-        postId,
-        status: 'DRAFT_CREATED',
-        createdAt: new Date().toISOString()
-      });
+      Object.assign(attempt, { postId, status: 'DRAFT_CREATED' });
       fs.writeFileSync('state/blogger-publication-ledger.json', JSON.stringify(ledger, null, 2));
-
     } catch (err: any) {
       console.error('Blogger API Error:', err);
-      ledger.push({
-        idempotencyKey,
-        blogId: selectedSite.blogId,
-        topicId: selectedTopic.topicId,
-        contentHash: idempotencyKey,
-        status: 'VERIFY_FAILED',
-        createdAt: new Date().toISOString()
-      });
+      const existing = ledger.find((entry) => entry.idempotencyKey === idempotencyKey);
+      if (existing) Object.assign(existing, { postId, status: 'VERIFY_FAILED' });
+      else ledger.push({ idempotencyKey, blogId: selectedSite.blogId, topicId: selectedTopic.topicId, contentHash: selectedContentSignature, postId, status: 'VERIFY_FAILED', createdAt: new Date().toISOString() });
       fs.writeFileSync('state/blogger-publication-ledger.json', JSON.stringify(ledger, null, 2));
-      return { status: 'ERROR', exitCode: 1, attemptedBlogIds: [selectedSite.blogId] };
+      return { status: 'ERROR', exitCode: 1, attemptedBlogIds: [selectedSite.blogId], selectedTopicId: selectedTopic.topicId };
     }
   } else {
-    // Unit test mode execution
     draftReviewUrl = `https://www.blogger.com/blog/post/edit/${selectedSite.blogId}/p-mock-draft`;
   }
-
   if (env.GITHUB_STEP_SUMMARY && draftReviewUrl) {
     try {
-      const summaryContent = `### ✅ Blogger Draft Created\n- **Blog ID**: ${selectedSite.blogId}\n- **Post ID**: ${postId}\n- **Review & Publish**: [Open in Blogger](${draftReviewUrl})\n`;
-      fs.appendFileSync(env.GITHUB_STEP_SUMMARY, summaryContent, 'utf-8');
-    } catch (err) {
-      console.error('Failed writing to GITHUB_STEP_SUMMARY', err);
-    }
+      fs.appendFileSync(env.GITHUB_STEP_SUMMARY, `### ✅ Blogger Draft Created\n- **Blog ID**: ${selectedSite.blogId}\n- **Post ID**: ${postId}\n- **Review & Publish**: [Open in Blogger](${draftReviewUrl})\n`, 'utf-8');
+    } catch (err) { console.error('Failed writing to GITHUB_STEP_SUMMARY', err); }
   }
-
-  return {
-    status: 'SUCCESS',
-    exitCode: 0,
-    attemptedBlogIds: [selectedSite.blogId],
-    draftReviewUrl,
-  };
+  return { status: 'SUCCESS', exitCode: 0, attemptedBlogIds: [selectedSite.blogId], draftReviewUrl, selectedTopicId: selectedTopic.topicId };
 }
 
-const isMain = process.argv[1] && (
-  process.argv[1].endsWith('auto-blogger.ts') || 
-  process.argv[1].endsWith('auto-blogger.js')
-);
+const isMain = process.argv[1] && (process.argv[1].endsWith('auto-blogger.ts') || process.argv[1].endsWith('auto-blogger.js'));
 if (isMain) {
-  runAutoBlogger({}).then(res => {
-    console.log('Result:', res);
-    process.exit(res.exitCode);
-  }).catch(err => {
-    console.error('Fatal:', err);
-    process.exit(1);
-  });
+  runAutoBlogger({}).then((result) => { console.log('Result:', result); process.exit(result.exitCode); }).catch((err) => { console.error('Fatal:', err); process.exit(1); });
 }
-

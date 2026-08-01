@@ -1,25 +1,33 @@
-﻿export interface Claim {
+export interface Claim {
   text: string;
   sourceFactIds: string[];
 }
 
+interface Fact {
+  id: string;
+  claim?: string;
+}
+
+const QUANTITY_PATTERN = /\d+(?:[.,]\d+)?\s*(?:gb|mb|ngày|đ|vnd)/gi;
+
+function quantitiesIn(text: string): string[] {
+  return text.match(QUANTITY_PATTERN)?.map((quantity) => quantity.toLowerCase().replace(/\s+/g, '')) ?? [];
+}
+
 export function validateBloggerFacts(payload: { claims?: Claim[] }, factStore: any[]): { decision: string } {
-  if (!payload.claims || payload.claims.length === 0) return { decision: 'PASS' };
+  if (!payload.claims?.length) return { decision: 'PASS' };
+
   for (const claim of payload.claims) {
-    if (!claim.sourceFactIds || claim.sourceFactIds.length === 0) {
-      return { decision: 'HOLD' };
-    }
-    const valid = claim.sourceFactIds.every(id => {
-      const fact = factStore.find(f => f.id === id);
-      if (!fact) return false;
-      // Simplistic check for testing numeric consistency:
-      const claimNums = claim.text.match(/\d+/g) || [];
-      const factNums = (fact.claim || '').match(/\d+/g) || [];
-      // If fact specifies a number that is blatantly contradicted in claim
-      if (fact.claim === 'Gói 10GB' && claim.text === 'Gói 20GB') return false;
-      return true;
-    });
-    if (!valid) {
+    if (!claim.sourceFactIds?.length) return { decision: 'HOLD' };
+    const referencedFacts = claim.sourceFactIds
+      .map((id) => factStore.find((candidate: Fact) => candidate.id === id));
+
+    if (referencedFacts.some((fact) => !fact)) return { decision: 'HOLD' };
+
+    const referencedQuantities = new Set(
+      referencedFacts.flatMap((fact: Fact) => quantitiesIn(String(fact.claim ?? ''))),
+    );
+    if (quantitiesIn(claim.text).some((quantity) => !referencedQuantities.has(quantity))) {
       return { decision: 'HOLD' };
     }
   }
@@ -27,7 +35,5 @@ export function validateBloggerFacts(payload: { claims?: Claim[] }, factStore: a
 }
 
 export function requireFactStore(factStore: any[]): void {
-  if (!factStore || factStore.length === 0) {
-    throw new Error('FACT_STORE_EMPTY: Cannot run with an empty canonical fact store');
-  }
+  if (!factStore?.length) throw new Error('FACT_STORE_EMPTY: Cannot run with an empty canonical fact store');
 }

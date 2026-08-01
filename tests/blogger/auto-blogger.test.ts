@@ -1,15 +1,17 @@
-﻿import { describe, expect, it } from 'vitest';
-import { runAutoBlogger } from '../../scripts/auto-blogger';
+import crypto from 'crypto';
+import fs from 'fs';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { createTopicDraftHtml, runAutoBlogger } from '../../scripts/auto-blogger';
+
+afterEach(() => vi.restoreAllMocks());
 
 describe('Auto Blogger Orchestration', () => {
   it('accepts a BOM-prefixed durable ledger', async () => {
     const result = await runAutoBlogger({
       sites: [{ blogId: 'a', enabled: true }],
       topics: [{ topicId: 't1', targetBlogId: 'a', intent: 'info', title: 'T1', sourceFactIds: ['f1'] }],
-      env: { BLOGGER_ENABLED: 'true' },
-      facts: [{ id: 'f1' }]
+      env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1' }]
     });
-
     expect(result.status).toBe('SUCCESS');
   });
 
@@ -20,26 +22,58 @@ describe('Auto Blogger Orchestration', () => {
         { topicId: 't1', targetBlogId: 'a', intent: 'info', title: 'T1', sourceFactIds: ['missing-fact'] },
         { topicId: 't2', targetBlogId: 'a', intent: 'info', title: 'T2', sourceFactIds: ['f1'] }
       ],
-      env: { BLOGGER_ENABLED: 'true' },
-      now: new Date('2026-08-01'),
-      facts: [{ id: 'f1' }]
+      env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1' }]
     });
-    expect(result.attemptedBlogIds).toHaveLength(1);
-    expect(result.status).toBe('SUCCESS');
+    expect(result).toMatchObject({ status: 'SUCCESS', selectedTopicId: 't2' });
   });
 
-  it('skips a topic if duplicate is detected based on ledger', async () => {
-    // Requires mocking fs or idempotency in a real setup, but here we can't easily inject ledger via options yet.
-    // Let's rely on the module logic: if topics exhaust, it returns NO_VALID_TOPICS_REMAINING
+  it('returns TOPIC_QUEUE_EXHAUSTED with a non-zero exit code when no topic survives validation', async () => {
+    const result = await runAutoBlogger({
+      sites: [{ blogId: 'a', enabled: true }],
+      topics: [{ topicId: 't1', targetBlogId: 'a', intent: 'info', title: 'T1', sourceFactIds: ['missing-fact'] }],
+      env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1' }]
+    });
+    expect(result).toMatchObject({ status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1 });
+  });
+
+  it('skips an already published title signature and selects the next eligible topic', async () => {
+    const duplicateSignature = crypto.createHash('sha256').update('a:duplicate title').digest('hex');
+    vi.spyOn(fs, 'existsSync').mockImplementation((file) => String(file) === 'state/blogger-publication-ledger.json');
+    vi.spyOn(fs, 'readFileSync').mockReturnValue(JSON.stringify([{
+      idempotencyKey: 'unrelated-topic-key', blogId: 'a', topicId: 'older-topic', contentHash: duplicateSignature,
+      status: 'LIVE', createdAt: '2026-01-01T00:00:00.000Z'
+    }]));
     const result = await runAutoBlogger({
       sites: [{ blogId: 'a', enabled: true }],
       topics: [
-        { topicId: 't1', targetBlogId: 'a', intent: 'info', title: 'T1', sourceFactIds: ['missing-fact'] }
+        { topicId: 'new-topic', targetBlogId: 'a', intent: 'info', title: 'Duplicate Title', sourceFactIds: ['f1'] },
+        { topicId: 'next-topic', targetBlogId: 'a', intent: 'info', title: 'Different Topic', sourceFactIds: ['f1'] }
       ],
-      env: { BLOGGER_ENABLED: 'true' },
-      facts: [{ id: 'f1' }]
+      env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1' }]
     });
-    expect(result.status).toBe('NO_VALID_TOPICS_REMAINING');
+    expect(result).toMatchObject({ status: 'SUCCESS', selectedTopicId: 'next-topic' });
+  });
+
+  it('preserves malformed ledger JSON errors', async () => {
+    vi.spyOn(fs, 'existsSync').mockImplementation((file) => String(file) === 'state/blogger-publication-ledger.json');
+    vi.spyOn(fs, 'readFileSync').mockReturnValue('{not-json');
+    await expect(runAutoBlogger({
+      sites: [{ blogId: 'a', enabled: true }],
+      topics: [{ topicId: 't1', targetBlogId: 'a', intent: 'info', title: 'T1', sourceFactIds: ['f1'] }],
+      env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1' }]
+    })).rejects.toThrow(SyntaxError);
+  });
+
+  it('preserves malformed fact-store JSON errors', async () => {
+    vi.spyOn(fs, 'existsSync').mockImplementation((file) => String(file) === 'data/facts.json');
+    vi.spyOn(fs, 'readFileSync').mockReturnValue('{not-json');
+    await expect(runAutoBlogger({ env: { BLOGGER_ENABLED: 'true' } })).rejects.toThrow(SyntaxError);
+  });
+
+  it('preserves malformed site-config JSON errors', async () => {
+    vi.spyOn(fs, 'existsSync').mockImplementation((file) => String(file) === 'config/blogger-sites.json');
+    vi.spyOn(fs, 'readFileSync').mockReturnValue('{not-json');
+    await expect(runAutoBlogger({ env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1' }] })).rejects.toThrow(SyntaxError);
   });
 
   it('does not execute when BLOGGER_ENABLED is not true', async () => {
@@ -48,12 +82,14 @@ describe('Auto Blogger Orchestration', () => {
 
   it('returns a non-zero empty-topic result when topics list is empty', async () => {
     const result = await runAutoBlogger({
-      sites: [{ blogId: 'a', enabled: true }],
-      topics: [],
-      env: { BLOGGER_ENABLED: 'true' },
-      now: new Date('2026-08-01'),
-      facts: [{ id: 'f1' }]
+      sites: [{ blogId: 'a', enabled: true }], topics: [], env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1' }]
     });
     expect(result).toMatchObject({ status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1, attemptedBlogIds: [] });
+  });
+
+  it('creates topic-specific editorial text without a commercial keyword template', () => {
+    const draft = createTopicDraftHtml('Cách kiểm tra dung lượng 4G');
+    expect(draft).toContain('Cách kiểm tra dung lượng 4G');
+    expect(draft).not.toMatch(/mua ngay|khuyến mãi|ưu đãi|đăng ký gói/i);
   });
 });
