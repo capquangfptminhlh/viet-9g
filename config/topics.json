@@ -1,32 +1,50 @@
 ﻿[
-  {
-    "topicId": "topic-1",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent informational content about 4G",
-    "title": "Hướng dẫn sử dụng 4G hiệu quả",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": ["fact-1"],
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-sd90-review",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Đánh giá chi tiết gói cước SD90 của Viettel",
-    "title": "Đánh giá gói cước SD90 Viettel 2026: Có đáng dùng?",
-    "intent": "review",
-    "contentVersion": "v1",
-    "sourceFactIds": ["fact-2"],
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-mxh120-review",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Đánh giá chi tiết gói cước MXH120 của Viettel",
-    "title": "Gói MXH120 Viettel: Lướt TikTok thả ga 2026",
-    "intent": "review",
-    "contentVersion": "v1",
-    "sourceFactIds": ["fact-3"],
-    "status": "QUEUE"
-  }
+    {
+        "topicId":  "topic-1",
+        "targetBlogId":  "5229528996284551001",
+        "contentCharter":  "Independent informational content about 4G",
+        "title":  "Hướng dẫn sử dụng 4G hiệu quả",
+        "intent":  "informational",
+        "contentVersion":  "v1",
+        "sourceFactIds":  [
+                              "fact-1"
+                          ],
+        "status":  "QUEUE"
+    },
+    {
+        "topicId":  "topic-sd90-review",
+        "targetBlogId":  "5229528996284551001",
+        "contentCharter":  "Đánh giá chi tiết gói cước SD90 của Viettel",
+        "title":  "Đánh giá gói cước SD90 Viettel 2026: Có đáng dùng?",
+        "intent":  "review",
+        "contentVersion":  "v1",
+        "sourceFactIds":  [
+                              "fact-2"
+                          ],
+        "status":  "QUEUE"
+    },
+    {
+        "topicId":  "topic-mxh120-review",
+        "targetBlogId":  "5229528996284551001",
+        "contentCharter":  "Đánh giá chi tiết gói cước MXH120 của Viettel",
+        "title":  "Gói MXH120 Viettel: Lướt TikTok thả ga 2026",
+        "intent":  "review",
+        "contentVersion":  "v1",
+        "sourceFactIds":  [
+                              "fact-3"
+                          ],
+        "status":  "QUEUE"
+    },
+    {
+        "intent":  "informational",
+        "contentVersion":  "v1",
+        "title":  "3 Cách Kiểm Tra Dung Lượng Data 4G Viettel Còn Lại Nhanh Nhất",
+        "status":  "QUEUE",
+        "contentCharter":  "Hướng dẫn chi tiết các cách kiểm tra dung lượng 4G đang dùng",
+        "topicId":  "topic-kiem-tra-dung-luong",
+        "sourceFactIds":  [
+                              "fact-4"
+                          ],
+        "targetBlogId":  "5229528996284551001"
+    }
 ]

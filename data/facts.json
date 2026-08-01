@@ -1,23 +1,30 @@
 ﻿[
-  {
-    "id": "fact-1",
-    "claim": "Gói cước V120B có giá 120.000đ/30 ngày với 1.5GB/ngày",
-    "sourceUrl": "https://tracuugoicuoc.com/goi-cuoc/v120b/",
-    "retrievedAt": "2026-08-01",
-    "effectiveAt": "2026-01-01"
-  },
-  {
-    "id": "fact-2",
-    "claim": "Gói cước SD90 có giá 90.000đ/30 ngày với 1.5GB/ngày, tổng 45GB/tháng",
-    "sourceUrl": "https://tracuugoicuoc.com/goi-cuoc/sd90/",
-    "retrievedAt": "2026-08-01",
-    "effectiveAt": "2026-01-01"
-  },
-  {
-    "id": "fact-3",
-    "claim": "Gói cước MXH120 có giá 120.000đ/30 ngày với 1GB/ngày, miễn phí 100% data Tiktok, FB, Youtube",
-    "sourceUrl": "https://tracuugoicuoc.com/goi-cuoc/mxh120/",
-    "retrievedAt": "2026-08-01",
-    "effectiveAt": "2026-01-01"
-  }
+    {
+        "id":  "fact-1",
+        "claim":  "Gói cước V120B có giá 120.000đ/30 ngày với 1.5GB/ngày",
+        "sourceUrl":  "https://tracuugoicuoc.com/goi-cuoc/v120b/",
+        "retrievedAt":  "2026-08-01",
+        "effectiveAt":  "2026-01-01"
+    },
+    {
+        "id":  "fact-2",
+        "claim":  "Gói cước SD90 có giá 90.000đ/30 ngày với 1.5GB/ngày, tổng 45GB/tháng",
+        "sourceUrl":  "https://tracuugoicuoc.com/goi-cuoc/sd90/",
+        "retrievedAt":  "2026-08-01",
+        "effectiveAt":  "2026-01-01"
+    },
+    {
+        "id":  "fact-3",
+        "claim":  "Gói cước MXH120 có giá 120.000đ/30 ngày với 1GB/ngày, miễn phí 100% data Tiktok, FB, Youtube",
+        "sourceUrl":  "https://tracuugoicuoc.com/goi-cuoc/mxh120/",
+        "retrievedAt":  "2026-08-01",
+        "effectiveAt":  "2026-01-01"
+    },
+    {
+        "claim":  "Để kiểm tra dung lượng 4G Viettel còn lại, soạn tin KTTK gửi 191 (miễn phí) hoặc bấm gọi *098#.",
+        "effectiveAt":  "2026-01-01",
+        "sourceUrl":  "https://tracuugoicuoc.com/huong-dan/kiem-tra-dung-luong-viettel/",
+        "id":  "fact-4",
+        "retrievedAt":  "2026-08-01"
+    }
 ]
