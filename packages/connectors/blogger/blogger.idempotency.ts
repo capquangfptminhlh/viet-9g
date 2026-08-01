@@ -11,6 +11,7 @@ export interface LedgerEntry {
   createdAt: string;
   packageId?: string;
   catalogVersion?: string;
+  contentVersion?: string;
 }
 
 export function createIdempotencyKey(blogId: string, topicId: string, contentVersion: string): string {

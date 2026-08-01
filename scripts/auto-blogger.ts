@@ -84,7 +84,8 @@ export async function runAutoBlogger(options: {
       ? [...catalog.facts, ...catalog.packages.flatMap((pkg) => pkg.facts)].filter((fact) => (topic.sourceFactIds || []).includes(fact.id))
       : facts;
     if (validateBloggerFacts({ claims: [claim] }, validationFacts).decision !== 'PASS') continue;
-    const currentKey = createIdempotencyKey(selectedSite.blogId, topic.topicId, 'v1');
+    const contentVersion = topic.contentVersion || 'v1';
+    const currentKey = createIdempotencyKey(selectedSite.blogId, topic.topicId, contentVersion);
     if (!canInsertDraft(ledger, currentKey)) continue;
     const currentSignature = contentSignature(selectedSite.blogId, topic.title);
     if (detectDuplicate({ contentHash: currentSignature }, ledger).decision !== 'PASS') continue;
@@ -113,7 +114,7 @@ export async function runAutoBlogger(options: {
         htmlBody: createTopicDraftHtml(selectedTopic.title, contentFacts, refUrl, selectedTopic.intent, selectedTopic.reviewData), labels: ['4G Viettel', 'Tin tức']
       });
       console.log(`Inserting draft for topic ${selectedTopic.topicId} on blog ${selectedSite.blogId}...`);
-      const attempt = { idempotencyKey, blogId: selectedSite.blogId, topicId: selectedTopic.topicId, packageId: selectedTopic.packageId, catalogVersion: catalog?.catalogVersion, contentHash: selectedContentSignature, status: 'INSERT_STARTED', createdAt: new Date().toISOString() };
+      const attempt = { idempotencyKey, blogId: selectedSite.blogId, topicId: selectedTopic.topicId, packageId: selectedTopic.packageId, catalogVersion: catalog?.catalogVersion, contentVersion: selectedTopic.contentVersion || 'v1', contentHash: selectedContentSignature, status: 'INSERT_STARTED', createdAt: new Date().toISOString() };
       ledger.push(attempt);
       fs.writeFileSync('state/blogger-publication-ledger.json', JSON.stringify(ledger, null, 2));
       const response = await publisher.createDraft(payload);
