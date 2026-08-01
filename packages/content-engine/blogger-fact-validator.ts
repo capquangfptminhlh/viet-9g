@@ -6,6 +6,23 @@ export interface Claim {
 interface Fact {
   id: string;
   claim?: string;
+  expiresAt?: string;
+  sourceUrl?: string;
+}
+
+const VIETTEL_DOMAINS = [
+  'viettel.vn',
+  'vietteltelecom.vn',
+  '098.viettel.vn'
+];
+
+function isViettelDomain(url: string): boolean {
+  try {
+    const hostname = new URL(url).hostname;
+    return VIETTEL_DOMAINS.some(domain => hostname === domain || hostname.endsWith('.' + domain));
+  } catch (e) {
+    return false;
+  }
 }
 
 const QUANTITY_PATTERN = /\d+(?:[.,]\d+)?\s*(?:gb|mb|ngày|đ|vnd)/gi;
@@ -14,7 +31,7 @@ function quantitiesIn(text: string): string[] {
   return text.match(QUANTITY_PATTERN)?.map((quantity) => quantity.toLowerCase().replace(/\s+/g, '')) ?? [];
 }
 
-export function validateBloggerFacts(payload: { claims?: Claim[] }, factStore: any[]): { decision: string } {
+export function validateBloggerFacts(payload: { claims?: Claim[] }, factStore: any[], now: Date = new Date()): { decision: string } {
   if (!payload.claims?.length) return { decision: 'PASS' };
 
   for (const claim of payload.claims) {
@@ -24,11 +41,25 @@ export function validateBloggerFacts(payload: { claims?: Claim[] }, factStore: a
 
     if (referencedFacts.some((fact) => !fact)) return { decision: 'HOLD' };
 
+    for (const fact of referencedFacts) {
+      if (!fact.expiresAt) return { decision: 'HOLD' };
+      if (new Date(fact.expiresAt).getTime() < now.getTime()) return { decision: 'HOLD' };
+    }
+
     const referencedQuantities = new Set(
       referencedFacts.flatMap((fact: Fact) => quantitiesIn(String(fact.claim ?? ''))),
     );
-    if (quantitiesIn(claim.text).some((quantity) => !referencedQuantities.has(quantity))) {
+    const claimQuantities = quantitiesIn(claim.text);
+    if (claimQuantities.some((quantity) => !referencedQuantities.has(quantity))) {
       return { decision: 'HOLD' };
+    }
+
+    if (claimQuantities.length > 0) {
+      for (const fact of referencedFacts) {
+        if (!fact.sourceUrl || !isViettelDomain(fact.sourceUrl)) {
+          return { decision: 'HOLD' };
+        }
+      }
     }
   }
   return { decision: 'PASS' };

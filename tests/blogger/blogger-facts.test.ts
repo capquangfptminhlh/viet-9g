@@ -1,4 +1,4 @@
-﻿import { describe, expect, it } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { validateBloggerFacts, requireFactStore } from '../../packages/content-engine/blogger-fact-validator';
 import { detectDuplicate } from '../../packages/content-engine/blogger-duplicate-detector';
 
@@ -30,10 +30,31 @@ describe('Blogger fact validation', () => {
     expect(validateBloggerFacts(
       { claims: [{ text: 'Gói có 10GB và 512 MB trong 30 ngày, giá 15000 VND', sourceFactIds: ['f1', 'f2'] }] },
       [
-        { id: 'f1', claim: 'Ưu đãi 10 GB và 512MB' },
-        { id: 'f2', claim: 'Sử dụng trong 30 ngày, giá 15000 VND' },
+        { id: 'f1', claim: 'Ưu đãi 10 GB và 512MB', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn/goi-1' },
+        { id: 'f2', claim: 'Sử dụng trong 30 ngày, giá 15000 VND', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://vietteltelecom.vn/goi-2' },
       ],
     )).toMatchObject({ decision: 'PASS' });
+  });
+
+  it('holds a claim when referenced fact lacks expiresAt', () => {
+    expect(validateBloggerFacts(
+      { claims: [{ text: 'Gói có 10GB', sourceFactIds: ['f1'] }] },
+      [{ id: 'f1', claim: 'Gói có 10GB', sourceUrl: 'https://viettel.vn/goi-1' }],
+    )).toMatchObject({ decision: 'HOLD' });
+  });
+
+  it('holds a claim when referenced fact has expired', () => {
+    expect(validateBloggerFacts(
+      { claims: [{ text: 'Gói có 10GB', sourceFactIds: ['f1'] }] },
+      [{ id: 'f1', claim: 'Gói có 10GB', expiresAt: '2020-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn/goi-1' }],
+    )).toMatchObject({ decision: 'HOLD' });
+  });
+
+  it('holds a claim with quantitative data when sourceUrl is not from Viettel allowlist', () => {
+    expect(validateBloggerFacts(
+      { claims: [{ text: 'Gói có 10GB', sourceFactIds: ['f1'] }] },
+      [{ id: 'f1', claim: 'Gói có 10GB', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://otherdomain.com/goi-1' }],
+    )).toMatchObject({ decision: 'HOLD' });
   });
 });
 

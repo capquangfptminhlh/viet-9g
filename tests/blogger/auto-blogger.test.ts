@@ -11,7 +11,7 @@ describe('Auto Blogger Orchestration', () => {
     const result = await runAutoBlogger({
       sites: [{ blogId: 'a', enabled: true }],
       topics: [{ topicId: 't1', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'T1', sourceFactIds: ['f1'] }],
-      env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1' }]
+      env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }]
     });
     expect(result.status).toBe('SUCCESS');
   });
@@ -23,7 +23,7 @@ describe('Auto Blogger Orchestration', () => {
         { topicId: 't1', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'T1', sourceFactIds: ['missing-fact'] },
         { topicId: 't2', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'T2', sourceFactIds: ['f1'] }
       ],
-      env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1' }]
+      env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }]
     });
     expect(result).toMatchObject({ status: 'SUCCESS', selectedTopicId: 't2' });
   });
@@ -32,7 +32,7 @@ describe('Auto Blogger Orchestration', () => {
     const result = await runAutoBlogger({
       sites: [{ blogId: 'a', enabled: true }],
       topics: [{ topicId: 't1', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'T1', sourceFactIds: ['missing-fact'] }],
-      env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1' }]
+      env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }]
     });
     expect(result).toMatchObject({ status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1 });
   });
@@ -50,7 +50,7 @@ describe('Auto Blogger Orchestration', () => {
         { topicId: 'new-topic', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'Duplicate Title', sourceFactIds: ['f1'] },
         { topicId: 'next-topic', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'Different Topic', sourceFactIds: ['f1'] }
       ],
-      env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1' }]
+      env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }]
     });
     expect(result).toMatchObject({ status: 'SUCCESS', selectedTopicId: 'next-topic' });
   });
@@ -61,7 +61,7 @@ describe('Auto Blogger Orchestration', () => {
     await expect(runAutoBlogger({
       sites: [{ blogId: 'a', enabled: true }],
       topics: [{ topicId: 't1', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'T1', sourceFactIds: ['f1'] }],
-      env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1' }]
+      env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }]
     })).rejects.toThrow(SyntaxError);
   });
 
@@ -74,16 +74,16 @@ describe('Auto Blogger Orchestration', () => {
   it('preserves malformed site-config JSON errors', async () => {
     vi.spyOn(fs, 'existsSync').mockImplementation((file) => String(file) === 'config/blogger-sites.json');
     vi.spyOn(fs, 'readFileSync').mockReturnValue('{not-json');
-    await expect(runAutoBlogger({ env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1' }] })).rejects.toThrow(SyntaxError);
+    await expect(runAutoBlogger({ env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }] })).rejects.toThrow(SyntaxError);
   });
 
   it('does not execute when BLOGGER_ENABLED is not true', async () => {
-    await expect(runAutoBlogger({ env: { BLOGGER_ENABLED: 'false' }, facts: [{ id: 'f1' }] })).resolves.toMatchObject({ status: 'DISABLED' });
+    await expect(runAutoBlogger({ env: { BLOGGER_ENABLED: 'false' }, facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }] })).resolves.toMatchObject({ status: 'DISABLED' });
   });
 
   it('returns a non-zero empty-topic result when topics list is empty', async () => {
     const result = await runAutoBlogger({
-      sites: [{ blogId: 'a', enabled: true }], topics: [], env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1' }]
+      sites: [{ blogId: 'a', enabled: true }], topics: [], env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }]
     });
     expect(result).toMatchObject({ status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1, attemptedBlogIds: [] });
   });
