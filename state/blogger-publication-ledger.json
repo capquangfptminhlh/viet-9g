@@ -1,1 +1,11 @@
-﻿[]
+[
+  {
+    "idempotencyKey": "ed674af0001e5a5f029f351ce632aff2c82cba46ce4b9cdd6460d8ade3bd51a8",
+    "blogId": "5229528996284551001",
+    "topicId": "topic-1",
+    "contentHash": "ffb5404ec38507bbbd36be6c406ffc6915a4832bf06b1219f1344be662a477ab",
+    "status": "DRAFT_CREATED",
+    "createdAt": "2026-08-01T10:22:04.651Z",
+    "postId": "1896879891909378170"
+  }
+]
