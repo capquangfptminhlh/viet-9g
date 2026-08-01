@@ -26,5 +26,12 @@
         "sourceUrl":  "https://tracuugoicuoc.com/huong-dan/kiem-tra-dung-luong-viettel/",
         "id":  "fact-4",
         "retrievedAt":  "2026-08-01"
+    },
+    {
+        "claim":  "Để hủy gia hạn gói cước 4G Viettel, soạn HUY gửi 191. Để hủy hoàn toàn gói cước (mất ưu đãi còn lại), soạn HUYDATA gửi 191.",
+        "effectiveAt":  "2026-01-01",
+        "sourceUrl":  "https://tracuugoicuoc.com/huong-dan/huy-goi-cuoc-viettel/",
+        "id":  "fact-5",
+        "retrievedAt":  "2026-08-01"
     }
 ]

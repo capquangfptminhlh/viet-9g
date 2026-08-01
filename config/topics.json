@@ -46,5 +46,17 @@
                               "fact-4"
                           ],
         "targetBlogId":  "5229528996284551001"
+    },
+    {
+        "intent":  "informational",
+        "contentVersion":  "v1",
+        "title":  "Cách Hủy Gói Cước 4G Viettel Đơn Giản, Miễn Phí Qua 191",
+        "status":  "QUEUE",
+        "contentCharter":  "Hướng dẫn chi tiết cách hủy gia hạn và hủy hoàn toàn gói 4G Viettel",
+        "topicId":  "topic-huy-goi-cuoc",
+        "sourceFactIds":  [
+                              "fact-5"
+                          ],
+        "targetBlogId":  "5229528996284551001"
     }
 ]
