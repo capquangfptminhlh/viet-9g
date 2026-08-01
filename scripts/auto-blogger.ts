@@ -10,7 +10,7 @@ import { detectDuplicate } from '../packages/content-engine/blogger-duplicate-de
 import { Claim, validateBloggerFacts } from '../packages/content-engine/blogger-fact-validator';
 import { generateReferralUrl } from '../packages/measurement-engine/blogger-referral-tracker';
 
-type Topic = { topicId: string; targetBlogId: string; intent: string; title: string; sourceFactIds?: string[]; status?: string };
+type Topic = { topicId: string; targetBlogId: string; intent: string; title: string; sourceFactIds?: string[]; status?: string; targetUrlPath?: string; reviewData?: any; };
 type Site = { blogId: string; enabled: boolean; allowedDestination?: string };
 type Result = { status: string; exitCode: number; attemptedBlogIds: string[]; draftReviewUrl?: string; selectedTopicId?: string };
 
@@ -48,7 +48,7 @@ export async function runAutoBlogger(options: {
     if (!fs.existsSync('config/topics.json')) throw new Error('CONFIG_ERROR: config/topics.json does not exist');
     topics = JSON.parse(fs.readFileSync('config/topics.json', 'utf-8').replace(/^\uFEFF/, ''));
   }
-  topics = (topics || []).filter((topic) => topic.status !== 'PUBLISHED');
+  topics = (topics || []).filter((topic) => topic.status === 'QUEUE');
   if (topics.length === 0) return { status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1, attemptedBlogIds: [] };
 
   let ledger: LedgerEntry[] = [];
@@ -81,10 +81,9 @@ export async function runAutoBlogger(options: {
     try {
       const client = new RealBloggerClient();
       const publisher = new BloggerPublisher(client);
-      let refUrl = generateReferralUrl(selectedSite.allowedDestination || 'tracuugoicuoc.com', selectedTopic.topicId);
-      if (selectedTopic.targetUrlPath) {
-        refUrl = generateReferralUrl(selectedSite.allowedDestination || 'tracuugoicuoc.com', selectedTopic.targetUrlPath, selectedTopic.topicId);
-      }
+      let targetPath = selectedTopic.targetUrlPath || '/huong-dan/huy-goi-cuoc-viettel/';
+      if (!targetPath.startsWith('/')) targetPath = '/' + targetPath;
+      const refUrl = generateReferralUrl(selectedSite.allowedDestination || 'tracuugoicuoc.com', targetPath, selectedTopic.topicId);
       
       const payload = generateBloggerDraftPayload({
         blogId: selectedSite.blogId, title: selectedTopic.title,

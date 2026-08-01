@@ -10,7 +10,7 @@ describe('Auto Blogger Orchestration', () => {
   it('accepts a BOM-prefixed durable ledger', async () => {
     const result = await runAutoBlogger({
       sites: [{ blogId: 'a', enabled: true }],
-      topics: [{ topicId: 't1', targetBlogId: 'a', intent: 'info', title: 'T1', sourceFactIds: ['f1'] }],
+      topics: [{ topicId: 't1', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'T1', sourceFactIds: ['f1'] }],
       env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1' }]
     });
     expect(result.status).toBe('SUCCESS');
@@ -20,8 +20,8 @@ describe('Auto Blogger Orchestration', () => {
     const result = await runAutoBlogger({
       sites: [{ blogId: 'a', enabled: true }],
       topics: [
-        { topicId: 't1', targetBlogId: 'a', intent: 'info', title: 'T1', sourceFactIds: ['missing-fact'] },
-        { topicId: 't2', targetBlogId: 'a', intent: 'info', title: 'T2', sourceFactIds: ['f1'] }
+        { topicId: 't1', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'T1', sourceFactIds: ['missing-fact'] },
+        { topicId: 't2', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'T2', sourceFactIds: ['f1'] }
       ],
       env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1' }]
     });
@@ -31,7 +31,7 @@ describe('Auto Blogger Orchestration', () => {
   it('returns TOPIC_QUEUE_EXHAUSTED with a non-zero exit code when no topic survives validation', async () => {
     const result = await runAutoBlogger({
       sites: [{ blogId: 'a', enabled: true }],
-      topics: [{ topicId: 't1', targetBlogId: 'a', intent: 'info', title: 'T1', sourceFactIds: ['missing-fact'] }],
+      topics: [{ topicId: 't1', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'T1', sourceFactIds: ['missing-fact'] }],
       env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1' }]
     });
     expect(result).toMatchObject({ status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1 });
@@ -47,8 +47,8 @@ describe('Auto Blogger Orchestration', () => {
     const result = await runAutoBlogger({
       sites: [{ blogId: 'a', enabled: true }],
       topics: [
-        { topicId: 'new-topic', targetBlogId: 'a', intent: 'info', title: 'Duplicate Title', sourceFactIds: ['f1'] },
-        { topicId: 'next-topic', targetBlogId: 'a', intent: 'info', title: 'Different Topic', sourceFactIds: ['f1'] }
+        { topicId: 'new-topic', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'Duplicate Title', sourceFactIds: ['f1'] },
+        { topicId: 'next-topic', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'Different Topic', sourceFactIds: ['f1'] }
       ],
       env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1' }]
     });
@@ -60,7 +60,7 @@ describe('Auto Blogger Orchestration', () => {
     vi.spyOn(fs, 'readFileSync').mockReturnValue('{not-json');
     await expect(runAutoBlogger({
       sites: [{ blogId: 'a', enabled: true }],
-      topics: [{ topicId: 't1', targetBlogId: 'a', intent: 'info', title: 'T1', sourceFactIds: ['f1'] }],
+      topics: [{ topicId: 't1', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'T1', sourceFactIds: ['f1'] }],
       env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1' }]
     })).rejects.toThrow(SyntaxError);
   });

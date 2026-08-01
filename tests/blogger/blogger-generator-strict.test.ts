@@ -1,4 +1,4 @@
-﻿﻿import { describe, it, expect } from 'vitest';
+﻿import { describe, it, expect } from 'vitest';
 import { createTopicDraftHtml, generateBloggerDraftPayload } from '../../packages/content-engine/blogger-content-generator';
 import { generateReferralUrl } from '../../packages/measurement-engine/blogger-referral-tracker';
 import fs from 'fs';
@@ -18,6 +18,7 @@ describe('Blogger Content Generator - Multi-Intent Tests', () => {
     expect(resultHtml).toContain("HUY TÊN_GÓI gửi 191");
     expect(resultHtml).toContain("mất ưu đãi/data còn lại");
     expect(resultHtml).toContain("<h3>Câu hỏi thường gặp (FAQ)</h3>");
+    expect(resultHtml).toContain("<p><strong>Thao tác này có mất phí không?</strong></p>");
     expect(resultHtml).toContain('href="https://tracuugoicuoc.com/huong-dan/huy-goi-cuoc-viettel/?utm_source=blogger');
     
     // Cross-contamination
@@ -37,6 +38,7 @@ describe('Blogger Content Generator - Multi-Intent Tests', () => {
 
     expect(resultHtml).toContain('<h2>' + title + '</h2>');
     expect(resultHtml).toContain("<h3>Câu hỏi thường gặp (FAQ)</h3>");
+    expect(resultHtml).toContain("<p><strong>Tại sao kết quả trả về bị chậm?</strong></p>");
     expect(resultHtml).toContain('href="https://tracuugoicuoc.com/huong-dan/kiem-tra-toc-do-mang/?utm_source=blogger');
     
     // Cross-contamination
@@ -63,6 +65,7 @@ describe('Blogger Content Generator - Multi-Intent Tests', () => {
 
     expect(resultHtml).toContain('<h2>' + title + '</h2>');
     expect(resultHtml).toContain("<h3>Câu hỏi thường gặp (FAQ)</h3>");
+    expect(resultHtml).toContain("<p><strong>Gói cước có tự động gia hạn không?</strong></p>");
     expect(resultHtml).toContain("Ai nên dùng");
     expect(resultHtml).toContain("Giá rẻ");
     expect(resultHtml).toContain('href="https://tracuugoicuoc.com/goi-cuoc/st15k/?utm_source=blogger');

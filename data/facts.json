@@ -4,28 +4,32 @@
         "claim":  "Gói cước V120B có giá 120.000đ/30 ngày với 1.5GB/ngày",
         "sourceUrl":  "https://tracuugoicuoc.com/goi-cuoc/v120b/",
         "retrievedAt":  "2026-08-01",
-        "effectiveAt":  "2026-01-01"
+        "effectiveAt":  "2026-01-01",
+        "expiresAt":  "2026-12-31T23:59:59Z"
     },
     {
         "id":  "fact-2",
         "claim":  "Gói cước SD90 có giá 90.000đ/30 ngày với 1.5GB/ngày, tổng 45GB/tháng",
         "sourceUrl":  "https://tracuugoicuoc.com/goi-cuoc/sd90/",
         "retrievedAt":  "2026-08-01",
-        "effectiveAt":  "2026-01-01"
+        "effectiveAt":  "2026-01-01",
+        "expiresAt":  "2026-12-31T23:59:59Z"
     },
     {
         "id":  "fact-3",
         "claim":  "Gói cước MXH120 có giá 120.000đ/30 ngày với 1GB/ngày, miễn phí 100% data Tiktok, FB, Youtube",
         "sourceUrl":  "https://tracuugoicuoc.com/goi-cuoc/mxh120/",
         "retrievedAt":  "2026-08-01",
-        "effectiveAt":  "2026-01-01"
+        "effectiveAt":  "2026-01-01",
+        "expiresAt":  "2026-12-31T23:59:59Z"
     },
     {
         "claim":  "Soạn KTTK gửi 191 để kiểm tra lưu lượng data Viettel đang dùng. Ngoài ra, có thể bấm gọi *098# để vào menu tra cứu tổng hợp và đăng ký dịch vụ.",
         "effectiveAt":  "2026-01-01",
         "sourceUrl":  "https://tracuugoicuoc.com/huong-dan/kiem-tra-dung-luong-viettel/",
         "id":  "fact-4",
-        "retrievedAt":  "2026-08-01"
+        "retrievedAt":  "2026-08-01",
+        "expiresAt":  "2026-12-31T23:59:59Z"
     },
     {
         "claim":  "bạn có thể soạn HUY TÊN_GÓI gửi 191 để dừng gia hạn, hoặc HUYDATA TÊN_GÓI gửi 191 để hủy gói. Hãy làm theo SMS phản hồi của Viettel; hủy hoàn toàn có thể khiến ưu đãi còn lại không được bảo lưu",

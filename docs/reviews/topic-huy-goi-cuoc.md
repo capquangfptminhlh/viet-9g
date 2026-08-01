@@ -14,9 +14,9 @@
   <li>Luôn đọc kỹ và làm theo tin nhắn (SMS) xác nhận phản hồi từ tổng đài.</li>
 </ul>
 <h3>Câu hỏi thường gặp (FAQ)</h3>
-Thao tác này có mất phí không?
+<p><strong>Thao tác này có mất phí không?</strong></p>
 <p>Các tin nhắn gửi đến tổng đài dịch vụ của nhà mạng đa số là miễn phí cước gửi tin.</p>
-Làm sao khi hệ thống báo lỗi hoặc không phản hồi?
+<p><strong>Làm sao khi hệ thống báo lỗi hoặc không phản hồi?</strong></p>
 <p>Hãy kiểm tra lại SMS phản hồi từ hệ thống để xem chi tiết lỗi, hoặc liên hệ trực tiếp tổng đài 198 (miễn phí) để được hỗ trợ kịp thời.</p>
 
 ```
