@@ -3,7 +3,7 @@
 export const bloggerSiteSchema = z.object({
   blogId: z.string().min(1, 'blogId cannot be empty'),
   name: z.string().min(1),
-  url: z.string().url(),
+  url: z.url(),
   enabled: z.boolean(),
   cadenceDays: z.number().int().min(1).max(90),
   contentCharter: z.string().min(1, 'contentCharter cannot be empty'),

@@ -34,7 +34,8 @@ function getPostImage(slug: string, title: string) {
 }
 
 // Chuẩn bị danh sách bài viết với tiêu đề, tóm tắt và ảnh thumbnail rút trích từ nội dung markdown
-const formattedPosts = posts.map((post: any) => {
+type FormattedPost = { slug: string; title: string; excerpt: string; image: string };
+const formattedPosts: FormattedPost[] = posts.map((post: { slug: string; body?: string }) => {
   const content = post.body || '';
   const titleMatch = content.match(/^#\s+(.+)$/m);
   const title = titleMatch ? titleMatch[1] : post.slug.replace(/-/g, ' ');

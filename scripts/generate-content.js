@@ -264,7 +264,6 @@ YÊU CẦU CẤU TRÚC BÀI VIẾT (CHUẨN SEO ON-PAGE & AEO):
 async function start() {
   // Tìm keyword chưa được viết
   let targetKw = null;
-  let targetFilePath = null;
   for (const kw of KEYWORDS) {
     const fileName = kw.toLowerCase().replace(/[^a-z0-9àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ\s]/g, '').replace(/\s+/g, '-') + '.md';
     const filePath = path.join(__dirname, '..', 'src', 'content', 'posts', fileName);

@@ -12,7 +12,7 @@ for (const topicId of reviewTopics) {
   if (!topic) continue;
 
   const topicFacts = facts.filter((f: any) => (topic.sourceFactIds || []).includes(f.id));
-  let refUrl;
+  let refUrl: string | undefined;
   if (topic.targetUrlPath) {
     refUrl = generateReferralUrl('tracuugoicuoc.com', topic.targetUrlPath, topic.topicId);
   }

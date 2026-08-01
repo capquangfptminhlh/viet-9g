@@ -13,10 +13,10 @@ const isoDateTime = z.string().refine((value) => {
 export const CatalogFactSchema = z.object({
   id: z.string().min(1),
   key: z.string().min(1),
-  value: z.union([z.string(), z.number().finite().positive(), z.boolean()]),
+  value: z.union([z.string(), z.number().positive(), z.boolean()]),
   unit: z.string().optional(),
   claim: z.string().min(1),
-  sourceUrl: z.string().url(),
+  sourceUrl: z.url(),
   retrievedAt: isoDateTime,
   effectiveAt: isoDate,
   expiresAt: isoDateTime,
