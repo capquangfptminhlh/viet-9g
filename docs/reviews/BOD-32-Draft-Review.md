@@ -1,4 +1,4 @@
-<h2>Cách hủy gói data Viettel qua SMS 191</h2>
+﻿<h2>Cách hủy gói data Viettel qua SMS 191</h2>
 <h3>1. Hướng dẫn thực hiện</h3>
 <p>Theo hướng dẫn của Viettel, tùy gói cước bạn có thể soạn HUY TÊN_GÓI gửi 191 để dừng gia hạn, hoặc HUYDATA TÊN_GÓI gửi 191 để hủy gói. Hãy làm theo SMS phản hồi của Viettel; hủy hoàn toàn có thể khiến ưu đãi còn lại không được bảo lưu.</p>
 <p>Bạn có thể <a href="https://tracuugoicuoc.com/huong-dan/huy-goi-cuoc-viettel/?utm_source=blogger&utm_medium=owned-media&utm_campaign=topic-huy-goi-cuoc" rel="nofollow noopener noreferrer">xem hướng dẫn chi tiết tại đây</a> nếu cần hỗ trợ thêm thao tác.</p>
