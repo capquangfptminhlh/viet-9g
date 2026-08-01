@@ -34,5 +34,14 @@
     "status": "DRAFT_CREATED",
     "createdAt": "2026-08-01T13:08:01.066Z",
     "postId": "4243066690510400165"
+  },
+  {
+    "idempotencyKey": "a88d17a862501913659aee44fe21227757574663ca61d8b33143148fe7f0ffc8",
+    "blogId": "5229528996284551001",
+    "topicId": "topic-huy-goi-cuoc",
+    "contentHash": "60f4a9cf59458c9b2a60328c0b9801b2befcefb9164783dd48bc0a4539c08379",
+    "status": "DRAFT_CREATED",
+    "createdAt": "2026-08-01T13:08:48.503Z",
+    "postId": "5674577225401935359"
   }
 ]
