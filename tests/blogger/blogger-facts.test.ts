@@ -50,10 +50,24 @@ describe('Blogger fact validation', () => {
     )).toMatchObject({ decision: 'HOLD' });
   });
 
-  it('holds a claim with quantitative data when sourceUrl is not from Viettel allowlist', () => {
+  it('holds a claim when sourceUrl is not from Viettel allowlist even without quantitative data', () => {
+    expect(validateBloggerFacts(
+      { claims: [{ text: 'Gói ưu đãi tốt', sourceFactIds: ['f1'] }] },
+      [{ id: 'f1', claim: 'Gói ưu đãi tốt', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://otherdomain.com/goi-1' }],
+    )).toMatchObject({ decision: 'HOLD' });
+  });
+
+  it('holds a claim when expiresAt is an invalid date string', () => {
     expect(validateBloggerFacts(
       { claims: [{ text: 'Gói có 10GB', sourceFactIds: ['f1'] }] },
-      [{ id: 'f1', claim: 'Gói có 10GB', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://otherdomain.com/goi-1' }],
+      [{ id: 'f1', claim: 'Gói có 10GB', expiresAt: 'invalid-date-string', sourceUrl: 'https://viettel.vn/goi-1' }],
+    )).toMatchObject({ decision: 'HOLD' });
+  });
+
+  it('recognizes Vietnamese quantity strings like 3 ngày and 15.000đ', () => {
+    expect(validateBloggerFacts(
+      { claims: [{ text: 'Gói 3 ngày giá 15.000đ', sourceFactIds: ['f1'] }] },
+      [{ id: 'f1', claim: 'Gói 7 ngày giá 30.000đ', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn/goi-1' }],
     )).toMatchObject({ decision: 'HOLD' });
   });
 });
