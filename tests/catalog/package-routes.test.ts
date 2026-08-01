@@ -9,4 +9,17 @@ describe('customer package routes', () => {
     expect(routes.every((pkg) => pkg.registrationEligible === false)).toBe(true);
     expect(routes.every((pkg) => pkg.status !== 'retired')).toBe(true);
   });
+
+  it('includes catalog-only records and preserves active eligibility', () => {
+    const catalog = loadPackageCatalog();
+    const active = {
+      id: 'new-active', code: 'NEW1', status: 'active', category: 'data', factIds: ['price'],
+      display: { name: 'NEW1', description: 'new' }, facts: [],
+      registration: { syntax: 'NEW1 GB', smsNumber: 290, channel: 'sms' },
+    } as any;
+    catalog.facts = [{ id: 'price', key: 'priceVnd', value: 1000, claim: 'price', sourceUrl: 'https://viettel.vn', retrievedAt: '2026-08-01T00:00:00Z', effectiveAt: '2026-08-01', expiresAt: '2026-12-31T00:00:00Z' } as any];
+    catalog.packages.push(active);
+    const routes = getPackageRoutes(catalog);
+    expect(routes.find((pkg) => pkg.id === 'new-active')).toMatchObject({ code: 'NEW1', registrationEligible: true, status: 'active' });
+  });
 });
