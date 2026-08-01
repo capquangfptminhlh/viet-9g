@@ -24,8 +24,5 @@ export function findLedgerEntry(ledger: LedgerEntry[], key: string): LedgerEntry
 export function canInsertDraft(ledger: LedgerEntry[], key: string): boolean {
   const entry = findLedgerEntry(ledger, key);
   if (!entry) return true;
-  if (['DRAFT_CREATED', 'LIVE', 'VERIFY_FAILED'].includes(entry.status)) {
-    return false;
-  }
-  return true;
+  return false;
 }

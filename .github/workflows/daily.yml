@@ -35,6 +35,12 @@ jobs:
       - name: Install Dependencies
         run: npm ci || npm install
 
+      - name: Validate Package Catalog
+        run: npm run validate:catalog
+
+      - name: Check Package Catalog Drift
+        run: npm run check:catalog
+
       - name: Run Unified Orchestrator Pipeline
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

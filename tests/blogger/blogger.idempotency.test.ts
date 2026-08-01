@@ -10,4 +10,8 @@ describe('Blogger idempotency', () => {
   it('writes no second entry after an already-recorded successful draft', () => {
     expect(canInsertDraft([{ idempotencyKey: 'same', status: 'DRAFT_CREATED' } as any], 'same')).toBe(false);
   });
+
+  it.each(['INSERT_STARTED', 'UNKNOWN'])('blocks retry for an existing %s record', (status) => {
+    expect(canInsertDraft([{ idempotencyKey: 'same', status } as any], 'same')).toBe(false);
+  });
 });

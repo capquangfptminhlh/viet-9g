@@ -16,6 +16,16 @@ type Topic = { topicId: string; targetBlogId: string; intent: string; title: str
 type Site = { blogId: string; enabled: boolean; allowedDestination?: string };
 type Result = { status: string; exitCode: number; attemptedBlogIds: string[]; draftReviewUrl?: string; selectedTopicId?: string };
 
+export function isPackageTopicEligible(topic: Pick<Topic, 'packageId' | 'sourceFactIds'>, catalog: PackageCatalog, now = new Date()): boolean {
+  if (!topic.packageId) return true;
+  const pkg = getPackageById(catalog, topic.packageId);
+  if (!pkg || pkg.status !== 'active') return false;
+  const expected = [...new Set(pkg.factIds)].sort();
+  const actual = [...new Set(topic.sourceFactIds || [])].sort();
+  if (expected.length === 0 || expected.join('\0') !== actual.join('\0')) return false;
+  return getRenderablePackages(catalog, now).some((item) => item.id === pkg.id);
+}
+
 function contentSignature(blogId: string, title: string): string {
   return crypto.createHash('sha256').update(`${blogId}:${title.trim().toLowerCase().replace(/\s+/g, ' ')}`).digest('hex');
 }
@@ -67,12 +77,13 @@ export async function runAutoBlogger(options: {
     if (topic.targetBlogId !== selectedSite.blogId) continue;
     if (topic.packageId) {
       if (!catalog) catalog = loadPackageCatalog();
-      const pkg = getPackageById(catalog, topic.packageId);
-      const renderable = getRenderablePackages(catalog, options.now || new Date()).some((item) => item.id === pkg?.id);
-      if (!pkg || pkg.status !== 'active' || !renderable) continue;
+      if (!isPackageTopicEligible(topic, catalog, options.now || new Date())) continue;
     }
     const claim: Claim = { text: topic.title, sourceFactIds: topic.sourceFactIds || [] };
-    if (validateBloggerFacts({ claims: [claim] }, facts).decision !== 'PASS') continue;
+    const validationFacts = topic.packageId && catalog
+      ? [...catalog.facts, ...catalog.packages.flatMap((pkg) => pkg.facts)].filter((fact) => (topic.sourceFactIds || []).includes(fact.id))
+      : facts;
+    if (validateBloggerFacts({ claims: [claim] }, validationFacts).decision !== 'PASS') continue;
     const currentKey = createIdempotencyKey(selectedSite.blogId, topic.topicId, 'v1');
     if (!canInsertDraft(ledger, currentKey)) continue;
     const currentSignature = contentSignature(selectedSite.blogId, topic.title);
@@ -85,7 +96,7 @@ export async function runAutoBlogger(options: {
   if (!selectedTopic) return { status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1, attemptedBlogIds: [selectedSite.blogId] };
 
   let draftReviewUrl: string | undefined;
-  let postId = 'p-mock-draft';
+  let postId: string | undefined;
   if (!options.sites) {
     try {
       const client = new RealBloggerClient();
@@ -94,9 +105,12 @@ export async function runAutoBlogger(options: {
       if (!targetPath.startsWith('/')) targetPath = '/' + targetPath;
       const refUrl = generateReferralUrl(selectedSite.allowedDestination || 'tracuugoicuoc.com', targetPath, selectedTopic.topicId);
       
+      const contentFacts = selectedTopic.packageId && catalog
+        ? [...catalog.facts, ...catalog.packages.flatMap((pkg) => pkg.facts)].filter((fact) => (selectedTopic!.sourceFactIds || []).includes(fact.id))
+        : facts.filter((f: any) => (selectedTopic!.sourceFactIds || []).includes(f.id));
       const payload = generateBloggerDraftPayload({
         blogId: selectedSite.blogId, title: selectedTopic.title,
-        htmlBody: createTopicDraftHtml(selectedTopic.title, facts.filter((f: any) => (selectedTopic!.sourceFactIds || []).includes(f.id)), refUrl, selectedTopic.intent, selectedTopic.reviewData), labels: ['4G Viettel', 'Tin tức']
+        htmlBody: createTopicDraftHtml(selectedTopic.title, contentFacts, refUrl, selectedTopic.intent, selectedTopic.reviewData), labels: ['4G Viettel', 'Tin tức']
       });
       console.log(`Inserting draft for topic ${selectedTopic.topicId} on blog ${selectedSite.blogId}...`);
       const attempt = { idempotencyKey, blogId: selectedSite.blogId, topicId: selectedTopic.topicId, packageId: selectedTopic.packageId, catalogVersion: catalog?.catalogVersion, contentHash: selectedContentSignature, status: 'INSERT_STARTED', createdAt: new Date().toISOString() };

@@ -1,7 +1,8 @@
 import crypto from 'crypto';
 import fs from 'fs';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { runAutoBlogger } from '../../scripts/auto-blogger';
+import { isPackageTopicEligible, runAutoBlogger } from '../../scripts/auto-blogger';
+import { loadPackageCatalog } from '../../src/data/package-catalog';
 import { createTopicDraftHtml } from '../../packages/content-engine/blogger-content-generator';
 
 afterEach(() => vi.restoreAllMocks());
@@ -95,6 +96,11 @@ describe('Auto Blogger Orchestration', () => {
       env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }]
     });
     expect(result).toMatchObject({ status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1 });
+  });
+
+  it('rejects package topics whose source facts do not exactly match catalog evidence', () => {
+    const catalog = loadPackageCatalog();
+    expect(isPackageTopicEligible({ packageId: 'v120b', sourceFactIds: ['unrelated'] } as any, catalog, new Date())).toBe(false);
   });
 
   it('creates topic-specific editorial text with structured sections', () => {
