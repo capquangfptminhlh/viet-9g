@@ -1,7 +1,7 @@
 import { TelecomPackage, FAQItem } from '../types';
 import catalogJson from '../../data/package-catalog.v1.json';
 import { catalogToTelecomPackages } from '../../packages/catalog/package-adapters';
-import { parsePackageCatalog } from './package-catalog';
+import { parsePackageCatalog } from './package-catalog-runtime';
 
 const LEGACY_VIETTEL_PACKAGES: TelecomPackage[] = [
   // CORES / POPULAR

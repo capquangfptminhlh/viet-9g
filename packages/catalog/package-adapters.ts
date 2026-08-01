@@ -1,5 +1,5 @@
 import type { TelecomPackage } from '../../src/types';
-import type { PackageCatalog, PackageRecord, CatalogFact } from '../../src/data/package-catalog';
+import type { PackageCatalog, PackageRecord, CatalogFact } from '../../src/data/package-catalog-runtime';
 
 export type PackageFallbacks = Record<string, TelecomPackage>;
 
@@ -15,8 +15,15 @@ function asNumber(value: string | number | boolean | undefined, fallback: number
   return typeof value === 'number' && Number.isFinite(value) ? value : fallback;
 }
 
-export function toTelecomPackage(pkg: PackageRecord, fallback?: Partial<TelecomPackage>): TelecomPackage {
-  const facts = new Map(pkg.facts.map((fact) => [fact.id, fact] as const));
+export function toTelecomPackage(
+  pkg: PackageRecord,
+  fallback?: Partial<TelecomPackage>,
+  catalogFacts: readonly CatalogFact[] = [],
+): TelecomPackage {
+  const facts = new Map([
+    ...catalogFacts.map((fact) => [fact.id, fact] as const),
+    ...pkg.facts.map((fact) => [fact.id, fact] as const),
+  ]);
   const price = asNumber(factValue(pkg, facts, 'priceVnd'), fallback?.price ?? 0);
   const registrationEligible = pkg.status === 'active' && pkg.factIds.length > 0 && Boolean(pkg.registration);
 
@@ -41,7 +48,8 @@ export function toTelecomPackage(pkg: PackageRecord, fallback?: Partial<TelecomP
 }
 
 export function catalogToTelecomPackages(catalog: PackageCatalog, fallbacks: PackageFallbacks = {}): TelecomPackage[] {
+  const catalogFacts = catalog.facts;
   return catalog.packages
     .filter((pkg) => pkg.status !== 'retired')
-    .map((pkg) => toTelecomPackage(pkg, fallbacks[pkg.id]));
+    .map((pkg) => toTelecomPackage(pkg, fallbacks[pkg.id], catalogFacts));
 }

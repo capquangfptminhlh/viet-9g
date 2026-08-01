@@ -17,7 +17,7 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
 
   if (!pkg) return null;
 
-  const registrationEligible = pkg.registrationEligible !== false;
+  const registrationEligible = pkg.registrationEligible === true && pkg.status === 'active';
   const packageCode = pkg.code ?? pkg.name;
   const smsBody = registrationEligible ? buildSmsSyntax(packageCode) : '';
   const smsNumber = SMS_NUMBER;
@@ -86,7 +86,7 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
             <MessageSquare className="w-4.5 h-4.5" />
             Cú Pháp SMS
           </button>
-          {pkg.registrationEligible !== false && <button
+          {registrationEligible && <button
             type="button"
             onClick={() => setActiveTab('qr')}
             className={`flex-1 py-4 px-2 text-center transition-all cursor-pointer flex items-center justify-center gap-2 border-b-2 ${
@@ -167,7 +167,7 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
                   )}
                 </button>
 
-                {pkg.registrationEligible !== false && <a
+                {registrationEligible && <a
                   href={getSmsHref()}
                   onClick={() => trackConversion('click_open_sms_app', { package_id: pkg.id, price: pkg.price, name: pkg.name })}
                   className="w-full py-3.5 px-4 min-h-[50px] bg-[#e60000] hover:bg-red-700 active:bg-red-800 text-white text-sm font-bold rounded-xl shadow-md flex items-center justify-center gap-2 cursor-pointer transition-all"

@@ -17,7 +17,7 @@ export default function DynamicPostPage({ pkg, config, rawPath }: DynamicPostPag
         .replace(/\b[a-z]/g, (letter) => letter.toUpperCase())
     : pkg.name;
 
-  const registrationEligible = pkg.registrationEligible !== false;
+  const registrationEligible = pkg.registrationEligible === true && pkg.status === 'active';
   const packageCode = pkg.code ?? pkg.name;
   const smsSyntax = registrationEligible ? buildSmsSyntax(packageCode) : '';
 
