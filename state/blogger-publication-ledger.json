@@ -25,5 +25,14 @@
     "status": "DRAFT_CREATED",
     "createdAt": "2026-08-01T11:04:31.812Z",
     "postId": "419221485799560051"
+  },
+  {
+    "idempotencyKey": "998c5b30d166700a143f2e01564ee72839115474d0874fec5ab5e6a5cc959aca",
+    "blogId": "5229528996284551001",
+    "topicId": "topic-kiem-tra-dung-luong",
+    "contentHash": "b14a3300fa6041984ee292361c80b7c362790ba8f369ab0e0aafba43b8308946",
+    "status": "DRAFT_CREATED",
+    "createdAt": "2026-08-01T13:08:01.066Z",
+    "postId": "4243066690510400165"
   }
 ]
