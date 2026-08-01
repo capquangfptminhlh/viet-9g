@@ -36,8 +36,8 @@ export function createTopicDraftHtml(title: string, facts: any[], referralUrl?: 
     html += `<p>Bạn có thể ${linkHtml} nếu cần hỗ trợ thêm thao tác.</p>\n`;
     html += `<h3>2. Các lưu ý quan trọng</h3>\n`;
     html += `<ul>\n`;
-    html += `  <li>Đảm bảo thực hiện thao tác trên chính số thuê bao cần kiểm tra.</li>\n`;
-    html += `  <li>Việc tra cứu qua đầu số ngắn thường hoàn toàn miễn phí.</li>\n`;
+    html += `  <li>Đảm bảo thực hiện thao tác trên chính số thuê bao của bạn.</li>\n`;
+    html += `  <li>Đa phần các thao tác qua tin nhắn đều miễn phí cước viễn thông.</li>\n`;
     html += `  <li>Nếu gặp lỗi, hãy thử khởi động lại máy hoặc chờ vài phút rồi thực hiện lại.</li>\n`;
     html += `</ul>\n`;
   } else {
@@ -55,7 +55,7 @@ export function createTopicDraftHtml(title: string, facts: any[], referralUrl?: 
 
   html += `<h3>Câu hỏi thường gặp (FAQ)</h3>\n`;
   html += `<h4>Thao tác này có mất phí không?</h4>\n`;
-  html += `<p>Đa phần các cú pháp tra cứu hoặc gọi *098# đều miễn phí cước viễn thông.</p>\n`;
+  html += `<p>Các tin nhắn gửi đến tổng đài dịch vụ của nhà mạng đa số là miễn phí cước gửi tin.</p>\n`;
   html += `<h4>Làm sao khi hệ thống báo bận?</h4>\n`;
   html += `<p>Do lưu lượng cao, bạn chỉ cần chờ khoảng 5-10 phút rồi thực hiện lại cú pháp là được.</p>\n`;
 
