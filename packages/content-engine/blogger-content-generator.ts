@@ -31,14 +31,14 @@ export function createTopicDraftHtml(title: string, facts: any[], referralUrl?: 
   if (intent === 'informational') {
     html += `<h3>1. Hướng dẫn thực hiện</h3>\n`;
     if (factClaims) {
-      html += `<p>Theo quy định mới nhất từ nhà mạng: ${factClaims}.</p>\n`;
+      html += `<p>Theo hướng dẫn của Viettel, tùy gói cước ${factClaims}.</p>\n`;
     }
     html += `<p>Bạn có thể ${linkHtml} nếu cần hỗ trợ thêm thao tác.</p>\n`;
     html += `<h3>2. Các lưu ý quan trọng</h3>\n`;
     html += `<ul>\n`;
     html += `  <li>Đảm bảo thực hiện thao tác trên chính số thuê bao của bạn.</li>\n`;
-    html += `  <li>Đa phần các thao tác qua tin nhắn đều miễn phí cước viễn thông.</li>\n`;
-    html += `  <li>Nếu gặp lỗi, hãy thử khởi động lại máy hoặc chờ vài phút rồi thực hiện lại.</li>\n`;
+    html += `  <li><strong>Cảnh báo:</strong> Hủy hoàn toàn gói cước có thể làm mất ưu đãi/data còn lại. Chỉ nên thao tác hủy nếu bạn chắc chắn không còn nhu cầu sử dụng.</li>\n`;
+    html += `  <li>Luôn đọc kỹ và làm theo tin nhắn (SMS) xác nhận phản hồi từ tổng đài.</li>\n`;
     html += `</ul>\n`;
   } else {
     html += `<h3>1. Thông tin chi tiết gói cước</h3>\n`;
@@ -56,8 +56,8 @@ export function createTopicDraftHtml(title: string, facts: any[], referralUrl?: 
   html += `<h3>Câu hỏi thường gặp (FAQ)</h3>\n`;
   html += `<h4>Thao tác này có mất phí không?</h4>\n`;
   html += `<p>Các tin nhắn gửi đến tổng đài dịch vụ của nhà mạng đa số là miễn phí cước gửi tin.</p>\n`;
-  html += `<h4>Làm sao khi hệ thống báo bận?</h4>\n`;
-  html += `<p>Do lưu lượng cao, bạn chỉ cần chờ khoảng 5-10 phút rồi thực hiện lại cú pháp là được.</p>\n`;
+  html += `<h4>Làm sao khi hệ thống báo lỗi hoặc không phản hồi?</h4>\n`;
+  html += `<p>Hãy kiểm tra lại SMS phản hồi từ hệ thống để xem chi tiết lỗi, hoặc liên hệ trực tiếp tổng đài 198 (miễn phí) để được hỗ trợ kịp thời.</p>\n`;
 
   return html;
 }

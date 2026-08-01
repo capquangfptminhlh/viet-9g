@@ -10,7 +10,7 @@ describe('Blogger Content Generator - Structural Tests', () => {
     const topicSourceFactIds = ["fact-5"];
     
     const inputFacts = factsStore.filter((f: any) => topicSourceFactIds.includes(f.id));
-    const html = createTopicDraftHtml(topicTitle, inputFacts, "https://tracuugoicuoc.com/huong-dan/huy-goi-cuoc-viettel/", topicIntent);
+    const html = createTopicDraftHtml(topicTitle, inputFacts, "https://tracuugoicuoc.com/huong-dan/huy-goi-cuoc-viettel/?utm_source=blogger", topicIntent);
     
     // Positive Assertions: Title and Headings
     expect(html).toContain(<h2>\</h2>);
@@ -19,12 +19,13 @@ describe('Blogger Content Generator - Structural Tests', () => {
     expect(html).toContain("<h3>Câu hỏi thường gặp (FAQ)</h3>");
     
     // Positive Assertions: Facts
-    expect(html).toContain("HUY gửi 191");
-    expect(html).toContain("HUYDATA gửi 191");
+    expect(html).toContain("HUY TÊN_GÓI gửi 191");
+    expect(html).toContain("HUYDATA TÊN_GÓI gửi 191");
     
-    // Positive Assertions: Contextual Link (not a generic buy CTA)
-    expect(html).toContain('href="https://tracuugoicuoc.com/huong-dan/huy-goi-cuoc-viettel/"');
-    expect(html).toContain('xem hướng dẫn chi tiết tại đây');
+    // Positive Assertions: New Boilerplate
+    expect(html).toContain("Theo hướng dẫn của Viettel, tùy gói cước");
+    expect(html).toContain("kiểm tra lại SMS phản hồi");
+    expect(html).toContain("mất ưu đãi/data còn lại");
     
     // Negative Assertions: Must NOT contain boilerplate from 'review' intent
     expect(html).not.toContain("Nạp đủ số dư cước phí");
@@ -34,5 +35,6 @@ describe('Blogger Content Generator - Structural Tests', () => {
     // Negative Assertions: Must NOT contain *098# or "tra cứu" for cancellation
     expect(html).not.toContain("*098#");
     expect(html).not.toContain("tra cứu");
+    expect(html).not.toContain("Theo quy định mới nhất từ nhà mạng");
   });
 });

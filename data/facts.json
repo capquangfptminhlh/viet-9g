@@ -28,7 +28,7 @@
         "retrievedAt":  "2026-08-01"
     },
     {
-        "claim":  "Để hủy gia hạn gói cước 4G Viettel, soạn HUY gửi 191. Để hủy hoàn toàn gói cước (mất ưu đãi còn lại), soạn HUYDATA gửi 191.",
+        "claim":  "bạn có thể soạn HUY TÊN_GÓI gửi 191 để dừng gia hạn, hoặc HUYDATA TÊN_GÓI gửi 191 để hủy gói. Hãy làm theo SMS phản hồi của Viettel; hủy hoàn toàn có thể khiến ưu đãi còn lại không được bảo lưu",
         "effectiveAt":  "2026-01-01",
         "sourceUrl":  "https://tracuugoicuoc.com/huong-dan/huy-goi-cuoc-viettel/",
         "id":  "fact-5",
