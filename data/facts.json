@@ -33,5 +33,19 @@
         "sourceUrl":  "https://tracuugoicuoc.com/huong-dan/huy-goi-cuoc-viettel/",
         "id":  "fact-5",
         "retrievedAt":  "2026-08-01"
+    },
+    {
+        "claim":  "Bạn có thể kiểm tra tốc độ mạng 4G Viettel bằng ứng dụng Speedtest hoặc truy cập trang web fast.com. Tốc độ tải xuống trung bình của mạng 4G Viettel đạt khoảng 30-50 Mbps trong điều kiện tiêu chuẩn.",
+        "effectiveAt":  "2026-01-01",
+        "sourceUrl":  "https://tracuugoicuoc.com/huong-dan/kiem-tra-toc-do-mang/",
+        "id":  "fact-6",
+        "retrievedAt":  "2026-08-01"
+    },
+    {
+        "claim":  "Gói cước ST15K có giá 15.000đ/3 ngày, cung cấp 3GB data tốc độ cao, phù hợp cho nhu cầu sử dụng ngắn hạn.",
+        "effectiveAt":  "2026-01-01",
+        "sourceUrl":  "https://tracuugoicuoc.com/goi-cuoc/st15k/",
+        "id":  "fact-7",
+        "retrievedAt":  "2026-08-01"
     }
 ]

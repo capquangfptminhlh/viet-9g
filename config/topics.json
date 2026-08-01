@@ -58,5 +58,29 @@
                               "fact-5"
                           ],
         "targetBlogId":  "5229528996284551001"
+    },
+    {
+        "intent":  "informational",
+        "contentVersion":  "v1",
+        "title":  "Cách Kiểm Tra Tốc Độ Mạng 4G Viettel Nhanh Và Chính Xác Nhất",
+        "status":  "QUEUE",
+        "contentCharter":  "Hướng dẫn chi tiết cách đo tốc độ mạng 4G thực tế",
+        "topicId":  "topic-kiem-tra-toc-do",
+        "sourceFactIds":  [
+                              "fact-6"
+                          ],
+        "targetBlogId":  "5229528996284551001"
+    },
+    {
+        "intent":  "review",
+        "contentVersion":  "v1",
+        "title":  "Đánh Giá Gói ST15K Viettel: Có Nên Đăng Ký Dùng 3 Ngày?",
+        "status":  "QUEUE",
+        "contentCharter":  "Review nhanh gói ST15K cho người cần data ngắn hạn",
+        "topicId":  "topic-st15k-review",
+        "sourceFactIds":  [
+                              "fact-7"
+                          ],
+        "targetBlogId":  "5229528996284551001"
     }
 ]
