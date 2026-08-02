@@ -1,0 +1,296 @@
+{
+  "targetBlogId": "2757413717171314447",
+  "candidates": [
+    {
+      "title": "KTTK gửi 191 trả về những gì: tên gói, data hay ngày hết hạn?",
+      "intent": "data-check",
+      "targetUrlPath": "/posts/cú-pháp-kiểm-tra-dung-lượng-data-4g-viettel-còn-lại/",
+      "sourceFactIds": [
+        "F02"
+      ],
+      "imageBrief": "Neutral SMS screen with three highlighted placeholders: package, allowance, expiry.",
+      "imageAlt": "Minh họa đọc tên gói, dung lượng và hạn dùng trong SMS."
+    },
+    {
+      "title": "Gói data sắp hết hạn: kiểm tra trước khi bị gia hạn như thế nào?",
+      "intent": "renewal-check",
+      "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
+      "sourceFactIds": [
+        "F02"
+      ],
+      "imageBrief": "Phone beside a calendar with an expiry marker.",
+      "imageAlt": "Minh họa kiểm tra hạn dùng gói data trước ngày gia hạn."
+    },
+    {
+      "title": "Không vào được My Viettel thì kiểm tra hạn gói data bằng SMS ra sao?",
+      "intent": "data-check",
+      "targetUrlPath": "/posts/cú-pháp-kiểm-tra-dung-lượng-data-4g-viettel-còn-lại/",
+      "sourceFactIds": [
+        "F02"
+      ],
+      "imageBrief": "Phone with an app sign-in screen beside a simple SMS bubble.",
+      "imageAlt": "Minh họa dùng SMS kiểm tra gói data khi không dùng ứng dụng."
+    },
+    {
+      "title": "My Viettel hiển thị hạn gói ở đâu để tránh bỏ lỡ ngày gia hạn?",
+      "intent": "renewal-check",
+      "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
+      "sourceFactIds": [
+        "F02"
+      ],
+      "imageBrief": "Generic app dashboard showing a “Thông tin lưu lượng” label and date.",
+      "imageAlt": "Minh họa vị trí thông tin lưu lượng và hạn dùng trong ứng dụng."
+    },
+    {
+      "title": "KTTK và TK gửi 191 khác nhau thế nào sau khi tắt 2G?",
+      "intent": "data-check",
+      "targetUrlPath": "/posts/cach-kiem-tra-tai-khoan-chinh/",
+      "sourceFactIds": [
+        "F01",
+        "F02"
+      ],
+      "imageBrief": "Split phone screen: SMS “TK” and SMS “KTTK”, no invented responses.",
+      "imageAlt": "Minh họa hai cú pháp SMS kiểm tra tài khoản và gói data."
+    },
+    {
+      "title": "Điện thoại không chạy được *098#: còn cách nào kiểm tra hoặc quản lý gói?",
+      "intent": "troubleshooting",
+      "targetUrlPath": "/posts/cach-kiem-tra-tai-khoan-chinh/",
+      "sourceFactIds": [
+        "F01"
+      ],
+      "imageBrief": "Phone dial pad with a warning, plus My Viettel and SMS icons.",
+      "imageAlt": "Minh họa các cách thay thế USSD để quản lý thuê bao."
+    },
+    {
+      "title": "Sau khi cập nhật máy, mã USSD Viettel không hoạt động: kiểm tra gì trước?",
+      "intent": "troubleshooting",
+      "targetUrlPath": "/posts/cach-kiem-tra-tai-khoan-chinh/",
+      "sourceFactIds": [
+        "F01"
+      ],
+      "imageBrief": "Phone software-update card next to a dial pad.",
+      "imageAlt": "Minh họa kiểm tra khả năng dùng USSD sau cập nhật thiết bị."
+    },
+    {
+      "title": "Không dùng được USSD khi tắt 2G: dùng My Viettel hay SMS cho việc nào?",
+      "intent": "channel-selection",
+      "targetUrlPath": "/posts/cach-kiem-tra-tai-khoan-chinh/",
+      "sourceFactIds": [
+        "F01",
+        "F02",
+        "F03"
+      ],
+      "imageBrief": "Three-path diagram for app, SMS, and call-center.",
+      "imageAlt": "Minh họa chọn kênh quản lý gói khi USSD không khả dụng."
+    },
+    {
+      "title": "Bấm *098# vẫn không được: khi nào nên gọi 198 thay vì thử lại?",
+      "intent": "support",
+      "targetUrlPath": "/posts/cach-kiem-tra-tai-khoan-chinh/",
+      "sourceFactIds": [
+        "F01"
+      ],
+      "imageBrief": "Phone dial pad transitioning to a headset icon.",
+      "imageAlt": "Minh họa chuyển sang tổng đài hỗ trợ khi USSD không dùng được."
+    },
+    {
+      "title": "Trước khi hủy gia hạn, cần kiểm tra đúng tên gói đang dùng ở đâu?",
+      "intent": "cancellation-precheck",
+      "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
+      "sourceFactIds": [
+        "F02",
+        "F03"
+      ],
+      "imageBrief": "SMS result with package-name field highlighted.",
+      "imageAlt": "Minh họa kiểm tra tên gói trước khi gửi yêu cầu hủy."
+    },
+    {
+      "title": "“HUY tên gói gửi 191” là hủy gì: cách đọc đúng hướng dẫn Viettel",
+      "intent": "cancellation",
+      "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
+      "sourceFactIds": [
+        "F03",
+        "F04"
+      ],
+      "imageBrief": "Two neutral SMS bubbles labelled HUY and HUYDATA.",
+      "imageAlt": "Minh họa phân biệt hai yêu cầu SMS quản lý gói."
+    },
+    {
+      "title": "Hủy gia hạn hay hủy gói ngay: vì sao phải kiểm tra hướng dẫn của đúng gói?",
+      "intent": "cancellation-decision",
+      "targetUrlPath": "/posts/hướng-dẫn-hủy-gói-cước-viettel-tránh-trừ-tiền-tự-động/",
+      "sourceFactIds": [
+        "F04",
+        "F06"
+      ],
+      "imageBrief": "Decision fork leading to “đúng tên gói” and “xác nhận”.",
+      "imageAlt": "Minh họa chọn phương án hủy theo hướng dẫn của từng gói."
+    },
+    {
+      "title": "Gói tự động gia hạn hay không: vì sao không thể đoán chỉ theo tên gói?",
+      "intent": "renewal-check",
+      "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
+      "sourceFactIds": [
+        "F02"
+      ],
+      "imageBrief": "Two calendar cards, one with a renewal arrow and one without.",
+      "imageAlt": "Minh họa kiểm tra cơ chế gia hạn thay vì đoán theo tên gói."
+    },
+    {
+      "title": "Hết chu kỳ nhưng tài khoản đủ tiền: kiểm tra nguy cơ gia hạn từ đâu?",
+      "intent": "renewal-check",
+      "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
+      "sourceFactIds": [
+        "F02"
+      ],
+      "imageBrief": "Calendar and account-balance symbols beside a phone.",
+      "imageAlt": "Minh họa kiểm tra hạn gói và số dư trước chu kỳ mới."
+    },
+    {
+      "title": "Đã gửi HUY: cần chờ tín hiệu nào từ hệ thống trước khi coi là xong?",
+      "intent": "cancellation-confirmation",
+      "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
+      "sourceFactIds": [
+        "F03"
+      ],
+      "imageBrief": "SMS conversation with a clock and confirmation check mark.",
+      "imageAlt": "Minh họa chờ tin nhắn xác nhận sau yêu cầu hủy."
+    },
+    {
+      "title": "Hủy gói trong My Viettel: khi nào cách này tiện hơn nhắn SMS?",
+      "intent": "cancellation",
+      "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
+      "sourceFactIds": [
+        "F05"
+      ],
+      "imageBrief": "Generic app package card with an “Hủy” button.",
+      "imageAlt": "Minh họa hủy gói trong ứng dụng My Viettel."
+    },
+    {
+      "title": "Cần hủy gói nhưng không nhớ cú pháp: tổng đài 198 hỗ trợ phần nào?",
+      "intent": "support",
+      "targetUrlPath": "/posts/hướng-dẫn-hủy-gói-cước-viettel-tránh-trừ-tiền-tự-động/",
+      "sourceFactIds": [
+        "F05"
+      ],
+      "imageBrief": "Phone call screen with headset, no agent branding.",
+      "imageAlt": "Minh họa gọi tổng đài hỗ trợ kiểm tra và hủy gói."
+    },
+    {
+      "title": "Đang dùng gói trả sau: kiểm tra data và hủy theo kênh nào?",
+      "intent": "cancellation",
+      "targetUrlPath": "/posts/hướng-dẫn-hủy-gói-cước-viettel-tránh-trừ-tiền-tự-động/",
+      "sourceFactIds": [
+        "F05"
+      ],
+      "imageBrief": "Phone with a monthly bill icon, SMS, and app symbols.",
+      "imageAlt": "Minh họa các kênh quản lý gói data trả sau."
+    },
+    {
+      "title": "Trước chuyến đi, kiểm tra ngày hết hạn gói data bằng KTTK để làm gì?",
+      "intent": "data-check",
+      "targetUrlPath": "/posts/cú-pháp-kiểm-tra-dung-lượng-data-4g-viettel-còn-lại/",
+      "sourceFactIds": [
+        "F02"
+      ],
+      "imageBrief": "Small suitcase, phone, and calendar.",
+      "imageAlt": "Minh họa kiểm tra hạn dùng data trước khi di chuyển."
+    },
+    {
+      "title": "Thay máy mới rồi không dùng được USSD: đừng nhầm với lỗi hết data",
+      "intent": "troubleshooting",
+      "targetUrlPath": "/posts/cach-kiem-tra-tai-khoan-chinh/",
+      "sourceFactIds": [
+        "F01"
+      ],
+      "imageBrief": "New phone box, dial pad warning, and SMS alternative.",
+      "imageAlt": "Minh họa phân biệt sự cố USSD với việc kiểm tra tài khoản."
+    },
+    {
+      "title": "Vì sao cần kiểm tra hạn gói trước khi nạp thêm tiền vào tài khoản?",
+      "intent": "renewal-check",
+      "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
+      "sourceFactIds": [
+        "F02"
+      ],
+      "imageBrief": "Top-up card beside a calendar and data-package indicator.",
+      "imageAlt": "Minh họa kiểm tra hạn gói trước khi nạp tiền."
+    },
+    {
+      "title": "Đã đủ số dư nhưng không muốn gói tự gia hạn: thứ tự kiểm tra và hủy",
+      "intent": "cancellation",
+      "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
+      "sourceFactIds": [
+        "F02",
+        "F03"
+      ],
+      "imageBrief": "Three-step flow diagram with phone, calendar, and SMS.",
+      "imageAlt": "Minh họa trình tự kiểm tra và hủy gia hạn gói data."
+    },
+    {
+      "title": "Không biết gói nào đang trừ tiền: dùng KTTK để xác định tên gói trước",
+      "intent": "data-check",
+      "targetUrlPath": "/posts/cú-pháp-kiểm-tra-dung-lượng-data-4g-viettel-còn-lại/",
+      "sourceFactIds": [
+        "F02"
+      ],
+      "imageBrief": "Account coin icon next to SMS with highlighted package-name field.",
+      "imageAlt": "Minh họa xác định tên gói data từ tin nhắn kiểm tra."
+    },
+    {
+      "title": "Khi nào không nên dùng *098# để quản lý gói nữa?",
+      "intent": "channel-selection",
+      "targetUrlPath": "/posts/cach-kiem-tra-tai-khoan-chinh/",
+      "sourceFactIds": [
+        "F01"
+      ],
+      "imageBrief": "USSD dial pad fading into app and SMS options.",
+      "imageAlt": "Minh họa chuyển từ USSD sang ứng dụng hoặc SMS."
+    },
+    {
+      "title": "Gói hết hạn nhưng chưa biết có tự gia hạn không: ba nơi cần kiểm tra",
+      "intent": "renewal-check",
+      "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
+      "sourceFactIds": [
+        "F01",
+        "F02"
+      ],
+      "imageBrief": "Three-panel phone, SMS, and support illustration.",
+      "imageAlt": "Minh họa ba kênh kiểm tra thông tin gói data."
+    },
+    {
+      "title": "Hủy gói để đổi gói khác: vì sao cần kiểm tra tên và trạng thái gói cũ trước?",
+      "intent": "cancellation-precheck",
+      "targetUrlPath": "/posts/hướng-dẫn-hủy-gói-cước-viettel-tránh-trừ-tiền-tự-động/",
+      "sourceFactIds": [
+        "F02",
+        "F03"
+      ],
+      "imageBrief": "Before-and-after package cards connected by a check mark.",
+      "imageAlt": "Minh họa kiểm tra gói đang dùng trước khi đổi gói khác."
+    },
+    {
+      "title": "Hủy qua SMS hay My Viettel khi đang cần xử lý nhanh?",
+      "intent": "channel-selection",
+      "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
+      "sourceFactIds": [
+        "F03",
+        "F05"
+      ],
+      "imageBrief": "Side-by-side SMS and app package-management screens.",
+      "imageAlt": "Minh họa so sánh hai kênh hủy gói Viettel."
+    },
+    {
+      "title": "Cú pháp hủy đúng nhưng gói vẫn xuất hiện: khi nào cần liên hệ 198?",
+      "intent": "support",
+      "targetUrlPath": "/posts/hướng-dẫn-hủy-gói-cước-viettel-tránh-trừ-tiền-tự-động/",
+      "sourceFactIds": [
+        "F03",
+        "F05"
+      ],
+      "imageBrief": "Phone with pending-status bubble and a support headset.",
+      "imageAlt": "Minh họa liên hệ tổng đài khi trạng thái hủy gói chưa rõ."
+    }
+  ]
+}
