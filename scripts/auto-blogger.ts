@@ -2,8 +2,9 @@ import crypto from 'crypto';
 import fs from 'fs';
 
 import { RealBloggerClient } from '../packages/connectors/blogger/blogger.client';
+import { GitHubPublicationLedgerStore } from '../packages/connectors/blogger/github-publication-ledger-store';
 import { BloggerPublisher } from '../packages/connectors/blogger/blogger.publisher';
-import { canInsertDraft, createIdempotencyKey, LedgerEntry } from '../packages/connectors/blogger/blogger.idempotency';
+import { canInsertDraft, createIdempotencyKey, createRunAuditKey, LedgerEntry } from '../packages/connectors/blogger/blogger.idempotency';
 import { verifyCreatedPost } from '../packages/connectors/blogger/blogger.verify';
 import type { BloggerClient } from '../packages/connectors/blogger/blogger.types';
 import { generateBloggerDraftPayload, createTopicDraftHtml } from '../packages/content-engine/blogger-content-generator';
@@ -15,6 +16,11 @@ import type { PackageCatalog } from '../src/data/package-catalog';
 
 type Topic = { topicId: string; targetBlogId: string; intent: string; title: string; packageId?: string; contentVersion?: string; sourceFactIds?: string[]; status?: string; targetUrlPath?: string; reviewData?: any; };
 type Site = { blogId: string; enabled: boolean; allowedDestination?: string };
+type GateResult = 'PASS' | 'REJECT' | 'NOT_RUN';
+export type PublicationLedgerStore = {
+  load(): Promise<LedgerEntry[]>;
+  save(entries: LedgerEntry[]): Promise<void>;
+};
 type Result = { status: string; exitCode: number; attemptedBlogIds: string[]; draftReviewUrl?: string; publishedUrl?: string; selectedTopicId?: string };
 type AutoBloggerOptions = {
   sites?: Site[];
@@ -23,6 +29,7 @@ type AutoBloggerOptions = {
   now?: Date;
   facts?: any[];
   client?: BloggerClient;
+  ledgerStore?: PublicationLedgerStore;
 };
 
 function summaryValue(value: string): string {
@@ -51,7 +58,7 @@ function hasLivePublicationToday(ledger: LedgerEntry[], blogId: string, now: Dat
 
 function writeGitHubStepSummary(
   env: Record<string, string | undefined>,
-  details: { result: 'SUCCESS' | 'DISABLED' | 'NO_ELIGIBLE_SITES' | 'TOPIC_QUEUE_EXHAUSTED' | 'DAILY_LIMIT_REACHED' | 'ERROR'; status: 'LIVE' | 'NOT_PUBLISHED' | 'VERIFY_FAILED'; topicId?: string; postId?: string; publishedUrl?: string; editorUrl?: string },
+  details: { result: 'SUCCESS' | 'DISABLED' | 'NO_ELIGIBLE_SITES' | 'TOPIC_QUEUE_EXHAUSTED' | 'DAILY_LIMIT_REACHED' | 'ERROR'; status: 'LIVE' | 'NOT_PUBLISHED' | 'VERIFY_FAILED'; topicId?: string; idempotencyKey?: string; gateResults?: Record<string, GateResult>; failureReason?: string; postId?: string; publishedUrl?: string; editorUrl?: string },
 ): void {
   if (!env.GITHUB_STEP_SUMMARY) return;
   const lines = [
@@ -60,6 +67,9 @@ function writeGitHubStepSummary(
     `- Status: ${details.status}`,
   ];
   if (details.topicId) lines.push(`- Topic: ${summaryValue(details.topicId)}`);
+  if (details.idempotencyKey) lines.push(`- Content key: ${summaryValue(details.idempotencyKey)}`);
+  if (details.gateResults) lines.push(`- Gates: ${summaryValue(JSON.stringify(details.gateResults))}`);
+  if (details.failureReason) lines.push(`- Reason: ${summaryValue(details.failureReason)}`);
   if (details.postId) lines.push(`- Post: ${summaryValue(details.postId)}`);
   if (details.publishedUrl) lines.push(`- Published URL: ${summaryValue(details.publishedUrl)}`);
   if (details.editorUrl) lines.push(`- Editor URL: ${summaryValue(details.editorUrl)}`);
@@ -80,8 +90,65 @@ export function isPackageTopicEligible(topic: Pick<Topic, 'packageId' | 'sourceF
   return getRenderablePackages(catalog, now).some((item) => item.id === pkg.id);
 }
 
-function contentSignature(blogId: string, title: string): string {
-  return crypto.createHash('sha256').update(`${blogId}:${title.trim().toLowerCase().replace(/\s+/g, ' ')}`).digest('hex');
+export function createBloggerContentHash(blogId: string, generatedHtml: string): string {
+  const canonicalHtml = generatedHtml
+    .replace(/^\s*<h2\b[^>]*>[\s\S]*?<\/h2>\s*/i, '')
+    .replace(/([?&](?:amp;)?utm_campaign=)[^&"']*/gi, '$1')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return crypto.createHash('sha256').update(`${blogId}:${canonicalHtml}`).digest('hex');
+}
+
+function localLedgerStore(): PublicationLedgerStore {
+  return {
+    async load() {
+      if (!fs.existsSync('state/blogger-publication-ledger.json')) return [];
+      return JSON.parse(fs.readFileSync('state/blogger-publication-ledger.json', 'utf-8').replace(/^\uFEFF/, ''));
+    },
+    async save(entries) {
+      fs.writeFileSync('state/blogger-publication-ledger.json', JSON.stringify(entries, null, 2));
+    },
+  };
+}
+
+function productionLedgerStore(env: Record<string, string | undefined>): PublicationLedgerStore {
+  return new GitHubPublicationLedgerStore({
+    token: env.GITHUB_TOKEN || '',
+    repository: env.GITHUB_REPOSITORY || '',
+    branch: env.GITHUB_REF_NAME || '',
+  });
+}
+
+function auditEntry(
+  blogId: string,
+  topic: Topic,
+  status: string,
+  failureReason: string,
+  gateResults: Record<string, GateResult>,
+  now: Date,
+  contentHash = '',
+): LedgerEntry {
+  const contentVersion = topic.contentVersion || 'v1';
+  return {
+    idempotencyKey: createIdempotencyKey(blogId, topic.topicId, contentVersion),
+    blogId,
+    topicId: topic.topicId,
+    packageId: topic.packageId,
+    contentVersion,
+    contentHash,
+    status,
+    failureReason,
+    gateResults,
+    createdAt: now.toISOString(),
+  };
+}
+
+function redactError(error: unknown, env: Record<string, string | undefined>): string {
+  let message = error instanceof Error ? error.message : String(error);
+  for (const [key, value] of Object.entries(env)) {
+    if (/(TOKEN|SECRET|PASSWORD|KEY)/i.test(key) && value) message = message.split(value).join('[REDACTED]');
+  }
+  return summaryValue(message || 'Unknown publication error');
 }
 
 export async function runAutoBlogger(options: AutoBloggerOptions): Promise<Result> {
@@ -124,94 +191,179 @@ async function runAutoBloggerTransaction(options: AutoBloggerOptions, env: Recor
     topics = JSON.parse(fs.readFileSync('config/topics.json', 'utf-8').replace(/^\uFEFF/, ''));
   }
   topics = (topics || []).filter((topic) => topic.status === 'QUEUE');
-  if (topics.length === 0) {
-    writeGitHubStepSummary(env, { result: 'TOPIC_QUEUE_EXHAUSTED', status: 'NOT_PUBLISHED' });
-    return { status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1, attemptedBlogIds: [] };
-  }
-
-  let ledger: LedgerEntry[] = [];
-  if (fs.existsSync('state/blogger-publication-ledger.json')) {
-    ledger = JSON.parse(fs.readFileSync('state/blogger-publication-ledger.json', 'utf-8').replace(/^\uFEFF/, ''));
-  }
-
+  const shouldPublish = Boolean(options.client) || !options.sites;
+  const ledgerStore = options.ledgerStore || (options.client || !shouldPublish ? localLedgerStore() : productionLedgerStore(env));
+  const ledger = await ledgerStore.load();
+  const now = options.now || new Date();
   const selectedSite = sites[0];
-  if (hasLivePublicationToday(ledger, selectedSite.blogId, options.now || new Date())) {
-    writeGitHubStepSummary(env, { result: 'DAILY_LIMIT_REACHED', status: 'NOT_PUBLISHED' });
+  if (topics.length === 0) {
+    const emptyQueueTopic: Topic = {
+      topicId: `__empty_queue__:${asiaHoChiMinhDate(now)}`,
+      targetBlogId: selectedSite.blogId,
+      intent: 'none',
+      title: 'No queued topics',
+      contentVersion: now.toISOString(),
+    };
+    const gates = { queue: 'REJECT' as const };
+    const audit = auditEntry(selectedSite.blogId, emptyQueueTopic, 'TOPIC_QUEUE_EXHAUSTED', 'NO_QUEUED_TOPICS', gates, now);
+    ledger.push(audit);
+    if (shouldPublish) await ledgerStore.save(ledger);
+    writeGitHubStepSummary(env, { result: 'TOPIC_QUEUE_EXHAUSTED', status: 'NOT_PUBLISHED', topicId: audit.topicId, idempotencyKey: audit.idempotencyKey, gateResults: gates, failureReason: audit.failureReason });
+    return { status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1, attemptedBlogIds: [selectedSite.blogId] };
+  }
+  if (hasLivePublicationToday(ledger, selectedSite.blogId, now)) {
+    const topic = topics.find((candidate) => candidate.targetBlogId === selectedSite.blogId) || topics[0];
+    const gates = { dailyLimit: 'REJECT' as const };
+    const reason = 'DAILY_LIMIT_REACHED';
+    const audit = auditEntry(selectedSite.blogId, topic, reason, reason, gates, now);
+    audit.idempotencyKey = createRunAuditKey(selectedSite.blogId, topic.topicId, topic.contentVersion || 'v1', reason, now);
+    ledger.push(audit);
+    if (shouldPublish) await ledgerStore.save(ledger);
+    writeGitHubStepSummary(env, { result: 'DAILY_LIMIT_REACHED', status: 'NOT_PUBLISHED', topicId: topic.topicId, idempotencyKey: audit.idempotencyKey, gateResults: gates, failureReason: reason });
     return { status: 'DAILY_LIMIT_REACHED', exitCode: 1, attemptedBlogIds: [selectedSite.blogId] };
   }
   let selectedTopic: Topic | undefined;
   let catalog: PackageCatalog | undefined;
   let idempotencyKey = '';
   let selectedContentSignature = '';
+  let selectedPayload: ReturnType<typeof generateBloggerDraftPayload> | undefined;
+  let selectedGateResults: Record<string, GateResult> | undefined;
+  const rejectedAudits: LedgerEntry[] = [];
   for (const topic of topics) {
     if (topic.targetBlogId !== selectedSite.blogId) continue;
+    const gateResults: Record<string, GateResult> = {
+      packageEvidence: 'NOT_RUN', facts: 'NOT_RUN', targetUrl: 'NOT_RUN', html: 'NOT_RUN', idempotency: 'NOT_RUN', duplicate: 'NOT_RUN', insert: 'NOT_RUN', readBack: 'NOT_RUN', publishedUrl: 'NOT_RUN',
+    };
     if (topic.packageId) {
       if (!catalog) catalog = loadPackageCatalog();
-      if (!isPackageTopicEligible(topic, catalog, options.now || new Date())) continue;
+      if (!isPackageTopicEligible(topic, catalog, now)) {
+        gateResults.packageEvidence = 'REJECT';
+        rejectedAudits.push(auditEntry(selectedSite.blogId, topic, 'HOLD', 'PACKAGE_EVIDENCE_REJECTED', gateResults, now));
+        continue;
+      }
     }
+    gateResults.packageEvidence = 'PASS';
     const claim: Claim = { text: topic.title, sourceFactIds: topic.sourceFactIds || [] };
     const validationFacts = topic.packageId && catalog
       ? [...catalog.facts, ...catalog.packages.flatMap((pkg) => pkg.facts)].filter((fact) => (topic.sourceFactIds || []).includes(fact.id))
       : facts;
-    if (validateBloggerFacts({ claims: [claim] }, validationFacts).decision !== 'PASS') continue;
+    if (validateBloggerFacts({ claims: [claim] }, validationFacts).decision !== 'PASS') {
+      gateResults.facts = 'REJECT';
+      rejectedAudits.push(auditEntry(selectedSite.blogId, topic, 'HOLD', 'FACT_VALIDATION_REJECTED', gateResults, now));
+      continue;
+    }
+    gateResults.facts = 'PASS';
     const contentVersion = topic.contentVersion || 'v1';
     const currentKey = createIdempotencyKey(selectedSite.blogId, topic.topicId, contentVersion);
-    if (!canInsertDraft(ledger, currentKey)) continue;
-    const currentSignature = contentSignature(selectedSite.blogId, topic.title);
-    if (detectDuplicate({ contentHash: currentSignature }, ledger).decision !== 'PASS') continue;
+    if (!canInsertDraft(ledger, currentKey)) {
+      gateResults.idempotency = 'REJECT';
+      rejectedAudits.push(auditEntry(selectedSite.blogId, topic, 'HOLD', 'IDEMPOTENCY_KEY_RESERVED', gateResults, now));
+      continue;
+    }
+    gateResults.idempotency = 'PASS';
+    if (!topic.targetUrlPath || !topic.targetUrlPath.startsWith('/') || topic.targetUrlPath.includes('..')) {
+      gateResults.targetUrl = 'REJECT';
+      rejectedAudits.push(auditEntry(selectedSite.blogId, topic, 'HOLD', 'TARGET_URL_REQUIRED', gateResults, now));
+      continue;
+    }
+    gateResults.targetUrl = 'PASS';
+    const refUrl = generateReferralUrl(selectedSite.allowedDestination || 'tracuugoicuoc.com', topic.targetUrlPath, topic.topicId);
+    const contentFacts = topic.packageId && catalog
+      ? [...catalog.facts, ...catalog.packages.flatMap((pkg) => pkg.facts)].filter((fact) => (topic.sourceFactIds || []).includes(fact.id))
+      : facts.filter((fact: any) => (topic.sourceFactIds || []).includes(fact.id));
+    let payload: ReturnType<typeof generateBloggerDraftPayload>;
+    try {
+      payload = generateBloggerDraftPayload({
+        blogId: selectedSite.blogId,
+        title: topic.title,
+        htmlBody: createTopicDraftHtml(topic.title, contentFacts, refUrl, topic.intent, topic.reviewData),
+        labels: ['4G Viettel', 'Tin tức'],
+      });
+      gateResults.html = 'PASS';
+    } catch (error) {
+      gateResults.html = 'REJECT';
+      rejectedAudits.push(auditEntry(selectedSite.blogId, topic, 'HOLD', `HTML_GATE_REJECTED: ${redactError(error, env)}`, gateResults, now));
+      continue;
+    }
+    const currentSignature = createBloggerContentHash(selectedSite.blogId, payload.sanitizedHtml);
+    const legacyTitleSignature = crypto.createHash('sha256').update(`${selectedSite.blogId}:${topic.title.trim().toLowerCase().replace(/\s+/g, ' ')}`).digest('hex');
+    if (detectDuplicate({ contentHash: currentSignature }, ledger).decision !== 'PASS' || detectDuplicate({ contentHash: legacyTitleSignature }, ledger).decision !== 'PASS') {
+      gateResults.duplicate = 'REJECT';
+      rejectedAudits.push(auditEntry(selectedSite.blogId, topic, 'HOLD', 'DUPLICATE_CONTENT', gateResults, now, currentSignature));
+      continue;
+    }
+    gateResults.duplicate = 'PASS';
     selectedTopic = topic;
     idempotencyKey = currentKey;
     selectedContentSignature = currentSignature;
+    selectedPayload = payload;
+    selectedGateResults = gateResults;
     break;
   }
   if (!selectedTopic) {
-    writeGitHubStepSummary(env, { result: 'TOPIC_QUEUE_EXHAUSTED', status: 'NOT_PUBLISHED' });
+    if (rejectedAudits.length && shouldPublish) {
+      ledger.push(...rejectedAudits);
+      await ledgerStore.save(ledger);
+    }
+    const lastAudit = rejectedAudits.at(-1);
+    writeGitHubStepSummary(env, { result: 'TOPIC_QUEUE_EXHAUSTED', status: 'NOT_PUBLISHED', topicId: lastAudit?.topicId, idempotencyKey: lastAudit?.idempotencyKey, gateResults: lastAudit?.gateResults, failureReason: lastAudit?.failureReason || 'NO_ELIGIBLE_TOPIC' });
     return { status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1, attemptedBlogIds: [selectedSite.blogId] };
   }
 
   let draftReviewUrl: string | undefined;
   let publishedUrl: string | undefined;
   let postId: string | undefined;
-  const shouldPublish = Boolean(options.client) || !options.sites;
   if (shouldPublish) {
     let attempt: LedgerEntry | undefined;
+    let reservationCommitted = false;
     try {
       const client = options.client || new RealBloggerClient();
       const publisher = new BloggerPublisher(client);
-      let targetPath = selectedTopic.targetUrlPath || '/huong-dan/huy-goi-cuoc-viettel/';
-      if (!targetPath.startsWith('/')) targetPath = '/' + targetPath;
-      const refUrl = generateReferralUrl(selectedSite.allowedDestination || 'tracuugoicuoc.com', targetPath, selectedTopic.topicId);
-      
-      const contentFacts = selectedTopic.packageId && catalog
-        ? [...catalog.facts, ...catalog.packages.flatMap((pkg) => pkg.facts)].filter((fact) => (selectedTopic!.sourceFactIds || []).includes(fact.id))
-        : facts.filter((f: any) => (selectedTopic!.sourceFactIds || []).includes(f.id));
-      const payload = generateBloggerDraftPayload({
-        blogId: selectedSite.blogId, title: selectedTopic.title,
-        htmlBody: createTopicDraftHtml(selectedTopic.title, contentFacts, refUrl, selectedTopic.intent, selectedTopic.reviewData), labels: ['4G Viettel', 'Tin tức']
-      });
+      const payload = selectedPayload!;
       console.log(`Publishing topic ${selectedTopic.topicId} on blog ${selectedSite.blogId}...`);
-      attempt = { idempotencyKey, blogId: selectedSite.blogId, topicId: selectedTopic.topicId, packageId: selectedTopic.packageId, catalogVersion: catalog?.catalogVersion, contentVersion: selectedTopic.contentVersion || 'v1', contentHash: selectedContentSignature, status: 'INSERT_STARTED', createdAt: new Date().toISOString() };
-      ledger.push(attempt);
-      fs.writeFileSync('state/blogger-publication-ledger.json', JSON.stringify(ledger, null, 2));
+      attempt = { idempotencyKey, blogId: selectedSite.blogId, topicId: selectedTopic.topicId, packageId: selectedTopic.packageId, catalogVersion: catalog?.catalogVersion, contentVersion: selectedTopic.contentVersion || 'v1', contentHash: selectedContentSignature, status: 'INSERT_STARTED', gateResults: selectedGateResults, createdAt: now.toISOString() };
+      ledger.push(...rejectedAudits, attempt);
+      await ledgerStore.save(ledger);
+      reservationCommitted = true;
       const response = await publisher.publishPost(payload);
       if (typeof response.id !== 'string' || !response.id.trim()) {
         throw new Error('Blogger insert response did not include a valid post id.');
       }
+      if (attempt.gateResults) attempt.gateResults.insert = 'PASS';
       postId = response.id;
       draftReviewUrl = `https://www.blogger.com/blog/post/edit/${selectedSite.blogId}/${postId}`;
       const responseUrl = (response as typeof response & { url?: unknown }).url;
       if (typeof responseUrl === 'string' && responseUrl.trim()) publishedUrl = responseUrl;
       await verifyCreatedPost(client, selectedSite.blogId, postId, payload, 'LIVE');
-      Object.assign(attempt, { postId, status: 'LIVE', publishedAt: new Date().toISOString() });
-      fs.writeFileSync('state/blogger-publication-ledger.json', JSON.stringify(ledger, null, 2));
-    } catch {
-      console.error('Blogger publication failed during insert or read-back verification.');
-      if (attempt) {
-        attempt.status = 'VERIFY_FAILED';
-        if (postId) attempt.postId = postId;
-        fs.writeFileSync('state/blogger-publication-ledger.json', JSON.stringify(ledger, null, 2));
+      if (attempt.gateResults) attempt.gateResults.readBack = 'PASS';
+      if (!publishedUrl) {
+        if (attempt.gateResults) attempt.gateResults.publishedUrl = 'REJECT';
+        throw new Error('Verification failed: LIVE post did not include a published URL');
       }
-      writeGitHubStepSummary(env, { result: 'ERROR', status: 'VERIFY_FAILED', topicId: selectedTopic.topicId, postId });
+      if (attempt.gateResults) attempt.gateResults.publishedUrl = 'PASS';
+      Object.assign(attempt, { postId, publishedUrl, status: 'LIVE', publishedAt: new Date().toISOString() });
+      await ledgerStore.save(ledger);
+    } catch (error) {
+      const failureReason = redactError(error, env);
+      console.error(`Blogger publication failed: ${failureReason}`);
+      if (attempt) {
+        attempt.status = reservationCommitted ? 'VERIFY_FAILED' : 'HOLD';
+        attempt.failureReason = failureReason;
+        if (attempt.gateResults) {
+          if (!reservationCommitted) attempt.gateResults.idempotency = 'REJECT';
+          else if (attempt.gateResults.insert === 'NOT_RUN') attempt.gateResults.insert = 'REJECT';
+          else if (attempt.gateResults.readBack === 'NOT_RUN') attempt.gateResults.readBack = 'REJECT';
+        }
+        if (postId) attempt.postId = postId;
+        if (reservationCommitted) {
+          try {
+            await ledgerStore.save(ledger);
+          } catch (ledgerError) {
+            console.error(`Failed to persist Blogger failure audit: ${redactError(ledgerError, env)}`);
+          }
+        }
+      }
+      writeGitHubStepSummary(env, { result: 'ERROR', status: reservationCommitted ? 'VERIFY_FAILED' : 'NOT_PUBLISHED', topicId: selectedTopic.topicId, idempotencyKey, gateResults: selectedGateResults, failureReason, postId });
       return { status: 'ERROR', exitCode: 1, attemptedBlogIds: [selectedSite.blogId], selectedTopicId: selectedTopic.topicId };
     }
   } else {
@@ -221,6 +373,8 @@ async function runAutoBloggerTransaction(options: AutoBloggerOptions, env: Recor
     result: 'SUCCESS',
     status: shouldPublish ? 'LIVE' : 'NOT_PUBLISHED',
     topicId: selectedTopic.topicId,
+    idempotencyKey,
+    gateResults: selectedGateResults,
     postId,
     publishedUrl,
     editorUrl: draftReviewUrl,

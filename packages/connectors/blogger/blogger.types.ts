@@ -15,6 +15,7 @@ export interface BloggerPostResponse {
   title?: string;
   content?: string;
   labels?: string[];
+  url?: string;
 }
 
 export interface BloggerClient {

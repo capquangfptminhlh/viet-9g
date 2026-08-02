@@ -19,7 +19,7 @@ jobs:
     timeout-minutes: 20
     environment: blogger-draft
     permissions:
-      contents: read
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -42,52 +42,4 @@ jobs:
           BLOGGER_OAUTH_CLIENT_ID: ${{ secrets.BLOGGER_OAUTH_CLIENT_ID }}
           BLOGGER_OAUTH_CLIENT_SECRET: ${{ secrets.BLOGGER_OAUTH_CLIENT_SECRET }}
           BLOGGER_REFRESH_TOKEN: ${{ secrets.BLOGGER_REFRESH_TOKEN }}
-      - name: Upload Publication Ledger
-        if: always() && !cancelled()
-        uses: actions/upload-artifact@v4
-        with:
-          name: blogger-publication-ledger
-          path: state/
-          if-no-files-found: error
-
-  persist-ledger:
-    needs: publish
-    if: always() && !cancelled() && needs.publish.result != 'skipped' && github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - name: Checkout original branch
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.ref }}
-          fetch-depth: 0
-          persist-credentials: false
-      - name: Fetch current branch tip
-        run: |
-          git fetch origin "refs/heads/${GITHUB_REF_NAME}:refs/remotes/origin/${GITHUB_REF_NAME}"
-          git checkout -B "${GITHUB_REF_NAME}" "origin/${GITHUB_REF_NAME}"
-      - name: Restore Publication Ledger
-        uses: actions/download-artifact@v4
-        with:
-          name: blogger-publication-ledger
-          path: state/
-      - name: Confirm restored Publication Ledger
-        shell: pwsh
-        run: |
-          if (-not (Test-Path 'state/blogger-publication-ledger.json')) {
-            throw 'Publication ledger artifact did not restore to state/blogger-publication-ledger.json.'
-          }
-      - name: Persist Publication Ledger back to Repo
-        if: always() && !cancelled()
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add state/blogger-publication-ledger.json
-          git diff --cached --quiet || (
-            git commit -m "chore(state): update blogger publication ledger [skip ci]"
-            git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-            git push origin "HEAD:refs/heads/${GITHUB_REF_NAME}"
-          )
-        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -12,10 +12,19 @@ export interface LedgerEntry {
   packageId?: string;
   catalogVersion?: string;
   contentVersion?: string;
+  publishedUrl?: string;
+  failureReason?: string;
+  gateResults?: Record<string, 'PASS' | 'REJECT' | 'NOT_RUN'>;
 }
 
 export function createIdempotencyKey(blogId: string, topicId: string, contentVersion: string): string {
   return crypto.createHash('sha256').update(`${blogId}:${topicId}:${contentVersion}`).digest('hex');
+}
+
+export function createRunAuditKey(blogId: string, topicId: string, contentVersion: string, reason: string, runAt: Date): string {
+  return crypto.createHash('sha256')
+    .update(`run-audit:${blogId}:${topicId}:${contentVersion}:${reason}:${runAt.toISOString()}`)
+    .digest('hex');
 }
 
 export function findLedgerEntry(ledger: LedgerEntry[], key: string): LedgerEntry | undefined {

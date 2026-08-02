@@ -45,7 +45,7 @@ describe('Auto Blogger Orchestration', () => {
     const result = await runAutoBlogger({
       client,
       sites: [{ blogId: 'a', enabled: true }],
-      topics: [{ topicId: 'eligible-topic', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'Eligible topic', sourceFactIds: ['f1'] }],
+      topics: [{ topicId: 'eligible-topic', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'Eligible topic', targetUrlPath: '/tin-tuc/', sourceFactIds: ['f1'] }],
       env: {
         BLOGGER_ENABLED: 'true',
         GITHUB_STEP_SUMMARY: 'summary.md',
@@ -106,8 +106,8 @@ describe('Auto Blogger Orchestration', () => {
       client,
       sites: [{ blogId: 'a', enabled: true }],
       topics: [
-        { topicId: 'first', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'First topic', sourceFactIds: ['f1'] },
-        { topicId: 'second', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'Second topic', sourceFactIds: ['f1'] },
+        { topicId: 'first', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'First topic', targetUrlPath: '/tin-tuc/', sourceFactIds: ['f1'] },
+        { topicId: 'second', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'Second topic', targetUrlPath: '/tin-tuc/', sourceFactIds: ['f1'] },
       ],
       env: { BLOGGER_ENABLED: 'true', GITHUB_STEP_SUMMARY: 'summary.md', BLOGGER_REFRESH_TOKEN: 'must-not-leak' },
       facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }],
@@ -150,8 +150,8 @@ describe('Auto Blogger Orchestration', () => {
       client,
       sites: [{ blogId: 'a', enabled: true }],
       topics: [
-        { topicId: 'invalid-id', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'Invalid ID', sourceFactIds: ['f1'] },
-        { topicId: 'must-not-run', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'Must not run', sourceFactIds: ['f1'] },
+        { topicId: 'invalid-id', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'Invalid ID', targetUrlPath: '/tin-tuc/', sourceFactIds: ['f1'] },
+        { topicId: 'must-not-run', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'Must not run', targetUrlPath: '/tin-tuc/', sourceFactIds: ['f1'] },
       ],
       env: { BLOGGER_ENABLED: 'true' },
       facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }],
@@ -173,7 +173,7 @@ describe('Auto Blogger Orchestration', () => {
     expect(failedLedger[0]).not.toHaveProperty('postId');
   });
 
-  it('does not fabricate a published URL for a verified LIVE response without one', async () => {
+  it('fails verification rather than fabricating or omitting a published URL', async () => {
     let inserted: BloggerPostRequest | undefined;
     const summaries: string[] = [];
     const client: BloggerClient = {
@@ -200,13 +200,13 @@ describe('Auto Blogger Orchestration', () => {
     const result = await runAutoBlogger({
       client,
       sites: [{ blogId: 'a', enabled: true }],
-      topics: [{ topicId: 'no-url', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'No URL', sourceFactIds: ['f1'] }],
+      topics: [{ topicId: 'no-url', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'No URL', targetUrlPath: '/tin-tuc/', sourceFactIds: ['f1'] }],
       env: { BLOGGER_ENABLED: 'true', GITHUB_STEP_SUMMARY: 'summary.md' },
       facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }],
       now: new Date('2026-08-02T00:00:00.000Z'),
     });
 
-    expect(result).toMatchObject({ status: 'SUCCESS', selectedTopicId: 'no-url' });
+    expect(result).toMatchObject({ status: 'ERROR', exitCode: 1, selectedTopicId: 'no-url' });
     expect(result).not.toHaveProperty('publishedUrl');
     expect(summaries.join('\n')).not.toContain('Published URL:');
     expect(summaries.join('\n')).not.toContain('blogspot.com');
@@ -242,7 +242,7 @@ describe('Auto Blogger Orchestration', () => {
         { topicId: 'held-topic', status: 'HOLD', targetBlogId: 'a', intent: 'info', title: 'Held topic', sourceFactIds: ['f1'] },
         { topicId: 'expired-topic', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'Expired topic', sourceFactIds: ['expired'] },
         { topicId: 'package-topic', packageId: 'v120b', status: 'QUEUE', targetBlogId: 'a', intent: 'review', title: 'Package topic', sourceFactIds: [] },
-        { topicId: 'duplicate-topic', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'Duplicate topic', sourceFactIds: ['f1'] },
+        { topicId: 'duplicate-topic', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'Duplicate topic', targetUrlPath: '/tin-tuc/', sourceFactIds: ['f1'] },
         { topicId: 'reserved-topic', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'Reserved topic', sourceFactIds: ['f1'] },
       ],
       env: { BLOGGER_ENABLED: 'true', GITHUB_STEP_SUMMARY: 'summary.md', BLOGGER_CLIENT_SECRET: 'must-not-leak' },
@@ -255,7 +255,8 @@ describe('Auto Blogger Orchestration', () => {
 
     expect(result).toMatchObject({ status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1 });
     expect(inserts).toHaveLength(0);
-    expect(write).not.toHaveBeenCalled();
+    expect(write).toHaveBeenCalledTimes(1);
+    expect(JSON.parse(String(write.mock.calls[0][1]))).toContainEqual(expect.objectContaining({ status: 'HOLD', failureReason: expect.any(String) }));
     expect(summaries.join('\n')).toContain('Status: NOT_PUBLISHED');
     expect(summaries.join('\n')).toContain('TOPIC_QUEUE_EXHAUSTED');
     expect(summaries.join('\n')).not.toContain('must-not-leak');
@@ -289,14 +290,18 @@ describe('Auto Blogger Orchestration', () => {
 
     expect(result).toMatchObject({ status: 'DAILY_LIMIT_REACHED', exitCode: 1, attemptedBlogIds: ['a'] });
     expect(inserts).toHaveLength(0);
-    expect(write).not.toHaveBeenCalled();
+    expect(write).toHaveBeenCalledTimes(1);
+    expect(JSON.parse(String(write.mock.calls[0][1]))).toContainEqual(expect.objectContaining({ status: 'DAILY_LIMIT_REACHED', failureReason: 'DAILY_LIMIT_REACHED' }));
     expect(summaries.join('\n')).toContain('Result: DAILY_LIMIT_REACHED');
   });
 
   it('accepts a BOM-prefixed durable ledger', async () => {
+    vi.spyOn(fs, 'existsSync').mockImplementation((file) => String(file) === 'state/blogger-publication-ledger.json');
+    vi.spyOn(fs, 'readFileSync').mockReturnValue('\uFEFF[]');
+    vi.spyOn(fs, 'writeFileSync').mockImplementation(() => undefined);
     const result = await runAutoBlogger({
       sites: [{ blogId: 'a', enabled: true }],
-      topics: [{ topicId: 't1', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'T1', sourceFactIds: ['f1'] }],
+      topics: [{ topicId: 't1', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'T1', targetUrlPath: '/tin-tuc/', sourceFactIds: ['f1'] }],
       env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }]
     });
     expect(result.status).toBe('SUCCESS');
@@ -307,7 +312,7 @@ describe('Auto Blogger Orchestration', () => {
       sites: [{ blogId: 'a', enabled: true }],
       topics: [
         { topicId: 't1', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'T1', sourceFactIds: ['missing-fact'] },
-        { topicId: 't2', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'T2', sourceFactIds: ['f1'] }
+        { topicId: 't2', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'T2', targetUrlPath: '/tin-tuc/', sourceFactIds: ['f1'] }
       ],
       env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }]
     });
@@ -333,8 +338,8 @@ describe('Auto Blogger Orchestration', () => {
     const result = await runAutoBlogger({
       sites: [{ blogId: 'a', enabled: true }],
       topics: [
-        { topicId: 'new-topic', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'Duplicate Title', sourceFactIds: ['f1'] },
-        { topicId: 'next-topic', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'Different Topic', sourceFactIds: ['f1'] }
+        { topicId: 'new-topic', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'Duplicate Title', targetUrlPath: '/tin-tuc/', sourceFactIds: ['f1'] },
+        { topicId: 'next-topic', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'Different Topic', targetUrlPath: '/tin-tuc/', sourceFactIds: ['f1'] }
       ],
       env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }]
     });
@@ -348,7 +353,7 @@ describe('Auto Blogger Orchestration', () => {
     vi.spyOn(fs, 'appendFileSync').mockImplementation((_path, data) => { summaries.push(String(data)); });
     await expect(runAutoBlogger({
       sites: [{ blogId: 'a', enabled: true }],
-      topics: [{ topicId: 't1', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'T1', sourceFactIds: ['f1'] }],
+      topics: [{ topicId: 't1', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'T1', targetUrlPath: '/tin-tuc/', sourceFactIds: ['f1'] }],
       env: { BLOGGER_ENABLED: 'true', GITHUB_STEP_SUMMARY: 'summary.md', BLOGGER_CLIENT_SECRET: 'must-not-leak' }, facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }]
     })).rejects.toThrow(SyntaxError);
     expect(summaries.join('\n')).toContain('Result: ERROR');
@@ -432,7 +437,7 @@ describe('Auto Blogger Orchestration', () => {
     const result = await runAutoBlogger({
       sites: [{ blogId: 'a', enabled: true }], topics: [], env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }]
     });
-    expect(result).toMatchObject({ status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1, attemptedBlogIds: [] });
+    expect(result).toMatchObject({ status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1, attemptedBlogIds: ['a'] });
   });
 
   it('holds an unverified package topic without creating a draft', async () => {

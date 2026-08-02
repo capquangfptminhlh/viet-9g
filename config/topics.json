@@ -21,6 +21,7 @@
         "sourceFactIds":  [
                               "fact-2"
                           ],
+        "targetUrlPath":  "/goi-cuoc/sd90/",
         "status":  "QUEUE"
     },
     {
@@ -33,6 +34,7 @@
         "sourceFactIds":  [
                               "fact-3"
                           ],
+        "targetUrlPath":  "/goi-cuoc/mxh120/",
         "status":  "QUEUE"
     },
     {
