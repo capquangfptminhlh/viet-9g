@@ -9,6 +9,42 @@
       "contentCharter": "Independent informational content about 4G",
       "allowedDestination": "tracuugoicuoc.com",
       "defaultLabels": ["4G Viettel", "Tin tức"]
+    },
+    {
+      "blogId": "5656849674298814641",
+      "name": "Thủ thuật 4G/5G Viettel",
+      "enabled": false,
+      "cadenceDays": 1,
+      "contentCharter": "Guides for setting up and using 4G/5G Viettel only",
+      "allowedDestination": "tracuugoicuoc.com",
+      "defaultLabels": ["4G Viettel", "Hướng dẫn"]
+    },
+    {
+      "blogId": "2757413717171314447",
+      "name": "Kiểm tra & Hủy gói Viettel",
+      "enabled": false,
+      "cadenceDays": 1,
+      "contentCharter": "Checking data, cancellation, and renewal guidance only",
+      "allowedDestination": "tracuugoicuoc.com",
+      "defaultLabels": ["Viettel", "Hướng dẫn"]
+    },
+    {
+      "blogId": "6831378030642060628",
+      "name": "Review Gói Cước Viettel",
+      "enabled": false,
+      "cadenceDays": 1,
+      "contentCharter": "Independent package reviews and comparisons only",
+      "allowedDestination": "tracuugoicuoc.com",
+      "defaultLabels": ["Gói cước Viettel", "Đánh giá"]
+    },
+    {
+      "blogId": "9153601315328665051",
+      "name": "Hỗ trợ Lỗi Mạng Viettel",
+      "enabled": false,
+      "cadenceDays": 1,
+      "contentCharter": "Network, SIM, and device troubleshooting only",
+      "allowedDestination": "tracuugoicuoc.com",
+      "defaultLabels": ["Viettel", "Khắc phục sự cố"]
     }
   ]
 }
