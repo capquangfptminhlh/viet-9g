@@ -48,7 +48,7 @@ Mạng Blogger hỗ trợ người dùng tìm thông tin hữu ích và dẫn v�
 2. Đặt tên, mô tả, theme tối giản, trang Giới thiệu/Chính sách riêng cho đúng chủ đề blog.
 3. Lấy Blog ID và xác định đúng phân vai trong bảng trên.
 4. Thêm site vào `config/blogger-sites.json` với `enabled: false`.
-5. Thêm tối thiểu 14 topic riêng cho blog đó, mỗi topic có intent, target URL, fact IDs và nguồn còn hạn.
+5. Yêu cầu Codex tạo tối thiểu 14 topic riêng cho blog đó; mỗi topic phải có intent, target URL, fact IDs và nguồn còn hạn.
 6. Chạy preview + test; kiểm tra không trùng HTML/link với các blog còn lại.
 7. Bật `enabled: true`, chạy một lượt thủ công, kiểm tra post LIVE và ledger.
 8. Chỉ sau đó để lịch 07:00 tự vận hành.
@@ -67,3 +67,7 @@ Mạng Blogger hỗ trợ người dùng tìm thông tin hữu ích và dẫn v�
 - Index, impressions, CTR và vị trí từ Google Search Console.
 - Click referral về website chính và tỷ lệ chuyển đổi CTA.
 - Tỷ lệ nội dung trùng/thiếu source phát hiện bởi pipeline: phải bằng 0.
+
+## Tạo batch topic
+
+Không có bot tự nghĩ hoặc tự thêm topic. Khi queue của một blog còn dưới 14 bài, chủ sở hữu yêu cầu Codex tạo batch mới. Codex phải tạo topic từ fact chính thức còn hạn, chạy kiểm tra trùng/ngữ cảnh, rồi mới commit queue; Publisher tự động chỉ có quyền xuất bản các topic đã qua bước này.

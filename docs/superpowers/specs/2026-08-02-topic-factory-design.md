@@ -2,13 +2,13 @@
 
 ## Decision
 
-Topic Factory creates replenishment topics only from official, unexpired Viettel facts. It never uses `operator_verified` package data as Blogger editorial evidence; that status remains limited to website CTA display.
+Topic generation is operator-requested: when the owner asks, Codex creates a reviewed batch only from official, unexpired Viettel facts. It never uses `operator_verified` package data as Blogger editorial evidence; that status remains limited to website CTA display. There is no unattended Topic Factory that invents or queues topics on its own.
 
 ## Blog 1 policy
 
 - Scope: guides for using 4G/5G Viettel only.
 - Queue target: 30 eligible topics.
-- Replenishment threshold: fewer than 14 eligible queued topics.
+- Replenishment request point: fewer than 14 eligible queued topics.
 - Publishing remains separate: Blogger publish workflow selects at most one topic at 07:00 Asia/Ho_Chi_Minh.
 
 ## Topic eligibility
@@ -33,14 +33,14 @@ Any candidate failing a gate is written as `HOLD` with a machine-readable reason
 
 ## Automation
 
-- A scheduled Topic Factory workflow checks the queue once per week and may also run manually.
-- It creates only the exact shortfall to reach 30; it never overwrites or deletes existing topics or ledger records.
-- The workflow validates candidates before committing `config/topics.json`; queue writes are idempotent and auditable.
-- Publisher runs independently; an empty factory result is a successful no-op, while an empty publisher queue is an auditable HOLD.
+- The owner asks Codex to create a batch when the queue approaches 14 remaining topics.
+- Codex creates only the requested shortfall (normally up to 30); it never overwrites or deletes existing topics or ledger records.
+- Codex validates candidates before committing `config/topics.json`; queue writes are idempotent and auditable.
+- Publisher runs independently; an empty publisher queue is an auditable HOLD.
 
 ## Initial rollout
 
 1. Add a controlled source registry of Blog 1 route/fact pairs.
 2. Generate 30 candidates locally and run strict tests.
 3. Commit the approved queue, then run one manual publish and verify LIVE read-back.
-4. Enable weekly replenishment only after the manual run succeeds.
+4. When the queue drops below 14, request the next reviewed batch from Codex.
