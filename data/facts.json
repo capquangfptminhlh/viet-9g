@@ -1,58 +1,706 @@
-﻿[
-    {
-        "id":  "fact-1",
-        "claim":  "Gói cước V120B có giá 120.000đ/30 ngày với 1.5GB/ngày",
-        "sourceUrl":  "https://tracuugoicuoc.com/goi-cuoc/v120b/",
-        "retrievedAt":  "2026-08-01",
-        "effectiveAt":  "2026-01-01",
-        "expiresAt":  "2026-12-31T23:59:59Z"
-    },
-    {
-        "id":  "fact-2",
-        "claim":  "Gói cước SD90 có giá 90.000đ/30 ngày với 1.5GB/ngày, tổng 45GB/tháng",
-        "sourceUrl":  "https://tracuugoicuoc.com/goi-cuoc/sd90/",
-        "retrievedAt":  "2026-08-01",
-        "effectiveAt":  "2026-01-01",
-        "expiresAt":  "2026-12-31T23:59:59Z"
-    },
-    {
-        "id":  "fact-3",
-        "claim":  "Gói cước MXH120 có giá 120.000đ/30 ngày với 1GB/ngày, miễn phí 100% data Tiktok, FB, Youtube",
-        "sourceUrl":  "https://tracuugoicuoc.com/goi-cuoc/mxh120/",
-        "retrievedAt":  "2026-08-01",
-        "effectiveAt":  "2026-01-01",
-        "expiresAt":  "2026-12-31T23:59:59Z"
-    },
-    {
-        "claim":  "Soạn KTTK gửi 191 để kiểm tra lưu lượng data Viettel đang dùng. Ngoài ra, có thể bấm gọi *098# để vào menu tra cứu tổng hợp và đăng ký dịch vụ.",
-        "effectiveAt":  "2026-01-01",
-        "sourceUrl":  "https://tracuugoicuoc.com/huong-dan/kiem-tra-dung-luong-viettel/",
-        "id":  "fact-4",
-        "retrievedAt":  "2026-08-01",
-        "expiresAt":  "2026-12-31T23:59:59Z"
-    },
-    {
-        "claim":  "bạn có thể soạn HUY TÊN_GÓI gửi 191 để dừng gia hạn, hoặc HUYDATA TÊN_GÓI gửi 191 để hủy gói. Hãy làm theo SMS phản hồi của Viettel; hủy hoàn toàn có thể khiến ưu đãi còn lại không được bảo lưu",
-        "effectiveAt":  "2026-01-01",
-        "sourceUrl":  "https://098.viettel.vn/tin-tuc/chi-tiet/luot-facebook-khong-gioi-han-data-cung-viettel-voi-goi-cuoc-moi-fb7-va-fb30/17165624",
-        "id":  "fact-5",
-        "retrievedAt":  "2026-08-01",
-        "expiresAt":  "2026-12-31T23:59:59Z"
-    },
-    {
-        "claim":  "Bạn có thể kiểm tra tốc độ mạng 4G Viettel bằng ứng dụng Speedtest hoặc truy cập trang web fast.com. Tốc độ tải xuống trung bình của mạng 4G Viettel đạt khoảng 30-50 Mbps trong điều kiện tiêu chuẩn.",
-        "effectiveAt":  "2026-01-01",
-        "sourceUrl":  "https://vietteltelecom.vn/tin-tuc/chi-tiet/huong-dan-kiem-tra-toc-do-mang",
-        "id":  "fact-6",
-        "retrievedAt":  "2026-08-01",
-        "expiresAt":  "2026-12-31T23:59:59Z"
-    },
-    {
-        "claim":  "Gói cước ST15K có giá 15.000đ/3 ngày, cung cấp 3GB data tốc độ cao, phù hợp cho nhu cầu sử dụng ngắn hạn.",
-        "effectiveAt":  "2026-01-01",
-        "sourceUrl":  "https://vietteltelecom.vn/di-dong/chi-tiet-goi-cuoc/ST15K",
-        "id":  "fact-7",
-        "retrievedAt":  "2026-08-01",
-        "expiresAt":  "2026-12-31T23:59:59Z"
-    }
+[
+  {
+    "id": "fact-1",
+    "claim": "Gói cước V120B có giá 120.000đ/30 ngày với 1.5GB/ngày",
+    "sourceUrl": "https://tracuugoicuoc.com/goi-cuoc/v120b/",
+    "retrievedAt": "2026-08-01",
+    "effectiveAt": "2026-01-01",
+    "expiresAt": "2026-12-31T23:59:59Z"
+  },
+  {
+    "id": "fact-2",
+    "claim": "Gói cước SD90 có giá 90.000đ/30 ngày với 1.5GB/ngày, tổng 45GB/tháng",
+    "sourceUrl": "https://tracuugoicuoc.com/goi-cuoc/sd90/",
+    "retrievedAt": "2026-08-01",
+    "effectiveAt": "2026-01-01",
+    "expiresAt": "2026-12-31T23:59:59Z"
+  },
+  {
+    "id": "fact-3",
+    "claim": "Gói cước MXH120 có giá 120.000đ/30 ngày với 1GB/ngày, miễn phí 100% data Tiktok, FB, Youtube",
+    "sourceUrl": "https://tracuugoicuoc.com/goi-cuoc/mxh120/",
+    "retrievedAt": "2026-08-01",
+    "effectiveAt": "2026-01-01",
+    "expiresAt": "2026-12-31T23:59:59Z"
+  },
+  {
+    "claim": "Soạn KTTK gửi 191 để kiểm tra lưu lượng data Viettel đang dùng. Ngoài ra, có thể bấm gọi *098# để vào menu tra cứu tổng hợp và đăng ký dịch vụ.",
+    "effectiveAt": "2026-01-01",
+    "sourceUrl": "https://tracuugoicuoc.com/huong-dan/kiem-tra-dung-luong-viettel/",
+    "id": "fact-4",
+    "retrievedAt": "2026-08-01",
+    "expiresAt": "2026-12-31T23:59:59Z"
+  },
+  {
+    "claim": "bạn có thể soạn HUY TÊN_GÓI gửi 191 để dừng gia hạn, hoặc HUYDATA TÊN_GÓI gửi 191 để hủy gói. Hãy làm theo SMS phản hồi của Viettel; hủy hoàn toàn có thể khiến ưu đãi còn lại không được bảo lưu",
+    "effectiveAt": "2026-01-01",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/luot-facebook-khong-gioi-han-data-cung-viettel-voi-goi-cuoc-moi-fb7-va-fb30/17165624",
+    "id": "fact-5",
+    "retrievedAt": "2026-08-01",
+    "expiresAt": "2026-12-31T23:59:59Z"
+  },
+  {
+    "claim": "Bạn có thể kiểm tra tốc độ mạng 4G Viettel bằng ứng dụng Speedtest hoặc truy cập trang web fast.com. Tốc độ tải xuống trung bình của mạng 4G Viettel đạt khoảng 30-50 Mbps trong điều kiện tiêu chuẩn.",
+    "effectiveAt": "2026-01-01",
+    "sourceUrl": "https://vietteltelecom.vn/tin-tuc/chi-tiet/huong-dan-kiem-tra-toc-do-mang",
+    "id": "fact-6",
+    "retrievedAt": "2026-08-01",
+    "expiresAt": "2026-12-31T23:59:59Z"
+  },
+  {
+    "claim": "Gói cước ST15K có giá 15.000đ/3 ngày, cung cấp 3GB data tốc độ cao, phù hợp cho nhu cầu sử dụng ngắn hạn.",
+    "effectiveAt": "2026-01-01",
+    "sourceUrl": "https://vietteltelecom.vn/di-dong/chi-tiet-goi-cuoc/ST15K",
+    "id": "fact-7",
+    "retrievedAt": "2026-08-01",
+    "expiresAt": "2026-12-31T23:59:59Z"
+  },
+  {
+    "id": "usage-01",
+    "claim": "Ứng dụng My Viettel/Tammi cho phép tra cứu tài khoản, khuyến mại, lưu lượng data và đăng ký gói/tiện ích.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "usage-02",
+    "claim": "Để tra cứu tài khoản qua SMS, Viettel hướng dẫn soạn TK gửi 191.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "usage-03",
+    "claim": "Để nạp tiền bằng thẻ cào qua SMS, Viettel hướng dẫn soạn NT <Mã thẻ cào> gửi 100.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "usage-04",
+    "claim": "Để đăng ký gói qua SMS, Viettel hướng dẫn soạn tên gói gửi 191; ví dụ trên trang là 5G10 gửi 191.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "usage-05",
+    "claim": "Tổng đài chăm sóc khách hàng 198 được Viettel nêu là miễn phí và có thể hỗ trợ kiểm tra thông tin trực tiếp.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "usage-06",
+    "claim": "Khi roaming tại Nhật Bản, Viettel khuyến nghị đặt thiết bị ở chế độ 4G/5G (LTE) để sử dụng dịch vụ ổn định.",
+    "sourceUrl": "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/di-nhat-ban-khong-co-mang-huong-dan-bat-4g5g-va-roaming-viettel-chi-tiet/16239800",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "usage-07",
+    "claim": "Viettel nêu rằng Data Roaming phải được bật để dùng dữ liệu di động ở nước ngoài; có sóng nhưng chưa bật thì không truy cập Internet được.",
+    "sourceUrl": "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/di-nhat-ban-khong-co-mang-huong-dan-bat-4g5g-va-roaming-viettel-chi-tiet/16239800",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "usage-08",
+    "claim": "APN của SIM Viettel được trang hướng dẫn nêu là v-internet.",
+    "sourceUrl": "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/di-nhat-ban-khong-co-mang-huong-dan-bat-4g5g-va-roaming-viettel-chi-tiet/16239800",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "usage-09",
+    "claim": "Trên iPhone, hướng dẫn của Viettel là: Settings > Cellular > chọn SIM Viettel > Voice & Data > chọn 4G/VoLTE hoặc 5G.",
+    "sourceUrl": "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/di-nhat-ban-khong-co-mang-huong-dan-bat-4g5g-va-roaming-viettel-chi-tiet/16239800",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "usage-10",
+    "claim": "Trên iPhone, bật Data Roaming theo đường dẫn Settings > Cellular/Mobile Service > chọn SIM Viettel > bật Data Roaming.",
+    "sourceUrl": "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/di-nhat-ban-khong-co-mang-huong-dan-bat-4g5g-va-roaming-viettel-chi-tiet/16239800",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "usage-11",
+    "claim": "Trên Android, Viettel hướng dẫn bật Data Roaming theo đường dẫn Settings > Connections > Mobile Network > bật Data Roaming.",
+    "sourceUrl": "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/di-nhat-ban-khong-co-mang-huong-dan-bat-4g5g-va-roaming-viettel-chi-tiet/16239800",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "usage-12",
+    "claim": "Sau khi đổi cài đặt roaming, Viettel khuyến nghị khởi động lại thiết bị để cập nhật kết nối.",
+    "sourceUrl": "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/di-nhat-ban-khong-co-mang-huong-dan-bat-4g5g-va-roaming-viettel-chi-tiet/16239800",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "usage-13",
+    "claim": "Viettel cho biết eSIM có thể truy cập 5G tương tự SIM vật lý khi dùng trên thiết bị tương thích.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/esim-5g-viettel-loi-ich-thiet-bi-ho-tro-va-cach-kich-hoat/10391888",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "usage-14",
+    "claim": "Quy trình kích hoạt eSIM được Viettel mô tả: sau khi đăng ký, nhận mã QR/cấu hình, vào cài đặt di động, chọn “Thêm gói cước di động”, rồi quét mã QR.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/esim-5g-viettel-loi-ich-thiet-bi-ho-tro-va-cach-kich-hoat/10391888",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "usage-15",
+    "claim": "Sau khi eSIM được kích hoạt, thiết bị tự kết nối mạng Viettel và dùng 5G khi đáp ứng vùng phủ sóng cùng điều kiện phần cứng.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/esim-5g-viettel-loi-ich-thiet-bi-ho-tro-va-cach-kich-hoat/10391888",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "cancellation-01",
+    "claim": "Soạn KTTK gửi 191 để nhận SMS về dung lượng còn lại và hạn sử dụng của gói.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/bat-mi-4-cach-kiem-tra-thong-tin-luu-luong-goi-cuoc-viettel/12831304/",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-11-02T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "cancellation-02",
+    "claim": "Có thể đăng nhập vietteltelecom.vn để kiểm tra thông tin lưu lượng.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/bat-mi-4-cach-kiem-tra-thong-tin-luu-luong-goi-cuoc-viettel/12831304/",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-11-02T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "cancellation-03",
+    "claim": "Có thể bấm *098#, gọi và làm theo hướng dẫn trên màn hình để tra cứu gói/lưu lượng.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/bat-mi-4-cach-kiem-tra-thong-tin-luu-luong-goi-cuoc-viettel/12831304/",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-11-02T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "cancellation-04",
+    "claim": "Trên My Viettel, mục kiểm tra hiển thị lưu lượng data, tên gói và thời hạn sử dụng.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cach-kiem-tra-dung-luong-data-4g-tren-my-viettel-sieu-don-gian/19202908",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-11-02T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "cancellation-05",
+    "claim": "Tổng đài 198 được bài hướng dẫn của Viettel nêu là miễn phí để hỗ trợ/tư vấn.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cach-kiem-tra-dung-luong-data-4g-tren-my-viettel-sieu-don-gian/19202908",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-11-02T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "cancellation-06",
+    "claim": "Với GIC70/GIC70T, hệ thống tự động gia hạn sau 30 ngày với cước 70.000 đồng.",
+    "sourceUrl": "https://shop.viettel.vn/tin-tuc/chi-tiet/dang-ky-ngay-goi-cuoc-%E2%80%9Cthuong-hieu-tre%E2%80%9D-gic70-va-gic70t-de-nhan-sieu-uu-dai-data-hap-dan/11385444/",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-11-02T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "cancellation-07",
+    "claim": "Với GIC70/GIC70T, soạn KTTK gửi 191 để kiểm tra data còn lại.",
+    "sourceUrl": "https://shop.viettel.vn/tin-tuc/chi-tiet/dang-ky-ngay-goi-cuoc-%E2%80%9Cthuong-hieu-tre%E2%80%9D-gic70-va-gic70t-de-nhan-sieu-uu-dai-data-hap-dan/11385444/",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-11-02T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "cancellation-08",
+    "claim": "Với GIC70/GIC70T, soạn HUY gửi 191 để hủy gia hạn.",
+    "sourceUrl": "https://shop.viettel.vn/tin-tuc/chi-tiet/dang-ky-ngay-goi-cuoc-%E2%80%9Cthuong-hieu-tre%E2%80%9D-gic70-va-gic70t-de-nhan-sieu-uu-dai-data-hap-dan/11385444/",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-11-02T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "cancellation-09",
+    "claim": "Với GIC70/GIC70T, soạn HUYDATA gửi 191 để hủy gói cước.",
+    "sourceUrl": "https://shop.viettel.vn/tin-tuc/chi-tiet/dang-ky-ngay-goi-cuoc-%E2%80%9Cthuong-hieu-tre%E2%80%9D-gic70-va-gic70t-de-nhan-sieu-uu-dai-data-hap-dan/11385444/",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-11-02T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "cancellation-10",
+    "claim": "Gói YT7 được gia hạn sau 7 ngày.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/diem-danh-cac-goi-cuoc-data-viettel-xem-youtube-khong-gioi-han/10454296",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-11-02T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "cancellation-11",
+    "claim": "Với YT7, HUY YT7 gửi 191 là hướng dẫn hủy gia hạn; ưu đãi còn lại được bảo lưu đến hết chu kỳ.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/diem-danh-cac-goi-cuoc-data-viettel-xem-youtube-khong-gioi-han/10454296",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-11-02T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "cancellation-12",
+    "claim": "Với YT7, HUYDATA YT7 gửi 191 là hướng dẫn hủy gói cước.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/diem-danh-cac-goi-cuoc-data-viettel-xem-youtube-khong-gioi-han/10454296",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-11-02T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "cancellation-13",
+    "claim": "Gói YT30 được gia hạn sau 30 ngày.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/diem-danh-cac-goi-cuoc-data-viettel-xem-youtube-khong-gioi-han/10454296",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-11-02T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "cancellation-14",
+    "claim": "Với YT30, HUY YT30 gửi 191 hủy gia hạn, còn HUYDATA YT30 gửi 191 hủy gói.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/diem-danh-cac-goi-cuoc-data-viettel-xem-youtube-khong-gioi-han/10454296",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-11-02T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "cancellation-15",
+    "claim": "Với ST5KM, gói tự động gia hạn khi hết chu kỳ; hủy dùng cú pháp HUYDATA ST5KM gửi 191, theo hướng dẫn tiếp theo của hệ thống, và data còn lại không được bảo lưu sau khi hủy.",
+    "sourceUrl": "https://shop.viettel.vn/tin-tuc/chi-tiet/danh-sach-cac-goi-cuoc-data-ngay-viettel-chi-voi-5k-10k/10530408",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-11-02T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "package-01",
+    "claim": "5G135 is listed at 135,000đ for 30 days with 4GB/day (120GB/month), TV360 Basic, and 20GB MyBox storage.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-08-09T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "package-02",
+    "claim": "5G150 is listed at 150,000đ for 30 days with 6GB/day (180GB/month), TV360 Basic, and 30GB MyBox storage.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-08-09T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "package-03",
+    "claim": "5G160B is listed at 160,000đ for 30 days with 4GB/day (120GB/month), 100 off-net minutes, first 10 minutes of each on-net call free (maximum 1,000 minutes), TV360 Basic, and 20GB MyBox storage.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-08-09T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "package-04",
+    "claim": "5G180B is listed at 180,000đ for 30 days with 6GB/day (180GB/month), 100 off-net minutes, first 10 minutes of each on-net call free (maximum 1,000 minutes), TV360 Basic, and 30GB MyBox storage.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-08-09T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "package-05",
+    "claim": "SD70 is listed at 70,000đ for 30 days with 30GB high-speed data (1GB/day).",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-08-09T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "package-06",
+    "claim": "SD90 is listed at 90,000đ for 30 days with 45GB high-speed data (1.5GB/day).",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-08-09T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "package-07",
+    "claim": "SD120 is listed at 120,000đ for 30 days with 60GB high-speed data (2GB/day).",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-08-09T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "package-08",
+    "claim": "SD135 is listed at 135,000đ for 30 days with 150GB high-speed data (5GB/day).",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-08-09T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "package-09",
+    "claim": "SD150 is listed at 150,000đ for 30 days with 90GB high-speed data (3GB/day).",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-08-09T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "package-10",
+    "claim": "V90B is listed at 90,000đ for 30 days with 1GB/day (30GB/month), 30 off-net minutes, and the first 10 minutes of each on-net call free.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-08-09T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "package-11",
+    "claim": "V120B is listed at 120,000đ for 30 days with 1.5GB/day (45GB/month), 50 off-net minutes, and the first 10 minutes of each on-net call free.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-08-09T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "package-12",
+    "claim": "V160B is listed at 160,000đ for 30 days with 4GB/day (120GB/month), 100 off-net minutes, and the first 10 minutes of each on-net call free.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-08-09T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "package-13",
+    "claim": "MXH100 is listed at 100,000đ for 30 days with 1GB/day (30GB/month) and free access to Facebook, TikTok, YouTube, and Messenger messaging.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-08-09T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "package-14",
+    "claim": "MXH120 is listed at 120,000đ for 30 days with 1GB/day (30GB/month), the first 10 minutes of each on-net call free, 30 off-net minutes, and the named social services free up to 50GB according to the usage guide.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-08-09T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "package-15",
+    "claim": "MXH150 is listed at 150,000đ for 30 days with 1.5GB/day (45GB/month), the first 10 minutes of each on-net call free, 50 off-net minutes, and the named social services free up to 50GB according to the usage guide.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-08-09T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "troubleshooting-01",
+    "claim": "Viettel khuyến nghị kiểm tra, nâng cấp phần mềm thiết bị hoặc đổi sang thiết bị hỗ trợ USSD qua 4G (USSD over IMS) để tránh gián đoạn trải nghiệm khi tắt mạng 2G/3G.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "troubleshooting-02",
+    "claim": "Thiết bị không được cập nhật phần mềm tương thích hoặc không hỗ trợ có thể không thực hiện được lệnh USSD khi Viettel tắt hoàn toàn 2G/3G.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "troubleshooting-03",
+    "claim": "Khi USSD bị ảnh hưởng, Viettel nêu việc kiểm tra tài khoản, đăng ký gói và nạp tiền qua đầu số USSD có thể bị gián đoạn.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "troubleshooting-04",
+    "claim": "Trên Android, Viettel hướng dẫn tắt Wi-Fi, chỉ bật dữ liệu di động và kiểm tra biểu tượng VoLTE hoặc trạng thái IMS Registration/đăng ký IMS để kiểm tra hỗ trợ USSD 4G.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "troubleshooting-05",
+    "claim": "Với Android, nếu bấm *101# hoặc *098# và nhận kết quả bình thường thì Viettel coi thiết bị hỗ trợ USSD 4G.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "troubleshooting-06",
+    "claim": "Trên iPhone, Viettel hướng dẫn vào Settings > Cellular > Cellular Data Options > Voice & Data, chọn 4G hoặc 5G và bật VoLTE để kiểm tra/cấu hình USSD 4G.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "troubleshooting-07",
+    "claim": "Sau khi tắt Wi-Fi trên iPhone, Viettel hướng dẫn kiểm tra thanh trạng thái có biểu tượng 4G/LTE hoặc 5G.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "troubleshooting-08",
+    "claim": "Viettel nêu iOS cần từ phiên bản 18.1 để hỗ trợ USSD over IMS.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "troubleshooting-09",
+    "claim": "Theo Viettel, khách hàng có điện thoại hỗ trợ 5G có thể sử dụng 5G mà không cần đổi SIM.",
+    "sourceUrl": "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/toc-do-mang-5g-nhanh-den-muc-do-nao/16860196",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "troubleshooting-10",
+    "claim": "Viettel đề xuất dùng Speedtest để kiểm tra và so sánh tốc độ 4G/5G, đồng thời đo độ trễ (Ping) trên điện thoại.",
+    "sourceUrl": "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/toc-do-mang-5g-nhanh-den-muc-do-nao/16860196",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "troubleshooting-11",
+    "claim": "Khi roaming, thiết bị thường chọn mạng tự động; Viettel cho biết khách hàng có thể chuyển sang chọn mạng thủ công để dùng mạng có chất lượng ổn định hơn hoặc nằm trong phạm vi gói ưu đãi.",
+    "sourceUrl": "https://media.vietteltelecom.vn/upload/InternationalMessagePrice/e2/99/9e/c4b3c6195f1625a2348d376cafac129dbdb253b3.pdf",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "troubleshooting-12",
+    "claim": "Sau khi đã tắt chọn mạng tự động khi roaming, Viettel yêu cầu chuyển lại chế độ tự động khi đến quốc gia khác hoặc về Việt Nam để thiết bị quét mạng tại nơi mới.",
+    "sourceUrl": "https://media.vietteltelecom.vn/upload/InternationalMessagePrice/e2/99/9e/c4b3c6195f1625a2348d376cafac129dbdb253b3.pdf",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "troubleshooting-13",
+    "claim": "Trên iPhone khi roaming, Viettel hướng dẫn: Settings > Cellular > Network Selection > tắt Automatic, sau đó chọn một mạng hiển thị hoặc mạng cần đăng nhập.",
+    "sourceUrl": "https://media.vietteltelecom.vn/upload/InternationalMessagePrice/97/a7/79/1a1b89a21ded260d0a55005460b03cd0490237e0.pdf",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "troubleshooting-14",
+    "claim": "Trên Android khi roaming, Viettel hướng dẫn: Settings > Connections > Mobile networks > Network Operators > tắt Select automatically, sau đó chọn một mạng hiển thị hoặc mạng cần đăng nhập.",
+    "sourceUrl": "https://media.vietteltelecom.vn/upload/InternationalMessagePrice/97/a7/79/1a1b89a21ded260d0a55005460b03cd0490237e0.pdf",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "troubleshooting-15",
+    "claim": "Từ 15/06/2026, Viettel thông báo thuê bao tháo SIM và lắp sang điện thoại khác phải xác thực lại khuôn mặt trong tối đa 2 giờ; không thực hiện sẽ bị tạm dừng một chiều sau 2 giờ.",
+    "sourceUrl": "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/thong-bao-quan-trong-quy-dinh-bat-buoc-xac-thuc-lai-khuon-mat-khi-thay-doi-dien-thoai-ap-dung-tu-15062026/19138832",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-12-31T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "news-01",
+    "claim": "Từ 01/07/2026, Viettel công bố ưu đãi giảm hơn 50% phí chuyển đổi SIM vật lý sang eSIM trên toàn quốc.",
+    "sourceUrl": "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/viettel-giam-toi-hon-50-phi-chuyen-doi-esim-uu-dai-cao-hon-tren-ung-dung-viettel-tammi/17076372",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-08-16T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "news-02",
+    "claim": "Bài eSIM nêu chuyển đổi trực tuyến trên ứng dụng Viettel Tammi có mức phí ưu đãi hơn.",
+    "sourceUrl": "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/viettel-giam-toi-hon-50-phi-chuyen-doi-esim-uu-dai-cao-hon-tren-ung-dung-viettel-tammi/17076372",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-08-16T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "news-03",
+    "claim": "Chương trình chuyển đổi eSIM được Viettel nói là triển khai ở cả kênh giao dịch trực tiếp và trực tuyến.",
+    "sourceUrl": "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/viettel-giam-toi-hon-50-phi-chuyen-doi-esim-uu-dai-cao-hon-tren-ung-dung-viettel-tammi/17076372",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-08-16T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "news-04",
+    "claim": "Với giao dịch đăng ký mới gói TV360 Đẳng cấp Box từ 05/05/2026, mức phí được thông báo là 80.000 đồng/tháng.",
+    "sourceUrl": "https://shop.viettel.vn/tin-tuc/chi-tiet/cap-nhat-chinh-sach-uu-dai-va-cap-nhat-gia-cuoc-goi-dang-cap-box-tv360/14559736",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-08-16T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "news-05",
+    "claim": "Bài TV360 nêu khách hàng hiện tại được duy trì mức phí 50.000 đồng/tháng ở các chu kỳ gia hạn cho đến khi có thông báo mới.",
+    "sourceUrl": "https://shop.viettel.vn/tin-tuc/chi-tiet/cap-nhat-chinh-sach-uu-dai-va-cap-nhat-gia-cuoc-goi-dang-cap-box-tv360/14559736",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-08-16T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "news-06",
+    "claim": "Hỗ trợ cho gói Đẳng cấp Box được bài này dẫn tới tổng đài 18008119 hoặc ứng dụng TV360.",
+    "sourceUrl": "https://shop.viettel.vn/tin-tuc/chi-tiet/cap-nhat-chinh-sach-uu-dai-va-cap-nhat-gia-cuoc-goi-dang-cap-box-tv360/14559736",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-08-16T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "news-10",
+    "claim": "Từ tháng 3/2025, Viettel áp dụng thanh toán kết hợp điểm Viettel++ và tài khoản gốc cho thuê bao trả trước mua gói trên My Viettel (từ bản 7.17) và vietteltelecom.vn.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/tinh-nang-mua-goi-cuoc-bang-diem-viettel-va-tai-khoan-goc/19958808/",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-08-16T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "news-11",
+    "claim": "Bài Viettel++ nói phương thức này có thể giúp tiết kiệm đến 25% giá mua gói.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/tinh-nang-mua-goi-cuoc-bang-diem-viettel-va-tai-khoan-goc/19958808/",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-08-16T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "news-12",
+    "claim": "Trước khi mở rộng, hình thức dùng điểm Viettel++ để mua data chỉ áp dụng cho một số gói thuộc chương trình ưu đãi Viettel++.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/tinh-nang-mua-goi-cuoc-bang-diem-viettel-va-tai-khoan-goc/19958808/",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-08-16T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "news-13",
+    "claim": "Bài TV360 tháng 6/2026 nêu gói Vsport chu kỳ 30 ngày giá 35.000 đồng, xem World Cup 2026 và miễn phí data 4G/5G Viettel.",
+    "sourceUrl": "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/xem-world-cup-2026-khong-gioi-han-cung-cac-goi-dich-vu-tv360/15260544",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-08-09T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "news-14",
+    "claim": "Theo bài TV360, Vsport 30 ngày đăng ký bằng DK SP gửi 1331; các chu kỳ 90/180/360 ngày dùng DK SP3/DK SP6/DK SP12 gửi 1331.",
+    "sourceUrl": "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/xem-world-cup-2026-khong-gioi-han-cung-cac-goi-dich-vu-tv360/15260544",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-08-09T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "news-15",
+    "claim": "Bài TV360 nêu Standard chu kỳ 7 ngày giá 20.000 đồng và đăng ký gói TV360 cho thuê bao Viettel qua DK [mã gói] gửi 1331 hoặc qua tv360.vn/packages.",
+    "sourceUrl": "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/xem-world-cup-2026-khong-gioi-han-cung-cac-goi-dich-vu-tv360/15260544",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-08-09T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  }
 ]
