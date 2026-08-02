@@ -6,7 +6,7 @@ const root = path.resolve(import.meta.dirname, '../..');
 const blogId = '2757413717171314447';
 const auditDate = new Date('2026-08-03T00:00:00Z');
 
-const readJson = (relativePath: string) => JSON.parse(
+const readJson = (relativePath: string): any => JSON.parse(
   fs.readFileSync(path.join(root, relativePath), 'utf8').replace(/^\uFEFF/, ''),
 );
 
@@ -39,7 +39,7 @@ describe('Blog 3 expansion queue configuration', () => {
       expect(candidate.sourceFactIds?.length).toBeGreaterThan(0);
 
       for (const factId of candidate.sourceFactIds) {
-        const fact = factsById.get(factId);
+        const fact = factsById.get(factId) as { sourceUrl: string; expiresAt: string } | undefined;
         expect(fact).toBeDefined();
         expect(isOfficialViettelUrl(fact.sourceUrl)).toBe(true);
         expect(Date.parse(fact.expiresAt)).toBeGreaterThan(auditDate.getTime());
