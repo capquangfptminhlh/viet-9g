@@ -1,0 +1,39 @@
+# Blog 2 repaired candidate plan — 4G/5G setup and use
+
+**Target blog:** `5656849674298814641` — Thủ thuật 4G/5G Viettel
+**Charter:** 4G/5G setup and use only. Data checking, cancellation, renewal, package pricing, and package comparison are excluded because they belong to Blog 3 or another editorial lane.
+**Audit date:** 2026-08-02
+**Evidence rule:** Every row cites an unexpired fact from an official Viettel-owned domain in `data/facts.json`. A row is `QUEUE` only when its destination is a current sitemap route whose subject matches the proposed article. A fact alone never makes an unrelated route valid.
+
+## Route inventory used for validation
+
+| Existing sitemap path | Matching context used here |
+| --- | --- |
+| `/posts/cách-đăng-ký-mạng-viettel-cho-sim-mới-kích-hoạt` | Starting a mobile-data package on a newly activated Viettel SIM |
+| `/posts/lỗi-đăng-ký-4g-viettel-không-thành-công-và-cách-khắc-phục` | 4G/5G registration and device-configuration troubleshooting |
+| `/posts/dang-ky-multisim-viettel` | Viettel MultiSIM only; it is not a general eSIM activation or hotspot guide |
+
+## Candidates
+
+| # | Title | Intent | targetUrlPath | sourceFactIds | Fact-bounded article scope | Image brief / alt | Status |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | Đăng ký gói 4G/5G trong My Viettel: chỉ dùng chức năng nào? | setup | — | `usage-01` | State only that My Viettel/Tammi allows registration of packages and utilities; do not claim a particular package, screen sequence, or subscriber eligibility. | Neutral phone app with a generic package card. Alt: Minh họa đăng ký gói data trong ứng dụng Viettel. | `HOLD` — the sitemap has no My Viettel package-registration destination; the new-SIM SMS-registration page is not a valid replacement. |
+| 2 | Đăng ký gói 5G qua SMS: ví dụ 5G10 gửi 191 được hiểu thế nào? | setup | `/posts/cách-đăng-ký-mạng-viettel-cho-sim-mới-kích-hoạt` | `usage-04` | State Viettel’s documented SMS pattern: send the package name to `191`, using `5G10 gửi 191` only as the source’s example. Do not imply that 5G10 is available to every subscriber. | Phone composing a neutral SMS to 191. Alt: Minh họa gửi tên gói qua SMS đến 191. | `QUEUE` — exact official registration instruction and a matching registration route. |
+| 3 | Đi Nhật Bản: đặt máy ở chế độ 4G/5G (LTE) theo hướng dẫn Viettel | roaming setup | — | `usage-06` | Keep the scope to the Japan roaming scenario and the 4G/5G (LTE) setting; do not generalize it to all countries. | Traveller viewing a phone network-mode setting. Alt: Minh họa chọn chế độ 4G hoặc 5G khi roaming. | `HOLD` — no current roaming/network-mode destination exists in the sitemap. |
+| 4 | Có sóng ở nước ngoài nhưng không vào Internet: kiểm tra Data Roaming | roaming setup | — | `usage-07` | State only that Data Roaming must be enabled to use mobile data abroad; no roaming-price, package, or country-wide claims. | Phone with a roaming toggle and signal bars. Alt: Minh họa bật Data Roaming để dùng dữ liệu ở nước ngoài. | `HOLD` — no context-specific roaming route exists. |
+| 5 | APN của SIM Viettel là gì trong hướng dẫn roaming Nhật Bản? | device setup | — | `usage-08` | State `v-internet` exactly, with the Japan-roaming context retained; do not turn the fact into a universal domestic troubleshooting procedure. | Generic APN settings screen. Alt: Minh họa trường APN trên điện thoại. | `HOLD` — no APN-settings destination exists. |
+| 6 | Bật 4G/VoLTE hoặc 5G trên iPhone bằng mục Voice & Data | device setup | `/posts/lỗi-đăng-ký-4g-viettel-không-thành-công-và-cách-khắc-phục` | `usage-09` | Use only the documented iPhone path: Settings → Cellular → Viettel SIM → Voice & Data → 4G/VoLTE or 5G. Do not assert that every iPhone, SIM, or location will receive 5G. | iPhone cellular settings with a generic Voice & Data row. Alt: Minh họa chọn 4G hoặc 5G trong cài đặt iPhone. | `QUEUE` — direct device-configuration fact and a relevant 4G registration/configuration troubleshooting route. |
+| 7 | Bật Data Roaming trên iPhone cho SIM Viettel | roaming setup | — | `usage-10` | Use only the documented path: Settings → Cellular/Mobile Service → Viettel SIM → Data Roaming. | iPhone with a Data Roaming toggle. Alt: Minh họa bật Data Roaming trên iPhone. | `HOLD` — no iPhone-roaming route exists. |
+| 8 | Bật Data Roaming trên Android cho SIM Viettel | roaming setup | — | `usage-11` | Use only the documented path: Settings → Connections → Mobile Network → Data Roaming. | Android settings with a roaming toggle. Alt: Minh họa bật Data Roaming trên Android. | `HOLD` — no Android-roaming route exists. |
+| 9 | Sau khi đổi cài đặt roaming, khi nào nên khởi động lại máy? | roaming setup | — | `usage-12` | State Viettel’s recommendation to restart after changing roaming settings so the connection updates; do not add causes or fixes for a continuing failure. | Phone restart symbol beside a roaming indicator. Alt: Minh họa khởi động lại điện thoại sau khi đổi cài đặt roaming. | `HOLD` — no roaming troubleshooting destination exists. |
+| 10 | eSIM Viettel có dùng 5G được không khi thiết bị tương thích? | 5G eligibility | — | `usage-13` | State only that eSIM can access 5G similarly to a physical SIM on compatible hardware. | eSIM icon beside a phone with a 5G indicator. Alt: Minh họa eSIM dùng 5G trên thiết bị tương thích. | `HOLD` — `/posts/dang-ky-multisim-viettel` is a MultiSIM page, not a valid general eSIM/5G destination. |
+| 11 | Kích hoạt eSIM Viettel bằng QR: bước “Thêm gói cước di động” | eSIM setup | — | `usage-14` | Preserve the bounded sequence: register, receive QR/configuration, add a mobile plan in settings, then scan the QR. | Phone scanning a neutral QR code. Alt: Minh họa quét mã QR để kích hoạt eSIM. | `HOLD` — no dedicated eSIM-activation route exists; MultiSIM is not a substitute. |
+| 12 | eSIM đã kích hoạt: điều kiện để dùng 5G Viettel | 5G usage | — | `usage-15` | State that the device connects to Viettel after activation and uses 5G only when coverage and hardware conditions are met; do not promise coverage or speed. | Phone, coverage pin, and compatible-device check. Alt: Minh họa các điều kiện để eSIM dùng 5G. | `HOLD` — no eSIM 5G conditions route exists. |
+| 13 | Điện thoại hỗ trợ 5G có cần đổi SIM Viettel không? | 5G setup | `/posts/lỗi-đăng-ký-4g-viettel-không-thành-công-và-cách-khắc-phục` | `troubleshooting-09` | State only Viettel’s claim that a 5G-capable phone can use 5G without changing SIM. Do not infer coverage, package eligibility, or compatibility for a named handset. | Physical SIM and 5G phone with a check mark. Alt: Minh họa điện thoại hỗ trợ 5G dùng với SIM Viettel hiện có. | `QUEUE` — direct 5G setup fact and matching 4G/5G registration troubleshooting route. |
+| 14 | Đo và so sánh tốc độ 4G/5G bằng Speedtest, kèm chỉ số Ping | network use | — | `troubleshooting-10` | State only that Viettel proposes Speedtest to check and compare 4G/5G speed and measure Ping; do not state expected results or a performance guarantee. | Phone speed-test display with a neutral latency gauge. Alt: Minh họa kiểm tra tốc độ và Ping của mạng di động. | `HOLD` — the sitemap has no speed-test or network-performance destination; `/` is not an acceptable substitute. |
+
+## Duplicate and release check
+
+- None of the 14 rows covers Blog 3’s data-balance checking, cancellation, or renewal guidance. Rows that could drift into those subjects are expressly excluded from their fact-bounded scope.
+- `3/14` candidates are eligible for a future Blog 2 queue: 2, 6, and 13. Their intents are distinct (SMS registration, iPhone network configuration, and 5G SIM setup), so the release set has no internal semantic duplicate.
+- The remaining `11/14` candidates are `HOLD` because their specific setup/use destination does not currently exist. Do not add any row in this document to `config/topics.json` until its status is `QUEUE` and the usual freshness check is repeated.
