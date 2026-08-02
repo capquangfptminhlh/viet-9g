@@ -17,13 +17,20 @@ describe('Blog 3 queue activation', () => {
     const factIds = new Set(facts.map((fact: any) => fact.id));
 
     expect(sites.find((site: any) => site.blogId === blogId)).toMatchObject({ enabled: true });
-    expect(queued).toHaveLength(14);
-    expect(queued.map((topic: any) => topic.topicId)).toEqual([
+    const repairedTopicIds = [
       'topic-b3-tk-191-account', 'topic-b3-198-support', 'topic-b3-web-traffic-check',
       'topic-b3-gic70-renewal', 'topic-b3-gic70-stop-renewal', 'topic-b3-gic70-cancel-package',
       'topic-b3-yt7-renewal', 'topic-b3-yt7-stop-renewal', 'topic-b3-yt7-cancel-package',
       'topic-b3-yt30-renewal', 'topic-b3-yt30-stop-renewal', 'topic-b3-yt30-cancel-package',
       'topic-b3-st5km-cancel-package', 'topic-b3-huy-vs-huydata',
+    ];
+    const expansionTopicIds = readJson('docs/topic-candidates/ready-blog3-expansion.json')
+      .map((topic: any) => topic.topicId);
+
+    expect(queued).toHaveLength(repairedTopicIds.length + expansionTopicIds.length);
+    expect(queued.map((topic: any) => topic.topicId)).toEqual([
+      ...repairedTopicIds,
+      ...expansionTopicIds,
     ]);
     for (const topic of queued) {
       expect(['informational', 'cancellation']).toContain(topic.intent);

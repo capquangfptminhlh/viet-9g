@@ -1,886 +1,667 @@
 ﻿[
-  {
-    "topicId": "topic-1",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent informational content about 4G",
-    "title": "Hướng dẫn sử dụng 4G hiệu quả",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "fact-1"
-    ],
-    "status": "HOLD"
-  },
-  {
-    "topicId": "topic-sd90-review",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Đánh giá chi tiết gói cước SD90 của Viettel",
-    "title": "Đánh giá gói cước SD90 Viettel 2026: Có đáng dùng?",
-    "intent": "review",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "fact-2"
-    ],
-    "targetUrlPath": "/goi-cuoc/sd90/",
-    "status": "HOLD"
-  },
-  {
-    "topicId": "topic-mxh120-review",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Đánh giá chi tiết gói cước MXH120 của Viettel",
-    "title": "Gói MXH120 Viettel: Lướt TikTok thả ga 2026",
-    "intent": "review",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "fact-3"
-    ],
-    "targetUrlPath": "/goi-cuoc/mxh120/",
-    "status": "HOLD"
-  },
-  {
-    "intent": "informational",
-    "contentVersion": "v1",
-    "title": "3 Cách Kiểm Tra Dung Lượng Data 4G Viettel Còn Lại Nhanh Nhất",
-    "status": "HOLD",
-    "contentCharter": "Hướng dẫn chi tiết các cách kiểm tra dung lượng 4G đang dùng",
-    "topicId": "topic-kiem-tra-dung-luong",
-    "sourceFactIds": [
-      "fact-4"
-    ],
-    "targetBlogId": "5229528996284551001"
-  },
-  {
-    "intent": "cancellation",
-    "contentVersion": "v1",
-    "title": "Cách hủy gói data Viettel qua SMS 191",
-    "status": "HOLD",
-    "contentCharter": "Hướng dẫn chi tiết cách hủy gia hạn và hủy hoàn toàn gói 4G Viettel",
-    "topicId": "topic-huy-goi-cuoc",
-    "sourceFactIds": [
-      "fact-5"
-    ],
-    "targetBlogId": "5229528996284551001",
-    "targetUrlPath": "/huong-dan/huy-goi-cuoc-viettel/"
-  },
-  {
-    "intent": "informational",
-    "contentVersion": "v1",
-    "title": "Cách Kiểm Tra Tốc Độ Mạng 4G Viettel Nhanh Và Chính Xác Nhất",
-    "status": "HOLD",
-    "contentCharter": "Hướng dẫn chi tiết cách đo tốc độ mạng 4G thực tế",
-    "topicId": "topic-kiem-tra-toc-do",
-    "sourceFactIds": [
-      "fact-6"
-    ],
-    "targetBlogId": "5229528996284551001",
-    "targetUrlPath": "/huong-dan/kiem-tra-toc-do-mang/"
-  },
-  {
-    "intent": "review",
-    "contentVersion": "v1",
-    "title": "Đánh Giá Gói ST15K Viettel: Có Nên Đăng Ký Dùng 3 Ngày?",
-    "status": "HOLD",
-    "contentCharter": "Review nhanh gói ST15K cho người cần data ngắn hạn",
-    "topicId": "topic-st15k-review",
-    "sourceFactIds": [
-      "fact-7"
-    ],
-    "targetBlogId": "5229528996284551001",
-    "targetUrlPath": "/goi-cuoc/st15k/",
-    "reviewData": {
-      "considerations": "Cần kiểm tra kỹ số dư và thao tác hủy gia hạn nếu chỉ định dùng 1 lần",
-      "pros": [
-        "Giá rẻ, linh hoạt dùng trong 3 ngày",
-        "Dung lượng lớn (3GB) đủ lướt web, xem video ngắn"
-      ],
-      "suitableFor": "Người đi du lịch ngắn ngày, đi công tác, hoặc cần chữa cháy khi Wi-Fi hỏng",
-      "cons": [
-        "Tự động gia hạn nếu không để ý",
-        "Hết 3GB ngừng truy cập, không có data tốc độ thường"
-      ]
-    }
-  },
-  {
-    "topicId": "topic-huy-goi-cuoc-xac-nhan-191",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent cancellation guidance for Viettel data packages",
-    "title": "Hủy gói data Viettel qua 191: vì sao phải xác nhận tin nhắn Y?",
-    "intent": "cancellation",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "fact-5"
-    ],
-    "targetUrlPath": "/huong-dan/huy-goi-cuoc-viettel/",
-    "status": "HOLD"
-  },
-  {
-    "topicId": "topic-huy-goi-cuoc-phan-biet-191",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent cancellation guidance for Viettel data packages",
-    "title": "HUY và HUYDATA gửi 191 khác nhau thế nào trước khi bạn hủy gói?",
-    "intent": "cancellation",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "fact-5"
-    ],
-    "targetUrlPath": "/huong-dan/huy-goi-cuoc-viettel/",
-    "status": "HOLD"
-  },
-  {
-    "topicId": "topic-b2-kiem-tra-data-kttk-191",
-    "targetBlogId": "5656849674298814641",
-    "contentCharter": "Guides for setting up and using 4G/5G Viettel only",
-    "title": "Kiểm tra data Viettel còn lại và hạn dùng bằng KTTK gửi 191",
-    "intent": "data-check",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "cancellation-01"
-    ],
-    "targetUrlPath": "/posts/cú-pháp-kiểm-tra-dung-lượng-data-4g-viettel-còn-lại",
-    "imageBrief": "Điện thoại hiển thị tin nhắn KTTK với nhãn dung lượng còn lại và hạn dùng.",
-    "imageAlt": "Minh họa kiểm tra dung lượng data và hạn dùng Viettel bằng KTTK gửi 191.",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b2-tra-cuu-goi-098",
-    "targetBlogId": "5656849674298814641",
-    "contentCharter": "Guides for setting up and using 4G/5G Viettel only",
-    "title": "Tra cứu gói và lưu lượng Viettel qua *098# theo hướng dẫn trên màn hình",
-    "intent": "data-check",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "cancellation-03"
-    ],
-    "targetUrlPath": "/posts/cach-kiem-tra-tai-khoan-chinh",
-    "imageBrief": "Bàn phím điện thoại với mã *098# và các bước tra cứu trung tính.",
-    "imageAlt": "Minh họa tra cứu gói và lưu lượng Viettel bằng mã *098#.",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b2-my-viettel-dung-luong-han-dung",
-    "targetBlogId": "5656849674298814641",
-    "contentCharter": "Guides for setting up and using 4G/5G Viettel only",
-    "title": "My Viettel hiển thị dung lượng, tên gói và hạn dùng ở đâu?",
-    "intent": "data-check",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "cancellation-04"
-    ],
-    "targetUrlPath": "/posts/cú-pháp-kiểm-tra-dung-lượng-data-4g-viettel-còn-lại",
-    "imageBrief": "Màn hình ứng dụng minh họa ba trường: dung lượng data, tên gói, hạn dùng.",
-    "imageAlt": "Minh họa thông tin dung lượng, tên gói và hạn dùng trong My Viettel.",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b2-5g-doi-sim",
-    "targetBlogId": "5656849674298814641",
-    "contentCharter": "Guides for setting up and using 4G/5G Viettel only",
-    "title": "Điện thoại hỗ trợ 5G có cần đổi SIM Viettel không?",
-    "intent": "5g-eligibility",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "troubleshooting-09"
-    ],
-    "targetUrlPath": "/posts/lỗi-đăng-ký-4g-viettel-không-thành-công-và-cách-khắc-phục",
-    "imageBrief": "SIM Viettel và điện thoại có biểu tượng 5G, kèm dấu kiểm về khả năng tương thích.",
-    "imageAlt": "Minh họa điện thoại hỗ trợ 5G dùng với SIM Viettel đang có.",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b3-kttk-data-han-dung",
-    "targetBlogId": "2757413717171314447",
-    "contentCharter": "Checking data, cancellation, and renewal guidance only",
-    "title": "KTTK gửi 191 cho biết dung lượng còn lại và hạn dùng của gói thế nào?",
-    "intent": "data-check",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "cancellation-01"
-    ],
-    "targetUrlPath": "/posts/cú-pháp-kiểm-tra-dung-lượng-data-4g-viettel-còn-lại",
-    "imageBrief": "Tin nhắn KTTK trên điện thoại với hai nhãn dung lượng và hạn sử dụng.",
-    "imageAlt": "Minh họa kết quả kiểm tra dung lượng và hạn dùng bằng KTTK gửi 191.",
-    "status": "HOLD"
-  },
-  {
-    "topicId": "topic-b3-tra-cuu-goi-098",
-    "targetBlogId": "2757413717171314447",
-    "contentCharter": "Checking data, cancellation, and renewal guidance only",
-    "title": "Kiểm tra gói và lưu lượng Viettel qua *098# theo hướng dẫn trên màn hình",
-    "intent": "data-check",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "cancellation-03"
-    ],
-    "targetUrlPath": "/posts/cach-kiem-tra-tai-khoan-chinh",
-    "imageBrief": "Điện thoại đang nhập *098# và một bảng hướng dẫn tra cứu đơn giản.",
-    "imageAlt": "Minh họa tra cứu gói và lưu lượng Viettel qua mã *098#.",
-    "status": "HOLD"
-  },
-  {
-    "topicId": "topic-b3-my-viettel-dung-luong",
-    "targetBlogId": "2757413717171314447",
-    "contentCharter": "Checking data, cancellation, and renewal guidance only",
-    "title": "Kiểm tra dung lượng, tên gói và hạn dùng trên My Viettel",
-    "intent": "data-check",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "cancellation-04"
-    ],
-    "targetUrlPath": "/posts/cú-pháp-kiểm-tra-dung-lượng-data-4g-viettel-còn-lại",
-    "imageBrief": "Giao diện ứng dụng minh họa các mục dung lượng, tên gói và hạn dùng.",
-    "imageAlt": "Minh họa xem thông tin gói data trong My Viettel.",
-    "status": "HOLD"
-  },
-  {
-    "topicId": "topic-b3-goi-198-ho-tro",
-    "targetBlogId": "2757413717171314447",
-    "contentCharter": "Checking data, cancellation, and renewal guidance only",
-    "title": "Cần hỗ trợ kiểm tra hoặc tư vấn gói Viettel: gọi 198 có mất phí không?",
-    "intent": "support",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "cancellation-05"
-    ],
-    "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
-    "imageBrief": "Điện thoại gọi 198 cùng biểu tượng tai nghe hỗ trợ, không có cam kết thời gian xử lý.",
-    "imageAlt": "Minh họa gọi tổng đài 198 để được hỗ trợ và tư vấn Viettel.",
-    "status": "HOLD"
-  },
-  {
-    "topicId": "topic-b3-gic70-gic70t-tu-gia-han",
-    "targetBlogId": "2757413717171314447",
-    "contentCharter": "Checking data, cancellation, and renewal guidance only",
-    "title": "GIC70 và GIC70T tự gia hạn sau bao lâu?",
-    "intent": "renewal-check",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "cancellation-06"
-    ],
-    "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
-    "imageBrief": "Lịch 30 ngày cạnh thẻ gói GIC70/GIC70T và biểu tượng gia hạn.",
-    "imageAlt": "Minh họa chu kỳ tự gia hạn 30 ngày của gói GIC70 và GIC70T.",
-    "status": "HOLD"
-  },
-  {
-    "topicId": "topic-b3-gic70-huy-huydata",
-    "targetBlogId": "2757413717171314447",
-    "contentCharter": "Checking data, cancellation, and renewal guidance only",
-    "title": "GIC70/GIC70T: HUY và HUYDATA gửi 191 khác nhau thế nào?",
-    "intent": "cancellation",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "cancellation-08",
-      "cancellation-09"
-    ],
-    "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
-    "imageBrief": "Hai tin nhắn trung tính HUY và HUYDATA cạnh tên gói GIC70/GIC70T.",
-    "imageAlt": "Minh họa phân biệt HUY và HUYDATA cho gói GIC70 hoặc GIC70T.",
-    "status": "HOLD"
-  },
-  {
-    "topicId": "topic-b3-yt7-dung-gia-han",
-    "targetBlogId": "2757413717171314447",
-    "contentCharter": "Checking data, cancellation, and renewal guidance only",
-    "title": "YT7 gia hạn sau 7 ngày: cách dừng gia hạn mà giữ ưu đãi đến hết chu kỳ",
-    "intent": "renewal-cancellation",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "cancellation-10",
-      "cancellation-11"
-    ],
-    "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
-    "imageBrief": "Lịch 7 ngày, thẻ gói YT7 và tin nhắn HUY YT7.",
-    "imageAlt": "Minh họa dừng gia hạn gói YT7 bằng HUY YT7 gửi 191.",
-    "status": "HOLD"
-  },
-  {
-    "topicId": "topic-b3-huydata-yt7",
-    "targetBlogId": "2757413717171314447",
-    "contentCharter": "Checking data, cancellation, and renewal guidance only",
-    "title": "Hủy gói YT7 bằng HUYDATA YT7 gửi 191",
-    "intent": "cancellation",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "cancellation-12"
-    ],
-    "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
-    "imageBrief": "Tin nhắn HUYDATA YT7 gửi 191 với biểu tượng xác nhận trung tính.",
-    "imageAlt": "Minh họa cú pháp hủy gói YT7 bằng HUYDATA YT7 gửi 191.",
-    "status": "HOLD"
-  },
-  {
-    "topicId": "topic-b3-yt30-huy-huydata",
-    "targetBlogId": "2757413717171314447",
-    "contentCharter": "Checking data, cancellation, and renewal guidance only",
-    "title": "YT30: phân biệt HUY YT30 để hủy gia hạn và HUYDATA YT30 để hủy gói",
-    "intent": "cancellation",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "cancellation-13",
-      "cancellation-14"
-    ],
-    "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
-    "imageBrief": "So sánh hai tin nhắn HUY YT30 và HUYDATA YT30 bên cạnh lịch 30 ngày.",
-    "imageAlt": "Minh họa hai lựa chọn hủy gia hạn hoặc hủy gói YT30.",
-    "status": "HOLD"
-  },
-  {
-    "topicId": "topic-b3-st5km-huydata",
-    "targetBlogId": "2757413717171314447",
-    "contentCharter": "Checking data, cancellation, and renewal guidance only",
-    "title": "Hủy ST5KM bằng HUYDATA ST5KM: cần làm theo bước nào của hệ thống?",
-    "intent": "cancellation",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "cancellation-15"
-    ],
-    "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
-    "imageBrief": "Tin nhắn HUYDATA ST5KM gửi 191 nối tới một màn hình yêu cầu làm theo hướng dẫn tiếp theo.",
-    "imageAlt": "Minh họa hủy gói ST5KM bằng HUYDATA ST5KM gửi 191.",
-    "status": "HOLD"
-  },
-  {
-    "topicId": "topic-b3-tk-191-account",
-    "targetBlogId": "2757413717171314447",
-    "contentCharter": "Checking data, cancellation, and renewal guidance only",
-    "title": "Tra cứu tài khoản Viettel bằng TK gửi 191: dùng khi cần kiểm tra số dư nào?",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "usage-02"
-    ],
-    "targetUrlPath": "/posts/cach-kiem-tra-tai-khoan-chinh/",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b3-198-support",
-    "targetBlogId": "2757413717171314447",
-    "contentCharter": "Checking data, cancellation, and renewal guidance only",
-    "title": "Muốn kiểm tra thông tin trực tiếp: tổng đài 198 của Viettel có thu phí không?",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "usage-05"
-    ],
-    "targetUrlPath": "/posts/cach-kiem-tra-tai-khoan-chinh/",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b3-web-traffic-check",
-    "targetBlogId": "2757413717171314447",
-    "contentCharter": "Checking data, cancellation, and renewal guidance only",
-    "title": "Kiểm tra lưu lượng trên vietteltelecom.vn: lựa chọn khi không dùng SMS",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "cancellation-02"
-    ],
-    "targetUrlPath": "/posts/cú-pháp-kiểm-tra-dung-lượng-data-4g-viettel-còn-lại/",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b3-gic70-renewal",
-    "targetBlogId": "2757413717171314447",
-    "contentCharter": "Checking data, cancellation, and renewal guidance only",
-    "title": "GIC70/GIC70T tự gia hạn sau bao lâu?",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "cancellation-06"
-    ],
-    "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b3-gic70-stop-renewal",
-    "targetBlogId": "2757413717171314447",
-    "contentCharter": "Checking data, cancellation, and renewal guidance only",
-    "title": "GIC70/GIC70T: gửi HUY 191 để dừng gia hạn như thế nào?",
-    "intent": "cancellation",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "cancellation-08"
-    ],
-    "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b3-gic70-cancel-package",
-    "targetBlogId": "2757413717171314447",
-    "contentCharter": "Checking data, cancellation, and renewal guidance only",
-    "title": "GIC70/GIC70T: khi nào dùng HUYDATA 191 để hủy gói?",
-    "intent": "cancellation",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "cancellation-09"
-    ],
-    "targetUrlPath": "/posts/hướng-dẫn-hủy-gói-cước-viettel-tránh-trừ-tiền-tự-động/",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b3-yt7-renewal",
-    "targetBlogId": "2757413717171314447",
-    "contentCharter": "Checking data, cancellation, and renewal guidance only",
-    "title": "YT7 gia hạn theo chu kỳ mấy ngày?",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "cancellation-10"
-    ],
-    "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b3-yt7-stop-renewal",
-    "targetBlogId": "2757413717171314447",
-    "contentCharter": "Checking data, cancellation, and renewal guidance only",
-    "title": "YT7: dừng gia hạn bằng HUY YT7 191 có giữ ưu đãi đến hết chu kỳ không?",
-    "intent": "cancellation",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "cancellation-11"
-    ],
-    "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b3-yt7-cancel-package",
-    "targetBlogId": "2757413717171314447",
-    "contentCharter": "Checking data, cancellation, and renewal guidance only",
-    "title": "YT7: HUYDATA YT7 gửi 191 dùng để hủy gói trong trường hợp nào?",
-    "intent": "cancellation",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "cancellation-12"
-    ],
-    "targetUrlPath": "/posts/hướng-dẫn-hủy-gói-cước-viettel-tránh-trừ-tiền-tự-động/",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b3-yt30-renewal",
-    "targetBlogId": "2757413717171314447",
-    "contentCharter": "Checking data, cancellation, and renewal guidance only",
-    "title": "YT30 tự gia hạn sau bao nhiêu ngày?",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "cancellation-13"
-    ],
-    "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b3-yt30-stop-renewal",
-    "targetBlogId": "2757413717171314447",
-    "contentCharter": "Checking data, cancellation, and renewal guidance only",
-    "title": "YT30: HUY YT30 191 là hủy gia hạn hay hủy gói?",
-    "intent": "cancellation",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "cancellation-14"
-    ],
-    "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b3-yt30-cancel-package",
-    "targetBlogId": "2757413717171314447",
-    "contentCharter": "Checking data, cancellation, and renewal guidance only",
-    "title": "YT30: HUYDATA YT30 191 khác gì với HUY YT30?",
-    "intent": "cancellation",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "cancellation-14"
-    ],
-    "targetUrlPath": "/posts/hướng-dẫn-hủy-gói-cước-viettel-tránh-trừ-tiền-tự-động/",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b3-st5km-cancel-package",
-    "targetBlogId": "2757413717171314447",
-    "contentCharter": "Checking data, cancellation, and renewal guidance only",
-    "title": "ST5KM tự gia hạn: hủy bằng HUYDATA ST5KM cần lưu ý điều gì?",
-    "intent": "cancellation",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "cancellation-15"
-    ],
-    "targetUrlPath": "/posts/hướng-dẫn-hủy-gói-cước-viettel-tránh-trừ-tiền-tự-động/",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b3-huy-vs-huydata",
-    "targetBlogId": "2757413717171314447",
-    "contentCharter": "Checking data, cancellation, and renewal guidance only",
-    "title": "HUY TÊN_GÓI và HUYDATA TÊN_GÓI gửi 191: dừng gia hạn khác hủy gói thế nào?",
-    "intent": "cancellation",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "fact-5"
-    ],
-    "targetUrlPath": "/posts/hướng-dẫn-hủy-gói-cước-viettel-tránh-trừ-tiền-tự-động/",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b1-esim-5g-tuong-thich",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent device and roaming guidance for Viettel users",
-    "title": "eSIM Viettel có dùng được 5G như SIM vật lý không?",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "usage-13"
-    ],
-    "targetUrlPath": "/posts/esim-5g-kich-hoat-quet-qr/",
-    "imageBrief": "Điện thoại hiển thị eSIM và biểu tượng 5G, không có mã QR thật.",
-    "imageAlt": "Minh họa eSIM Viettel hoạt động trên điện thoại hỗ trợ 5G.",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b1-esim-quet-qr-buoc-dau",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent device and roaming guidance for Viettel users",
-    "title": "Nhận QR eSIM Viettel rồi làm gì? Trình tự thêm gói cước di động",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "usage-14"
-    ],
-    "targetUrlPath": "/posts/esim-5g-kich-hoat-quet-qr/",
-    "imageBrief": "Điện thoại mở phần cài đặt di động và quét một QR minh họa đã làm mờ.",
-    "imageAlt": "Minh họa các bước thêm eSIM Viettel bằng mã QR.",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b1-esim-kich-hoat-ket-noi",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent device and roaming guidance for Viettel users",
-    "title": "Sau khi kích hoạt eSIM Viettel, kiểm tra kết nối 5G thế nào?",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "usage-15"
-    ],
-    "targetUrlPath": "/posts/esim-5g-kich-hoat-quet-qr/",
-    "imageBrief": "Điện thoại có eSIM và cột sóng 5G cùng dấu kiểm.",
-    "imageAlt": "Minh họa kiểm tra kết nối sau khi kích hoạt eSIM Viettel.",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b1-iphone-chon-4g-5g-volte",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent device and roaming guidance for Viettel users",
-    "title": "iPhone dùng SIM Viettel: chọn 4G, 5G và VoLTE ở đâu?",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "usage-09"
-    ],
-    "targetUrlPath": "/posts/cai-dat-4g-5g-volte-iphone-viettel/",
-    "imageBrief": "Màn hình iPhone minh họa mục Voice & Data với lựa chọn 4G và 5G.",
-    "imageAlt": "Minh họa vị trí cài đặt 4G, 5G và VoLTE trên iPhone dùng Viettel.",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b1-roaming-nhat-che-do-mang",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent device and roaming guidance for Viettel users",
-    "title": "Đi Nhật dùng Viettel: vì sao nên đặt máy ở chế độ 4G/5G (LTE)?",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "usage-06"
-    ],
-    "targetUrlPath": "/posts/data-roaming-viettel-iphone-android/",
-    "imageBrief": "Hộ chiếu, điện thoại và lựa chọn 4G/5G LTE trên giao diện trung tính.",
-    "imageAlt": "Minh họa cài chế độ 4G hoặc 5G LTE khi roaming Viettel tại Nhật.",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b1-roaming-bat-data-truoc-khi-di",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent device and roaming guidance for Viettel users",
-    "title": "Có sóng nhưng không vào mạng ở nước ngoài: kiểm tra Data Roaming trước",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "usage-07"
-    ],
-    "targetUrlPath": "/posts/data-roaming-viettel-iphone-android/",
-    "imageBrief": "Điện thoại có cột sóng và công tắc Data Roaming được bật.",
-    "imageAlt": "Minh họa bật Data Roaming để dùng dữ liệu Viettel ở nước ngoài.",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b1-iphone-data-roaming-duong-dan",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent device and roaming guidance for Viettel users",
-    "title": "Bật Data Roaming cho SIM Viettel trên iPhone theo đúng đường dẫn",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "usage-10"
-    ],
-    "targetUrlPath": "/posts/data-roaming-viettel-iphone-android/",
-    "imageBrief": "Màn hình iPhone minh họa Cellular/Mobile Service và công tắc Data Roaming.",
-    "imageAlt": "Minh họa vị trí bật Data Roaming trên iPhone dùng SIM Viettel.",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b1-android-data-roaming-duong-dan",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent device and roaming guidance for Viettel users",
-    "title": "Bật Data Roaming cho SIM Viettel trên Android theo đúng đường dẫn",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "usage-11"
-    ],
-    "targetUrlPath": "/posts/data-roaming-viettel-iphone-android/",
-    "imageBrief": "Màn hình Android minh họa Mobile Network và công tắc Data Roaming.",
-    "imageAlt": "Minh họa vị trí bật Data Roaming trên Android dùng Viettel.",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b1-roaming-khoi-dong-lai-may",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent device and roaming guidance for Viettel users",
-    "title": "Đổi cài đặt roaming xong có cần khởi động lại điện thoại không?",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "usage-12"
-    ],
-    "targetUrlPath": "/posts/data-roaming-viettel-iphone-android/",
-    "imageBrief": "Điện thoại với biểu tượng khởi động lại và biểu tượng roaming.",
-    "imageAlt": "Minh họa khởi động lại điện thoại sau khi đổi cài đặt roaming.",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b1-roaming-chon-mang-thu-cong",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent device and roaming guidance for Viettel users",
-    "title": "Khi roaming, lúc nào nên thử chọn mạng thủ công thay vì tự động?",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "troubleshooting-11"
-    ],
-    "targetUrlPath": "/posts/chon-mang-thu-cong-roaming-viettel/",
-    "imageBrief": "Điện thoại ở nước ngoài hiển thị danh sách mạng và lựa chọn thủ công.",
-    "imageAlt": "Minh họa chọn mạng di động thủ công khi roaming Viettel.",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b1-roaming-tra-lai-tu-dong",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent device and roaming guidance for Viettel users",
-    "title": "Đã chọn mạng thủ công khi roaming: khi nào phải trả về chế độ tự động?",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "troubleshooting-12"
-    ],
-    "targetUrlPath": "/posts/chon-mang-thu-cong-roaming-viettel/",
-    "imageBrief": "Điện thoại chuyển từ danh sách mạng sang công tắc chọn tự động.",
-    "imageAlt": "Minh họa trả chế độ chọn mạng về tự động sau khi roaming.",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b1-iphone-roaming-chon-mang",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent device and roaming guidance for Viettel users",
-    "title": "iPhone roaming Viettel: cách mở mục chọn mạng thủ công",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "troubleshooting-13"
-    ],
-    "targetUrlPath": "/posts/chon-mang-thu-cong-roaming-viettel/",
-    "imageBrief": "Màn hình iPhone minh họa Network Selection và công tắc Automatic.",
-    "imageAlt": "Minh họa mở chọn mạng thủ công trên iPhone khi roaming.",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b1-android-roaming-chon-mang",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent device and roaming guidance for Viettel users",
-    "title": "Android roaming Viettel: cách mở mục Network Operators để chọn mạng",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "troubleshooting-14"
-    ],
-    "targetUrlPath": "/posts/chon-mang-thu-cong-roaming-viettel/",
-    "imageBrief": "Màn hình Android minh họa Network Operators và tùy chọn Select automatically.",
-    "imageAlt": "Minh họa mở chọn mạng thủ công trên Android khi roaming.",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b1-ussd-2g-tat-can-cap-nhat-gi",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent device and roaming guidance for Viettel users",
-    "title": "Tắt 2G/3G ảnh hưởng USSD: cần kiểm tra phần mềm và thiết bị gì?",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "troubleshooting-01"
-    ],
-    "targetUrlPath": "/posts/ussd-viettel-qua-4g-volte-ims/",
-    "imageBrief": "Điện thoại cập nhật phần mềm với biểu tượng 4G/IMS, không hiển thị mã cá nhân.",
-    "imageAlt": "Minh họa cập nhật thiết bị để hỗ trợ USSD qua 4G.",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b1-ussd-thiet-bi-khong-tuong-thich",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent device and roaming guidance for Viettel users",
-    "title": "Vì sao điện thoại chưa tương thích có thể không thực hiện được USSD sau tắt 2G/3G?",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "troubleshooting-02"
-    ],
-    "targetUrlPath": "/posts/ussd-viettel-qua-4g-volte-ims/",
-    "imageBrief": "Điện thoại cũ, biểu tượng USSD và cảnh báo tương thích phần mềm.",
-    "imageAlt": "Minh họa thiết bị chưa tương thích với USSD qua 4G.",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b1-ussd-dich-vu-bi-anh-huong",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent device and roaming guidance for Viettel users",
-    "title": "Sau thay đổi 2G/3G, những thao tác USSD nào có thể bị gián đoạn?",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "troubleshooting-03"
-    ],
-    "targetUrlPath": "/posts/ussd-viettel-qua-4g-volte-ims/",
-    "imageBrief": "Bàn phím gọi điện với các biểu tượng tài khoản, nạp tiền và dịch vụ.",
-    "imageAlt": "Minh họa các thao tác USSD có thể bị ảnh hưởng khi tắt 2G/3G.",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b1-android-kiem-tra-ussd-ims",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent device and roaming guidance for Viettel users",
-    "title": "Android dùng USSD qua 4G: kiểm tra VoLTE hoặc IMS Registration thế nào?",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "troubleshooting-04"
-    ],
-    "targetUrlPath": "/posts/ussd-viettel-qua-4g-volte-ims/",
-    "imageBrief": "Điện thoại Android tắt Wi-Fi, bật dữ liệu di động và hiển thị VoLTE/IMS.",
-    "imageAlt": "Minh họa kiểm tra hỗ trợ USSD qua 4G trên Android.",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b1-android-thu-ussd-4g",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent device and roaming guidance for Viettel users",
-    "title": "Cách nhận biết Android đã hỗ trợ USSD qua 4G bằng thao tác thử an toàn",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "troubleshooting-05"
-    ],
-    "targetUrlPath": "/posts/ussd-viettel-qua-4g-volte-ims/",
-    "imageBrief": "Bàn phím Android với mã USSD minh họa và dấu kiểm kết quả.",
-    "imageAlt": "Minh họa kiểm tra hỗ trợ USSD qua 4G trên Android.",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b1-iphone-ussd-4g-volte",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent device and roaming guidance for Viettel users",
-    "title": "iPhone dùng USSD qua 4G: chọn 4G/5G và VoLTE ở đâu?",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "troubleshooting-06"
-    ],
-    "targetUrlPath": "/posts/ussd-viettel-qua-4g-volte-ims/",
-    "imageBrief": "Màn hình iPhone minh họa Cellular Data Options, 4G/5G và VoLTE.",
-    "imageAlt": "Minh họa cấu hình USSD qua 4G trên iPhone.",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b1-iphone-kiem-tra-bieu-tuong-mang",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent device and roaming guidance for Viettel users",
-    "title": "Tắt Wi-Fi trên iPhone để kiểm tra máy đang bám 4G/LTE hay 5G",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "troubleshooting-07"
-    ],
-    "targetUrlPath": "/posts/kiem-tra-bieu-tuong-4g-lte-5g-iphone/",
-    "imageBrief": "Thanh trạng thái iPhone với Wi-Fi tắt và biểu tượng 4G/LTE/5G.",
-    "imageAlt": "Minh họa kiểm tra biểu tượng mạng di động trên iPhone.",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b1-ios-181-ussd-ims",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent device and roaming guidance for Viettel users",
-    "title": "iPhone cần iOS 18.1 để hỗ trợ USSD over IMS: kiểm tra phiên bản ở đâu?",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "troubleshooting-08"
-    ],
-    "targetUrlPath": "/posts/ussd-viettel-qua-4g-volte-ims/",
-    "imageBrief": "Màn hình iPhone About/Software Update minh họa phiên bản iOS 18.1.",
-    "imageAlt": "Minh họa kiểm tra phiên bản iOS để dùng USSD over IMS.",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b1-do-toc-do-4g-5g-speedtest-ping",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent device and roaming guidance for Viettel users",
-    "title": "Đo tốc độ 4G/5G Viettel: vì sao nên xem cả Ping, không chỉ tốc độ tải?",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "troubleshooting-10"
-    ],
-    "targetUrlPath": "/posts/cach-do-toc-do-4g-5g-viettel/",
-    "imageBrief": "Đồng hồ Speedtest minh họa download, upload và ping không có số liệu cụ thể.",
-    "imageAlt": "Minh họa đo tốc độ và độ trễ Ping trên mạng 4G hoặc 5G.",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b1-esim-khong-can-doi-sim-5g",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent device and roaming guidance for Viettel users",
-    "title": "eSIM hay SIM vật lý: điều kiện nào quyết định việc dùng 5G trên điện thoại?",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "usage-13",
-      "usage-15"
-    ],
-    "targetUrlPath": "/posts/esim-5g-kich-hoat-quet-qr/",
-    "imageBrief": "So sánh minh họa SIM vật lý và eSIM cùng kết nối tới một điện thoại 5G.",
-    "imageAlt": "Minh họa eSIM và SIM vật lý trên điện thoại tương thích 5G.",
-    "status": "QUEUE"
-  },
-  {
-    "topicId": "topic-b1-roaming-chon-mang-iphone-android",
-    "targetBlogId": "5229528996284551001",
-    "contentCharter": "Independent device and roaming guidance for Viettel users",
-    "title": "Roaming bị chập chờn: khác nhau giữa iPhone và Android khi chọn mạng thủ công",
-    "intent": "informational",
-    "contentVersion": "v1",
-    "sourceFactIds": [
-      "troubleshooting-13",
-      "troubleshooting-14"
-    ],
-    "targetUrlPath": "/posts/chon-mang-thu-cong-roaming-viettel/",
-    "imageBrief": "Hai điện thoại iPhone và Android hiển thị các menu chọn mạng tương ứng.",
-    "imageAlt": "Minh họa chọn mạng thủ công khi roaming trên iPhone và Android.",
-    "status": "QUEUE"
-  }
+    {
+        "topicId":  "topic-1",
+        "targetBlogId":  "5229528996284551001",
+        "contentCharter":  "Independent informational content about 4G",
+        "title":  "Hướng dẫn sử dụng 4G hiệu quả",
+        "intent":  "informational",
+        "contentVersion":  "v1",
+        "sourceFactIds":  [
+                              "fact-1"
+                          ],
+        "status":  "HOLD"
+    },
+    {
+        "topicId":  "topic-sd90-review",
+        "targetBlogId":  "5229528996284551001",
+        "contentCharter":  "Đánh giá chi tiết gói cước SD90 của Viettel",
+        "title":  "Đánh giá gói cước SD90 Viettel 2026: Có đáng dùng?",
+        "intent":  "review",
+        "contentVersion":  "v1",
+        "sourceFactIds":  [
+                              "fact-2"
+                          ],
+        "targetUrlPath":  "/goi-cuoc/sd90/",
+        "status":  "HOLD"
+    },
+    {
+        "topicId":  "topic-mxh120-review",
+        "targetBlogId":  "5229528996284551001",
+        "contentCharter":  "Đánh giá chi tiết gói cước MXH120 của Viettel",
+        "title":  "Gói MXH120 Viettel: Lướt TikTok thả ga 2026",
+        "intent":  "review",
+        "contentVersion":  "v1",
+        "sourceFactIds":  [
+                              "fact-3"
+                          ],
+        "targetUrlPath":  "/goi-cuoc/mxh120/",
+        "status":  "HOLD"
+    },
+    {
+        "intent":  "informational",
+        "contentVersion":  "v1",
+        "title":  "3 Cách Kiểm Tra Dung Lượng Data 4G Viettel Còn Lại Nhanh Nhất",
+        "status":  "HOLD",
+        "contentCharter":  "Hướng dẫn chi tiết các cách kiểm tra dung lượng 4G đang dùng",
+        "topicId":  "topic-kiem-tra-dung-luong",
+        "sourceFactIds":  [
+                              "fact-4"
+                          ],
+        "targetBlogId":  "5229528996284551001"
+    },
+    {
+        "intent":  "cancellation",
+        "contentVersion":  "v1",
+        "title":  "Cách hủy gói data Viettel qua SMS 191",
+        "status":  "HOLD",
+        "contentCharter":  "Hướng dẫn chi tiết cách hủy gia hạn và hủy hoàn toàn gói 4G Viettel",
+        "topicId":  "topic-huy-goi-cuoc",
+        "sourceFactIds":  [
+                              "fact-5"
+                          ],
+        "targetBlogId":  "5229528996284551001",
+        "targetUrlPath":  "/huong-dan/huy-goi-cuoc-viettel/"
+    },
+    {
+        "intent":  "informational",
+        "contentVersion":  "v1",
+        "title":  "Cách Kiểm Tra Tốc Độ Mạng 4G Viettel Nhanh Và Chính Xác Nhất",
+        "status":  "HOLD",
+        "contentCharter":  "Hướng dẫn chi tiết cách đo tốc độ mạng 4G thực tế",
+        "topicId":  "topic-kiem-tra-toc-do",
+        "sourceFactIds":  [
+                              "fact-6"
+                          ],
+        "targetBlogId":  "5229528996284551001",
+        "targetUrlPath":  "/huong-dan/kiem-tra-toc-do-mang/"
+    },
+    {
+        "intent":  "review",
+        "contentVersion":  "v1",
+        "title":  "Đánh Giá Gói ST15K Viettel: Có Nên Đăng Ký Dùng 3 Ngày?",
+        "status":  "HOLD",
+        "contentCharter":  "Review nhanh gói ST15K cho người cần data ngắn hạn",
+        "topicId":  "topic-st15k-review",
+        "sourceFactIds":  [
+                              "fact-7"
+                          ],
+        "targetBlogId":  "5229528996284551001",
+        "targetUrlPath":  "/goi-cuoc/st15k/",
+        "reviewData":  {
+                           "considerations":  "Cần kiểm tra kỹ số dư và thao tác hủy gia hạn nếu chỉ định dùng 1 lần",
+                           "pros":  [
+                                        "Giá rẻ, linh hoạt dùng trong 3 ngày",
+                                        "Dung lượng lớn (3GB) đủ lướt web, xem video ngắn"
+                                    ],
+                           "suitableFor":  "Người đi du lịch ngắn ngày, đi công tác, hoặc cần chữa cháy khi Wi-Fi hỏng",
+                           "cons":  [
+                                        "Tự động gia hạn nếu không để ý",
+                                        "Hết 3GB ngừng truy cập, không có data tốc độ thường"
+                                    ]
+                       }
+    },
+    {
+        "topicId": "topic-huy-goi-cuoc-xac-nhan-191",
+        "targetBlogId": "5229528996284551001",
+        "contentCharter": "Independent cancellation guidance for Viettel data packages",
+        "title": "Hủy gói data Viettel qua 191: vì sao phải xác nhận tin nhắn Y?",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["fact-5"],
+        "targetUrlPath": "/huong-dan/huy-goi-cuoc-viettel/",
+        "status": "HOLD"
+    },
+    {
+        "topicId": "topic-huy-goi-cuoc-phan-biet-191",
+        "targetBlogId": "5229528996284551001",
+        "contentCharter": "Independent cancellation guidance for Viettel data packages",
+        "title": "HUY và HUYDATA gửi 191 khác nhau thế nào trước khi bạn hủy gói?",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["fact-5"],
+        "targetUrlPath": "/huong-dan/huy-goi-cuoc-viettel/",
+        "status": "HOLD"
+    },
+    {
+        "topicId": "topic-b2-kiem-tra-data-kttk-191",
+        "targetBlogId": "5656849674298814641",
+        "contentCharter": "Guides for setting up and using 4G/5G Viettel only",
+        "title": "Kiểm tra data Viettel còn lại và hạn dùng bằng KTTK gửi 191",
+        "intent": "data-check",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-01"],
+        "targetUrlPath": "/posts/cú-pháp-kiểm-tra-dung-lượng-data-4g-viettel-còn-lại",
+        "imageBrief": "Điện thoại hiển thị tin nhắn KTTK với nhãn dung lượng còn lại và hạn dùng.",
+        "imageAlt": "Minh họa kiểm tra dung lượng data và hạn dùng Viettel bằng KTTK gửi 191.",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b2-tra-cuu-goi-098",
+        "targetBlogId": "5656849674298814641",
+        "contentCharter": "Guides for setting up and using 4G/5G Viettel only",
+        "title": "Tra cứu gói và lưu lượng Viettel qua *098# theo hướng dẫn trên màn hình",
+        "intent": "data-check",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-03"],
+        "targetUrlPath": "/posts/cach-kiem-tra-tai-khoan-chinh",
+        "imageBrief": "Bàn phím điện thoại với mã *098# và các bước tra cứu trung tính.",
+        "imageAlt": "Minh họa tra cứu gói và lưu lượng Viettel bằng mã *098#.",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b2-my-viettel-dung-luong-han-dung",
+        "targetBlogId": "5656849674298814641",
+        "contentCharter": "Guides for setting up and using 4G/5G Viettel only",
+        "title": "My Viettel hiển thị dung lượng, tên gói và hạn dùng ở đâu?",
+        "intent": "data-check",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-04"],
+        "targetUrlPath": "/posts/cú-pháp-kiểm-tra-dung-lượng-data-4g-viettel-còn-lại",
+        "imageBrief": "Màn hình ứng dụng minh họa ba trường: dung lượng data, tên gói, hạn dùng.",
+        "imageAlt": "Minh họa thông tin dung lượng, tên gói và hạn dùng trong My Viettel.",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b2-5g-doi-sim",
+        "targetBlogId": "5656849674298814641",
+        "contentCharter": "Guides for setting up and using 4G/5G Viettel only",
+        "title": "Điện thoại hỗ trợ 5G có cần đổi SIM Viettel không?",
+        "intent": "5g-eligibility",
+        "contentVersion": "v1",
+        "sourceFactIds": ["troubleshooting-09"],
+        "targetUrlPath": "/posts/lỗi-đăng-ký-4g-viettel-không-thành-công-và-cách-khắc-phục",
+        "imageBrief": "SIM Viettel và điện thoại có biểu tượng 5G, kèm dấu kiểm về khả năng tương thích.",
+        "imageAlt": "Minh họa điện thoại hỗ trợ 5G dùng với SIM Viettel đang có.",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b3-kttk-data-han-dung",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "KTTK gửi 191 cho biết dung lượng còn lại và hạn dùng của gói thế nào?",
+        "intent": "data-check",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-01"],
+        "targetUrlPath": "/posts/cú-pháp-kiểm-tra-dung-lượng-data-4g-viettel-còn-lại",
+        "imageBrief": "Tin nhắn KTTK trên điện thoại với hai nhãn dung lượng và hạn sử dụng.",
+        "imageAlt": "Minh họa kết quả kiểm tra dung lượng và hạn dùng bằng KTTK gửi 191.",
+        "status": "HOLD"
+    },
+    {
+        "topicId": "topic-b3-tra-cuu-goi-098",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "Kiểm tra gói và lưu lượng Viettel qua *098# theo hướng dẫn trên màn hình",
+        "intent": "data-check",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-03"],
+        "targetUrlPath": "/posts/cach-kiem-tra-tai-khoan-chinh",
+        "imageBrief": "Điện thoại đang nhập *098# và một bảng hướng dẫn tra cứu đơn giản.",
+        "imageAlt": "Minh họa tra cứu gói và lưu lượng Viettel qua mã *098#.",
+        "status": "HOLD"
+    },
+    {
+        "topicId": "topic-b3-my-viettel-dung-luong",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "Kiểm tra dung lượng, tên gói và hạn dùng trên My Viettel",
+        "intent": "data-check",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-04"],
+        "targetUrlPath": "/posts/cú-pháp-kiểm-tra-dung-lượng-data-4g-viettel-còn-lại",
+        "imageBrief": "Giao diện ứng dụng minh họa các mục dung lượng, tên gói và hạn dùng.",
+        "imageAlt": "Minh họa xem thông tin gói data trong My Viettel.",
+        "status": "HOLD"
+    },
+    {
+        "topicId": "topic-b3-goi-198-ho-tro",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "Cần hỗ trợ kiểm tra hoặc tư vấn gói Viettel: gọi 198 có mất phí không?",
+        "intent": "support",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-05"],
+        "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
+        "imageBrief": "Điện thoại gọi 198 cùng biểu tượng tai nghe hỗ trợ, không có cam kết thời gian xử lý.",
+        "imageAlt": "Minh họa gọi tổng đài 198 để được hỗ trợ và tư vấn Viettel.",
+        "status": "HOLD"
+    },
+    {
+        "topicId": "topic-b3-gic70-gic70t-tu-gia-han",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "GIC70 và GIC70T tự gia hạn sau bao lâu?",
+        "intent": "renewal-check",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-06"],
+        "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
+        "imageBrief": "Lịch 30 ngày cạnh thẻ gói GIC70/GIC70T và biểu tượng gia hạn.",
+        "imageAlt": "Minh họa chu kỳ tự gia hạn 30 ngày của gói GIC70 và GIC70T.",
+        "status": "HOLD"
+    },
+    {
+        "topicId": "topic-b3-gic70-huy-huydata",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "GIC70/GIC70T: HUY và HUYDATA gửi 191 khác nhau thế nào?",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-08", "cancellation-09"],
+        "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
+        "imageBrief": "Hai tin nhắn trung tính HUY và HUYDATA cạnh tên gói GIC70/GIC70T.",
+        "imageAlt": "Minh họa phân biệt HUY và HUYDATA cho gói GIC70 hoặc GIC70T.",
+        "status": "HOLD"
+    },
+    {
+        "topicId": "topic-b3-yt7-dung-gia-han",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "YT7 gia hạn sau 7 ngày: cách dừng gia hạn mà giữ ưu đãi đến hết chu kỳ",
+        "intent": "renewal-cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-10", "cancellation-11"],
+        "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
+        "imageBrief": "Lịch 7 ngày, thẻ gói YT7 và tin nhắn HUY YT7.",
+        "imageAlt": "Minh họa dừng gia hạn gói YT7 bằng HUY YT7 gửi 191.",
+        "status": "HOLD"
+    },
+    {
+        "topicId": "topic-b3-huydata-yt7",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "Hủy gói YT7 bằng HUYDATA YT7 gửi 191",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-12"],
+        "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
+        "imageBrief": "Tin nhắn HUYDATA YT7 gửi 191 với biểu tượng xác nhận trung tính.",
+        "imageAlt": "Minh họa cú pháp hủy gói YT7 bằng HUYDATA YT7 gửi 191.",
+        "status": "HOLD"
+    },
+    {
+        "topicId": "topic-b3-yt30-huy-huydata",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "YT30: phân biệt HUY YT30 để hủy gia hạn và HUYDATA YT30 để hủy gói",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-13", "cancellation-14"],
+        "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
+        "imageBrief": "So sánh hai tin nhắn HUY YT30 và HUYDATA YT30 bên cạnh lịch 30 ngày.",
+        "imageAlt": "Minh họa hai lựa chọn hủy gia hạn hoặc hủy gói YT30.",
+        "status": "HOLD"
+    },
+    {
+        "topicId": "topic-b3-st5km-huydata",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "Hủy ST5KM bằng HUYDATA ST5KM: cần làm theo bước nào của hệ thống?",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-15"],
+        "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
+        "imageBrief": "Tin nhắn HUYDATA ST5KM gửi 191 nối tới một màn hình yêu cầu làm theo hướng dẫn tiếp theo.",
+        "imageAlt": "Minh họa hủy gói ST5KM bằng HUYDATA ST5KM gửi 191.",
+        "status": "HOLD"
+    },
+    {
+        "topicId": "topic-b3-tk-191-account",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "Tra cứu tài khoản Viettel bằng TK gửi 191: dùng khi cần kiểm tra số dư nào?",
+        "intent": "informational",
+        "contentVersion": "v1",
+        "sourceFactIds": ["usage-02"],
+        "targetUrlPath": "/posts/cach-kiem-tra-tai-khoan-chinh/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b3-198-support",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "Muốn kiểm tra thông tin trực tiếp: tổng đài 198 của Viettel có thu phí không?",
+        "intent": "informational",
+        "contentVersion": "v1",
+        "sourceFactIds": ["usage-05"],
+        "targetUrlPath": "/posts/cach-kiem-tra-tai-khoan-chinh/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b3-web-traffic-check",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "Kiểm tra lưu lượng trên vietteltelecom.vn: lựa chọn khi không dùng SMS",
+        "intent": "informational",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-02"],
+        "targetUrlPath": "/posts/cú-pháp-kiểm-tra-dung-lượng-data-4g-viettel-còn-lại/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b3-gic70-renewal",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "GIC70/GIC70T tự gia hạn sau bao lâu?",
+        "intent": "informational",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-06"],
+        "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b3-gic70-stop-renewal",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "GIC70/GIC70T: gửi HUY 191 để dừng gia hạn như thế nào?",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-08"],
+        "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b3-gic70-cancel-package",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "GIC70/GIC70T: khi nào dùng HUYDATA 191 để hủy gói?",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-09"],
+        "targetUrlPath": "/posts/hướng-dẫn-hủy-gói-cước-viettel-tránh-trừ-tiền-tự-động/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b3-yt7-renewal",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "YT7 gia hạn theo chu kỳ mấy ngày?",
+        "intent": "informational",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-10"],
+        "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b3-yt7-stop-renewal",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "YT7: dừng gia hạn bằng HUY YT7 191 có giữ ưu đãi đến hết chu kỳ không?",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-11"],
+        "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b3-yt7-cancel-package",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "YT7: HUYDATA YT7 gửi 191 dùng để hủy gói trong trường hợp nào?",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-12"],
+        "targetUrlPath": "/posts/hướng-dẫn-hủy-gói-cước-viettel-tránh-trừ-tiền-tự-động/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b3-yt30-renewal",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "YT30 tự gia hạn sau bao nhiêu ngày?",
+        "intent": "informational",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-13"],
+        "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b3-yt30-stop-renewal",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "YT30: HUY YT30 191 là hủy gia hạn hay hủy gói?",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-14"],
+        "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b3-yt30-cancel-package",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "YT30: HUYDATA YT30 191 khác gì với HUY YT30?",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-14"],
+        "targetUrlPath": "/posts/hướng-dẫn-hủy-gói-cước-viettel-tránh-trừ-tiền-tự-động/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b3-st5km-cancel-package",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "ST5KM tự gia hạn: hủy bằng HUYDATA ST5KM cần lưu ý điều gì?",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-15"],
+        "targetUrlPath": "/posts/hướng-dẫn-hủy-gói-cước-viettel-tránh-trừ-tiền-tự-động/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b3-huy-vs-huydata",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "HUY TÊN_GÓI và HUYDATA TÊN_GÓI gửi 191: dừng gia hạn khác hủy gói thế nào?",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["fact-5"],
+        "targetUrlPath": "/posts/hướng-dẫn-hủy-gói-cước-viettel-tránh-trừ-tiền-tự-động/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "blog3-exp-auto-renewal-varies-by-package",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "Vì sao gói data Viettel có thể tự gia hạn? Cách kiểm tra trước chu kỳ mới",
+        "intent": "informational",
+        "contentVersion": "v1",
+        "sourceFactIds": ["blog3-exp-01"],
+        "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
+        "imageBrief": "Vietnamese smartphone displaying a renewal reminder, mobile data icon, neutral blue Viettel-style palette, no logos or text overlays",
+        "imageAlt": "Minh họa kiểm tra gia hạn gói data Viettel",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "blog3-exp-fb7-renewal-versus-cancellation",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "FB7 tự gia hạn sau mấy ngày? Phân biệt HUY FB7 và HUYDATA FB7",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["blog3-exp-02"],
+        "targetUrlPath": "/posts/huy-goi-fb7-viettel/",
+        "imageBrief": "Smartphone SMS composer showing FB7 cancellation decision with calendar 7-day cue, clean instructional illustration, no brand logos or text overlays",
+        "imageAlt": "Minh họa hủy hoặc dừng gia hạn gói FB7 Viettel",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "blog3-exp-fb30-renewal-versus-cancellation",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "FB30 tự gia hạn sau mấy ngày? Phân biệt HUY FB30 và HUYDATA FB30",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["blog3-exp-03"],
+        "targetUrlPath": "/posts/huy-goi-fb30-viettel/",
+        "imageBrief": "Smartphone SMS cancellation flow for FB30 beside a 30-day calendar, neutral helpful illustration, no logos or text overlays",
+        "imageAlt": "Minh họa hủy hoặc dừng gia hạn gói FB30 Viettel",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "blog3-exp-fb30-restore-after-failed-renewal",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "FB30 gia hạn không thành công: thời gian khôi phục cần lưu ý",
+        "intent": "informational",
+        "contentVersion": "v1",
+        "sourceFactIds": ["blog3-exp-04"],
+        "targetUrlPath": "/posts/khoi-phuc-goi-fb30-viettel/",
+        "imageBrief": "Mobile phone with renewal failed notice and 90-day recovery timeline, clear editorial illustration, no logos or text overlays",
+        "imageAlt": "Minh họa thời gian khôi phục gói FB30 Viettel",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "blog3-exp-yt1-stop-daily-renewal",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "YT1 gia hạn hằng ngày: cách dừng gia hạn bằng SMS 191",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["blog3-exp-05"],
+        "targetUrlPath": "/posts/huy-gia-han-yt1-viettel/",
+        "imageBrief": "Phone SMS screen and daily calendar representing stopping YT1 renewal, simple service guide illustration, no logos or text overlays",
+        "imageAlt": "Minh họa dừng gia hạn gói YT1 Viettel",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "blog3-exp-1n-renewal-or-full-cancellation",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "Gói 1N: HUY 1N và HUYDATA 1N khác nhau thế nào?",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["blog3-exp-06"],
+        "targetUrlPath": "/posts/huy-goi-1n-viettel/",
+        "imageBrief": "Side-by-side SMS decision cards for stopping renewal versus cancelling 1N, instructional vector illustration, no logos or text overlays",
+        "imageAlt": "Minh họa phân biệt HUY và HUYDATA cho gói 1N Viettel",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "blog3-exp-st5km-confirm-cancellation",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "Hủy ST5KM qua 191: vì sao cần xác nhận tin nhắn Y?",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["blog3-exp-07"],
+        "targetUrlPath": "/posts/hướng-dẫn-hủy-gói-cước-viettel-tránh-trừ-tiền-tự-động/",
+        "imageBrief": "Two-step smartphone SMS confirmation flow showing cancellation then confirmation, clear Vietnamese tutorial illustration, no logos or text overlays",
+        "imageAlt": "Minh họa xác nhận hủy gói ST5KM Viettel",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "blog3-exp-postpaid-minutes-versus-data-check",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "Thuê bao trả sau: kiểm tra phút gọi và data Viettel bằng cú pháp nào?",
+        "intent": "informational",
+        "contentVersion": "v1",
+        "sourceFactIds": ["blog3-exp-08"],
+        "targetUrlPath": "/posts/kiem-tra-phut-goi-khuyen-mai-viettel-ktll-195/",
+        "imageBrief": "Smartphone with separate call-minute and mobile-data meters, concise mobile account checking illustration, no logos or text overlays",
+        "imageAlt": "Minh họa kiểm tra phút gọi và data thuê bao trả sau Viettel",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "blog3-exp-postpaid-cancellation-channels",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "Hủy gói trả sau Viettel: khi nào dùng SMS, My Viettel hoặc gọi 198?",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["blog3-exp-09"],
+        "targetUrlPath": "/posts/hướng-dẫn-hủy-gói-cước-viettel-tránh-trừ-tiền-tự-động/",
+        "imageBrief": "Three support channels on a smartphone: SMS, app, and customer service headset, editorial service illustration, no logos or text overlays",
+        "imageAlt": "Minh họa các kênh hỗ trợ hủy gói trả sau Viettel",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "blog3-exp-mxh100-long-cycle-renewal",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "3MXH100, 6MXH100, 12MXH100 gia hạn theo chu kỳ nào và cách dừng?",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["blog3-exp-10"],
+        "targetUrlPath": "/posts/huy-gia-han-mxh100-dai-han-viettel/",
+        "imageBrief": "Three calendar cards for 90, 180 and 360-day package cycles beside a phone, clear explanatory illustration, no logos or text overlays",
+        "imageAlt": "Minh họa chu kỳ gia hạn gói MXH100 dài hạn Viettel",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "blog3-exp-check-unlimited-roaming-data",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "Đang roaming: kiểm tra data đã dùng của gói không giới hạn qua 191",
+        "intent": "informational",
+        "contentVersion": "v1",
+        "sourceFactIds": ["blog3-exp-11"],
+        "targetUrlPath": "/posts/kiem-tra-data-roaming-viettel/",
+        "imageBrief": "Traveler using a smartphone abroad with roaming signal and data usage gauge, helpful editorial illustration, no logos or text overlays",
+        "imageAlt": "Minh họa kiểm tra data roaming Viettel",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "blog3-exp-cancel-unlimited-roaming-data",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "Không dùng nữa: hủy gói data roaming Viettel bằng tên gói qua 191",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["blog3-exp-12"],
+        "targetUrlPath": "/posts/huy-goi-data-roaming-viettel/",
+        "imageBrief": "International traveler phone with SMS cancellation action and roaming icon, clean service illustration, no logos or text overlays",
+        "imageAlt": "Minh họa hủy gói data roaming Viettel",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "blog3-exp-check-roaming-service-prerequisite",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "Trước khi mua data roaming: cần kiểm tra đã đăng ký chuyển vùng quốc tế chưa",
+        "intent": "informational",
+        "contentVersion": "v1",
+        "sourceFactIds": ["blog3-exp-13"],
+        "targetUrlPath": "/posts/kiem-tra-dieu-kien-goi-data-roaming-viettel/",
+        "imageBrief": "Travel checklist on a smartphone with roaming service enabled indicator, simple instructional illustration, no logos or text overlays",
+        "imageAlt": "Minh họa kiểm tra điều kiện dùng data roaming Viettel",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "blog3-exp-estonia-roaming-no-auto-renewal",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "Gói roaming Viettel có tự gia hạn không? Lưu ý từ gói dùng tại Estonia",
+        "intent": "informational",
+        "contentVersion": "v1",
+        "sourceFactIds": ["blog3-exp-14"],
+        "targetUrlPath": "/posts/goi-roaming-viettel-co-tu-gia-han-khong/",
+        "imageBrief": "European travel map with Estonia highlighted, smartphone roaming plan and no-renewal calendar symbol, no logos or text overlays",
+        "imageAlt": "Minh họa gói roaming Viettel tại Estonia không tự gia hạn",
+        "status": "QUEUE"
+    },
+    {"topicId":"topic-b1-esim-5g-tuong-thich","targetBlogId":"5229528996284551001","contentCharter":"Independent device and roaming guidance for Viettel users","title":"eSIM Viettel có dùng được 5G như SIM vật lý không?","intent":"informational","contentVersion":"v1","sourceFactIds":["usage-13"],"targetUrlPath":"/posts/esim-5g-kich-hoat-quet-qr/","imageBrief":"Điện thoại hiển thị eSIM và biểu tượng 5G, không có mã QR thật.","imageAlt":"Minh họa eSIM Viettel hoạt động trên điện thoại hỗ trợ 5G.","status":"QUEUE"},
+    {"topicId":"topic-b1-esim-quet-qr-buoc-dau","targetBlogId":"5229528996284551001","contentCharter":"Independent device and roaming guidance for Viettel users","title":"Nhận QR eSIM Viettel rồi làm gì? Trình tự thêm gói cước di động","intent":"informational","contentVersion":"v1","sourceFactIds":["usage-14"],"targetUrlPath":"/posts/esim-5g-kich-hoat-quet-qr/","imageBrief":"Điện thoại mở phần cài đặt di động và quét một QR minh họa đã làm mờ.","imageAlt":"Minh họa các bước thêm eSIM Viettel bằng mã QR.","status":"QUEUE"},
+    {"topicId":"topic-b1-esim-kich-hoat-ket-noi","targetBlogId":"5229528996284551001","contentCharter":"Independent device and roaming guidance for Viettel users","title":"Sau khi kích hoạt eSIM Viettel, kiểm tra kết nối 5G thế nào?","intent":"informational","contentVersion":"v1","sourceFactIds":["usage-15"],"targetUrlPath":"/posts/esim-5g-kich-hoat-quet-qr/","imageBrief":"Điện thoại có eSIM và cột sóng 5G cùng dấu kiểm.","imageAlt":"Minh họa kiểm tra kết nối sau khi kích hoạt eSIM Viettel.","status":"QUEUE"},
+    {"topicId":"topic-b1-iphone-chon-4g-5g-volte","targetBlogId":"5229528996284551001","contentCharter":"Independent device and roaming guidance for Viettel users","title":"iPhone dùng SIM Viettel: chọn 4G, 5G và VoLTE ở đâu?","intent":"informational","contentVersion":"v1","sourceFactIds":["usage-09"],"targetUrlPath":"/posts/cai-dat-4g-5g-volte-iphone-viettel/","imageBrief":"Màn hình iPhone minh họa mục Voice & Data với lựa chọn 4G và 5G.","imageAlt":"Minh họa vị trí cài đặt 4G, 5G và VoLTE trên iPhone dùng Viettel.","status":"QUEUE"},
+    {"topicId":"topic-b1-roaming-nhat-che-do-mang","targetBlogId":"5229528996284551001","contentCharter":"Independent device and roaming guidance for Viettel users","title":"Đi Nhật dùng Viettel: vì sao nên đặt máy ở chế độ 4G/5G (LTE)?","intent":"informational","contentVersion":"v1","sourceFactIds":["usage-06"],"targetUrlPath":"/posts/data-roaming-viettel-iphone-android/","imageBrief":"Hộ chiếu, điện thoại và lựa chọn 4G/5G LTE trên giao diện trung tính.","imageAlt":"Minh họa cài chế độ 4G hoặc 5G LTE khi roaming Viettel tại Nhật.","status":"QUEUE"},
+    {"topicId":"topic-b1-roaming-bat-data-truoc-khi-di","targetBlogId":"5229528996284551001","contentCharter":"Independent device and roaming guidance for Viettel users","title":"Có sóng nhưng không vào mạng ở nước ngoài: kiểm tra Data Roaming trước","intent":"informational","contentVersion":"v1","sourceFactIds":["usage-07"],"targetUrlPath":"/posts/data-roaming-viettel-iphone-android/","imageBrief":"Điện thoại có cột sóng và công tắc Data Roaming được bật.","imageAlt":"Minh họa bật Data Roaming để dùng dữ liệu Viettel ở nước ngoài.","status":"QUEUE"},
+    {"topicId":"topic-b1-iphone-data-roaming-duong-dan","targetBlogId":"5229528996284551001","contentCharter":"Independent device and roaming guidance for Viettel users","title":"Bật Data Roaming cho SIM Viettel trên iPhone theo đúng đường dẫn","intent":"informational","contentVersion":"v1","sourceFactIds":["usage-10"],"targetUrlPath":"/posts/data-roaming-viettel-iphone-android/","imageBrief":"Màn hình iPhone minh họa Cellular/Mobile Service và công tắc Data Roaming.","imageAlt":"Minh họa vị trí bật Data Roaming trên iPhone dùng SIM Viettel.","status":"QUEUE"},
+    {"topicId":"topic-b1-android-data-roaming-duong-dan","targetBlogId":"5229528996284551001","contentCharter":"Independent device and roaming guidance for Viettel users","title":"Bật Data Roaming cho SIM Viettel trên Android theo đúng đường dẫn","intent":"informational","contentVersion":"v1","sourceFactIds":["usage-11"],"targetUrlPath":"/posts/data-roaming-viettel-iphone-android/","imageBrief":"Màn hình Android minh họa Mobile Network và công tắc Data Roaming.","imageAlt":"Minh họa vị trí bật Data Roaming trên Android dùng Viettel.","status":"QUEUE"},
+    {"topicId":"topic-b1-roaming-khoi-dong-lai-may","targetBlogId":"5229528996284551001","contentCharter":"Independent device and roaming guidance for Viettel users","title":"Đổi cài đặt roaming xong có cần khởi động lại điện thoại không?","intent":"informational","contentVersion":"v1","sourceFactIds":["usage-12"],"targetUrlPath":"/posts/data-roaming-viettel-iphone-android/","imageBrief":"Điện thoại với biểu tượng khởi động lại và biểu tượng roaming.","imageAlt":"Minh họa khởi động lại điện thoại sau khi đổi cài đặt roaming.","status":"QUEUE"},
+    {"topicId":"topic-b1-roaming-chon-mang-thu-cong","targetBlogId":"5229528996284551001","contentCharter":"Independent device and roaming guidance for Viettel users","title":"Khi roaming, lúc nào nên thử chọn mạng thủ công thay vì tự động?","intent":"informational","contentVersion":"v1","sourceFactIds":["troubleshooting-11"],"targetUrlPath":"/posts/chon-mang-thu-cong-roaming-viettel/","imageBrief":"Điện thoại ở nước ngoài hiển thị danh sách mạng và lựa chọn thủ công.","imageAlt":"Minh họa chọn mạng di động thủ công khi roaming Viettel.","status":"QUEUE"},
+    {"topicId":"topic-b1-roaming-tra-lai-tu-dong","targetBlogId":"5229528996284551001","contentCharter":"Independent device and roaming guidance for Viettel users","title":"Đã chọn mạng thủ công khi roaming: khi nào phải trả về chế độ tự động?","intent":"informational","contentVersion":"v1","sourceFactIds":["troubleshooting-12"],"targetUrlPath":"/posts/chon-mang-thu-cong-roaming-viettel/","imageBrief":"Điện thoại chuyển từ danh sách mạng sang công tắc chọn tự động.","imageAlt":"Minh họa trả chế độ chọn mạng về tự động sau khi roaming.","status":"QUEUE"},
+    {"topicId":"topic-b1-iphone-roaming-chon-mang","targetBlogId":"5229528996284551001","contentCharter":"Independent device and roaming guidance for Viettel users","title":"iPhone roaming Viettel: cách mở mục chọn mạng thủ công","intent":"informational","contentVersion":"v1","sourceFactIds":["troubleshooting-13"],"targetUrlPath":"/posts/chon-mang-thu-cong-roaming-viettel/","imageBrief":"Màn hình iPhone minh họa Network Selection và công tắc Automatic.","imageAlt":"Minh họa mở chọn mạng thủ công trên iPhone khi roaming.","status":"QUEUE"},
+    {"topicId":"topic-b1-android-roaming-chon-mang","targetBlogId":"5229528996284551001","contentCharter":"Independent device and roaming guidance for Viettel users","title":"Android roaming Viettel: cách mở mục Network Operators để chọn mạng","intent":"informational","contentVersion":"v1","sourceFactIds":["troubleshooting-14"],"targetUrlPath":"/posts/chon-mang-thu-cong-roaming-viettel/","imageBrief":"Màn hình Android minh họa Network Operators và tùy chọn Select automatically.","imageAlt":"Minh họa mở chọn mạng thủ công trên Android khi roaming.","status":"QUEUE"},
+    {"topicId":"topic-b1-ussd-2g-tat-can-cap-nhat-gi","targetBlogId":"5229528996284551001","contentCharter":"Independent device and roaming guidance for Viettel users","title":"Tắt 2G/3G ảnh hưởng USSD: cần kiểm tra phần mềm và thiết bị gì?","intent":"informational","contentVersion":"v1","sourceFactIds":["troubleshooting-01"],"targetUrlPath":"/posts/ussd-viettel-qua-4g-volte-ims/","imageBrief":"Điện thoại cập nhật phần mềm với biểu tượng 4G/IMS, không hiển thị mã cá nhân.","imageAlt":"Minh họa cập nhật thiết bị để hỗ trợ USSD qua 4G.","status":"QUEUE"},
+    {"topicId":"topic-b1-ussd-thiet-bi-khong-tuong-thich","targetBlogId":"5229528996284551001","contentCharter":"Independent device and roaming guidance for Viettel users","title":"Vì sao điện thoại chưa tương thích có thể không thực hiện được USSD sau tắt 2G/3G?","intent":"informational","contentVersion":"v1","sourceFactIds":["troubleshooting-02"],"targetUrlPath":"/posts/ussd-viettel-qua-4g-volte-ims/","imageBrief":"Điện thoại cũ, biểu tượng USSD và cảnh báo tương thích phần mềm.","imageAlt":"Minh họa thiết bị chưa tương thích với USSD qua 4G.","status":"QUEUE"},
+    {"topicId":"topic-b1-ussd-dich-vu-bi-anh-huong","targetBlogId":"5229528996284551001","contentCharter":"Independent device and roaming guidance for Viettel users","title":"Sau thay đổi 2G/3G, những thao tác USSD nào có thể bị gián đoạn?","intent":"informational","contentVersion":"v1","sourceFactIds":["troubleshooting-03"],"targetUrlPath":"/posts/ussd-viettel-qua-4g-volte-ims/","imageBrief":"Bàn phím gọi điện với các biểu tượng tài khoản, nạp tiền và dịch vụ.","imageAlt":"Minh họa các thao tác USSD có thể bị ảnh hưởng khi tắt 2G/3G.","status":"QUEUE"},
+    {"topicId":"topic-b1-android-kiem-tra-ussd-ims","targetBlogId":"5229528996284551001","contentCharter":"Independent device and roaming guidance for Viettel users","title":"Android dùng USSD qua 4G: kiểm tra VoLTE hoặc IMS Registration thế nào?","intent":"informational","contentVersion":"v1","sourceFactIds":["troubleshooting-04"],"targetUrlPath":"/posts/ussd-viettel-qua-4g-volte-ims/","imageBrief":"Điện thoại Android tắt Wi-Fi, bật dữ liệu di động và hiển thị VoLTE/IMS.","imageAlt":"Minh họa kiểm tra hỗ trợ USSD qua 4G trên Android.","status":"QUEUE"},
+    {"topicId":"topic-b1-android-thu-ussd-4g","targetBlogId":"5229528996284551001","contentCharter":"Independent device and roaming guidance for Viettel users","title":"Cách nhận biết Android đã hỗ trợ USSD qua 4G bằng thao tác thử an toàn","intent":"informational","contentVersion":"v1","sourceFactIds":["troubleshooting-05"],"targetUrlPath":"/posts/ussd-viettel-qua-4g-volte-ims/","imageBrief":"Bàn phím Android với mã USSD minh họa và dấu kiểm kết quả.","imageAlt":"Minh họa kiểm tra hỗ trợ USSD qua 4G trên Android.","status":"QUEUE"},
+    {"topicId":"topic-b1-iphone-ussd-4g-volte","targetBlogId":"5229528996284551001","contentCharter":"Independent device and roaming guidance for Viettel users","title":"iPhone dùng USSD qua 4G: chọn 4G/5G và VoLTE ở đâu?","intent":"informational","contentVersion":"v1","sourceFactIds":["troubleshooting-06"],"targetUrlPath":"/posts/ussd-viettel-qua-4g-volte-ims/","imageBrief":"Màn hình iPhone minh họa Cellular Data Options, 4G/5G và VoLTE.","imageAlt":"Minh họa cấu hình USSD qua 4G trên iPhone.","status":"QUEUE"},
+    {"topicId":"topic-b1-iphone-kiem-tra-bieu-tuong-mang","targetBlogId":"5229528996284551001","contentCharter":"Independent device and roaming guidance for Viettel users","title":"Tắt Wi-Fi trên iPhone để kiểm tra máy đang bám 4G/LTE hay 5G","intent":"informational","contentVersion":"v1","sourceFactIds":["troubleshooting-07"],"targetUrlPath":"/posts/kiem-tra-bieu-tuong-4g-lte-5g-iphone/","imageBrief":"Thanh trạng thái iPhone với Wi-Fi tắt và biểu tượng 4G/LTE/5G.","imageAlt":"Minh họa kiểm tra biểu tượng mạng di động trên iPhone.","status":"QUEUE"},
+    {"topicId":"topic-b1-ios-181-ussd-ims","targetBlogId":"5229528996284551001","contentCharter":"Independent device and roaming guidance for Viettel users","title":"iPhone cần iOS 18.1 để hỗ trợ USSD over IMS: kiểm tra phiên bản ở đâu?","intent":"informational","contentVersion":"v1","sourceFactIds":["troubleshooting-08"],"targetUrlPath":"/posts/ussd-viettel-qua-4g-volte-ims/","imageBrief":"Màn hình iPhone About/Software Update minh họa phiên bản iOS 18.1.","imageAlt":"Minh họa kiểm tra phiên bản iOS để dùng USSD over IMS.","status":"QUEUE"},
+    {"topicId":"topic-b1-do-toc-do-4g-5g-speedtest-ping","targetBlogId":"5229528996284551001","contentCharter":"Independent device and roaming guidance for Viettel users","title":"Đo tốc độ 4G/5G Viettel: vì sao nên xem cả Ping, không chỉ tốc độ tải?","intent":"informational","contentVersion":"v1","sourceFactIds":["troubleshooting-10"],"targetUrlPath":"/posts/cach-do-toc-do-4g-5g-viettel/","imageBrief":"Đồng hồ Speedtest minh họa download, upload và ping không có số liệu cụ thể.","imageAlt":"Minh họa đo tốc độ và độ trễ Ping trên mạng 4G hoặc 5G.","status":"QUEUE"},
+    {"topicId":"topic-b1-esim-khong-can-doi-sim-5g","targetBlogId":"5229528996284551001","contentCharter":"Independent device and roaming guidance for Viettel users","title":"eSIM hay SIM vật lý: điều kiện nào quyết định việc dùng 5G trên điện thoại?","intent":"informational","contentVersion":"v1","sourceFactIds":["usage-13","usage-15"],"targetUrlPath":"/posts/esim-5g-kich-hoat-quet-qr/","imageBrief":"So sánh minh họa SIM vật lý và eSIM cùng kết nối tới một điện thoại 5G.","imageAlt":"Minh họa eSIM và SIM vật lý trên điện thoại tương thích 5G.","status":"QUEUE"},
+    {"topicId":"topic-b1-roaming-chon-mang-iphone-android","targetBlogId":"5229528996284551001","contentCharter":"Independent device and roaming guidance for Viettel users","title":"Roaming bị chập chờn: khác nhau giữa iPhone và Android khi chọn mạng thủ công","intent":"informational","contentVersion":"v1","sourceFactIds":["troubleshooting-13","troubleshooting-14"],"targetUrlPath":"/posts/chon-mang-thu-cong-roaming-viettel/","imageBrief":"Hai điện thoại iPhone và Android hiển thị các menu chọn mạng tương ứng.","imageAlt":"Minh họa chọn mạng thủ công khi roaming trên iPhone và Android.","status":"QUEUE"}
 ]
