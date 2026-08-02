@@ -137,5 +137,25 @@
     "postId": "7703657266650458657",
     "publishedUrl": "https://camnang4gviettel.blogspot.com/2026/08/esim-viettel-co-dung-uoc-5g-nhu-sim-vat.html",
     "publishedAt": "2026-08-02T19:05:22.540Z"
+  },
+  {
+    "idempotencyKey": "01e8af915c9f6e90f472446f534e13a8983c94d3286a5bddce65d19a19332a95",
+    "blogId": "5656849674298814641",
+    "topicId": "topic-b2-kiem-tra-data-kttk-191",
+    "contentVersion": "v1",
+    "contentHash": "b47cf2cc5b1d542b4cb01081e4163b0783b493c8858a8732e025584f84c39326",
+    "status": "INSERT_STARTED",
+    "gateResults": {
+      "packageEvidence": "PASS",
+      "facts": "PASS",
+      "targetUrl": "PASS",
+      "html": "PASS",
+      "idempotency": "PASS",
+      "duplicate": "PASS",
+      "insert": "NOT_RUN",
+      "readBack": "NOT_RUN",
+      "publishedUrl": "NOT_RUN"
+    },
+    "createdAt": "2026-08-02T19:38:10.686Z"
   }
 ]
