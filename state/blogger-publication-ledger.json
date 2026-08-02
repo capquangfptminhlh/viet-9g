@@ -91,5 +91,25 @@
       "publishedUrl": "NOT_RUN"
     },
     "createdAt": "2026-08-02T04:25:03.547Z"
+  },
+  {
+    "idempotencyKey": "eecdff38059754ab3aa394513400b9f59c40ea5187e5227305b70440f5447737",
+    "blogId": "2757413717171314447",
+    "topicId": "topic-b3-tk-191-account",
+    "contentVersion": "v1",
+    "contentHash": "5ea3d26182ee622dc48e2009fba942040841c6ed8c8bf0b000be005c0b503f30",
+    "status": "INSERT_STARTED",
+    "gateResults": {
+      "packageEvidence": "PASS",
+      "facts": "PASS",
+      "targetUrl": "PASS",
+      "html": "PASS",
+      "idempotency": "PASS",
+      "duplicate": "PASS",
+      "insert": "NOT_RUN",
+      "readBack": "NOT_RUN",
+      "publishedUrl": "NOT_RUN"
+    },
+    "createdAt": "2026-08-02T14:39:34.679Z"
   }
 ]
