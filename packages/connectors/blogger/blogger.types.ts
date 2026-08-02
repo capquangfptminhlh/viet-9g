@@ -1,6 +1,6 @@
 ﻿export interface BloggerPostRequest {
   blogId: string;
-  isDraft: true;
+  isDraft: boolean;
   requestBody: {
     title: string;
     content: string;

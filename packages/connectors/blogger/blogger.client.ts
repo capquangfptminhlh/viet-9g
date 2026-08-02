@@ -15,7 +15,7 @@ export class RealBloggerClient implements BloggerClient {
   async insertPost(req: BloggerPostRequest): Promise<BloggerPostResponse> {
     const res = await this.client.posts.insert({
       blogId: req.blogId,
-      isDraft: true,
+      isDraft: req.isDraft,
       requestBody: req.requestBody,
     });
     return res.data;

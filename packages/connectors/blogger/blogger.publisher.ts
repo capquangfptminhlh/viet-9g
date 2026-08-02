@@ -15,4 +15,17 @@ export class BloggerPublisher {
     };
     return this.client.insertPost(request);
   }
+
+  async publishPost(payload: DraftPayload): Promise<BloggerPostResponse> {
+    const request: BloggerPostRequest = {
+      blogId: payload.blogId,
+      isDraft: false,
+      requestBody: {
+        title: payload.title,
+        content: payload.sanitizedHtml,
+        labels: payload.labels,
+      },
+    };
+    return this.client.insertPost(request);
+  }
 }
