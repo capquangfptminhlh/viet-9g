@@ -702,5 +702,131 @@
     "effectiveAt": "2026-08-02",
     "expiresAt": "2026-08-09T23:59:59Z",
     "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "blog3-exp-01",
+    "claim": "A data package may auto-renew at cycle end when its own conditions are met; Viettel notes that renewal behavior differs by package and available balance.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/huong-dan-kiem-tra-ngay-het-han-cua-goi-cuoc-data-viettel/10455428",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-09-01T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "blog3-exp-02",
+    "claim": "For FB7, Viettel states a 7-day automatic renewal cycle; HUY FB7 to 191 stops renewal and HUYDATA FB7 to 191 cancels the package.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/luot-facebook-khong-gioi-han-data-cung-viettel-voi-goi-cuoc-moi-fb7-va-fb30/17165624",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-09-01T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "blog3-exp-03",
+    "claim": "For FB30, Viettel states a 30-day automatic renewal cycle; HUY FB30 to 191 stops renewal and HUYDATA FB30 to 191 cancels the package.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/luot-facebook-khong-gioi-han-data-cung-viettel-voi-goi-cuoc-moi-fb7-va-fb30/17165624",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-09-01T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "blog3-exp-04",
+    "claim": "Viettel says FB30 can be restored for 90 days after a failed renewal for eligible prepaid subscribers.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/luot-facebook-khong-gioi-han-data-cung-viettel-voi-goi-cuoc-moi-fb7-va-fb30/17165624",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-09-01T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "blog3-exp-05",
+    "claim": "For YT1, Viettel states the package renews daily and gives HUY YT1 to 191 as the instruction to stop renewal.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/diem-danh-cac-goi-cuoc-data-viettel-xem-youtube-khong-gioi-han/10454296",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-09-01T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "blog3-exp-06",
+    "claim": "For the 1N daily package, Viettel distinguishes HUY 1N to 191 for stopping renewal from HUYDATA 1N to 191 for cancelling the package.",
+    "sourceUrl": "https://shop.viettel.vn/tin-tuc/chi-tiet/danh-sach-cac-goi-cuoc-data-ngay-viettel-chi-voi-5k-10k/10530408",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-09-01T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "blog3-exp-07",
+    "claim": "For ST5KM, Viettel gives HUYDATA ST5KM to 191 and then requires the confirmation reply Y to 191 to complete cancellation.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/bat-mi-cach-huy-goi-cuoc-st5km-nhanh-chong-chi-voi-vai-thao-tac/15580316",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-09-01T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "blog3-exp-08",
+    "claim": "Viettel's postpaid guide uses KTLL to 195 for promotional call minutes and KTTK to 191 for data allowance.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-tong-hop-cac-goi-cuoc-tra-sau-viettel-gia-re-toc-do-cao-moi-nhat/16969792",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-09-01T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "blog3-exp-09",
+    "claim": "Viettel's postpaid guide lists three cancellation support paths: HUY TEN_GOI to 191, cancel in My Viettel, or call 198 for information and guidance.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-tong-hop-cac-goi-cuoc-tra-sau-viettel-gia-re-toc-do-cao-moi-nhat/16969792",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-09-01T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "blog3-exp-10",
+    "claim": "Viettel lists 3MXH100, 6MXH100, and 12MXH100 with 90-, 180-, and 360-day renewal cycles respectively, and gives HUY TEN_GOI to 191 for cancellation.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/goi-100k-viettel-mxh100-co-30gbthang-mien-phi-truy-cap-mang-xa-hoi/16819500",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-09-01T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "blog3-exp-11",
+    "claim": "Viettel says that while using an unlimited roaming-data package, customers can check used allowance by sending KTTK to 191.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/diem-danh-cac-goi-data-roaming-khong-gioi-han-viettel/18303500",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-09-01T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "blog3-exp-12",
+    "claim": "Viettel says customers who no longer need an unlimited roaming-data package, or need a different one, can send HUY [ten goi] to 191.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/diem-danh-cac-goi-data-roaming-khong-gioi-han-viettel/18303500",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-09-01T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "blog3-exp-13",
+    "claim": "Viettel states that roaming service must be registered before a customer can use international roaming-data packages.",
+    "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/diem-danh-cac-goi-data-roaming-khong-gioi-han-viettel/18303500",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-09-01T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
+  },
+  {
+    "id": "blog3-exp-14",
+    "claim": "Viettel's Estonia roaming guide says its listed roaming data and voice/SMS packages do not automatically renew.",
+    "sourceUrl": "https://shop.viettel.vn/tin-tuc/chi-tiet/top-8-goi-cuoc-roaming-estonia-e-xto-ni-a-tien-loi-duoc-yeu-thich-nhat/15030948/",
+    "retrievedAt": "2026-08-02",
+    "effectiveAt": "2026-08-02",
+    "expiresAt": "2026-09-01T23:59:59Z",
+    "recheckPolicy": "Recheck the official source before publication after expiresAt."
   }
 ]

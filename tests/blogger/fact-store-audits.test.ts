@@ -62,6 +62,19 @@ describe('canonical Blogger fact store audits', () => {
   const facts: Fact[] = JSON.parse(fs.readFileSync('data/facts.json', 'utf8').replace(/^\uFEFF/, ''));
   const auditedFacts = AUDITS.flatMap(({ file, prefix }) => readAudit(file, prefix));
 
+  it('loads every Blog 3 expansion fact from an unexpired official Viettel source', () => {
+    const requiredIds = Array.from({ length: 14 }, (_, index) => `blog3-exp-${String(index + 1).padStart(2, '0')}`);
+    const officialViettelHost = /^(?:https:\/\/)(?:098\.viettel\.vn|(?:www\.)?vietteltelecom\.vn|shop\.viettel\.vn)\//;
+
+    for (const id of requiredIds) {
+      const fact = facts.find((candidate) => candidate.id === id);
+      expect(fact, id).toBeDefined();
+      expect(fact?.sourceUrl, id).toMatch(officialViettelHost);
+      expect(fact?.expiresAt, id).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/);
+      expect(Date.parse(fact!.expiresAt!), id).toBeGreaterThan(Date.parse(AUDIT_DATE));
+    }
+  });
+
   it('preserves existing facts and has globally unique IDs', () => {
     const ids = facts.map((fact) => fact.id);
     expect(new Set(ids).size).toBe(ids.length);
