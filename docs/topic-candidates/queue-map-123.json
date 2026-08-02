@@ -1,0 +1,132 @@
+{
+  "generatedAt": "2026-08-02",
+  "source": "data/facts.json",
+  "queues": [
+    {
+      "blogId": "5229528996284551001",
+      "candidates": []
+    },
+    {
+      "blogId": "5656849674298814641",
+      "candidates": [
+        {
+          "title": "Kiểm tra data Viettel còn lại và hạn dùng bằng KTTK gửi 191",
+          "intent": "data-check",
+          "targetUrlPath": "/posts/cú-pháp-kiểm-tra-dung-lượng-data-4g-viettel-còn-lại",
+          "sourceFactIds": ["cancellation-01"],
+          "imageBrief": "Điện thoại hiển thị tin nhắn KTTK với nhãn dung lượng còn lại và hạn dùng.",
+          "imageAlt": "Minh họa kiểm tra dung lượng data và hạn dùng Viettel bằng KTTK gửi 191."
+        },
+        {
+          "title": "Tra cứu gói và lưu lượng Viettel qua *098# theo hướng dẫn trên màn hình",
+          "intent": "data-check",
+          "targetUrlPath": "/posts/cach-kiem-tra-tai-khoan-chinh",
+          "sourceFactIds": ["cancellation-03"],
+          "imageBrief": "Bàn phím điện thoại với mã *098# và các bước tra cứu trung tính.",
+          "imageAlt": "Minh họa tra cứu gói và lưu lượng Viettel bằng mã *098#."
+        },
+        {
+          "title": "My Viettel hiển thị dung lượng, tên gói và hạn dùng ở đâu?",
+          "intent": "data-check",
+          "targetUrlPath": "/posts/cú-pháp-kiểm-tra-dung-lượng-data-4g-viettel-còn-lại",
+          "sourceFactIds": ["cancellation-04"],
+          "imageBrief": "Màn hình ứng dụng minh họa ba trường: dung lượng data, tên gói, hạn dùng.",
+          "imageAlt": "Minh họa thông tin dung lượng, tên gói và hạn dùng trong My Viettel."
+        },
+        {
+          "title": "Điện thoại hỗ trợ 5G có cần đổi SIM Viettel không?",
+          "intent": "5g-eligibility",
+          "targetUrlPath": "/posts/lỗi-đăng-ký-4g-viettel-không-thành-công-và-cách-khắc-phục",
+          "sourceFactIds": ["troubleshooting-09"],
+          "imageBrief": "SIM Viettel và điện thoại có biểu tượng 5G, kèm dấu kiểm về khả năng tương thích.",
+          "imageAlt": "Minh họa điện thoại hỗ trợ 5G dùng với SIM Viettel đang có."
+        }
+      ]
+    },
+    {
+      "blogId": "2757413717171314447",
+      "candidates": [
+        {
+          "title": "KTTK gửi 191 cho biết dung lượng còn lại và hạn dùng của gói thế nào?",
+          "intent": "data-check",
+          "targetUrlPath": "/posts/cú-pháp-kiểm-tra-dung-lượng-data-4g-viettel-còn-lại",
+          "sourceFactIds": ["cancellation-01"],
+          "imageBrief": "Tin nhắn KTTK trên điện thoại với hai nhãn dung lượng và hạn sử dụng.",
+          "imageAlt": "Minh họa kết quả kiểm tra dung lượng và hạn dùng bằng KTTK gửi 191."
+        },
+        {
+          "title": "Kiểm tra gói và lưu lượng Viettel qua *098# theo hướng dẫn trên màn hình",
+          "intent": "data-check",
+          "targetUrlPath": "/posts/cach-kiem-tra-tai-khoan-chinh",
+          "sourceFactIds": ["cancellation-03"],
+          "imageBrief": "Điện thoại đang nhập *098# và một bảng hướng dẫn tra cứu đơn giản.",
+          "imageAlt": "Minh họa tra cứu gói và lưu lượng Viettel qua mã *098#."
+        },
+        {
+          "title": "Kiểm tra dung lượng, tên gói và hạn dùng trên My Viettel",
+          "intent": "data-check",
+          "targetUrlPath": "/posts/cú-pháp-kiểm-tra-dung-lượng-data-4g-viettel-còn-lại",
+          "sourceFactIds": ["cancellation-04"],
+          "imageBrief": "Giao diện ứng dụng minh họa các mục dung lượng, tên gói và hạn dùng.",
+          "imageAlt": "Minh họa xem thông tin gói data trong My Viettel."
+        },
+        {
+          "title": "Cần hỗ trợ kiểm tra hoặc tư vấn gói Viettel: gọi 198 có mất phí không?",
+          "intent": "support",
+          "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
+          "sourceFactIds": ["cancellation-05"],
+          "imageBrief": "Điện thoại gọi 198 cùng biểu tượng tai nghe hỗ trợ, không có cam kết thời gian xử lý.",
+          "imageAlt": "Minh họa gọi tổng đài 198 để được hỗ trợ và tư vấn Viettel."
+        },
+        {
+          "title": "GIC70 và GIC70T tự gia hạn sau bao lâu?",
+          "intent": "renewal-check",
+          "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
+          "sourceFactIds": ["cancellation-06"],
+          "imageBrief": "Lịch 30 ngày cạnh thẻ gói GIC70/GIC70T và biểu tượng gia hạn.",
+          "imageAlt": "Minh họa chu kỳ tự gia hạn 30 ngày của gói GIC70 và GIC70T."
+        },
+        {
+          "title": "GIC70/GIC70T: HUY và HUYDATA gửi 191 khác nhau thế nào?",
+          "intent": "cancellation",
+          "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
+          "sourceFactIds": ["cancellation-08", "cancellation-09"],
+          "imageBrief": "Hai tin nhắn trung tính HUY và HUYDATA cạnh tên gói GIC70/GIC70T.",
+          "imageAlt": "Minh họa phân biệt HUY và HUYDATA cho gói GIC70 hoặc GIC70T."
+        },
+        {
+          "title": "YT7 gia hạn sau 7 ngày: cách dừng gia hạn mà giữ ưu đãi đến hết chu kỳ",
+          "intent": "renewal-cancellation",
+          "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
+          "sourceFactIds": ["cancellation-10", "cancellation-11"],
+          "imageBrief": "Lịch 7 ngày, thẻ gói YT7 và tin nhắn HUY YT7.",
+          "imageAlt": "Minh họa dừng gia hạn gói YT7 bằng HUY YT7 gửi 191."
+        },
+        {
+          "title": "Hủy gói YT7 bằng HUYDATA YT7 gửi 191",
+          "intent": "cancellation",
+          "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
+          "sourceFactIds": ["cancellation-12"],
+          "imageBrief": "Tin nhắn HUYDATA YT7 gửi 191 với biểu tượng xác nhận trung tính.",
+          "imageAlt": "Minh họa cú pháp hủy gói YT7 bằng HUYDATA YT7 gửi 191."
+        },
+        {
+          "title": "YT30: phân biệt HUY YT30 để hủy gia hạn và HUYDATA YT30 để hủy gói",
+          "intent": "cancellation",
+          "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
+          "sourceFactIds": ["cancellation-13", "cancellation-14"],
+          "imageBrief": "So sánh hai tin nhắn HUY YT30 và HUYDATA YT30 bên cạnh lịch 30 ngày.",
+          "imageAlt": "Minh họa hai lựa chọn hủy gia hạn hoặc hủy gói YT30."
+        },
+        {
+          "title": "Hủy ST5KM bằng HUYDATA ST5KM: cần làm theo bước nào của hệ thống?",
+          "intent": "cancellation",
+          "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
+          "sourceFactIds": ["cancellation-15"],
+          "imageBrief": "Tin nhắn HUYDATA ST5KM gửi 191 nối tới một màn hình yêu cầu làm theo hướng dẫn tiếp theo.",
+          "imageAlt": "Minh họa hủy gói ST5KM bằng HUYDATA ST5KM gửi 191."
+        }
+      ]
+    }
+  ]
+}
