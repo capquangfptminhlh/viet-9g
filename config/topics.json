@@ -99,5 +99,27 @@
                                         "Hết 3GB ngừng truy cập, không có data tốc độ thường"
                                     ]
                        }
+    },
+    {
+        "topicId": "topic-huy-goi-cuoc-xac-nhan-191",
+        "targetBlogId": "5229528996284551001",
+        "contentCharter": "Independent cancellation guidance for Viettel data packages",
+        "title": "Hủy gói data Viettel qua 191: vì sao phải xác nhận tin nhắn Y?",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["fact-5"],
+        "targetUrlPath": "/huong-dan/huy-goi-cuoc-viettel/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-huy-goi-cuoc-phan-biet-191",
+        "targetBlogId": "5229528996284551001",
+        "contentCharter": "Independent cancellation guidance for Viettel data packages",
+        "title": "HUY và HUYDATA gửi 191 khác nhau thế nào trước khi bạn hủy gói?",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["fact-5"],
+        "targetUrlPath": "/huong-dan/huy-goi-cuoc-viettel/",
+        "status": "QUEUE"
     }
 ]
