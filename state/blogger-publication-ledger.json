@@ -114,5 +114,25 @@
     "postId": "3710386793836232266",
     "publishedUrl": "https://kiemtragoicuocviettel.blogspot.com/2026/08/tra-cuu-tai-khoan-viettel-bang-tk-gui.html",
     "publishedAt": "2026-08-02T14:39:39.861Z"
+  },
+  {
+    "idempotencyKey": "a854fc38fd87cce1623d9d9a10efc5372960f05bfeeaba6a79a5f9d0fd3a4371",
+    "blogId": "5229528996284551001",
+    "topicId": "topic-b1-esim-5g-tuong-thich",
+    "contentVersion": "v1",
+    "contentHash": "c767d8488b577e4fcdfae726ec5d6331a2476cf6ae1a997fdf853a7580e4e405",
+    "status": "INSERT_STARTED",
+    "gateResults": {
+      "packageEvidence": "PASS",
+      "facts": "PASS",
+      "targetUrl": "PASS",
+      "html": "PASS",
+      "idempotency": "PASS",
+      "duplicate": "PASS",
+      "insert": "NOT_RUN",
+      "readBack": "NOT_RUN",
+      "publishedUrl": "NOT_RUN"
+    },
+    "createdAt": "2026-08-02T19:05:20.833Z"
   }
 ]
