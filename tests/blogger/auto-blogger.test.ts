@@ -4,12 +4,37 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { isPackageTopicEligible, runAutoBlogger } from '../../scripts/auto-blogger';
 import { loadPackageCatalog } from '../../src/data/package-catalog';
 import { createTopicDraftHtml } from '../../packages/content-engine/blogger-content-generator';
-import { createIdempotencyKey } from '../../packages/connectors/blogger/blogger.idempotency';
+import { createIdempotencyKey, type LedgerEntry } from '../../packages/connectors/blogger/blogger.idempotency';
 import type { BloggerClient, BloggerPostRequest } from '../../packages/connectors/blogger/blogger.types';
 
 afterEach(() => vi.restoreAllMocks());
 
 describe('Auto Blogger Orchestration', () => {
+  function createVerifiedClient(inserts: BloggerPostRequest[]): BloggerClient {
+    return {
+      async insertPost(request) {
+        inserts.push(request);
+        return {
+          id: `post-${inserts.length}`,
+          status: 'LIVE',
+          url: `https://${request.blogId}.example.blogspot.com/${request.requestBody.title}`,
+        };
+      },
+      async getPost(blogId, postId) {
+        const inserted = inserts.find((request) => request.blogId === blogId)!;
+        return {
+          id: postId,
+          blog: { id: blogId },
+          status: 'LIVE',
+          title: inserted.requestBody.title,
+          content: inserted.requestBody.content,
+          labels: inserted.requestBody.labels,
+        };
+      },
+      async listPosts() { return []; },
+    };
+  }
+
   it('publishes an eligible topic and marks the durable attempt LIVE only after read-back verification', async () => {
     const inserts: BloggerPostRequest[] = [];
     const writes: string[] = [];
@@ -73,6 +98,195 @@ describe('Auto Blogger Orchestration', () => {
     expect(summaries.join('\n')).toContain('Status: LIVE');
     expect(summaries.join('\n')).toContain('https://example.blogspot.com/eligible-topic');
     expect(summaries.join('\n')).not.toContain('must-not-leak');
+  });
+
+  it('skips a blog at its daily limit and publishes at most one topic on another enabled blog', async () => {
+    const inserts: BloggerPostRequest[] = [];
+    const ledger: LedgerEntry[] = [{
+      idempotencyKey: 'blog-a-today',
+      blogId: 'blog-a',
+      topicId: 'published-today',
+      contentHash: 'published-today',
+      status: 'LIVE',
+      createdAt: '2026-08-02T01:00:00.000Z',
+      publishedAt: '2026-08-02T01:00:00.000Z',
+    }];
+
+    const result = await runAutoBlogger({
+      client: createVerifiedClient(inserts),
+      ledgerStore: {
+        async load() { return ledger; },
+        async save() {},
+      },
+      sites: [
+        { blogId: 'blog-a', enabled: true },
+        { blogId: 'blog-b', enabled: true },
+      ],
+      topics: [
+        { topicId: 'topic-a', status: 'QUEUE', targetBlogId: 'blog-a', intent: 'info', title: 'Topic A', targetUrlPath: '/tin-tuc/', sourceFactIds: ['f1'] },
+        { topicId: 'topic-b', status: 'QUEUE', targetBlogId: 'blog-b', intent: 'info', title: 'Topic B', targetUrlPath: '/tin-tuc/', sourceFactIds: ['f1'] },
+      ],
+      env: { BLOGGER_ENABLED: 'true' },
+      facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }],
+      now: new Date('2026-08-02T12:00:00.000Z'),
+    });
+
+    expect(result).toMatchObject({ status: 'SUCCESS', selectedTopicId: 'topic-b', attemptedBlogIds: ['blog-b'] });
+    expect(inserts).toHaveLength(1);
+    expect(inserts[0].blogId).toBe('blog-b');
+  });
+
+  it('does not audit later blogs after selecting the run winner', async () => {
+    const inserts: BloggerPostRequest[] = [];
+    const saves: any[][] = [];
+    const ledger: LedgerEntry[] = [{
+      idempotencyKey: 'blog-b-today',
+      blogId: 'blog-b',
+      topicId: 'published-today',
+      contentHash: 'published-today',
+      status: 'LIVE',
+      createdAt: '2026-08-02T01:00:00.000Z',
+      publishedAt: '2026-08-02T01:00:00.000Z',
+    }];
+
+    const result = await runAutoBlogger({
+      client: createVerifiedClient(inserts),
+      ledgerStore: {
+        async load() { return ledger; },
+        async save(entries) { saves.push(structuredClone(entries)); },
+      },
+      sites: [
+        { blogId: 'blog-b', enabled: true },
+        { blogId: 'blog-a', enabled: true },
+      ],
+      topics: [
+        { topicId: 'topic-b', status: 'QUEUE', targetBlogId: 'blog-b', intent: 'info', title: 'Topic B', targetUrlPath: '/tin-tuc/', sourceFactIds: ['f1'] },
+        { topicId: 'topic-a', status: 'QUEUE', targetBlogId: 'blog-a', intent: 'info', title: 'Topic A', targetUrlPath: '/tin-tuc/', sourceFactIds: ['f1'] },
+      ],
+      env: { BLOGGER_ENABLED: 'true' },
+      facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }],
+      now: new Date('2026-08-02T12:00:00.000Z'),
+    });
+
+    expect(result).toMatchObject({ status: 'SUCCESS', selectedTopicId: 'topic-a' });
+    expect(saves[0]).not.toContainEqual(expect.objectContaining({
+      blogId: 'blog-b',
+      status: 'DAILY_LIMIT_REACHED',
+    }));
+  });
+
+  it('reports an uncapped gate rejection instead of masking it with another blog daily limit', async () => {
+    const saves: any[][] = [];
+    const summaries: string[] = [];
+    const ledger: LedgerEntry[] = [{
+      idempotencyKey: 'blog-a-today',
+      blogId: 'blog-a',
+      topicId: 'published-today',
+      contentHash: 'published-today',
+      status: 'LIVE',
+      createdAt: '2026-08-02T01:00:00.000Z',
+      publishedAt: '2026-08-02T01:00:00.000Z',
+    }];
+    vi.spyOn(fs, 'appendFileSync').mockImplementation((_path, data) => { summaries.push(String(data)); });
+
+    const result = await runAutoBlogger({
+      client: createVerifiedClient([]),
+      ledgerStore: {
+        async load() { return ledger; },
+        async save(entries) { saves.push(structuredClone(entries)); },
+      },
+      sites: [
+        { blogId: 'blog-a', enabled: true },
+        { blogId: 'blog-b', enabled: true },
+      ],
+      topics: [
+        { topicId: 'topic-a', status: 'QUEUE', targetBlogId: 'blog-a', intent: 'info', title: 'Topic A', targetUrlPath: '/tin-tuc/', sourceFactIds: ['f1'] },
+        { topicId: 'topic-b-invalid', status: 'QUEUE', targetBlogId: 'blog-b', intent: 'info', title: 'Topic B', targetUrlPath: '/tin-tuc/', sourceFactIds: ['missing'] },
+      ],
+      env: { BLOGGER_ENABLED: 'true', GITHUB_STEP_SUMMARY: 'summary.md' },
+      facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }],
+      now: new Date('2026-08-02T12:00:00.000Z'),
+    });
+
+    expect(result).toMatchObject({ status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1 });
+    expect(saves[0]).toEqual(expect.arrayContaining([
+      expect.objectContaining({ blogId: 'blog-a', status: 'DAILY_LIMIT_REACHED' }),
+      expect.objectContaining({ blogId: 'blog-b', status: 'HOLD', failureReason: 'FACT_VALIDATION_REJECTED' }),
+    ]));
+    expect(summaries.join('\n')).toContain('Reason: FACT_VALIDATION_REJECTED');
+  });
+
+  it('deterministically gives the least recently published eligible blog the next run', async () => {
+    const inserts: BloggerPostRequest[] = [];
+    const ledger: LedgerEntry[] = [
+      {
+        idempotencyKey: 'blog-a-older',
+        blogId: 'blog-a',
+        topicId: 'older-a',
+        contentHash: 'older-a',
+        status: 'LIVE',
+        createdAt: '2026-07-30T01:00:00.000Z',
+        publishedAt: '2026-07-30T01:00:00.000Z',
+      },
+      {
+        idempotencyKey: 'blog-b-newer',
+        blogId: 'blog-b',
+        topicId: 'newer-b',
+        contentHash: 'newer-b',
+        status: 'LIVE',
+        createdAt: '2026-07-31T01:00:00.000Z',
+        publishedAt: '2026-07-31T01:00:00.000Z',
+      },
+    ];
+
+    const result = await runAutoBlogger({
+      client: createVerifiedClient(inserts),
+      ledgerStore: {
+        async load() { return ledger; },
+        async save() {},
+      },
+      sites: [
+        { blogId: 'blog-b', enabled: true },
+        { blogId: 'blog-a', enabled: true },
+      ],
+      topics: [
+        { topicId: 'topic-b', status: 'QUEUE', targetBlogId: 'blog-b', intent: 'info', title: 'Topic B', targetUrlPath: '/tin-tuc/', sourceFactIds: ['f1'] },
+        { topicId: 'topic-a', status: 'QUEUE', targetBlogId: 'blog-a', intent: 'info', title: 'Topic A', targetUrlPath: '/tin-tuc/', sourceFactIds: ['f1'] },
+      ],
+      env: { BLOGGER_ENABLED: 'true' },
+      facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }],
+      now: new Date('2026-08-02T12:00:00.000Z'),
+    });
+
+    expect(result).toMatchObject({ status: 'SUCCESS', selectedTopicId: 'topic-a', attemptedBlogIds: ['blog-a'] });
+    expect(inserts).toHaveLength(1);
+    expect(inserts[0].blogId).toBe('blog-a');
+  });
+
+  it('uses a locale-independent blog id tie-break when publication history is equal', async () => {
+    const inserts: BloggerPostRequest[] = [];
+
+    const result = await runAutoBlogger({
+      client: createVerifiedClient(inserts),
+      ledgerStore: {
+        async load() { return []; },
+        async save() {},
+      },
+      sites: [
+        { blogId: 'a-blog', enabled: true },
+        { blogId: 'Z-blog', enabled: true },
+      ],
+      topics: [
+        { topicId: 'topic-a', status: 'QUEUE', targetBlogId: 'a-blog', intent: 'info', title: 'Topic A', targetUrlPath: '/tin-tuc/', sourceFactIds: ['f1'] },
+        { topicId: 'topic-Z', status: 'QUEUE', targetBlogId: 'Z-blog', intent: 'info', title: 'Topic Z', targetUrlPath: '/tin-tuc/', sourceFactIds: ['f1'] },
+      ],
+      env: { BLOGGER_ENABLED: 'true' },
+      facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }],
+      now: new Date('2026-08-02T12:00:00.000Z'),
+    });
+
+    expect(result).toMatchObject({ status: 'SUCCESS', selectedTopicId: 'topic-Z', attemptedBlogIds: ['Z-blog'] });
+    expect(inserts).toHaveLength(1);
   });
 
   it('marks the same attempt VERIFY_FAILED and stops after a failed LIVE read-back', async () => {

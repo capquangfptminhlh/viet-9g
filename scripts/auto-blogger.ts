@@ -56,6 +56,28 @@ function hasLivePublicationToday(ledger: LedgerEntry[], blogId: string, now: Dat
   });
 }
 
+function orderSitesForRun(sites: Site[], ledger: LedgerEntry[]): Site[] {
+  const lastLivePublication = (blogId: string): number => {
+    let latest = Number.NEGATIVE_INFINITY;
+    for (const entry of ledger) {
+      if (entry.blogId !== blogId || entry.status !== 'LIVE' || !entry.publishedAt) continue;
+      const publishedAt = new Date(entry.publishedAt).getTime();
+      if (!Number.isNaN(publishedAt)) latest = Math.max(latest, publishedAt);
+    }
+    return latest;
+  };
+
+  return [...sites].sort((left, right) => {
+    const leftLastPublished = lastLivePublication(left.blogId);
+    const rightLastPublished = lastLivePublication(right.blogId);
+    if (leftLastPublished !== rightLastPublished) {
+      return leftLastPublished < rightLastPublished ? -1 : 1;
+    }
+    if (left.blogId === right.blogId) return 0;
+    return left.blogId < right.blogId ? -1 : 1;
+  });
+}
+
 function writeGitHubStepSummary(
   env: Record<string, string | undefined>,
   details: { result: 'SUCCESS' | 'DISABLED' | 'NO_ELIGIBLE_SITES' | 'TOPIC_QUEUE_EXHAUSTED' | 'DAILY_LIMIT_REACHED' | 'ERROR'; status: 'LIVE' | 'NOT_PUBLISHED' | 'VERIFY_FAILED'; topicId?: string; idempotencyKey?: string; gateResults?: Record<string, GateResult>; failureReason?: string; postId?: string; publishedUrl?: string; editorUrl?: string },
@@ -195,7 +217,8 @@ async function runAutoBloggerTransaction(options: AutoBloggerOptions, env: Recor
   const ledgerStore = options.ledgerStore || (options.client || !shouldPublish ? localLedgerStore() : productionLedgerStore(env));
   const ledger = await ledgerStore.load();
   const now = options.now || new Date();
-  const selectedSite = sites[0];
+  const orderedSites = orderSitesForRun(sites, ledger);
+  let selectedSite = orderedSites[0];
   if (topics.length === 0) {
     const emptyQueueTopic: Topic = {
       topicId: `__empty_queue__:${asiaHoChiMinhDate(now)}`,
@@ -211,17 +234,6 @@ async function runAutoBloggerTransaction(options: AutoBloggerOptions, env: Recor
     writeGitHubStepSummary(env, { result: 'TOPIC_QUEUE_EXHAUSTED', status: 'NOT_PUBLISHED', topicId: audit.topicId, idempotencyKey: audit.idempotencyKey, gateResults: gates, failureReason: audit.failureReason });
     return { status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1, attemptedBlogIds: [selectedSite.blogId] };
   }
-  if (hasLivePublicationToday(ledger, selectedSite.blogId, now)) {
-    const topic = topics.find((candidate) => candidate.targetBlogId === selectedSite.blogId) || topics[0];
-    const gates = { dailyLimit: 'REJECT' as const };
-    const reason = 'DAILY_LIMIT_REACHED';
-    const audit = auditEntry(selectedSite.blogId, topic, reason, reason, gates, now);
-    audit.idempotencyKey = createRunAuditKey(selectedSite.blogId, topic.topicId, topic.contentVersion || 'v1', reason, now);
-    ledger.push(audit);
-    if (shouldPublish) await ledgerStore.save(ledger);
-    writeGitHubStepSummary(env, { result: 'DAILY_LIMIT_REACHED', status: 'NOT_PUBLISHED', topicId: topic.topicId, idempotencyKey: audit.idempotencyKey, gateResults: gates, failureReason: reason });
-    return { status: 'DAILY_LIMIT_REACHED', exitCode: 1, attemptedBlogIds: [selectedSite.blogId] };
-  }
   let selectedTopic: Topic | undefined;
   let catalog: PackageCatalog | undefined;
   let idempotencyKey = '';
@@ -229,8 +241,25 @@ async function runAutoBloggerTransaction(options: AutoBloggerOptions, env: Recor
   let selectedPayload: ReturnType<typeof generateBloggerDraftPayload> | undefined;
   let selectedGateResults: Record<string, GateResult> | undefined;
   const rejectedAudits: LedgerEntry[] = [];
-  for (const topic of topics) {
-    if (topic.targetBlogId !== selectedSite.blogId) continue;
+  const dailyLimitAudits: LedgerEntry[] = [];
+  const dailyLimitedBlogIds = new Set<string>();
+  const candidateTopics = orderedSites.flatMap((site) => (
+    topics
+      .filter((topic) => topic.targetBlogId === site.blogId)
+      .map((topic) => ({ site, topic }))
+  ));
+  for (const { site, topic } of candidateTopics) {
+    selectedSite = site;
+    if (dailyLimitedBlogIds.has(site.blogId)) continue;
+    if (hasLivePublicationToday(ledger, site.blogId, now)) {
+      const gates = { dailyLimit: 'REJECT' as const };
+      const reason = 'DAILY_LIMIT_REACHED';
+      const audit = auditEntry(site.blogId, topic, reason, reason, gates, now);
+      audit.idempotencyKey = createRunAuditKey(site.blogId, topic.topicId, topic.contentVersion || 'v1', reason, now);
+      dailyLimitAudits.push(audit);
+      dailyLimitedBlogIds.add(site.blogId);
+      continue;
+    }
     const gateResults: Record<string, GateResult> = {
       packageEvidence: 'NOT_RUN', facts: 'NOT_RUN', targetUrl: 'NOT_RUN', html: 'NOT_RUN', idempotency: 'NOT_RUN', duplicate: 'NOT_RUN', insert: 'NOT_RUN', readBack: 'NOT_RUN', publishedUrl: 'NOT_RUN',
     };
@@ -301,11 +330,17 @@ async function runAutoBloggerTransaction(options: AutoBloggerOptions, env: Recor
     break;
   }
   if (!selectedTopic) {
-    if (rejectedAudits.length && shouldPublish) {
-      ledger.push(...rejectedAudits);
+    const pendingAudits = [...rejectedAudits, ...dailyLimitAudits];
+    if (pendingAudits.length && shouldPublish) {
+      ledger.push(...pendingAudits);
       await ledgerStore.save(ledger);
     }
     const lastAudit = rejectedAudits.at(-1);
+    const dailyLimitAudit = dailyLimitAudits.at(-1);
+    if (!lastAudit && dailyLimitAudit) {
+      writeGitHubStepSummary(env, { result: 'DAILY_LIMIT_REACHED', status: 'NOT_PUBLISHED', topicId: dailyLimitAudit.topicId, idempotencyKey: dailyLimitAudit.idempotencyKey, gateResults: dailyLimitAudit.gateResults, failureReason: dailyLimitAudit.failureReason });
+      return { status: 'DAILY_LIMIT_REACHED', exitCode: 1, attemptedBlogIds: [dailyLimitAudit.blogId] };
+    }
     writeGitHubStepSummary(env, { result: 'TOPIC_QUEUE_EXHAUSTED', status: 'NOT_PUBLISHED', topicId: lastAudit?.topicId, idempotencyKey: lastAudit?.idempotencyKey, gateResults: lastAudit?.gateResults, failureReason: lastAudit?.failureReason || 'NO_ELIGIBLE_TOPIC' });
     return { status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1, attemptedBlogIds: [selectedSite.blogId] };
   }
@@ -322,7 +357,7 @@ async function runAutoBloggerTransaction(options: AutoBloggerOptions, env: Recor
       const payload = selectedPayload!;
       console.log(`Publishing topic ${selectedTopic.topicId} on blog ${selectedSite.blogId}...`);
       attempt = { idempotencyKey, blogId: selectedSite.blogId, topicId: selectedTopic.topicId, packageId: selectedTopic.packageId, catalogVersion: catalog?.catalogVersion, contentVersion: selectedTopic.contentVersion || 'v1', contentHash: selectedContentSignature, status: 'INSERT_STARTED', gateResults: selectedGateResults, createdAt: now.toISOString() };
-      ledger.push(...rejectedAudits, attempt);
+      ledger.push(...rejectedAudits, ...dailyLimitAudits, attempt);
       await ledgerStore.save(ledger);
       reservationCommitted = true;
       const response = await publisher.publishPost(payload);
