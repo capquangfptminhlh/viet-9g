@@ -16,6 +16,14 @@ import type { PackageCatalog } from '../src/data/package-catalog';
 type Topic = { topicId: string; targetBlogId: string; intent: string; title: string; packageId?: string; contentVersion?: string; sourceFactIds?: string[]; status?: string; targetUrlPath?: string; reviewData?: any; };
 type Site = { blogId: string; enabled: boolean; allowedDestination?: string };
 type Result = { status: string; exitCode: number; attemptedBlogIds: string[]; draftReviewUrl?: string; publishedUrl?: string; selectedTopicId?: string };
+type AutoBloggerOptions = {
+  sites?: Site[];
+  topics?: Topic[];
+  env?: Record<string, string | undefined>;
+  now?: Date;
+  facts?: any[];
+  client?: BloggerClient;
+};
 
 function summaryValue(value: string): string {
   return value.replace(/[\r\n]+/g, ' ').trim();
@@ -23,7 +31,7 @@ function summaryValue(value: string): string {
 
 function writeGitHubStepSummary(
   env: Record<string, string | undefined>,
-  details: { result: 'SUCCESS' | 'TOPIC_QUEUE_EXHAUSTED' | 'ERROR'; status: 'LIVE' | 'NOT_PUBLISHED' | 'VERIFY_FAILED'; topicId?: string; postId?: string; publishedUrl?: string; editorUrl?: string },
+  details: { result: 'SUCCESS' | 'DISABLED' | 'NO_ELIGIBLE_SITES' | 'TOPIC_QUEUE_EXHAUSTED' | 'ERROR'; status: 'LIVE' | 'NOT_PUBLISHED' | 'VERIFY_FAILED'; topicId?: string; postId?: string; publishedUrl?: string; editorUrl?: string },
 ): void {
   if (!env.GITHUB_STEP_SUMMARY) return;
   const lines = [
@@ -56,16 +64,21 @@ function contentSignature(blogId: string, title: string): string {
   return crypto.createHash('sha256').update(`${blogId}:${title.trim().toLowerCase().replace(/\s+/g, ' ')}`).digest('hex');
 }
 
-export async function runAutoBlogger(options: {
-  sites?: Site[];
-  topics?: Topic[];
-  env?: Record<string, string | undefined>;
-  now?: Date;
-  facts?: any[];
-  client?: BloggerClient;
-}): Promise<Result> {
+export async function runAutoBlogger(options: AutoBloggerOptions): Promise<Result> {
   const env = options.env || process.env;
-  if (env.BLOGGER_ENABLED !== 'true') return { status: 'DISABLED', exitCode: 0, attemptedBlogIds: [] };
+  try {
+    return await runAutoBloggerTransaction(options, env);
+  } catch (error) {
+    writeGitHubStepSummary(env, { result: 'ERROR', status: 'NOT_PUBLISHED' });
+    throw error;
+  }
+}
+
+async function runAutoBloggerTransaction(options: AutoBloggerOptions, env: Record<string, string | undefined>): Promise<Result> {
+  if (env.BLOGGER_ENABLED !== 'true') {
+    writeGitHubStepSummary(env, { result: 'DISABLED', status: 'NOT_PUBLISHED' });
+    return { status: 'DISABLED', exitCode: 0, attemptedBlogIds: [] };
+  }
 
   let facts = options.facts;
   if (!facts) {
@@ -80,7 +93,10 @@ export async function runAutoBlogger(options: {
     sites = JSON.parse(fs.readFileSync('config/blogger-sites.json', 'utf-8').replace(/^\uFEFF/, '')).sites;
   }
   sites = (sites || []).filter((site) => site.enabled);
-  if (sites.length === 0) return { status: 'NO_ELIGIBLE_SITES', exitCode: 0, attemptedBlogIds: [] };
+  if (sites.length === 0) {
+    writeGitHubStepSummary(env, { result: 'NO_ELIGIBLE_SITES', status: 'NOT_PUBLISHED' });
+    return { status: 'NO_ELIGIBLE_SITES', exitCode: 0, attemptedBlogIds: [] };
+  }
 
   let topics = options.topics;
   if (!topics) {
@@ -154,6 +170,9 @@ export async function runAutoBlogger(options: {
       ledger.push(attempt);
       fs.writeFileSync('state/blogger-publication-ledger.json', JSON.stringify(ledger, null, 2));
       const response = await publisher.publishPost(payload);
+      if (typeof response.id !== 'string' || !response.id.trim()) {
+        throw new Error('Blogger insert response did not include a valid post id.');
+      }
       postId = response.id;
       draftReviewUrl = `https://www.blogger.com/blog/post/edit/${selectedSite.blogId}/${postId}`;
       const responseUrl = (response as typeof response & { url?: unknown }).url;
@@ -164,7 +183,8 @@ export async function runAutoBlogger(options: {
     } catch {
       console.error('Blogger publication failed during insert or read-back verification.');
       if (attempt) {
-        Object.assign(attempt, { postId, status: 'VERIFY_FAILED' });
+        attempt.status = 'VERIFY_FAILED';
+        if (postId) attempt.postId = postId;
         fs.writeFileSync('state/blogger-publication-ledger.json', JSON.stringify(ledger, null, 2));
       }
       writeGitHubStepSummary(env, { result: 'ERROR', status: 'VERIFY_FAILED', topicId: selectedTopic.topicId, postId });
@@ -181,7 +201,9 @@ export async function runAutoBlogger(options: {
     publishedUrl,
     editorUrl: draftReviewUrl,
   });
-  return { status: 'SUCCESS', exitCode: 0, attemptedBlogIds: [selectedSite.blogId], draftReviewUrl, publishedUrl, selectedTopicId: selectedTopic.topicId };
+  const result: Result = { status: 'SUCCESS', exitCode: 0, attemptedBlogIds: [selectedSite.blogId], draftReviewUrl, selectedTopicId: selectedTopic.topicId };
+  if (publishedUrl) result.publishedUrl = publishedUrl;
+  return result;
 }
 
 const isMain = process.argv[1] && (process.argv[1].endsWith('auto-blogger.ts') || process.argv[1].endsWith('auto-blogger.js'));

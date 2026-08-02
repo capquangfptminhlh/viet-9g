@@ -14,8 +14,10 @@ describe('Auto Blogger Orchestration', () => {
     const inserts: BloggerPostRequest[] = [];
     const writes: string[] = [];
     const summaries: string[] = [];
+    const events: string[] = [];
     const client: BloggerClient = {
       async insertPost(request) {
+        events.push('insertPost');
         inserts.push(request);
         return { id: 'post-1', status: 'LIVE', url: 'https://example.blogspot.com/eligible-topic' };
       },
@@ -33,7 +35,11 @@ describe('Auto Blogger Orchestration', () => {
       async listPosts() { return []; },
     };
     vi.spyOn(fs, 'existsSync').mockReturnValue(false);
-    vi.spyOn(fs, 'writeFileSync').mockImplementation((_path, data) => { writes.push(String(data)); });
+    vi.spyOn(fs, 'writeFileSync').mockImplementation((_path, data) => {
+      const serialized = String(data);
+      writes.push(serialized);
+      events.push(`ledger:${JSON.parse(serialized)[0].status}`);
+    });
     vi.spyOn(fs, 'appendFileSync').mockImplementation((_path, data) => { summaries.push(String(data)); });
 
     const result = await runAutoBlogger({
@@ -51,6 +57,7 @@ describe('Auto Blogger Orchestration', () => {
 
     expect(inserts).toHaveLength(1);
     expect(inserts[0].isDraft).toBe(false);
+    expect(events.indexOf('ledger:INSERT_STARTED')).toBeLessThan(events.indexOf('insertPost'));
     const initialLedger = JSON.parse(writes[0]);
     expect(initialLedger).toMatchObject([{
       topicId: 'eligible-topic', status: 'INSERT_STARTED',
@@ -115,6 +122,94 @@ describe('Auto Blogger Orchestration', () => {
     expect(summaries.join('\n')).toContain('Status: VERIFY_FAILED');
     expect(summaries.join('\n')).toContain('Topic: first');
     expect(summaries.join('\n')).not.toContain('must-not-leak');
+  });
+
+  it.each([
+    ['missing', undefined],
+    ['blank', ''],
+  ])('marks an insert response with a %s post id VERIFY_FAILED without another insert', async (_label, responseId) => {
+    const inserts: BloggerPostRequest[] = [];
+    const writes: string[] = [];
+    let readBacks = 0;
+    const client: BloggerClient = {
+      async insertPost(request) {
+        inserts.push(request);
+        return { id: responseId, status: 'LIVE' } as any;
+      },
+      async getPost() {
+        readBacks += 1;
+        throw new Error('read-back must not run without a valid post id');
+      },
+      async listPosts() { return []; },
+    };
+    vi.spyOn(fs, 'existsSync').mockReturnValue(false);
+    vi.spyOn(fs, 'writeFileSync').mockImplementation((_path, data) => { writes.push(String(data)); });
+    vi.spyOn(console, 'error').mockImplementation(() => undefined);
+
+    const result = await runAutoBlogger({
+      client,
+      sites: [{ blogId: 'a', enabled: true }],
+      topics: [
+        { topicId: 'invalid-id', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'Invalid ID', sourceFactIds: ['f1'] },
+        { topicId: 'must-not-run', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'Must not run', sourceFactIds: ['f1'] },
+      ],
+      env: { BLOGGER_ENABLED: 'true' },
+      facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }],
+      now: new Date('2026-08-02T00:00:00.000Z'),
+    });
+
+    expect(result).toMatchObject({ status: 'ERROR', exitCode: 1, selectedTopicId: 'invalid-id' });
+    expect(inserts).toHaveLength(1);
+    expect(readBacks).toBe(0);
+    expect(writes).toHaveLength(2);
+    const initialLedger = JSON.parse(writes[0]);
+    const failedLedger = JSON.parse(writes[1]);
+    expect(failedLedger).toHaveLength(1);
+    expect(failedLedger[0]).toMatchObject({
+      idempotencyKey: initialLedger[0].idempotencyKey,
+      topicId: 'invalid-id',
+      status: 'VERIFY_FAILED',
+    });
+    expect(failedLedger[0]).not.toHaveProperty('postId');
+  });
+
+  it('does not fabricate a published URL for a verified LIVE response without one', async () => {
+    let inserted: BloggerPostRequest | undefined;
+    const summaries: string[] = [];
+    const client: BloggerClient = {
+      async insertPost(request) {
+        inserted = request;
+        return { id: 'post-without-url', status: 'LIVE' };
+      },
+      async getPost(blogId, postId) {
+        return {
+          id: postId,
+          blog: { id: blogId },
+          status: 'LIVE',
+          title: inserted!.requestBody.title,
+          content: inserted!.requestBody.content,
+          labels: inserted!.requestBody.labels,
+        };
+      },
+      async listPosts() { return []; },
+    };
+    vi.spyOn(fs, 'existsSync').mockReturnValue(false);
+    vi.spyOn(fs, 'writeFileSync').mockImplementation(() => undefined);
+    vi.spyOn(fs, 'appendFileSync').mockImplementation((_path, data) => { summaries.push(String(data)); });
+
+    const result = await runAutoBlogger({
+      client,
+      sites: [{ blogId: 'a', enabled: true }],
+      topics: [{ topicId: 'no-url', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'No URL', sourceFactIds: ['f1'] }],
+      env: { BLOGGER_ENABLED: 'true', GITHUB_STEP_SUMMARY: 'summary.md' },
+      facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }],
+      now: new Date('2026-08-02T00:00:00.000Z'),
+    });
+
+    expect(result).toMatchObject({ status: 'SUCCESS', selectedTopicId: 'no-url' });
+    expect(result).not.toHaveProperty('publishedUrl');
+    expect(summaries.join('\n')).not.toContain('Published URL:');
+    expect(summaries.join('\n')).not.toContain('blogspot.com');
   });
 
   it('does not insert held, expired, operator-unverified, duplicate, or reserved topics', async () => {
@@ -215,29 +310,90 @@ describe('Auto Blogger Orchestration', () => {
   });
 
   it('preserves malformed ledger JSON errors', async () => {
+    const summaries: string[] = [];
     vi.spyOn(fs, 'existsSync').mockImplementation((file) => String(file) === 'state/blogger-publication-ledger.json');
     vi.spyOn(fs, 'readFileSync').mockReturnValue('{not-json');
+    vi.spyOn(fs, 'appendFileSync').mockImplementation((_path, data) => { summaries.push(String(data)); });
     await expect(runAutoBlogger({
       sites: [{ blogId: 'a', enabled: true }],
       topics: [{ topicId: 't1', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'T1', sourceFactIds: ['f1'] }],
-      env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }]
+      env: { BLOGGER_ENABLED: 'true', GITHUB_STEP_SUMMARY: 'summary.md', BLOGGER_CLIENT_SECRET: 'must-not-leak' }, facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }]
     })).rejects.toThrow(SyntaxError);
+    expect(summaries.join('\n')).toContain('Result: ERROR');
+    expect(summaries.join('\n')).toContain('Status: NOT_PUBLISHED');
+    expect(summaries.join('\n')).not.toContain('must-not-leak');
   });
 
   it('preserves malformed fact-store JSON errors', async () => {
+    const summaries: string[] = [];
     vi.spyOn(fs, 'existsSync').mockImplementation((file) => String(file) === 'data/facts.json');
     vi.spyOn(fs, 'readFileSync').mockReturnValue('{not-json');
-    await expect(runAutoBlogger({ env: { BLOGGER_ENABLED: 'true' } })).rejects.toThrow(SyntaxError);
+    vi.spyOn(fs, 'appendFileSync').mockImplementation((_path, data) => { summaries.push(String(data)); });
+    await expect(runAutoBlogger({ env: { BLOGGER_ENABLED: 'true', GITHUB_STEP_SUMMARY: 'summary.md', BLOGGER_REFRESH_TOKEN: 'must-not-leak' } })).rejects.toThrow(SyntaxError);
+    expect(summaries.join('\n')).toContain('Result: ERROR');
+    expect(summaries.join('\n')).toContain('Status: NOT_PUBLISHED');
+    expect(summaries.join('\n')).not.toContain('must-not-leak');
   });
 
   it('preserves malformed site-config JSON errors', async () => {
+    const summaries: string[] = [];
     vi.spyOn(fs, 'existsSync').mockImplementation((file) => String(file) === 'config/blogger-sites.json');
     vi.spyOn(fs, 'readFileSync').mockReturnValue('{not-json');
-    await expect(runAutoBlogger({ env: { BLOGGER_ENABLED: 'true' }, facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }] })).rejects.toThrow(SyntaxError);
+    vi.spyOn(fs, 'appendFileSync').mockImplementation((_path, data) => { summaries.push(String(data)); });
+    await expect(runAutoBlogger({ env: { BLOGGER_ENABLED: 'true', GITHUB_STEP_SUMMARY: 'summary.md', BLOGGER_CLIENT_SECRET: 'must-not-leak' }, facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }] })).rejects.toThrow(SyntaxError);
+    expect(summaries.join('\n')).toContain('Result: ERROR');
+    expect(summaries.join('\n')).toContain('Status: NOT_PUBLISHED');
+    expect(summaries.join('\n')).not.toContain('must-not-leak');
+  });
+
+  it('preserves malformed topic-config JSON errors and writes a secret-free error summary', async () => {
+    const summaries: string[] = [];
+    vi.spyOn(fs, 'existsSync').mockImplementation((file) => String(file) === 'config/topics.json');
+    vi.spyOn(fs, 'readFileSync').mockReturnValue('{not-json');
+    vi.spyOn(fs, 'appendFileSync').mockImplementation((_path, data) => { summaries.push(String(data)); });
+    await expect(runAutoBlogger({
+      sites: [{ blogId: 'a', enabled: true }],
+      env: { BLOGGER_ENABLED: 'true', GITHUB_STEP_SUMMARY: 'summary.md', BLOGGER_CLIENT_SECRET: 'must-not-leak' },
+      facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }],
+    })).rejects.toThrow(SyntaxError);
+    expect(summaries.join('\n')).toContain('Result: ERROR');
+    expect(summaries.join('\n')).toContain('Status: NOT_PUBLISHED');
+    expect(summaries.join('\n')).not.toContain('must-not-leak');
+  });
+
+  it('writes a secret-free error summary when the fact store is missing', async () => {
+    const summaries: string[] = [];
+    vi.spyOn(fs, 'existsSync').mockReturnValue(false);
+    vi.spyOn(fs, 'appendFileSync').mockImplementation((_path, data) => { summaries.push(String(data)); });
+    await expect(runAutoBlogger({
+      env: { BLOGGER_ENABLED: 'true', GITHUB_STEP_SUMMARY: 'summary.md', BLOGGER_REFRESH_TOKEN: 'must-not-leak' },
+    })).rejects.toThrow('FACT_STORE_EMPTY');
+    expect(summaries.join('\n')).toContain('Result: ERROR');
+    expect(summaries.join('\n')).toContain('Status: NOT_PUBLISHED');
+    expect(summaries.join('\n')).not.toContain('must-not-leak');
   });
 
   it('does not execute when BLOGGER_ENABLED is not true', async () => {
-    await expect(runAutoBlogger({ env: { BLOGGER_ENABLED: 'false' }, facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }] })).resolves.toMatchObject({ status: 'DISABLED' });
+    const summaries: string[] = [];
+    vi.spyOn(fs, 'appendFileSync').mockImplementation((_path, data) => { summaries.push(String(data)); });
+    await expect(runAutoBlogger({ env: { BLOGGER_ENABLED: 'false', GITHUB_STEP_SUMMARY: 'summary.md', BLOGGER_CLIENT_SECRET: 'must-not-leak' }, facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }] })).resolves.toMatchObject({ status: 'DISABLED' });
+    expect(summaries.join('\n')).toContain('Result: DISABLED');
+    expect(summaries.join('\n')).toContain('Status: NOT_PUBLISHED');
+    expect(summaries.join('\n')).not.toContain('must-not-leak');
+  });
+
+  it('writes a not-published summary when no eligible site exists', async () => {
+    const summaries: string[] = [];
+    vi.spyOn(fs, 'appendFileSync').mockImplementation((_path, data) => { summaries.push(String(data)); });
+    const result = await runAutoBlogger({
+      sites: [{ blogId: 'a', enabled: false }],
+      env: { BLOGGER_ENABLED: 'true', GITHUB_STEP_SUMMARY: 'summary.md', BLOGGER_CLIENT_SECRET: 'must-not-leak' },
+      facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }],
+    });
+    expect(result).toMatchObject({ status: 'NO_ELIGIBLE_SITES', exitCode: 0 });
+    expect(summaries.join('\n')).toContain('Result: NO_ELIGIBLE_SITES');
+    expect(summaries.join('\n')).toContain('Status: NOT_PUBLISHED');
+    expect(summaries.join('\n')).not.toContain('must-not-leak');
   });
 
   it('returns a non-zero empty-topic result when topics list is empty', async () => {
