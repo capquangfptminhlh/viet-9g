@@ -1,15 +1,19 @@
-name: Blogger Owned Media Draft
+name: Blogger Owned Media Publish
 
 on:
   workflow_dispatch:
-  # schedule:
-  #   - cron: "20 19 * * *" # 02:20 AM Asia/Ho_Chi_Minh (19:20 UTC)
+  schedule:
+    - cron: "0 0 * * *" # 07:00 Asia/Ho_Chi_Minh (00:00 UTC)
 
 permissions:
   contents: write
 
+concurrency:
+  group: blogger-auto-publish
+  cancel-in-progress: false
+
 jobs:
-  create-draft:
+  publish:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     environment: blogger-draft
@@ -25,7 +29,7 @@ jobs:
         run: npm ci
       - name: Run unit tests
         run: npm test -- tests/blogger
-      - name: Generate one Blogger draft
+      - name: Publish one Blogger post
         run: npx tsx scripts/auto-blogger.ts
         env:
           BLOGGER_ENABLED: "true"
@@ -33,9 +37,9 @@ jobs:
           BLOGGER_OAUTH_CLIENT_ID: ${{ secrets.BLOGGER_OAUTH_CLIENT_ID }}
           BLOGGER_OAUTH_CLIENT_SECRET: ${{ secrets.BLOGGER_OAUTH_CLIENT_SECRET }}
           BLOGGER_REFRESH_TOKEN: ${{ secrets.BLOGGER_REFRESH_TOKEN }}
-      - name: Persist Idempotency Ledger back to Repo
+      - name: Persist Publication Ledger back to Repo
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add state/blogger-publication-ledger.json
-          git diff --cached --quiet || (git commit -m "chore(state): update blogger publication ledger [skip ci]" && git push origin main)
+          git diff --cached --quiet || (git commit -m "chore(state): update blogger publication ledger [skip ci]" && git push origin "HEAD:refs/heads/${GITHUB_REF_NAME}")
