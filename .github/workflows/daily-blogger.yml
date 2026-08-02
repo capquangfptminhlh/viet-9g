@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   publish:
-    if: github.event_name != 'workflow_dispatch' || github.ref_type == 'branch'
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     environment: blogger-draft
@@ -47,12 +47,12 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: blogger-publication-ledger
-          path: state/blogger-publication-ledger.json
+          path: state/
           if-no-files-found: error
 
   persist-ledger:
     needs: publish
-    if: always() && !cancelled() && needs.publish.result != 'skipped' && github.ref_type == 'branch'
+    if: always() && !cancelled() && needs.publish.result != 'skipped' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -71,7 +71,13 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: blogger-publication-ledger
-          path: .
+          path: state/
+      - name: Confirm restored Publication Ledger
+        shell: pwsh
+        run: |
+          if (-not (Test-Path 'state/blogger-publication-ledger.json')) {
+            throw 'Publication ledger artifact did not restore to state/blogger-publication-ledger.json.'
+          }
       - name: Persist Publication Ledger back to Repo
         if: always() && !cancelled()
         run: |
