@@ -1,5 +1,5 @@
 ﻿import { describe, expect, it } from 'vitest';
-import { verifyCreatedDraft } from '../../packages/connectors/blogger/blogger.verify';
+import { verifyCreatedDraft, verifyCreatedPost } from '../../packages/connectors/blogger/blogger.verify';
 
 describe('Blogger draft verify', () => {
   it('fails verification if Blogger returns a published post', async () => {
@@ -34,5 +34,39 @@ describe('Blogger draft verify', () => {
     };
     await expect(verifyCreatedDraft(fakeClient as any, 'blog-1', 'p1', { title: 'A' } as any))
       .rejects.toThrow(/policy/i);
+  });
+});
+
+describe('Blogger post verify', () => {
+  it('verifies a live post when LIVE status is expected', async () => {
+    const fakeClient = {
+      getPost: async () => ({
+        id: 'p1',
+        blog: { id: 'blog-1' },
+        status: 'LIVE',
+        title: 'Published post',
+        labels: ['News'],
+        content: '<p>ok</p>',
+      }),
+    };
+
+    await expect(verifyCreatedPost(fakeClient as any, 'blog-1', 'p1', {
+      title: 'Published post',
+      labels: ['News'],
+    } as any, 'LIVE')).resolves.toBeUndefined();
+  });
+
+  it('fails a draft post when LIVE status is expected', async () => {
+    const fakeClient = {
+      getPost: async () => ({
+        id: 'p1',
+        blog: { id: 'blog-1' },
+        status: 'DRAFT',
+        content: '<p>ok</p>',
+      }),
+    };
+
+    await expect(verifyCreatedPost(fakeClient as any, 'blog-1', 'p1', {} as any, 'LIVE'))
+      .rejects.toThrow('Expected status LIVE');
   });
 });
