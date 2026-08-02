@@ -22,7 +22,7 @@
     {
       "blogId": "2757413717171314447",
       "name": "Kiểm tra & Hủy gói Viettel",
-      "enabled": false,
+      "enabled": true,
       "cadenceDays": 1,
       "contentCharter": "Checking data, cancellation, and renewal guidance only",
       "allowedDestination": "tracuugoicuoc.com",

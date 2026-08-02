@@ -185,7 +185,7 @@
         "targetUrlPath": "/posts/cú-pháp-kiểm-tra-dung-lượng-data-4g-viettel-còn-lại",
         "imageBrief": "Tin nhắn KTTK trên điện thoại với hai nhãn dung lượng và hạn sử dụng.",
         "imageAlt": "Minh họa kết quả kiểm tra dung lượng và hạn dùng bằng KTTK gửi 191.",
-        "status": "QUEUE"
+        "status": "HOLD"
     },
     {
         "topicId": "topic-b3-tra-cuu-goi-098",
@@ -198,7 +198,7 @@
         "targetUrlPath": "/posts/cach-kiem-tra-tai-khoan-chinh",
         "imageBrief": "Điện thoại đang nhập *098# và một bảng hướng dẫn tra cứu đơn giản.",
         "imageAlt": "Minh họa tra cứu gói và lưu lượng Viettel qua mã *098#.",
-        "status": "QUEUE"
+        "status": "HOLD"
     },
     {
         "topicId": "topic-b3-my-viettel-dung-luong",
@@ -211,7 +211,7 @@
         "targetUrlPath": "/posts/cú-pháp-kiểm-tra-dung-lượng-data-4g-viettel-còn-lại",
         "imageBrief": "Giao diện ứng dụng minh họa các mục dung lượng, tên gói và hạn dùng.",
         "imageAlt": "Minh họa xem thông tin gói data trong My Viettel.",
-        "status": "QUEUE"
+        "status": "HOLD"
     },
     {
         "topicId": "topic-b3-goi-198-ho-tro",
@@ -224,7 +224,7 @@
         "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
         "imageBrief": "Điện thoại gọi 198 cùng biểu tượng tai nghe hỗ trợ, không có cam kết thời gian xử lý.",
         "imageAlt": "Minh họa gọi tổng đài 198 để được hỗ trợ và tư vấn Viettel.",
-        "status": "QUEUE"
+        "status": "HOLD"
     },
     {
         "topicId": "topic-b3-gic70-gic70t-tu-gia-han",
@@ -237,7 +237,7 @@
         "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
         "imageBrief": "Lịch 30 ngày cạnh thẻ gói GIC70/GIC70T và biểu tượng gia hạn.",
         "imageAlt": "Minh họa chu kỳ tự gia hạn 30 ngày của gói GIC70 và GIC70T.",
-        "status": "QUEUE"
+        "status": "HOLD"
     },
     {
         "topicId": "topic-b3-gic70-huy-huydata",
@@ -250,7 +250,7 @@
         "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
         "imageBrief": "Hai tin nhắn trung tính HUY và HUYDATA cạnh tên gói GIC70/GIC70T.",
         "imageAlt": "Minh họa phân biệt HUY và HUYDATA cho gói GIC70 hoặc GIC70T.",
-        "status": "QUEUE"
+        "status": "HOLD"
     },
     {
         "topicId": "topic-b3-yt7-dung-gia-han",
@@ -263,7 +263,7 @@
         "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
         "imageBrief": "Lịch 7 ngày, thẻ gói YT7 và tin nhắn HUY YT7.",
         "imageAlt": "Minh họa dừng gia hạn gói YT7 bằng HUY YT7 gửi 191.",
-        "status": "QUEUE"
+        "status": "HOLD"
     },
     {
         "topicId": "topic-b3-huydata-yt7",
@@ -276,7 +276,7 @@
         "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
         "imageBrief": "Tin nhắn HUYDATA YT7 gửi 191 với biểu tượng xác nhận trung tính.",
         "imageAlt": "Minh họa cú pháp hủy gói YT7 bằng HUYDATA YT7 gửi 191.",
-        "status": "QUEUE"
+        "status": "HOLD"
     },
     {
         "topicId": "topic-b3-yt30-huy-huydata",
@@ -289,7 +289,7 @@
         "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
         "imageBrief": "So sánh hai tin nhắn HUY YT30 và HUYDATA YT30 bên cạnh lịch 30 ngày.",
         "imageAlt": "Minh họa hai lựa chọn hủy gia hạn hoặc hủy gói YT30.",
-        "status": "QUEUE"
+        "status": "HOLD"
     },
     {
         "topicId": "topic-b3-st5km-huydata",
@@ -302,6 +302,160 @@
         "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel",
         "imageBrief": "Tin nhắn HUYDATA ST5KM gửi 191 nối tới một màn hình yêu cầu làm theo hướng dẫn tiếp theo.",
         "imageAlt": "Minh họa hủy gói ST5KM bằng HUYDATA ST5KM gửi 191.",
+        "status": "HOLD"
+    },
+    {
+        "topicId": "topic-b3-tk-191-account",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "Tra cứu tài khoản Viettel bằng TK gửi 191: dùng khi cần kiểm tra số dư nào?",
+        "intent": "informational",
+        "contentVersion": "v1",
+        "sourceFactIds": ["usage-02"],
+        "targetUrlPath": "/posts/cach-kiem-tra-tai-khoan-chinh/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b3-198-support",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "Muốn kiểm tra thông tin trực tiếp: tổng đài 198 của Viettel có thu phí không?",
+        "intent": "informational",
+        "contentVersion": "v1",
+        "sourceFactIds": ["usage-05"],
+        "targetUrlPath": "/posts/cach-kiem-tra-tai-khoan-chinh/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b3-web-traffic-check",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "Kiểm tra lưu lượng trên vietteltelecom.vn: lựa chọn khi không dùng SMS",
+        "intent": "informational",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-02"],
+        "targetUrlPath": "/posts/cú-pháp-kiểm-tra-dung-lượng-data-4g-viettel-còn-lại/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b3-gic70-renewal",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "GIC70/GIC70T tự gia hạn sau bao lâu?",
+        "intent": "informational",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-06"],
+        "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b3-gic70-stop-renewal",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "GIC70/GIC70T: gửi HUY 191 để dừng gia hạn như thế nào?",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-08"],
+        "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b3-gic70-cancel-package",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "GIC70/GIC70T: khi nào dùng HUYDATA 191 để hủy gói?",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-09"],
+        "targetUrlPath": "/posts/hướng-dẫn-hủy-gói-cước-viettel-tránh-trừ-tiền-tự-động/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b3-yt7-renewal",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "YT7 gia hạn theo chu kỳ mấy ngày?",
+        "intent": "informational",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-10"],
+        "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b3-yt7-stop-renewal",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "YT7: dừng gia hạn bằng HUY YT7 191 có giữ ưu đãi đến hết chu kỳ không?",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-11"],
+        "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b3-yt7-cancel-package",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "YT7: HUYDATA YT7 gửi 191 dùng để hủy gói trong trường hợp nào?",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-12"],
+        "targetUrlPath": "/posts/hướng-dẫn-hủy-gói-cước-viettel-tránh-trừ-tiền-tự-động/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b3-yt30-renewal",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "YT30 tự gia hạn sau bao nhiêu ngày?",
+        "intent": "informational",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-13"],
+        "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b3-yt30-stop-renewal",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "YT30: HUY YT30 191 là hủy gia hạn hay hủy gói?",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-14"],
+        "targetUrlPath": "/posts/cach-huy-gia-han-4g-viettel/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b3-yt30-cancel-package",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "YT30: HUYDATA YT30 191 khác gì với HUY YT30?",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-14"],
+        "targetUrlPath": "/posts/hướng-dẫn-hủy-gói-cước-viettel-tránh-trừ-tiền-tự-động/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b3-st5km-cancel-package",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "ST5KM tự gia hạn: hủy bằng HUYDATA ST5KM cần lưu ý điều gì?",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["cancellation-15"],
+        "targetUrlPath": "/posts/hướng-dẫn-hủy-gói-cước-viettel-tránh-trừ-tiền-tự-động/",
+        "status": "QUEUE"
+    },
+    {
+        "topicId": "topic-b3-huy-vs-huydata",
+        "targetBlogId": "2757413717171314447",
+        "contentCharter": "Checking data, cancellation, and renewal guidance only",
+        "title": "HUY TÊN_GÓI và HUYDATA TÊN_GÓI gửi 191: dừng gia hạn khác hủy gói thế nào?",
+        "intent": "cancellation",
+        "contentVersion": "v1",
+        "sourceFactIds": ["fact-5"],
+        "targetUrlPath": "/posts/hướng-dẫn-hủy-gói-cước-viettel-tránh-trừ-tiền-tự-động/",
         "status": "QUEUE"
     }
 ]
