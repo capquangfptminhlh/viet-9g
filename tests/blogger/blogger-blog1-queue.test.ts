@@ -42,7 +42,7 @@ const isOfficialViettelUrl = (value: string) => {
   );
 };
 const routeExists = (targetUrlPath: string) => fs.existsSync(
-  path.join(root, 'dist', targetUrlPath.replace(/^\/+|\/+$/g, ''), 'index.html'),
+  path.join(root, 'src', 'content', targetUrlPath.replace(/^\/posts\//, 'posts/').replace(/\/$/, '.md')),
 );
 
 describe('Blog 1 queue configuration', () => {
