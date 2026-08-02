@@ -5,6 +5,7 @@ import { VIETTEL_PACKAGES } from '../src/data/packages.ts';
 
 const root = process.cwd();
 const sourcePath = path.resolve(root, 'src/data/packages.ts');
+const factsPath = path.resolve(root, 'data/facts.json');
 const outputPath = path.resolve(root, 'data/package-catalog.v1.json');
 
 function stable(value: unknown): string {
@@ -18,12 +19,25 @@ function stable(value: unknown): string {
 export function buildPackageCatalog(existing?: any) {
   const source = fs.readFileSync(sourcePath);
   const sha256 = crypto.createHash('sha256').update(source).digest('hex');
+  const facts = JSON.parse(fs.readFileSync(factsPath, 'utf8').replace(/^\uFEFF/, ''))
+    .filter((fact: any) => /^package-\d+$/.test(fact.id))
+    .map((fact: any) => ({
+      id: fact.id,
+      key: fact.id,
+      value: fact.claim,
+      claim: fact.claim,
+      sourceUrl: fact.sourceUrl,
+      retrievedAt: fact.retrievedAt.includes('T') ? fact.retrievedAt : `${fact.retrievedAt}T00:00:00Z`,
+      effectiveAt: fact.effectiveAt,
+      expiresAt: fact.expiresAt,
+    }));
   const prior = new Map<string, any>((existing?.packages || []).map((pkg: any) => [pkg.id, pkg] as [string, any]));
   return {
     schemaVersion: '1.0.0',
     catalogVersion: existing?.catalogVersion || '1.0.0',
     generatedAt: existing?.generatedAt || '2026-08-02T00:00:00.000Z',
     sourceSnapshot: { path: 'src/data/packages.ts', sha256 },
+    facts,
     packages: VIETTEL_PACKAGES.map((pkg) => {
       const previous = prior.get(pkg.id) || {};
       return {

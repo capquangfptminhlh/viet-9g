@@ -74,8 +74,8 @@ export function createTopicDraftHtml(title: string, facts: any[], referralUrl?: 
     html += `<h3>4. Điểm cần cân nhắc</h3>\n`;
     html += `<p>${reviewData.considerations} Bạn có thể ${linkHtml} để biết thêm chi tiết.</p>\n`;
     html += `<h3>Câu hỏi thường gặp (FAQ)</h3>\n`;
-    html += `<p><strong>Gói cước có tự động gia hạn không?</strong></p>\n`;
-    html += `<p>Thông thường các gói cước data của Viettel đều có tính năng tự động gia hạn sau khi hết chu kỳ nếu tài khoản chính đủ số dư.</p>\n`;
+    html += `<p><strong>Làm sao biết gói có phù hợp với thuê bao của tôi?</strong></p>\n`;
+    html += `<p>Kiểm tra điều kiện áp dụng và thông tin gia hạn hiện tại trong My Viettel hoặc tại nguồn Viettel được dẫn trong bài trước khi đăng ký.</p>\n`;
   } else {
     html += `<h3>1. Thông tin chi tiết</h3>\n`;
     html += `<p>${factClaims}</p>\n`;

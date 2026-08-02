@@ -5,7 +5,7 @@ import { getPackageRoutes } from '../../src/data/package-routes';
 describe('customer package routes', () => {
   it('lists all non-retired catalog records with operator-confirmed CTA enabled', () => {
     const routes = getPackageRoutes(loadPackageCatalog());
-    expect(routes).toHaveLength(40);
+    expect(routes).toHaveLength(41);
     expect(routes.every((pkg) => pkg.registrationEligible === true)).toBe(true);
     expect(routes.every((pkg) => pkg.status !== 'retired')).toBe(true);
   });

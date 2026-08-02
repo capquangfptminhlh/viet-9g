@@ -8,11 +8,13 @@ const root = process.cwd();
 const catalogPath = path.join(root, 'data', 'package-catalog.v1.json');
 
 describe('package catalog migration', () => {
-  it('preserves all legacy package IDs and explicit operator verification', () => {
+  it('preserves all legacy package IDs and keeps activation evidence explicit', () => {
     const catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
-    expect(catalog.packages).toHaveLength(40);
-    expect(catalog.packages.every((pkg: any) => pkg.status === 'operator_verified')).toBe(true);
+    expect(catalog.packages).toHaveLength(41);
+    expect(catalog.packages.filter((pkg: any) => pkg.status === 'active')).toHaveLength(15);
+    expect(catalog.packages.filter((pkg: any) => pkg.status === 'operator_verified')).toHaveLength(26);
     expect(catalog.packages.every((pkg: any) => pkg.registration?.smsNumber === 290 && / GB$/.test(pkg.registration.syntax))).toBe(true);
+    expect(catalog.packages.filter((pkg: any) => pkg.status === 'active').every((pkg: any) => pkg.factIds.length > 0)).toBe(true);
     expect(catalog.sourceSnapshot.sha256).toMatch(/^[a-f0-9]{64}$/);
   });
 
@@ -38,6 +40,6 @@ describe('package catalog migration', () => {
   it('validator prints a status summary and exits successfully', () => {
     const output = execSync('npx tsx scripts/validate-package-catalog.ts', { cwd: root, encoding: 'utf8' });
     expect(output).toMatch(/operator_verified/i);
-    expect(output).toMatch(/40/);
+    expect(output).toMatch(/41 packages/);
   });
 });

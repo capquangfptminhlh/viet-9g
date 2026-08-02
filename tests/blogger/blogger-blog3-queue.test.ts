@@ -27,10 +27,12 @@ describe('Blog 3 queue activation', () => {
     const expansionTopicIds = readJson('docs/topic-candidates/ready-blog3-expansion.json')
       .map((topic: any) => topic.topicId);
 
-    expect(queued).toHaveLength(repairedTopicIds.length + expansionTopicIds.length);
+    const completionTopicIds = ['b3-complete-01', 'b3-complete-02'];
+    expect(queued).toHaveLength(repairedTopicIds.length + expansionTopicIds.length + completionTopicIds.length);
     expect(queued.map((topic: any) => topic.topicId)).toEqual([
       ...repairedTopicIds,
       ...expansionTopicIds,
+      ...completionTopicIds,
     ]);
     for (const topic of queued) {
       expect(['informational', 'cancellation']).toContain(topic.intent);
