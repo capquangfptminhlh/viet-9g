@@ -261,6 +261,38 @@ describe('Auto Blogger Orchestration', () => {
     expect(summaries.join('\n')).not.toContain('must-not-leak');
   });
 
+  it('stops before selecting or inserting when the blog already has a LIVE post on the same Asia/Ho_Chi_Minh date', async () => {
+    const inserts: BloggerPostRequest[] = [];
+    const summaries: string[] = [];
+    const ledger = [{
+      idempotencyKey: 'published-today', blogId: 'a', topicId: 'earlier-topic', contentHash: 'earlier',
+      status: 'LIVE', createdAt: '2026-08-01T17:30:00.000Z', publishedAt: '2026-08-01T17:30:00.000Z',
+    }];
+    const client: BloggerClient = {
+      async insertPost(request) { inserts.push(request); return { id: 'unexpected', status: 'LIVE' }; },
+      async getPost() { throw new Error('unexpected read-back'); },
+      async listPosts() { return []; },
+    };
+    vi.spyOn(fs, 'existsSync').mockImplementation((file) => String(file) === 'state/blogger-publication-ledger.json');
+    vi.spyOn(fs, 'readFileSync').mockReturnValue(JSON.stringify(ledger));
+    const write = vi.spyOn(fs, 'writeFileSync').mockImplementation(() => undefined);
+    vi.spyOn(fs, 'appendFileSync').mockImplementation((_path, data) => { summaries.push(String(data)); });
+
+    const result = await runAutoBlogger({
+      client,
+      sites: [{ blogId: 'a', enabled: true }],
+      topics: [{ topicId: 'next-topic', status: 'QUEUE', targetBlogId: 'a', intent: 'info', title: 'Next topic', sourceFactIds: ['f1'] }],
+      env: { BLOGGER_ENABLED: 'true', GITHUB_STEP_SUMMARY: 'summary.md' },
+      facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }],
+      now: new Date('2026-08-02T15:00:00.000Z'),
+    });
+
+    expect(result).toMatchObject({ status: 'DAILY_LIMIT_REACHED', exitCode: 1, attemptedBlogIds: ['a'] });
+    expect(inserts).toHaveLength(0);
+    expect(write).not.toHaveBeenCalled();
+    expect(summaries.join('\n')).toContain('Result: DAILY_LIMIT_REACHED');
+  });
+
   it('accepts a BOM-prefixed durable ledger', async () => {
     const result = await runAutoBlogger({
       sites: [{ blogId: 'a', enabled: true }],

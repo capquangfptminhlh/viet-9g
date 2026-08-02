@@ -29,9 +29,29 @@ function summaryValue(value: string): string {
   return value.replace(/[\r\n]+/g, ' ').trim();
 }
 
+function asiaHoChiMinhDate(value: Date): string {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Ho_Chi_Minh',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(value);
+  const part = (type: Intl.DateTimeFormatPartTypes) => parts.find((item) => item.type === type)?.value;
+  return `${part('year')}-${part('month')}-${part('day')}`;
+}
+
+function hasLivePublicationToday(ledger: LedgerEntry[], blogId: string, now: Date): boolean {
+  const today = asiaHoChiMinhDate(now);
+  return ledger.some((entry) => {
+    if (entry.blogId !== blogId || entry.status !== 'LIVE' || !entry.publishedAt) return false;
+    const publishedAt = new Date(entry.publishedAt);
+    return !Number.isNaN(publishedAt.getTime()) && asiaHoChiMinhDate(publishedAt) === today;
+  });
+}
+
 function writeGitHubStepSummary(
   env: Record<string, string | undefined>,
-  details: { result: 'SUCCESS' | 'DISABLED' | 'NO_ELIGIBLE_SITES' | 'TOPIC_QUEUE_EXHAUSTED' | 'ERROR'; status: 'LIVE' | 'NOT_PUBLISHED' | 'VERIFY_FAILED'; topicId?: string; postId?: string; publishedUrl?: string; editorUrl?: string },
+  details: { result: 'SUCCESS' | 'DISABLED' | 'NO_ELIGIBLE_SITES' | 'TOPIC_QUEUE_EXHAUSTED' | 'DAILY_LIMIT_REACHED' | 'ERROR'; status: 'LIVE' | 'NOT_PUBLISHED' | 'VERIFY_FAILED'; topicId?: string; postId?: string; publishedUrl?: string; editorUrl?: string },
 ): void {
   if (!env.GITHUB_STEP_SUMMARY) return;
   const lines = [
@@ -115,6 +135,10 @@ async function runAutoBloggerTransaction(options: AutoBloggerOptions, env: Recor
   }
 
   const selectedSite = sites[0];
+  if (hasLivePublicationToday(ledger, selectedSite.blogId, options.now || new Date())) {
+    writeGitHubStepSummary(env, { result: 'DAILY_LIMIT_REACHED', status: 'NOT_PUBLISHED' });
+    return { status: 'DAILY_LIMIT_REACHED', exitCode: 1, attemptedBlogIds: [selectedSite.blogId] };
+  }
   let selectedTopic: Topic | undefined;
   let catalog: PackageCatalog | undefined;
   let idempotencyKey = '';
