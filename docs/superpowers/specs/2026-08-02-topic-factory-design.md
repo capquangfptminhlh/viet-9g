@@ -29,7 +29,14 @@ Any candidate failing a gate is written as `HOLD` with a machine-readable reason
 - Use a fixed intent taxonomy: setup, usage, troubleshooting, compatibility, how-to, and informational reference.
 - Ban commercial/transactional phrasing in Blog 1, duplicate titles, broad keyword variants, and generic filler topics.
 - Do not reuse an image brief, outline, title, or primary question used by the website or another Blogger.
-- Each candidate must include `topicId`, `targetBlogId`, `intent`, `title`, `targetUrlPath`, `sourceFactIds`, `contentVersion`, `status`, and `generationAudit`.
+- Each candidate must include `topicId`, `targetBlogId`, `intent`, `title`, `targetUrlPath`, `sourceFactIds`, `contentVersion`, `status`, `generationAudit`, `imageBrief`, and `imageAlt`.
+
+## Images
+
+- A topic stores only an image brief and alt text; it does not pre-generate a raster image.
+- At publication time, the content pipeline generates one new image from the brief and inserts it into the Blogger post.
+- The Blogger image must differ from any image used by the main website, another Blogger, or a previous topic.
+- Image briefs may depict generic telecom/device situations but must not fabricate official Viettel logos, package prices, promotion badges, or claims not supported by facts.
 
 ## Automation
 
