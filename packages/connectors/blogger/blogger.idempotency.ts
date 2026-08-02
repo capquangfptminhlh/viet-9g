@@ -6,6 +6,7 @@ export interface LedgerEntry {
   topicId: string;
   contentHash: string;
   postId?: string;
+  publishedAt?: string;
   status: string;
   createdAt: string;
   packageId?: string;
