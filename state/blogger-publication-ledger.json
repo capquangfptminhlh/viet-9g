@@ -3,28 +3,64 @@
     "idempotencyKey": "ed674af0001e5a5f029f351ce632aff2c82cba46ce4b9cdd6460d8ade3bd51a8",
     "blogId": "5229528996284551001",
     "topicId": "topic-1",
-    "contentHash": "ffb5404ec38507bbbd36be6c406ffc6915a4832bf06b1219f1344be662a477ab",
-    "status": "DRAFT_CREATED",
-    "createdAt": "2026-08-01T10:22:04.651Z",
-    "postId": "1896879891909378170"
+    "contentVersion": "v1",
+    "contentHash": "",
+    "status": "HOLD",
+    "failureReason": "FACT_VALIDATION_REJECTED",
+    "gateResults": {
+      "packageEvidence": "PASS",
+      "facts": "REJECT",
+      "targetUrl": "NOT_RUN",
+      "html": "NOT_RUN",
+      "idempotency": "NOT_RUN",
+      "duplicate": "NOT_RUN",
+      "insert": "NOT_RUN",
+      "readBack": "NOT_RUN",
+      "publishedUrl": "NOT_RUN"
+    },
+    "createdAt": "2026-08-02T04:25:03.547Z"
   },
   {
     "idempotencyKey": "19ca795bea7f8a1b288c56f0bb2a356ee9cdc8abe97a1aa7aa035ddf7f9f6139",
     "blogId": "5229528996284551001",
     "topicId": "topic-sd90-review",
-    "contentHash": "9635f3f685ddc718db38519431918a9f24ec62afae584c30f02bf6242dc68d78",
-    "status": "DRAFT_CREATED",
-    "createdAt": "2026-08-01T10:33:36.505Z",
-    "postId": "2743076729597462790"
+    "contentVersion": "v1",
+    "contentHash": "",
+    "status": "HOLD",
+    "failureReason": "FACT_VALIDATION_REJECTED",
+    "gateResults": {
+      "packageEvidence": "PASS",
+      "facts": "REJECT",
+      "targetUrl": "NOT_RUN",
+      "html": "NOT_RUN",
+      "idempotency": "NOT_RUN",
+      "duplicate": "NOT_RUN",
+      "insert": "NOT_RUN",
+      "readBack": "NOT_RUN",
+      "publishedUrl": "NOT_RUN"
+    },
+    "createdAt": "2026-08-02T04:25:03.547Z"
   },
   {
     "idempotencyKey": "4927908b7214fdd878e31f5d96be31bbb21278efa45c3a8cef2151a6342c1954",
     "blogId": "5229528996284551001",
     "topicId": "topic-mxh120-review",
-    "contentHash": "beb708e396282b66892f46feb9eac5dd7ddfac8fa2c8006b6a8200e72027abe5",
-    "status": "DRAFT_CREATED",
-    "createdAt": "2026-08-01T11:04:31.812Z",
-    "postId": "419221485799560051"
+    "contentVersion": "v1",
+    "contentHash": "",
+    "status": "HOLD",
+    "failureReason": "FACT_VALIDATION_REJECTED",
+    "gateResults": {
+      "packageEvidence": "PASS",
+      "facts": "REJECT",
+      "targetUrl": "NOT_RUN",
+      "html": "NOT_RUN",
+      "idempotency": "NOT_RUN",
+      "duplicate": "NOT_RUN",
+      "insert": "NOT_RUN",
+      "readBack": "NOT_RUN",
+      "publishedUrl": "NOT_RUN"
+    },
+    "createdAt": "2026-08-02T04:25:03.547Z"
   },
   {
     "idempotencyKey": "998c5b30d166700a143f2e01564ee72839115474d0874fec5ab5e6a5cc959aca",
@@ -39,9 +75,21 @@
     "idempotencyKey": "a88d17a862501913659aee44fe21227757574663ca61d8b33143148fe7f0ffc8",
     "blogId": "5229528996284551001",
     "topicId": "topic-huy-goi-cuoc",
-    "contentHash": "60f4a9cf59458c9b2a60328c0b9801b2befcefb9164783dd48bc0a4539c08379",
-    "status": "DRAFT_CREATED",
-    "createdAt": "2026-08-01T13:08:48.503Z",
-    "postId": "5674577225401935359"
+    "contentVersion": "v1",
+    "contentHash": "",
+    "status": "HOLD",
+    "failureReason": "IDEMPOTENCY_KEY_RESERVED",
+    "gateResults": {
+      "packageEvidence": "PASS",
+      "facts": "PASS",
+      "targetUrl": "NOT_RUN",
+      "html": "NOT_RUN",
+      "idempotency": "REJECT",
+      "duplicate": "NOT_RUN",
+      "insert": "NOT_RUN",
+      "readBack": "NOT_RUN",
+      "publishedUrl": "NOT_RUN"
+    },
+    "createdAt": "2026-08-02T04:25:03.547Z"
   }
 ]
