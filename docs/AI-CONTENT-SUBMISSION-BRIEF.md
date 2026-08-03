@@ -108,3 +108,54 @@ Không tự chèn `<img>`, `<a>`, `<script>`, `<style>`, `<iframe>`, Markdown ho
 ## 7. Quy trình sau khi AI trả bài
 
 Gửi file JSON lại cho Codex. Hệ thống sẽ kiểm: fact còn hạn/nguồn Viettel, số liệu, cấu trúc HTML, ảnh, liên kết, trùng lặp, policy và ledger. Chỉ bản đạt tất cả gate mới được thêm vào queue hoặc xuất bản tự động.
+
+## 8. Chế độ giao nhiều bài: một JSON cho toàn bộ lô
+
+Khi được giao nhiều topic, người giao việc gửi **một file JSON đầu vào** gồm thông tin lô và danh sách `articles`. Mỗi phần tử trong `articles` dùng chính cấu trúc `topic`, `factsAllowed`, `imageBrief` và `imageAlt` ở Mục 2.
+
+AI phải trả về **một JSON duy nhất cho toàn bộ lô**, không chia thành nhiều tin nhắn, không dùng Markdown fence và không giải thích ngoài JSON:
+
+```json
+{
+  "batchId": "batch-01-esim-4g-5g",
+  "expectedArticleCount": 14,
+  "results": [
+    {
+      "status": "READY",
+      "topicId": "giu-nguyen-tu-input",
+      "title": "giu-nguyen-tu-input",
+      "intent": "giu-nguyen-tu-input",
+      "summary": "Tom tat truc tiep, khong co claim moi.",
+      "bodyHtml": "<p>...</p><h2>...</h2>",
+      "factClaims": [
+        {
+          "factId": "fact-id",
+          "claim": "Chep nguyen van claim tu factsAllowed"
+        }
+      ],
+      "image": {
+        "prompt": "English editorial image prompt, no text, no logo, no UI",
+        "alt": "Mo ta anh bang tieng Viet"
+      },
+      "selfCheck": {
+        "allClaimsGrounded": true,
+        "noUnsupportedNumbers": true,
+        "noExternalLinks": true,
+        "differentFromOtherChannels": true
+      }
+    },
+    {
+      "status": "HOLD",
+      "topicId": "topic-khong-du-fact",
+      "reason": "Thieu fact Viettel con han de xac minh claim can thiet."
+    }
+  ]
+}
+```
+
+Yêu cầu bắt buộc trong chế độ này:
+
+1. `results` phải có đúng số phần tử bằng `expectedArticleCount`; không được tự bỏ topic.
+2. Mỗi `topicId` xuất hiện đúng một lần; giữ nguyên title, intent và không lấy fact giữa các topic.
+3. Không có dữ liệu đủ căn cứ thì trả item `HOLD`, không bịa nội dung để đủ số lượng.
+4. Một file chỉ xử lý một `batchId`; không trộn bài từ lô hoặc kênh khác.
