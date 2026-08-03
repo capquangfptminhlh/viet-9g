@@ -172,6 +172,18 @@ function auditEntry(
   };
 }
 
+function retryableGateAudit(
+  blogId: string,
+  topic: Topic,
+  failureReason: string,
+  gateResults: Record<string, GateResult>,
+  now: Date,
+): LedgerEntry {
+  const audit = auditEntry(blogId, topic, 'HOLD', failureReason, gateResults, now);
+  audit.idempotencyKey = createRunAuditKey(blogId, topic.topicId, topic.contentVersion || 'v1', failureReason, now);
+  return audit;
+}
+
 function redactError(error: unknown, env: Record<string, string | undefined>): string {
   let message = error instanceof Error ? error.message : String(error);
   for (const [key, value] of Object.entries(env)) {
@@ -344,12 +356,12 @@ async function runAutoBloggerTransaction(options: AutoBloggerOptions, env: Recor
     const media = mediaByTopic.get(topic.topicId);
     if (requireMedia && (!media || !media.publicUrl.startsWith('https://') || !media.alt.trim() || !media.imageBrief.trim())) {
       gateResults.media = 'REJECT';
-      rejectedAudits.push(auditEntry(selectedSite.blogId, topic, 'HOLD', 'MEDIA_MANIFEST_REJECTED', gateResults, now));
+      rejectedAudits.push(retryableGateAudit(selectedSite.blogId, topic, 'MEDIA_MANIFEST_REJECTED', gateResults, now));
       continue;
     }
     if (requireMedia && media && !(await verifyMediaUrl(media.publicUrl))) {
       gateResults.media = 'REJECT';
-      rejectedAudits.push(auditEntry(selectedSite.blogId, topic, 'HOLD', 'MEDIA_NOT_PUBLIC', gateResults, now));
+      rejectedAudits.push(retryableGateAudit(selectedSite.blogId, topic, 'MEDIA_NOT_PUBLIC', gateResults, now));
       continue;
     }
     gateResults.media = requireMedia ? 'PASS' : 'NOT_RUN';

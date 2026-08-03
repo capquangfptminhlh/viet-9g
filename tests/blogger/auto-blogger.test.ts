@@ -142,6 +142,41 @@ describe('Auto Blogger Orchestration', () => {
     expect(result).toMatchObject({ status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1 });
   });
 
+  it('retries a topic after its media becomes publicly reachable', async () => {
+    const topic = {
+      topicId: 'media-retry', status: 'QUEUE' as const, targetBlogId: 'a', intent: 'informational',
+      title: 'Media retry topic', targetUrlPath: '/tin-tuc/', sourceFactIds: ['f1'],
+      imageBrief: 'A neutral phone illustration.', imageAlt: 'Minh họa điện thoại trung tính.',
+    };
+    const mediaManifest = [{
+      assetId: 'media-retry-123456789abc', topicId: 'media-retry', intent: 'informational',
+      relativePath: '/images/blogger/media-retry-123456789abc.svg', publicUrl: 'https://tracuugoicuoc.com/images/blogger/media-retry-123456789abc.svg',
+      alt: topic.imageAlt, imageBrief: topic.imageBrief, contentHash: '123456789abcdef', createdAt: '2026-08-03T00:00:00.000Z',
+    }];
+    const ledger: LedgerEntry[] = [];
+    const inserts: BloggerPostRequest[] = [];
+    const ledgerStore = {
+      async load() { return ledger; },
+      async save(entries: LedgerEntry[]) { ledger.splice(0, ledger.length, ...structuredClone(entries)); },
+    };
+    const common = {
+      client: createVerifiedClient(inserts),
+      sites: [{ blogId: 'a', enabled: true }], topics: [topic], requireMedia: true, mediaManifest,
+      ledgerStore, env: { BLOGGER_ENABLED: 'true' },
+      facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }],
+      now: new Date('2026-08-02T00:00:00.000Z'),
+    };
+
+    const held = await runAutoBlogger({ ...common, verifyMediaUrl: async () => false });
+    expect(held).toMatchObject({ status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1 });
+    expect(ledger).toMatchObject([{ topicId: 'media-retry', status: 'HOLD', failureReason: 'MEDIA_NOT_PUBLIC' }]);
+    expect(ledger[0].idempotencyKey).not.toBe(createIdempotencyKey('a', 'media-retry', 'v1'));
+
+    const retried = await runAutoBlogger({ ...common, verifyMediaUrl: async () => true });
+    expect(retried).toMatchObject({ status: 'SUCCESS', selectedTopicId: 'media-retry' });
+    expect(inserts).toHaveLength(1);
+  });
+
   it('holds an otherwise valid topic when executable policy is dry-run', async () => {
     const result = await runAutoBlogger({
       sites: [{ blogId: 'a', enabled: true }],
