@@ -160,5 +160,27 @@
     "postId": "2735107201643416860",
     "publishedUrl": "https://thuthuat4gviettel.blogspot.com/2026/08/kiem-tra-data-viettel-con-lai-va-han.html",
     "publishedAt": "2026-08-02T19:38:12.002Z"
+  },
+  {
+    "idempotencyKey": "f75add1be9e90ff823928e9c6ba36007818de9ecf0284b2f7bc99b2cef81dd53",
+    "blogId": "6831378030642060628",
+    "topicId": "b4-review-01-a",
+    "packageId": "5g135",
+    "catalogVersion": "1.3.0-official-package-facts",
+    "contentVersion": "v1",
+    "contentHash": "eef8af6831c1c198fbc1f686aaae1518630460ece9d531e590bcf22b81ebb84f",
+    "status": "INSERT_STARTED",
+    "gateResults": {
+      "packageEvidence": "PASS",
+      "facts": "PASS",
+      "targetUrl": "PASS",
+      "html": "PASS",
+      "idempotency": "PASS",
+      "duplicate": "PASS",
+      "insert": "NOT_RUN",
+      "readBack": "NOT_RUN",
+      "publishedUrl": "NOT_RUN"
+    },
+    "createdAt": "2026-08-03T02:28:55.178Z"
   }
 ]
