@@ -16,6 +16,10 @@ function stable(value: unknown): string {
   return JSON.stringify(value);
 }
 
+function normalizeLineEndings(value: string): string {
+  return value.replace(/\r\n/g, '\n');
+}
+
 export function buildPackageCatalog(existing?: any) {
   const source = fs.readFileSync(sourcePath);
   const sha256 = crypto.createHash('sha256').update(source).digest('hex');
@@ -65,7 +69,7 @@ const serialized = `${stable(candidate)}\n`;
 const check = process.argv.includes('--check');
 
 if (check) {
-  if (!existing || fs.readFileSync(outputPath, 'utf8') !== serialized) {
+  if (!existing || normalizeLineEndings(fs.readFileSync(outputPath, 'utf8')) !== serialized) {
     console.error('Package catalog drift detected; generated output differs from data/package-catalog.v1.json');
     process.exitCode = 1;
   } else {

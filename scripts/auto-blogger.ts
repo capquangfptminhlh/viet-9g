@@ -10,13 +10,16 @@ import type { BloggerClient } from '../packages/connectors/blogger/blogger.types
 import { generateBloggerDraftPayload, createTopicDraftHtml } from '../packages/content-engine/blogger-content-generator';
 import { detectDuplicate } from '../packages/content-engine/blogger-duplicate-detector';
 import { Claim, validateBloggerFacts } from '../packages/content-engine/blogger-fact-validator';
+import type { TopicMediaAsset } from '../packages/content-engine/topic-media';
+import { decideBloggerPublication, type AutomationPolicy } from '../packages/policy-engine/automation-policy';
 import { generateReferralUrl } from '../packages/measurement-engine/blogger-referral-tracker';
 import { getPackageById, getRenderablePackages, loadPackageCatalog } from '../src/data/package-catalog';
 import type { PackageCatalog } from '../src/data/package-catalog';
 
-type Topic = { topicId: string; targetBlogId: string; intent: string; title: string; packageId?: string; contentVersion?: string; sourceFactIds?: string[]; status?: string; targetUrlPath?: string; reviewData?: any; };
+type Topic = { topicId: string; targetBlogId: string; intent: string; title: string; packageId?: string; contentVersion?: string; sourceFactIds?: string[]; status?: string; targetUrlPath?: string; reviewData?: any; imageBrief?: string; imageAlt?: string; riskTier?: 'low' | 'medium' | 'high'; };
 type Site = { blogId: string; enabled: boolean; allowedDestination?: string };
 type GateResult = 'PASS' | 'REJECT' | 'NOT_RUN';
+type TopicMediaManifest = { assets: Array<Omit<TopicMediaAsset, 'svg'>> };
 export type PublicationLedgerStore = {
   load(): Promise<LedgerEntry[]>;
   save(entries: LedgerEntry[]): Promise<void>;
@@ -30,6 +33,10 @@ type AutoBloggerOptions = {
   facts?: any[];
   client?: BloggerClient;
   ledgerStore?: PublicationLedgerStore;
+  requireMedia?: boolean;
+  mediaManifest?: TopicMediaManifest['assets'];
+  verifyMediaUrl?: (url: string) => Promise<boolean>;
+  automationPolicy?: AutomationPolicy;
 };
 
 function summaryValue(value: string): string {
@@ -213,6 +220,30 @@ async function runAutoBloggerTransaction(options: AutoBloggerOptions, env: Recor
     topics = JSON.parse(fs.readFileSync('config/topics.json', 'utf-8').replace(/^\uFEFF/, ''));
   }
   topics = (topics || []).filter((topic) => topic.status === 'QUEUE');
+  const requireMedia = options.requireMedia ?? !options.topics;
+  let mediaByTopic = new Map<string, TopicMediaManifest['assets'][number]>();
+  if (requireMedia) {
+    const assets = options.mediaManifest ?? (() => {
+      if (!fs.existsSync('state/media-manifest.json')) throw new Error('MEDIA_MANIFEST_MISSING: state/media-manifest.json does not exist');
+      const manifest = JSON.parse(fs.readFileSync('state/media-manifest.json', 'utf-8').replace(/^\uFEFF/, '')) as TopicMediaManifest;
+      if (!Array.isArray(manifest.assets)) throw new Error('MEDIA_MANIFEST_INVALID: assets must be an array');
+      return manifest.assets;
+    })();
+    mediaByTopic = new Map(assets.map((asset) => [asset.topicId, asset]));
+  }
+  const verifyMediaUrl = options.verifyMediaUrl ?? (async (url: string) => {
+    try {
+      const response = await fetch(url, { method: 'HEAD', redirect: 'follow' });
+      return response.ok && (response.headers.get('content-type') || '').startsWith('image/');
+    } catch {
+      return false;
+    }
+  });
+  const policy = options.automationPolicy ?? (() => {
+    if (options.topics) return undefined;
+    if (!fs.existsSync('config/automation-policy.json')) throw new Error('AUTOMATION_POLICY_MISSING: config/automation-policy.json does not exist');
+    return JSON.parse(fs.readFileSync('config/automation-policy.json', 'utf-8').replace(/^\uFEFF/, '')) as AutomationPolicy;
+  })();
   const shouldPublish = Boolean(options.client) || !options.sites;
   const ledgerStore = options.ledgerStore || (options.client || !shouldPublish ? localLedgerStore() : productionLedgerStore(env));
   const ledger = await ledgerStore.load();
@@ -261,7 +292,7 @@ async function runAutoBloggerTransaction(options: AutoBloggerOptions, env: Recor
       continue;
     }
     const gateResults: Record<string, GateResult> = {
-      packageEvidence: 'NOT_RUN', facts: 'NOT_RUN', targetUrl: 'NOT_RUN', html: 'NOT_RUN', idempotency: 'NOT_RUN', duplicate: 'NOT_RUN', insert: 'NOT_RUN', readBack: 'NOT_RUN', publishedUrl: 'NOT_RUN',
+      packageEvidence: 'NOT_RUN', facts: 'NOT_RUN', policy: 'NOT_RUN', targetUrl: 'NOT_RUN', media: 'NOT_RUN', html: 'NOT_RUN', idempotency: 'NOT_RUN', duplicate: 'NOT_RUN', insert: 'NOT_RUN', readBack: 'NOT_RUN', publishedUrl: 'NOT_RUN',
     };
     if (topic.packageId) {
       if (!catalog) catalog = loadPackageCatalog();
@@ -282,6 +313,20 @@ async function runAutoBloggerTransaction(options: AutoBloggerOptions, env: Recor
       continue;
     }
     gateResults.facts = 'PASS';
+    if (policy) {
+      const policyDecision = decideBloggerPublication(policy, {
+        intent: topic.intent,
+        packageId: topic.packageId,
+        riskTier: topic.riskTier,
+        hasVerifiedFacts: true,
+      });
+      if (!policyDecision.allowed) {
+        gateResults.policy = 'REJECT';
+        rejectedAudits.push(auditEntry(selectedSite.blogId, topic, 'HOLD', policyDecision.reason, gateResults, now));
+        continue;
+      }
+      gateResults.policy = 'PASS';
+    }
     const contentVersion = topic.contentVersion || 'v1';
     const currentKey = createIdempotencyKey(selectedSite.blogId, topic.topicId, contentVersion);
     if (!canInsertDraft(ledger, currentKey)) {
@@ -296,6 +341,18 @@ async function runAutoBloggerTransaction(options: AutoBloggerOptions, env: Recor
       continue;
     }
     gateResults.targetUrl = 'PASS';
+    const media = mediaByTopic.get(topic.topicId);
+    if (requireMedia && (!media || !media.publicUrl.startsWith('https://') || !media.alt.trim() || !media.imageBrief.trim())) {
+      gateResults.media = 'REJECT';
+      rejectedAudits.push(auditEntry(selectedSite.blogId, topic, 'HOLD', 'MEDIA_MANIFEST_REJECTED', gateResults, now));
+      continue;
+    }
+    if (requireMedia && media && !(await verifyMediaUrl(media.publicUrl))) {
+      gateResults.media = 'REJECT';
+      rejectedAudits.push(auditEntry(selectedSite.blogId, topic, 'HOLD', 'MEDIA_NOT_PUBLIC', gateResults, now));
+      continue;
+    }
+    gateResults.media = requireMedia ? 'PASS' : 'NOT_RUN';
     const refUrl = generateReferralUrl(selectedSite.allowedDestination || 'tracuugoicuoc.com', topic.targetUrlPath, topic.topicId);
     const contentFacts = topic.packageId && catalog
       ? [...catalog.facts, ...catalog.packages.flatMap((pkg) => pkg.facts)].filter((fact) => (topic.sourceFactIds || []).includes(fact.id))
@@ -305,7 +362,7 @@ async function runAutoBloggerTransaction(options: AutoBloggerOptions, env: Recor
       payload = generateBloggerDraftPayload({
         blogId: selectedSite.blogId,
         title: topic.title,
-        htmlBody: createTopicDraftHtml(topic.title, contentFacts, refUrl, topic.intent, topic.reviewData),
+        htmlBody: createTopicDraftHtml(topic.title, contentFacts, refUrl, topic.intent, topic.reviewData, media?.publicUrl, media?.alt),
         labels: ['4G Viettel', 'Tin tức'],
       });
       gateResults.html = 'PASS';

@@ -10,6 +10,7 @@
     "build": "astro check && astro build && node scripts/aud-21-audit.js",
     "validate:catalog": "tsx scripts/validate-package-catalog.ts",
     "check:catalog": "tsx scripts/migrate-package-catalog.ts --check",
+    "generate:topic-media": "tsx scripts/generate-topic-media.ts",
     "preview": "astro preview",
     "astro": "astro",
     "clean": "rm -rf dist server.js"

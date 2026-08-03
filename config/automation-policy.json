@@ -1,5 +1,6 @@
 {
-  "automationMode": "dry_run",
+  "policyVersion": "2026-08-03",
+  "automationMode": "full_auto",
   "allowedModes": ["dry_run", "review_required", "conditional_auto", "full_auto"],
   "escalationPolicy": {
     "direction": "one_way_up",
@@ -56,6 +57,9 @@
       "full_auto": ["low", "medium_update_only"]
     },
     "requireAllGatesPass": true,
-    "killSwitchEnabled": true
+    "killSwitchEnabled": true,
+    "killSwitchActive": false,
+    "conditionalAutoRiskTiers": ["low"],
+    "fullAutoRiskTiers": ["low", "medium"]
   }
 }

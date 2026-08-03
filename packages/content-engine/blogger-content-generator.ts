@@ -21,11 +21,14 @@ export function generateBloggerDraftPayload(proposed: ProposedPayload): DraftPay
   };
 }
 
-export function createTopicDraftHtml(title: string, facts: any[], referralUrl?: string, intent?: string, reviewData?: any): string {
+export function createTopicDraftHtml(title: string, facts: any[], referralUrl?: string, intent?: string, reviewData?: any, imageUrl?: string, imageAlt?: string): string {
   const factClaims = facts.map(f => f.claim).join(' ');
   const linkHtml = referralUrl ? `<a href="${referralUrl}" rel="nofollow noopener noreferrer">xem hướng dẫn chi tiết tại đây</a>` : 'tham khảo thêm trên website';
 
   let html = `<h2>${title}</h2>\n`;
+  if (imageUrl) {
+    html += `<p><img src="${imageUrl}" alt="${imageAlt || title}" loading="lazy" /></p>\n`;
+  }
   
   if (intent === 'cancellation') {
     html += `<h3>1. Hướng dẫn thực hiện</h3>\n`;

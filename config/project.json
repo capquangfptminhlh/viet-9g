@@ -20,7 +20,7 @@
   ],
   "ymyl": false,
   "trailingSlashPolicy": "never",
-  "automationMode": "dry_run",
+  "automationMode": "full_auto",
   "maxPostsPerDay": 3,
   "maxUpdatesPerDay": 5,
   "dailyBudgetUsd": 1.00,

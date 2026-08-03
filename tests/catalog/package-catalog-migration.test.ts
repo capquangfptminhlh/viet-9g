@@ -37,6 +37,17 @@ describe('package catalog migration', () => {
     expect(fs.readFileSync(catalogPath, 'utf8')).toBe(before);
   });
 
+  it('does not report catalog drift when a Windows checkout uses CRLF line endings', () => {
+    const before = fs.readFileSync(catalogPath, 'utf8');
+    try {
+      fs.writeFileSync(catalogPath, before.replace(/\n/g, '\r\n'), 'utf8');
+      const output = execSync('npx tsx scripts/migrate-package-catalog.ts --check', { cwd: root, encoding: 'utf8' });
+      expect(output).toMatch(/OK|unchanged|stable/i);
+    } finally {
+      fs.writeFileSync(catalogPath, before, 'utf8');
+    }
+  });
+
   it('validator prints a status summary and exits successfully', () => {
     const output = execSync('npx tsx scripts/validate-package-catalog.ts', { cwd: root, encoding: 'utf8' });
     expect(output).toMatch(/operator_verified/i);

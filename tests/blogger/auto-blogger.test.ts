@@ -100,6 +100,65 @@ describe('Auto Blogger Orchestration', () => {
     expect(summaries.join('\n')).not.toContain('must-not-leak');
   });
 
+  it('holds a publication when the topic-specific media asset is not in the manifest', async () => {
+    const result = await runAutoBlogger({
+      sites: [{ blogId: 'a', enabled: true }],
+      topics: [{
+        topicId: 'needs-media', status: 'QUEUE', targetBlogId: 'a', intent: 'informational',
+        title: 'Topic needs an illustration', targetUrlPath: '/tin-tuc/', sourceFactIds: ['f1'],
+        imageBrief: 'A neutral phone illustration.', imageAlt: 'Minh họa điện thoại trung tính.',
+      }],
+      requireMedia: true,
+      mediaManifest: [],
+      ledgerStore: { async load() { return []; }, async save() {} },
+      env: { BLOGGER_ENABLED: 'true' },
+      facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }],
+      now: new Date('2026-08-02T00:00:00.000Z'),
+    });
+
+    expect(result).toMatchObject({ status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1 });
+  });
+
+  it('holds a publication until the manifest asset is reachable on the public domain', async () => {
+    const result = await runAutoBlogger({
+      sites: [{ blogId: 'a', enabled: true }],
+      topics: [{
+        topicId: 'media-not-live', status: 'QUEUE', targetBlogId: 'a', intent: 'informational',
+        title: 'Media is not live yet', targetUrlPath: '/tin-tuc/', sourceFactIds: ['f1'],
+        imageBrief: 'A neutral phone illustration.', imageAlt: 'Minh họa điện thoại trung tính.',
+      }],
+      requireMedia: true,
+      mediaManifest: [{
+        assetId: 'media-not-live-123456789abc', topicId: 'media-not-live', intent: 'informational',
+        relativePath: '/images/blogger/media-not-live-123456789abc.svg', publicUrl: 'https://tracuugoicuoc.com/images/blogger/media-not-live-123456789abc.svg',
+        alt: 'Minh họa điện thoại trung tính.', imageBrief: 'A neutral phone illustration.', contentHash: '123456789abcdef', createdAt: '2026-08-03T00:00:00.000Z',
+      }],
+      verifyMediaUrl: async () => false,
+      ledgerStore: { async load() { return []; }, async save() {} },
+      env: { BLOGGER_ENABLED: 'true' },
+      facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }],
+    });
+
+    expect(result).toMatchObject({ status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1 });
+  });
+
+  it('holds an otherwise valid topic when executable policy is dry-run', async () => {
+    const result = await runAutoBlogger({
+      sites: [{ blogId: 'a', enabled: true }],
+      topics: [{ topicId: 'policy-blocked', status: 'QUEUE', targetBlogId: 'a', intent: 'informational', title: 'Policy blocked', targetUrlPath: '/tin-tuc/', sourceFactIds: ['f1'] }],
+      automationPolicy: {
+        policyVersion: 'test-policy',
+        automationMode: 'dry_run',
+        publishPolicy: { killSwitchActive: false, conditionalAutoRiskTiers: ['low'], fullAutoRiskTiers: ['low', 'medium'] },
+      },
+      ledgerStore: { async load() { return []; }, async save() {} },
+      env: { BLOGGER_ENABLED: 'true' },
+      facts: [{ id: 'f1', expiresAt: '2030-01-01T00:00:00Z', sourceUrl: 'https://viettel.vn' }],
+    });
+
+    expect(result).toMatchObject({ status: 'TOPIC_QUEUE_EXHAUSTED', exitCode: 1 });
+  });
+
   it('skips a blog at its daily limit and publishes at most one topic on another enabled blog', async () => {
     const inserts: BloggerPostRequest[] = [];
     const ledger: LedgerEntry[] = [{
