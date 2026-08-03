@@ -3,7 +3,8 @@
 export const bloggerSiteSchema = z.object({
   blogId: z.string().min(1, 'blogId cannot be empty'),
   name: z.string().min(1),
-  url: z.url(),
+  url: z.url().optional(),
+  description: z.string().min(1, 'description cannot be empty'),
   enabled: z.boolean(),
   cadenceDays: z.number().int().min(1).max(90),
   contentCharter: z.string().min(1, 'contentCharter cannot be empty'),
@@ -13,7 +14,7 @@ export const bloggerSiteSchema = z.object({
 
 export const bloggerSitesConfigSchema = z.object({
   sites: z.array(bloggerSiteSchema)
-    .max(3, 'Config allows a maximum of 3 Blogger sites')
+    .max(5, 'Config allows a maximum of 5 Blogger sites')
     .refine(
       (sites) => new Set(sites.map((s) => s.blogId)).size === sites.length,
       { message: 'blogId values must be unique' }

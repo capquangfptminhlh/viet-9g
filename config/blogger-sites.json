@@ -3,6 +3,7 @@
     {
       "blogId": "5229528996284551001",
       "name": "Cẩm nang 4G Viettel",
+      "description": "Cẩm nang độc lập về cách dùng 4G/5G Viettel, eSIM, roaming và thiết lập kết nối trên thiết bị.",
       "url": "https://camnang4gviettel.blogspot.com",
       "enabled": true,
       "cadenceDays": 1,
@@ -16,6 +17,7 @@
     {
       "blogId": "5656849674298814641",
       "name": "Thủ thuật 4G/5G Viettel",
+      "description": "Hướng dẫn thao tác 4G/5G Viettel theo từng bước: cài đặt, USSD, eSIM, roaming và kiểm tra kết nối.",
       "enabled": true,
       "cadenceDays": 1,
       "contentCharter": "Guides for setting up and using 4G/5G Viettel only",
@@ -28,6 +30,7 @@
     {
       "blogId": "2757413717171314447",
       "name": "Kiểm tra & Hủy gói Viettel",
+      "description": "Giải đáp tra cứu dung lượng, kiểm tra hạn dùng, hủy và gia hạn gói Viettel bằng kênh chính thức.",
       "enabled": true,
       "cadenceDays": 1,
       "contentCharter": "Checking data, cancellation, and renewal guidance only",
@@ -40,6 +43,7 @@
     {
       "blogId": "6831378030642060628",
       "name": "Review Gói Cước Viettel",
+      "description": "Đánh giá và so sánh gói cước Viettel dựa trên thông số, điều kiện áp dụng và nhu cầu sử dụng thực tế.",
       "enabled": true,
       "cadenceDays": 1,
       "contentCharter": "Independent package reviews and comparisons only",
@@ -52,6 +56,7 @@
     {
       "blogId": "9153601315328665051",
       "name": "Hỗ trợ Lỗi Mạng Viettel",
+      "description": "Cẩm nang xử lý lỗi mạng, SIM, eSIM, SMS, 4G/5G và roaming với các bước kiểm tra an toàn.",
       "enabled": true,
       "cadenceDays": 1,
       "contentCharter": "Network, SIM, and device troubleshooting only",
