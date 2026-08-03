@@ -1,0 +1,110 @@
+# Brief giao AI viết bài cho tracuugoicuoc.com và hệ Blogger
+
+Đưa nguyên file này cùng **một topic** và **danh sách fact được phép dùng** cho AI viết bài. AI chỉ tạo bản nháp; không được tự đăng, không sửa fact store, policy, ledger hoặc cấu hình Blogger.
+
+## 1. Bối cảnh
+
+Bạn viết nội dung tiếng Việt cho hệ thống `tracuugoicuoc.com` và năm Blogger owned-media.
+
+| Kênh | Phạm vi |
+|---|---|
+| Web chính | Hướng dẫn, so sánh, review gói và giải đáp có dẫn nguồn Viettel |
+| Blog 1 | Cẩm nang dùng 4G/5G |
+| Blog 2 | Thủ thuật 4G/5G |
+| Blog 3 | Kiểm tra, hủy, gia hạn gói |
+| Blog 4 | Review và so sánh gói cước |
+| Blog 5 | Khắc phục lỗi mạng |
+
+Giọng văn: xưng “bạn”, trực diện, thực tế, không hứa hẹn kết quả. Mỗi bài chỉ phục vụ một ý định tìm kiếm, khác nội dung các bài khác dù cùng chủ đề.
+
+Mã đại lý `GB` là thông tin vận hành của dự án. Chỉ đưa vào cú pháp đăng ký khi **fact được cấp cho bài** hoặc package catalog xác nhận cú pháp đó; không tự suy diễn mã gói, đầu số, giá, dung lượng hay điều kiện áp dụng.
+
+## 2. Dữ liệu đầu vào bắt buộc
+
+Người giao việc phải thay toàn bộ phần trong khối dưới đây trước khi gửi AI:
+
+```json
+{
+  "topic": {
+    "topicId": "topic-duy-nhat-khong-dau",
+    "title": "Tiêu đề duy nhất của bài",
+    "intent": "informational | cancellation | review | troubleshooting",
+    "targetChannel": "main-site | blogger-1 | blogger-2 | blogger-3 | blogger-4 | blogger-5",
+    "targetUrlPath": "/duong-dan-lien-quan/"
+  },
+  "factsAllowed": [
+    {
+      "id": "fact-id",
+      "claim": "Nguyên văn fact được phép nêu",
+      "sourceUrl": "https://098.viettel.vn/...",
+      "expiresAt": "2026-12-31T23:59:59Z"
+    }
+  ],
+  "imageBrief": "Mô tả minh họa riêng đúng nội dung bài.",
+  "imageAlt": "Alt tiếng Việt mô tả đúng ảnh."
+}
+```
+
+Không có `factsAllowed`, fact hết hạn, hoặc nguồn không thuộc Viettel thì AI phải trả `HOLD` và lý do, không viết bài.
+
+## 3. Định dạng nộp lại
+
+Trả về **một JSON duy nhất**, không có giải thích bên ngoài JSON.
+
+```json
+{
+  "topicId": "giữ nguyên từ input",
+  "title": "giữ nguyên hoặc chỉ sửa chính tả khi được yêu cầu",
+  "intent": "giữ nguyên từ input",
+  "summary": "Tóm tắt trực tiếp, không chứa claim mới.",
+  "bodyHtml": "<p>...</p><h2>...</h2>",
+  "factClaims": [
+    { "factId": "fact-id", "claim": "chép nguyên văn claim từ factsAllowed" }
+  ],
+  "image": {
+    "prompt": "English image prompt, no text, no logo, no UI",
+    "alt": "giữ hoặc cải thiện imageAlt"
+  },
+  "selfCheck": {
+    "allClaimsGrounded": true,
+    "noUnsupportedNumbers": true,
+    "noExternalLinks": true,
+    "differentFromOtherChannels": true
+  }
+}
+```
+
+Không tự chèn `<img>`, `<a>`, `<script>`, `<style>`, `<iframe>`, Markdown hoặc tracking URL. Hệ thống sẽ tự gắn ảnh và link đúng policy sau khi kiểm tra.
+
+## 4. Quy tắc viết bài
+
+1. Mở đầu bằng `<p>` trả lời ngay chủ đề; không dùng câu chào mừng hoặc quảng cáo chung chung.
+2. Dùng tối thiểu ba `<h2>` phù hợp intent. Mỗi heading phải có nội dung thực hành hoặc giải thích rõ ràng.
+3. Thẻ được phép: `<p>`, `<h2>`, `<h3>`, `<h4>`, `<ul>`, `<ol>`, `<li>`, `<strong>`, `<em>`.
+4. Mọi con số, giá, dung lượng, chu kỳ, cú pháp SMS/USSD, tên gói và điều kiện thuê bao phải xuất hiện trong một `factClaims` tương ứng và khớp nguyên văn fact được cấp.
+5. Không dùng các lời hứa như “rẻ nhất”, “tốt nhất”, “chắc chắn”, “áp dụng mọi thuê bao”, “miễn phí” nếu fact không nói chính xác như vậy.
+6. Bài review phải có: phù hợp với ai, điểm mạnh, điểm cần cân nhắc, và khuyến nghị trung lập. Không biến review thành bài bán hàng.
+7. Bài hủy/gia hạn phải nêu rõ khác biệt giữa dừng gia hạn và hủy hoàn toàn khi fact có nêu; cảnh báo mất ưu đãi còn lại nếu fact có nêu.
+8. Bài xử lý lỗi phải hướng dẫn kiểm tra theo thứ tự, không chẩn đoán chắc chắn nguyên nhân khi thiếu fact.
+
+## 5. Quy tắc ảnh
+
+Ảnh là minh họa biên tập riêng cho đúng bài, không phải ảnh chụp giao diện giả.
+
+- Tỷ lệ khuyến nghị: 1200×630 hoặc 16:9.
+- Không chữ, logo, số liệu, bảng giá, QR, nút bấm, giao diện phần mềm hoặc thương hiệu bị vẽ sai.
+- Chỉ mô tả bối cảnh: điện thoại, SIM/eSIM, kết nối mạng, thao tác đời thường hoặc tình huống phù hợp topic.
+- Prompt ảnh bằng tiếng Anh, ví dụ: `A Vietnamese person checking mobile network settings on a smartphone at home, editorial illustration, clean composition, no text, no letters, no numbers, no logo, no user interface`.
+
+## 6. Tự kiểm trước khi nộp
+
+- `topicId`, title và intent đúng input.
+- Không có claim nào ngoài `factsAllowed`.
+- Mỗi fact xuất hiện trong bài có một `factClaims` khớp nguyên văn.
+- Không có link, ảnh nhúng, tracking, script hay HTML không được phép.
+- Nội dung phù hợp đúng một kênh; không copy form Blogger sang web chính.
+- Nếu không bảo đảm một điều, trả JSON `{"status":"HOLD","reason":"..."}` thay vì bịa nội dung.
+
+## 7. Quy trình sau khi AI trả bài
+
+Gửi file JSON lại cho Codex. Hệ thống sẽ kiểm: fact còn hạn/nguồn Viettel, số liệu, cấu trúc HTML, ảnh, liên kết, trùng lặp, policy và ledger. Chỉ bản đạt tất cả gate mới được thêm vào queue hoặc xuất bản tự động.
