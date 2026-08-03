@@ -118,6 +118,8 @@ Gửi file JSON lại cho Codex. Hệ thống sẽ kiểm: fact còn hạn/ngu�
 
 Khi được giao nhiều topic, người giao việc gửi **một file JSON đầu vào** gồm thông tin lô và danh sách `articles`. Mỗi phần tử trong `articles` dùng chính cấu trúc `topic`, `factsAllowed`, `imageBrief` và `imageAlt` ở Mục 2.
 
+File đầu vào đã được chuẩn bị cho đợt hiện tại là `docs/content-batches/CONTENT_BATCH_INPUT.json`. Chỉ gửi **một phần tử trong `batches`** cho mỗi lượt làm bài; không gửi riêng brief mà thiếu dữ liệu đầu vào.
+
 AI phải trả về **một JSON duy nhất cho toàn bộ lô**, không chia thành nhiều tin nhắn, không dùng Markdown fence và không giải thích ngoài JSON:
 
 ```json

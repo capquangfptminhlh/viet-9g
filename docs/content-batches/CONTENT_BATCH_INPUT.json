@@ -1,0 +1,375 @@
+{
+  "version": 1,
+  "generatedAt": "2026-08-03",
+  "contract": "docs/AI-CONTENT-SUBMISSION-BRIEF.md",
+  "usage": "Give one batches[] item at a time to the external model. The model must return one JSON result for that item only.",
+  "coverage": {
+    "mainSitePostTarget": 150,
+    "existingMainSitePosts": 66,
+    "verifiedUniqueArticleInputsAvailable": 15,
+    "additionalVerifiedInputsStillRequired": 69,
+    "selectionRule": "Only queue topics with a unique main-site target path and unexpired official Viettel source facts are included."
+  },
+  "batches": [
+    {
+      "batchId": "main-site-package-review-part-01",
+      "expectedArticleCount": 3,
+      "articles": [
+        {
+          "topic": {
+            "topicId": "b4-review-01-a",
+            "title": "Đánh giá 5G135 Viettel: đọc thông số chính thức trước khi chọn",
+            "intent": "review",
+            "targetChannel": "main-site",
+            "targetUrlPath": "/goi-cuoc/5g135/"
+          },
+          "factsAllowed": [
+            {
+              "id": "package-01",
+              "claim": "5G135 is listed at 135,000đ for 30 days with 4GB/day (120GB/month), TV360 Basic, and 20GB MyBox storage.",
+              "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+              "retrievedAt": "2026-08-02",
+              "effectiveAt": "2026-08-02",
+              "expiresAt": "2026-11-01T23:59:59Z",
+              "recheckPolicy": "Recheck the official source before publication after expiresAt."
+            }
+          ],
+          "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá 5G135 Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+          "imageAlt": "Minh họa cho bài viết: Đánh giá 5G135 Viettel: đọc thông số chính thức trước khi chọn."
+        },
+        {
+          "topic": {
+            "topicId": "b4-review-02-a",
+            "title": "Đánh giá 5G150 Viettel: đọc thông số chính thức trước khi chọn",
+            "intent": "review",
+            "targetChannel": "main-site",
+            "targetUrlPath": "/goi-cuoc/5g150/"
+          },
+          "factsAllowed": [
+            {
+              "id": "package-02",
+              "claim": "5G150 is listed at 150,000đ for 30 days with 6GB/day (180GB/month), TV360 Basic, and 30GB MyBox storage.",
+              "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+              "retrievedAt": "2026-08-02",
+              "effectiveAt": "2026-08-02",
+              "expiresAt": "2026-11-01T23:59:59Z",
+              "recheckPolicy": "Recheck the official source before publication after expiresAt."
+            }
+          ],
+          "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá 5G150 Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+          "imageAlt": "Minh họa cho bài viết: Đánh giá 5G150 Viettel: đọc thông số chính thức trước khi chọn."
+        },
+        {
+          "topic": {
+            "topicId": "b4-review-03-a",
+            "title": "Đánh giá 5G160B Viettel: đọc thông số chính thức trước khi chọn",
+            "intent": "review",
+            "targetChannel": "main-site",
+            "targetUrlPath": "/goi-cuoc/5g160b/"
+          },
+          "factsAllowed": [
+            {
+              "id": "package-03",
+              "claim": "5G160B is listed at 160,000đ for 30 days with 4GB/day (120GB/month), 100 off-net minutes, first 10 minutes of each on-net call free (maximum 1,000 minutes), TV360 Basic, and 20GB MyBox storage.",
+              "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+              "retrievedAt": "2026-08-02",
+              "effectiveAt": "2026-08-02",
+              "expiresAt": "2026-11-01T23:59:59Z",
+              "recheckPolicy": "Recheck the official source before publication after expiresAt."
+            }
+          ],
+          "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá 5G160B Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+          "imageAlt": "Minh họa cho bài viết: Đánh giá 5G160B Viettel: đọc thông số chính thức trước khi chọn."
+        }
+      ]
+    },
+    {
+      "batchId": "main-site-package-review-part-02",
+      "expectedArticleCount": 3,
+      "articles": [
+        {
+          "topic": {
+            "topicId": "b4-review-04-a",
+            "title": "Đánh giá 5G180B Viettel: đọc thông số chính thức trước khi chọn",
+            "intent": "review",
+            "targetChannel": "main-site",
+            "targetUrlPath": "/goi-cuoc/5g180b/"
+          },
+          "factsAllowed": [
+            {
+              "id": "package-04",
+              "claim": "5G180B is listed at 180,000đ for 30 days with 6GB/day (180GB/month), 100 off-net minutes, first 10 minutes of each on-net call free (maximum 1,000 minutes), TV360 Basic, and 30GB MyBox storage.",
+              "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+              "retrievedAt": "2026-08-02",
+              "effectiveAt": "2026-08-02",
+              "expiresAt": "2026-11-01T23:59:59Z",
+              "recheckPolicy": "Recheck the official source before publication after expiresAt."
+            }
+          ],
+          "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá 5G180B Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+          "imageAlt": "Minh họa cho bài viết: Đánh giá 5G180B Viettel: đọc thông số chính thức trước khi chọn."
+        },
+        {
+          "topic": {
+            "topicId": "b4-review-05-a",
+            "title": "Đánh giá SD70 Viettel: đọc thông số chính thức trước khi chọn",
+            "intent": "review",
+            "targetChannel": "main-site",
+            "targetUrlPath": "/goi-cuoc/sd70/"
+          },
+          "factsAllowed": [
+            {
+              "id": "package-05",
+              "claim": "SD70 is listed at 70,000đ for 30 days with 30GB high-speed data (1GB/day).",
+              "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+              "retrievedAt": "2026-08-02",
+              "effectiveAt": "2026-08-02",
+              "expiresAt": "2026-11-01T23:59:59Z",
+              "recheckPolicy": "Recheck the official source before publication after expiresAt."
+            }
+          ],
+          "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá SD70 Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+          "imageAlt": "Minh họa cho bài viết: Đánh giá SD70 Viettel: đọc thông số chính thức trước khi chọn."
+        },
+        {
+          "topic": {
+            "topicId": "b4-review-06-a",
+            "title": "Đánh giá SD90 Viettel: đọc thông số chính thức trước khi chọn",
+            "intent": "review",
+            "targetChannel": "main-site",
+            "targetUrlPath": "/goi-cuoc/sd90/"
+          },
+          "factsAllowed": [
+            {
+              "id": "package-06",
+              "claim": "SD90 is listed at 90,000đ for 30 days with 45GB high-speed data (1.5GB/day).",
+              "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+              "retrievedAt": "2026-08-02",
+              "effectiveAt": "2026-08-02",
+              "expiresAt": "2026-11-01T23:59:59Z",
+              "recheckPolicy": "Recheck the official source before publication after expiresAt."
+            }
+          ],
+          "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá SD90 Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+          "imageAlt": "Minh họa cho bài viết: Đánh giá SD90 Viettel: đọc thông số chính thức trước khi chọn."
+        }
+      ]
+    },
+    {
+      "batchId": "main-site-package-review-part-03",
+      "expectedArticleCount": 3,
+      "articles": [
+        {
+          "topic": {
+            "topicId": "b4-review-07-a",
+            "title": "Đánh giá SD120 Viettel: đọc thông số chính thức trước khi chọn",
+            "intent": "review",
+            "targetChannel": "main-site",
+            "targetUrlPath": "/goi-cuoc/sd120/"
+          },
+          "factsAllowed": [
+            {
+              "id": "package-07",
+              "claim": "SD120 is listed at 120,000đ for 30 days with 60GB high-speed data (2GB/day).",
+              "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+              "retrievedAt": "2026-08-02",
+              "effectiveAt": "2026-08-02",
+              "expiresAt": "2026-11-01T23:59:59Z",
+              "recheckPolicy": "Recheck the official source before publication after expiresAt."
+            }
+          ],
+          "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá SD120 Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+          "imageAlt": "Minh họa cho bài viết: Đánh giá SD120 Viettel: đọc thông số chính thức trước khi chọn."
+        },
+        {
+          "topic": {
+            "topicId": "b4-review-08-a",
+            "title": "Đánh giá SD135 Viettel: đọc thông số chính thức trước khi chọn",
+            "intent": "review",
+            "targetChannel": "main-site",
+            "targetUrlPath": "/goi-cuoc/sd135/"
+          },
+          "factsAllowed": [
+            {
+              "id": "package-08",
+              "claim": "SD135 is listed at 135,000đ for 30 days with 150GB high-speed data (5GB/day).",
+              "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+              "retrievedAt": "2026-08-02",
+              "effectiveAt": "2026-08-02",
+              "expiresAt": "2026-11-01T23:59:59Z",
+              "recheckPolicy": "Recheck the official source before publication after expiresAt."
+            }
+          ],
+          "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá SD135 Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+          "imageAlt": "Minh họa cho bài viết: Đánh giá SD135 Viettel: đọc thông số chính thức trước khi chọn."
+        },
+        {
+          "topic": {
+            "topicId": "b4-review-09-a",
+            "title": "Đánh giá SD150 Viettel: đọc thông số chính thức trước khi chọn",
+            "intent": "review",
+            "targetChannel": "main-site",
+            "targetUrlPath": "/goi-cuoc/sd150/"
+          },
+          "factsAllowed": [
+            {
+              "id": "package-09",
+              "claim": "SD150 is listed at 150,000đ for 30 days with 90GB high-speed data (3GB/day).",
+              "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+              "retrievedAt": "2026-08-02",
+              "effectiveAt": "2026-08-02",
+              "expiresAt": "2026-11-01T23:59:59Z",
+              "recheckPolicy": "Recheck the official source before publication after expiresAt."
+            }
+          ],
+          "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá SD150 Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+          "imageAlt": "Minh họa cho bài viết: Đánh giá SD150 Viettel: đọc thông số chính thức trước khi chọn."
+        }
+      ]
+    },
+    {
+      "batchId": "main-site-package-review-part-04",
+      "expectedArticleCount": 3,
+      "articles": [
+        {
+          "topic": {
+            "topicId": "b4-review-10-a",
+            "title": "Đánh giá V90B Viettel: đọc thông số chính thức trước khi chọn",
+            "intent": "review",
+            "targetChannel": "main-site",
+            "targetUrlPath": "/goi-cuoc/v90b/"
+          },
+          "factsAllowed": [
+            {
+              "id": "package-10",
+              "claim": "V90B is listed at 90,000đ for 30 days with 1GB/day (30GB/month), 30 off-net minutes, and the first 10 minutes of each on-net call free.",
+              "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+              "retrievedAt": "2026-08-02",
+              "effectiveAt": "2026-08-02",
+              "expiresAt": "2026-11-01T23:59:59Z",
+              "recheckPolicy": "Recheck the official source before publication after expiresAt."
+            }
+          ],
+          "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá V90B Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+          "imageAlt": "Minh họa cho bài viết: Đánh giá V90B Viettel: đọc thông số chính thức trước khi chọn."
+        },
+        {
+          "topic": {
+            "topicId": "b4-review-11-a",
+            "title": "Đánh giá V120B Viettel: đọc thông số chính thức trước khi chọn",
+            "intent": "review",
+            "targetChannel": "main-site",
+            "targetUrlPath": "/goi-cuoc/v120b/"
+          },
+          "factsAllowed": [
+            {
+              "id": "package-11",
+              "claim": "V120B is listed at 120,000đ for 30 days with 1.5GB/day (45GB/month), 50 off-net minutes, and the first 10 minutes of each on-net call free.",
+              "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+              "retrievedAt": "2026-08-02",
+              "effectiveAt": "2026-08-02",
+              "expiresAt": "2026-11-01T23:59:59Z",
+              "recheckPolicy": "Recheck the official source before publication after expiresAt."
+            }
+          ],
+          "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá V120B Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+          "imageAlt": "Minh họa cho bài viết: Đánh giá V120B Viettel: đọc thông số chính thức trước khi chọn."
+        },
+        {
+          "topic": {
+            "topicId": "b4-review-12-a",
+            "title": "Đánh giá V160B Viettel: đọc thông số chính thức trước khi chọn",
+            "intent": "review",
+            "targetChannel": "main-site",
+            "targetUrlPath": "/goi-cuoc/v160b/"
+          },
+          "factsAllowed": [
+            {
+              "id": "package-12",
+              "claim": "V160B is listed at 160,000đ for 30 days with 4GB/day (120GB/month), 100 off-net minutes, and the first 10 minutes of each on-net call free.",
+              "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+              "retrievedAt": "2026-08-02",
+              "effectiveAt": "2026-08-02",
+              "expiresAt": "2026-11-01T23:59:59Z",
+              "recheckPolicy": "Recheck the official source before publication after expiresAt."
+            }
+          ],
+          "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá V160B Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+          "imageAlt": "Minh họa cho bài viết: Đánh giá V160B Viettel: đọc thông số chính thức trước khi chọn."
+        }
+      ]
+    },
+    {
+      "batchId": "main-site-package-review-part-05",
+      "expectedArticleCount": 3,
+      "articles": [
+        {
+          "topic": {
+            "topicId": "b4-review-13-a",
+            "title": "Đánh giá MXH100 Viettel: đọc thông số chính thức trước khi chọn",
+            "intent": "review",
+            "targetChannel": "main-site",
+            "targetUrlPath": "/goi-cuoc/mxh100/"
+          },
+          "factsAllowed": [
+            {
+              "id": "package-13",
+              "claim": "MXH100 is listed at 100,000đ for 30 days with 1GB/day (30GB/month) and free access to Facebook, TikTok, YouTube, and Messenger messaging.",
+              "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+              "retrievedAt": "2026-08-02",
+              "effectiveAt": "2026-08-02",
+              "expiresAt": "2026-11-01T23:59:59Z",
+              "recheckPolicy": "Recheck the official source before publication after expiresAt."
+            }
+          ],
+          "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá MXH100 Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+          "imageAlt": "Minh họa cho bài viết: Đánh giá MXH100 Viettel: đọc thông số chính thức trước khi chọn."
+        },
+        {
+          "topic": {
+            "topicId": "b4-review-14-a",
+            "title": "Đánh giá MXH120 Viettel: đọc thông số chính thức trước khi chọn",
+            "intent": "review",
+            "targetChannel": "main-site",
+            "targetUrlPath": "/goi-cuoc/mxh120/"
+          },
+          "factsAllowed": [
+            {
+              "id": "package-14",
+              "claim": "MXH120 is listed at 120,000đ for 30 days with 1GB/day (30GB/month), the first 10 minutes of each on-net call free, 30 off-net minutes, and the named social services free up to 50GB according to the usage guide.",
+              "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+              "retrievedAt": "2026-08-02",
+              "effectiveAt": "2026-08-02",
+              "expiresAt": "2026-11-01T23:59:59Z",
+              "recheckPolicy": "Recheck the official source before publication after expiresAt."
+            }
+          ],
+          "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá MXH120 Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+          "imageAlt": "Minh họa cho bài viết: Đánh giá MXH120 Viettel: đọc thông số chính thức trước khi chọn."
+        },
+        {
+          "topic": {
+            "topicId": "b4-review-15-a",
+            "title": "Đánh giá MXH150 Viettel: đọc thông số chính thức trước khi chọn",
+            "intent": "review",
+            "targetChannel": "main-site",
+            "targetUrlPath": "/goi-cuoc/mxh150/"
+          },
+          "factsAllowed": [
+            {
+              "id": "package-15",
+              "claim": "MXH150 is listed at 150,000đ for 30 days with 1.5GB/day (45GB/month), the first 10 minutes of each on-net call free, 50 off-net minutes, and the named social services free up to 50GB according to the usage guide.",
+              "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+              "retrievedAt": "2026-08-02",
+              "effectiveAt": "2026-08-02",
+              "expiresAt": "2026-11-01T23:59:59Z",
+              "recheckPolicy": "Recheck the official source before publication after expiresAt."
+            }
+          ],
+          "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá MXH150 Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+          "imageAlt": "Minh họa cho bài viết: Đánh giá MXH150 Viettel: đọc thông số chính thức trước khi chọn."
+        }
+      ]
+    }
+  ]
+}
