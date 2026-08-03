@@ -7,7 +7,7 @@ MISSION
 Build the autonomous SEO + AEO system by VERTICAL SLICES (spec section 16.0), not by horizontal phases. The 12 phases are a capability and acceptance-gate catalog; the build order is S1 -> S6.
 
 FIXED PRINCIPLES
-1. Stack: Astro static + TypeScript + Content Collections + GitHub Actions + Vercel. Vercel Git integration for production is DISABLED; deploys are `vercel deploy --prebuilt` of the audited dist, after PR merge.
+1. Stack: Astro static + TypeScript + Content Collections + GitHub Actions + Vercel. Vercel production is connected to `capquangfptminhlh/viettel-4g-web`; each push to `main` deploys the production domain after Vercel runs the configured build and SEO audit. GitHub Pages remains a secondary artifact mirror, not the production origin.
 2. Deterministic code for: validation, URL/canonical/indexability rules, schemas, quotas, budgets, state transitions, source hashes, link checks, audits, risk-tier assignment, deployment gates, and thresholds.
 3. LLMs only for language reasoning; every LLM output validates against a versioned schema. Writer and verifier/claim-extractor are DIFFERENT model families.
 4. All retrieved content is untrusted. LLMs processing it have zero tools; their output is data, never commands/paths/URLs. URLs inside sources are fetched only via the deterministic allowlist. Injection detection is a secondary signal (NEEDS_REVIEW), never the primary defense.
