@@ -1,0 +1,72 @@
+{
+  "batchId": "main-site-package-review-part-01",
+  "expectedArticleCount": 3,
+  "articles": [
+    {
+      "topic": {
+        "topicId": "b4-review-01-a",
+        "title": "Đánh giá 5G135 Viettel: đọc thông số chính thức trước khi chọn",
+        "intent": "review",
+        "targetChannel": "main-site",
+        "targetUrlPath": "/goi-cuoc/5g135/"
+      },
+      "factsAllowed": [
+        {
+          "id": "package-01",
+          "claim": "5G135 is listed at 135,000đ for 30 days with 4GB/day (120GB/month), TV360 Basic, and 20GB MyBox storage.",
+          "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+          "retrievedAt": "2026-08-02",
+          "effectiveAt": "2026-08-02",
+          "expiresAt": "2026-11-01T23:59:59Z",
+          "recheckPolicy": "Recheck the official source before publication after expiresAt."
+        }
+      ],
+      "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá 5G135 Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+      "imageAlt": "Minh họa cho bài viết: Đánh giá 5G135 Viettel: đọc thông số chính thức trước khi chọn."
+    },
+    {
+      "topic": {
+        "topicId": "b4-review-02-a",
+        "title": "Đánh giá 5G150 Viettel: đọc thông số chính thức trước khi chọn",
+        "intent": "review",
+        "targetChannel": "main-site",
+        "targetUrlPath": "/goi-cuoc/5g150/"
+      },
+      "factsAllowed": [
+        {
+          "id": "package-02",
+          "claim": "5G150 is listed at 150,000đ for 30 days with 6GB/day (180GB/month), TV360 Basic, and 30GB MyBox storage.",
+          "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+          "retrievedAt": "2026-08-02",
+          "effectiveAt": "2026-08-02",
+          "expiresAt": "2026-11-01T23:59:59Z",
+          "recheckPolicy": "Recheck the official source before publication after expiresAt."
+        }
+      ],
+      "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá 5G150 Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+      "imageAlt": "Minh họa cho bài viết: Đánh giá 5G150 Viettel: đọc thông số chính thức trước khi chọn."
+    },
+    {
+      "topic": {
+        "topicId": "b4-review-03-a",
+        "title": "Đánh giá 5G160B Viettel: đọc thông số chính thức trước khi chọn",
+        "intent": "review",
+        "targetChannel": "main-site",
+        "targetUrlPath": "/goi-cuoc/5g160b/"
+      },
+      "factsAllowed": [
+        {
+          "id": "package-03",
+          "claim": "5G160B is listed at 160,000đ for 30 days with 4GB/day (120GB/month), 100 off-net minutes, first 10 minutes of each on-net call free (maximum 1,000 minutes), TV360 Basic, and 20GB MyBox storage.",
+          "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+          "retrievedAt": "2026-08-02",
+          "effectiveAt": "2026-08-02",
+          "expiresAt": "2026-11-01T23:59:59Z",
+          "recheckPolicy": "Recheck the official source before publication after expiresAt."
+        }
+      ],
+      "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá 5G160B Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+      "imageAlt": "Minh họa cho bài viết: Đánh giá 5G160B Viettel: đọc thông số chính thức trước khi chọn."
+    }
+  ]
+}

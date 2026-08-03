@@ -1,0 +1,72 @@
+{
+  "batchId": "main-site-package-review-part-04",
+  "expectedArticleCount": 3,
+  "articles": [
+    {
+      "topic": {
+        "topicId": "b4-review-10-a",
+        "title": "Đánh giá V90B Viettel: đọc thông số chính thức trước khi chọn",
+        "intent": "review",
+        "targetChannel": "main-site",
+        "targetUrlPath": "/goi-cuoc/v90b/"
+      },
+      "factsAllowed": [
+        {
+          "id": "package-10",
+          "claim": "V90B is listed at 90,000đ for 30 days with 1GB/day (30GB/month), 30 off-net minutes, and the first 10 minutes of each on-net call free.",
+          "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+          "retrievedAt": "2026-08-02",
+          "effectiveAt": "2026-08-02",
+          "expiresAt": "2026-11-01T23:59:59Z",
+          "recheckPolicy": "Recheck the official source before publication after expiresAt."
+        }
+      ],
+      "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá V90B Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+      "imageAlt": "Minh họa cho bài viết: Đánh giá V90B Viettel: đọc thông số chính thức trước khi chọn."
+    },
+    {
+      "topic": {
+        "topicId": "b4-review-11-a",
+        "title": "Đánh giá V120B Viettel: đọc thông số chính thức trước khi chọn",
+        "intent": "review",
+        "targetChannel": "main-site",
+        "targetUrlPath": "/goi-cuoc/v120b/"
+      },
+      "factsAllowed": [
+        {
+          "id": "package-11",
+          "claim": "V120B is listed at 120,000đ for 30 days with 1.5GB/day (45GB/month), 50 off-net minutes, and the first 10 minutes of each on-net call free.",
+          "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+          "retrievedAt": "2026-08-02",
+          "effectiveAt": "2026-08-02",
+          "expiresAt": "2026-11-01T23:59:59Z",
+          "recheckPolicy": "Recheck the official source before publication after expiresAt."
+        }
+      ],
+      "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá V120B Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+      "imageAlt": "Minh họa cho bài viết: Đánh giá V120B Viettel: đọc thông số chính thức trước khi chọn."
+    },
+    {
+      "topic": {
+        "topicId": "b4-review-12-a",
+        "title": "Đánh giá V160B Viettel: đọc thông số chính thức trước khi chọn",
+        "intent": "review",
+        "targetChannel": "main-site",
+        "targetUrlPath": "/goi-cuoc/v160b/"
+      },
+      "factsAllowed": [
+        {
+          "id": "package-12",
+          "claim": "V160B is listed at 160,000đ for 30 days with 4GB/day (120GB/month), 100 off-net minutes, and the first 10 minutes of each on-net call free.",
+          "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+          "retrievedAt": "2026-08-02",
+          "effectiveAt": "2026-08-02",
+          "expiresAt": "2026-11-01T23:59:59Z",
+          "recheckPolicy": "Recheck the official source before publication after expiresAt."
+        }
+      ],
+      "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá V160B Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+      "imageAlt": "Minh họa cho bài viết: Đánh giá V160B Viettel: đọc thông số chính thức trước khi chọn."
+    }
+  ]
+}

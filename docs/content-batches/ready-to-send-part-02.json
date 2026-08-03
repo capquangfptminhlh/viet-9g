@@ -1,0 +1,72 @@
+{
+  "batchId": "main-site-package-review-part-02",
+  "expectedArticleCount": 3,
+  "articles": [
+    {
+      "topic": {
+        "topicId": "b4-review-04-a",
+        "title": "Đánh giá 5G180B Viettel: đọc thông số chính thức trước khi chọn",
+        "intent": "review",
+        "targetChannel": "main-site",
+        "targetUrlPath": "/goi-cuoc/5g180b/"
+      },
+      "factsAllowed": [
+        {
+          "id": "package-04",
+          "claim": "5G180B is listed at 180,000đ for 30 days with 6GB/day (180GB/month), 100 off-net minutes, first 10 minutes of each on-net call free (maximum 1,000 minutes), TV360 Basic, and 30GB MyBox storage.",
+          "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+          "retrievedAt": "2026-08-02",
+          "effectiveAt": "2026-08-02",
+          "expiresAt": "2026-11-01T23:59:59Z",
+          "recheckPolicy": "Recheck the official source before publication after expiresAt."
+        }
+      ],
+      "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá 5G180B Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+      "imageAlt": "Minh họa cho bài viết: Đánh giá 5G180B Viettel: đọc thông số chính thức trước khi chọn."
+    },
+    {
+      "topic": {
+        "topicId": "b4-review-05-a",
+        "title": "Đánh giá SD70 Viettel: đọc thông số chính thức trước khi chọn",
+        "intent": "review",
+        "targetChannel": "main-site",
+        "targetUrlPath": "/goi-cuoc/sd70/"
+      },
+      "factsAllowed": [
+        {
+          "id": "package-05",
+          "claim": "SD70 is listed at 70,000đ for 30 days with 30GB high-speed data (1GB/day).",
+          "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+          "retrievedAt": "2026-08-02",
+          "effectiveAt": "2026-08-02",
+          "expiresAt": "2026-11-01T23:59:59Z",
+          "recheckPolicy": "Recheck the official source before publication after expiresAt."
+        }
+      ],
+      "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá SD70 Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+      "imageAlt": "Minh họa cho bài viết: Đánh giá SD70 Viettel: đọc thông số chính thức trước khi chọn."
+    },
+    {
+      "topic": {
+        "topicId": "b4-review-06-a",
+        "title": "Đánh giá SD90 Viettel: đọc thông số chính thức trước khi chọn",
+        "intent": "review",
+        "targetChannel": "main-site",
+        "targetUrlPath": "/goi-cuoc/sd90/"
+      },
+      "factsAllowed": [
+        {
+          "id": "package-06",
+          "claim": "SD90 is listed at 90,000đ for 30 days with 45GB high-speed data (1.5GB/day).",
+          "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+          "retrievedAt": "2026-08-02",
+          "effectiveAt": "2026-08-02",
+          "expiresAt": "2026-11-01T23:59:59Z",
+          "recheckPolicy": "Recheck the official source before publication after expiresAt."
+        }
+      ],
+      "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá SD90 Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+      "imageAlt": "Minh họa cho bài viết: Đánh giá SD90 Viettel: đọc thông số chính thức trước khi chọn."
+    }
+  ]
+}

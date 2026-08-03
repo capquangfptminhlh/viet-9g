@@ -1,0 +1,72 @@
+{
+  "batchId": "main-site-package-review-part-05",
+  "expectedArticleCount": 3,
+  "articles": [
+    {
+      "topic": {
+        "topicId": "b4-review-13-a",
+        "title": "Đánh giá MXH100 Viettel: đọc thông số chính thức trước khi chọn",
+        "intent": "review",
+        "targetChannel": "main-site",
+        "targetUrlPath": "/goi-cuoc/mxh100/"
+      },
+      "factsAllowed": [
+        {
+          "id": "package-13",
+          "claim": "MXH100 is listed at 100,000đ for 30 days with 1GB/day (30GB/month) and free access to Facebook, TikTok, YouTube, and Messenger messaging.",
+          "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+          "retrievedAt": "2026-08-02",
+          "effectiveAt": "2026-08-02",
+          "expiresAt": "2026-11-01T23:59:59Z",
+          "recheckPolicy": "Recheck the official source before publication after expiresAt."
+        }
+      ],
+      "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá MXH100 Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+      "imageAlt": "Minh họa cho bài viết: Đánh giá MXH100 Viettel: đọc thông số chính thức trước khi chọn."
+    },
+    {
+      "topic": {
+        "topicId": "b4-review-14-a",
+        "title": "Đánh giá MXH120 Viettel: đọc thông số chính thức trước khi chọn",
+        "intent": "review",
+        "targetChannel": "main-site",
+        "targetUrlPath": "/goi-cuoc/mxh120/"
+      },
+      "factsAllowed": [
+        {
+          "id": "package-14",
+          "claim": "MXH120 is listed at 120,000đ for 30 days with 1GB/day (30GB/month), the first 10 minutes of each on-net call free, 30 off-net minutes, and the named social services free up to 50GB according to the usage guide.",
+          "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+          "retrievedAt": "2026-08-02",
+          "effectiveAt": "2026-08-02",
+          "expiresAt": "2026-11-01T23:59:59Z",
+          "recheckPolicy": "Recheck the official source before publication after expiresAt."
+        }
+      ],
+      "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá MXH120 Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+      "imageAlt": "Minh họa cho bài viết: Đánh giá MXH120 Viettel: đọc thông số chính thức trước khi chọn."
+    },
+    {
+      "topic": {
+        "topicId": "b4-review-15-a",
+        "title": "Đánh giá MXH150 Viettel: đọc thông số chính thức trước khi chọn",
+        "intent": "review",
+        "targetChannel": "main-site",
+        "targetUrlPath": "/goi-cuoc/mxh150/"
+      },
+      "factsAllowed": [
+        {
+          "id": "package-15",
+          "claim": "MXH150 is listed at 150,000đ for 30 days with 1.5GB/day (45GB/month), the first 10 minutes of each on-net call free, 50 off-net minutes, and the named social services free up to 50GB according to the usage guide.",
+          "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+          "retrievedAt": "2026-08-02",
+          "effectiveAt": "2026-08-02",
+          "expiresAt": "2026-11-01T23:59:59Z",
+          "recheckPolicy": "Recheck the official source before publication after expiresAt."
+        }
+      ],
+      "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá MXH150 Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+      "imageAlt": "Minh họa cho bài viết: Đánh giá MXH150 Viettel: đọc thông số chính thức trước khi chọn."
+    }
+  ]
+}

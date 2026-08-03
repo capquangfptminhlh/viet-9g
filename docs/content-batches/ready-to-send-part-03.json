@@ -1,0 +1,72 @@
+{
+  "batchId": "main-site-package-review-part-03",
+  "expectedArticleCount": 3,
+  "articles": [
+    {
+      "topic": {
+        "topicId": "b4-review-07-a",
+        "title": "Đánh giá SD120 Viettel: đọc thông số chính thức trước khi chọn",
+        "intent": "review",
+        "targetChannel": "main-site",
+        "targetUrlPath": "/goi-cuoc/sd120/"
+      },
+      "factsAllowed": [
+        {
+          "id": "package-07",
+          "claim": "SD120 is listed at 120,000đ for 30 days with 60GB high-speed data (2GB/day).",
+          "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+          "retrievedAt": "2026-08-02",
+          "effectiveAt": "2026-08-02",
+          "expiresAt": "2026-11-01T23:59:59Z",
+          "recheckPolicy": "Recheck the official source before publication after expiresAt."
+        }
+      ],
+      "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá SD120 Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+      "imageAlt": "Minh họa cho bài viết: Đánh giá SD120 Viettel: đọc thông số chính thức trước khi chọn."
+    },
+    {
+      "topic": {
+        "topicId": "b4-review-08-a",
+        "title": "Đánh giá SD135 Viettel: đọc thông số chính thức trước khi chọn",
+        "intent": "review",
+        "targetChannel": "main-site",
+        "targetUrlPath": "/goi-cuoc/sd135/"
+      },
+      "factsAllowed": [
+        {
+          "id": "package-08",
+          "claim": "SD135 is listed at 135,000đ for 30 days with 150GB high-speed data (5GB/day).",
+          "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+          "retrievedAt": "2026-08-02",
+          "effectiveAt": "2026-08-02",
+          "expiresAt": "2026-11-01T23:59:59Z",
+          "recheckPolicy": "Recheck the official source before publication after expiresAt."
+        }
+      ],
+      "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá SD135 Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+      "imageAlt": "Minh họa cho bài viết: Đánh giá SD135 Viettel: đọc thông số chính thức trước khi chọn."
+    },
+    {
+      "topic": {
+        "topicId": "b4-review-09-a",
+        "title": "Đánh giá SD150 Viettel: đọc thông số chính thức trước khi chọn",
+        "intent": "review",
+        "targetChannel": "main-site",
+        "targetUrlPath": "/goi-cuoc/sd150/"
+      },
+      "factsAllowed": [
+        {
+          "id": "package-09",
+          "claim": "SD150 is listed at 150,000đ for 30 days with 90GB high-speed data (3GB/day).",
+          "sourceUrl": "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500",
+          "retrievedAt": "2026-08-02",
+          "effectiveAt": "2026-08-02",
+          "expiresAt": "2026-11-01T23:59:59Z",
+          "recheckPolicy": "Recheck the official source before publication after expiresAt."
+        }
+      ],
+      "imageBrief": "Minh họa biên tập cho chủ đề “Đánh giá SD150 Viettel: đọc thông số chính thức trước khi chọn”, dùng điện thoại và bối cảnh viễn thông trung tính, không logo, không giá tiền, không chữ trên ảnh.",
+      "imageAlt": "Minh họa cho bài viết: Đánh giá SD150 Viettel: đọc thông số chính thức trước khi chọn."
+    }
+  ]
+}
