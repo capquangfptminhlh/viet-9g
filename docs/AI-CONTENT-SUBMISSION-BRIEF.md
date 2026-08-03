@@ -45,7 +45,7 @@ Người giao việc phải thay toàn bộ phần trong khối dưới đây tr
 }
 ```
 
-Không có `factsAllowed`, fact hết hạn, hoặc nguồn không thuộc Viettel thì AI phải trả `HOLD` và lý do, không viết bài.
+Không có `factsAllowed`, fact hết hạn, hoặc nguồn không thuộc Viettel thì AI phải trả `HOLD` và lý do, không viết bài. Không được dùng các giá trị mẫu như `topic-duy-nhat-khong-dau`, `Tiêu đề duy nhất của bài` hoặc `fact-id` làm dữ liệu thật; nếu đầu vào còn placeholder thì trả `HOLD`.
 
 ## 3. Định dạng nộp lại
 
@@ -57,7 +57,12 @@ Trả về **một JSON duy nhất**, không có giải thích bên ngoài JSON.
   "title": "giữ nguyên hoặc chỉ sửa chính tả khi được yêu cầu",
   "intent": "giữ nguyên từ input",
   "summary": "Tóm tắt trực tiếp, không chứa claim mới.",
-  "bodyHtml": "<p>...</p><h2>...</h2>",
+  "bodyBlocks": [
+    { "type": "paragraph", "text": "Mở bài trả lời trực tiếp chủ đề." },
+    { "type": "heading", "level": 2, "text": "Thông tin cần biết" },
+    { "type": "paragraph", "text": "Nội dung chỉ dùng fact được cấp." },
+    { "type": "list", "style": "bullet", "items": ["Lưu ý thứ nhất.", "Lưu ý thứ hai."] }
+  ],
   "factClaims": [
     { "factId": "fact-id", "claim": "chép nguyên văn claim từ factsAllowed" }
   ],
@@ -74,13 +79,13 @@ Trả về **một JSON duy nhất**, không có giải thích bên ngoài JSON.
 }
 ```
 
-Không tự chèn `<img>`, `<a>`, `<script>`, `<style>`, `<iframe>`, Markdown hoặc tracking URL. Hệ thống sẽ tự gắn ảnh và link đúng policy sau khi kiểm tra.
+Không trả HTML, Markdown, `<img>`, `<a>`, `<script>`, `<style>`, `<iframe>` hoặc tracking URL. `bodyBlocks` phải là JSON thuần; hệ thống sẽ render HTML an toàn, gắn ảnh và link đúng policy sau khi kiểm tra.
 
 ## 4. Quy tắc viết bài
 
 1. Mở đầu bằng `<p>` trả lời ngay chủ đề; không dùng câu chào mừng hoặc quảng cáo chung chung.
 2. Dùng tối thiểu ba `<h2>` phù hợp intent. Mỗi heading phải có nội dung thực hành hoặc giải thích rõ ràng.
-3. Thẻ được phép: `<p>`, `<h2>`, `<h3>`, `<h4>`, `<ul>`, `<ol>`, `<li>`, `<strong>`, `<em>`.
+3. Dùng `bodyBlocks` theo thứ tự đọc: `paragraph`, `heading` (level 2–4) hoặc `list` (`bullet`/`number`). Không trả HTML.
 4. Mọi con số, giá, dung lượng, chu kỳ, cú pháp SMS/USSD, tên gói và điều kiện thuê bao phải xuất hiện trong một `factClaims` tương ứng và khớp nguyên văn fact được cấp.
 5. Không dùng các lời hứa như “rẻ nhất”, “tốt nhất”, “chắc chắn”, “áp dụng mọi thuê bao”, “miễn phí” nếu fact không nói chính xác như vậy.
 6. Bài review phải có: phù hợp với ai, điểm mạnh, điểm cần cân nhắc, và khuyến nghị trung lập. Không biến review thành bài bán hàng.
@@ -126,7 +131,11 @@ AI phải trả về **một JSON duy nhất cho toàn bộ lô**, không chia t
       "title": "giu-nguyen-tu-input",
       "intent": "giu-nguyen-tu-input",
       "summary": "Tom tat truc tiep, khong co claim moi.",
-      "bodyHtml": "<p>...</p><h2>...</h2>",
+      "bodyBlocks": [
+        { "type": "paragraph", "text": "Mở bài trả lời trực tiếp chủ đề." },
+        { "type": "heading", "level": 2, "text": "Thông tin cần biết" },
+        { "type": "paragraph", "text": "Nội dung chỉ dùng fact được cấp." }
+      ],
       "factClaims": [
         {
           "factId": "fact-id",
@@ -159,3 +168,5 @@ Yêu cầu bắt buộc trong chế độ này:
 2. Mỗi `topicId` xuất hiện đúng một lần; giữ nguyên title, intent và không lấy fact giữa các topic.
 3. Không có dữ liệu đủ căn cứ thì trả item `HOLD`, không bịa nội dung để đủ số lượng.
 4. Một file chỉ xử lý một `batchId`; không trộn bài từ lô hoặc kênh khác.
+5. Mỗi lần trả lời tối đa 3 bài để tránh câu trả lời bị cắt giữa chừng. Với lô 14 bài, dùng các phần `part-01` đến `part-05`; mỗi phần vẫn là một JSON hoàn chỉnh và được Codex gộp lại sau khi kiểm tra.
+6. Trước khi gửi, AI phải tự kiểm tra rằng kết quả có thể chạy `JSON.parse`; không có xuống dòng thô bên trong một chuỗi, không có dấu phẩy thừa và không bọc kết quả trong văn bản giải thích.
