@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, CheckCircle2, ArrowRight, RefreshCw, Smartphone, Zap, Youtube, Phone, DollarSign } from 'lucide-react';
+import { Sparkles, RefreshCw, Zap, CirclePlay, Phone } from 'lucide-react';
 import { TelecomPackage } from '../types';
 import { VIETTEL_PACKAGES } from '../data/packages';
 
@@ -22,7 +22,7 @@ export default function SmartRecommender({ onSelectPackage, onOpenDetails }: Sma
   ];
 
   const needOptions = [
-    { id: 'social', label: 'Cày TikTok, Facebook, YouTube', desc: 'Miễn phí Data mạng xã hội', icon: Youtube, color: 'text-rose-600', bg: 'bg-rose-50 border-rose-200' },
+    { id: 'social', label: 'Cày TikTok, Facebook, YouTube', desc: 'Miễn phí Data mạng xã hội', icon: CirclePlay, color: 'text-rose-600', bg: 'bg-rose-50 border-rose-200' },
     { id: 'combo', label: 'Gọi thoại nội/ngoại mạng + Data', desc: 'Cả đàm thoại lẫn lên mạng', icon: Phone, color: 'text-amber-600', bg: 'bg-amber-50 border-amber-200' },
     { id: 'data', label: 'Siêu tốc Data / Chiến game', desc: 'Dung lượng khủng hàng ngày', icon: Zap, color: 'text-blue-600', bg: 'bg-blue-50 border-blue-200' },
     { id: 'long_term', label: 'Dài lâu tiện lợi (6-12 tháng)', desc: 'Đăng ký 1 lần dùng cả năm', icon: Sparkles, color: 'text-purple-600', bg: 'bg-purple-50 border-purple-200' },

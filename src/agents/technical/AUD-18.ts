@@ -56,6 +56,8 @@ export class BuildAuditor {
   }
 
   public async runAudit(): Promise<AuditReport> {
+    void this.domain;
+    void this.strictMode;
     const issues: AuditIssue[] = [];
     const hardBlockers: string[] = [];
 
@@ -196,7 +198,7 @@ export class BuildAuditor {
 
       // 7. Internal Broken Links Check
       const hrefRegex = /href=["']([^"']*)["']/gi;
-      let match;
+      let match: RegExpExecArray | null;
       while ((match = hrefRegex.exec(content)) !== null) {
         const href = match[1].trim();
         if (href === 'undefined' || href === 'null') {

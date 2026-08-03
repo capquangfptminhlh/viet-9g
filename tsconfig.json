@@ -23,5 +23,5 @@
     "allowImportingTsExtensions": true,
     "noEmit": true
   },
-  "exclude": ["agents", "node_modules", "dist"]
+  "exclude": ["agents", "node_modules", "dist", "update-agent.cjs"]
 }

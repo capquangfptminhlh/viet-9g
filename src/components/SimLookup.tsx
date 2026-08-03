@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Smartphone, CheckCircle, Search, HelpCircle, Loader2, Sparkles, Filter } from 'lucide-react';
+import { Smartphone, CheckCircle, Search, Loader2, Sparkles, Filter } from 'lucide-react';
 import { TelecomPackage } from '../types';
 import { VIETTEL_PACKAGES } from '../data/packages';
 
@@ -30,7 +30,7 @@ export default function SimLookup({ onSelectPackage }: SimLookupProps) {
     'Đang biên dịch danh sách gói cước phù hợp...'
   ];
 
-  const handleLookup = (e: React.FormEvent) => {
+  const handleLookup = (e: React.SubmitEvent) => {
     e.preventDefault();
     setError('');
     setResult(null);

@@ -30,7 +30,7 @@ export async function submitToIndexNow(domain: string = 'tracuugoicuoc.com', bui
     const sitemapContent = await fs.readFile(sitemapPath, 'utf-8');
     // Regex lấy nội dung thẻ <loc>
     const regex = /<loc>(.*?)<\/loc>/g;
-    let match;
+    let match: RegExpExecArray | null;
     while ((match = regex.exec(sitemapContent)) !== null) {
       urlList.push(match[1]);
     }

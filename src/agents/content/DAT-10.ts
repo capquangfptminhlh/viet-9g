@@ -57,7 +57,6 @@ export interface ClaimBinderOptions {
 
 export class ClaimBinder {
   private inferenceKeywords: string[];
-  private minConfidenceThreshold: number;
 
   constructor(options: ClaimBinderOptions = {}) {
     this.inferenceKeywords = options.inferenceKeywords ?? [
@@ -71,7 +70,7 @@ export class ClaimBinder {
       'dự kiến',
       'nhận định'
     ];
-    this.minConfidenceThreshold = options.minConfidenceThreshold ?? 0.6;
+    void (options.minConfidenceThreshold ?? 0.6);
   }
 
   /**

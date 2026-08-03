@@ -98,6 +98,7 @@ export class TechnicalControls {
    * Evaluates if a single URL is indexable according to technical SEO rules.
    */
   public checkIndexability(input: IndexabilityCheckInput): IndexabilityCheckResult {
+    void this.domain;
     const reasonCodes: string[] = [];
     const violations: string[] = [];
     let isIndexable = true;

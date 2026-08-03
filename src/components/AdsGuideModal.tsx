@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Copy, Check, FileText, ArrowRight, Shield, RefreshCw, AlertTriangle, HelpCircle, Laptop, Phone, Globe, Lock, Download } from 'lucide-react';
+import { X, Copy, Check, FileText, ArrowRight, Shield, AlertTriangle, Laptop, Globe, Lock, Download } from 'lucide-react';
 
 interface AdsGuideModalProps {
   isOpen: boolean;
@@ -8,7 +8,6 @@ interface AdsGuideModalProps {
 
 export default function AdsGuideModal({ isOpen, onClose }: AdsGuideModalProps) {
   const [copiedNegative, setCopiedNegative] = useState(false);
-  const [copiedKeywords, setCopiedKeywords] = useState(false);
   const [activeTab, setActiveTab] = useState<'all' | 'domain' | 'keywords' | 'account' | 'verification' | 'webSync'>('all');
 
   const negativeKeywordsList = `vinaphone
@@ -47,12 +46,6 @@ my viettel cũ`;
     navigator.clipboard.writeText(negativeKeywordsList.trim());
     setCopiedNegative(true);
     setTimeout(() => setCopiedNegative(false), 2000);
-  };
-
-  const handleCopyKeywords = () => {
-    navigator.clipboard.writeText(safeKeywordsList.trim());
-    setCopiedKeywords(true);
-    setTimeout(() => setCopiedKeywords(false), 2000);
   };
 
   const handlePrintPdf = () => {

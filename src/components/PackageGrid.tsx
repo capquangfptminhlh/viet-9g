@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Layers, Zap, MonitorPlay, Phone, Crown, LayoutGrid } from 'lucide-react';
+import { Zap, MonitorPlay, Phone, Crown, LayoutGrid } from 'lucide-react';
 import { TelecomPackage } from '../types';
 import { VIETTEL_PACKAGES } from '../data/packages';
 import PackageCard from './PackageCard';

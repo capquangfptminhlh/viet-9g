@@ -23,12 +23,12 @@ export const CatalogFactSchema = z.object({
 });
 export const FactSchema = CatalogFactSchema;
 
-export const PackageDisplaySchema = z.object({
+export const PackageDisplaySchema = z.looseObject({
   name: z.string().min(1),
   description: z.string(),
   benefits: z.array(z.string()).optional(),
   eligibility: z.array(z.string()).optional(),
-}).passthrough();
+});
 
 export const PackageRegistrationSchema = z.object({
   syntax: z.string().min(1),
@@ -36,11 +36,11 @@ export const PackageRegistrationSchema = z.object({
   channel: z.literal('sms'),
 }).superRefine((registration, ctx) => {
   if (!/\bGB\b/.test(registration.syntax)) {
-    ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['syntax'], message: 'registration syntax must include GB' });
+    ctx.addIssue({ code: 'custom', path: ['syntax'], message: 'registration syntax must include GB' });
   }
 });
 
-export const PackageSchema = z.object({
+export const PackageSchema = z.looseObject({
   id: z.string().regex(/^[a-z0-9-]+$/),
   code: z.string().min(1),
   status: z.enum(['active', 'eligibility_required', 'hold', 'retired', 'unverified', 'operator_verified']),
@@ -49,7 +49,7 @@ export const PackageSchema = z.object({
   display: PackageDisplaySchema,
   registration: PackageRegistrationSchema.optional(),
   facts: z.array(CatalogFactSchema).default([]),
-}).passthrough();
+});
 
 export const PackageCatalogSchema = z.object({
   schemaVersion: z.literal('1.0.0'),

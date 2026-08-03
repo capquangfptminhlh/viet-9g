@@ -9,6 +9,7 @@ export class ExperimentationEngine {
    * Evaluates an ongoing experiment and renders a verdict
    */
   public evaluateExperiment(record: ExperimentRecord, metrics: any): { verdict: string; reason?: ReasonCode; message: string } {
+    void metrics;
     console.log(`[${this.agentId}] Evaluating experiment: ${record.experimentId}`);
 
     if (!record.baselineWindow) {

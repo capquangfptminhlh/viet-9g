@@ -29,7 +29,7 @@ export default function AgentSettings({ config, onSave, isOpen, onClose }: Agent
   const [showPin, setShowPin] = useState(false);
   const [authError, setAuthError] = useState('');
 
-  const handleAuthenticate = (e: React.FormEvent) => {
+  const handleAuthenticate = (e: React.SyntheticEvent) => {
     e.preventDefault();
     const cleanPin = pinInput.trim();
     // Support common intuitive admin PINs
@@ -46,7 +46,7 @@ export default function AgentSettings({ config, onSave, isOpen, onClose }: Agent
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     onSave({
       agentCode: agentCode.trim() || '290',
