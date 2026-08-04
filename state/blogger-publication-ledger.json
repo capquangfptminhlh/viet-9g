@@ -185,5 +185,27 @@
     "postId": "6510691856628710732",
     "publishedUrl": "https://reviewgoicuocviettel.blogspot.com/2026/08/anh-gia-5g135-viettel-oc-thong-so-chinh.html",
     "publishedAt": "2026-08-03T02:28:58.054Z"
+  },
+  {
+    "idempotencyKey": "9e3b1a80adb5a29542853efce184ef7f404f1a2997793d0050752d5ff154f9a4",
+    "blogId": "9153601315328665051",
+    "topicId": "b5-complete-01",
+    "contentVersion": "v1",
+    "contentHash": "70c9f038a9a5a244abaac033a5f04a509a8ba67f8313b258178416a35a09ba79",
+    "status": "INSERT_STARTED",
+    "gateResults": {
+      "packageEvidence": "PASS",
+      "facts": "PASS",
+      "policy": "PASS",
+      "targetUrl": "PASS",
+      "media": "PASS",
+      "html": "PASS",
+      "idempotency": "PASS",
+      "duplicate": "PASS",
+      "insert": "NOT_RUN",
+      "readBack": "NOT_RUN",
+      "publishedUrl": "NOT_RUN"
+    },
+    "createdAt": "2026-08-04T02:08:16.865Z"
   }
 ]
