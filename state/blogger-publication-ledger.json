@@ -192,7 +192,7 @@
     "topicId": "b5-complete-01",
     "contentVersion": "v1",
     "contentHash": "70c9f038a9a5a244abaac033a5f04a509a8ba67f8313b258178416a35a09ba79",
-    "status": "INSERT_STARTED",
+    "status": "LIVE",
     "gateResults": {
       "packageEvidence": "PASS",
       "facts": "PASS",
@@ -202,10 +202,13 @@
       "html": "PASS",
       "idempotency": "PASS",
       "duplicate": "PASS",
-      "insert": "NOT_RUN",
-      "readBack": "NOT_RUN",
-      "publishedUrl": "NOT_RUN"
+      "insert": "PASS",
+      "readBack": "PASS",
+      "publishedUrl": "PASS"
     },
-    "createdAt": "2026-08-04T02:08:16.865Z"
+    "createdAt": "2026-08-04T02:08:16.865Z",
+    "postId": "2673705412085744449",
+    "publishedUrl": "https://hotroluoimangviettel.blogspot.com/2026/08/ussd-khong-chay-sau-tat-2g3g-kiem-tra.html",
+    "publishedAt": "2026-08-04T02:08:20.252Z"
   }
 ]
