@@ -4,7 +4,7 @@ import crypto from 'node:crypto';
 import { execSync } from 'node:child_process';
 import { describe, expect, it } from 'vitest';
 import { VIETTEL_PACKAGES } from '../../src/data/packages';
-import { buildPackageCatalog } from '../../scripts/migrate-package-catalog';
+import { buildPackageCatalog, LEGACY_PACKAGE_SOURCE } from '../../scripts/migrate-package-catalog';
 
 const root = process.cwd();
 const catalogPath = path.join(root, 'data', 'package-catalog.v1.json');
@@ -45,6 +45,17 @@ describe('package catalog migration', () => {
     const output = execSync('npx tsx scripts/migrate-package-catalog.ts --check', { cwd: root, encoding: 'utf8' });
     expect(output).toMatch(/OK|unchanged|stable/i);
     expect(fs.readFileSync(catalogPath, 'utf8')).toBe(before);
+  });
+
+  it('preserves the exact legacy ID-to-code-and-name mapping', () => {
+    const catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
+    const actual = Object.fromEntries(catalog.packages
+      .filter((pkg: any) => LEGACY_PACKAGE_SOURCE.some((legacy) => legacy.id === pkg.id))
+      .map((pkg: any) => [pkg.id, { code: pkg.code, name: pkg.display.name }]));
+    const expected = Object.fromEntries(LEGACY_PACKAGE_SOURCE
+      .map((pkg) => [pkg.id, { code: pkg.code ?? pkg.name, name: pkg.name }]));
+
+    expect(actual).toEqual(expected);
   });
 
   it('does not report catalog drift when a Windows checkout uses CRLF line endings', () => {

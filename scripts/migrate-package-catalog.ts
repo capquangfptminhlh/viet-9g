@@ -4,6 +4,8 @@ import crypto from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 import { LEGACY_PACKAGE_SOURCE } from '../src/data/packages.ts';
 
+export { LEGACY_PACKAGE_SOURCE };
+
 const root = process.cwd();
 const sourcePath = path.resolve(root, 'src/data/packages.ts');
 const factsPath = path.resolve(root, 'data/facts.json');
