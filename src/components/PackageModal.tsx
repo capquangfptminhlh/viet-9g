@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, MessageSquare, Copy, ClipboardCheck, Send, QrCode, Sparkles, Calculator } from 'lucide-react';
+import { X, MessageSquare, Copy, ClipboardCheck, Send, QrCode, Sparkles } from 'lucide-react';
 import type { VerifiedPackage } from '../data/verified-package';
 import { trackConversion } from '../utils/tracking';
 import { canRegisterPackage } from './PackageCard';
@@ -175,25 +175,8 @@ export default function PackageModal({ pkg, onClose, defaultTab = 'sms' }: Packa
                 </a>}
               </div>
 
-              {/* Instructions Box */}
-              <div className="bg-[#fef2f2] border border-red-100 rounded-xl p-5 text-sm text-gray-800 space-y-3 leading-relaxed">
-                <div className="flex items-center gap-2 font-bold text-gray-900 mb-1">
-                  <div className="w-6 h-6 bg-white rounded flex items-center justify-center border border-red-200">
-                    <Calculator className="w-3.5 h-3.5 text-[#e60000]" />
-                  </div>
-                  Dành cho thiết bị di động:
-                </div>
-                <p>
-                  Nhấn nút <strong className="text-[#e60000]">"Mở ứng dụng SMS"</strong> ở trên, ứng dụng tin nhắn trên điện thoại của bạn sẽ tự động mở với cú pháp soạn sẵn. Bạn chỉ cần nhấn nút <strong className="text-[#e60000]">Gửi</strong> để hoàn tất.
-                </p>
-                <div className="flex items-start gap-2 text-[13px]">
-                  <span className="text-[#e60000] font-bold mt-0.5">•</span>
-                  <p>Hệ thống gửi trả tin nhắn xác nhận hoàn toàn miễn phí. Hãy chuẩn bị sẵn số dư tối thiểu trong tài khoản chính là <strong className="text-[#e60000]">{pkg.priceVnd.toLocaleString('vi-VN')}đ</strong>.</p>
-                </div>
-              </div>
-
               <p className="text-[11px] text-gray-500 italic text-center px-4">
-                * Giá cước sẽ được trừ trực tiếp từ tài khoản gốc theo hệ thống của Viettel khi đăng ký thành công.
+                Cú pháp và số gửi được hiển thị từ thông tin xác minh của gói cước.
               </p>
             </div>
             ) : (

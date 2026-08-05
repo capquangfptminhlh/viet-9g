@@ -1,12 +1,15 @@
-import fs from 'node:fs';
 import { describe, expect, it } from 'vitest';
+import { getVerifiedDataDisplay } from '../../src/components/package-display';
 
 describe('allowance-only UI safety', () => {
-  it('uses an empty fallback before parsing an optional daily allowance', () => {
-    const grid = fs.readFileSync('src/components/PackageGrid.tsx', 'utf8');
-    const recommender = fs.readFileSync('src/components/SmartRecommender.tsx', 'utf8');
-
-    expect(grid).toContain("parseData(b.dataPerDay ?? '')");
-    expect(recommender).toContain("parseQuota(b.dataPerDay ?? '')");
+  it('keeps allowance-only offers readable while only sorting known daily data', () => {
+    expect(getVerifiedDataDisplay({ dataAllowance: '30GB', dataPerDay: undefined })).toEqual({
+      primary: '30GB',
+      dailyDataValue: undefined,
+    });
+    expect(getVerifiedDataDisplay({ dataAllowance: undefined, dataPerDay: '512MB/ngày' })).toEqual({
+      primary: '512MB/ngày',
+      dailyDataValue: 0.5,
+    });
   });
 });

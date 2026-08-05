@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Zap, MonitorPlay, Phone, Crown, LayoutGrid } from 'lucide-react';
 import type { VerifiedPackage } from '../data/verified-package';
 import PackageCard from './PackageCard';
+import { getVerifiedDataDisplay } from './package-display';
 
 interface PackageGridProps {
   packages: VerifiedPackage[];
@@ -69,8 +70,13 @@ export default function PackageGrid({
     } else if (sortBy === 'price_desc') {
       result.sort((a, b) => b.price - a.price);
     } else if (sortBy === 'data_desc') {
-      const parseData = (str: string) => parseFloat(str) || 0;
-      result.sort((a, b) => parseData(b.dataPerDay ?? '') - parseData(a.dataPerDay ?? ''));
+      result.sort((a, b) => {
+        const left = getVerifiedDataDisplay(a).dailyDataValue;
+        const right = getVerifiedDataDisplay(b).dailyDataValue;
+        if (left === undefined) return right === undefined ? 0 : 1;
+        if (right === undefined) return -1;
+        return right - left;
+      });
     }
 
     return result;

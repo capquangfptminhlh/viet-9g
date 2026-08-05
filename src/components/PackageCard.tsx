@@ -2,6 +2,7 @@ import React from 'react';
 import { Globe, Zap, Gift, Info, ArrowRight, Crown } from 'lucide-react';
 import type { VerifiedPackage } from '../data/verified-package';
 import { trackConversion } from '../utils/tracking';
+import { getVerifiedDataDisplay } from './package-display';
 
 interface PackageCardProps {
   pkg: VerifiedPackage;
@@ -34,6 +35,7 @@ export default function PackageCard({ pkg, onSelect, onOpenDetails }: PackageCar
   };
 
   const theme = getTheme();
+  const data = getVerifiedDataDisplay(pkg);
   return (
     <article 
       className="bg-white rounded-2xl flex flex-col justify-between overflow-hidden relative group transition-all duration-300 shadow-sm hover:shadow-md border border-gray-200"
@@ -76,7 +78,7 @@ export default function PackageCard({ pkg, onSelect, onOpenDetails }: PackageCar
               Tổng dung lượng
             </div>
             <div className="text-xl sm:text-2xl font-black text-gray-900">
-              {pkg.dataAllowance ?? '—'}
+              {data.primary}
             </div>
           </div>
           <div className="flex flex-col gap-1 w-1/2 pl-4">
@@ -85,7 +87,7 @@ export default function PackageCard({ pkg, onSelect, onOpenDetails }: PackageCar
               Tốc độ cao
             </div>
             <div className="text-xl sm:text-2xl font-black text-gray-900">
-              {pkg.dataPerDay ?? '—'}
+              {pkg.dataAllowance && pkg.dataPerDay ? pkg.dataPerDay : 'Theo thông tin gói'}
             </div>
           </div>
         </div>

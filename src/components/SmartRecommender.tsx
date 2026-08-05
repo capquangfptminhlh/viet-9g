@@ -2,6 +2,35 @@ import React, { useState } from 'react';
 import { Sparkles, RefreshCw, Zap, CirclePlay, Phone } from 'lucide-react';
 import type { VerifiedPackage } from '../data/verified-package';
 import { canRegisterPackage } from './PackageCard';
+import { getVerifiedDataDisplay } from './package-display';
+
+export type RecommendationBudget = 'under100' | '100to150' | 'over150' | 'all';
+export type RecommendationNeed = 'social' | 'combo' | 'data' | 'long_term';
+
+export function recommendPackages(
+  packages: VerifiedPackage[],
+  budget: RecommendationBudget,
+  need: RecommendationNeed,
+): VerifiedPackage[] {
+  let matches = [...packages];
+
+  if (budget === 'under100') matches = matches.filter((pkg) => pkg.priceVnd < 100000);
+  else if (budget === '100to150') matches = matches.filter((pkg) => pkg.priceVnd >= 100000 && pkg.priceVnd <= 150000);
+  else if (budget === 'over150') matches = matches.filter((pkg) => pkg.priceVnd > 150000);
+
+  if (need === 'social' || need === 'combo') return matches.filter((pkg) => pkg.category === need).slice(0, 3);
+  if (need === 'long_term') return matches.filter((pkg) => pkg.durationDays >= 90).slice(0, 3);
+
+  return matches
+    .map((pkg, index) => ({ pkg, index, dailyDataValue: getVerifiedDataDisplay(pkg).dailyDataValue }))
+    .sort((left, right) => {
+      if (left.dailyDataValue === undefined) return right.dailyDataValue === undefined ? left.index - right.index : 1;
+      if (right.dailyDataValue === undefined) return -1;
+      return right.dailyDataValue - left.dailyDataValue || left.index - right.index;
+    })
+    .slice(0, 3)
+    .map(({ pkg }) => pkg);
+}
 
 interface SmartRecommenderProps {
   packages: VerifiedPackage[];
@@ -11,8 +40,8 @@ interface SmartRecommenderProps {
 
 export default function SmartRecommender({ packages, onSelectPackage, onOpenDetails }: SmartRecommenderProps) {
   const [step, setStep] = useState<number>(1);
-  const [budget, setBudget] = useState<string>('all');
-  const [need, setNeed] = useState<string>('social');
+  const [budget, setBudget] = useState<RecommendationBudget>('all');
+  const [need, setNeed] = useState<RecommendationNeed>('social');
   const [result, setResult] = useState<VerifiedPackage[] | null>(null);
 
   const budgetOptions = [
@@ -29,39 +58,9 @@ export default function SmartRecommender({ packages, onSelectPackage, onOpenDeta
     { id: 'long_term', label: 'Dài lâu tiện lợi (6-12 tháng)', desc: 'Đăng ký 1 lần dùng cả năm', icon: Sparkles, color: 'text-purple-600', bg: 'bg-purple-50 border-purple-200' },
   ];
 
-  const handleRecommend = () => {
-    let matches = [...packages];
-
-    // Filter by budget
-    if (budget === 'under100') {
-      matches = matches.filter(p => p.price < 100000);
-    } else if (budget === '100to150') {
-      matches = matches.filter(p => p.price >= 100000 && p.price <= 150000);
-    } else if (budget === 'over150') {
-      matches = matches.filter(p => p.price > 150000);
-    }
-
-    // Filter by need
-    if (need === 'social') {
-      const socialMatches = matches.filter(p => p.category === 'social');
-      if (socialMatches.length > 0) matches = socialMatches;
-    } else if (need === 'combo') {
-      const comboMatches = matches.filter(p => p.category === 'combo');
-      if (comboMatches.length > 0) matches = comboMatches;
-    } else if (need === 'data') {
-      const parseQuota = (str: string) => {
-        const lower = str.toLowerCase();
-        const num = parseFloat(str) || 0;
-        if (lower.includes('mb')) return num / 1024;
-        return num;
-      };
-      matches.sort((a, b) => parseQuota(b.dataPerDay ?? '') - parseQuota(a.dataPerDay ?? ''));
-    } else if (need === 'long_term') {
-      const longTerm = matches.filter((p) => p.durationDays >= 90);
-      if (longTerm.length > 0) matches = longTerm;
-    }
-
-    setResult(matches.slice(0, 3)); // Return top 3 recommendations
+  const handleRecommend = (selectedNeed: RecommendationNeed) => {
+    setNeed(selectedNeed);
+    setResult(recommendPackages(packages, budget, selectedNeed));
     setStep(3);
   };
 
@@ -116,7 +115,7 @@ export default function SmartRecommender({ packages, onSelectPackage, onOpenDeta
                     key={item.id}
                     type="button"
                     onClick={() => {
-                      setBudget(item.id);
+                        setBudget(item.id as RecommendationBudget);
                       setStep(2);
                     }}
                     className={`p-4 rounded-xl border-2 text-left transition-all cursor-pointer flex flex-col justify-between h-28 ${
@@ -157,8 +156,7 @@ export default function SmartRecommender({ packages, onSelectPackage, onOpenDeta
                       key={item.id}
                       type="button"
                       onClick={() => {
-                        setNeed(item.id);
-                        handleRecommend();
+                        handleRecommend(item.id as RecommendationNeed);
                       }}
                       className={`p-4 rounded-xl border-2 text-left transition-all cursor-pointer flex items-center gap-4 ${
                         need === item.id ? 'border-[#e60000] bg-red-50/50 shadow-sm' : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
@@ -212,7 +210,7 @@ export default function SmartRecommender({ packages, onSelectPackage, onOpenDeta
                       <div className="text-xs text-gray-600 space-y-1.5 mb-4">
                         <div className="flex items-center gap-1.5">
                           <span className="text-green-600 font-bold">✓</span>
-                          <span>Data: <strong>{pkg.dataPerDay ?? pkg.dataAllowance}</strong></span>
+                          <span>Data: <strong>{getVerifiedDataDisplay(pkg).primary}</strong></span>
                         </div>
                         {pkg.benefits.slice(0, 2).map((benefit, index) => (
                           <div key={`${pkg.id}-benefit-${index}`} className="flex items-center gap-1.5">
