@@ -23,7 +23,7 @@ type PackageFixture = {
   category: string;
   factIds: string[];
   display: { name: string; description: string };
-  registration: { syntax: string; smsNumber: number; channel: string };
+  registration: { syntax: string; smsNumber: number; channel: string; factId?: string };
   facts: CatalogFactFixture[];
 };
 
@@ -52,6 +52,7 @@ const baseCatalog: CatalogFixture = {
       syntax: 'V120B GB',
       smsNumber: 290,
       channel: 'sms',
+      factId: 'price-vnd',
     },
     facts: [{
       id: 'price-vnd',
@@ -97,7 +98,7 @@ describe('package catalog schema', () => {
       id: 'v90b',
       code: 'V90B',
       display: { name: 'V90B', description: 'Gói data và thoại V90B' },
-      registration: { syntax: 'V90B GB', smsNumber: 290, channel: 'sms' },
+      registration: { syntax: 'V90B GB', smsNumber: 290, channel: 'sms', factId: 'price-vnd' },
     });
 
     expect(() => parsePackageCatalog(catalog)).toThrow(/duplicate.*fact|fact.*duplicate/i);

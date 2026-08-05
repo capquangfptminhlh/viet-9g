@@ -41,6 +41,13 @@ function publicOffer() {
 }
 
 describe('verified public package offers', () => {
+  it('rejects registration without an evidence fact ID', () => {
+    const catalog = publicOffer();
+    delete (catalog.packages[0].registration as Partial<typeof catalog.packages[0]['registration']>).factId;
+
+    expect(() => parsePackageCatalog(catalog)).toThrow(/factId|registration/i);
+  });
+
   it('accepts only the defined package fact keys', () => {
     const catalog = publicOffer();
     catalog.packages[0].facts[0].key = 'price';
@@ -57,6 +64,14 @@ describe('verified public package offers', () => {
 
   it('does not expose registration when its evidence is not referenced', () => {
     const catalog = parsePackageCatalog(publicOffer());
+
+    expect(getRenderablePackages(catalog, now)[0].registration).toBeUndefined();
+  });
+
+  it('does not expose registration when its fact ID references a non-registration fact', () => {
+    const catalogInput = publicOffer();
+    catalogInput.packages[0].registration.factId = 'price';
+    const catalog = parsePackageCatalog(catalogInput);
 
     expect(getRenderablePackages(catalog, now)[0].registration).toBeUndefined();
   });

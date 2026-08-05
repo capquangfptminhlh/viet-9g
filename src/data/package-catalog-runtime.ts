@@ -33,6 +33,11 @@ function isCurrentFact(fact: CatalogFact | undefined, now: Date): fact is Catalo
   return Date.parse(fact.effectiveAt) <= at && Date.parse(fact.expiresAt) > at;
 }
 
+function supportsRegistrationSyntax(fact: CatalogFact, syntax: string): boolean {
+  const expected = syntax.trim().replace(/\s+/g, ' ').toLowerCase();
+  return [fact.value, fact.claim].some((value) => String(value).trim().replace(/\s+/g, ' ').toLowerCase().includes(expected));
+}
+
 export function getCurrentFacts(pkg: PackageRecord, catalog: PackageCatalog, now = new Date()): CatalogFact[] {
   const facts = catalogFacts(catalog);
   return pkg.factIds
@@ -90,9 +95,13 @@ export function getRenderablePackages(catalog: PackageCatalog, now = new Date())
     const keys = new Set(currentFacts.map((fact) => fact.key));
     if (!keys.has('priceVnd') || !keys.has('durationDays') || (!keys.has('dataAllowance') && !keys.has('dataPerDay'))) return [];
 
-    const registrationIsCurrent = !!pkg.registration?.factId
+    const registrationFact = pkg.registration?.factId
       && pkg.factIds.includes(pkg.registration.factId)
-      && currentFacts.some((fact) => fact.id === pkg.registration!.factId);
+      ? currentFacts.find((fact) => fact.id === pkg.registration!.factId)
+      : undefined;
+    const registrationIsCurrent = !!pkg.registration
+      && registrationFact?.key === 'registrationSyntax'
+      && supportsRegistrationSyntax(registrationFact, pkg.registration.syntax);
     if (registrationIsCurrent) return [pkg];
     const { registration: _registration, ...publicOffer } = pkg;
     return [publicOffer];
