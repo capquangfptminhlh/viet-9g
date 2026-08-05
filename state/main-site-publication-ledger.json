@@ -6,5 +6,13 @@
     "contentHash": "df887fc5324c47caf3a449b499225d32b1401e83ea26d5d353a40bca653eef50",
     "status": "PUBLISHED",
     "createdAt": "2026-08-04T01:16:21.210Z"
+  },
+  {
+    "idempotencyKey": "3366afd6df0cb36e94252b36102a4cca707a58962eb645c83bd4f291ee4b7456",
+    "topicId": "topic-b1-esim-quet-qr-buoc-dau",
+    "slug": "topic-b1-esim-quet-qr-buoc-dau",
+    "contentHash": "516e288d86ce03e847b6bb8ccb77c6f58cd762637dc4e3dcdb2c3434d0c094fb",
+    "status": "PUBLISHED",
+    "createdAt": "2026-08-05T01:19:19.499Z"
   }
 ]
