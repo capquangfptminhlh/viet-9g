@@ -1,8 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HomeApp from '../components/HomeApp';
+import { loadPackageCatalog } from '../data/package-catalog';
+import { getVerifiedPackages } from '../data/verified-package';
+
+const packages = getVerifiedPackages(loadPackageCatalog());
 ---
 <BaseLayout>
   <h1 class="sr-only">Tra cứu và đăng ký gói cước Viettel</h1>
-  <HomeApp client:load />
+  <HomeApp packages={packages} client:load />
 </BaseLayout>

@@ -1,12 +1,12 @@
 import React, { useState, useMemo } from 'react';
 import { Zap, MonitorPlay, Phone, Crown, LayoutGrid } from 'lucide-react';
-import { TelecomPackage } from '../types';
-import { VIETTEL_PACKAGES } from '../data/packages';
+import type { VerifiedPackage } from '../data/verified-package';
 import PackageCard from './PackageCard';
 
 interface PackageGridProps {
+  packages: VerifiedPackage[];
   onSelectPackage: (pkgId: string) => void;
-  onOpenDetails: (pkg: TelecomPackage) => void;
+  onOpenDetails: (pkg: VerifiedPackage) => void;
   searchQuery: string;
   onSearchReset: () => void;
   selectedCategory: string;
@@ -14,6 +14,7 @@ interface PackageGridProps {
 }
 
 export default function PackageGrid({
+  packages,
   onSelectPackage,
   onOpenDetails,
   searchQuery,
@@ -33,12 +34,12 @@ export default function PackageGrid({
   ];
 
   const filteredPackages = useMemo(() => {
-    let result = [...VIETTEL_PACKAGES];
+    let result = [...packages];
 
     // 1. Category
     if (selectedCategory !== 'all') {
       if (selectedCategory === 'hot') {
-        result = result.filter((p) => p.popular);
+        result = result.filter((p) => p.category === 'hot');
       } else {
         result = result.filter((p) => p.category === selectedCategory);
       }
@@ -73,7 +74,7 @@ export default function PackageGrid({
     }
 
     return result;
-  }, [selectedCategory, searchQuery, filterType, sortBy]);
+  }, [packages, selectedCategory, searchQuery, filterType, sortBy]);
 
   return (
     <section id="goi-cuoc" className="max-w-7xl mx-auto px-4 py-8 space-y-6">

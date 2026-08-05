@@ -1,16 +1,16 @@
 import React from 'react';
-import { Sparkles, Globe, Zap, Gift, Info, ArrowRight, Crown } from 'lucide-react';
-import { TelecomPackage } from '../types';
+import { Globe, Zap, Gift, Info, ArrowRight, Crown } from 'lucide-react';
+import type { VerifiedPackage } from '../data/verified-package';
 import { trackConversion } from '../utils/tracking';
 
 interface PackageCardProps {
-  pkg: TelecomPackage;
+  pkg: VerifiedPackage;
   onSelect: (pkgId: string) => void;
-  onOpenDetails: (pkg: TelecomPackage) => void;
+  onOpenDetails: (pkg: VerifiedPackage) => void;
 }
 
 export default function PackageCard({ pkg, onSelect, onOpenDetails }: PackageCardProps) {
-  const dailyCost = Math.round(pkg.price / parseInt(pkg.duration) || 30);
+  const dailyCost = Math.round(pkg.priceVnd / pkg.durationDays);
 
   const getTheme = () => {
     if (pkg.category === 'social' || pkg.name.includes('MXH')) {
@@ -20,7 +20,7 @@ export default function PackageCard({ pkg, onSelect, onOpenDetails }: PackageCar
   };
 
   const getCategoryName = () => {
-    if (pkg.duration !== '30 Ngày' && parseInt(pkg.duration) > 30) return 'Chu Kỳ Dài';
+    if (pkg.durationDays > 30) return 'Chu Kỳ Dài';
     switch (pkg.category) {
       case 'social': return 'Mạng Xã Hội';
       case 'combo': return 'Combo Thoại + Data';
@@ -30,20 +30,10 @@ export default function PackageCard({ pkg, onSelect, onOpenDetails }: PackageCar
   };
 
   const theme = getTheme();
-  const isPopular = pkg.popular;
-
   return (
     <article 
-      className={`bg-white rounded-2xl flex flex-col justify-between overflow-hidden relative group transition-all duration-300 shadow-sm hover:shadow-md ${isPopular ? 'border-2 border-[#e60000]' : 'border border-gray-200'}`}
+      className="bg-white rounded-2xl flex flex-col justify-between overflow-hidden relative group transition-all duration-300 shadow-sm hover:shadow-md border border-gray-200"
     >
-      {/* Popular Top Banner */}
-      {isPopular && (
-        <div className="bg-[#e60000] text-white text-center py-1 text-[11px] font-bold uppercase tracking-wider flex items-center justify-center gap-1">
-          <Sparkles className="w-3.5 h-3.5" />
-          Phổ Biến Nhất
-        </div>
-      )}
-
       <div className="p-4 sm:p-5 flex-1 flex flex-col">
         {/* Top Badges */}
         <div className="flex items-center justify-between mb-4">
@@ -52,7 +42,7 @@ export default function PackageCard({ pkg, onSelect, onOpenDetails }: PackageCar
             {getCategoryName()}
           </div>
           <div className={`text-[10px] font-medium px-2.5 py-1 rounded-full ${theme.lightBg} ${theme.text}`}>
-            Hạn dùng: {pkg.duration}
+            Hạn dùng: {pkg.durationDays} ngày
           </div>
         </div>
 
@@ -63,10 +53,10 @@ export default function PackageCard({ pkg, onSelect, onOpenDetails }: PackageCar
           </h3>
           <div className="flex items-baseline justify-center gap-1 mb-1">
             <span className="text-2xl sm:text-3xl font-black text-gray-900">
-              {pkg.price.toLocaleString('vi-VN')}đ
+              {pkg.priceVnd.toLocaleString('vi-VN')}đ
             </span>
             <span className="text-xs text-gray-500 font-medium uppercase">
-              / {pkg.duration === '30 Ngày' ? 'Tháng' : pkg.duration}
+              / {pkg.durationDays} ngày
             </span>
           </div>
           <p className="text-xs text-gray-500">
@@ -82,7 +72,7 @@ export default function PackageCard({ pkg, onSelect, onOpenDetails }: PackageCar
               Tổng dung lượng
             </div>
             <div className="text-xl sm:text-2xl font-black text-gray-900">
-              {pkg.dataLimit}
+              {pkg.dataAllowance ?? '—'}
             </div>
           </div>
           <div className="flex flex-col gap-1 w-1/2 pl-4">
@@ -91,62 +81,30 @@ export default function PackageCard({ pkg, onSelect, onOpenDetails }: PackageCar
               Tốc độ cao
             </div>
             <div className="text-xl sm:text-2xl font-black text-gray-900">
-              {pkg.dataPerDay}
+              {pkg.dataPerDay ?? '—'}
             </div>
           </div>
         </div>
 
-        {/* Calls / Features */}
+        {/* Verified benefits */}
         <div className="space-y-2.5 mb-5 flex-1">
-          {pkg.calls?.internal && (
+          {pkg.benefits.slice(0, 3).map((benefit) => (
             <div className="flex items-start gap-2 text-sm text-gray-700">
               <div className="mt-0.5 shrink-0 w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center">
                 <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
               </div>
-              <span className="leading-snug">{pkg.calls.internal}</span>
+              <span className="leading-snug">{benefit}</span>
             </div>
-          )}
-          {pkg.calls?.external && (
-            <div className="flex items-start gap-2 text-sm text-gray-700">
-              <div className="mt-0.5 shrink-0 w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center">
-                <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-              </div>
-              <span className="leading-snug">Ngoại mạng: {pkg.calls.external}</span>
-            </div>
-          )}
-
-          {/* Social Free Data */}
-          {pkg.social && pkg.social.length > 0 && (
-            <div className="pt-2">
-              <div className="text-[10px] font-bold text-gray-400 uppercase mb-2 tracking-wider">Miễn phí Data:</div>
-              <div className="flex flex-wrap gap-2">
-                {pkg.social.includes('youtube') && (
-                  <span className="inline-flex items-center gap-1.5 text-[11px] font-medium bg-white border border-gray-200 shadow-sm px-2.5 py-1 rounded-md text-gray-700">
-                    <span className="text-red-600 font-black">▶</span> YouTube
-                  </span>
-                )}
-                {pkg.social.includes('tiktok') && (
-                  <span className="inline-flex items-center gap-1.5 text-[11px] font-medium bg-white border border-gray-200 shadow-sm px-2.5 py-1 rounded-md text-gray-700">
-                    <span className="text-black font-black">🎵</span> TikTok
-                  </span>
-                )}
-                {pkg.social.includes('facebook') && (
-                  <span className="inline-flex items-center gap-1.5 text-[11px] font-medium bg-white border border-gray-200 shadow-sm px-2.5 py-1 rounded-md text-gray-700">
-                    <span className="text-blue-600 font-black">f</span> Facebook
-                  </span>
-                )}
-              </div>
-            </div>
-          )}
+          ))}
         </div>
 
         {/* Bottom Feature Box */}
         <div className={`p-3 rounded-lg ${theme.lightBg} border ${theme.border} flex items-center gap-3`}>
           <div className={`w-10 h-10 rounded-md shrink-0 flex items-center justify-center ${theme.text === 'text-[#6d28d9]' ? 'bg-[#6d28d9]' : 'bg-[#e60000]'}`}>
-             {isPopular ? <Sparkles className="w-5 h-5 text-white" /> : <Gift className="w-5 h-5 text-white" />}
+             <Gift className="w-5 h-5 text-white" />
           </div>
           <p className="text-[11px] text-gray-700 leading-snug line-clamp-3">
-            {pkg.description}
+            {pkg.eligibility[0] ?? pkg.description}
           </p>
         </div>
       </div>
@@ -162,17 +120,17 @@ export default function PackageCard({ pkg, onSelect, onOpenDetails }: PackageCar
           <Info className="w-4 h-4" />
         </button>
 
-        <button
+        {pkg.registration && <button
           type="button"
           onClick={() => {
-            trackConversion('click_register_sms', { package_id: pkg.id, price: pkg.price, name: pkg.name });
+            trackConversion('click_register_sms', { package_id: pkg.id, price: pkg.priceVnd, name: pkg.name });
             onSelect(pkg.id);
           }}
           className="flex-[1.5] min-h-[44px] flex items-center justify-center gap-1.5 bg-[#e60000] text-white text-sm font-bold rounded-lg hover:bg-red-700 shadow-md transition-all active:scale-[0.98]"
         >
           Soạn tin đăng ký
           <ArrowRight className="w-4 h-4" />
-        </button>
+        </button>}
       </div>
     </article>
   );

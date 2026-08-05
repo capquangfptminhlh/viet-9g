@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 import { Smartphone, CheckCircle, Search, Loader2, Sparkles, Filter } from 'lucide-react';
-import { TelecomPackage } from '../types';
-import { VIETTEL_PACKAGES } from '../data/packages';
+import type { VerifiedPackage } from '../data/verified-package';
 
 interface SimLookupProps {
+  packages: VerifiedPackage[];
   onSelectPackage: (pkgId: string) => void;
 }
 
 const VIETTEL_PREFIXES = ['096', '097', '098', '086', '032', '033', '034', '035', '036', '037', '038', '039', '090', '091', '093', '070', '079', '077', '076', '078', '089', '088', '081', '082', '083', '084', '085', '056', '058', '059'];
 const GENUINE_VIETTEL_PREFIXES = ['096', '097', '098', '086', '032', '033', '034', '035', '036', '037', '038', '039'];
 
-export default function SimLookup({ onSelectPackage }: SimLookupProps) {
+export default function SimLookup({ packages, onSelectPackage }: SimLookupProps) {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [simType, setSimType] = useState<'prepaid' | 'postpaid'>('prepaid');
   const [loading, setLoading] = useState(false);
   const [step, setStep] = useState(0);
   const [result, setResult] = useState<null | {
-    eligiblePackages: TelecomPackage[];
+    eligiblePackages: VerifiedPackage[];
     isViettel: boolean;
     simType: string;
     num: string;
@@ -73,25 +73,25 @@ export default function SimLookup({ onSelectPackage }: SimLookupProps) {
         setLoading(false);
         // Categorize packages based on phone number suffix to create highly tailored results
         const digit = parseInt(checkedNum.slice(-1)) || 0;
-        let selected: TelecomPackage[] = [];
+        let selected: VerifiedPackage[] = [];
         
         if (!isGenuineViettel) {
           // If other networks, show limited data packages and advise conversion
-          selected = VIETTEL_PACKAGES.filter(p => p.id === 'sd90' || p.id === 'sd120');
+          selected = packages.filter(p => p.id === 'sd90' || p.id === 'sd120');
         } else if (digit % 3 === 0) {
           // Select MXH social pack
-          selected = VIETTEL_PACKAGES.filter(p => p.category === 'social' || p.id === 'sd120');
+          selected = packages.filter(p => p.category === 'social' || p.id === 'sd120');
         } else if (digit % 2 === 0) {
           // Select combo voice packs
-          selected = VIETTEL_PACKAGES.filter(p => p.category === 'combo' || p.id === 'mxh120');
+          selected = packages.filter(p => p.category === 'combo' || p.id === 'mxh120');
         } else {
           // Select high speed data packs
-          selected = VIETTEL_PACKAGES.filter(p => p.category === 'data' || p.id === 'v120b');
+          selected = packages.filter(p => p.category === 'data' || p.id === 'v120b');
         }
 
         // Always ensure at least 3 packages
         if (selected.length < 3) {
-          selected = VIETTEL_PACKAGES.slice(0, 4);
+          selected = packages.slice(0, 4);
         }
 
         setResult({
@@ -276,13 +276,13 @@ export default function SimLookup({ onSelectPackage }: SimLookupProps) {
                             {pkg.dataPerDay} ({pkg.dataLimit})
                           </span>
                         </div>
-                        <button
+                        {pkg.registration && <button
                           type="button"
                           onClick={() => onSelectPackage(pkg.id)}
                           className="px-3 py-1 bg-[#D71920] hover:bg-red-700 active:bg-red-850 text-white font-bold text-xs rounded transition-colors cursor-pointer shrink-0"
                         >
                           Đăng Ký
-                        </button>
+                        </button>}
                       </div>
                     ))}
                   </div>

@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { Sparkles, RefreshCw, Zap, CirclePlay, Phone } from 'lucide-react';
-import { TelecomPackage } from '../types';
-import { VIETTEL_PACKAGES } from '../data/packages';
+import type { VerifiedPackage } from '../data/verified-package';
 
 interface SmartRecommenderProps {
+  packages: VerifiedPackage[];
   onSelectPackage: (pkgId: string) => void;
-  onOpenDetails: (pkg: TelecomPackage) => void;
+  onOpenDetails: (pkg: VerifiedPackage) => void;
 }
 
-export default function SmartRecommender({ onSelectPackage, onOpenDetails }: SmartRecommenderProps) {
+export default function SmartRecommender({ packages, onSelectPackage, onOpenDetails }: SmartRecommenderProps) {
   const [step, setStep] = useState<number>(1);
   const [budget, setBudget] = useState<string>('all');
   const [need, setNeed] = useState<string>('social');
-  const [result, setResult] = useState<TelecomPackage[] | null>(null);
+  const [result, setResult] = useState<VerifiedPackage[] | null>(null);
 
   const budgetOptions = [
     { id: 'under100', label: 'Dưới 100.000đ', icon: '💰' },
@@ -29,7 +29,7 @@ export default function SmartRecommender({ onSelectPackage, onOpenDetails }: Sma
   ];
 
   const handleRecommend = () => {
-    let matches = [...VIETTEL_PACKAGES];
+    let matches = [...packages];
 
     // Filter by budget
     if (budget === 'under100') {
@@ -42,10 +42,10 @@ export default function SmartRecommender({ onSelectPackage, onOpenDetails }: Sma
 
     // Filter by need
     if (need === 'social') {
-      const socialMatches = matches.filter(p => p.social && p.social.length > 0);
+      const socialMatches = matches.filter(p => p.category === 'social');
       if (socialMatches.length > 0) matches = socialMatches;
     } else if (need === 'combo') {
-      const comboMatches = matches.filter(p => p.calls && (p.calls.internal || p.calls.external));
+      const comboMatches = matches.filter(p => p.category === 'combo');
       if (comboMatches.length > 0) matches = comboMatches;
     } else if (need === 'data') {
       const parseQuota = (str: string) => {
@@ -56,23 +56,9 @@ export default function SmartRecommender({ onSelectPackage, onOpenDetails }: Sma
       };
       matches.sort((a, b) => parseQuota(b.dataPerDay ?? '') - parseQuota(a.dataPerDay ?? ''));
     } else if (need === 'long_term') {
-      const longTerm = matches.filter(p => {
-        const durLower = p.duration.toLowerCase();
-        if (durLower.includes('tháng')) {
-          const m = parseInt(durLower) || 1;
-          return m >= 3;
-        }
-        if (durLower.includes('ngày')) {
-          const d = parseInt(durLower) || 30;
-          return d > 30;
-        }
-        return false;
-      });
+      const longTerm = matches.filter((p) => p.durationDays >= 90);
       if (longTerm.length > 0) matches = longTerm;
     }
-
-    // Sort by popular or best value
-    matches.sort((a, b) => (b.popular ? 1 : 0) - (a.popular ? 1 : 0));
 
     setResult(matches.slice(0, 3)); // Return top 3 recommendations
     setStep(3);
@@ -227,18 +213,12 @@ export default function SmartRecommender({ onSelectPackage, onOpenDetails }: Sma
                           <span className="text-green-600 font-bold">✓</span>
                           <span>Data: <strong>{pkg.dataPerDay}</strong></span>
                         </div>
-                        {pkg.calls?.internal && (
+                        {pkg.benefits.slice(0, 2).map((benefit) => (
                           <div className="flex items-center gap-1.5">
                             <span className="text-green-600 font-bold">✓</span>
-                            <span>{pkg.calls.internal}</span>
+                            <span>{benefit}</span>
                           </div>
-                        )}
-                        {pkg.social && pkg.social.length > 0 && (
-                          <div className="flex items-center gap-1.5">
-                            <span className="text-green-600 font-bold">✓</span>
-                            <span>Free Tiktok, FB, YouTube</span>
-                          </div>
-                        )}
+                        ))}
                       </div>
                     </div>
 
@@ -250,13 +230,13 @@ export default function SmartRecommender({ onSelectPackage, onOpenDetails }: Sma
                       >
                         Chi tiết
                       </button>
-                      <button
+                      {pkg.registration && <button
                         type="button"
                         onClick={() => onSelectPackage(pkg.id)}
                         className="flex-1 py-2.5 min-h-[44px] text-xs font-bold text-white bg-[#e60000] hover:bg-red-700 rounded-lg shadow-sm transition-colors flex items-center justify-center"
                       >
                         Đăng ký
-                      </button>
+                      </button>}
                     </div>
 
                   </div>

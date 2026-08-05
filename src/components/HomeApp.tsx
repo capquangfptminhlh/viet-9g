@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { AgentConfig, TelecomPackage } from '../types';
-import { VIETTEL_PACKAGES } from '../data/packages';
+import { AgentConfig } from '../types';
+import type { VerifiedPackage } from '../data/verified-package';
 import Header from './Header';
 import HeroCarousel from './HeroCarousel';
 import SimLookup from './SimLookup';
@@ -12,7 +12,11 @@ import AgentSettings from './AgentSettings';
 import PackageModal from './PackageModal';
 import AdsGuideModal from './AdsGuideModal';
 import PolicyModal from './PolicyModal';
-export default function HomeApp() {
+interface HomeAppProps {
+  packages: VerifiedPackage[];
+}
+
+export default function HomeApp({ packages }: HomeAppProps) {
   // 1. Initialize Agent Configuration with hardcoded compliance values
   const [config, setConfig] = useState<AgentConfig>({
     agentCode: 'GB',
@@ -39,7 +43,7 @@ export default function HomeApp() {
   const [modalTab, setModalTab] = useState<'sms' | 'qr' | 'details'>('sms');
 
   // Find currently active package for instructions modal
-  const activePackage = VIETTEL_PACKAGES.find((p) => p.id === selectedPkgId) || null;
+  const activePackage = packages.find((p) => p.id === selectedPkgId) || null;
 
   // Handles fast action selectors
   const handleSelectPackage = (pkgId: string) => {
@@ -47,7 +51,7 @@ export default function HomeApp() {
     setModalTab('sms');
   };
 
-  const handleOpenDetails = (pkg: TelecomPackage) => {
+  const handleOpenDetails = (pkg: VerifiedPackage) => {
     setSelectedPkgId(pkg.id);
     setModalTab('details');
   };
@@ -119,17 +123,20 @@ export default function HomeApp() {
 
         {/* 2.5 Smart AI Recommender Quiz */}
         <SmartRecommender
+          packages={packages}
           onSelectPackage={handleSelectPackage}
           onOpenDetails={handleOpenDetails}
         />
 
         {/* 3. Interactive SIM Eligibility Verification Form */}
         <SimLookup
+          packages={packages}
           onSelectPackage={handleSelectPackage}
         />
 
         {/* 4. Complete Catalog of 4G/5G Tariffs with sorting and filtering grids */}
         <PackageGrid
+          packages={packages}
           onSelectPackage={handleSelectPackage}
           onOpenDetails={handleOpenDetails}
           searchQuery={searchQuery}
