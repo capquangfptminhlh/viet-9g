@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { getRenderablePackages, parsePackageCatalog } from '../../src/data/package-catalog';
 import { getCurrentFacts } from '../../src/data/package-catalog-runtime';
+import { PublicOfferFactKeySchema, PublicOfferFactKeys } from '../../src/data/package-catalog.schema';
 
 const now = new Date('2026-08-02T00:00:00.000Z');
 
@@ -41,18 +42,21 @@ function publicOffer() {
 }
 
 describe('verified public package offers', () => {
-  it('rejects registration without an evidence fact ID', () => {
+  it('accepts a legacy registration without an evidence fact ID but does not expose its CTA', () => {
     const catalog = publicOffer();
     delete (catalog.packages[0].registration as Partial<typeof catalog.packages[0]['registration']>).factId;
 
-    expect(() => parsePackageCatalog(catalog)).toThrow(/factId|registration/i);
+    expect(parsePackageCatalog(catalog)).toBeDefined();
+    expect(getRenderablePackages(parsePackageCatalog(catalog), now)[0].registration).toBeUndefined();
   });
 
-  it('accepts only the defined package fact keys', () => {
+  it('allows legacy fact keys while exposing a strict public-offer key set', () => {
     const catalog = publicOffer();
     catalog.packages[0].facts[0].key = 'price';
 
-    expect(() => parsePackageCatalog(catalog)).toThrow(/priceVnd|enum|invalid/i);
+    expect(parsePackageCatalog(catalog)).toBeDefined();
+    expect(PublicOfferFactKeySchema.safeParse('price').success).toBe(false);
+    expect(PublicOfferFactKeys).toContain('priceVnd');
   });
 
   it('withholds a public offer missing a current duration fact', () => {
@@ -74,6 +78,38 @@ describe('verified public package offers', () => {
     const catalog = parsePackageCatalog(catalogInput);
 
     expect(getRenderablePackages(catalog, now)[0].registration).toBeUndefined();
+  });
+
+  it('exposes registration only when a referenced registration fact exactly matches the syntax', () => {
+    const catalogInput = publicOffer();
+    catalogInput.packages[0].factIds.push('registration');
+    const catalog = parsePackageCatalog(catalogInput);
+
+    expect(getRenderablePackages(catalog, now)[0].registration).toMatchObject({ syntax: 'V120B GB' });
+  });
+
+  it.each([
+    ['claim-only evidence', 'not the syntax', 'Send V120B GB to 290'],
+    ['a syntax substring', 'V120B GB NOW', 'registrationSyntax claim'],
+  ])('does not expose registration with %s', (_label, value, claim) => {
+    const catalogInput = publicOffer();
+    catalogInput.packages[0].factIds.push('registration');
+    catalogInput.packages[0].facts[3].value = value;
+    catalogInput.packages[0].facts[3].claim = claim;
+    const catalog = parsePackageCatalog(catalogInput);
+
+    expect(getRenderablePackages(catalog, now)[0].registration).toBeUndefined();
+  });
+
+  it.each([
+    ['boolean price', 0, true],
+    ['nonnumeric duration', 1, '30'],
+    ['boolean data allowance', 2, true],
+  ])('withholds public offers with %s', (_label, index, value) => {
+    const catalogInput = publicOffer();
+    (catalogInput.packages[0].facts[index].value as unknown) = value;
+
+    expect(getRenderablePackages(parsePackageCatalog(catalogInput), now)).toHaveLength(0);
   });
 
   it('keeps a verified offer visible but omits registration when its referenced fact is expired', () => {

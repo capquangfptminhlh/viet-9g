@@ -7,9 +7,16 @@
     "authoritativeValidator": "src/data/package-catalog.ts#parsePackageCatalog",
     "rules": [
       "package IDs and codes are globally unique",
-      "fact IDs are globally unique and every package factIds entry resolves locally or globally",
+      "fact IDs are globally unique and every package factIds entry resolves only from that package's local facts or catalog-level global facts",
       "facts require HTTPS sourceUrl on the viettel.vn hostname allowlist and valid effective/expiry ordering",
       "active packages require current evidence and registration data; hold, unverified, eligibility_required, and retired packages may omit registration; renderable records require expiry strictly after now and effectiveAt at or before now"
+    ]
+  },
+  "x-publicOfferConstraints": {
+    "factKeys": ["priceVnd", "durationDays", "dataAllowance", "dataPerDay", "benefit", "eligibility", "checkingInstruction", "renewalInstruction", "cancellationInstruction", "registrationSyntax"],
+    "requirements": [
+      "public offers require current official positive numeric priceVnd and durationDays facts plus a current official non-empty string dataAllowance or dataPerDay fact",
+      "registration CTA requires a referenced current official registrationSyntax fact whose string value exactly matches the normalized registration syntax"
     ]
   },
   "properties": {
@@ -38,7 +45,7 @@
         "category": { "enum": ["hot", "data", "social", "combo", "long_term"] },
         "factIds": { "type": "array", "items": { "type": "string", "minLength": 1 } },
         "display": { "type": "object", "required": ["name", "description"], "properties": { "name": { "type": "string" }, "description": { "type": "string" }, "benefits": { "type": "array", "items": { "type": "string" } }, "eligibility": { "type": "array", "items": { "type": "string" } } }, "additionalProperties": true },
-        "registration": { "type": "object", "required": ["syntax", "smsNumber", "channel"], "properties": { "syntax": { "type": "string", "pattern": "\\bGB\\b" }, "smsNumber": { "enum": [290, "290"] }, "channel": { "const": "sms" } }, "additionalProperties": false },
+        "registration": { "type": "object", "required": ["syntax", "smsNumber", "channel"], "properties": { "syntax": { "type": "string", "pattern": "\\bGB\\b" }, "smsNumber": { "enum": [290, "290"] }, "channel": { "const": "sms" }, "factId": { "type": "string", "minLength": 1 } }, "additionalProperties": false },
         "facts": { "type": "array", "items": { "$ref": "#/$defs/fact" } }
       }, "additionalProperties": true
     }

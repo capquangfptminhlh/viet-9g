@@ -10,20 +10,23 @@ const isoDateTime = z.string().refine((value) => {
   return Number.isFinite(parsed) && /^\d{4}-\d{2}-\d{2}T/.test(value);
 }, 'must be an ISO datetime');
 
+export const PublicOfferFactKeys = [
+  'priceVnd',
+  'durationDays',
+  'dataAllowance',
+  'dataPerDay',
+  'benefit',
+  'eligibility',
+  'checkingInstruction',
+  'renewalInstruction',
+  'cancellationInstruction',
+  'registrationSyntax',
+] as const;
+export const PublicOfferFactKeySchema = z.enum(PublicOfferFactKeys);
+
 export const CatalogFactSchema = z.object({
   id: z.string().min(1),
-  key: z.enum([
-    'priceVnd',
-    'durationDays',
-    'dataAllowance',
-    'dataPerDay',
-    'benefit',
-    'eligibility',
-    'checkingInstruction',
-    'renewalInstruction',
-    'cancellationInstruction',
-    'registrationSyntax',
-  ]),
+  key: z.string().min(1),
   value: z.union([z.string(), z.number().positive(), z.boolean()]),
   unit: z.string().optional(),
   claim: z.string().min(1),
@@ -45,7 +48,7 @@ export const PackageRegistrationSchema = z.object({
   syntax: z.string().min(1),
   smsNumber: z.union([z.literal(290), z.literal('290')]),
   channel: z.literal('sms'),
-  factId: z.string().min(1),
+  factId: z.string().min(1).optional(),
 }).superRefine((registration, ctx) => {
   if (!/\bGB\b/.test(registration.syntax)) {
     ctx.addIssue({ code: 'custom', path: ['syntax'], message: 'registration syntax must include GB' });

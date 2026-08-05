@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { getPackageById, getRenderablePackages, loadPackageCatalog, parsePackageCatalog } from '../../src/data/package-catalog';
+import { PublicOfferFactKeys } from '../../src/data/package-catalog.schema';
 
 type CatalogFactFixture = {
   id: string;
@@ -109,6 +110,22 @@ describe('package catalog schema', () => {
     catalog.packages[0].factIds = ['missing-fact'];
 
     expect(() => parsePackageCatalog(catalog)).toThrow(/factIds|reference|missing/i);
+  });
+
+  it('rejects a package fact reference that exists only on another package', () => {
+    const catalog = createCatalog();
+    catalog.packages.push({
+      ...structuredClone(catalog.packages[0]),
+      id: 'v90b',
+      code: 'V90B',
+      status: 'unverified',
+      factIds: [],
+      registration: { syntax: 'V90B GB', smsNumber: 290, channel: 'sms', factId: 'price-vnd' },
+      facts: [{ ...catalog.packages[0].facts[0], id: 'foreign-price' }],
+    });
+    catalog.packages[0].factIds = ['foreign-price'];
+
+    expect(() => parsePackageCatalog(catalog)).toThrow(/reference|missing|local/i);
   });
 
   it('rejects an active fact without source evidence', () => {
@@ -219,6 +236,12 @@ describe('package catalog schema', () => {
       expect.stringMatching(/globally unique/),
       expect.stringMatching(/renderable.*expiry/i),
     ]));
+  });
+
+  it('keeps JSON Schema and Zod aligned on registration evidence and strict public keys', () => {
+    const schema = JSON.parse(fs.readFileSync('schemas/package-catalog.schema.json', 'utf8'));
+    expect(schema.$defs.package.properties.registration.properties.factId).toMatchObject({ type: 'string', minLength: 1 });
+    expect(schema['x-publicOfferConstraints'].factKeys).toEqual(PublicOfferFactKeys);
   });
 
   it.each(['hold', 'unverified', 'eligibility_required', 'retired'])('allows %s package without registration', (status) => {

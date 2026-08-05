@@ -20,10 +20,16 @@ export function isOfficialSource(url?: string): boolean {
   } catch { return false; }
 }
 
-function catalogFacts(catalog: PackageCatalog): Map<string, CatalogFact> {
+function globalFacts(catalog: PackageCatalog): Map<string, CatalogFact> {
   return new Map([
     ...catalog.facts.map((fact) => [fact.id, fact] as const),
-    ...catalog.packages.flatMap((pkg) => pkg.facts.map((fact) => [fact.id, fact] as const)),
+  ]);
+}
+
+function packageFacts(pkg: PackageRecord, catalog: PackageCatalog): Map<string, CatalogFact> {
+  return new Map([
+    ...globalFacts(catalog),
+    ...pkg.facts.map((fact) => [fact.id, fact] as const),
   ]);
 }
 
@@ -34,12 +40,13 @@ function isCurrentFact(fact: CatalogFact | undefined, now: Date): fact is Catalo
 }
 
 function supportsRegistrationSyntax(fact: CatalogFact, syntax: string): boolean {
-  const expected = syntax.trim().replace(/\s+/g, ' ').toLowerCase();
-  return [fact.value, fact.claim].some((value) => String(value).trim().replace(/\s+/g, ' ').toLowerCase().includes(expected));
+  if (typeof fact.value !== 'string') return false;
+  const normalize = (value: string) => value.trim().replace(/\s+/g, ' ').toUpperCase();
+  return normalize(fact.value) === normalize(syntax);
 }
 
 export function getCurrentFacts(pkg: PackageRecord, catalog: PackageCatalog, now = new Date()): CatalogFact[] {
-  const facts = catalogFacts(catalog);
+  const facts = packageFacts(pkg, catalog);
   return pkg.factIds
     .map((id) => facts.get(id))
     .filter((fact): fact is CatalogFact => isCurrentFact(fact, now));
@@ -55,7 +62,6 @@ export function parsePackageCatalog(input: unknown): PackageCatalog {
   const allFacts = [...catalog.facts, ...catalog.packages.flatMap((pkg) => pkg.facts)];
   const factDuplicate = duplicate(allFacts.map((fact) => fact.id));
   if (factDuplicate) throw new Error(`duplicate fact ID: ${factDuplicate}`);
-  const factMap = new Map(allFacts.map((fact) => [fact.id, fact]));
   const generated = Date.parse(catalog.generatedAt);
 
   for (const fact of allFacts) {
@@ -68,14 +74,14 @@ export function parsePackageCatalog(input: unknown): PackageCatalog {
     const refs = duplicate(pkg.factIds);
     if (refs) throw new Error(`duplicate fact ID reference in package ${pkg.id}: ${refs}`);
     for (const id of pkg.factIds) {
-      if (!factMap.has(id)) throw new Error(`missing fact reference ${id} in package ${pkg.id}`);
+      if (!packageFacts(pkg, catalog).has(id)) throw new Error(`missing local or global fact reference ${id} in package ${pkg.id}`);
     }
     if (pkg.status === 'active') {
       if (!pkg.registration) throw new Error(`active package ${pkg.id} requires registration data`);
       if (pkg.factIds.length === 0) throw new Error(`active package ${pkg.id} requires evidence`);
     }
     for (const id of pkg.factIds) {
-      const fact = factMap.get(id)!;
+      const fact = packageFacts(pkg, catalog).get(id)!;
       if (pkg.status === 'active' && Date.parse(fact.expiresAt) <= generated) {
         throw new Error(`expired fact ${id} for active package ${pkg.id}`);
       }
@@ -92,8 +98,9 @@ export function getRenderablePackages(catalog: PackageCatalog, now = new Date())
   return catalog.packages.flatMap((pkg) => {
     if (!['active', 'eligibility_required'].includes(pkg.status)) return [];
     const currentFacts = getCurrentFacts(pkg, catalog, now);
-    const keys = new Set(currentFacts.map((fact) => fact.key));
-    if (!keys.has('priceVnd') || !keys.has('durationDays') || (!keys.has('dataAllowance') && !keys.has('dataPerDay'))) return [];
+    const hasPositiveNumber = (key: string) => currentFacts.some((fact) => fact.key === key && typeof fact.value === 'number' && fact.value > 0);
+    const hasData = currentFacts.some((fact) => (fact.key === 'dataAllowance' || fact.key === 'dataPerDay') && typeof fact.value === 'string' && fact.value.trim().length > 0);
+    if (!hasPositiveNumber('priceVnd') || !hasPositiveNumber('durationDays') || !hasData) return [];
 
     const registrationFact = pkg.registration?.factId
       && pkg.factIds.includes(pkg.registration.factId)
