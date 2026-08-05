@@ -97,23 +97,23 @@
     "blogId": "2757413717171314447",
     "topicId": "topic-b3-tk-191-account",
     "contentVersion": "v1",
-    "contentHash": "",
-    "status": "HOLD",
-    "failureReason": "IDEMPOTENCY_KEY_RESERVED",
+    "contentHash": "5ea3d26182ee622dc48e2009fba942040841c6ed8c8bf0b000be005c0b503f30",
+    "status": "LIVE",
     "gateResults": {
       "packageEvidence": "PASS",
       "facts": "PASS",
-      "policy": "PASS",
-      "targetUrl": "NOT_RUN",
-      "media": "NOT_RUN",
-      "html": "NOT_RUN",
-      "idempotency": "REJECT",
-      "duplicate": "NOT_RUN",
-      "insert": "NOT_RUN",
-      "readBack": "NOT_RUN",
-      "publishedUrl": "NOT_RUN"
+      "targetUrl": "PASS",
+      "html": "PASS",
+      "idempotency": "PASS",
+      "duplicate": "PASS",
+      "insert": "PASS",
+      "readBack": "PASS",
+      "publishedUrl": "PASS"
     },
-    "createdAt": "2026-08-05T02:07:34.037Z"
+    "createdAt": "2026-08-02T14:39:34.679Z",
+    "postId": "3710386793836232266",
+    "publishedUrl": "https://kiemtragoicuocviettel.blogspot.com/2026/08/tra-cuu-tai-khoan-viettel-bang-tk-gui.html",
+    "publishedAt": "2026-08-02T14:39:39.861Z"
   },
   {
     "idempotencyKey": "a854fc38fd87cce1623d9d9a10efc5372960f05bfeeaba6a79a5f9d0fd3a4371",
@@ -217,7 +217,7 @@
     "topicId": "topic-b3-198-support",
     "contentVersion": "v1",
     "contentHash": "04603db01e589fe8b65d9b48b6cd9c385e5f3893b2fc109128386a3f9e08ca3b",
-    "status": "INSERT_STARTED",
+    "status": "LIVE",
     "gateResults": {
       "packageEvidence": "PASS",
       "facts": "PASS",
@@ -227,10 +227,13 @@
       "html": "PASS",
       "idempotency": "PASS",
       "duplicate": "PASS",
-      "insert": "NOT_RUN",
-      "readBack": "NOT_RUN",
-      "publishedUrl": "NOT_RUN"
+      "insert": "PASS",
+      "readBack": "PASS",
+      "publishedUrl": "PASS"
     },
-    "createdAt": "2026-08-05T02:07:34.037Z"
+    "createdAt": "2026-08-05T02:07:34.037Z",
+    "postId": "102479349895959965",
+    "publishedUrl": "https://kiemtragoicuocviettel.blogspot.com/2026/08/muon-kiem-tra-thong-tin-truc-tiep-tong.html",
+    "publishedAt": "2026-08-05T02:07:37.534Z"
   }
 ]
