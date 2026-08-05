@@ -92,6 +92,18 @@ describe('homepage verified package source', () => {
     expect(page).toMatch(/<HomeApp\s+packages=\{packages\}\s+client:load\s*\/>/);
   });
 
+  it('uses neutral independent-site defaults for BaseLayout metadata and Open Graph', () => {
+    const layout = fs.readFileSync(path.join(root, 'src/layouts/BaseLayout.astro'), 'utf8');
+    const defaultTitle = 'Tra Cứu Thông Tin Gói Cước Di Động';
+    const defaultDescription = 'Trang thông tin độc lập để tra cứu dữ kiện gói cước di động. Điều khoản gói và việc đăng ký do Viettel xác nhận.';
+
+    expect(layout).toContain(defaultTitle);
+    expect(layout).toContain(defaultDescription);
+    expect(layout).toMatch(/<meta name="description" content=\{description\}/);
+    expect(layout).toMatch(/<meta property="og:description" content=\{description\}/);
+    expect(layout).not.toMatch(/mới nhất 2026|chính thức|miễn phí|cổng đăng ký|hướng dẫn soạn tin nhắn/i);
+  });
+
   it('rejects legacy package imports from the index entrypoint and dependency tree', () => {
     for (const file of collectHomeImports('src/pages/index.astro')) {
       const source = fs.readFileSync(file, 'utf8');
