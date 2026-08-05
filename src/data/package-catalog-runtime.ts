@@ -20,6 +20,26 @@ export function isOfficialSource(url?: string): boolean {
   } catch { return false; }
 }
 
+function catalogFacts(catalog: PackageCatalog): Map<string, CatalogFact> {
+  return new Map([
+    ...catalog.facts.map((fact) => [fact.id, fact] as const),
+    ...catalog.packages.flatMap((pkg) => pkg.facts.map((fact) => [fact.id, fact] as const)),
+  ]);
+}
+
+function isCurrentFact(fact: CatalogFact | undefined, now: Date): fact is CatalogFact {
+  if (!fact || !isOfficialSource(fact.sourceUrl)) return false;
+  const at = now.getTime();
+  return Date.parse(fact.effectiveAt) <= at && Date.parse(fact.expiresAt) > at;
+}
+
+export function getCurrentFacts(pkg: PackageRecord, catalog: PackageCatalog, now = new Date()): CatalogFact[] {
+  const facts = catalogFacts(catalog);
+  return pkg.factIds
+    .map((id) => facts.get(id))
+    .filter((fact): fact is CatalogFact => isCurrentFact(fact, now));
+}
+
 export function parsePackageCatalog(input: unknown): PackageCatalog {
   const catalog = PackageCatalogSchema.parse(input);
   const packageDuplicate = duplicate(catalog.packages.map((pkg) => pkg.id));
@@ -64,16 +84,17 @@ export function getPackageById(catalog: PackageCatalog, id: string): PackageReco
 }
 
 export function getRenderablePackages(catalog: PackageCatalog, now = new Date()): PackageRecord[] {
-  const facts = new Map<string, CatalogFact>([
-    ...catalog.facts.map((fact) => [fact.id, fact] as const),
-    ...catalog.packages.flatMap((pkg) => pkg.facts.map((fact) => [fact.id, fact] as const)),
-  ]);
-  const at = now.getTime();
-  return catalog.packages.filter((pkg) => {
-    if (!['active', 'eligibility_required'].includes(pkg.status)) return false;
-    return pkg.factIds.length > 0 && pkg.factIds.every((id) => {
-      const fact = facts.get(id);
-      return !!fact && isOfficialSource(fact.sourceUrl) && Date.parse(fact.expiresAt) > at && Date.parse(fact.effectiveAt) <= at;
-    });
+  return catalog.packages.flatMap((pkg) => {
+    if (!['active', 'eligibility_required'].includes(pkg.status)) return [];
+    const currentFacts = getCurrentFacts(pkg, catalog, now);
+    const keys = new Set(currentFacts.map((fact) => fact.key));
+    if (!keys.has('priceVnd') || !keys.has('durationDays') || (!keys.has('dataAllowance') && !keys.has('dataPerDay'))) return [];
+
+    const registrationIsCurrent = !!pkg.registration?.factId
+      && pkg.factIds.includes(pkg.registration.factId)
+      && currentFacts.some((fact) => fact.id === pkg.registration!.factId);
+    if (registrationIsCurrent) return [pkg];
+    const { registration: _registration, ...publicOffer } = pkg;
+    return [publicOffer];
   });
 }
