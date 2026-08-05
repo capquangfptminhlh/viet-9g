@@ -6,28 +6,39 @@ import { describe, expect, it } from 'vitest';
 import PackageCard, { canRegisterPackage } from '../../src/components/PackageCard';
 import PackageModal from '../../src/components/PackageModal';
 import HeroCarousel from '../../src/components/HeroCarousel';
+import Header from '../../src/components/Header';
+import Footer from '../../src/components/Footer';
+import PolicyModal from '../../src/components/PolicyModal';
 import { getVerifiedDataDisplay } from '../../src/components/package-display';
 import { findCatalogPackages, getFinderActionPackages } from '../../src/components/SimLookup';
 import { getRecommendationActionPackages, recommendPackages } from '../../src/components/SmartRecommender';
 import type { VerifiedPackage } from '../../src/data/verified-package';
 
 const root = process.cwd();
-const homepageComponents = [
-  'src/components/HomeApp.tsx',
-  'src/components/PackageGrid.tsx',
-  'src/components/SmartRecommender.tsx',
-  'src/components/SimLookup.tsx',
-  'src/components/PackageCard.tsx',
-  'src/components/HeroCarousel.tsx',
-  'src/components/FaqAccordion.tsx',
-  'src/components/Header.tsx',
-  'src/components/HeroCarousel.tsx',
-  'src/components/Footer.tsx',
-  'src/components/AgentSettings.tsx',
-  'src/components/PackageModal.tsx',
-  'src/components/AdsGuideModal.tsx',
-  'src/components/PolicyModal.tsx',
-];
+function resolveImport(from: string, specifier: string): string | undefined {
+  const base = specifier.startsWith('.')
+    ? path.resolve(path.dirname(from), specifier)
+    : specifier.startsWith('@/') || specifier.startsWith('~/')
+      ? path.resolve(root, 'src', specifier.slice(2))
+      : undefined;
+  if (!base) return undefined;
+  for (const candidate of [base, ...['.ts', '.tsx', '.astro'].map((extension) => `${base}${extension}`), ...['index.ts', 'index.tsx', 'index.astro'].map((index) => path.join(base, index))]) {
+    if (fs.existsSync(candidate) && fs.statSync(candidate).isFile()) return candidate;
+  }
+  return undefined;
+}
+
+function collectHomeImports(entry: string, visited = new Set<string>()): Set<string> {
+  const file = path.resolve(root, entry);
+  if (visited.has(file)) return visited;
+  visited.add(file);
+  const source = fs.readFileSync(file, 'utf8');
+  for (const match of source.matchAll(/(?:from\s+|import\s*)['"]([^'"]+)['"]/g)) {
+    const resolved = resolveImport(file, match[1]);
+    if (resolved) collectHomeImports(resolved, visited);
+  }
+  return visited;
+}
 
 const unregisteredPackage: VerifiedPackage = {
   id: 'test-offer',
@@ -67,11 +78,17 @@ describe('homepage verified package source', () => {
     expect(page).toMatch(/<HomeApp\s+packages=\{packages\}\s+client:load\s*\/>/);
   });
 
-  it('does not import legacy packages in the homepage client tree', () => {
-    for (const file of homepageComponents) {
-      const source = fs.readFileSync(path.join(root, file), 'utf8');
+  it('does not import legacy packages anywhere in the recursive HomeApp import tree', () => {
+    for (const file of collectHomeImports('src/components/HomeApp.tsx')) {
+      const source = fs.readFileSync(file, 'utf8');
       expect(source).not.toMatch(/from\s+['"][^'"]*data\/packages['"]/);
     }
+  });
+
+  it('does not retain public credential or agent-code editing UI', () => {
+    const settings = fs.readFileSync(path.join(root, 'src/components/AgentSettings.tsx'), 'utf8');
+    expect(settings).not.toMatch(/admin290|123456|Mã PIN|agentCode/i);
+    expect(settings).toContain('Cú pháp đăng ký được xác minh theo từng gói cước');
   });
 
   it('does not render registration actions for offers without registration evidence', () => {
@@ -84,6 +101,25 @@ describe('homepage verified package source', () => {
     }));
 
     expect(markup).not.toContain('Soạn tin đăng ký');
+    const modalMarkup = renderToStaticMarkup(React.createElement(PackageModal, {
+      pkg: unregisteredPackage,
+      onClose: () => undefined,
+    }));
+    expect(modalMarkup).not.toContain('Cú Pháp SMS');
+    expect(modalMarkup).not.toContain('Mở ứng dụng SMS');
+  });
+
+  it('uses neutral site disclosures in header, footer, and policies', () => {
+    const config = { agentCode: 'GB', supportPhone: '1800.8098', zaloLink: 'https://zalo.me/18008098', agentName: 'Test' };
+    const header = renderToStaticMarkup(React.createElement(Header, { config, searchQuery: '', onSearchChange: () => undefined, onCategorySelect: () => undefined, selectedCategory: 'all' }));
+    const footer = renderToStaticMarkup(React.createElement(Footer, { config }));
+    const policy = renderToStaticMarkup(React.createElement(PolicyModal, { isOpen: true, type: 'disclaimer', onClose: () => undefined }));
+
+    for (const markup of [header, footer, policy]) {
+      expect(markup.toLowerCase()).toContain('trang thông tin độc lập');
+      expect(markup.toLowerCase()).toContain('viettel xác nhận');
+      expect(markup).not.toMatch(/miễn phí|thanh toán|gia hạn|hủy/i);
+    }
   });
 
   it('keeps a registered offer actionable and shows its verified SMS syntax in the modal', () => {
@@ -116,13 +152,11 @@ describe('homepage verified package source', () => {
       packages: [registeredPackage],
       config: { agentCode: 'GB', supportPhone: '1800.8098', zaloLink: 'https://zalo.me/18008098', agentName: 'Test' },
       onSelectPackage: () => undefined,
-      onOpenSettings: () => undefined,
     }));
     const unregisteredHero = renderToStaticMarkup(React.createElement(HeroCarousel, {
       packages: [unregisteredPackage],
       config: { agentCode: 'GB', supportPhone: '1800.8098', zaloLink: 'https://zalo.me/18008098', agentName: 'Test' },
       onSelectPackage: () => undefined,
-      onOpenSettings: () => undefined,
     }));
 
     expect(registeredHero).toContain('ĐĂNG KÝ NGAY');

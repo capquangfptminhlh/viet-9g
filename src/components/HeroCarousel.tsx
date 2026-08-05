@@ -8,7 +8,6 @@ interface HeroCarouselProps {
   config: AgentConfig;
   packages: VerifiedPackage[];
   onSelectPackage: (pkgId: string) => void;
-  onOpenSettings: () => void;
 }
 
 const gradients: Record<VerifiedPackage['category'], string> = {
