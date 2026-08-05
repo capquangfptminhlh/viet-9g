@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import type { AgentConfig } from '../types';
 import type { VerifiedPackage } from '../data/verified-package';
 import Header from './Header';
 import HeroCarousel from './HeroCarousel';
@@ -15,12 +14,6 @@ interface HomeAppProps {
 }
 
 export default function HomeApp({ packages }: HomeAppProps) {
-  const [config] = useState<AgentConfig>({
-    agentCode: 'GB',
-    supportPhone: '1800.8098',
-    zaloLink: '',
-    agentName: 'Thông tin tham khảo gói cước',
-  });
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedPkgId, setSelectedPkgId] = useState<string | null>(null);
@@ -47,7 +40,7 @@ export default function HomeApp({ packages }: HomeAppProps) {
 
   return (
     <div className="flex min-h-screen flex-col bg-gray-50 font-sans">
-      <Header config={config} searchQuery={searchQuery} onSearchChange={handleSearchChange} onCategorySelect={handleCategorySelect} selectedCategory={selectedCategory} />
+      <Header searchQuery={searchQuery} onSearchChange={handleSearchChange} onCategorySelect={handleCategorySelect} selectedCategory={selectedCategory} />
       <div className="border-b border-amber-200 bg-amber-50 px-4 py-3 text-center text-xs text-amber-950">
         Đây là trang thông tin độc lập. Thông tin gói cước, điều kiện và việc đăng ký do Viettel xác nhận.
       </div>
@@ -58,7 +51,7 @@ export default function HomeApp({ packages }: HomeAppProps) {
         <PackageGrid packages={packages} onSelectPackage={selectPackage} onOpenDetails={openDetails} searchQuery={searchQuery} onSearchReset={() => setSearchQuery('')} selectedCategory={selectedCategory} onCategoryChange={setSelectedCategory} />
         <FaqAccordion />
       </main>
-      <Footer config={config} />
+      <Footer />
       {activePackage && <PackageModal pkg={activePackage} onClose={() => setSelectedPkgId(null)} defaultTab={modalTab} />}
     </div>
   );

@@ -1,9 +1,7 @@
 import React from 'react';
-import { Globe, Phone, Search, ShieldCheck } from 'lucide-react';
-import type { AgentConfig } from '../types';
+import { Globe, Search, ShieldCheck } from 'lucide-react';
 
 interface HeaderProps {
-  config: AgentConfig;
   searchQuery?: string;
   onSearchChange?: (query: string) => void;
   onCategorySelect?: (category: string) => void;
@@ -18,7 +16,7 @@ const categories = [
   ['long_term', 'Chu kỳ dài'],
 ] as const;
 
-export default function Header({ config, searchQuery = '', onSearchChange = () => undefined, onCategorySelect = () => undefined, selectedCategory = 'all' }: HeaderProps) {
+export default function Header({ searchQuery = '', onSearchChange = () => undefined, onCategorySelect = () => undefined, selectedCategory = 'all' }: HeaderProps) {
   return (
     <header className="w-full border-b border-gray-100 bg-white font-sans">
       <div className="bg-[#e60000] text-xs text-white">
@@ -36,7 +34,7 @@ export default function Header({ config, searchQuery = '', onSearchChange = () =
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
           <input value={searchQuery} onChange={(event) => onSearchChange(event.target.value)} placeholder="Tìm gói cước" className="w-full rounded-full border border-gray-200 py-2.5 pl-10 pr-4 text-sm outline-none focus:border-[#e60000]" />
         </label>
-        <a href={`tel:${config.supportPhone}`} className="inline-flex items-center gap-2 text-sm font-bold text-gray-700 hover:text-[#e60000]"><Phone className="h-4 w-4" />Liên hệ tham khảo: {config.supportPhone}</a>
+        <p className="text-sm font-bold text-gray-700">Thông tin tham khảo gói cước</p>
       </div>
       <nav className="border-t border-gray-100">
         <div className="mx-auto flex max-w-7xl gap-1 overflow-x-auto px-4">

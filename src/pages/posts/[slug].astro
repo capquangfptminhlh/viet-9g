@@ -55,10 +55,9 @@ function getPostImage(slug: string, title: string) {
 const heroImage = getPostImage(entry.slug, displayTitle);
 
 // Giả lập config rỗng cho Header/Footer (vì chúng được fetch từ local storage ở client)
-const mockConfig = { agentCode: 'GB', supportPhone: '1800.8098', zaloLink: 'https://zalo.me/18008098', agentName: 'Kênh CTV' };
 ---
 <BaseLayout title={`${displayTitle} | Tra cứu & Đăng ký Viettel`}>
-  <Header config={mockConfig} client:load />
+  <Header client:load />
   
   <div class="bg-[#f8fafc] min-h-screen py-8 pt-24 font-sans">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -159,7 +158,7 @@ const mockConfig = { agentCode: 'GB', supportPhone: '1800.8098', zaloLink: 'http
     </div>
   </div>
 
-  <Footer config={mockConfig} client:load />
+  <Footer client:load />
 </BaseLayout>
 
 <style is:global>

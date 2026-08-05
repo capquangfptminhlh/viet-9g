@@ -9,6 +9,7 @@ import HeroCarousel from '../../src/components/HeroCarousel';
 import Header from '../../src/components/Header';
 import Footer from '../../src/components/Footer';
 import PolicyModal from '../../src/components/PolicyModal';
+import FaqAccordion from '../../src/components/FaqAccordion';
 import { getVerifiedDataDisplay } from '../../src/components/package-display';
 import { findCatalogPackages, getFinderActionPackages } from '../../src/components/SimLookup';
 import { getRecommendationActionPackages, recommendPackages } from '../../src/components/SmartRecommender';
@@ -16,12 +17,13 @@ import type { VerifiedPackage } from '../../src/data/verified-package';
 
 const root = process.cwd();
 function resolveImport(from: string, specifier: string): string | undefined {
-  const base = specifier.startsWith('.')
-    ? path.resolve(path.dirname(from), specifier)
-    : specifier.startsWith('@/') || specifier.startsWith('~/')
-      ? path.resolve(root, 'src', specifier.slice(2))
-      : specifier.startsWith('data/')
-        ? path.resolve(root, 'src', specifier)
+  const cleanSpecifier = specifier.split(/[?#]/, 1)[0];
+  const base = cleanSpecifier.startsWith('.')
+    ? path.resolve(path.dirname(from), cleanSpecifier)
+    : cleanSpecifier.startsWith('@/') || cleanSpecifier.startsWith('~/')
+      ? path.resolve(root, 'src', cleanSpecifier.slice(2))
+      : cleanSpecifier.startsWith('data/')
+        ? path.resolve(root, 'src', cleanSpecifier)
       : undefined;
   if (!base) return undefined;
   for (const candidate of [base, ...['.ts', '.tsx', '.astro'].map((extension) => `${base}${extension}`), ...['index.ts', 'index.tsx', 'index.astro'].map((index) => path.join(base, index))]) {
@@ -47,8 +49,9 @@ function collectHomeImports(entry: string, visited = new Set<string>()): Set<str
 }
 
 function resolvesToLegacyPackages(from: string, specifier: string): boolean {
+  const cleanSpecifier = specifier.split(/[?#]/, 1)[0];
   const resolved = resolveImport(from, specifier)?.replace(/\\/g, '/');
-  return /(?:^|\/)data\/packages(?:\.[cm]?[jt]sx?)?$/.test(specifier)
+  return /(?:^|\/)data\/packages(?:\.[cm]?[jt]sx?)?$/.test(cleanSpecifier)
     || resolved?.endsWith('/src/data/packages.ts') === true;
 }
 
@@ -82,12 +85,20 @@ const registeredPackage: VerifiedPackage = {
 };
 
 describe('homepage verified package source', () => {
-  it('passes server-verified packages into the client homepage', () => {
+  it('initializes and passes the homepage package prop through the verified catalog boundary', () => {
     const page = fs.readFileSync(path.join(root, 'src/pages/index.astro'), 'utf8');
 
-    expect(page).toMatch(/loadPackageCatalog/);
-    expect(page).toMatch(/getVerifiedPackages/);
+    expect(page).toMatch(/const\s+packages\s*=\s*getVerifiedPackages\s*\(\s*loadPackageCatalog\s*\(\s*\)\s*\)/);
     expect(page).toMatch(/<HomeApp\s+packages=\{packages\}\s+client:load\s*\/>/);
+  });
+
+  it('rejects legacy package imports from the index entrypoint and dependency tree', () => {
+    for (const file of collectHomeImports('src/pages/index.astro')) {
+      const source = fs.readFileSync(file, 'utf8');
+      for (const specifier of getImportSpecifiers(source)) {
+        expect(resolvesToLegacyPackages(file, specifier)).toBe(false);
+      }
+    }
   });
 
   it('does not import legacy packages through static, side-effect, or dynamic HomeApp imports', () => {
@@ -101,9 +112,9 @@ describe('homepage verified package source', () => {
 
   it('recognizes legacy imports in static, side-effect, and dynamic import syntax', () => {
     const importer = path.join(root, 'src/components/HomeApp.tsx');
-    const specifiers = getImportSpecifiers("import './data/packages'; export * from '@/data/packages'; const load = import('../data/packages');");
+    const specifiers = getImportSpecifiers("import './data/packages?raw'; export * from '@/data/packages.ts?url'; const load = import('../data/packages');");
 
-    expect(specifiers).toEqual(['./data/packages', '@/data/packages', '../data/packages']);
+    expect(specifiers).toEqual(['./data/packages?raw', '@/data/packages.ts?url', '../data/packages']);
     for (const specifier of specifiers) expect(resolvesToLegacyPackages(importer, specifier)).toBe(true);
   });
 
@@ -132,17 +143,24 @@ describe('homepage verified package source', () => {
     expect(modalMarkup).not.toContain('Mở ứng dụng SMS');
   });
 
-  it('uses neutral site disclosures in header, footer, and policies', () => {
-    const config = { agentCode: 'GB', supportPhone: '1800.8098', zaloLink: 'https://zalo.me/18008098', agentName: 'Test' };
-    const header = renderToStaticMarkup(React.createElement(Header, { config, searchQuery: '', onSearchChange: () => undefined, onCategorySelect: () => undefined, selectedCategory: 'all' }));
-    const footer = renderToStaticMarkup(React.createElement(Footer, { config }));
+  it('uses neutral public copy without global agent or contact values', () => {
+    const homeAppSource = fs.readFileSync(path.join(root, 'src/components/HomeApp.tsx'), 'utf8');
+    const header = renderToStaticMarkup(React.createElement(Header, { searchQuery: '', onSearchChange: () => undefined, onCategorySelect: () => undefined, selectedCategory: 'all' }));
+    const footer = renderToStaticMarkup(React.createElement(Footer));
     const policy = renderToStaticMarkup(React.createElement(PolicyModal, { isOpen: true, type: 'disclaimer', onClose: () => undefined }));
+    const faq = renderToStaticMarkup(React.createElement(FaqAccordion));
 
+    expect(homeAppSource).not.toMatch(/agentCode|supportPhone|zaloLink/);
     for (const markup of [header, footer, policy]) {
       expect(markup.toLowerCase()).toContain('trang thông tin độc lập');
       expect(markup.toLowerCase()).toContain('viettel xác nhận');
       expect(markup).not.toMatch(/miễn phí|thanh toán|gia hạn|hủy/i);
     }
+    for (const markup of [header, footer, policy]) {
+      expect(markup).not.toMatch(/\bGB\b|1800\.8098|Liên hệ tham khảo|Hotline/i);
+    }
+    expect(faq).toContain('Các câu hỏi dưới đây');
+    expect(faq).not.toMatch(/Mọi thắc mắc|nạp tiền|hạ băng thông/i);
   });
 
   it('keeps a registered offer actionable and shows its verified SMS syntax in the modal', () => {

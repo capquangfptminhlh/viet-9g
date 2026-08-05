@@ -3,10 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-const mockConfig = { agentCode: 'GB', supportPhone: '[SỐ ĐIỆN THOẠI HỖ TRỢ]', zaloLink: 'https://zalo.me/[SỐ_ĐIỆN_THOẠI]', agentName: '[TÊN ĐẠI LÝ]' };
 ---
 <BaseLayout title="Liên Hệ Hỗ Trợ | Đại Lý Tra Cứu Gói Cước Viettel">
-  <Header config={mockConfig} client:load />
+  <Header client:load />
   
   <main class="max-w-4xl mx-auto px-4 py-12 bg-white rounded-xl shadow-sm my-8 font-sans">
     <h1 class="text-3xl font-black text-gray-900 mb-6 border-b-2 border-red-600 pb-2 inline-block uppercase">Liên Hệ Hỗ Trợ</h1>
@@ -37,5 +36,5 @@ const mockConfig = { agentCode: 'GB', supportPhone: '[SỐ ĐIỆN THOẠI HỖ 
     </div>
   </main>
 
-  <Footer config={mockConfig} client:load />
+  <Footer client:load />
 </BaseLayout>

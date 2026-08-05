@@ -61,11 +61,9 @@ const formattedPosts: FormattedPost[] = posts.map((post: { slug: string; body?: 
   };
 });
 
-// Giả lập config rỗng cho Header/Footer
-const mockConfig = { agentCode: 'GB', supportPhone: '1800.8098', zaloLink: 'https://zalo.me/18008098', agentName: 'Kênh CTV' };
 ---
 <BaseLayout title="Tin Tức & Hướng Dẫn Đăng Ký Gói Cước Viettel 2026 | tracuugoicuoc.com">
-  <Header config={mockConfig} client:load />
+  <Header client:load />
   
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 pt-24 min-h-screen font-sans">
     {/* Header banner */}
@@ -142,5 +140,5 @@ const mockConfig = { agentCode: 'GB', supportPhone: '1800.8098', zaloLink: 'http
     </div>
   </main>
 
-  <Footer config={mockConfig} client:load />
+  <Footer client:load />
 </BaseLayout>
