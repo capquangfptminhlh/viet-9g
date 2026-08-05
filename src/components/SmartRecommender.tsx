@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Sparkles, RefreshCw, Zap, CirclePlay, Phone } from 'lucide-react';
 import type { VerifiedPackage } from '../data/verified-package';
+import { canRegisterPackage } from './PackageCard';
 
 interface SmartRecommenderProps {
   packages: VerifiedPackage[];
@@ -230,7 +231,7 @@ export default function SmartRecommender({ packages, onSelectPackage, onOpenDeta
                       >
                         Chi tiết
                       </button>
-                      {pkg.registration && <button
+                      {canRegisterPackage(pkg) && <button
                         type="button"
                         onClick={() => onSelectPackage(pkg.id)}
                         className="flex-1 py-2.5 min-h-[44px] text-xs font-bold text-white bg-[#e60000] hover:bg-red-700 rounded-lg shadow-sm transition-colors flex items-center justify-center"

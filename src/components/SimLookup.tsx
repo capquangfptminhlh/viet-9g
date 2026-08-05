@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Smartphone, CheckCircle, Search, Loader2, Sparkles, Filter } from 'lucide-react';
 import type { VerifiedPackage } from '../data/verified-package';
+import { canRegisterPackage } from './PackageCard';
 
 interface SimLookupProps {
   packages: VerifiedPackage[];
@@ -276,7 +277,7 @@ export default function SimLookup({ packages, onSelectPackage }: SimLookupProps)
                             {pkg.dataPerDay} ({pkg.dataLimit})
                           </span>
                         </div>
-                        {pkg.registration && <button
+                        {canRegisterPackage(pkg) && <button
                           type="button"
                           onClick={() => onSelectPackage(pkg.id)}
                           className="px-3 py-1 bg-[#D71920] hover:bg-red-700 active:bg-red-850 text-white font-bold text-xs rounded transition-colors cursor-pointer shrink-0"

@@ -9,6 +9,10 @@ interface PackageCardProps {
   onOpenDetails: (pkg: VerifiedPackage) => void;
 }
 
+export function canRegisterPackage(pkg: Pick<VerifiedPackage, 'registration'>): boolean {
+  return Boolean(pkg.registration);
+}
+
 export default function PackageCard({ pkg, onSelect, onOpenDetails }: PackageCardProps) {
   const dailyCost = Math.round(pkg.priceVnd / pkg.durationDays);
 
@@ -120,7 +124,7 @@ export default function PackageCard({ pkg, onSelect, onOpenDetails }: PackageCar
           <Info className="w-4 h-4" />
         </button>
 
-        {pkg.registration && <button
+        {canRegisterPackage(pkg) && <button
           type="button"
           onClick={() => {
             trackConversion('click_register_sms', { package_id: pkg.id, price: pkg.priceVnd, name: pkg.name });

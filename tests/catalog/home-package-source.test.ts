@@ -1,6 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import React from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
+import PackageCard, { canRegisterPackage } from '../../src/components/PackageCard';
+import type { VerifiedPackage } from '../../src/data/verified-package';
 
 const root = process.cwd();
 const homepageComponents = [
@@ -8,7 +12,30 @@ const homepageComponents = [
   'src/components/PackageGrid.tsx',
   'src/components/SmartRecommender.tsx',
   'src/components/SimLookup.tsx',
+  'src/components/PackageCard.tsx',
 ];
+
+const unregisteredPackage: VerifiedPackage = {
+  id: 'test-offer',
+  code: 'TEST',
+  name: 'Test offer',
+  category: 'data',
+  priceVnd: 90000,
+  durationDays: 30,
+  dataAllowance: '30GB',
+  benefits: ['Verified benefit'],
+  eligibility: ['Verified eligibility'],
+  updatedAt: '2026-08-05T00:00:00.000Z',
+  priceValidUntil: '2026-12-31T00:00:00.000Z',
+  sourceUrl: 'https://viettel.vn/test',
+  price: 90000,
+  duration: '30 ngày',
+  dataLimit: '30GB',
+  description: 'Verified offer description',
+  rules: ['Verified eligibility'],
+  registrationEligible: false,
+  status: 'eligibility_required',
+};
 
 describe('homepage verified package source', () => {
   it('passes server-verified packages into the client homepage', () => {
@@ -24,5 +51,17 @@ describe('homepage verified package source', () => {
       const source = fs.readFileSync(path.join(root, file), 'utf8');
       expect(source).not.toMatch(/from\s+['"][^'"]*data\/packages['"]/);
     }
+  });
+
+  it('does not render registration actions for offers without registration evidence', () => {
+    expect(canRegisterPackage(unregisteredPackage)).toBe(false);
+
+    const markup = renderToStaticMarkup(React.createElement(PackageCard, {
+      pkg: unregisteredPackage,
+      onSelect: () => undefined,
+      onOpenDetails: () => undefined,
+    }));
+
+    expect(markup).not.toContain('Soạn tin đăng ký');
   });
 });
