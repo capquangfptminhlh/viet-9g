@@ -2,7 +2,6 @@ import React from 'react';
 import { Globe, Zap, Gift, Info, ArrowRight, Crown } from 'lucide-react';
 import type { VerifiedPackage } from '../data/verified-package';
 import { trackConversion } from '../utils/tracking';
-import { getVerifiedDataDisplay } from './package-display';
 
 interface PackageCardProps {
   pkg: VerifiedPackage;
@@ -35,7 +34,6 @@ export default function PackageCard({ pkg, onSelect, onOpenDetails }: PackageCar
   };
 
   const theme = getTheme();
-  const data = getVerifiedDataDisplay(pkg);
   return (
     <article 
       className="bg-white rounded-2xl flex flex-col justify-between overflow-hidden relative group transition-all duration-300 shadow-sm hover:shadow-md border border-gray-200"
@@ -72,24 +70,24 @@ export default function PackageCard({ pkg, onSelect, onOpenDetails }: PackageCar
 
         {/* Data Box */}
         <div className={`rounded-xl border ${theme.border} ${theme.lightBg} p-3.5 mb-4 flex items-center justify-between`}>
-          <div className="flex flex-col gap-1 w-1/2 border-r border-gray-200/50">
+          {pkg.dataAllowance && <div className={`flex flex-col gap-1 ${pkg.dataPerDay ? 'w-1/2 border-r border-gray-200/50' : 'w-full'}`}>
             <div className="flex items-center gap-1.5 text-gray-600 text-[11px]">
               <Globe className={`w-3.5 h-3.5 ${theme.text}`} />
               Tổng dung lượng
             </div>
             <div className="text-xl sm:text-2xl font-black text-gray-900">
-              {data.primary}
+              {pkg.dataAllowance}
             </div>
-          </div>
-          <div className="flex flex-col gap-1 w-1/2 pl-4">
+          </div>}
+          {pkg.dataPerDay && <div className={`flex flex-col gap-1 ${pkg.dataAllowance ? 'w-1/2 pl-4' : 'w-full'}`}>
             <div className="flex items-center gap-1.5 text-gray-600 text-[11px]">
               <Zap className={`w-3.5 h-3.5 ${theme.text}`} />
-              Tốc độ cao
+              Data mỗi ngày
             </div>
             <div className="text-xl sm:text-2xl font-black text-gray-900">
-              {pkg.dataAllowance && pkg.dataPerDay ? pkg.dataPerDay : 'Theo thông tin gói'}
+              {pkg.dataPerDay}
             </div>
-          </div>
+          </div>}
         </div>
 
         {/* Verified benefits */}

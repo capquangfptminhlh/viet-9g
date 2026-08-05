@@ -32,6 +32,10 @@ export function recommendPackages(
     .map(({ pkg }) => pkg);
 }
 
+export function getRecommendationActionPackages(packages: VerifiedPackage[]): VerifiedPackage[] {
+  return packages.filter(canRegisterPackage);
+}
+
 interface SmartRecommenderProps {
   packages: VerifiedPackage[];
   onSelectPackage: (pkgId: string) => void;
@@ -43,6 +47,7 @@ export default function SmartRecommender({ packages, onSelectPackage, onOpenDeta
   const [budget, setBudget] = useState<RecommendationBudget>('all');
   const [need, setNeed] = useState<RecommendationNeed>('social');
   const [result, setResult] = useState<VerifiedPackage[] | null>(null);
+  const actionPackageIds = new Set(getRecommendationActionPackages(result ?? []).map((pkg) => pkg.id));
 
   const budgetOptions = [
     { id: 'under100', label: 'Dưới 100.000đ', icon: '💰' },
@@ -229,7 +234,7 @@ export default function SmartRecommender({ packages, onSelectPackage, onOpenDeta
                       >
                         Chi tiết
                       </button>
-                      {canRegisterPackage(pkg) && <button
+                      {actionPackageIds.has(pkg.id) && <button
                         type="button"
                         onClick={() => onSelectPackage(pkg.id)}
                         className="flex-1 py-2.5 min-h-[44px] text-xs font-bold text-white bg-[#e60000] hover:bg-red-700 rounded-lg shadow-sm transition-colors flex items-center justify-center"

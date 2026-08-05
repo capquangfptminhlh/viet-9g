@@ -16,10 +16,15 @@ export function findCatalogPackages(packages: VerifiedPackage[], query: string):
     .some((value) => value.toLowerCase().includes(normalizedQuery)));
 }
 
+export function getFinderActionPackages(packages: VerifiedPackage[]): VerifiedPackage[] {
+  return packages.filter(canRegisterPackage);
+}
+
 export default function SimLookup({ packages, onSelectPackage }: SimLookupProps) {
   const [query, setQuery] = useState('');
   const [hasSearched, setHasSearched] = useState(false);
   const results = findCatalogPackages(packages, query);
+  const actionPackageIds = new Set(getFinderActionPackages(results).map((pkg) => pkg.id));
 
   const handleSearch = (event: React.SubmitEvent) => {
     event.preventDefault();
@@ -56,7 +61,7 @@ export default function SimLookup({ packages, onSelectPackage }: SimLookupProps)
                       <span className="block text-xs font-bold text-gray-700 font-mono">{pkg.priceVnd.toLocaleString('vi-VN')}đ / {pkg.durationDays} ngày</span>
                       <span className="block text-[10px] text-gray-450">{data.primary}</span>
                     </div>
-                    {canRegisterPackage(pkg) && <button type="button" onClick={() => onSelectPackage(pkg.id)} className="px-3 py-1 bg-[#D71920] hover:bg-red-700 text-white font-bold text-xs rounded transition-colors cursor-pointer shrink-0">Đăng ký</button>}
+                    {actionPackageIds.has(pkg.id) && <button type="button" onClick={() => onSelectPackage(pkg.id)} className="px-3 py-1 bg-[#D71920] hover:bg-red-700 text-white font-bold text-xs rounded transition-colors cursor-pointer shrink-0">Đăng ký</button>}
                   </div>;
                 })}
               </div> : <p className="text-xs text-gray-500">Không tìm thấy gói cước phù hợp trong danh mục đã xác minh.</p>}

@@ -7,8 +7,8 @@ import PackageCard, { canRegisterPackage } from '../../src/components/PackageCar
 import PackageModal from '../../src/components/PackageModal';
 import HeroCarousel from '../../src/components/HeroCarousel';
 import { getVerifiedDataDisplay } from '../../src/components/package-display';
-import { findCatalogPackages } from '../../src/components/SimLookup';
-import { recommendPackages } from '../../src/components/SmartRecommender';
+import { findCatalogPackages, getFinderActionPackages } from '../../src/components/SimLookup';
+import { getRecommendationActionPackages, recommendPackages } from '../../src/components/SmartRecommender';
 import type { VerifiedPackage } from '../../src/data/verified-package';
 
 const root = process.cwd();
@@ -107,6 +107,8 @@ describe('homepage verified package source', () => {
     expect(modalMarkup).not.toContain('Hệ thống gửi trả tin nhắn xác nhận');
     expect(modalMarkup).not.toContain('số dư tối thiểu');
     expect(modalMarkup).not.toContain('Giá cước sẽ được trừ trực tiếp');
+    expect(modalMarkup).not.toContain('Kênh bảo trợ:');
+    expect(modalMarkup).not.toContain('Điểm cung cấp gói cước');
   });
 
   it('gates hero, finder, and recommender registration actions on evidence', () => {
@@ -125,9 +127,26 @@ describe('homepage verified package source', () => {
 
     expect(registeredHero).toContain('ĐĂNG KÝ NGAY');
     expect(unregisteredHero).not.toContain('ĐĂNG KÝ NGAY');
-    for (const file of ['src/components/SimLookup.tsx', 'src/components/SmartRecommender.tsx']) {
-      expect(fs.readFileSync(path.join(root, file), 'utf8')).toContain('canRegisterPackage(pkg) && <button');
-    }
+    expect(getFinderActionPackages([registeredPackage, unregisteredPackage])).toEqual([registeredPackage]);
+    expect(getRecommendationActionPackages([registeredPackage, unregisteredPackage])).toEqual([registeredPackage]);
+  });
+
+  it('labels allowance-only and per-day-only card data accurately', () => {
+    const allowanceOnly = renderToStaticMarkup(React.createElement(PackageCard, {
+      pkg: { ...unregisteredPackage, dataAllowance: '30GB', dataPerDay: undefined },
+      onSelect: () => undefined,
+      onOpenDetails: () => undefined,
+    }));
+    const perDayOnly = renderToStaticMarkup(React.createElement(PackageCard, {
+      pkg: { ...unregisteredPackage, dataAllowance: undefined, dataPerDay: '1.5GB/ngày' },
+      onSelect: () => undefined,
+      onOpenDetails: () => undefined,
+    }));
+
+    expect(allowanceOnly).toContain('Tổng dung lượng');
+    expect(allowanceOnly).not.toContain('Data mỗi ngày');
+    expect(perDayOnly).toContain('Data mỗi ngày');
+    expect(perDayOnly).not.toContain('Tổng dung lượng');
   });
 
   it('finds packages from the verified catalog without fabricating subscriber eligibility', () => {

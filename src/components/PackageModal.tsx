@@ -254,11 +254,7 @@ export default function PackageModal({ pkg, onClose, defaultTab = 'sms' }: Packa
         </div>
 
         {/* Modal Footer */}
-        <div className="p-4 border-t border-gray-100 bg-white flex items-center justify-between shrink-0">
-          <div className="text-[13px] text-gray-500 flex items-center gap-1.5">
-            <span>Kênh bảo trợ:</span>
-            <span className="font-bold text-[#e60000]">Điểm cung cấp gói cước</span>
-          </div>
+        <div className="p-4 border-t border-gray-100 bg-white flex justify-end shrink-0">
           <button
             type="button"
             onClick={onClose}
