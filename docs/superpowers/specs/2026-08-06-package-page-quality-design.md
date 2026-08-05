@@ -132,6 +132,67 @@ Updating the full operator catalogue is a separate content/data operation:
 each package must be independently evidenced before it can join the public
 set. This change makes that operational rule technically enforceable.
 
+## Content inventory, hubs, and consolidation
+
+The package route is the canonical money page for a valid package. Therefore a
+catalogue package does **not** need a second Markdown article merely to be
+eligible for search. Creating both `/goi-cuoc/{code}/` and a near-identical
+`/posts/dang-ky-{code}-viettel/` would split relevance and invite
+cannibalisation. The implementation will instead make the validated package
+route complete enough to answer registration/comparison queries.
+
+The current editorial inventory contains real problems that need a separate,
+controlled content migration:
+
+- several catalogue descriptions contain unsupported superlatives or obvious
+  junk text (for example "Gói súp lơ", "Vua của", and Wi-Fi replacement
+  promises); the public page model must discard this prose rather than reuse
+  it;
+- old posts mention packages such as ST90K, FB7, FB30, YT1, and 1N that may not
+  be active in the verified catalogue; they must not carry a registration CTA
+  until a current fact is supplied;
+- generated eSIM/SMS-error posts have overlapping search intent. They need a
+  crawl-verified consolidation review, not a blind delete.
+
+The hub structure will be introduced from the same eligible package set:
+
+```text
+/goi-cuoc/                  package hub
+  /goi-cuoc/data/           data packages
+  /goi-cuoc/mang-xa-hoi/    social packages
+  /goi-cuoc/combo/          data + voice packages
+  /goi-cuoc/5g/             verified 5G packages
+  /goi-cuoc/chu-ky-dai/     verified long-cycle packages
+/tin-tuc/                   guides hub
+```
+
+Each eligible package links to same-category alternatives, a different cycle
+where a verified alternative exists, and only relevant help guides. Each guide
+links back to at least two eligible package pages where that is genuinely
+useful. Category pages use `ItemList` and breadcrumbs, with all entries
+derived from the public package set.
+
+### Redirect and content-audit policy
+
+A filename or title similarity is insufficient evidence for a `301`. Before
+any redirect is introduced, the migration inventory records the live source
+URL, HTTP status, canonical URL, query/click data when available, target URL,
+intent equivalence, and an owner-approved disposition. Only an old page whose
+intent is fully replaced by the target receives a permanent redirect. A page
+with distinct useful content is improved and internally linked instead.
+
+The audit will measure rendered word count, heading structure, duplicate title,
+canonical, meta description, links, image weight/dimensions, and indexability.
+Excerpt text alone is not sufficient to label a page thin. Non-LCP editorial
+images will have explicit dimensions and lazy loading; the LCP image will be
+optimized rather than deferred.
+
+New editorial production prioritizes verified commercial and comparison intent
+only after the package facts make the target page publishable. Support content
+remains useful for topical coverage, but new output must connect to a relevant
+verified package or solve a real user task; it is not created merely to inflate
+the article count.
+
 ## Verification
 
 Automated coverage will prove:
@@ -159,4 +220,3 @@ used on a live eligible page; eligibility is not a guarantee of a rich result.
 - No fabricated customer reviews, prices, eligibility, screenshots, or carrier
   authority claims.
 - No automatic publication of unverified catalogue entries.
-
