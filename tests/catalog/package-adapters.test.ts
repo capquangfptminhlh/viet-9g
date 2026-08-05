@@ -29,7 +29,7 @@ describe('package catalog UI adapter', () => {
     expect(adapted.status).toBe('unverified');
   });
 
-  it('preserves all non-retired catalog packages for listing', () => {
+  it('keeps non-retired catalog records available to the legacy adapter', () => {
     const adapted = catalogToTelecomPackages({ packages: [packageRecord('active'), packageRecord('unverified'), packageRecord('retired')] } as any);
 
     expect(adapted.map((pkg) => pkg.id)).toEqual(['active', 'unverified']);

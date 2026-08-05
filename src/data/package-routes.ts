@@ -1,15 +1,31 @@
-import { VIETTEL_PACKAGES } from './packages';
 import { loadPackageCatalog } from './package-catalog';
-import type { PackageCatalog } from './package-catalog';
-import type { TelecomPackage } from '../types';
-import { toTelecomPackage } from '../../packages/catalog/package-adapters';
+import type { PackageCatalog, PackageRecord } from './package-catalog';
+import { getVerifiedPackages, type VerifiedPackage } from './verified-package';
 
-/** Customer-facing routes include every catalog record except explicitly retired ones.
- * Registration is enabled only when the adapter has evidence-backed active status. */
-export function getPackageRoutes(catalog: PackageCatalog = loadPackageCatalog()): TelecomPackage[] {
-  const fallbacks = Object.fromEntries(VIETTEL_PACKAGES.map((pkg) => [pkg.id, pkg]));
-  const facts = catalog.facts;
+export interface LegacyPackageRoute {
+  id: string;
+  code: string;
+  name: string;
+  category: PackageRecord['category'];
+  status: PackageRecord['status'];
+  reason: 'INCOMPLETE_EVIDENCE';
+}
+
+export function getPackageRoutes(catalog: PackageCatalog = loadPackageCatalog(), now = new Date()): VerifiedPackage[] {
+  return getVerifiedPackages(catalog, now);
+}
+
+/** Legacy records are intentionally metadata-only: no price, benefits, or registration CTA is exposed. */
+export function getLegacyPackageRoutes(catalog: PackageCatalog = loadPackageCatalog(), now = new Date()): LegacyPackageRoute[] {
+  const verifiedIds = new Set(getVerifiedPackages(catalog, now).map((pkg) => pkg.id));
   return catalog.packages
-    .filter((pkg) => pkg.status !== 'retired')
-    .map((pkg) => toTelecomPackage(pkg, fallbacks[pkg.id], facts));
+    .filter((pkg) => !verifiedIds.has(pkg.id))
+    .map((pkg) => ({
+      id: pkg.id,
+      code: pkg.code,
+      name: pkg.display.name,
+      category: pkg.category,
+      status: pkg.status,
+      reason: 'INCOMPLETE_EVIDENCE' as const,
+    }));
 }
