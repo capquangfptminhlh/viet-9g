@@ -1,11 +1,9 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { ArrowRight, ArrowLeft } from 'lucide-react';
-import { AgentConfig } from '../types';
 import type { VerifiedPackage } from '../data/verified-package';
 import { canRegisterPackage } from './PackageCard';
 
 interface HeroCarouselProps {
-  config: AgentConfig;
   packages: VerifiedPackage[];
   onSelectPackage: (pkgId: string) => void;
 }
@@ -18,7 +16,7 @@ const gradients: Record<VerifiedPackage['category'], string> = {
   long_term: 'from-[#92400e] to-[#f59e0b]',
 };
 
-export default function HeroCarousel({ config, packages, onSelectPackage }: HeroCarouselProps) {
+export default function HeroCarousel({ packages, onSelectPackage }: HeroCarouselProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = useMemo(() => packages.map((pkg) => ({
     pkg,
@@ -47,7 +45,7 @@ export default function HeroCarousel({ config, packages, onSelectPackage }: Hero
 
           <div className="relative z-10 p-6 md:p-10 lg:p-12 w-full max-w-3xl flex flex-col justify-center">
             <div className="inline-flex items-center gap-2 mb-4">
-              <span className="bg-white/20 px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-widest border border-white/30 backdrop-blur-sm">Gói cước đã xác minh</span>
+              <span className="bg-white/20 px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-widest border border-white/30 backdrop-blur-sm">Thông tin gói đã xác minh</span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-3 tracking-tight uppercase">{pkg.name}</h2>
             <p className="text-white/90 text-sm sm:text-base font-medium mb-6 leading-relaxed max-w-2xl">{pkg.description}</p>
@@ -76,7 +74,7 @@ export default function HeroCarousel({ config, packages, onSelectPackage }: Hero
                 {canRegisterPackage(pkg) && <button type="button" onClick={() => onSelectPackage(pkg.id)} className="px-6 py-3.5 bg-yellow-400 hover:bg-yellow-300 active:bg-yellow-500 text-red-900 font-black text-sm uppercase rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
                   ĐĂNG KÝ NGAY <ArrowRight className="w-4 h-4" />
                 </button>}
-                <a href={config.zaloLink} target="_blank" rel="noopener noreferrer" className="px-6 py-3.5 bg-transparent border-2 border-white/40 hover:bg-white/10 text-white font-bold text-sm rounded-full transition-colors flex items-center gap-2">Hỏi Đại Lý</a>
+                <span className="px-6 py-3.5 text-sm font-bold text-white/90">Thông tin tham khảo</span>
               </div>
             </div>
           </div>

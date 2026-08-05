@@ -18,7 +18,7 @@ export default function HomeApp({ packages }: HomeAppProps) {
   const [config] = useState<AgentConfig>({
     agentCode: 'GB',
     supportPhone: '1800.8098',
-    zaloLink: 'https://zalo.me/18008098',
+    zaloLink: '',
     agentName: 'Thông tin tham khảo gói cước',
   });
   const [searchQuery, setSearchQuery] = useState('');
@@ -52,7 +52,7 @@ export default function HomeApp({ packages }: HomeAppProps) {
         Đây là trang thông tin độc lập. Thông tin gói cước, điều kiện và việc đăng ký do Viettel xác nhận.
       </div>
       <main className="flex-1">
-        <HeroCarousel config={config} packages={packages} onSelectPackage={selectPackage} />
+        <HeroCarousel packages={packages} onSelectPackage={selectPackage} />
         <SmartRecommender packages={packages} onSelectPackage={selectPackage} onOpenDetails={openDetails} />
         <SimLookup packages={packages} onSelectPackage={selectPackage} />
         <PackageGrid packages={packages} onSelectPackage={selectPackage} onOpenDetails={openDetails} searchQuery={searchQuery} onSearchReset={() => setSearchQuery('')} selectedCategory={selectedCategory} onCategoryChange={setSelectedCategory} />

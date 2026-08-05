@@ -20,6 +20,8 @@ function resolveImport(from: string, specifier: string): string | undefined {
     ? path.resolve(path.dirname(from), specifier)
     : specifier.startsWith('@/') || specifier.startsWith('~/')
       ? path.resolve(root, 'src', specifier.slice(2))
+      : specifier.startsWith('data/')
+        ? path.resolve(root, 'src', specifier)
       : undefined;
   if (!base) return undefined;
   for (const candidate of [base, ...['.ts', '.tsx', '.astro'].map((extension) => `${base}${extension}`), ...['index.ts', 'index.tsx', 'index.astro'].map((index) => path.join(base, index))]) {
@@ -28,16 +30,26 @@ function resolveImport(from: string, specifier: string): string | undefined {
   return undefined;
 }
 
+function getImportSpecifiers(source: string): string[] {
+  return [...source.matchAll(/(?:from\s+|import\s*\(\s*|import\s*)['"]([^'"]+)['"]/g)].map((match) => match[1]);
+}
+
 function collectHomeImports(entry: string, visited = new Set<string>()): Set<string> {
   const file = path.resolve(root, entry);
   if (visited.has(file)) return visited;
   visited.add(file);
   const source = fs.readFileSync(file, 'utf8');
-  for (const match of source.matchAll(/(?:from\s+|import\s*)['"]([^'"]+)['"]/g)) {
-    const resolved = resolveImport(file, match[1]);
+  for (const specifier of getImportSpecifiers(source)) {
+    const resolved = resolveImport(file, specifier);
     if (resolved) collectHomeImports(resolved, visited);
   }
   return visited;
+}
+
+function resolvesToLegacyPackages(from: string, specifier: string): boolean {
+  const resolved = resolveImport(from, specifier)?.replace(/\\/g, '/');
+  return /(?:^|\/)data\/packages(?:\.[cm]?[jt]sx?)?$/.test(specifier)
+    || resolved?.endsWith('/src/data/packages.ts') === true;
 }
 
 const unregisteredPackage: VerifiedPackage = {
@@ -78,11 +90,21 @@ describe('homepage verified package source', () => {
     expect(page).toMatch(/<HomeApp\s+packages=\{packages\}\s+client:load\s*\/>/);
   });
 
-  it('does not import legacy packages anywhere in the recursive HomeApp import tree', () => {
+  it('does not import legacy packages through static, side-effect, or dynamic HomeApp imports', () => {
     for (const file of collectHomeImports('src/components/HomeApp.tsx')) {
       const source = fs.readFileSync(file, 'utf8');
-      expect(source).not.toMatch(/from\s+['"][^'"]*data\/packages['"]/);
+      for (const specifier of getImportSpecifiers(source)) {
+        expect(resolvesToLegacyPackages(file, specifier)).toBe(false);
+      }
     }
+  });
+
+  it('recognizes legacy imports in static, side-effect, and dynamic import syntax', () => {
+    const importer = path.join(root, 'src/components/HomeApp.tsx');
+    const specifiers = getImportSpecifiers("import './data/packages'; export * from '@/data/packages'; const load = import('../data/packages');");
+
+    expect(specifiers).toEqual(['./data/packages', '@/data/packages', '../data/packages']);
+    for (const specifier of specifiers) expect(resolvesToLegacyPackages(importer, specifier)).toBe(true);
   });
 
   it('does not retain public credential or agent-code editing UI', () => {
@@ -104,6 +126,7 @@ describe('homepage verified package source', () => {
     const modalMarkup = renderToStaticMarkup(React.createElement(PackageModal, {
       pkg: unregisteredPackage,
       onClose: () => undefined,
+      defaultTab: 'sms',
     }));
     expect(modalMarkup).not.toContain('Cú Pháp SMS');
     expect(modalMarkup).not.toContain('Mở ứng dụng SMS');
@@ -150,12 +173,10 @@ describe('homepage verified package source', () => {
   it('gates hero, finder, and recommender registration actions on evidence', () => {
     const registeredHero = renderToStaticMarkup(React.createElement(HeroCarousel, {
       packages: [registeredPackage],
-      config: { agentCode: 'GB', supportPhone: '1800.8098', zaloLink: 'https://zalo.me/18008098', agentName: 'Test' },
       onSelectPackage: () => undefined,
     }));
     const unregisteredHero = renderToStaticMarkup(React.createElement(HeroCarousel, {
       packages: [unregisteredPackage],
-      config: { agentCode: 'GB', supportPhone: '1800.8098', zaloLink: 'https://zalo.me/18008098', agentName: 'Test' },
       onSelectPackage: () => undefined,
     }));
 
@@ -163,6 +184,18 @@ describe('homepage verified package source', () => {
     expect(unregisteredHero).not.toContain('ĐĂNG KÝ NGAY');
     expect(getFinderActionPackages([registeredPackage, unregisteredPackage])).toEqual([registeredPackage]);
     expect(getRecommendationActionPackages([registeredPackage, unregisteredPackage])).toEqual([registeredPackage]);
+  });
+
+  it('keeps hero support wording neutral and does not render agent authority or external contact links', () => {
+    const hero = renderToStaticMarkup(React.createElement(HeroCarousel, {
+      packages: [registeredPackage],
+      onSelectPackage: () => undefined,
+    }));
+
+    expect(hero).toContain('Thông tin gói đã xác minh');
+    expect(hero).not.toMatch(/hỏi đại lý|đại lý|ủy quyền|chính thức/i);
+    expect(hero).not.toContain('zalo.me');
+    expect(hero).not.toMatch(/href="https?:\/\//i);
   });
 
   it('labels allowance-only and per-day-only card data accurately', () => {
