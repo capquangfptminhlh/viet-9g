@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import { pathToFileURL } from 'node:url';
 import { LEGACY_PACKAGE_SOURCE } from '../src/data/packages.ts';
 
 const root = process.cwd();
@@ -22,7 +23,7 @@ function normalizeLineEndings(value: string): string {
 
 export function buildPackageCatalog(existing?: any) {
   const source = fs.readFileSync(sourcePath);
-  const sha256 = existing?.sourceSnapshot?.sha256 ?? crypto.createHash('sha256').update(source).digest('hex');
+  const sha256 = crypto.createHash('sha256').update(source).digest('hex');
   const facts = JSON.parse(fs.readFileSync(factsPath, 'utf8').replace(/^\uFEFF/, ''))
     .filter((fact: any) => /^package-\d+$/.test(fact.id))
     .map((fact: any) => ({
@@ -59,7 +60,7 @@ export function buildPackageCatalog(existing?: any) {
       return {
         ...previous,
         id: pkg.id,
-        code: pkg.name,
+        code: previous.code ?? pkg.code ?? pkg.name,
         category: pkg.category,
         display: { name: pkg.name, description: pkg.description, ...(previous.display || {}) },
         status: previous.status || 'unverified',
@@ -75,20 +76,22 @@ function readExisting() {
   return JSON.parse(fs.readFileSync(outputPath, 'utf8').replace(/^\uFEFF/, ''));
 }
 
-const existing = readExisting();
-const candidate = buildPackageCatalog(existing);
-const serialized = `${stable(candidate)}\n`;
-const check = process.argv.includes('--check');
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  const existing = readExisting();
+  const candidate = buildPackageCatalog(existing);
+  const serialized = `${stable(candidate)}\n`;
+  const check = process.argv.includes('--check');
 
-if (check) {
-  if (!existing || normalizeLineEndings(fs.readFileSync(outputPath, 'utf8')) !== serialized) {
-    console.error('Package catalog drift detected; generated output differs from data/package-catalog.v1.json');
-    process.exitCode = 1;
+  if (check) {
+    if (!existing || normalizeLineEndings(fs.readFileSync(outputPath, 'utf8')) !== serialized) {
+      console.error('Package catalog drift detected; generated output differs from data/package-catalog.v1.json');
+      process.exitCode = 1;
+    } else {
+      console.log(`OK: package catalog unchanged (${candidate.packages.length} packages, source ${candidate.sourceSnapshot.sha256})`);
+    }
   } else {
-    console.log(`OK: package catalog unchanged (${candidate.packages.length} packages, source ${candidate.sourceSnapshot.sha256})`);
+    fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+    fs.writeFileSync(outputPath, serialized, 'utf8');
+    console.log(`Wrote ${outputPath} (${candidate.packages.length} packages, source ${candidate.sourceSnapshot.sha256})`);
   }
-} else {
-  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-  fs.writeFileSync(outputPath, serialized, 'utf8');
-  console.log(`Wrote ${outputPath} (${candidate.packages.length} packages, source ${candidate.sourceSnapshot.sha256})`);
 }

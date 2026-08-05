@@ -54,7 +54,7 @@ export default function SmartRecommender({ onSelectPackage, onOpenDetails }: Sma
         if (lower.includes('mb')) return num / 1024;
         return num;
       };
-      matches.sort((a, b) => parseQuota(b.dataPerDay) - parseQuota(a.dataPerDay));
+      matches.sort((a, b) => parseQuota(b.dataPerDay ?? '') - parseQuota(a.dataPerDay ?? ''));
     } else if (need === 'long_term') {
       const longTerm = matches.filter(p => {
         const durLower = p.duration.toLowerCase();

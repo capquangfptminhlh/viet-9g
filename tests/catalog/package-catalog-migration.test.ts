@@ -1,8 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
 import { execSync } from 'node:child_process';
 import { describe, expect, it } from 'vitest';
 import { VIETTEL_PACKAGES } from '../../src/data/packages';
+import { buildPackageCatalog } from '../../scripts/migrate-package-catalog';
 
 const root = process.cwd();
 const catalogPath = path.join(root, 'data', 'package-catalog.v1.json');
@@ -15,7 +17,21 @@ describe('package catalog migration', () => {
     expect(catalog.packages.filter((pkg: any) => pkg.status === 'operator_verified')).toHaveLength(26);
     expect(catalog.packages.every((pkg: any) => pkg.registration?.smsNumber === 290 && / GB$/.test(pkg.registration.syntax))).toBe(true);
     expect(catalog.packages.filter((pkg: any) => pkg.status === 'active').every((pkg: any) => pkg.factIds.length > 0)).toBe(true);
-    expect(catalog.sourceSnapshot.sha256).toMatch(/^[a-f0-9]{64}$/);
+    expect(catalog.sourceSnapshot.sha256).toBe(crypto.createHash('sha256').update(fs.readFileSync(path.join(root, 'src', 'data', 'packages.ts'))).digest('hex'));
+  });
+
+  it('preserves catalog-only record IDs, codes, and display names without deriving code from the name', () => {
+    const generated = buildPackageCatalog({
+      catalogVersion: 'test', generatedAt: '2026-08-02T00:00:00.000Z', sourceSnapshot: {}, facts: [],
+      packages: [{
+        id: 'catalog-only', code: 'CODE-42', category: 'data', status: 'unverified', factIds: [], facts: [],
+        display: { name: 'Display-only name', description: 'Catalog-only record' },
+      }],
+    });
+
+    expect(generated.packages.find((pkg: any) => pkg.id === 'catalog-only')).toMatchObject({
+      id: 'catalog-only', code: 'CODE-42', display: { name: 'Display-only name' },
+    });
   });
 
   it('does not expose legacy records as public packages without complete facts', () => {

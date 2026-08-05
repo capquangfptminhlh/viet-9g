@@ -69,7 +69,7 @@ export default function PackageGrid({
       result.sort((a, b) => b.price - a.price);
     } else if (sortBy === 'data_desc') {
       const parseData = (str: string) => parseFloat(str) || 0;
-      result.sort((a, b) => parseData(b.dataPerDay) - parseData(a.dataPerDay));
+      result.sort((a, b) => parseData(b.dataPerDay ?? '') - parseData(a.dataPerDay ?? ''));
     }
 
     return result;
