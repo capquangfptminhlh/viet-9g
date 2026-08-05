@@ -9,6 +9,7 @@ export interface LegacyPackageRoute {
   category: PackageRecord['category'];
   status: PackageRecord['status'];
   reason: 'INCOMPLETE_EVIDENCE';
+  indexable: false;
 }
 
 export function getPackageRoutes(catalog: PackageCatalog = loadPackageCatalog(), now = new Date()): VerifiedPackage[] {
@@ -27,5 +28,6 @@ export function getLegacyPackageRoutes(catalog: PackageCatalog = loadPackageCata
       category: pkg.category,
       status: pkg.status,
       reason: 'INCOMPLETE_EVIDENCE' as const,
+      indexable: false as const,
     }));
 }

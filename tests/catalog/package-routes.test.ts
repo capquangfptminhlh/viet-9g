@@ -38,7 +38,7 @@ function catalogWithPublicOffer() {
         fact('daily-data', 'dataPerDay', '4GB'),
         fact('benefit', 'benefit', 'TV360 Basic'),
         fact('eligibility', 'eligibility', 'Prepaid subscribers'),
-        fact('registration', 'registrationSyntax', 'V120B GB'),
+        fact('registration', 'registrationSyntax', ' V120B   GB '),
       ],
     }],
   };
@@ -54,12 +54,11 @@ describe('customer package routes', () => {
       name: 'V120B',
       priceVnd: 120000,
       durationDays: 30,
-      dataAllowance: '120GB',
       dataPerDay: '4GB',
       price: 120000,
       duration: '30 ngày',
       dataLimit: '120GB',
-      description: 'Current offer facts verified from source.',
+      description: 'V120B · 120000 VND · 30 days · 120GB',
       rules: ['Prepaid subscribers'],
       registrationEligible: true,
       benefits: ['TV360 Basic'],
@@ -75,6 +74,20 @@ describe('customer package routes', () => {
     expect(getPackageRoutes(catalog as any, now)).toEqual([]);
   });
 
+  it('allows either a total allowance or a per-day allowance without inventing the other value', () => {
+    const allowanceOnly = catalogWithPublicOffer();
+    allowanceOnly.packages[0].factIds = allowanceOnly.packages[0].factIds.filter((id) => id !== 'daily-data');
+    allowanceOnly.packages[0].facts = allowanceOnly.packages[0].facts.filter((item) => item.id !== 'daily-data');
+    const perDayOnly = catalogWithPublicOffer();
+    perDayOnly.packages[0].factIds = perDayOnly.packages[0].factIds.filter((id) => id !== 'data');
+    perDayOnly.packages[0].facts = perDayOnly.packages[0].facts.filter((item) => item.id !== 'data');
+
+    expect(getPackageRoutes(allowanceOnly as any, now)[0]).toMatchObject({ dataAllowance: '120GB' });
+    expect(getPackageRoutes(allowanceOnly as any, now)[0]).not.toHaveProperty('dataPerDay');
+    expect(getPackageRoutes(perDayOnly as any, now)[0]).toMatchObject({ dataPerDay: '4GB' });
+    expect(getPackageRoutes(perDayOnly as any, now)[0]).not.toHaveProperty('dataAllowance');
+  });
+
   it('returns incomplete catalog records as legacy routes without price or CTA data', () => {
     const catalog = loadPackageCatalog();
     const legacy = getLegacyPackageRoutes(catalog, now);
@@ -82,7 +95,22 @@ describe('customer package routes', () => {
     expect(getPackageRoutes(catalog, now)).toEqual([]);
     expect(legacy).toHaveLength(41);
     expect(legacy[0]).toMatchObject({ reason: 'INCOMPLETE_EVIDENCE' });
+    expect(legacy[0]).toMatchObject({ indexable: false });
     expect(legacy[0]).not.toHaveProperty('priceVnd');
     expect(legacy[0]).not.toHaveProperty('registration');
+  });
+
+  it('excludes verified records from metadata-only legacy routes', () => {
+    const catalog = catalogWithPublicOffer();
+    catalog.packages.push({
+      id: 'incomplete', code: 'INC', status: 'active', category: 'data', factIds: [],
+      display: { name: 'INC', description: '' }, facts: [],
+      registration: { syntax: 'INC GB', smsNumber: 290, channel: 'sms', factId: 'registration' },
+    });
+
+    expect(getPackageRoutes(catalog as any, now).map((pkg) => pkg.id)).toEqual(['v120b']);
+    expect(getLegacyPackageRoutes(catalog as any, now)).toEqual([expect.objectContaining({
+      id: 'incomplete', indexable: false, reason: 'INCOMPLETE_EVIDENCE',
+    })]);
   });
 });

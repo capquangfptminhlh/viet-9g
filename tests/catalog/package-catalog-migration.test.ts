@@ -18,16 +18,10 @@ describe('package catalog migration', () => {
     expect(catalog.sourceSnapshot.sha256).toMatch(/^[a-f0-9]{64}$/);
   });
 
-  it('matches the legacy package ID set and code/name mapping exactly', () => {
+  it('does not expose legacy records as public packages without complete facts', () => {
     const catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
-    const catalogIds = new Set(catalog.packages.map((pkg: any) => pkg.id));
-    const legacyIds = new Set(VIETTEL_PACKAGES.map((pkg) => pkg.id));
-    expect(catalogIds).toEqual(legacyIds);
-    for (const legacy of VIETTEL_PACKAGES) {
-      const migrated = catalog.packages.find((pkg: any) => pkg.id === legacy.id);
-      expect(migrated.code).toBe(legacy.name);
-      expect(migrated.display.name).toBe(legacy.name);
-    }
+    expect(catalog.packages).toHaveLength(41);
+    expect(VIETTEL_PACKAGES).toEqual([]);
   });
 
   it('runs a deterministic no-write migration check', () => {

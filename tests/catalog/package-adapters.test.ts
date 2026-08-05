@@ -1,38 +1,44 @@
 import { describe, expect, it } from 'vitest';
 import { catalogToTelecomPackages, toTelecomPackage } from '../../packages/catalog/package-adapters';
 
-const packageRecord = (status: 'active' | 'unverified' | 'retired') => ({
-  id: status,
-  code: status.toUpperCase(),
-  status,
-  category: 'combo' as const,
-  factIds: [],
-  display: { name: status.toUpperCase(), description: `${status} package` },
-  facts: [],
-});
+const now = new Date('2026-08-02T00:00:00.000Z');
+
+function catalog() {
+  const fact = (id: string, key: string, value: string | number) => ({
+    id, key, value, claim: key, sourceUrl: 'https://www.viettel.vn/goi-cuoc',
+    retrievedAt: '2026-08-01T00:00:00.000Z', effectiveAt: '2026-08-01T00:00:00.000Z', expiresAt: '2026-09-01T00:00:00.000Z',
+  });
+  return {
+    schemaVersion: '1.0.0', catalogVersion: 'test', generatedAt: now.toISOString(), facts: [], packages: [
+      {
+        id: 'verified', code: 'VERIFIED', status: 'active', category: 'combo',
+        factIds: ['price', 'duration', 'data', 'benefit', 'eligibility'],
+        display: { name: 'VERIFIED', description: 'legacy copy must not be used' }, facts: [
+          fact('price', 'priceVnd', 120000), fact('duration', 'durationDays', 30), fact('data', 'dataAllowance', '120GB'),
+          fact('benefit', 'benefit', 'TV360'), fact('eligibility', 'eligibility', 'Prepaid'),
+        ], registration: { syntax: 'VERIFIED GB', smsNumber: 290, channel: 'sms' },
+      },
+      {
+        id: 'metadata-only', code: 'META', status: 'unverified', category: 'data', factIds: [],
+        display: { name: 'META', description: 'legacy copy must not be used' }, facts: [],
+      },
+    ],
+  } as any;
+}
 
 describe('package catalog UI adapter', () => {
-  it('projects an evidence-backed active package and enables registration', () => {
-    const pkg = { ...packageRecord('active'), factIds: ['price'], registration: { syntax: 'ACTIVE GB', smsNumber: 290 as const, channel: 'sms' as const } };
-    const facts = [{ id: 'price', key: 'priceVnd', value: 120000, claim: 'price', sourceUrl: 'https://viettel.vn', retrievedAt: '2026-08-01T00:00:00Z', effectiveAt: '2026-08-01', expiresAt: '2026-12-31T00:00:00Z' } as any];
-    const adapted = toTelecomPackage(pkg, undefined, facts);
-    expect(adapted).toMatchObject({ id: 'active', code: 'ACTIVE', price: 120000, registrationEligible: true, status: 'active' });
+  it('adapts only a verified package using the verified model', () => {
+    const input = catalog();
+    const adapted = toTelecomPackage(input.packages[0], input, now);
+
+    expect(adapted).toMatchObject({ id: 'verified', price: 120000, dataLimit: '120GB' });
+    expect(adapted?.registrationEligible).toBe(false);
   });
 
-  it('keeps an unverified package visible while disabling registration', () => {
-    const adapted = toTelecomPackage(packageRecord('unverified'));
+  it('does not adapt metadata-only records with zero, empty, or CTA fallback values', () => {
+    const input = catalog();
 
-    expect(adapted.id).toBe('unverified');
-    expect(adapted.code).toBe('UNVERIFIED');
-    expect(adapted.name).toBe('UNVERIFIED');
-    expect(adapted.registrationEligible).toBe(false);
-    expect(adapted.status).toBe('unverified');
-  });
-
-  it('keeps non-retired catalog records available to the legacy adapter', () => {
-    const adapted = catalogToTelecomPackages({ packages: [packageRecord('active'), packageRecord('unverified'), packageRecord('retired')] } as any);
-
-    expect(adapted.map((pkg) => pkg.id)).toEqual(['active', 'unverified']);
-    expect(adapted.find((pkg) => pkg.id === 'unverified')?.registrationEligible).toBe(false);
+    expect(toTelecomPackage(input.packages[1], input, now)).toBeNull();
+    expect(catalogToTelecomPackages(input, now).map((pkg) => pkg.id)).toEqual(['verified']);
   });
 });

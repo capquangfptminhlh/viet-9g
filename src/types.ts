@@ -12,7 +12,7 @@ export interface TelecomPackage {
   price: number;
   duration: string;
   dataLimit: string;
-  dataPerDay: string;
+  dataPerDay?: string;
   calls?: CallBenefits;
   social?: string[]; // e.g. ['youtube', 'tiktok', 'facebook']
   category: PackageCategory;

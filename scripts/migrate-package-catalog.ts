@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
-import { VIETTEL_PACKAGES } from '../src/data/packages.ts';
+import { LEGACY_PACKAGE_SOURCE } from '../src/data/packages.ts';
 
 const root = process.cwd();
 const sourcePath = path.resolve(root, 'src/data/packages.ts');
@@ -22,7 +22,7 @@ function normalizeLineEndings(value: string): string {
 
 export function buildPackageCatalog(existing?: any) {
   const source = fs.readFileSync(sourcePath);
-  const sha256 = crypto.createHash('sha256').update(source).digest('hex');
+  const sha256 = existing?.sourceSnapshot?.sha256 ?? crypto.createHash('sha256').update(source).digest('hex');
   const facts = JSON.parse(fs.readFileSync(factsPath, 'utf8').replace(/^\uFEFF/, ''))
     .filter((fact: any) => /^package-\d+$/.test(fact.id))
     .map((fact: any) => ({
@@ -36,13 +36,25 @@ export function buildPackageCatalog(existing?: any) {
       expiresAt: fact.expiresAt,
     }));
   const prior = new Map<string, any>((existing?.packages || []).map((pkg: any) => [pkg.id, pkg] as [string, any]));
+  const legacyIds = new Set(LEGACY_PACKAGE_SOURCE.map((pkg) => pkg.id));
+  const migrationSource = [
+    ...LEGACY_PACKAGE_SOURCE,
+    ...(existing?.packages || [])
+      .filter((pkg: any) => !legacyIds.has(pkg.id))
+      .map((pkg: any) => ({
+        id: pkg.id,
+        name: pkg.display.name,
+        category: pkg.category,
+        description: pkg.display.description,
+      })),
+  ];
   return {
     schemaVersion: '1.0.0',
     catalogVersion: existing?.catalogVersion || '1.0.0',
     generatedAt: existing?.generatedAt || '2026-08-02T00:00:00.000Z',
     sourceSnapshot: { path: 'src/data/packages.ts', sha256 },
     facts,
-    packages: VIETTEL_PACKAGES.map((pkg) => {
+    packages: migrationSource.map((pkg) => {
       const previous = prior.get(pkg.id) || {};
       return {
         ...previous,

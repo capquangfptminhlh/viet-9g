@@ -1,4 +1,4 @@
-import { getCurrentFacts } from './package-catalog-runtime';
+import { getCurrentFacts, getRenderablePackages } from './package-catalog-runtime';
 import type { CatalogFact, PackageCatalog, PackageRecord } from './package-catalog-runtime';
 import type { TelecomPackage } from '../types';
 
@@ -10,13 +10,12 @@ export interface VerifiedPackage extends Pick<TelecomPackage,
   category: PackageRecord['category'];
   priceVnd: number;
   durationDays: number;
-  dataAllowance: string;
-  dataPerDay: string;
+  dataAllowance?: string;
   benefits: string[];
   eligibility: string[];
   registration?: {
     syntax: string;
-    smsNumber: 290 | '290';
+    smsNumber: 290;
     channel: 'sms';
   };
   updatedAt: string;
@@ -47,37 +46,24 @@ function factTexts(facts: readonly CatalogFact[], key: string): string[] {
     .flatMap((fact) => nonEmptyText(fact) ?? []);
 }
 
-function verifiedRegistration(pkg: PackageRecord, facts: readonly CatalogFact[]): VerifiedPackage['registration'] {
-  if (!pkg.registration?.factId || !pkg.factIds.includes(pkg.registration.factId)) return undefined;
-  const fact = facts.find((item) => item.id === pkg.registration!.factId);
-  const syntax = nonEmptyText(fact);
-  if (fact?.key !== 'registrationSyntax' || syntax !== pkg.registration.syntax.trim()) return undefined;
-
-  return {
-    syntax: pkg.registration.syntax,
-    smsNumber: pkg.registration.smsNumber,
-    channel: pkg.registration.channel,
-  };
-}
-
 function toVerifiedPackage(pkg: PackageRecord, catalog: PackageCatalog, now: Date): VerifiedPackage | null {
-  if (!['active', 'eligibility_required'].includes(pkg.status)) return null;
-
   const facts = getCurrentFacts(pkg, catalog, now);
   const priceFact = exactlyOneFact(facts, 'priceVnd');
   const durationFact = exactlyOneFact(facts, 'durationDays');
-  const dataAllowanceFact = exactlyOneFact(facts, 'dataAllowance');
   const priceVnd = positiveNumber(priceFact);
   const durationDays = positiveNumber(durationFact);
-  const dataAllowance = nonEmptyText(dataAllowanceFact);
+  const dataAllowance = nonEmptyText(exactlyOneFact(facts, 'dataAllowance'));
+  const dataPerDay = nonEmptyText(exactlyOneFact(facts, 'dataPerDay'));
   const benefits = factTexts(facts, 'benefit');
   const eligibility = factTexts(facts, 'eligibility');
 
-  if (!priceVnd || !durationDays || !dataAllowance || benefits.length === 0 || eligibility.length === 0 || !priceFact) return null;
+  if (!priceFact || !priceVnd || !durationDays || (!dataAllowance && !dataPerDay) || benefits.length === 0 || eligibility.length === 0) return null;
 
-  const dataPerDay = nonEmptyText(exactlyOneFact(facts, 'dataPerDay'));
-  const registration = verifiedRegistration(pkg, facts);
-  if (!dataPerDay) return null;
+  // getRenderablePackages is Task 1's single authority for status, current facts, and exact normalized registration evidence.
+  const registration = pkg.registration
+    ? { syntax: pkg.registration.syntax, smsNumber: 290 as const, channel: 'sms' as const }
+    : undefined;
+  const dataLimit = dataAllowance ?? dataPerDay!;
 
   return {
     id: pkg.id,
@@ -86,8 +72,8 @@ function toVerifiedPackage(pkg: PackageRecord, catalog: PackageCatalog, now: Dat
     category: pkg.category,
     priceVnd,
     durationDays,
-    dataAllowance,
-    dataPerDay,
+    ...(dataAllowance ? { dataAllowance } : {}),
+    ...(dataPerDay ? { dataPerDay } : {}),
     benefits,
     eligibility,
     ...(registration ? { registration } : {}),
@@ -96,17 +82,17 @@ function toVerifiedPackage(pkg: PackageRecord, catalog: PackageCatalog, now: Dat
     sourceUrl: priceFact.sourceUrl,
     price: priceVnd,
     duration: `${durationDays} ngày`,
-    dataLimit: dataAllowance,
-    description: 'Current offer facts verified from source.',
+    dataLimit,
+    description: [pkg.display.name, `${priceVnd} VND`, `${durationDays} days`, dataLimit].join(' · '),
     rules: eligibility,
     registrationEligible: Boolean(registration),
     status: pkg.status,
   };
 }
 
-/** Returns only packages whose every customer-facing offer field is current, sourced fact data. */
+/** Returns only packages accepted by Task 1's current, complete public-offer gate. */
 export function getVerifiedPackages(catalog: PackageCatalog, now = new Date()): VerifiedPackage[] {
-  return catalog.packages.flatMap((pkg) => {
+  return getRenderablePackages(catalog, now).flatMap((pkg) => {
     const verified = toVerifiedPackage(pkg, catalog, now);
     return verified ? [verified] : [];
   });
