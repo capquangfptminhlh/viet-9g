@@ -4,6 +4,7 @@ import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 import PackageCard, { canRegisterPackage } from '../../src/components/PackageCard';
+import PackageModal from '../../src/components/PackageModal';
 import type { VerifiedPackage } from '../../src/data/verified-package';
 
 const root = process.cwd();
@@ -13,6 +14,8 @@ const homepageComponents = [
   'src/components/SmartRecommender.tsx',
   'src/components/SimLookup.tsx',
   'src/components/PackageCard.tsx',
+  'src/components/HeroCarousel.tsx',
+  'src/components/FaqAccordion.tsx',
 ];
 
 const unregisteredPackage: VerifiedPackage = {
@@ -35,6 +38,13 @@ const unregisteredPackage: VerifiedPackage = {
   rules: ['Verified eligibility'],
   registrationEligible: false,
   status: 'eligibility_required',
+};
+
+const registeredPackage: VerifiedPackage = {
+  ...unregisteredPackage,
+  id: 'registered-offer',
+  registrationEligible: true,
+  registration: { syntax: 'TEST SPECIAL GB', smsNumber: 290, channel: 'sms' },
 };
 
 describe('homepage verified package source', () => {
@@ -63,5 +73,24 @@ describe('homepage verified package source', () => {
     }));
 
     expect(markup).not.toContain('Soạn tin đăng ký');
+  });
+
+  it('keeps a registered offer actionable and shows its verified SMS syntax in the modal', () => {
+    expect(canRegisterPackage(registeredPackage)).toBe(true);
+
+    const cardMarkup = renderToStaticMarkup(React.createElement(PackageCard, {
+      pkg: registeredPackage,
+      onSelect: () => undefined,
+      onOpenDetails: () => undefined,
+    }));
+    const modalMarkup = renderToStaticMarkup(React.createElement(PackageModal, {
+      pkg: registeredPackage,
+      onClose: () => undefined,
+      defaultTab: 'sms',
+    }));
+
+    expect(cardMarkup).toContain('Soạn tin đăng ký');
+    expect(modalMarkup).toContain('TEST SPECIAL GB');
+    expect(modalMarkup).not.toContain('Thông tin đăng ký đang chờ xác minh');
   });
 });

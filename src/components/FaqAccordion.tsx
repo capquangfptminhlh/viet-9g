@@ -1,6 +1,21 @@
 import React, { useState } from 'react';
 import { HelpCircle, ChevronDown, ChevronUp } from 'lucide-react';
-import { FAQS } from '../data/packages';
+import type { FAQItem } from '../types';
+
+const FAQS: FAQItem[] = [
+  {
+    question: 'Làm sao để biết gói cước có áp dụng cho thuê bao của tôi?',
+    answer: 'Điều kiện áp dụng được hiển thị cùng từng gói cước. Bạn nên kiểm tra thông tin chính thức của Viettel trước khi đăng ký.',
+  },
+  {
+    question: 'Cú pháp đăng ký được gửi đến số nào?',
+    answer: 'Chỉ những gói có cú pháp đã được xác minh mới hiển thị nút đăng ký. Cú pháp sẽ được gửi đến tổng đài 290.',
+  },
+  {
+    question: 'Tôi có thể kiểm tra dung lượng còn lại như thế nào?',
+    answer: 'Bạn có thể kiểm tra trong ứng dụng My Viettel hoặc theo hướng dẫn chính thức của nhà mạng.',
+  },
+];
 
 export default function FaqAccordion() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);

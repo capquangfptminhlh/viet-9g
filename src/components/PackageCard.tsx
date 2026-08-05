@@ -92,8 +92,8 @@ export default function PackageCard({ pkg, onSelect, onOpenDetails }: PackageCar
 
         {/* Verified benefits */}
         <div className="space-y-2.5 mb-5 flex-1">
-          {pkg.benefits.slice(0, 3).map((benefit) => (
-            <div className="flex items-start gap-2 text-sm text-gray-700">
+          {pkg.benefits.slice(0, 3).map((benefit, index) => (
+            <div key={`${pkg.id}-benefit-${index}`} className="flex items-start gap-2 text-sm text-gray-700">
               <div className="mt-0.5 shrink-0 w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center">
                 <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
               </div>

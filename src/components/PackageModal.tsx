@@ -1,29 +1,27 @@
 import React, { useState } from 'react';
-import { X, MessageSquare, Copy, ClipboardCheck, Send, QrCode, Sparkles, Phone, Calculator } from 'lucide-react';
-import { TelecomPackage, AgentConfig } from '../types';
+import { X, MessageSquare, Copy, ClipboardCheck, Send, QrCode, Sparkles, Calculator } from 'lucide-react';
+import type { VerifiedPackage } from '../data/verified-package';
 import { trackConversion } from '../utils/tracking';
-import { SMS_NUMBER, buildSmsSyntax, buildSmsUri } from '../config/agent-code';
+import { canRegisterPackage } from './PackageCard';
 
 interface PackageModalProps {
-  pkg: TelecomPackage | null;
-  config: AgentConfig;
+  pkg: VerifiedPackage | null;
   onClose: () => void;
   defaultTab?: 'sms' | 'qr' | 'details';
 }
 
-export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' }: PackageModalProps) {
+export default function PackageModal({ pkg, onClose, defaultTab = 'sms' }: PackageModalProps) {
   const [copied, setCopied] = useState(false);
   const [activeTab, setActiveTab] = useState<'sms' | 'qr' | 'details'>(defaultTab);
 
   if (!pkg) return null;
 
-  const registrationEligible = pkg.registrationEligible === true && ['active', 'operator_verified'].includes(pkg.status || '');
-  const packageCode = pkg.code ?? pkg.name;
-  const smsBody = registrationEligible ? buildSmsSyntax(packageCode) : '';
-  const smsNumber = SMS_NUMBER;
+  const registrationEligible = canRegisterPackage(pkg);
+  const smsBody = pkg.registration?.syntax ?? '';
+  const smsNumber = pkg.registration?.smsNumber ?? 290;
   
   const getSmsHref = () => {
-    return buildSmsUri(packageCode);
+    return `sms:${smsNumber}?body=${encodeURIComponent(smsBody)}`;
   };
 
   const handleCopy = () => {
@@ -64,7 +62,7 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
             <h3 className="text-2xl sm:text-3xl font-black flex flex-wrap items-baseline gap-2 uppercase tracking-tight">
               GÓI CƯỚC {pkg.name} 
               <span className="text-sm sm:text-base font-bold text-white/90 italic tracking-normal normal-case">
-                ({pkg.price.toLocaleString('vi-VN')}đ/ {pkg.duration})
+                ({pkg.priceVnd.toLocaleString('vi-VN')}đ/ {pkg.durationDays} ngày)
               </span>
             </h3>
             
@@ -131,7 +129,7 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
 
                 {/* Agent Tag */}
                 <div className="absolute top-4 right-4 bg-red-50 text-[#e60000] font-bold text-[10px] sm:text-xs px-2.5 py-1 rounded border border-red-100">
-                  Mã Đại Lý: {config.agentCode}
+                  Kênh SMS: {smsNumber}
                 </div>
 
                 <div className="text-center space-y-3 z-10 w-full pt-4 sm:pt-0">
@@ -169,7 +167,7 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
 
                 {registrationEligible && <a
                   href={getSmsHref()}
-                  onClick={() => trackConversion('click_open_sms_app', { package_id: pkg.id, price: pkg.price, name: pkg.name })}
+                  onClick={() => trackConversion('click_open_sms_app', { package_id: pkg.id, price: pkg.priceVnd, name: pkg.name })}
                   className="w-full py-3.5 px-4 min-h-[50px] bg-[#e60000] hover:bg-red-700 active:bg-red-800 text-white text-sm font-bold rounded-xl shadow-md flex items-center justify-center gap-2 cursor-pointer transition-all"
                 >
                   <Send className="w-5 h-5" />
@@ -190,7 +188,7 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
                 </p>
                 <div className="flex items-start gap-2 text-[13px]">
                   <span className="text-[#e60000] font-bold mt-0.5">•</span>
-                  <p>Hệ thống gửi trả tin nhắn xác nhận hoàn toàn miễn phí. Hãy chuẩn bị sẵn số dư tối thiểu trong tài khoản chính là <strong className="text-[#e60000]">{pkg.price.toLocaleString('vi-VN')}đ</strong>.</p>
+                  <p>Hệ thống gửi trả tin nhắn xác nhận hoàn toàn miễn phí. Hãy chuẩn bị sẵn số dư tối thiểu trong tài khoản chính là <strong className="text-[#e60000]">{pkg.priceVnd.toLocaleString('vi-VN')}đ</strong>.</p>
                 </div>
               </div>
 
@@ -246,7 +244,7 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
                 </h4>
                 <ul className="space-y-3 bg-gray-50 border border-gray-100 rounded-xl p-4">
                   {pkg.benefits.map((benefit, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-sm">
+                    <li key={`${pkg.id}-benefit-${idx}`} className="flex items-start gap-3 text-sm">
                       <div className="w-5 h-5 shrink-0 bg-green-100 text-green-600 rounded-full flex items-center justify-center mt-0.5">
                         <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
                       </div>
@@ -255,18 +253,6 @@ export default function PackageModal({ pkg, config, onClose, defaultTab = 'sms' 
                   ))}
                 </ul>
               </div>
-
-              {pkg.calls && (
-                <div className="space-y-3">
-                  <h4 className="font-bold text-orange-600 text-sm uppercase tracking-wider flex items-center gap-2">
-                    <Phone className="w-4 h-4" /> Đặc Quyền Đàm Thoại:
-                  </h4>
-                  <div className="bg-orange-50 border border-orange-100 rounded-xl p-4 space-y-2 text-sm text-orange-900">
-                    {pkg.calls.internal && <p className="flex items-center gap-2"><span>•</span> <span>Nội mạng: <strong>{pkg.calls.internal}</strong></span></p>}
-                    {pkg.calls.external && <p className="flex items-center gap-2"><span>•</span> <span>Ngoại mạng: <strong>{pkg.calls.external}</strong></span></p>}
-                  </div>
-                </div>
-              )}
 
               <div className="space-y-3 pt-2">
                 <h4 className="font-bold text-gray-900 text-xs uppercase tracking-wider">Điều kiện áp dụng đăng ký:</h4>

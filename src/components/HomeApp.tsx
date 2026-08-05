@@ -117,6 +117,7 @@ export default function HomeApp({ packages }: HomeAppProps) {
         {/* 2. Highlighted Slider Promotions */}
         <HeroCarousel
           config={config}
+          packages={packages}
           onSelectPackage={handleSelectPackage}
           onOpenSettings={() => setIsSettingsOpen(true)}
         />
@@ -182,7 +183,6 @@ export default function HomeApp({ packages }: HomeAppProps) {
       {activePackage && (
         <PackageModal
           pkg={activePackage}
-          config={config}
           onClose={handleClosePackageModal}
           defaultTab={modalTab}
         />

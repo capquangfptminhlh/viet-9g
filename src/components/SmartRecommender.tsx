@@ -212,10 +212,10 @@ export default function SmartRecommender({ packages, onSelectPackage, onOpenDeta
                       <div className="text-xs text-gray-600 space-y-1.5 mb-4">
                         <div className="flex items-center gap-1.5">
                           <span className="text-green-600 font-bold">✓</span>
-                          <span>Data: <strong>{pkg.dataPerDay}</strong></span>
+                          <span>Data: <strong>{pkg.dataPerDay ?? pkg.dataAllowance}</strong></span>
                         </div>
-                        {pkg.benefits.slice(0, 2).map((benefit) => (
-                          <div className="flex items-center gap-1.5">
+                        {pkg.benefits.slice(0, 2).map((benefit, index) => (
+                          <div key={`${pkg.id}-benefit-${index}`} className="flex items-center gap-1.5">
                             <span className="text-green-600 font-bold">✓</span>
                             <span>{benefit}</span>
                           </div>

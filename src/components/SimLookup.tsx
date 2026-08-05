@@ -274,7 +274,7 @@ export default function SimLookup({ packages, onSelectPackage }: SimLookupProps)
                             {pkg.price.toLocaleString('vi-VN')}đ / {pkg.duration}
                           </span>
                           <span className="block text-[10px] text-gray-450">
-                            {pkg.dataPerDay} ({pkg.dataLimit})
+                            {pkg.dataPerDay ?? pkg.dataAllowance} ({pkg.dataAllowance ?? pkg.dataLimit})
                           </span>
                         </div>
                         {canRegisterPackage(pkg) && <button
