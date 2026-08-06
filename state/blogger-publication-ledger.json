@@ -120,23 +120,23 @@
     "blogId": "5229528996284551001",
     "topicId": "topic-b1-esim-5g-tuong-thich",
     "contentVersion": "v1",
-    "contentHash": "",
-    "status": "HOLD",
-    "failureReason": "IDEMPOTENCY_KEY_RESERVED",
+    "contentHash": "c767d8488b577e4fcdfae726ec5d6331a2476cf6ae1a997fdf853a7580e4e405",
+    "status": "LIVE",
     "gateResults": {
       "packageEvidence": "PASS",
       "facts": "PASS",
-      "policy": "PASS",
-      "targetUrl": "NOT_RUN",
-      "media": "NOT_RUN",
-      "html": "NOT_RUN",
-      "idempotency": "REJECT",
-      "duplicate": "NOT_RUN",
-      "insert": "NOT_RUN",
-      "readBack": "NOT_RUN",
-      "publishedUrl": "NOT_RUN"
+      "targetUrl": "PASS",
+      "html": "PASS",
+      "idempotency": "PASS",
+      "duplicate": "PASS",
+      "insert": "PASS",
+      "readBack": "PASS",
+      "publishedUrl": "PASS"
     },
-    "createdAt": "2026-08-06T02:11:29.332Z"
+    "createdAt": "2026-08-02T19:05:20.833Z",
+    "postId": "7703657266650458657",
+    "publishedUrl": "https://camnang4gviettel.blogspot.com/2026/08/esim-viettel-co-dung-uoc-5g-nhu-sim-vat.html",
+    "publishedAt": "2026-08-02T19:05:22.540Z"
   },
   {
     "idempotencyKey": "01e8af915c9f6e90f472446f534e13a8983c94d3286a5bddce65d19a19332a95",
@@ -242,7 +242,7 @@
     "topicId": "topic-b1-esim-quet-qr-buoc-dau",
     "contentVersion": "v1",
     "contentHash": "5bc2cc141e153cf2d6b06088c9b256f793e1841762ffcc848be697ef195e1958",
-    "status": "INSERT_STARTED",
+    "status": "LIVE",
     "gateResults": {
       "packageEvidence": "PASS",
       "facts": "PASS",
@@ -252,10 +252,13 @@
       "html": "PASS",
       "idempotency": "PASS",
       "duplicate": "PASS",
-      "insert": "NOT_RUN",
-      "readBack": "NOT_RUN",
-      "publishedUrl": "NOT_RUN"
+      "insert": "PASS",
+      "readBack": "PASS",
+      "publishedUrl": "PASS"
     },
-    "createdAt": "2026-08-06T02:11:29.332Z"
+    "createdAt": "2026-08-06T02:11:29.332Z",
+    "postId": "1820481377147497640",
+    "publishedUrl": "https://camnang4gviettel.blogspot.com/2026/08/nhan-qr-esim-viettel-roi-lam-gi-trinh.html",
+    "publishedAt": "2026-08-06T02:11:32.733Z"
   }
 ]
