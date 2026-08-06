@@ -14,5 +14,13 @@
     "contentHash": "516e288d86ce03e847b6bb8ccb77c6f58cd762637dc4e3dcdb2c3434d0c094fb",
     "status": "PUBLISHED",
     "createdAt": "2026-08-05T01:19:19.499Z"
+  },
+  {
+    "idempotencyKey": "bb50954abe0fb6c7a8671eebee97f5ef8215a4f7ee2d1ffd874e95bc4e6386a5",
+    "topicId": "topic-b1-esim-kich-hoat-ket-noi",
+    "slug": "topic-b1-esim-kich-hoat-ket-noi",
+    "contentHash": "e2199f4e17a50f27701716351ebf52a92f9d249aeeeffe918751f9872efa3f13",
+    "status": "PUBLISHED",
+    "createdAt": "2026-08-06T01:16:44.815Z"
   }
 ]
