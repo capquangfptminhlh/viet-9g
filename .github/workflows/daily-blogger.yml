@@ -34,6 +34,8 @@ jobs:
         run: npm ci
       - name: Run unit tests
         run: npm test -- tests/blogger
+      - name: Validate keyword-intelligence approval (K0)
+        run: npm run k0:check
       - name: Publish one Blogger post
         run: npx tsx scripts/auto-blogger.ts
         env:

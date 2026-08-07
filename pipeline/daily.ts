@@ -1,3 +1,5 @@
+import { validateK0DecisionFile } from '../packages/content-engine/k0-gate';
+
 /**
  * Main Daily Pipeline Orchestrator (ORC-0)
  * MASTER_SPEC v3.2.1 - Section 6.1b (Worker Mapping) & Section 8 & Section 26
@@ -36,6 +38,19 @@ export async function init(): Promise<JobResult> {
   console.log('[ORC-0] Validating configuration, environment variables, and kill-switch status...');
   console.log('[CST-26] Verifying daily budget cap and token cost quotas...');
   console.log('[ALM-23] Checking anomaly baseline and active alerts status...');
+
+  const k0 = validateK0DecisionFile();
+  if (k0.ok === false) {
+    console.error(`[ORC-0] K0_HOLD: ${k0.reasons.join('; ')}`);
+    return {
+      jobName: 'init',
+      status: 'FAILED',
+      worker: 'W1 Orchestrate',
+      agents: ['ORC-0', 'CST-26', 'ALM-23'],
+      timestamp: new Date().toISOString(),
+      data: { killSwitchActive: true, budgetRemainingUsd: 10.0, configValid: false, k0Reasons: k0.reasons }
+    };
+  }
 
   return {
     jobName: 'init',

@@ -1,0 +1,9 @@
+{
+  "status": "HOLD",
+  "reason": "Research artifacts and product/SEO approvals have not been recorded yet.",
+  "approvals": {
+    "product": false,
+    "seo": false
+  },
+  "clusters": []
+}

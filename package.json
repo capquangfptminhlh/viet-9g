@@ -13,7 +13,8 @@
     "generate:topic-media": "tsx scripts/generate-topic-media.ts",
     "preview": "astro preview",
     "astro": "astro",
-    "clean": "rm -rf dist server.js"
+    "clean": "rm -rf dist server.js",
+    "k0:check": "node --import tsx scripts/k0-keyword-intelligence-check.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",

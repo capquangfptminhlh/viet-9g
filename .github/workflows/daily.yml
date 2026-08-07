@@ -41,6 +41,9 @@ jobs:
       - name: Check Package Catalog Drift
         run: npm run check:catalog
 
+      - name: Validate keyword-intelligence approval (K0)
+        run: npm run k0:check
+
       - name: Run Unified Orchestrator Pipeline
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "K0 keyword-intelligence decision",
+  "type": "object",
+  "required": ["status", "approvals", "clusters"],
+  "properties": {
+    "status": { "const": "APPROVED" },
+    "approvals": {
+      "type": "object",
+      "required": ["product", "seo"],
+      "properties": {
+        "product": { "const": true },
+        "seo": { "const": true }
+      }
+    },
+    "clusters": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "intent", "canonicalUrl", "keywords", "sourceUrls"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "intent": { "type": "string", "minLength": 1 },
+          "canonicalUrl": { "type": "string", "format": "uri" },
+          "keywords": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+          "sourceUrls": { "type": "array", "minItems": 1, "items": { "type": "string", "format": "uri" } }
+        }
+      }
+    }
+  }
+}
