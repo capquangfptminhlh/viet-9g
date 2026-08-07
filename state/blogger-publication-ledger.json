@@ -143,23 +143,23 @@
     "blogId": "5656849674298814641",
     "topicId": "topic-b2-kiem-tra-data-kttk-191",
     "contentVersion": "v1",
-    "contentHash": "b47cf2cc5b1d542b4cb01081e4163b0783b493c8858a8732e025584f84c39326",
-    "status": "LIVE",
+    "contentHash": "",
+    "status": "HOLD",
+    "failureReason": "IDEMPOTENCY_KEY_RESERVED",
     "gateResults": {
       "packageEvidence": "PASS",
       "facts": "PASS",
-      "targetUrl": "PASS",
-      "html": "PASS",
-      "idempotency": "PASS",
-      "duplicate": "PASS",
-      "insert": "PASS",
-      "readBack": "PASS",
-      "publishedUrl": "PASS"
+      "policy": "PASS",
+      "targetUrl": "NOT_RUN",
+      "media": "NOT_RUN",
+      "html": "NOT_RUN",
+      "idempotency": "REJECT",
+      "duplicate": "NOT_RUN",
+      "insert": "NOT_RUN",
+      "readBack": "NOT_RUN",
+      "publishedUrl": "NOT_RUN"
     },
-    "createdAt": "2026-08-02T19:38:10.686Z",
-    "postId": "2735107201643416860",
-    "publishedUrl": "https://thuthuat4gviettel.blogspot.com/2026/08/kiem-tra-data-viettel-con-lai-va-han.html",
-    "publishedAt": "2026-08-02T19:38:12.002Z"
+    "createdAt": "2026-08-07T02:28:38.312Z"
   },
   {
     "idempotencyKey": "f75add1be9e90ff823928e9c6ba36007818de9ecf0284b2f7bc99b2cef81dd53",
@@ -260,5 +260,27 @@
     "postId": "1820481377147497640",
     "publishedUrl": "https://camnang4gviettel.blogspot.com/2026/08/nhan-qr-esim-viettel-roi-lam-gi-trinh.html",
     "publishedAt": "2026-08-06T02:11:32.733Z"
+  },
+  {
+    "idempotencyKey": "1e811e92d2698f047fb9661f6cf2b4da68e12c194c18a63b48d6df2044a27138",
+    "blogId": "5656849674298814641",
+    "topicId": "topic-b2-tra-cuu-goi-098",
+    "contentVersion": "v1",
+    "contentHash": "1dea50ebda2d8804a74662714e48ed3e5a62db2e1a0e69e21be6ede7f87a92d7",
+    "status": "INSERT_STARTED",
+    "gateResults": {
+      "packageEvidence": "PASS",
+      "facts": "PASS",
+      "policy": "PASS",
+      "targetUrl": "PASS",
+      "media": "PASS",
+      "html": "PASS",
+      "idempotency": "PASS",
+      "duplicate": "PASS",
+      "insert": "NOT_RUN",
+      "readBack": "NOT_RUN",
+      "publishedUrl": "NOT_RUN"
+    },
+    "createdAt": "2026-08-07T02:28:38.312Z"
   }
 ]
