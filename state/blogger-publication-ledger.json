@@ -166,25 +166,24 @@
     "blogId": "6831378030642060628",
     "topicId": "b4-review-01-a",
     "packageId": "5g135",
-    "catalogVersion": "1.3.0-official-package-facts",
     "contentVersion": "v1",
-    "contentHash": "eef8af6831c1c198fbc1f686aaae1518630460ece9d531e590bcf22b81ebb84f",
-    "status": "LIVE",
+    "contentHash": "",
+    "status": "HOLD",
+    "failureReason": "IDEMPOTENCY_KEY_RESERVED",
     "gateResults": {
       "packageEvidence": "PASS",
       "facts": "PASS",
-      "targetUrl": "PASS",
-      "html": "PASS",
-      "idempotency": "PASS",
-      "duplicate": "PASS",
-      "insert": "PASS",
-      "readBack": "PASS",
-      "publishedUrl": "PASS"
+      "policy": "PASS",
+      "targetUrl": "NOT_RUN",
+      "media": "NOT_RUN",
+      "html": "NOT_RUN",
+      "idempotency": "REJECT",
+      "duplicate": "NOT_RUN",
+      "insert": "NOT_RUN",
+      "readBack": "NOT_RUN",
+      "publishedUrl": "NOT_RUN"
     },
-    "createdAt": "2026-08-03T02:28:55.178Z",
-    "postId": "6510691856628710732",
-    "publishedUrl": "https://reviewgoicuocviettel.blogspot.com/2026/08/anh-gia-5g135-viettel-oc-thong-so-chinh.html",
-    "publishedAt": "2026-08-03T02:28:58.054Z"
+    "createdAt": "2026-08-08T01:17:09.386Z"
   },
   {
     "idempotencyKey": "9e3b1a80adb5a29542853efce184ef7f404f1a2997793d0050752d5ff154f9a4",
@@ -285,5 +284,29 @@
     "postId": "9091170251587070839",
     "publishedUrl": "https://thuthuat4gviettel.blogspot.com/2026/08/tra-cuu-goi-va-luu-luong-viettel-qua.html",
     "publishedAt": "2026-08-07T02:28:41.978Z"
+  },
+  {
+    "idempotencyKey": "9faaff042ab1b62208dc4006a706eaaabd953d9535469c1668c072854d3f18de",
+    "blogId": "6831378030642060628",
+    "topicId": "b4-review-01-b",
+    "packageId": "5g135",
+    "catalogVersion": "1.3.0-official-package-facts",
+    "contentVersion": "v1",
+    "contentHash": "be70fbc2b6273794b3ec44bdc71fadef9f39fd0ac363b9e0ca0e1f5aa45fa45a",
+    "status": "INSERT_STARTED",
+    "gateResults": {
+      "packageEvidence": "PASS",
+      "facts": "PASS",
+      "policy": "PASS",
+      "targetUrl": "PASS",
+      "media": "PASS",
+      "html": "PASS",
+      "idempotency": "PASS",
+      "duplicate": "PASS",
+      "insert": "NOT_RUN",
+      "readBack": "NOT_RUN",
+      "publishedUrl": "NOT_RUN"
+    },
+    "createdAt": "2026-08-08T01:17:09.386Z"
   }
 ]
