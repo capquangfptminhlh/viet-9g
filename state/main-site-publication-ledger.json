@@ -30,5 +30,13 @@
     "contentHash": "7417404b511257d235ac09cf6fabce0705078a3cbd7d420d6501d581a52cabc6",
     "status": "PUBLISHED",
     "createdAt": "2026-08-07T01:58:38.916Z"
+  },
+  {
+    "idempotencyKey": "684ab0ddfcf87a006e2ca8070f550e3e89cdde3014c2d3f388e05d84cfc38e0f",
+    "topicId": "topic-b1-roaming-nhat-che-do-mang",
+    "slug": "topic-b1-roaming-nhat-che-do-mang",
+    "contentHash": "5ebd23ce69a9ecc8e8514f0bc4359672055eee30cf5903a7bcd358f5acf80671",
+    "status": "PUBLISHED",
+    "createdAt": "2026-08-08T00:41:38.875Z"
   }
 ]
