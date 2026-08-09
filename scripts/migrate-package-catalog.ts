@@ -27,9 +27,20 @@ function normalizeLineEndings(value: string): string {
   return value.replace(/\r+\n/g, '\n').replace(/\r/g, '\n');
 }
 
+/**
+ * The catalog snapshot was historically generated from a Windows checkout.
+ * Canonicalize source text to CRLF before hashing so the same logical source
+ * has one stable snapshot hash on Windows, Linux, and macOS.
+ */
+export function computeSourceSnapshotHash(source: Buffer | string): string {
+  const normalizedLf = normalizeLineEndings(Buffer.isBuffer(source) ? source.toString('utf8') : source);
+  const canonicalCrLf = normalizedLf.replace(/\n/g, '\r\n');
+  return crypto.createHash('sha256').update(canonicalCrLf, 'utf8').digest('hex');
+}
+
 export function buildPackageCatalog(existing?: any) {
   const source = fs.readFileSync(sourcePath);
-  const sha256 = crypto.createHash('sha256').update(source).digest('hex');
+  const sha256 = computeSourceSnapshotHash(source);
   const facts = JSON.parse(fs.readFileSync(factsPath, 'utf8').replace(/^\uFEFF/, ''))
     .filter((fact: any) => /^package-\d+$/.test(fact.id))
     .map((fact: any) => ({

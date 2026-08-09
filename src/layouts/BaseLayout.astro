@@ -21,6 +21,7 @@ interface Props {
 const site = Astro.site ?? new URL('https://www.tracuugoicuoc.com');
 const siteOrigin = site.origin;
 const defaultTitle = 'Tra Cứu Thông Tin Gói Cước Di Động';
+const defaultDescription = 'Trang thông tin độc lập để tra cứu dữ kiện gói cước di động. Điều khoản gói và việc đăng ký do Viettel xác nhận.';
 const {
   title = defaultTitle,
   description: descriptionProp,
@@ -54,7 +55,9 @@ if (resolvedPageType === 'article' && canonicalUrl.pathname.startsWith('/posts/'
 
 const description = descriptionProp
   ?? postMeta?.description
-  ?? `${cleanPageName}. Nội dung tham khảo trên TraCuuGoiCuoc.com, ưu tiên dữ kiện có nguồn và điều kiện áp dụng được công bố rõ ràng.`;
+  ?? (title === defaultTitle
+    ? defaultDescription
+    : `${cleanPageName}. Nội dung tham khảo trên TraCuuGoiCuoc.com, ưu tiên dữ kiện có nguồn và điều kiện áp dụng được công bố rõ ràng.`);
 const publishedTime = publishedTimeProp ?? postMeta?.date?.toISOString();
 const modifiedTime = modifiedTimeProp ?? publishedTime;
 
