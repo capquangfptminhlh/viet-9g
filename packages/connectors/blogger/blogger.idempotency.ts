@@ -31,8 +31,24 @@ export function findLedgerEntry(ledger: LedgerEntry[], key: string): LedgerEntry
   return ledger.find((e) => e.idempotencyKey === key);
 }
 
+function isRetryablePreInsertAuthFailure(entry: LedgerEntry): boolean {
+  return entry.status === 'VERIFY_FAILED'
+    && !entry.postId
+    && !entry.publishedUrl
+    && entry.failureReason?.trim().toLowerCase() === 'invalid_grant'
+    && entry.gateResults?.insert === 'REJECT'
+    && entry.gateResults?.readBack === 'NOT_RUN'
+    && entry.gateResults?.publishedUrl === 'NOT_RUN';
+}
+
 export function canInsertDraft(ledger: LedgerEntry[], key: string): boolean {
-  const entry = findLedgerEntry(ledger, key);
-  if (!entry) return true;
-  return false;
+  const entries = ledger.filter((entry) => entry.idempotencyKey === key);
+  if (entries.length === 0) return true;
+
+  // OAuth invalid_grant happens while refreshing credentials, before Blogger can
+  // receive an insert request. Legacy runs recorded that as VERIFY_FAILED after
+  // reserving the key. Allow only that narrowly proven pre-insert case to retry.
+  // Any ambiguous/network/insert/read-back failure remains permanently reserved
+  // so an uncertain publication can never be duplicated.
+  return entries.every(isRetryablePreInsertAuthFailure);
 }
