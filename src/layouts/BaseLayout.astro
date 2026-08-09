@@ -5,6 +5,14 @@ import '../index.css';
 type JsonLd = Record<string, unknown>;
 type PageType = 'website' | 'article';
 
+type PostCollectionEntry = {
+  slug: string;
+  data: {
+    description?: string;
+    date?: Date;
+  };
+};
+
 interface Props {
   title?: string;
   description?: string;
@@ -49,7 +57,7 @@ const cleanPageName = title
 let postMeta: { description?: string; date?: Date } | undefined;
 if (resolvedPageType === 'article' && canonicalUrl.pathname.startsWith('/posts/')) {
   const slug = decodeURIComponent(canonicalUrl.pathname.slice('/posts/'.length).replace(/\/$/, ''));
-  const postEntry = (await getCollection('posts')).find((entry) => entry.slug === slug);
+  const postEntry = (await getCollection('posts')).find((entry: PostCollectionEntry) => entry.slug === slug);
   postMeta = postEntry?.data;
 }
 

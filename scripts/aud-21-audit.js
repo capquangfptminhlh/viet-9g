@@ -225,6 +225,11 @@ function runAudit() {
   console.log(`📊 Đã quét ${htmlFiles.length} trang tĩnh. Critical: ${criticalIssues.length}. Warning: ${warnings.length}.`);
   console.log(`🧾 Báo cáo: state/audit/${dateStr}.json`);
 
+  if (warnings.length > 0) {
+    console.warn('⚠️ Chi tiết warning SEO/AEO/GEO:');
+    warnings.forEach((issue) => console.warn(` - [${issue.rule}] ${issue.route}: ${issue.message}`));
+  }
+
   if (criticalIssues.length > 0) {
     console.error('❌ SEO/AEO/GEO quality gate FAIL. Build không được coi là đạt chuẩn.');
     criticalIssues.slice(0, 20).forEach((issue) => console.error(` - [${issue.rule}] ${issue.route}: ${issue.message}`));
