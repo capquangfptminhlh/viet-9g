@@ -38,5 +38,13 @@
     "contentHash": "5ebd23ce69a9ecc8e8514f0bc4359672055eee30cf5903a7bcd358f5acf80671",
     "status": "PUBLISHED",
     "createdAt": "2026-08-08T00:41:38.875Z"
+  },
+  {
+    "idempotencyKey": "b6fa8401d1a9e349fbee83bf8e70f71d99f41739d36ec8047dfd63056b1e7655",
+    "topicId": "topic-b1-roaming-bat-data-truoc-khi-di",
+    "slug": "topic-b1-roaming-bat-data-truoc-khi-di",
+    "contentHash": "a8bf8599290727a6a474ea83a6f9170655c0f779e86dd378df0fe2a0dcc10402",
+    "status": "PUBLISHED",
+    "createdAt": "2026-08-09T00:43:55.932Z"
   }
 ]
