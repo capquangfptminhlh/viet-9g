@@ -191,25 +191,23 @@
     "blogId": "9153601315328665051",
     "topicId": "b5-complete-01",
     "contentVersion": "v1",
-    "contentHash": "70c9f038a9a5a244abaac033a5f04a509a8ba67f8313b258178416a35a09ba79",
-    "status": "LIVE",
+    "contentHash": "",
+    "status": "HOLD",
+    "failureReason": "IDEMPOTENCY_KEY_RESERVED",
     "gateResults": {
       "packageEvidence": "PASS",
       "facts": "PASS",
       "policy": "PASS",
-      "targetUrl": "PASS",
-      "media": "PASS",
-      "html": "PASS",
-      "idempotency": "PASS",
-      "duplicate": "PASS",
-      "insert": "PASS",
-      "readBack": "PASS",
-      "publishedUrl": "PASS"
+      "targetUrl": "NOT_RUN",
+      "media": "NOT_RUN",
+      "html": "NOT_RUN",
+      "idempotency": "REJECT",
+      "duplicate": "NOT_RUN",
+      "insert": "NOT_RUN",
+      "readBack": "NOT_RUN",
+      "publishedUrl": "NOT_RUN"
     },
-    "createdAt": "2026-08-04T02:08:16.865Z",
-    "postId": "2673705412085744449",
-    "publishedUrl": "https://hotroluoimangviettel.blogspot.com/2026/08/ussd-khong-chay-sau-tat-2g3g-kiem-tra.html",
-    "publishedAt": "2026-08-04T02:08:20.252Z"
+    "createdAt": "2026-08-09T01:21:39.856Z"
   },
   {
     "idempotencyKey": "bb68c28d76530ff1d5b8ae1fd9766c7f003201ea84be948f87ba83d02aa8fc72",
@@ -312,5 +310,27 @@
     "postId": "7883246357826266254",
     "publishedUrl": "https://reviewgoicuocviettel.blogspot.com/2026/08/5g135-viettel-phu-hop-nhu-cau-nao-khi.html",
     "publishedAt": "2026-08-08T01:17:13.713Z"
+  },
+  {
+    "idempotencyKey": "620cc6a31220c05be44eb12a41017332a6c12fd8c41c5b24898412f58f554b35",
+    "blogId": "9153601315328665051",
+    "topicId": "b5-complete-02",
+    "contentVersion": "v1",
+    "contentHash": "f063febc70ce3807b3f383359cc9fc430a25b42734d052538574f442ef15249e",
+    "status": "INSERT_STARTED",
+    "gateResults": {
+      "packageEvidence": "PASS",
+      "facts": "PASS",
+      "policy": "PASS",
+      "targetUrl": "PASS",
+      "media": "PASS",
+      "html": "PASS",
+      "idempotency": "PASS",
+      "duplicate": "PASS",
+      "insert": "NOT_RUN",
+      "readBack": "NOT_RUN",
+      "publishedUrl": "NOT_RUN"
+    },
+    "createdAt": "2026-08-09T01:21:39.856Z"
   }
 ]
