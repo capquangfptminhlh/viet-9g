@@ -1,10 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import crypto from 'node:crypto';
 import { execSync } from 'node:child_process';
 import { describe, expect, it } from 'vitest';
 import { VIETTEL_PACKAGES } from '../../src/data/packages';
-import { buildPackageCatalog, LEGACY_PACKAGE_SOURCE } from '../../scripts/migrate-package-catalog';
+import { buildPackageCatalog, computeSourceSnapshotHash, LEGACY_PACKAGE_SOURCE } from '../../scripts/migrate-package-catalog';
 
 const root = process.cwd();
 const catalogPath = path.join(root, 'data', 'package-catalog.v1.json');
@@ -17,7 +16,13 @@ describe('package catalog migration', () => {
     expect(catalog.packages.filter((pkg: any) => pkg.status === 'operator_verified')).toHaveLength(26);
     expect(catalog.packages.every((pkg: any) => pkg.registration?.smsNumber === 290 && / GB$/.test(pkg.registration.syntax))).toBe(true);
     expect(catalog.packages.filter((pkg: any) => pkg.status === 'eligibility_required').every((pkg: any) => pkg.factIds.length > 0)).toBe(true);
-    expect(catalog.sourceSnapshot.sha256).toBe(crypto.createHash('sha256').update(fs.readFileSync(path.join(root, 'src', 'data', 'packages.ts'))).digest('hex'));
+    expect(catalog.sourceSnapshot.sha256).toBe(computeSourceSnapshotHash(fs.readFileSync(path.join(root, 'src', 'data', 'packages.ts'))));
+  });
+
+  it('uses the same source snapshot hash for LF and CRLF checkouts', () => {
+    const lf = 'alpha\nbeta\ngamma\n';
+    const crlf = lf.replace(/\n/g, '\r\n');
+    expect(computeSourceSnapshotHash(lf)).toBe(computeSourceSnapshotHash(crlf));
   });
 
   it('preserves catalog-only record IDs, codes, and display names without deriving code from the name', () => {

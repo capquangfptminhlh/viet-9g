@@ -1,17 +1,193 @@
 ---
+import { getCollection } from 'astro:content';
 import '../index.css';
 
+type JsonLd = Record<string, unknown>;
+type PageType = 'website' | 'article';
+
+type PostCollectionEntry = {
+  slug: string;
+  data: {
+    description?: string;
+    date?: Date;
+  };
+};
+
 interface Props {
-	title?: string;
-	description?: string;
+  title?: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
+  pageType?: PageType;
+  robots?: string;
+  publishedTime?: string;
+  modifiedTime?: string;
+  citation?: string | string[];
+  jsonLd?: JsonLd | JsonLd[];
 }
 
-const { 
-  title = "Tra Cứu Thông Tin Gói Cước Di Động",
-  description = "Trang thông tin độc lập để tra cứu dữ kiện gói cước di động. Điều khoản gói và việc đăng ký do Viettel xác nhận."
+const site = Astro.site ?? new URL('https://www.tracuugoicuoc.com');
+const siteOrigin = site.origin;
+const defaultTitle = 'Tra Cứu Thông Tin Gói Cước Di Động';
+const defaultDescription = 'Trang thông tin độc lập để tra cứu dữ kiện gói cước di động. Điều khoản gói và việc đăng ký do Viettel xác nhận.';
+const {
+  title = defaultTitle,
+  description: descriptionProp,
+  image: imageProp,
+  canonical,
+  pageType,
+  robots = 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
+  publishedTime: publishedTimeProp,
+  modifiedTime: modifiedTimeProp,
+  citation,
+  jsonLd,
 } = Astro.props;
 
+const canonicalUrl = new URL(canonical ?? Astro.url.pathname, site);
+canonicalUrl.search = '';
+canonicalUrl.hash = '';
+const canonicalHref = canonicalUrl.href;
+const imageHref = new URL(imageProp ?? '/og-image.jpg', site).href;
+const resolvedPageType: PageType = pageType ?? (canonicalUrl.pathname.startsWith('/posts/') ? 'article' : 'website');
+const cleanPageName = title
+  .replace(/\s*\|\s*TraCuuGoiCuoc\.com\s*$/i, '')
+  .replace(/\s*\|\s*Tra cứu gói cước Viettel\s*$/i, '')
+  .trim();
+
+let postMeta: { description?: string; date?: Date } | undefined;
+if (resolvedPageType === 'article' && canonicalUrl.pathname.startsWith('/posts/')) {
+  const slug = decodeURIComponent(canonicalUrl.pathname.slice('/posts/'.length).replace(/\/$/, ''));
+  const postEntry = (await getCollection('posts')).find((entry: PostCollectionEntry) => entry.slug === slug);
+  postMeta = postEntry?.data;
+}
+
+function normalizeMetaDescription(value: string): string {
+  let normalized = value.replace(/\s+/g, ' ').trim();
+
+  if (normalized.length < 50) {
+    normalized = `${normalized} Xem hướng dẫn và điều kiện áp dụng trước khi thực hiện.`;
+  }
+
+  if (normalized.length <= 180) return normalized;
+
+  const candidate = normalized.slice(0, 179);
+  const lastSpace = candidate.lastIndexOf(' ');
+  const cutAt = lastSpace >= 130 ? lastSpace : 179;
+  return `${candidate.slice(0, cutAt).replace(/[\s,;:–—-]+$/u, '')}…`;
+}
+
+const rawDescription = descriptionProp
+  ?? postMeta?.description
+  ?? (title === defaultTitle
+    ? defaultDescription
+    : `${cleanPageName}. Nội dung tham khảo trên TraCuuGoiCuoc.com, ưu tiên dữ kiện có nguồn và điều kiện áp dụng được công bố rõ ràng.`);
+const description = normalizeMetaDescription(rawDescription);
+const publishedTime = publishedTimeProp ?? postMeta?.date?.toISOString();
+const modifiedTime = modifiedTimeProp ?? publishedTime;
+
 const GA_ID = import.meta.env.PUBLIC_GA_ID;
+const organizationId = `${siteOrigin}/#organization`;
+const websiteId = `${siteOrigin}/#website`;
+const webpageId = `${canonicalHref}#webpage`;
+
+const organizationJsonLd: JsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': organizationId,
+  name: 'TraCuuGoiCuoc.com',
+  url: `${siteOrigin}/`,
+  description: 'Trang thông tin độc lập hỗ trợ tra cứu dữ kiện gói cước di động; không thuộc hệ thống website Viettel.',
+};
+
+const websiteJsonLd: JsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': websiteId,
+  url: `${siteOrigin}/`,
+  name: 'TraCuuGoiCuoc.com',
+  inLanguage: 'vi-VN',
+  publisher: { '@id': organizationId },
+};
+
+const citationValues = Array.isArray(citation) ? citation : citation ? [citation] : [];
+const pageJsonLd: JsonLd = {
+  '@context': 'https://schema.org',
+  '@type': resolvedPageType === 'article' ? 'Article' : 'WebPage',
+  '@id': webpageId,
+  url: canonicalHref,
+  name: cleanPageName,
+  ...(resolvedPageType === 'article' ? { headline: cleanPageName } : {}),
+  description,
+  inLanguage: 'vi-VN',
+  isPartOf: { '@id': websiteId },
+  publisher: { '@id': organizationId },
+  ...(resolvedPageType === 'article' ? { author: { '@id': organizationId } } : {}),
+  ...(resolvedPageType === 'article' && imageProp ? { image: imageHref } : {}),
+  ...(publishedTime ? { datePublished: publishedTime } : {}),
+  ...(modifiedTime ? { dateModified: modifiedTime } : {}),
+  ...(citationValues.length ? { citation: citationValues } : {}),
+};
+
+const segmentLabels: Record<string, string> = {
+  'goi-cuoc': 'Gói cước',
+  'tin-tuc': 'Tin tức & Hướng dẫn',
+  've-chung-toi': 'Về chúng tôi',
+  'lien-he': 'Liên hệ',
+  'chinh-sach-bao-mat': 'Chính sách bảo mật',
+  'dieu-khoan-su-dung': 'Điều khoản sử dụng',
+};
+
+function humanizeSegment(segment: string): string {
+  const words = decodeURIComponent(segment).replace(/-/g, ' ').split(' ');
+  return words.map((word) => word ? word.charAt(0).toLocaleUpperCase('vi-VN') + word.slice(1) : word).join(' ');
+}
+
+function buildBreadcrumb(): JsonLd | null {
+  const pathname = canonicalUrl.pathname.replace(/\/$/, '') || '/';
+  if (pathname === '/') return null;
+
+  const items: Array<Record<string, unknown>> = [
+    { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: `${siteOrigin}/` },
+  ];
+
+  const segments = pathname.split('/').filter(Boolean);
+  if (segments[0] === 'posts') {
+    items.push({
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Tin tức & Hướng dẫn',
+      item: new URL('/tin-tuc', site).href,
+    });
+    items.push({
+      '@type': 'ListItem',
+      position: 3,
+      name: cleanPageName,
+      item: canonicalHref,
+    });
+  } else {
+    let accumulatedPath = '';
+    segments.forEach((segment, index) => {
+      accumulatedPath += `/${segment}`;
+      const isLast = index === segments.length - 1;
+      items.push({
+        '@type': 'ListItem',
+        position: index + 2,
+        name: isLast ? cleanPageName : (segmentLabels[segment] ?? humanizeSegment(segment)),
+        item: isLast ? canonicalHref : new URL(accumulatedPath, site).href,
+      });
+    });
+  }
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items,
+  };
+}
+
+const breadcrumbJsonLd = buildBreadcrumb();
+const additionalJsonLd = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+const allJsonLd = [organizationJsonLd, websiteJsonLd, pageJsonLd, ...(breadcrumbJsonLd ? [breadcrumbJsonLd] : []), ...additionalJsonLd];
 ---
 <!doctype html>
 <html lang="vi">
@@ -20,18 +196,33 @@ const GA_ID = import.meta.env.PUBLIC_GA_ID;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={Astro.url.href} />
+    <meta name="robots" content={robots} />
+    <meta name="author" content="TraCuuGoiCuoc.com" />
+    <link rel="canonical" href={canonicalHref} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.svg" />
-    
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url.href} />
+
+    <meta property="og:type" content={resolvedPageType === 'article' ? 'article' : 'website'} />
+    <meta property="og:url" content={canonicalHref} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="https://tracuugoicuoc.com/og-image.jpg" />
-    
+    <meta property="og:image" content={imageHref} />
+    <meta property="og:site_name" content="TraCuuGoiCuoc.com" />
+    <meta property="og:locale" content="vi_VN" />
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageHref} />
+
     <slot name="head" />
+
+    {allJsonLd.map((schema) => (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
 
     {GA_ID && (
       <>
@@ -44,18 +235,6 @@ const GA_ID = import.meta.env.PUBLIC_GA_ID;
         </script>
       </>
     )}
-
-    <script is:inline type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "url": "https://tracuugoicuoc.com/",
-      "name": "Tra Cứu Gói Cước Viettel",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://tracuugoicuoc.com/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    })} />
   </head>
   <body class="bg-gray-50 text-slate-800 antialiased selection:bg-red-500 selection:text-white">
     <slot />

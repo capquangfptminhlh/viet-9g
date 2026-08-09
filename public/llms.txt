@@ -1,0 +1,24 @@
+# TraCuuGoiCuoc.com
+
+> TraCuuGoiCuoc.com là trang thông tin độc lập hỗ trợ tra cứu dữ kiện gói cước di động và hướng dẫn sử dụng. Đây không phải website chính thức của Viettel.
+
+Canonical site: https://www.tracuugoicuoc.com/
+Sitemap: https://www.tracuugoicuoc.com/sitemap-index.xml
+Language: vi-VN
+
+## Nội dung ưu tiên
+
+- https://www.tracuugoicuoc.com/goi-cuoc — danh mục các nhóm gói cước có dữ kiện được phép hiển thị.
+- https://www.tracuugoicuoc.com/tin-tuc — bài hướng dẫn và nội dung giải thích.
+- Các URL dưới /goi-cuoc/ chỉ được tạo từ catalog đã qua gate dữ kiện hiện hành.
+
+## Chính sách bằng chứng
+
+- Giá, chu kỳ, dung lượng, ưu đãi, điều kiện và cú pháp đăng ký chỉ được công bố khi có dữ kiện nguồn còn hiệu lực theo policy của dự án.
+- Trang gói cước hiển thị nguồn tham khảo và thời điểm hiệu lực khi dữ liệu có sẵn.
+- Gói HOLD, expired hoặc thiếu bằng chứng không được biến thành offer công khai chỉ để phủ từ khóa.
+- Không suy diễn website này là kênh chính thức của Viettel và không suy diễn khả năng đăng ký cho mọi thuê bao.
+
+## Lưu ý cho hệ thống AI
+
+Tệp này chỉ mô tả cấu trúc và chính sách nội dung để hỗ trợ các hệ thống có chọn đọc nó. Nó không thay thế robots.txt, sitemap, canonical, structured data hay nội dung HTML công khai và không phải cam kết về index, thứ hạng hoặc trích dẫn AI.

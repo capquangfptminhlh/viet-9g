@@ -11,7 +11,15 @@ export async function getStaticPaths() {
 }
 
 const { pkg } = Astro.props;
+const primaryData = pkg.dataAllowance ?? pkg.dataPerDay;
+const description = `Tra cứu gói ${pkg.code} Viettel: ${pkg.priceVnd.toLocaleString('vi-VN')}đ/${pkg.durationDays} ngày, ${primaryData}. Thông tin có nguồn Viettel và thời hạn hiệu lực.`;
 ---
-<BaseLayout title={`Gói ${pkg.name} Viettel`} description={pkg.description}>
+<BaseLayout
+  title={`Gói ${pkg.code} Viettel: giá, data, ưu đãi & điều kiện`}
+  description={description}
+  canonical={`/goi-cuoc/${pkg.id.toLowerCase()}`}
+  modifiedTime={pkg.updatedAt}
+  citation={pkg.sourceUrl}
+>
   <DynamicPostPage pkg={pkg} />
 </BaseLayout>
