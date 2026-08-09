@@ -191,23 +191,25 @@
     "blogId": "9153601315328665051",
     "topicId": "b5-complete-01",
     "contentVersion": "v1",
-    "contentHash": "",
-    "status": "HOLD",
-    "failureReason": "IDEMPOTENCY_KEY_RESERVED",
+    "contentHash": "70c9f038a9a5a244abaac033a5f04a509a8ba67f8313b258178416a35a09ba79",
+    "status": "LIVE",
     "gateResults": {
       "packageEvidence": "PASS",
       "facts": "PASS",
       "policy": "PASS",
-      "targetUrl": "NOT_RUN",
-      "media": "NOT_RUN",
-      "html": "NOT_RUN",
-      "idempotency": "REJECT",
-      "duplicate": "NOT_RUN",
-      "insert": "NOT_RUN",
-      "readBack": "NOT_RUN",
-      "publishedUrl": "NOT_RUN"
+      "targetUrl": "PASS",
+      "media": "PASS",
+      "html": "PASS",
+      "idempotency": "PASS",
+      "duplicate": "PASS",
+      "insert": "PASS",
+      "readBack": "PASS",
+      "publishedUrl": "PASS"
     },
-    "createdAt": "2026-08-09T01:21:39.856Z"
+    "createdAt": "2026-08-04T02:08:16.865Z",
+    "postId": "2673705412085744449",
+    "publishedUrl": "https://hotroluoimangviettel.blogspot.com/2026/08/ussd-khong-chay-sau-tat-2g3g-kiem-tra.html",
+    "publishedAt": "2026-08-04T02:08:20.252Z"
   },
   {
     "idempotencyKey": "bb68c28d76530ff1d5b8ae1fd9766c7f003201ea84be948f87ba83d02aa8fc72",
@@ -317,7 +319,7 @@
     "topicId": "b5-complete-02",
     "contentVersion": "v1",
     "contentHash": "f063febc70ce3807b3f383359cc9fc430a25b42734d052538574f442ef15249e",
-    "status": "INSERT_STARTED",
+    "status": "VERIFY_FAILED",
     "gateResults": {
       "packageEvidence": "PASS",
       "facts": "PASS",
@@ -327,10 +329,11 @@
       "html": "PASS",
       "idempotency": "PASS",
       "duplicate": "PASS",
-      "insert": "NOT_RUN",
+      "insert": "REJECT",
       "readBack": "NOT_RUN",
       "publishedUrl": "NOT_RUN"
     },
-    "createdAt": "2026-08-09T01:21:39.856Z"
+    "createdAt": "2026-08-09T01:21:39.856Z",
+    "failureReason": "invalid_grant"
   }
 ]
