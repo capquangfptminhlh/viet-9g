@@ -24,7 +24,7 @@ export function serializePackageCatalog(catalog: unknown): string {
 }
 
 function normalizeLineEndings(value: string): string {
-  return value.replace(/\r\n/g, '\n');
+  return value.replace(/\r+\n/g, '\n').replace(/\r/g, '\n');
 }
 
 export function buildPackageCatalog(existing?: any) {
