@@ -19,6 +19,10 @@ function stable(value: unknown): string {
   return JSON.stringify(value);
 }
 
+export function serializePackageCatalog(catalog: unknown): string {
+  return `${stable(catalog)}\n`;
+}
+
 function normalizeLineEndings(value: string): string {
   return value.replace(/\r\n/g, '\n');
 }
@@ -81,7 +85,7 @@ function readExisting() {
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const existing = readExisting();
   const candidate = buildPackageCatalog(existing);
-  const serialized = `${stable(candidate)}\n`;
+  const serialized = serializePackageCatalog(candidate);
   const check = process.argv.includes('--check');
 
   if (check) {

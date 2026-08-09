@@ -88,12 +88,14 @@ describe('customer package routes', () => {
     expect(getPackageRoutes(perDayOnly as any, now)[0]).not.toHaveProperty('dataAllowance');
   });
 
-  it('returns incomplete catalog records as legacy routes without price or CTA data', () => {
+  it('returns evidence-backed records as routes and keeps the remaining catalog metadata-only', () => {
     const catalog = loadPackageCatalog();
     const legacy = getLegacyPackageRoutes(catalog, now);
+    const verified = getPackageRoutes(catalog, now);
 
-    expect(getPackageRoutes(catalog, now)).toEqual([]);
-    expect(legacy).toHaveLength(41);
+    expect(verified).toHaveLength(15);
+    expect(verified.every((pkg) => pkg.registration === undefined)).toBe(true);
+    expect(legacy).toHaveLength(26);
     expect(legacy[0]).toMatchObject({ reason: 'INCOMPLETE_EVIDENCE' });
     expect(legacy[0]).toMatchObject({ indexable: false });
     expect(legacy[0]).not.toHaveProperty('priceVnd');

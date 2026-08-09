@@ -13,10 +13,10 @@ describe('package catalog migration', () => {
   it('preserves all legacy package IDs and keeps activation evidence explicit', () => {
     const catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
     expect(catalog.packages).toHaveLength(41);
-    expect(catalog.packages.filter((pkg: any) => pkg.status === 'active')).toHaveLength(15);
+    expect(catalog.packages.filter((pkg: any) => pkg.status === 'eligibility_required')).toHaveLength(15);
     expect(catalog.packages.filter((pkg: any) => pkg.status === 'operator_verified')).toHaveLength(26);
     expect(catalog.packages.every((pkg: any) => pkg.registration?.smsNumber === 290 && / GB$/.test(pkg.registration.syntax))).toBe(true);
-    expect(catalog.packages.filter((pkg: any) => pkg.status === 'active').every((pkg: any) => pkg.factIds.length > 0)).toBe(true);
+    expect(catalog.packages.filter((pkg: any) => pkg.status === 'eligibility_required').every((pkg: any) => pkg.factIds.length > 0)).toBe(true);
     expect(catalog.sourceSnapshot.sha256).toBe(crypto.createHash('sha256').update(fs.readFileSync(path.join(root, 'src', 'data', 'packages.ts'))).digest('hex'));
   });
 
@@ -34,10 +34,12 @@ describe('package catalog migration', () => {
     });
   });
 
-  it('does not expose legacy records as public packages without complete facts', () => {
+  it('exposes only source-backed package facts and withholds unsupported partner SMS CTAs', () => {
     const catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
     expect(catalog.packages).toHaveLength(41);
-    expect(VIETTEL_PACKAGES).toEqual([]);
+    expect(VIETTEL_PACKAGES).toHaveLength(15);
+    expect(VIETTEL_PACKAGES.every((pkg) => pkg.price > 0 && pkg.duration.length > 0)).toBe(true);
+    expect(VIETTEL_PACKAGES.every((pkg) => pkg.registrationEligible === false)).toBe(true);
   });
 
   it('runs a deterministic no-write migration check', () => {
