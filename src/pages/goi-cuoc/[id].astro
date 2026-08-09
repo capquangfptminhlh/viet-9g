@@ -4,19 +4,14 @@ import DynamicPostPage from '../../components/DynamicPostPage';
 import { getPackageRoutes } from '../../data/package-routes';
 
 export async function getStaticPaths() {
-  return getPackageRoutes().map(pkg => ({
+  return getPackageRoutes().map((pkg) => ({
     params: { id: pkg.id.toLowerCase() },
     props: { pkg },
   }));
 }
 
 const { pkg } = Astro.props;
-
-// Mock persistent config
-const mockConfig = { agentCode: 'GB', supportPhone: '1800.8098', zaloLink: 'https://zalo.me/18008098', agentName: 'Kênh CTV' };
 ---
-<BaseLayout title={`Đăng ký gói cước ${pkg.name} Viettel`} description={pkg.description}>
-  <div class="flex-1">
-    <DynamicPostPage pkg={pkg} config={mockConfig} client:load />
-  </div>
+<BaseLayout title={`Gói ${pkg.name} Viettel`} description={pkg.description}>
+  <DynamicPostPage pkg={pkg} />
 </BaseLayout>

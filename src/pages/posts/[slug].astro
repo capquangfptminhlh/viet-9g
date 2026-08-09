@@ -3,6 +3,9 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import { getGuidePackageLinks } from '../../data/editorial-links';
+import { loadPackageCatalog } from '../../data/package-catalog';
+import { getVerifiedPackages } from '../../data/verified-package';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -19,6 +22,7 @@ interface Props {
 const { entry } = Astro.props;
 // @ts-ignore
 const { Content } = await entry.render();
+const relatedPackageLinks = getGuidePackageLinks(entry.slug, getVerifiedPackages(loadPackageCatalog()));
 
 // Rút trích tiêu đề H1 từ markdown nếu có, hoặc dùng slug
 const contentStr = entry.body || '';
@@ -56,7 +60,7 @@ const heroImage = getPostImage(entry.slug, displayTitle);
 
 // Giả lập config rỗng cho Header/Footer (vì chúng được fetch từ local storage ở client)
 ---
-<BaseLayout title={`${displayTitle} | Tra cứu & Đăng ký Viettel`}>
+<BaseLayout title={`${displayTitle} | TraCuuGoiCuoc.com`}>
   <Header client:load />
   
   <div class="bg-[#f8fafc] min-h-screen py-8 pt-24 font-sans">
@@ -81,12 +85,12 @@ const heroImage = getPostImage(entry.slug, displayTitle);
               5G
             </div>
             <div>
-              <p class="text-xs font-extrabold text-gray-900 uppercase">Kênh Tiếp Thị Đại Lý Viettel</p>
-              <p class="text-[11px] text-gray-500">Cú pháp SMS 290 miễn phí • Cập nhật 2026</p>
+              <p class="text-xs font-extrabold text-gray-900 uppercase">TraCuuGoiCuoc.com</p>
+              <p class="text-[11px] text-gray-500">Nội dung tham khảo theo nguồn được dẫn</p>
             </div>
           </div>
           <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-red-50 text-red-600 border border-red-100">
-            ✓ Thông tin chính thức
+            Nội dung tham khảo
           </span>
         </div>
 
@@ -113,18 +117,33 @@ const heroImage = getPostImage(entry.slug, displayTitle);
           <Content />
         </article>
 
+        {relatedPackageLinks.length > 0 && (
+          <aside class="mt-10 rounded-2xl border border-red-100 bg-red-50 p-6" aria-label="Gói cước liên quan">
+            <h2 class="text-lg font-extrabold text-gray-900">Gói cước liên quan</h2>
+            <ul class="mt-3 flex flex-wrap gap-3">
+              {relatedPackageLinks.map(({ href, label }) => (
+                <li>
+                  <a href={href} class="inline-flex rounded-full bg-white px-4 py-2 text-sm font-bold text-red-600 shadow-sm ring-1 ring-red-100 transition-colors hover:bg-red-100">
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </aside>
+        )}
+
         {/* Bottom Interactive CTA Box */}
         <div class="mt-14 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg relative overflow-hidden">
           <div class="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
             <div>
               <span class="text-xs font-bold uppercase tracking-widest bg-white/20 px-2.5 py-1 rounded-full">
-                Hỗ Trợ Nhanh 24/7
+                Danh mục gói cước
               </span>
               <h3 class="text-xl sm:text-2xl font-black mt-2">
-                Bạn cần tìm gói cước phù hợp với SIM của mình?
+                Bạn cần so sánh các gói có thông tin còn hiệu lực?
               </h3>
               <p class="text-sm text-red-100 mt-1">
-                Tra cứu ưu đãi Data & Thoại chính xác nhất hoặc liên hệ tổng đài chăm sóc khách hàng miễn phí.
+                Xem các gói có fact nguồn, giá trị và điều kiện được hiển thị rõ trên từng trang.
               </p>
             </div>
             <div class="flex flex-col sm:flex-row gap-3 shrink-0 w-full sm:w-auto">
@@ -132,7 +151,7 @@ const heroImage = getPostImage(entry.slug, displayTitle);
                 href="/"
                 class="inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-extrabold bg-white text-red-600 hover:bg-red-50 transition-colors shadow-md min-h-[48px]"
               >
-                Tra Cứu Gói Cước Ngay →
+                Xem danh mục gói →
               </a>
             </div>
           </div>

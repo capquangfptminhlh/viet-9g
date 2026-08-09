@@ -2,47 +2,26 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-
 ---
-<BaseLayout title="Về Chúng Tôi | Đại Lý Tra Cứu Gói Cước Viettel">
+<BaseLayout title="Về chúng tôi | TraCuuGoiCuoc.com">
   <Header client:load />
-  
-  <main class="max-w-4xl mx-auto px-4 py-12 bg-white rounded-xl shadow-sm my-8 font-sans">
-    <h1 class="text-3xl font-black text-gray-900 mb-6 border-b-2 border-red-600 pb-2 inline-block uppercase">Về Chúng Tôi</h1>
-    
-    <div class="space-y-6 text-gray-700 leading-relaxed">
+  <main class="mx-auto my-8 max-w-4xl rounded-xl bg-white px-4 py-12 font-sans shadow-sm">
+    <h1 class="mb-6 inline-block border-b-2 border-red-600 pb-2 text-3xl font-black text-gray-900">Về chúng tôi</h1>
+    <div class="space-y-6 leading-relaxed text-gray-700">
       <section>
-        <h2 class="text-xl font-bold text-red-700 mb-3">TraCuuGoiCuoc.com là ai?</h2>
-        <p>
-          Chào mừng quý khách đến với <strong>TraCuuGoiCuoc.com</strong>! Chúng tôi là một <strong>kênh tiếp thị và đại lý cung cấp dịch vụ</strong> độc lập, hỗ trợ khách hàng dễ dàng tìm kiếm, so sánh và đăng ký các gói cước 4G/5G của Viettel Telecom thông qua mã đại lý được cấp phép.
-        </p>
-        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mt-4">
-          <p class="text-sm text-yellow-900 italic font-medium">
-            <strong>Miễn trừ trách nhiệm:</strong> Trang web này <strong>KHÔNG</strong> phải là trang web chính thức của Tổng Công Ty Viễn Thông Viettel (Viettel Telecom). 
-            Tất cả mức giá, ưu đãi và điều kiện đăng ký đều phụ thuộc hoàn toàn vào hệ thống của nhà mạng tại thời điểm đăng ký.
-          </p>
-        </div>
+        <h2 class="mb-3 text-xl font-bold text-red-700">Vai trò của website</h2>
+        <p><strong>TraCuuGoiCuoc.com</strong> là kênh giới thiệu/CTV độc lập, cung cấp nội dung tham khảo để người dùng tìm hiểu và so sánh gói cước. Website không phải là website do Viettel Telecom sở hữu hoặc vận hành.</p>
       </section>
-
       <section>
-        <h2 class="text-xl font-bold text-red-700 mb-3">Mã Đại Lý và Tổng Đài 290 là gì?</h2>
-        <p>
-          Thông tin đăng ký chỉ được hiển thị khi cú pháp của từng gói đã có dữ liệu xác minh. Điều khoản gói và việc đăng ký do Viettel xác nhận.
-        </p>
-        <p class="mt-2">
-          Việc đăng ký thông qua mã đại lý là hoàn toàn <strong>miễn phí</strong> (quý khách chỉ thanh toán đúng cước phí niêm yết của gói cước, bị trừ vào tài khoản chính của SIM). 
-          Tổng đài <strong>290</strong> là kênh tiếp nhận đăng ký dịch vụ di động chính thức dành cho kênh đại lý của Viettel.
-        </p>
+        <h2 class="mb-3 text-xl font-bold text-red-700">Dữ liệu và khả năng đăng ký</h2>
+        <p>Thông tin chỉ được công khai khi có fact nguồn còn hiệu lực. Giá, ưu đãi, điều kiện và khả năng đăng ký của mỗi thuê bao do hệ thống Viettel xác nhận tại thời điểm thực hiện.</p>
+        <p class="mt-2">Cú pháp đăng ký chỉ xuất hiện ở trang gói khi có bằng chứng nguồn cho đúng cú pháp đó. Nếu chưa có, trang sẽ hướng dẫn người dùng kiểm tra trực tiếp với Viettel.</p>
       </section>
-
       <section>
-        <h2 class="text-xl font-bold text-red-700 mb-3">Thông Tin Liên Hệ</h2>
-        <p>
-          Mọi thắc mắc cần hỗ trợ hoặc tư vấn thêm về dịch vụ, quý khách vui lòng truy cập trang <a href="/lien-he" class="text-blue-600 hover:underline font-bold">Liên hệ</a> để biết thêm chi tiết.
-        </p>
+        <h2 class="mb-3 text-xl font-bold text-red-700">Liên hệ</h2>
+        <p>Cần hỗ trợ thêm? Hãy xem trang <a href="/lien-he" class="font-bold text-blue-600 hover:underline">Liên hệ</a>.</p>
       </section>
     </div>
   </main>
-
   <Footer client:load />
 </BaseLayout>
