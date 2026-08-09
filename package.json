@@ -14,7 +14,9 @@
     "preview": "astro preview",
     "astro": "astro",
     "clean": "rm -rf dist server.js",
-    "k0:check": "node --import tsx scripts/k0-keyword-intelligence-check.mjs"
+    "k0:check": "node --import tsx scripts/k0-keyword-intelligence-check.mjs",
+    "blogger:auth:check": "tsx scripts/blogger-auth-preflight.ts",
+    "blogger:oauth:setup": "tsx scripts/blogger-oauth-setup.ts"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",

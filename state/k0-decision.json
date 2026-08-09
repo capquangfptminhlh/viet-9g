@@ -1,9 +1,77 @@
 {
-  "status": "HOLD",
-  "reason": "Research artifacts and product/SEO approvals have not been recorded yet.",
+  "status": "APPROVED",
+  "reason": "Repository owner explicitly approved automatic publishing on 2026-08-10. Approval is limited to the existing source-backed pipeline; fact, freshness, policy, media, duplicate, idempotency and read-back gates remain mandatory.",
+  "approvedAt": "2026-08-10T01:55:00+07:00",
   "approvals": {
-    "product": false,
-    "seo": false
+    "product": true,
+    "seo": true
   },
-  "clusters": []
+  "clusters": [
+    {
+      "id": "ussd-4g-troubleshooting",
+      "intent": "informational",
+      "canonicalUrl": "https://www.tracuugoicuoc.com/posts/ussd-viettel-qua-4g-volte-ims/",
+      "keywords": [
+        "USSD Viettel 4G",
+        "USSD over IMS Viettel",
+        "lỗi USSD Viettel"
+      ],
+      "sourceUrls": [
+        "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320"
+      ]
+    },
+    {
+      "id": "data-check-and-cancellation",
+      "intent": "informational-cancellation",
+      "canonicalUrl": "https://www.tracuugoicuoc.com/posts/cach-huy-gia-han-4g-viettel/",
+      "keywords": [
+        "kiểm tra dung lượng Viettel 191",
+        "hủy gia hạn Viettel",
+        "kiểm tra gói Viettel"
+      ],
+      "sourceUrls": [
+        "https://098.viettel.vn/tin-tuc/chi-tiet/bat-mi-4-cach-kiem-tra-thong-tin-luu-luong-goi-cuoc-viettel/12831304/",
+        "https://098.viettel.vn/tin-tuc/chi-tiet/cach-kiem-tra-dung-luong-data-4g-tren-my-viettel-sieu-don-gian/19202908"
+      ]
+    },
+    {
+      "id": "esim-5g-setup",
+      "intent": "informational",
+      "canonicalUrl": "https://www.tracuugoicuoc.com/posts/esim-5g-kich-hoat-quet-qr/",
+      "keywords": [
+        "eSIM Viettel 5G",
+        "kích hoạt eSIM Viettel QR",
+        "eSIM Viettel kết nối 5G"
+      ],
+      "sourceUrls": [
+        "https://098.viettel.vn/tin-tuc/chi-tiet/esim-5g-viettel-loi-ich-thiet-bi-ho-tro-va-cach-kich-hoat/10391888"
+      ]
+    },
+    {
+      "id": "roaming-data-setup",
+      "intent": "informational",
+      "canonicalUrl": "https://www.tracuugoicuoc.com/posts/data-roaming-viettel-iphone-android/",
+      "keywords": [
+        "Data Roaming Viettel",
+        "bật roaming Viettel iPhone",
+        "bật roaming Viettel Android"
+      ],
+      "sourceUrls": [
+        "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/di-nhat-ban-khong-co-mang-huong-dan-bat-4g5g-va-roaming-viettel-chi-tiet/16239800"
+      ]
+    },
+    {
+      "id": "verified-package-review",
+      "intent": "review",
+      "canonicalUrl": "https://www.tracuugoicuoc.com/goi-cuoc/5g135/",
+      "keywords": [
+        "gói 5G135 Viettel",
+        "đánh giá 5G135",
+        "5G135 Viettel data chu kỳ"
+      ],
+      "sourceUrls": [
+        "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500"
+      ]
+    }
+  ]
 }

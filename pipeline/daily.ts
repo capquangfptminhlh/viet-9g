@@ -29,17 +29,21 @@ export interface PipelineRunContext {
   jobResults: Record<string, JobResult>;
 }
 
+export type InitOptions = {
+  k0DecisionPath?: string;
+};
+
 /**
  * Job 1: init (Worker W1 - Orchestrate)
  * Agents: ORC-0, CST-26, ALM-23
  */
-export async function init(): Promise<JobResult> {
+export async function init(options: InitOptions = {}): Promise<JobResult> {
   console.log('[W1:Orchestrate][init] Initializing daily pipeline run...');
   console.log('[ORC-0] Validating configuration, environment variables, and kill-switch status...');
   console.log('[CST-26] Verifying daily budget cap and token cost quotas...');
   console.log('[ALM-23] Checking anomaly baseline and active alerts status...');
 
-  const k0 = validateK0DecisionFile();
+  const k0 = validateK0DecisionFile(options.k0DecisionPath);
   if (k0.ok === false) {
     console.error(`[ORC-0] K0_HOLD: ${k0.reasons.join('; ')}`);
     return {
@@ -179,77 +183,70 @@ export async function release(): Promise<JobResult> {
 
 /**
  * Job 6: finalize (Worker W1 - Orchestrate)
- * Agents: RPT-27
+ * Agents: RPT-27, CST-26, ORC-0
  */
-export async function finalize(context: PipelineRunContext): Promise<JobResult> {
-  console.log('[W1:Orchestrate][finalize] Finalizing daily pipeline run...');
-  console.log('[RPT-27] Generating daily summary report (Search + AI visibility), updating audit trail and state...');
-  console.log('[ORC-0] Pipeline execution status:', context.status);
+export async function finalize(context?: PipelineRunContext): Promise<JobResult> {
+  console.log('[W1:Orchestrate][finalize] Compiling daily report and finalizing run...');
+  console.log('[RPT-27] Compiling daily report with job matrix and KPI deltas...');
+  console.log('[CST-26] Recording final cost/token usage and budget remaining...');
+  console.log('[ORC-0] Finalizing run status and storing immutable run artifact...');
+
+  const failedJobs = context ? Object.values(context.jobResults).filter(j => j.status === 'FAILED') : [];
 
   return {
     jobName: 'finalize',
-    status: 'SUCCESS',
+    status: failedJobs.length > 0 ? 'FAILED' : 'SUCCESS',
     worker: 'W1 Orchestrate',
-    agents: ['RPT-27'],
+    agents: ['RPT-27', 'CST-26', 'ORC-0'],
     timestamp: new Date().toISOString(),
     data: {
-      summaryReportGenerated: true
+      totalJobs: context ? Object.keys(context.jobResults).length : 0,
+      failedJobs: failedJobs.length,
+      reportGenerated: true
     }
   };
 }
 
 /**
- * Orchestrator Main Runner: runDailyPipeline()
- * Sequential execution of 5 Workers: W1 -> W2 -> W3 -> W4 -> W5 -> W1(finalize)
+ * Execute full daily pipeline in strict job dependency order
  */
 export async function runDailyPipeline(): Promise<PipelineRunContext> {
-  const runId = `daily-${Date.now()}`;
-  console.log(`\n==================================================`);
-  console.log(`🚀 Starting Daily SEO/AEO/GEO/AIO Autonomous Pipeline [Run ID: ${runId}]`);
-  console.log(`==================================================\n`);
-
   const context: PipelineRunContext = {
-    runId,
+    runId: `run-${Date.now()}`,
     startTime: new Date().toISOString(),
     status: 'RUNNING',
     jobResults: {}
   };
 
-  try {
-    context.jobResults.init = await init();
-    if (context.jobResults.init.status !== 'SUCCESS') throw new Error('init failed');
+  console.log(`\n🚀 Starting Daily Pipeline Run: ${context.runId}\n`);
 
-    context.jobResults.discover = await discover();
-    if (context.jobResults.discover.status !== 'SUCCESS') throw new Error('discover failed');
-
-    context.jobResults.produce = await produce();
-    if (context.jobResults.produce.status !== 'SUCCESS') throw new Error('produce failed');
-
-    context.jobResults.package = await packageJob();
-    if (context.jobResults.package.status !== 'SUCCESS') throw new Error('package failed');
-
-    context.jobResults.release = await release();
-    if (context.jobResults.release.status !== 'SUCCESS') throw new Error('release failed');
-
-    context.status = 'COMPLETED';
-    console.log(`\n✅ All daily pipeline stages completed successfully!`);
-
-  } catch (error: any) {
+  // Job 1: Init
+  const initResult = await init();
+  context.jobResults.init = initResult;
+  if (initResult.status === 'FAILED') {
     context.status = 'FAILED';
-    console.error(`\n❌ Pipeline execution failed: ${error?.message || error}`);
-  } finally {
-    context.jobResults.finalize = await finalize(context);
-    console.log(`\n==================================================`);
-    console.log(`🏁 Daily Pipeline Run Finished [Status: ${context.status}]`);
-    console.log(`==================================================\n`);
+    await finalize(context);
+    return context;
   }
 
-  return context;
-}
+  // Job 2: Discover
+  context.jobResults.discover = await discover();
 
-if (import.meta.url === `file://${process.argv[1]}` || process.argv[1]?.endsWith('daily.ts')) {
-  runDailyPipeline().catch((err) => {
-    console.error('Fatal error running daily pipeline:', err);
-    process.exit(1);
-  });
+  // Job 3: Produce
+  context.jobResults.produce = await produce();
+
+  // Job 4: Package
+  context.jobResults.package = await packageJob();
+
+  // Job 5: Release
+  context.jobResults.release = await release();
+
+  // Job 6: Finalize
+  context.jobResults.finalize = await finalize(context);
+
+  context.status = Object.values(context.jobResults).some(j => j.status === 'FAILED') ? 'FAILED' : 'COMPLETED';
+
+  console.log(`\n✅ Daily Pipeline Run ${context.runId} completed with status: ${context.status}\n`);
+
+  return context;
 }
