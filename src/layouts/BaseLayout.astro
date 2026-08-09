@@ -61,11 +61,27 @@ if (resolvedPageType === 'article' && canonicalUrl.pathname.startsWith('/posts/'
   postMeta = postEntry?.data;
 }
 
-const description = descriptionProp
+function normalizeMetaDescription(value: string): string {
+  let normalized = value.replace(/\s+/g, ' ').trim();
+
+  if (normalized.length < 50) {
+    normalized = `${normalized} Xem hướng dẫn và điều kiện áp dụng trước khi thực hiện.`;
+  }
+
+  if (normalized.length <= 180) return normalized;
+
+  const candidate = normalized.slice(0, 179);
+  const lastSpace = candidate.lastIndexOf(' ');
+  const cutAt = lastSpace >= 130 ? lastSpace : 179;
+  return `${candidate.slice(0, cutAt).replace(/[\s,;:–—-]+$/u, '')}…`;
+}
+
+const rawDescription = descriptionProp
   ?? postMeta?.description
   ?? (title === defaultTitle
     ? defaultDescription
     : `${cleanPageName}. Nội dung tham khảo trên TraCuuGoiCuoc.com, ưu tiên dữ kiện có nguồn và điều kiện áp dụng được công bố rõ ràng.`);
+const description = normalizeMetaDescription(rawDescription);
 const publishedTime = publishedTimeProp ?? postMeta?.date?.toISOString();
 const modifiedTime = modifiedTimeProp ?? publishedTime;
 
