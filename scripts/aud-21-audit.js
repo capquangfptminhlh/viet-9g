@@ -36,11 +36,22 @@ function extractAll(content, regex) {
   return matches;
 }
 
+function decodeHtmlEntities(value) {
+  return value
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;|&apos;/gi, "'")
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+    .replace(/&amp;/gi, '&')
+    .replace(/&#x([0-9a-f]+);/gi, (_, hex) => String.fromCodePoint(Number.parseInt(hex, 16)))
+    .replace(/&#(\d+);/g, (_, decimal) => String.fromCodePoint(Number.parseInt(decimal, 10)));
+}
+
 function extractMeta(content, name) {
   const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const tagRegex = new RegExp(`<meta\\s+[^>]*(?:name|property)=["']${escaped}["'][^>]*>`, 'gi');
   const tags = content.match(tagRegex) ?? [];
-  return tags.map((tag) => tag.match(/content=["']([^"']*)["']/i)?.[1] ?? '');
+  return tags.map((tag) => decodeHtmlEntities(tag.match(/content=["']([^"']*)["']/i)?.[1] ?? ''));
 }
 
 function schemaHasType(value, expectedType) {
