@@ -30,5 +30,8 @@ jobs:
       - name: Unit and policy tests
         run: npm test
 
+      - name: Validate active keyword-intelligence approval (K0)
+        run: npm run k0:check
+
       - name: Static build and SEO/AEO/GEO gate
         run: npm run build
