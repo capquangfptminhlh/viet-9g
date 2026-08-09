@@ -34,6 +34,12 @@ jobs:
         run: npm ci
       - name: Run unit tests
         run: npm test -- tests/blogger
+      - name: Validate Blogger OAuth before ledger reservation
+        run: npx tsx scripts/blogger-auth-preflight.ts
+        env:
+          BLOGGER_OAUTH_CLIENT_ID: ${{ secrets.BLOGGER_OAUTH_CLIENT_ID }}
+          BLOGGER_OAUTH_CLIENT_SECRET: ${{ secrets.BLOGGER_OAUTH_CLIENT_SECRET }}
+          BLOGGER_REFRESH_TOKEN: ${{ secrets.BLOGGER_REFRESH_TOKEN }}
       - name: Validate keyword-intelligence approval (K0)
         run: npm run k0:check
       - name: Publish one Blogger post

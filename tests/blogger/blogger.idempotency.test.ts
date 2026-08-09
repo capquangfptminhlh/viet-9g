@@ -14,4 +14,43 @@ describe('Blogger idempotency', () => {
   it.each(['INSERT_STARTED', 'UNKNOWN'])('blocks retry for an existing %s record', (status) => {
     expect(canInsertDraft([{ idempotencyKey: 'same', status } as any], 'same')).toBe(false);
   });
+
+  it('allows retry for the narrowly proven legacy invalid_grant pre-insert failure', () => {
+    expect(canInsertDraft([{
+      idempotencyKey: 'same',
+      status: 'VERIFY_FAILED',
+      failureReason: 'invalid_grant',
+      gateResults: {
+        insert: 'REJECT',
+        readBack: 'NOT_RUN',
+        publishedUrl: 'NOT_RUN',
+      },
+    } as any], 'same')).toBe(true);
+  });
+
+  it('blocks invalid_grant retry when a post id exists', () => {
+    expect(canInsertDraft([{
+      idempotencyKey: 'same',
+      status: 'VERIFY_FAILED',
+      failureReason: 'invalid_grant',
+      postId: 'post-1',
+      gateResults: {
+        insert: 'REJECT',
+        readBack: 'NOT_RUN',
+        publishedUrl: 'NOT_RUN',
+      },
+    } as any], 'same')).toBe(false);
+  });
+
+  it('blocks retry when any same-key attempt reached a non-retryable state', () => {
+    expect(canInsertDraft([
+      {
+        idempotencyKey: 'same',
+        status: 'VERIFY_FAILED',
+        failureReason: 'invalid_grant',
+        gateResults: { insert: 'REJECT', readBack: 'NOT_RUN', publishedUrl: 'NOT_RUN' },
+      } as any,
+      { idempotencyKey: 'same', status: 'LIVE', postId: 'post-2', publishedUrl: 'https://example.blogspot.com/post-2' } as any,
+    ], 'same')).toBe(false);
+  });
 });
