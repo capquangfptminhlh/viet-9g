@@ -24,10 +24,11 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 const relatedPackageLinks = getGuidePackageLinks(entry.slug, getVerifiedPackages(loadPackageCatalog()));
 
-// Rút trích tiêu đề H1 từ markdown nếu có, hoặc dùng slug
+// Rút trích tiêu đề H1 từ markdown nếu có; nếu thiếu thì dùng title frontmatter trước khi fallback sang slug.
 const contentStr = entry.body || '';
 const titleMatch = contentStr.match(/^#\s+(.+)$/m);
-const displayTitle = titleMatch ? titleMatch[1] : entry.slug.replace(/-/g, ' ');
+const hasContentH1 = Boolean(titleMatch || /<h1(?:\s|>)/i.test(contentStr));
+const displayTitle = titleMatch ? titleMatch[1] : (entry.data?.title || entry.slug.replace(/-/g, ' '));
 
 // Hàm chọn ảnh minh họa cao cấp khớp chính xác với từng nội dung bài viết
 function getPostImage(slug: string, title: string) {
@@ -114,6 +115,7 @@ const heroImage = getPostImage(entry.slug, displayTitle);
 
         {/* Formatted Markdown Body */}
         <article class="viettel-post-content">
+          {!hasContentH1 && <h1>{displayTitle}</h1>}
           <Content />
         </article>
 
