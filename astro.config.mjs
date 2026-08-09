@@ -10,7 +10,9 @@ export default defineConfig({
   trailingSlash: 'never',
   integrations: [
     react(),
-    sitemap()
+    sitemap({
+      filter: (page) => new URL(page).pathname !== '/404',
+    })
   ],
   vite: {
     plugins: [
