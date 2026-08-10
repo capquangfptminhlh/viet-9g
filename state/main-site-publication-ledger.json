@@ -46,5 +46,13 @@
     "contentHash": "a8bf8599290727a6a474ea83a6f9170655c0f779e86dd378df0fe2a0dcc10402",
     "status": "PUBLISHED",
     "createdAt": "2026-08-09T00:43:55.932Z"
+  },
+  {
+    "idempotencyKey": "96782417aadd46168cc6643f9c8561c1c1a2ba9a5af48538444b6e29fee6e0f8",
+    "topicId": "topic-b1-iphone-data-roaming-duong-dan",
+    "slug": "topic-b1-iphone-data-roaming-duong-dan",
+    "contentHash": "624734fde8fcf53aac25c0c73643b240eb23a9f128508b13bef55a93dbb7ba02",
+    "status": "PUBLISHED",
+    "createdAt": "2026-08-10T00:45:57.669Z"
   }
 ]
