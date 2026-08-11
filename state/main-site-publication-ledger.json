@@ -54,5 +54,13 @@
     "contentHash": "624734fde8fcf53aac25c0c73643b240eb23a9f128508b13bef55a93dbb7ba02",
     "status": "PUBLISHED",
     "createdAt": "2026-08-10T00:45:57.669Z"
+  },
+  {
+    "idempotencyKey": "73412e70600b64a2ff856801d11654ee7bcd7e09db29804054a31baa027cf689",
+    "topicId": "topic-b1-android-data-roaming-duong-dan",
+    "slug": "topic-b1-android-data-roaming-duong-dan",
+    "contentHash": "83fccf8e414587ab291da12ad4046c97180eacbc1fc0094fb656b70891416490",
+    "status": "PUBLISHED",
+    "createdAt": "2026-08-11T00:45:31.246Z"
   }
 ]
