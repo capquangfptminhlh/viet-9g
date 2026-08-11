@@ -72,6 +72,20 @@
       "sourceUrls": [
         "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500"
       ]
+    },
+    {
+      "id": "roaming-japan-troubleshooting",
+      "intent": "troubleshooting",
+      "canonicalUrl": "https://www.tracuugoicuoc.com/posts/viettel-roaming-nhat-ban-khong-co-mang/",
+      "keywords": [
+        "Viettel roaming Nhật Bản không có mạng",
+        "SIM Viettel ở Nhật không vào được 4G 5G",
+        "roaming Viettel Nhật Bản có sóng không có Internet"
+      ],
+      "sourceUrls": [
+        "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/di-nhat-ban-khong-co-mang-huong-dan-bat-4g5g-va-roaming-viettel-chi-tiet/16239800",
+        "https://098.viettel.vn/tin-tuc/di-nhat-ban-khong-co-mang-huong-dan-bat-4g5g-va-roaming-viettel-chi-tiet/16239800"
+      ]
     }
   ]
 }
