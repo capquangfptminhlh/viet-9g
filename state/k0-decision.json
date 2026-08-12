@@ -100,6 +100,21 @@
         "https://www.viettel.vn/tin-tuc/chi-tiet/thong-bao-quan-trong-quy-dinh-bat-buoc-xac-thuc-lai-khuon-mat-khi-thay-doi-dien-thoai-ap-dung-tu-15062026/19138832/",
         "https://www.viettel.vn/tin-tuc/chi-tiet/thong-bao-thue-bao-viettel-bi-chan-do-chua-xac-thuc-thong-tin-huong-dan-cach-xu-ly/15333972/"
       ]
+    },
+    {
+      "id": "sim-ownership-verification",
+      "intent": "informational-verification",
+      "canonicalUrl": "https://www.tracuugoicuoc.com/posts/kiem-tra-sim-viettel-chinh-chu/",
+      "keywords": [
+        "kiểm tra SIM Viettel đã đăng ký chính chủ chưa",
+        "kiểm tra SIM chính chủ Viettel",
+        "TTTB gửi 1414 Viettel"
+      ],
+      "sourceUrls": [
+        "https://www.viettel.vn/tin-tuc/chi-tiet/3-cach-kiem-tra-sim-chinh-chu-nhanh-hoan-toan-mien-phi/15860752",
+        "https://098.viettel.vn/tin-tuc/chi-tiet/4-cach-kiem-tra-thong-tin-sim-viettel-online-nhanh-chinh-xac/12403664",
+        "https://www.viettel.vn/tin-tuc/chi-tiet/thong-bao-quan-trong-quy-dinh-bat-buoc-xac-thuc-lai-khuon-mat-khi-thay-doi-dien-thoai-ap-dung-tu-15062026/19138832/"
+      ]
     }
   ]
 }
