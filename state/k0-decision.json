@@ -115,6 +115,20 @@
         "https://098.viettel.vn/tin-tuc/chi-tiet/4-cach-kiem-tra-thong-tin-sim-viettel-online-nhanh-chinh-xac/12403664",
         "https://www.viettel.vn/tin-tuc/chi-tiet/thong-bao-quan-trong-quy-dinh-bat-buoc-xac-thuc-lai-khuon-mat-khi-thay-doi-dien-thoai-ap-dung-tu-15062026/19138832/"
       ]
+    },
+    {
+      "id": "mxh120-cancellation",
+      "intent": "transactional-cancellation",
+      "canonicalUrl": "https://www.tracuugoicuoc.com/posts/cach-huy-goi-mxh120/",
+      "keywords": [
+        "hủy MXH120",
+        "cách hủy gói MXH120 Viettel",
+        "hủy gia hạn MXH120"
+      ],
+      "sourceUrls": [
+        "https://098.viettel.vn/tin-tuc/chi-tiet/bung-no-trai-nghiem-facebook-tiktok-messenger-voi-goi-cuoc-mxh120-cua-viettel/12122652",
+        "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500"
+      ]
     }
   ]
 }
