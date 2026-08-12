@@ -86,6 +86,20 @@
         "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/di-nhat-ban-khong-co-mang-huong-dan-bat-4g5g-va-roaming-viettel-chi-tiet/16239800",
         "https://098.viettel.vn/tin-tuc/di-nhat-ban-khong-co-mang-huong-dan-bat-4g5g-va-roaming-viettel-chi-tiet/16239800"
       ]
+    },
+    {
+      "id": "sim-device-change-biometric-verification",
+      "intent": "troubleshooting-compliance",
+      "canonicalUrl": "https://www.tracuugoicuoc.com/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu/",
+      "keywords": [
+        "SIM Viettel lắp sang máy mới bị chặn 1 chiều",
+        "đổi điện thoại Viettel xác thực khuôn mặt 2 giờ",
+        "SIM Viettel đổi máy xác thực sinh trắc học"
+      ],
+      "sourceUrls": [
+        "https://www.viettel.vn/tin-tuc/chi-tiet/thong-bao-quan-trong-quy-dinh-bat-buoc-xac-thuc-lai-khuon-mat-khi-thay-doi-dien-thoai-ap-dung-tu-15062026/19138832/",
+        "https://www.viettel.vn/tin-tuc/chi-tiet/thong-bao-thue-bao-viettel-bi-chan-do-chua-xac-thuc-thong-tin-huong-dan-cach-xu-ly/15333972/"
+      ]
     }
   ]
 }
