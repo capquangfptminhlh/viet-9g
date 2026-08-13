@@ -1,4 +1,5 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "buildCommand": "npm test && npm run k0:check && npm run build"
 }
