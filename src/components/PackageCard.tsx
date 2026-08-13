@@ -1,5 +1,6 @@
 import React from 'react';
-import { ArrowRight, Crown, ExternalLink, Gift, Globe, Info, Zap } from 'lucide-react';
+import { ArrowRight, Crown, Gift, Globe, Info, Zap } from 'lucide-react';
+import { buildSmsUri } from '../config/agent-code';
 import type { VerifiedPackage } from '../data/verified-package';
 import { trackConversion } from '../utils/tracking';
 
@@ -13,9 +14,10 @@ export function canRegisterPackage(pkg: Pick<VerifiedPackage, 'registration'>): 
   return Boolean(pkg.registration);
 }
 
-export default function PackageCard({ pkg, onSelect, onOpenDetails }: PackageCardProps) {
+export default function PackageCard({ pkg, onOpenDetails }: PackageCardProps) {
   const dailyCost = Math.round(pkg.priceVnd / pkg.durationDays);
   const registrationEligible = canRegisterPackage(pkg);
+  const smsRegistrationUri = buildSmsUri(pkg.code);
 
   const getTheme = () => {
     if (pkg.category === 'social' || pkg.name.includes('MXH')) {
@@ -90,20 +92,17 @@ export default function PackageCard({ pkg, onSelect, onOpenDetails }: PackageCar
           Chi tiết <Info className="w-4 h-4" />
         </button>
 
-        {registrationEligible ? (
-          <button type="button" onClick={() => {
-            trackConversion('click_register_sms', { package_id: pkg.id, price: pkg.priceVnd, name: pkg.name });
-            onSelect(pkg.id);
-          }} className="min-h-[44px] flex items-center justify-center gap-1.5 bg-[#e60000] text-white text-sm font-bold rounded-lg hover:bg-red-700 shadow-md transition-all active:scale-[0.98]">
-            Đăng ký <ArrowRight className="w-4 h-4" />
-          </button>
-        ) : (
-          <a href="https://098.viettel.vn/" target="_blank" rel="noopener noreferrer" onClick={() => trackConversion('click_register_official_viettel', { package_id: pkg.id, price: pkg.priceVnd, name: pkg.name })} className="min-h-[44px] flex items-center justify-center gap-1.5 bg-[#e60000] text-white text-sm font-bold rounded-lg hover:bg-red-700 shadow-md transition-all active:scale-[0.98]">
-            Đăng ký <ExternalLink className="w-4 h-4" />
-          </a>
-        )}
+        <a
+          href={smsRegistrationUri}
+          aria-label={`Đăng ký ${pkg.name}: ${pkg.code} GB gửi 290`}
+          onClick={() => trackConversion('click_register_sms_gb290', { package_id: pkg.id, package_code: pkg.code, price: pkg.priceVnd, name: pkg.name })}
+          className="min-h-[44px] flex items-center justify-center gap-1.5 bg-[#e60000] text-white text-sm font-bold rounded-lg hover:bg-red-700 shadow-md transition-all active:scale-[0.98]"
+        >
+          Đăng ký <ArrowRight className="w-4 h-4" />
+          {registrationEligible && <span className="sr-only">Soạn tin đăng ký</span>}
+        </a>
       </div>
-      {!registrationEligible && <p className="px-4 pb-4 -mt-1 text-center text-[10px] leading-relaxed text-gray-500">Chưa có cú pháp SMS được xác minh trong dữ liệu site; nút đăng ký mở kênh Viettel để kiểm tra theo thuê bao.</p>}
+      <p className="px-4 pb-4 -mt-1 text-center text-[10px] leading-relaxed text-gray-500">Cú pháp trên nút đăng ký: {pkg.code} GB gửi 290.</p>
     </article>
   );
 }
