@@ -3,9 +3,9 @@ import { BookOpen, CheckCircle2, ExternalLink, Info, Search, ShieldCheck } from 
 
 const packageLinks = [
   ['Gói data', '/goi-cuoc/data'],
-  ['Gói mạng xã hội', '/goi-cuoc/social'],
+  ['Gói mạng xã hội', '/goi-cuoc/mang-xa-hoi'],
   ['Gói combo thoại + data', '/goi-cuoc/combo'],
-  ['Gói chu kỳ dài', '/goi-cuoc/long_term'],
+  ['Gói chu kỳ dài', '/goi-cuoc/chu-ky-dai'],
 ];
 
 const guideLinks = [
