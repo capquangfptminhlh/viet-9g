@@ -1,5 +1,5 @@
 import React from 'react';
-import { Globe, Zap, Gift, Info, ArrowRight, Crown } from 'lucide-react';
+import { ArrowRight, Crown, ExternalLink, Gift, Globe, Info, Zap } from 'lucide-react';
 import type { VerifiedPackage } from '../data/verified-package';
 import { trackConversion } from '../utils/tracking';
 
@@ -15,6 +15,7 @@ export function canRegisterPackage(pkg: Pick<VerifiedPackage, 'registration'>): 
 
 export default function PackageCard({ pkg, onSelect, onOpenDetails }: PackageCardProps) {
   const dailyCost = Math.round(pkg.priceVnd / pkg.durationDays);
+  const registrationEligible = canRegisterPackage(pkg);
 
   const getTheme = () => {
     if (pkg.category === 'social' || pkg.name.includes('MXH')) {
@@ -35,11 +36,8 @@ export default function PackageCard({ pkg, onSelect, onOpenDetails }: PackageCar
 
   const theme = getTheme();
   return (
-    <article 
-      className="bg-white rounded-2xl flex flex-col justify-between overflow-hidden relative group transition-all duration-300 shadow-sm hover:shadow-md border border-gray-200"
-    >
+    <article className="bg-white rounded-2xl flex flex-col justify-between overflow-hidden relative group transition-all duration-300 shadow-sm hover:shadow-md border border-gray-200">
       <div className="p-4 sm:p-5 flex-1 flex flex-col">
-        {/* Top Badges */}
         <div className="flex items-center justify-between mb-4">
           <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full ${theme.lightBg} ${theme.text} text-[10px] font-bold uppercase tracking-wider`}>
             <Crown className="w-3.5 h-3.5" />
@@ -50,47 +48,26 @@ export default function PackageCard({ pkg, onSelect, onOpenDetails }: PackageCar
           </div>
         </div>
 
-        {/* Name & Price */}
         <div className="text-center mb-5">
-          <h3 className="text-3xl sm:text-4xl font-black text-[#e60000] tracking-tight mb-2">
-            {pkg.name}
-          </h3>
+          <h3 className="text-3xl sm:text-4xl font-black text-[#e60000] tracking-tight mb-2">{pkg.name}</h3>
           <div className="flex items-baseline justify-center gap-1 mb-1">
-            <span className="text-2xl sm:text-3xl font-black text-gray-900">
-              {pkg.priceVnd.toLocaleString('vi-VN')}đ
-            </span>
-            <span className="text-xs text-gray-500 font-medium uppercase">
-              / {pkg.durationDays} ngày
-            </span>
+            <span className="text-2xl sm:text-3xl font-black text-gray-900">{pkg.priceVnd.toLocaleString('vi-VN')}đ</span>
+            <span className="text-xs text-gray-500 font-medium uppercase">/ {pkg.durationDays} ngày</span>
           </div>
-          <p className="text-xs text-gray-500">
-            ≈ {dailyCost.toLocaleString('vi-VN')}đ / ngày
-          </p>
+          <p className="text-xs text-gray-500">≈ {dailyCost.toLocaleString('vi-VN')}đ / ngày</p>
         </div>
 
-        {/* Data Box */}
         <div className={`rounded-xl border ${theme.border} ${theme.lightBg} p-3.5 mb-4 flex items-center justify-between`}>
           {pkg.dataAllowance && <div className={`flex flex-col gap-1 ${pkg.dataPerDay ? 'w-1/2 border-r border-gray-200/50' : 'w-full'}`}>
-            <div className="flex items-center gap-1.5 text-gray-600 text-[11px]">
-              <Globe className={`w-3.5 h-3.5 ${theme.text}`} />
-              Tổng dung lượng
-            </div>
-            <div className="text-xl sm:text-2xl font-black text-gray-900">
-              {pkg.dataAllowance}
-            </div>
+            <div className="flex items-center gap-1.5 text-gray-600 text-[11px]"><Globe className={`w-3.5 h-3.5 ${theme.text}`} />Tổng dung lượng</div>
+            <div className="text-xl sm:text-2xl font-black text-gray-900">{pkg.dataAllowance}</div>
           </div>}
           {pkg.dataPerDay && <div className={`flex flex-col gap-1 ${pkg.dataAllowance ? 'w-1/2 pl-4' : 'w-full'}`}>
-            <div className="flex items-center gap-1.5 text-gray-600 text-[11px]">
-              <Zap className={`w-3.5 h-3.5 ${theme.text}`} />
-              Data mỗi ngày
-            </div>
-            <div className="text-xl sm:text-2xl font-black text-gray-900">
-              {pkg.dataPerDay}
-            </div>
+            <div className="flex items-center gap-1.5 text-gray-600 text-[11px]"><Zap className={`w-3.5 h-3.5 ${theme.text}`} />Data mỗi ngày</div>
+            <div className="text-xl sm:text-2xl font-black text-gray-900">{pkg.dataPerDay}</div>
           </div>}
         </div>
 
-        {/* Verified benefits */}
         <div className="space-y-2.5 mb-5 flex-1">
           {pkg.benefits.slice(0, 3).map((benefit, index) => (
             <div key={`${pkg.id}-benefit-${index}`} className="flex items-start gap-2 text-sm text-gray-700">
@@ -102,40 +79,31 @@ export default function PackageCard({ pkg, onSelect, onOpenDetails }: PackageCar
           ))}
         </div>
 
-        {/* Bottom Feature Box */}
         <div className={`p-3 rounded-lg ${theme.lightBg} border ${theme.border} flex items-center gap-3`}>
-          <div className={`w-10 h-10 rounded-md shrink-0 flex items-center justify-center ${theme.text === 'text-[#6d28d9]' ? 'bg-[#6d28d9]' : 'bg-[#e60000]'}`}>
-             <Gift className="w-5 h-5 text-white" />
-          </div>
-          <p className="text-[11px] text-gray-700 leading-snug line-clamp-3">
-            {pkg.eligibility[0] ?? pkg.description}
-          </p>
+          <div className={`w-10 h-10 rounded-md shrink-0 flex items-center justify-center ${theme.text === 'text-[#6d28d9]' ? 'bg-[#6d28d9]' : 'bg-[#e60000]'}`}><Gift className="w-5 h-5 text-white" /></div>
+          <p className="text-[11px] text-gray-700 leading-snug line-clamp-3">{pkg.eligibility[0] ?? pkg.description}</p>
         </div>
       </div>
 
-      {/* Action Buttons */}
-      <div className="p-4 pt-0 flex items-center gap-3">
-        <button
-          type="button"
-          onClick={() => onOpenDetails(pkg)}
-          className="flex-1 min-h-[44px] flex items-center justify-center gap-1.5 bg-white border border-[#e60000] text-[#e60000] text-sm font-bold rounded-lg hover:bg-red-50 transition-colors"
-        >
-          Chi tiết
-          <Info className="w-4 h-4" />
+      <div className="p-4 pt-0 grid grid-cols-2 gap-3">
+        <button type="button" onClick={() => onOpenDetails(pkg)} className="min-h-[44px] flex items-center justify-center gap-1.5 bg-white border border-[#e60000] text-[#e60000] text-sm font-bold rounded-lg hover:bg-red-50 transition-colors">
+          Chi tiết <Info className="w-4 h-4" />
         </button>
 
-        {canRegisterPackage(pkg) && <button
-          type="button"
-          onClick={() => {
+        {registrationEligible ? (
+          <button type="button" onClick={() => {
             trackConversion('click_register_sms', { package_id: pkg.id, price: pkg.priceVnd, name: pkg.name });
             onSelect(pkg.id);
-          }}
-          className="flex-[1.5] min-h-[44px] flex items-center justify-center gap-1.5 bg-[#e60000] text-white text-sm font-bold rounded-lg hover:bg-red-700 shadow-md transition-all active:scale-[0.98]"
-        >
-          Soạn tin đăng ký
-          <ArrowRight className="w-4 h-4" />
-        </button>}
+          }} className="min-h-[44px] flex items-center justify-center gap-1.5 bg-[#e60000] text-white text-sm font-bold rounded-lg hover:bg-red-700 shadow-md transition-all active:scale-[0.98]">
+            Đăng ký <ArrowRight className="w-4 h-4" />
+          </button>
+        ) : (
+          <a href="https://098.viettel.vn/" target="_blank" rel="noopener noreferrer" onClick={() => trackConversion('click_register_official_viettel', { package_id: pkg.id, price: pkg.priceVnd, name: pkg.name })} className="min-h-[44px] flex items-center justify-center gap-1.5 bg-[#e60000] text-white text-sm font-bold rounded-lg hover:bg-red-700 shadow-md transition-all active:scale-[0.98]">
+            Đăng ký <ExternalLink className="w-4 h-4" />
+          </a>
+        )}
       </div>
+      {!registrationEligible && <p className="px-4 pb-4 -mt-1 text-center text-[10px] leading-relaxed text-gray-500">Chưa có cú pháp SMS được xác minh trong dữ liệu site; nút đăng ký mở kênh Viettel để kiểm tra theo thuê bao.</p>}
     </article>
   );
 }
