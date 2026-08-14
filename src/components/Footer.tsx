@@ -11,7 +11,7 @@ const packageLinks = [
 const guideLinks = [
   ['Tin tức & Hướng dẫn', '/tin-tuc'],
   ['Kiểm tra dung lượng', '/posts/cú-pháp-kiểm-tra-dung-lượng-data-4g-viettel-còn-lại'],
-  ['Hủy gia hạn 4G', '/posts/cach-huy-gia-han-4g-viettel'],
+  ['Quản lý gói 4G', '/posts/cach-huy-gia-han-4g-viettel'],
   ['Kiểm tra số điện thoại', '/posts/cach-kiem-tra-so-dien-thoai-viettel-dang-dung'],
 ];
 
