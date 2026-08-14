@@ -1,0 +1,34 @@
+cluster_id,priority_score,priority_tier,reason,evidence_refs
+core-packages,94,P0,Primary acquisition hub and canonical owner for generic Viettel package commercial intent; score is qualitative evidence-based prioritization not search volume.,SERP-CORE|official-package-catalog
+data-packages,92,P0,Core commercial category with direct package relevance and verified catalog support; preserve existing canonical owner.,SERP-CORE|official-package-catalog
+fiveg-packages,93,P0,Strategic 5G commercial category with official dedicated Viettel source and package entities.,SERP-5G|official-5g
+combo-packages,82,P1,Commercial category closely tied to V/5GB/MXH package entities and conversion path.,SERP-CORE|official-package-catalog
+social-packages,84,P1,Clear social-app use case supported by official MXH evidence and strong package relevance.,SERP-MXH|official-mxh120
+pkg-5g135,92,P0,Verified package entity already has durable canonical owner and direct registration intent.,official-package-catalog
+pkg-5g150,92,P0,Verified package entity already has durable canonical owner and direct registration intent.,official-package-catalog
+pkg-5g160b,80,P1,Verified 5G combo package entity with direct commercial intent.,official-package-catalog
+pkg-5g180b,80,P1,Verified 5G combo package entity with direct commercial intent.,official-package-catalog
+pkg-sd70,78,P1,Verified data package entity and long-tail commercial owner.,official-package-catalog
+pkg-sd90,88,P0,Verified package entity and high strategic price/data intersection without inventing quantitative demand.,official-package-catalog
+pkg-sd120,88,P0,Verified package entity and high strategic price/data intersection without inventing quantitative demand.,official-package-catalog
+pkg-sd135,79,P1,Verified data package entity with comparison/attribute expansion potential.,official-package-catalog
+pkg-sd150,79,P1,Verified data package entity with comparison/attribute expansion potential.,official-package-catalog
+pkg-v90b,78,P1,Verified combo entity with data plus voice user job.,official-package-catalog
+pkg-v120b,81,P1,Verified combo entity with data plus voice user job.,official-package-catalog
+pkg-v160b,78,P1,Verified combo entity with data plus voice user job.,official-package-catalog
+pkg-mxh100,80,P1,Verified social package entity supporting category breadth.,SERP-MXH|official-package-catalog
+pkg-mxh120,90,P0,Verified package entity with first-party dedicated source and social/combo intent.,SERP-MXH|official-mxh120
+pkg-mxh150,80,P1,Verified social package entity supporting comparison family.,SERP-MXH|official-package-catalog
+data-check,91,P0,Evergreen support intent with official Viettel source and existing canonical owner.,SERP-DATACHECK|official-data-check
+esim-5g,83,P1,5G/eSIM setup intent has direct official guidance and strong topical authority value.,SERP-ESIM|official-esim
+mxh120-cancel,78,P1,Distinct support/cancellation job separated from package commercial owner.,SERP-MXH|existing-k0
+roaming-setup,79,P1,Support intent with official source and existing canonical owner.,SERP-ROAMING|official-roaming
+roaming-japan,66,P2,Specific troubleshooting long-tail with first-party evidence.,SERP-ROAMING|official-roaming
+ussd,65,P2,Technical support authority topic with first-party evidence.,SERP-USSD|official-ussd
+sim-device-change,70,P2,Fresh compliance/troubleshooting topic with first-party evidence.,SERP-SIM|official-sim-verification
+sim-owner,69,P2,Evergreen SIM verification support intent with first-party evidence.,SERP-SIM|official-sim-ownership
+price-bands,62,HOLD,Commercial SERP pattern exists but clean URL owners require GSC/query-page evidence and per-band SERP gap before indexing.,SERP-PRICE|GSC-UNKNOWN
+data-per-day,61,HOLD,Attribute demand pattern exists but proposed clean landings must prove independent search job versus category/package pages.,SERP-DATA|GSC-UNKNOWN
+comparisons,67,HOLD,Comparison SERPs exist; each proposed URL needs independent intent evidence and package-source freshness before approval.,SERP-CMP5G|SERP-CMPSD|SERP-MXH
+use-cases,55,HOLD,Audience/use-case SERPs observed but standalone pages need measurable information gain and official facts for recommendations.,SERP-STUDENT|SERP-GAMING|SERP-OFFICE|SERP-HOTSPOT
+duration,58,HOLD,Duration intent exists including first-party one-year evidence but inventory and canonical-owner evidence is incomplete.,SERP-DURATION|SERP-12M
