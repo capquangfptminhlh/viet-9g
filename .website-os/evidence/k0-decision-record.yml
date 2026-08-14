@@ -1,15 +1,18 @@
-version: 1.0.0
-decision: PASS
-scope: existing-canonical-baseline-with-held-expansion
+version: 1.0.1
+decision: HOLD
+scope: full-keyword-architecture-and-existing-url-remediation
 observed_at: 2026-08-15T01:16:33+07:00
 website_os_source_repo: capquangfptminhlh/seo-web
 website_os_source_commit: 48182a858b728878b5913d262880c7facd1a1b70
 project_main_at_start: 0e239d82da42272205237e94ace815e1dc92e8a2
+hold_reason: >-
+  Fresh repository/build inspection found existing indexable editorial URLs that overlap package registration, comparison, one-day and audience intents.
+  A current Search Console query/page export was not available in this execution, so replacing, redirecting or merging those existing URLs would violate the existing-site preservation rule.
+  K0 therefore remains HOLD until the existing URL ownership conflicts are resolved with evidence; new expansion URLs must not be published.
 summary: >-
-  K0 PASS applies to the currently retained canonical category, package-entity and support owners documented in the evidence set.
-  Proposed price-band, data-per-day, comparison, duration and audience/use-case URLs are explicitly HOLD and MUST NOT be created or indexed
-  until a fresh expansion decision proves an independent SERP/user job, checks current site/GSC query-page ownership when available,
-  verifies Viettel source-of-truth facts, resolves duplicate/cannibalization risk and assigns one canonical owner.
+  The keyword universe, intent/cluster architecture, proposed canonical owners, entity/source map and priority model are established.
+  Retained category/package/support owners are documented, while price-band, data-per-day, duration and most use-case expansion candidates remain HOLD.
+  Existing live content discovered during the final build crawl must be reconciled before K0 can become PASS.
 metrics:
   search_volume: UNKNOWN
   keyword_difficulty: UNKNOWN
@@ -21,8 +24,10 @@ evidence:
   fresh_serp_observed: true
   official_viettel_sources_used_for_business_facts: true
   non_official_sources_used_only_for_serp_intent_or_gap_observation: true
-  gsc_first_party_export_available_in_this_execution: false
-  current_repo_owners_reviewed: true
+  current_repo_routes_reviewed: true
+  final_preview_build_routes_reviewed: true
+  historical_keyword_intelligence_workbook_found: true
+  gsc_first_party_query_page_export_available_in_this_execution: false
 coverage:
   core_head: PASS
   mid_tail: PASS
@@ -31,24 +36,36 @@ coverage:
   commercial: PASS
   informational: PASS
   support_problem: PASS
-  comparison: PASS
+  comparison: PARTIAL
   entity_product_package_model_sku: PASS
-  attribute: PASS
-  audience: PASS
-  use_case: PASS
+  attribute: PARTIAL
+  audience: PARTIAL
+  use_case: PARTIAL
   local_when_relevant: NOT_APPLICABLE
   freshness_when_relevant: PASS
   branded_navigational_when_relevant: PASS
   aeo_questions: PASS
   geo_entity_relations: PASS
 hard_rules:
-  one_primary_intent_entity_one_canonical_owner: PASS
-  high_risk_cannibalization_resolved: PASS
+  one_primary_intent_entity_one_canonical_owner: HOLD
+  high_risk_cannibalization_resolved: HOLD
   package_business_facts_require_source_of_truth: PASS
   new_url_requires_independent_intent_and_gap_evidence: PASS
   dynamic_facets_indexable_by_default: false
   unverified_expansion_status: HOLD
   local_name_substitution_scaling: false
+known_conflict_examples:
+  - package entity URLs versus existing exact-code registration articles such as MXH120, SD90, SD120 and V120B
+  - existing /posts/so-sanh-5g135-va-5g150-viettel/ versus any proposed new 5G135-vs-5G150 comparison URL
+  - existing one-day article versus a proposed /goi-cuoc/1-ngay/ landing
+  - existing student-focused article versus a proposed new student landing
+required_before_pass:
+  - obtain or regenerate a current Search Console query/page export when access is available
+  - inventory every existing indexable URL against the keyword/intent map
+  - select keep/update/merge/redirect/noindex/retarget for each high-risk collision
+  - preserve any URL with meaningful existing search performance unless evidence supports migration
+  - update url-ownership-map.csv and cannibalization-register.csv to reflect final owners
+  - rerun the Website OS K0 enforcement engine and retain machine evidence
 expansion_gates:
   require_fresh_serp: true
   require_existing_url_review: true
@@ -66,6 +83,6 @@ refresh:
     - new search intent or SERP composition materially differs
     - proposed URL is promoted from HOLD to indexable
 notes:
-  - This decision is not approval to publish all keyword candidates.
-  - One keyword family may contain many query variants while retaining a single canonical owner.
+  - HOLD is intentional and blocks content scaling; it is not a request to publish for quota.
+  - Historical K0 workbook records are supporting history only and do not override current repo/SERP evidence.
   - No search volume, KD, CPC, ranking or traffic-potential number is asserted without source provenance.
