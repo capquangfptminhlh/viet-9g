@@ -1,0 +1,51 @@
+keyword,query_pattern,primary_intent,cluster_id,target_url,status
+gói cước Viettel,gói cước Viettel | gói Viettel | gói Viettel mới nhất | gói Viettel 2026,COMMERCIAL,core-packages,https://www.tracuugoicuoc.com/goi-cuoc/,RETAINED
+gói data Viettel,gói data Viettel | data Viettel | gói 4G Viettel | đăng ký 4G Viettel,COMMERCIAL,data-packages,https://www.tracuugoicuoc.com/goi-cuoc/data/,RETAINED
+gói 5G Viettel,gói 5G Viettel | 5G Viettel | đăng ký 5G Viettel | gói 5G Viettel mới nhất,COMMERCIAL,fiveg-packages,https://www.tracuugoicuoc.com/goi-cuoc/5g/,RETAINED
+gói combo Viettel,gói combo Viettel | gói Viettel data và gọi | gói Viettel có phút gọi,COMMERCIAL,combo-packages,https://www.tracuugoicuoc.com/goi-cuoc/combo/,RETAINED
+gói mạng xã hội Viettel,gói mạng xã hội Viettel | gói TikTok Viettel | gói YouTube Viettel | gói Facebook Viettel,COMMERCIAL,social-packages,https://www.tracuugoicuoc.com/goi-cuoc/mang-xa-hoi/,RETAINED
+5G135,5G135 | gói 5G135 | 5G135 giá bao nhiêu | 5G135 bao nhiêu GB | đăng ký 5G135,COMMERCIAL,pkg-5g135,https://www.tracuugoicuoc.com/goi-cuoc/5g135/,RETAINED
+5G150,5G150 | gói 5G150 | 5G150 giá bao nhiêu | 5G150 bao nhiêu GB | đăng ký 5G150,COMMERCIAL,pkg-5g150,https://www.tracuugoicuoc.com/goi-cuoc/5g150/,RETAINED
+5G160B,5G160B | gói 5G160B | 5G160B giá bao nhiêu | đăng ký 5G160B,COMMERCIAL,pkg-5g160b,https://www.tracuugoicuoc.com/goi-cuoc/5g160b/,RETAINED
+5G180B,5G180B | gói 5G180B | 5G180B giá bao nhiêu | đăng ký 5G180B,COMMERCIAL,pkg-5g180b,https://www.tracuugoicuoc.com/goi-cuoc/5g180b/,RETAINED
+SD70,SD70 | gói SD70 | SD70 giá bao nhiêu | đăng ký SD70,COMMERCIAL,pkg-sd70,https://www.tracuugoicuoc.com/goi-cuoc/sd70/,RETAINED
+SD90,SD90 | gói SD90 | SD90 giá bao nhiêu | đăng ký SD90,COMMERCIAL,pkg-sd90,https://www.tracuugoicuoc.com/goi-cuoc/sd90/,RETAINED
+SD120,SD120 | gói SD120 | SD120 giá bao nhiêu | đăng ký SD120,COMMERCIAL,pkg-sd120,https://www.tracuugoicuoc.com/goi-cuoc/sd120/,RETAINED
+SD135,SD135 | gói SD135 | SD135 giá bao nhiêu | đăng ký SD135,COMMERCIAL,pkg-sd135,https://www.tracuugoicuoc.com/goi-cuoc/sd135/,RETAINED
+SD150,SD150 | gói SD150 | SD150 giá bao nhiêu | đăng ký SD150,COMMERCIAL,pkg-sd150,https://www.tracuugoicuoc.com/goi-cuoc/sd150/,RETAINED
+V90B,V90B | gói V90B | V90B giá bao nhiêu | đăng ký V90B,COMMERCIAL,pkg-v90b,https://www.tracuugoicuoc.com/goi-cuoc/v90b/,RETAINED
+V120B,V120B | gói V120B | V120B giá bao nhiêu | đăng ký V120B,COMMERCIAL,pkg-v120b,https://www.tracuugoicuoc.com/goi-cuoc/v120b/,RETAINED
+V160B,V160B | gói V160B | V160B giá bao nhiêu | đăng ký V160B,COMMERCIAL,pkg-v160b,https://www.tracuugoicuoc.com/goi-cuoc/v160b/,RETAINED
+MXH100,MXH100 | gói MXH100 | MXH100 giá bao nhiêu | đăng ký MXH100,COMMERCIAL,pkg-mxh100,https://www.tracuugoicuoc.com/goi-cuoc/mxh100/,RETAINED
+MXH120,MXH120 | gói MXH120 | MXH120 giá bao nhiêu | đăng ký MXH120,COMMERCIAL,pkg-mxh120,https://www.tracuugoicuoc.com/goi-cuoc/mxh120/,RETAINED
+MXH150,MXH150 | gói MXH150 | MXH150 giá bao nhiêu | đăng ký MXH150,COMMERCIAL,pkg-mxh150,https://www.tracuugoicuoc.com/goi-cuoc/mxh150/,RETAINED
+kiểm tra dung lượng Viettel,kiểm tra dung lượng Viettel | kiểm tra data Viettel | kiểm tra gói đang dùng,SUPPORT,data-check,https://www.tracuugoicuoc.com/posts/cach-huy-gia-han-4g-viettel/,RETAINED
+eSIM 5G Viettel,eSIM Viettel | kích hoạt eSIM Viettel QR | eSIM có dùng 5G Viettel không,INFORMATIONAL,esim-5g,https://www.tracuugoicuoc.com/posts/esim-5g-kich-hoat-quet-qr/,RETAINED
+hủy MXH120,hủy MXH120 | cách hủy gói MXH120 | hủy gia hạn MXH120,SUPPORT,mxh120-cancel,https://www.tracuugoicuoc.com/posts/cach-huy-goi-mxh120/,RETAINED
+Data Roaming Viettel,Data Roaming Viettel | bật roaming Viettel iPhone | bật roaming Viettel Android,SUPPORT,roaming-setup,https://www.tracuugoicuoc.com/posts/data-roaming-viettel-iphone-android/,RETAINED
+Viettel roaming Nhật Bản không có mạng,Viettel roaming Nhật Bản không có mạng | SIM Viettel ở Nhật không vào được 4G 5G,SUPPORT,roaming-japan,https://www.tracuugoicuoc.com/posts/viettel-roaming-nhat-ban-khong-co-mang/,RETAINED
+USSD Viettel 4G,USSD Viettel 4G | USSD over IMS Viettel | lỗi USSD Viettel,SUPPORT,ussd,https://www.tracuugoicuoc.com/posts/ussd-viettel-qua-4g-volte-ims/,RETAINED
+SIM Viettel đổi máy xác thực,SIM Viettel lắp sang máy mới bị chặn 1 chiều | SIM Viettel đổi máy xác thực sinh trắc học,SUPPORT,sim-device-change,https://www.tracuugoicuoc.com/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu/,RETAINED
+kiểm tra SIM chính chủ Viettel,kiểm tra SIM chính chủ Viettel | TTTB gửi 1414 Viettel,SUPPORT,sim-owner,https://www.tracuugoicuoc.com/posts/kiem-tra-sim-viettel-chinh-chu/,RETAINED
+gói Viettel 70k,gói Viettel 70k | gói data Viettel 70k,COMMERCIAL,price-bands,https://www.tracuugoicuoc.com/goi-cuoc/gia-70k/,HOLD
+gói Viettel 90k,gói Viettel 90k | gói data Viettel 90k,COMMERCIAL,price-bands,https://www.tracuugoicuoc.com/goi-cuoc/gia-90k/,HOLD
+gói Viettel 100k,gói Viettel 100k | gói data Viettel 100k,COMMERCIAL,price-bands,https://www.tracuugoicuoc.com/goi-cuoc/gia-100k/,HOLD
+gói Viettel 120k,gói Viettel 120k | gói data Viettel 120k,COMMERCIAL,price-bands,https://www.tracuugoicuoc.com/goi-cuoc/gia-120k/,HOLD
+gói Viettel 135k,gói Viettel 135k | gói 5G Viettel 135k,COMMERCIAL,price-bands,https://www.tracuugoicuoc.com/goi-cuoc/gia-135k/,HOLD
+gói Viettel 150k,gói Viettel 150k | gói 5G Viettel 150k,COMMERCIAL,price-bands,https://www.tracuugoicuoc.com/goi-cuoc/gia-150k/,HOLD
+gói Viettel 1GB/ngày,gói Viettel 1GB/ngày | gói 4G Viettel 1GB/ngày,COMMERCIAL,data-per-day,https://www.tracuugoicuoc.com/goi-cuoc/data-1gb-ngay/,HOLD
+gói Viettel 1.5GB/ngày,gói Viettel 1.5GB/ngày | gói 4G Viettel 1.5GB/ngày,COMMERCIAL,data-per-day,https://www.tracuugoicuoc.com/goi-cuoc/data-1-5gb-ngay/,HOLD
+gói Viettel 2GB/ngày,gói Viettel 2GB/ngày | gói 4G Viettel 2GB/ngày,COMMERCIAL,data-per-day,https://www.tracuugoicuoc.com/goi-cuoc/data-2gb-ngay/,HOLD
+gói Viettel 4GB/ngày,gói Viettel 4GB/ngày | gói 5G Viettel 4GB/ngày,COMMERCIAL,data-per-day,https://www.tracuugoicuoc.com/goi-cuoc/data-4gb-ngay/,HOLD
+gói Viettel 5GB/ngày,gói Viettel 5GB/ngày | gói 4G Viettel 5GB/ngày,COMMERCIAL,data-per-day,https://www.tracuugoicuoc.com/goi-cuoc/data-5gb-ngay/,HOLD
+gói Viettel 6GB/ngày,gói Viettel 6GB/ngày | gói 5G Viettel 6GB/ngày,COMMERCIAL,data-per-day,https://www.tracuugoicuoc.com/goi-cuoc/data-6gb-ngay/,HOLD
+5G135 vs 5G150,5G135 vs 5G150 | so sánh 5G135 và 5G150,COMPARISON,comparisons,https://www.tracuugoicuoc.com/so-sanh/5g135-vs-5g150/,HOLD
+SD90 vs SD120,SD90 vs SD120 | so sánh SD90 và SD120,COMPARISON,comparisons,https://www.tracuugoicuoc.com/so-sanh/sd90-vs-sd120/,HOLD
+MXH100 vs MXH120 vs MXH150,MXH100 vs MXH120 vs MXH150 | so sánh các gói MXH Viettel,COMPARISON,comparisons,https://www.tracuugoicuoc.com/so-sanh/mxh100-vs-mxh120-vs-mxh150/,HOLD
+gói Viettel cho học sinh sinh viên,gói Viettel cho học sinh | gói Viettel cho sinh viên,COMMERCIAL,use-cases,https://www.tracuugoicuoc.com/goi-cuoc/cho-hoc-sinh-sinh-vien/,HOLD
+gói Viettel chơi game,gói Viettel chơi game | gói 5G Viettel chơi game,COMMERCIAL,use-cases,https://www.tracuugoicuoc.com/goi-cuoc/cho-choi-game/,HOLD
+gói Viettel cho dân văn phòng,gói Viettel cho dân văn phòng | gói Viettel đi làm,COMMERCIAL,use-cases,https://www.tracuugoicuoc.com/goi-cuoc/cho-dan-van-phong/,HOLD
+gói Viettel phát hotspot,gói Viettel phát hotspot | gói data Viettel dùng laptop,COMMERCIAL,use-cases,https://www.tracuugoicuoc.com/goi-cuoc/phat-hotspot/,HOLD
+gói Viettel 1 ngày,gói Viettel 1 ngày | gói 4G Viettel 1 ngày,COMMERCIAL,duration,https://www.tracuugoicuoc.com/goi-cuoc/1-ngay/,HOLD
+gói Viettel 7 ngày,gói Viettel 7 ngày | gói 4G Viettel 7 ngày,COMMERCIAL,duration,https://www.tracuugoicuoc.com/goi-cuoc/7-ngay/,HOLD
+gói Viettel 1 năm,gói Viettel 1 năm | gói data Viettel 12 tháng,COMMERCIAL,duration,https://www.tracuugoicuoc.com/goi-cuoc/12-thang/,HOLD
