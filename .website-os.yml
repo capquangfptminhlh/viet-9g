@@ -1,0 +1,13 @@
+website_os_source_repo: capquangfptminhlh/seo-web
+website_os_source_ref: main
+website_os_manifest: governance/website-os.manifest.yml
+website_os_entrypoint: AGENTS.md
+project_name: viettel-4g-web
+project_repo: capquangfptminhlh/viettel-4g-web
+compliance_status: REQUIRED
+observed_at: 2026-08-15T00:41:45+07:00
+source_commit_sha: dcea1ec20a34be226615f36ac5d127558d75ac04
+manifest_version: 1.0.1
+mandatory_read_complete: true
+project_rules_loaded: true
+bootstrap_decision: PASS
