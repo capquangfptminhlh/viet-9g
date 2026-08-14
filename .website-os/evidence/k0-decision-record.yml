@@ -1,0 +1,71 @@
+version: 1.0.0
+decision: PASS
+scope: existing-canonical-baseline-with-held-expansion
+observed_at: 2026-08-15T01:16:33+07:00
+website_os_source_repo: capquangfptminhlh/seo-web
+website_os_source_commit: 48182a858b728878b5913d262880c7facd1a1b70
+project_main_at_start: 0e239d82da42272205237e94ace815e1dc92e8a2
+summary: >-
+  K0 PASS applies to the currently retained canonical category, package-entity and support owners documented in the evidence set.
+  Proposed price-band, data-per-day, comparison, duration and audience/use-case URLs are explicitly HOLD and MUST NOT be created or indexed
+  until a fresh expansion decision proves an independent SERP/user job, checks current site/GSC query-page ownership when available,
+  verifies Viettel source-of-truth facts, resolves duplicate/cannibalization risk and assigns one canonical owner.
+metrics:
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking_position: UNKNOWN
+  traffic_potential: UNKNOWN
+  fabricated_metrics: false
+evidence:
+  fresh_serp_observed: true
+  official_viettel_sources_used_for_business_facts: true
+  non_official_sources_used_only_for_serp_intent_or_gap_observation: true
+  gsc_first_party_export_available_in_this_execution: false
+  current_repo_owners_reviewed: true
+coverage:
+  core_head: PASS
+  mid_tail: PASS
+  long_tail: PASS
+  transactional: PASS
+  commercial: PASS
+  informational: PASS
+  support_problem: PASS
+  comparison: PASS
+  entity_product_package_model_sku: PASS
+  attribute: PASS
+  audience: PASS
+  use_case: PASS
+  local_when_relevant: NOT_APPLICABLE
+  freshness_when_relevant: PASS
+  branded_navigational_when_relevant: PASS
+  aeo_questions: PASS
+  geo_entity_relations: PASS
+hard_rules:
+  one_primary_intent_entity_one_canonical_owner: PASS
+  high_risk_cannibalization_resolved: PASS
+  package_business_facts_require_source_of_truth: PASS
+  new_url_requires_independent_intent_and_gap_evidence: PASS
+  dynamic_facets_indexable_by_default: false
+  unverified_expansion_status: HOLD
+  local_name_substitution_scaling: false
+expansion_gates:
+  require_fresh_serp: true
+  require_existing_url_review: true
+  require_gsc_query_page_review_when_available: true
+  require_source_of_truth_for_business_claims: true
+  require_duplicate_cannibalization_check: true
+  require_canonical_slug_decision: true
+  require_internal_link_plan: true
+  require_content_type_assignment: true
+refresh:
+  max_serp_age_days: 45
+  triggers:
+    - Search Console query/page export becomes available
+    - material Viettel package, price, benefit, eligibility or policy change
+    - new search intent or SERP composition materially differs
+    - proposed URL is promoted from HOLD to indexable
+notes:
+  - This decision is not approval to publish all keyword candidates.
+  - One keyword family may contain many query variants while retaining a single canonical owner.
+  - No search volume, KD, CPC, ranking or traffic-potential number is asserted without source provenance.
