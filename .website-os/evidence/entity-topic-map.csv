@@ -1,0 +1,35 @@
+entity_type,entity_name,parent_entity,topic,subtopic,attribute_or_relation,source_of_truth,verification_status,status
+brand,Viettel,,Viettel mobile services,packages and support,brand entity,https://www.viettel.vn/,VERIFIED,ACTIVE
+category,Viettel package catalog,Viettel,package discovery,all verified packages,contains package entities,https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500,VERIFIED,ACTIVE
+category,Viettel data packages,Viettel,package discovery,data packages,category relation,https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500,VERIFIED,ACTIVE
+category,Viettel 5G packages,Viettel,package discovery,5G packages,category relation,https://098.viettel.vn/tin-tuc/chi-tiet/tong-hop-cac-goi-cuoc-5g-viettel/13595132,VERIFIED,ACTIVE
+category,Viettel combo packages,Viettel,package discovery,data plus voice,category relation,https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500,VERIFIED,ACTIVE
+category,Viettel social packages,Viettel,package discovery,social app benefits,category relation,https://098.viettel.vn/tin-tuc/chi-tiet/bung-no-trai-nghiem-facebook-tiktok-messenger-voi-goi-cuoc-mxh120-cua-viettel/12122652,VERIFIED,ACTIVE
+package,5G135,Viettel 5G packages,package entity,5G135,code/price/data/duration/benefits,data/package-catalog.v1.json,VERIFIED,ACTIVE
+package,5G150,Viettel 5G packages,package entity,5G150,code/price/data/duration/benefits,data/package-catalog.v1.json,VERIFIED,ACTIVE
+package,5G160B,Viettel 5G packages,package entity,5G160B,code/price/data/duration/benefits,data/package-catalog.v1.json,VERIFIED,ACTIVE
+package,5G180B,Viettel 5G packages,package entity,5G180B,code/price/data/duration/benefits,data/package-catalog.v1.json,VERIFIED,ACTIVE
+package,SD70,Viettel data packages,package entity,SD70,code/price/data/duration,data/package-catalog.v1.json,VERIFIED,ACTIVE
+package,SD90,Viettel data packages,package entity,SD90,code/price/data/duration,data/package-catalog.v1.json,VERIFIED,ACTIVE
+package,SD120,Viettel data packages,package entity,SD120,code/price/data/duration,data/package-catalog.v1.json,VERIFIED,ACTIVE
+package,SD135,Viettel data packages,package entity,SD135,code/price/data/duration,data/package-catalog.v1.json,VERIFIED,ACTIVE
+package,SD150,Viettel data packages,package entity,SD150,code/price/data/duration,data/package-catalog.v1.json,VERIFIED,ACTIVE
+package,V90B,Viettel combo packages,package entity,V90B,code/price/data/duration/voice,data/package-catalog.v1.json,VERIFIED,ACTIVE
+package,V120B,Viettel combo packages,package entity,V120B,code/price/data/duration/voice,data/package-catalog.v1.json,VERIFIED,ACTIVE
+package,V160B,Viettel combo packages,package entity,V160B,code/price/data/duration/voice,data/package-catalog.v1.json,VERIFIED,ACTIVE
+package,MXH100,Viettel social packages,package entity,MXH100,code/price/data/duration/social,data/package-catalog.v1.json,VERIFIED,ACTIVE
+package,MXH120,Viettel social packages,package entity,MXH120,code/price/data/duration/social/voice,data/package-catalog.v1.json,VERIFIED,ACTIVE
+package,MXH150,Viettel social packages,package entity,MXH150,code/price/data/duration/social/voice,data/package-catalog.v1.json,VERIFIED,ACTIVE
+service,Viettel eSIM,Viettel,eSIM,5G setup,activation and device relation,https://098.viettel.vn/tin-tuc/chi-tiet/esim-5g-viettel-loi-ich-thiet-bi-ho-tro-va-cach-kich-hoat/10391888,VERIFIED,ACTIVE
+service,Viettel roaming,Viettel,international roaming,data setup,device/network relation,https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/di-nhat-ban-khong-co-mang-huong-dan-bat-4g5g-va-roaming-viettel-chi-tiet/16239800,VERIFIED,ACTIVE
+problem,Viettel USSD,Viettel,support,USSD over 4G/IMS,network capability relation,https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320,VERIFIED,ACTIVE
+problem,Viettel SIM verification,Viettel,SIM support,device change verification,identity/device relation,https://www.viettel.vn/tin-tuc/chi-tiet/thong-bao-quan-trong-quy-dinh-bat-buoc-xac-thuc-lai-khuon-mat-khi-thay-doi-dien-thoai-ap-dung-tu-15062026/19138832/,VERIFIED,ACTIVE
+problem,Viettel SIM ownership,Viettel,SIM support,ownership verification,subscriber identity relation,https://www.viettel.vn/tin-tuc/chi-tiet/3-cach-kiem-tra-sim-chinh-chu-nhanh-hoan-toan-mien-phi/15860752,VERIFIED,ACTIVE
+attribute,price bands,Viettel package catalog,commercial segmentation,price,70k/90k/100k/120k/135k/150k,data/package-catalog.v1.json,UNVERIFIED,HOLD
+attribute,data per day,Viettel data packages,commercial segmentation,data allowance,1/1.5/2/4/5/6 GB per day,data/package-catalog.v1.json,UNVERIFIED,HOLD
+comparison,package comparisons,Viettel package catalog,commercial investigation,pair/family comparisons,entity-to-entity relation,data/package-catalog.v1.json,UNVERIFIED,HOLD
+audience,student use case,Viettel package catalog,use case,student/audience,suitability relation,UNKNOWN,UNVERIFIED,HOLD
+audience,gaming use case,Viettel package catalog,use case,gaming,suitability relation,UNKNOWN,UNVERIFIED,HOLD
+audience,office use case,Viettel package catalog,use case,office/work,suitability relation,UNKNOWN,UNVERIFIED,HOLD
+use_case,hotspot use case,Viettel data packages,use case,tethering/hotspot,suitability relation,UNKNOWN,UNVERIFIED,HOLD
+attribute,duration packages,Viettel package catalog,commercial segmentation,duration,1 day/7 days/12 months,https://098.viettel.vn/tin-tuc/chi-tiet/huong-dan-mua-sim-data-tron-goi-1-nam-tren-my-viettel/11818240/,UNVERIFIED,HOLD
