@@ -11,3 +11,6 @@ manifest_version: 1.1.0
 mandatory_read_complete: true
 project_rules_loaded: true
 bootstrap_decision: PASS
+enforcement_target: k0
+evidence_dir: .website-os/evidence
+local_seo: false
