@@ -8,8 +8,8 @@ const FAQS: FAQItem[] = [
     answer: 'Điều kiện áp dụng được hiển thị cùng từng gói cước. Bạn nên kiểm tra thông tin chính thức của Viettel trước khi đăng ký.',
   },
   {
-    question: 'Cú pháp đăng ký được gửi đến số nào?',
-    answer: 'Chỉ những gói có cú pháp đã được xác minh mới hiển thị nút đăng ký. Cú pháp sẽ được gửi đến tổng đài 290.',
+    question: 'Cú pháp đăng ký trên website được gửi đến số nào?',
+    answer: 'Nút đăng ký trên TraCuuGoiCuoc.com soạn sẵn cú pháp MÃ_GÓI GB gửi 290. Việc thuê bao có đủ điều kiện và gói có được kích hoạt hay không do Viettel xác nhận tại thời điểm gửi.',
   },
   {
     question: 'Tôi có thể kiểm tra dung lượng còn lại như thế nào?',
@@ -51,7 +51,7 @@ export default function FaqAccordion() {
             Giải Đáp Thắc Mắc Thường Gặp
           </h2>
           <p className="text-xs sm:text-sm text-gray-500">
-            Các câu hỏi dưới đây giải thích điều kiện gói, cú pháp đã xác minh và cách kiểm tra dung lượng theo thông tin hiển thị.
+            Các câu hỏi dưới đây giải thích điều kiện gói, cách đăng ký qua website và cách kiểm tra dung lượng theo thông tin hiển thị.
           </p>
         </div>
 
