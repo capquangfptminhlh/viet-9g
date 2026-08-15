@@ -1,6 +1,7 @@
 import React from 'react';
 import type { VerifiedPackage } from '../data/verified-package';
 import { getPackagePageModel } from '../data/package-page';
+import { buildSmsSyntax, buildSmsUri, REGISTRATION_CHANNEL } from '../config/agent-code';
 
 interface DynamicPostPageProps {
   pkg: VerifiedPackage;
@@ -12,6 +13,8 @@ function formatDate(value: string): string {
 
 export default function DynamicPostPage({ pkg }: DynamicPostPageProps) {
   const page = getPackagePageModel(pkg);
+  const affiliateSyntax = buildSmsSyntax(pkg.code);
+  const affiliateSmsUri = buildSmsUri(pkg.code);
 
   return (
     <main className="mx-auto w-full max-w-3xl space-y-6 px-4 py-10 font-sans">
@@ -52,15 +55,25 @@ export default function DynamicPostPage({ pkg }: DynamicPostPageProps) {
         </section>
 
         {page.registration ? (
-          <section aria-labelledby="cu-phap-dang-ky" className="space-y-3 rounded-xl border border-red-200 bg-red-50 p-5">
-            <h2 id="cu-phap-dang-ky" className="text-xl font-extrabold text-red-950">Cú pháp đã có bằng chứng</h2>
-            <p className="font-mono text-lg font-bold text-red-700">{page.registration.syntax} gửi {page.registration.smsNumber}</p>
+          <section aria-labelledby="cu-phap-nguon" className="space-y-3 rounded-xl border border-gray-200 bg-gray-50 p-5">
+            <h2 id="cu-phap-nguon" className="text-xl font-extrabold text-gray-900">Cú pháp được nêu trong nguồn</h2>
+            <p className="font-mono text-lg font-bold text-gray-800">{page.registration.syntax} gửi {page.registration.smsNumber}</p>
           </section>
-        ) : (
-          <section className="rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm leading-6 text-amber-950">
-            Cú pháp đăng ký chưa được hiển thị vì chưa có fact nguồn xác minh chính xác cho kênh này.
-          </section>
-        )}
+        ) : null}
+
+        <section aria-labelledby="dang-ky-qua-website" className="space-y-3 rounded-xl border border-red-200 bg-red-50 p-5">
+          <h2 id="dang-ky-qua-website" className="text-xl font-extrabold text-red-950">Đăng ký qua mã đại lý của website</h2>
+          <p className="font-mono text-lg font-bold text-red-700">{affiliateSyntax} gửi {REGISTRATION_CHANNEL.smsNumber}</p>
+          <a
+            className="inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-red-600 px-5 py-3 text-center text-base font-bold text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:w-auto"
+            href={affiliateSmsUri}
+          >
+            Đăng ký {pkg.code}
+          </a>
+          <p className="text-xs leading-5 text-red-900">
+            Nút này chỉ soạn sẵn SMS theo mã đại lý {REGISTRATION_CHANNEL.agentCode} của TraCuuGoiCuoc.com. Viettel quyết định thuê bao có đủ điều kiện và kích hoạt gói hay không tại thời điểm gửi.
+          </p>
+        </section>
 
         <section className="border-t border-gray-100 pt-5 text-sm leading-6 text-gray-700">
           <h2 className="text-xl font-extrabold text-gray-900">Nguồn tham khảo</h2>
