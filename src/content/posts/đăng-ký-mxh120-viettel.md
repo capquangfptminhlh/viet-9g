@@ -1,44 +1,74 @@
-﻿# Hướng dẫn đăng ký MXH120 Viettel: Gói cước siêu ưu đãi, Data khủng, Gọi miễn phí
-
-Bạn đang tìm kiếm một giải pháp kết nối không giới hạn để lướt web, xem phim và gọi điện liên tục mà không lo hết dung lượng hay tốn cước phí? **Đăng ký MXH120 Viettel** chính là câu trả lời hoàn hảo dành cho bạn. Là kênh đại lý chính thức của Viettel, chúng tôi cam kết cung cấp thông tin chính xác, minh bạch nhất về các gói cước để quý khách hàng có lựa chọn tối ưu nhất.
-
-## Chi tiết ưu đãi gói cước MXH120 Viettel
-
-Gói cước MXH120 là một trong những gói cước "quốc dân" của Viettel, kết hợp hoàn hảo giữa dung lượng Data tốc độ cao và các phút gọi miễn phí. Dưới đây là bảng thông tin chi tiết:
-
-| Tên Gói | Giá Cước | Dung Lượng Data | Gọi Nội Mạng (Viettel) | Gọi Ngoại Mạng | Chu Kỳ |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **MXH120** | 120.000đ | 4GB/ngày (120GB/tháng) | Miễn phí < 10 phút/cuộc | Miễn phí < 10 phút/cuộc | 30 ngày |
-
-**Lưu ý quan trọng về sử dụng:**
-*   **Về Data:** Mỗi ngày bạn sẽ có **4GB** data tốc độ cao. Khi sử dụng hết 4GB, hệ thống sẽ ngắt kết nối truy cập để **tránh phát sinh cước phí** ngoài ý muốn. Bạn không cần lo lắng về việc bị trừ tiền oan khi dùng quá dung lượng.
-*   **Về cuộc gọi:** Các cuộc gọi dưới 10 phút (bao gồm cả nội mạng và ngoại mạng) đều được miễn phí. Nếu cuộc gọi kéo dài trên 10 phút, phần cước vượt quá sẽ tính theo giá cước thông thường của thuê bao.
-
-## Hướng dẫn đăng ký MXH120 Viettel nhanh nhất
-
-Để kích hoạt gói cước MXH120 và tận hưởng ngay các ưu đãi trên, quý khách vui lòng thực hiện theo cú pháp chuẩn dưới đây:
-
-**Cú pháp đăng ký:**
-> **Soạn: MXH120 [Mã CTV] gửi 290**
-
-*(Ví dụ cụ thể: Soạn **MXH120 GB gửi 290**)*
-
-**Thông tin lưu ý khi soạn tin:**
-*   **Cước phí gửi tin nhắn:** Việc gửi tin nhắn đến đầu số **290** để đăng ký gói cước là **MIỄN PHÍ 100%**.
-*   **Điều kiện:** Thuê bao cần có tài khoản chính đủ 120.000đ để đăng ký thành công.
-
+---
+title: "Đăng ký MXH120 không được? Cách kiểm tra điều kiện và cú pháp đúng"
+description: "Nếu đăng ký MXH120 Viettel không thành công, hãy kiểm tra đúng mã gói, thuê bao đủ điều kiện và cú pháp MXH120 GB gửi 290 trước khi thử lại."
+pubDate: "2026-08-15"
+category: "support"
+tags: ["Viettel", "MXH120", "đăng ký không được", "hỗ trợ"]
 ---
 
-## Câu hỏi thường gặp (FAQ)
+# Đăng ký MXH120 không được? Cách kiểm tra điều kiện và cú pháp đúng
 
-### Làm thế nào để kiểm tra dung lượng Data còn lại của gói MXH120?
-Bạn soạn tin **KTTK gửi 191** hoặc kiểm tra trực tiếp trên ứng dụng **My Viettel** để xem dung lượng data và phút gọi còn lại.
+**Nếu bạn đã thử đăng ký MXH120 nhưng hệ thống không chấp nhận, đừng tiếp tục gửi lặp lại nhiều lần.** Hãy kiểm tra theo thứ tự: đúng mã gói → đúng cú pháp → thuê bao có thuộc diện áp dụng hay không → tài khoản và trạng thái thuê bao → sau đó mới thử đăng ký lại.
 
-### Cách hủy gia hạn gói cước MXH120 như thế nào?
-Để hủy chế độ tự động gia hạn của gói MXH120, bạn soạn tin: **HUY MXH120 gửi 899**.
+Trang này chỉ xử lý **intent hỗ trợ khi đăng ký MXH120 gặp lỗi**. Thông tin đầy đủ về giá, dung lượng, quyền lợi và các gói thay thế được giữ tại trang gói chính [MXH120](/goi-cuoc/mxh120/) để tránh hai URL cùng cạnh tranh một intent.
 
-### Tôi có thể đăng ký nhiều gói MXH120 cùng lúc không?
-Không. Bạn chỉ có thể đăng ký duy nhất một gói cước ưu đãi tại một thời điểm. Nếu đăng ký gói mới, gói cũ có thể bị mất ưu đãi chưa dùng hết.
+## Cú pháp đăng ký MXH120 trên website này
 
-### Tại sao tôi soạn tin đăng ký nhưng không thành công?
-Có thể do tài khoản chính của bạn không đủ 120.000đ hoặc thuê bao của bạn không nằm trong danh sách hỗ trợ gói MXH120. Vui lòng kiểm tra lại số dư hoặc liên hệ tổng đài 198.
+Luồng đăng ký của website sử dụng:
+
+> **MXH120 GB** gửi **290**
+
+Trong đó `GB` là mã đại lý được cấu hình cho luồng đăng ký của website. Nếu bạn bấm nút **Đăng ký** tại trang gói MXH120 trên điện thoại, hệ thống sẽ mở ứng dụng SMS với nội dung tương ứng.
+
+## Trước khi đăng ký lại, kiểm tra 5 điểm này
+
+### 1. Đúng mã gói
+
+Mã cần gửi là `MXH120`. Tránh thêm ký tự lạ, dấu tiếng Việt hoặc khoảng trắng không cần thiết trong tên gói.
+
+### 2. Đúng cú pháp đăng ký
+
+Với luồng đăng ký của website này, cú pháp là `MXH120 GB` gửi `290`. Nếu bạn đang dùng một kênh Viettel khác, hãy làm theo hướng dẫn hiển thị trên chính kênh đó thay vì trộn nhiều cú pháp.
+
+### 3. Kiểm tra thuê bao có đủ điều kiện hay không
+
+Không nên mặc định mọi thuê bao Viettel đều đăng ký được cùng một gói. Catalog nguồn của dự án ghi MXH120 là gói có điều kiện áp dụng theo chính sách Viettel. Nếu hệ thống từ chối đăng ký dù cú pháp đúng, khả năng thuê bao không thuộc nhóm được áp dụng cần được kiểm tra qua kênh Viettel chính thức.
+
+### 4. Kiểm tra tài khoản và trạng thái thuê bao
+
+Nếu thuê bao trả trước không đủ số dư cần thiết tại thời điểm đăng ký, giao dịch có thể không thành công. Ngoài ra, thuê bao đang bị hạn chế dịch vụ hoặc có trạng thái bất thường cũng cần xử lý trước.
+
+### 5. Đọc chính xác SMS phản hồi
+
+Tin nhắn phản hồi của hệ thống là bằng chứng tốt nhất để biết lỗi thuộc nhóm nào. Nếu SMS báo không thuộc đối tượng, không nên tiếp tục gửi lại cùng một lệnh nhiều lần. Nếu SMS báo thiếu điều kiện khác, xử lý đúng điều kiện đó trước khi thử lại.
+
+## Thông tin MXH120 đang được dự án xác minh từ đâu?
+
+Source of Truth hiện tại của dự án ghi MXH120 ở mức **120.000đ/30 ngày, 1 GB/ngày, tổng 30 GB/tháng**, kèm ưu đãi gọi và dịch vụ mạng xã hội theo điều kiện sử dụng của Viettel. Dữ liệu này được lấy từ nguồn Viettel đã lưu trong `data/package-catalog.v1.json` và có thời hạn xác minh riêng.
+
+Bài hỗ trợ này không tự sao chép toàn bộ quyền lợi gói để tránh tạo thêm một trang cạnh tranh với landing chính. Khi cần xem quyền lợi hiện hành, hãy dùng [trang MXH120](/goi-cuoc/mxh120/).
+
+## Nếu vẫn không đăng ký được thì làm gì?
+
+1. Chụp lại hoặc ghi chính xác nội dung SMS phản hồi.
+2. Kiểm tra gói có còn hiển thị là phù hợp cho thuê bao trên kênh Viettel chính thức hay không.
+3. Nếu cần, liên hệ kênh chăm sóc khách hàng Viettel để kiểm tra điều kiện thuê bao.
+4. Chỉ đăng ký lại khi đã xác định được nguyên nhân thay vì gửi lặp lại cùng một cú pháp.
+
+## Câu hỏi thường gặp
+
+### MXH120 có phải gói dành cho mọi thuê bao không?
+
+Không nên kết luận như vậy. Khả năng đăng ký phụ thuộc điều kiện áp dụng tại thời điểm thực hiện. Nếu thuê bao bị từ chối, cần kiểm tra trạng thái thực tế trên kênh Viettel chính thức.
+
+### Tôi nên xem giá và dung lượng MXH120 ở đâu trên website?
+
+Xem tại [landing gói MXH120](/goi-cuoc/mxh120/). URL đó là owner cho intent thương mại/entity MXH120; bài hiện tại chỉ xử lý tình huống đăng ký gặp lỗi.
+
+### Có nên gửi lại SMS nhiều lần khi hệ thống báo lỗi không?
+
+Không. Nên đọc nguyên nhân trong SMS phản hồi và xử lý điều kiện tương ứng trước.
+
+## Kết luận
+
+Nếu đăng ký MXH120 không thành công, hãy ưu tiên xác định **lỗi cú pháp hay lỗi điều kiện thuê bao**. Trang gói chính giữ vai trò cung cấp thông tin gói và CTA đăng ký; URL này chỉ giữ vai trò hỗ trợ troubleshooting để giảm cannibalization và giúp người dùng xử lý lỗi rõ ràng hơn.
