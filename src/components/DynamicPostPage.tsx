@@ -1,6 +1,7 @@
 import React from 'react';
 import type { VerifiedPackage } from '../data/verified-package';
 import { getPackagePageModel } from '../data/package-page';
+import { getPackageRoutes } from '../data/package-routes';
 import { buildSmsSyntax, buildSmsUri, REGISTRATION_CHANNEL } from '../config/agent-code';
 
 interface DynamicPostPageProps {
@@ -15,6 +16,9 @@ export default function DynamicPostPage({ pkg }: DynamicPostPageProps) {
   const page = getPackagePageModel(pkg);
   const affiliateSyntax = buildSmsSyntax(pkg.code);
   const affiliateSmsUri = buildSmsUri(pkg.code);
+  const relatedPackages = getPackageRoutes()
+    .filter((item) => item.id !== pkg.id && item.category === pkg.category)
+    .slice(0, 3);
 
   return (
     <main className="mx-auto w-full max-w-3xl space-y-6 px-4 py-10 font-sans">
@@ -74,6 +78,27 @@ export default function DynamicPostPage({ pkg }: DynamicPostPageProps) {
             Nút này chỉ soạn sẵn SMS theo mã đại lý {REGISTRATION_CHANNEL.agentCode} của TraCuuGoiCuoc.com. Viettel quyết định thuê bao có đủ điều kiện và kích hoạt gói hay không tại thời điểm gửi.
           </p>
         </section>
+
+        {relatedPackages.length > 0 ? (
+          <section aria-labelledby="goi-lien-quan" className="space-y-3 border-t border-gray-100 pt-5">
+            <h2 id="goi-lien-quan" className="text-xl font-extrabold text-gray-900">Gói Viettel cùng nhóm để so sánh</h2>
+            <div className="grid gap-3 sm:grid-cols-3">
+              {relatedPackages.map((item) => (
+                <a
+                  key={item.id}
+                  href={`/goi-cuoc/${item.id.toLowerCase()}`}
+                  className="rounded-xl border border-gray-200 p-4 text-sm font-bold text-gray-900 transition-colors hover:border-red-300 hover:text-red-700"
+                >
+                  {item.code}
+                  <span className="mt-1 block text-xs font-medium text-gray-500">
+                    {item.priceVnd.toLocaleString('vi-VN')}đ · {item.dataAllowance ?? item.dataPerDay}
+                  </span>
+                </a>
+              ))}
+            </div>
+            <a className="inline-flex text-sm font-bold text-red-700 underline" href="/goi-cuoc">Xem toàn bộ gói cước Viettel</a>
+          </section>
+        ) : null}
 
         <section className="border-t border-gray-100 pt-5 text-sm leading-6 text-gray-700">
           <h2 className="text-xl font-extrabold text-gray-900">Nguồn tham khảo</h2>
