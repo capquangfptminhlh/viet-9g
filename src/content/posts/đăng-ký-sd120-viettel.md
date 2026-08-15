@@ -1,49 +1,64 @@
-﻿# Hướng dẫn đăng ký SD120 Viettel: Nhận ngay 3GB/ngày và ưu đãi gọi miễn phí
-
-Bạn đang tìm kiếm một gói cước data khủng để xem phim, lướt TikTok hay làm việc từ xa mà không lo hết dung lượng? **Đăng ký SD120 Viettel** chính là giải pháp hoàn hảo dành cho bạn. Với ưu đãi lên đến 3GB/ngày, đây là gói cước "quốc dân" được săn đón nhất hiện nay.
-
-*Lưu ý: Website này là kênh đại lý chính thức của Viettel, cam kết cung cấp thông tin chính xác và hỗ trợ đăng ký gói cước nhanh chóng, chuẩn xác nhất.*
-
-## Chi tiết ưu đãi gói cước SD120 Viettel
-
-Gói cước SD120 của Viettel được thiết kế đặc biệt cho những người dùng có nhu cầu sử dụng Internet cao độ. Dưới đây là bảng thông tin chi tiết:
-
-| Tên Gói | Giá Cước | Dung Lượng Data | Gọi Nội Mạng | Gọi Ngoại Mạng | Chu Kỳ |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **SD120** | 120.000đ | **3GB/ngày** (90GB/tháng) | Miễn phí trong mạng | Không có | 30 ngày |
-
-**Giải thích chi tiết ưu đãi:**
-* **Dung lượng Data:** Mỗi ngày bạn sẽ có **3GB tốc độ cao**. Sau khi sử dụng hết 3GB, hệ thống sẽ dừng truy cập để bảo vệ bạn, tránh tình trạng phát sinh cước phí ngoài ý muốn (không tự động trừ tiền thêm).
-* **Đối tượng áp dụng:** Các thuê bao nằm trong danh sách khuyến mãi của Viettel.
-* **Điều kiện:** Gói cước chỉ áp dụng cho các dịch vụ sử dụng dữ liệu di động (3G/4G/5G).
-
-## Hướng dẫn đăng ký SD120 Viettel nhanh nhất
-
-Để kích hoạt gói cước SD120 và bắt đầu tận hưởng ưu đãi, bạn chỉ cần thực hiện theo cú pháp duy nhất dưới đây.
-
-**Cú pháp đăng ký:**
-> **SD120 [Mã CTV] gửi 290**
-
-*(Ví dụ: Soạn **SD120 GB gửi 290**)*
-
-**Lưu ý quan trọng:**
-* **Cước phí gửi tin nhắn:** Việc gửi tin nhắn đến đầu số 290 để đăng ký là **MIỄN PHÍ 100%**.
-* Bạn cần đảmân tài khoản chính có đủ ít nhất **120.000đ** trước khi thực hiện đăng ký.
-* Sau khi gửi tin nhắn, hãy đợi tin nhắn xác nhận từ Viettel để đảm bảo gói cước đã được kích hoạt thành công.
-
-## Câu hỏi thường gặp (FAQ)
-
-### Kiểm tra dung lượng còn lại của gói SD120 như thế nào?
-Để kiểm tra dung lượng data còn lại trong ngày, bạn soạn tin nhắn: **K...** gửi **191**.
-
-### Cách hủy gói cước SD120 Viettel?
-Để hủy hoàn toàn gói cước, bạn soạn tin: **HD SD120** gửi **191**. Lưu ý, khi hủy bạn sẽ mất toàn bộ ưu đãi chưa sử dụng hết.
-
-### Gói SD120 có dùng được cho cả mạng 5G không?
-Có, gói SD120 áp dụng cho tất cả các công nghệ di động hiện đại nhất của Viettel bao gồm 3G, 4G và 5G.
-
-### Tại sao tôi soạn tin đăng ký nhưng không thành công?
-Có 2 lý do chính: Một là thuê bao của bạn không nằm trong danh sách được ưu đãi gói SD120; hai là tài khoản chính của bạn không đủ 120.000đ.
-
 ---
-*Thông tin trong bài viết mang tính chất tham khảo dựa trên các chính sách hiện hành của Viettel. Vui lòng kiểm tra trực tiếp trên ứng dụng My Viettel để biết danh sách gói cước dành riêng cho thuê bao của bạn.*
+title: "Đăng ký SD120 không được? Kiểm tra cú pháp, điều kiện và SMS phản hồi"
+description: "Cách xử lý khi đăng ký SD120 Viettel không thành công: kiểm tra SD120 GB gửi 290, điều kiện thuê bao, trạng thái SIM và SMS phản hồi."
+pubDate: "2026-08-15"
+category: "support"
+tags: ["Viettel", "SD120", "đăng ký không được", "hỗ trợ"]
+---
+
+# Đăng ký SD120 không được? Kiểm tra cú pháp, điều kiện và SMS phản hồi
+
+**Nếu SD120 không đăng ký được, hãy dừng gửi lặp lại và kiểm tra nguyên nhân theo thứ tự.** Bài này chỉ xử lý lỗi đăng ký; giá, dung lượng, chu kỳ và quyền lợi hiện hành nằm tại [trang SD120](/goi-cuoc/sd120/).
+
+## Cú pháp của website
+
+> **SD120 GB** gửi **290**
+
+Đây là hợp đồng CTA của website. Không trộn cú pháp từ nhiều kênh khác nhau.
+
+## Checklist xử lý lỗi
+
+### Kiểm tra mã gói
+
+Mã phải là `SD120`. Tránh ký tự lạ hoặc khoảng trắng thừa.
+
+### Kiểm tra cú pháp SMS
+
+Nếu đăng ký từ website, nội dung là `SD120 GB` gửi `290`. Nếu dùng kênh Viettel khác, làm theo hướng dẫn trên chính kênh đó.
+
+### Kiểm tra điều kiện thuê bao
+
+Không mặc định mọi thuê bao đều đủ điều kiện. Nếu SMS báo không thuộc đối tượng hoặc chưa đủ điều kiện, hãy kiểm tra gói đang khả dụng cho chính thuê bao qua kênh Viettel chính thức.
+
+### Kiểm tra trạng thái SIM/tài khoản
+
+Bài này không tự suy đoán số dư, gói đang chạy hay trạng thái dịch vụ. Hãy dựa vào SMS phản hồi và trạng thái thực tế của thuê bao.
+
+### Đọc chính xác SMS phản hồi
+
+Nếu hệ thống trả lỗi, ghi lại nguyên văn. Đây là dữ liệu quan trọng nhất để phân biệt lỗi cú pháp, điều kiện hay trạng thái dịch vụ.
+
+## Nếu vẫn không đăng ký được
+
+1. Không gửi lặp lại cùng cú pháp.
+2. Kiểm tra SD120 trên My Viettel hoặc kênh Viettel chính thức.
+3. Nếu cần, liên hệ hỗ trợ Viettel và cung cấp nguyên văn SMS phản hồi.
+4. Chỉ thử lại sau khi nguyên nhân đã được xử lý.
+
+## FAQ
+
+### Xem thông tin SD120 ở đâu?
+
+Tại [landing SD120](/goi-cuoc/sd120/), là owner cho intent thương mại và đăng ký gói.
+
+### Cú pháp trên website là gì?
+
+**SD120 GB gửi 290**.
+
+### Vì sao bài này không liệt kê lại toàn bộ ưu đãi?
+
+Để tránh hai URL cùng nhắm một intent. Dữ liệu gói được tập trung ở landing chính và lấy từ catalog nguồn của dự án.
+
+## Kết luận
+
+URL này giữ vai trò **troubleshooting đăng ký SD120**, còn `/goi-cuoc/sd120/` là canonical owner của entity/gói cước. Cách tách này giảm cannibalization và loại bỏ các claim cũ không có nguồn chắc chắn.
