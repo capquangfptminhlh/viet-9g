@@ -1,51 +1,57 @@
-﻿# Hướng dẫn đăng ký V90B Viettel chi tiết: Ưu đãi Data khủng, Gọi miễn phí cực rẻ
-
-Bạn đang tìm kiếm một gói cước vừa có dung lượng Data lớn để giải trí, vừa có thể gọi nội mạng miễn phí để tiết kiệm chi phí liên lạc? **Đăng ký V90B Viettel** chính là giải pháp hoàn hảo dành cho bạn. 
-
-Bài viết này được biên soạn bởi **Đại lý chính thức của Viettel**, cam kết cung cấp thông tin chính xác, cập nhật nhất về các gói cước di động. Chúng tôi giúp bạn nắm rõ cú pháp đăng ký, ưu đãi đi kèm và cách kiểm tra để tránh phát sinh cước ngoài ý muốn.
-
-## Chi tiết ưu đãi gói cước V90B Viettel
-
-Gói V90B là một trong những gói cước "quốc dân" của Viettel dành cho các thuê bao di động muốn tối ưu hóa chi phí sử dụng hàng tháng. Dưới đây là bảng chi tiết thông tin gói cước:
-
-| Tên Gói | Giá Cước | Dung Lượng Data | Gọi Nội Mạng | Gọi Ngoại Mạng | Chu Kỳ |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **V90B** | 90.000đ | 1GB/ngày (30GB/tháng) | Miễn phí < 20 phút/cuộc | Tính theo cước thông thường | 30 ngày |
-
-### Giải thích chi tiết ưu đãi và điều kiện sử dụng:
-
-*   **Dung lượng Data:** Mỗi ngày bạn sẽ có **1GB tốc độ cao**. Sau khi sử dụng hết 1GB này, hệ thống sẽ **ngừng truy cập** để đảm bảo không phát sinh cước phí ngoài ý muốn. Để tiếp tục dùng, bạn cần đợi sang ngày mới hoặc đăng ký thêm gói dung lượng bổ sung.
-*   **Gọi nội mạng:** Miễn phí tất cả các cuộc gọi nội mạng Viettel có thời lượng **dưới 20 phút**. Lưu ý: Các cuộc gọi trên 20 phút sẽ tính cước theo gói cước hiện tại của thuê bao.
-*   **Gọi ngoại mạng:** Không bao gồm trong gói (tính phí theo gói cước gốc của sim).
-*   **Điều kiện đăng ký:** Thuê bao nằm trong danh sách khuyến mãi hoặc các thuê bao trả sau/trả trước có lịch sử thanh toán cước tốt.
-
-## Hướng dẫn đăng ký V90B Viettel nhanh nhất
-
-Để kích hoạt gói cước V90B thành công, quý khách vui lòng soạn tin nhắn theo cú pháp chuẩn dưới đây:
-
-**Cú pháp:** `V90B [Mã CTV] gửi 290`
-
-*(Ví dụ: Soạn **V90B GB gửi 290**)*
-
-**Lưu ý quan trọng:**
-*   **Cước phí gửi tin nhắn:** Việc gửi tin nhắn đến đầu số 290 là **MIỄN PHÍ 100%**.
-*   Bạn nên kiểm tra danh sách khuyến mãi bằng cách soạn `UU KM` gửi `135` trước khi đăng ký để đảm bảo sim thuộc đối tượng được áp dụng gói cước này.
-
+---
+title: "Đăng ký V90B không được? Cách kiểm tra cú pháp và điều kiện"
+description: "Nếu đăng ký V90B Viettel không thành công, kiểm tra V90B GB gửi 290, điều kiện thuê bao, trạng thái SIM và SMS phản hồi trước khi thử lại."
+pubDate: "2026-08-15"
+category: "support"
+tags: ["Viettel", "V90B", "đăng ký không được", "hỗ trợ"]
 ---
 
-## Câu hỏi thường gặp (FAQ)
+# Đăng ký V90B không được? Cách kiểm tra cú pháp và điều kiện
 
-### Cách kiểm tra dung lượng Data còn lại của gói V90B?
-Để kiểm tra lượng Data còn lại trong ngày, bạn soạn tin: `KTTK` gửi `191`.
+**Nếu V90B không đăng ký được, hãy kiểm tra nguyên nhân trước khi gửi lại.** Bài này chỉ xử lý troubleshooting; thông tin thương mại và quyền lợi của gói được giữ tại [trang V90B](/goi-cuoc/v90b/).
 
-### Cách hủy gia hạn gói cước V90B?
-Để dừng hoàn toàn việc gia hạn tự động của gói V90B, bạn soạn: `HUY V90B` gửi `191`.
+## Cú pháp website
 
-### Tôi có bị trừ tiền khi gọi quá 20 phút không?
-Có, các cuộc gọi nội mạng có thời lượng từ 20 phút trở lên sẽ bắt đầu tính cước theo gói cước đang sử dụng của thuê bao.
+> **V90B GB** gửi **290**
 
-### Làm sao để biết mình đã đăng ký thành công gói V90B?
-Sau khi gửi cú pháp đăng ký, Viettel sẽ gửi một tin nhắn xác nhận thành công về điện thoại của bạn.
+Đây là luồng CTA được khóa của website.
 
----
-*Thông tin được cung cấp bởi Đại lý ủy quyền của Viettel. Mọi thắc mắc về dịch vụ, vui lòng liên hệ tổng đài 198 để được hỗ trợ trực tiếp.*
+## Kiểm tra theo thứ tự
+
+### Mã gói
+
+Tên gói phải là `V90B`.
+
+### Cú pháp
+
+Nếu đăng ký qua website, dùng `V90B GB` gửi `290`. Không trộn cú pháp từ nguồn khác.
+
+### Điều kiện thuê bao
+
+Không suy diễn rằng tất cả thuê bao đều đăng ký được V90B. Nếu hệ thống báo không thuộc đối tượng, hãy kiểm tra gói khả dụng cho chính thuê bao trên kênh Viettel chính thức.
+
+### Trạng thái SIM và tài khoản
+
+Nếu SMS báo thiếu điều kiện hoặc trạng thái dịch vụ chưa phù hợp, xử lý đúng thông báo đó trước khi thử lại. Bài này không tự kết luận số dư hay trạng thái gói của từng thuê bao.
+
+### SMS phản hồi
+
+Hãy giữ nguyên văn tin nhắn trả về. Đây là bằng chứng tốt nhất để phân loại lỗi.
+
+## FAQ
+
+### Xem giá/data/quyền lợi V90B ở đâu?
+
+Tại [landing V90B](/goi-cuoc/v90b/).
+
+### Website dùng cú pháp gì?
+
+**V90B GB gửi 290**.
+
+### Có nên gửi lại nhiều lần khi bị từ chối?
+
+Không. Nên xác định nguyên nhân trước.
+
+## Kết luận
+
+Landing `/goi-cuoc/v90b/` là canonical owner cho intent gói V90B; bài này được giữ như trang hỗ trợ lỗi đăng ký. Cách phân vai này giảm cannibalization và loại bỏ các claim cũ không còn đủ evidence.
