@@ -7,7 +7,7 @@
     "test": "vitest run",
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build && node scripts/aud-21-audit.js",
+    "build": "node scripts/clean-astro-cache.mjs && astro check && astro build && node scripts/aud-21-audit.js",
     "validate:catalog": "tsx scripts/validate-package-catalog.ts",
     "check:catalog": "tsx scripts/migrate-package-catalog.ts --check",
     "generate:topic-media": "tsx scripts/generate-topic-media.ts",
