@@ -1,0 +1,114 @@
+version: 1.0.0
+decision: PASS
+observed_at: 2026-08-16T13:02:10+07:00
+website_os_source_repo: capquangfptminhlh/seo-web
+website_os_source_ref: main
+website_os_source_commit: 271928de181040a5c4234a4d5386e362b8b7a0a1
+website_os_manifest_version: 1.2.0
+project_repo: capquangfptminhlh/viettel-4g-web
+project_main_at_start: 9ae5814aaf91df8039e23a546f1f68cabc6865e3
+operation_slot: "13:00"
+
+research_chain:
+  - candidate: "same-day Viettel 4G/5G/eSIM/SIM breaking update on 2026-08-16"
+    disposition: SKIP_NO_MATERIAL_PRIMARY_SOURCE_UPDATE
+    reason: "Fresh search did not surface a materially new same-day Viettel primary-source announcement that justified another freshness owner after the Aug 15/16 subscriber-verification publications. Continued to fallback chain instead of ending the run."
+  - candidate: "Viettel roaming Nhật Bản không có mạng / bật 4G 5G"
+    disposition: SKIP_EXISTING_OWNER
+    reason: "Repository already contains /posts/viettel-roaming-nhat-ban-khong-co-mang/ and related roaming support content. A new URL would duplicate the existing support job."
+  - candidate: "phí chuyển đổi SIM vật lý sang eSIM trên Viettel Tammi"
+    disposition: SKIP_EXISTING_OWNER
+    reason: "Existing canonical eSIM owner /posts/esim-5g-kich-hoat-quet-qr/ was refreshed on 2026-08-15 with the current Tammi conversion flow and recent Viettel eSIM sources."
+  - candidate: "5G150E Viettel dành cho eSIM"
+    disposition: HOLD_CONTENT_TYPE_AND_REGISTRATION_EVIDENCE
+    reason: "Official Viettel evidence verifies the package family and official 191 registration path, but exact-package commercial intent should be owned by a package/entity page. The approved affiliate MÃ_GÓI GB -> 290 path for 5G150E is not independently verified, so no commercial owner is created in this run."
+  - candidate: "xem World Cup 2026 bằng 4G/5G Viettel và TV360"
+    disposition: SKIP_STRATEGIC_FIT
+    reason: "Viettel has a current TV360 World Cup offer, but the search job is primarily TV/video-subscription intent rather than the site's present 4G/5G/SIM support acquisition architecture. No stronger canonical gap than the selected compatibility query was proven."
+  - candidate: "iPhone dùng 2 eSIM Viettel cùng lúc / iPhone nào bật được 2 eSIM"
+    disposition: SELECT
+    reason: "Current Viettel eSIM FAQ states that two eSIM profiles can be active simultaneously from iPhone 13 onward, and Apple independently documents Dual SIM with two eSIMs on iPhone 13 and later. Repository search found no dedicated owner for this device-compatibility/support job."
+
+selected_target:
+  primary_keyword: "iPhone dùng 2 eSIM Viettel cùng lúc"
+  secondary_queries:
+    - "iPhone nào dùng được 2 eSIM cùng lúc"
+    - "iPhone 13 dùng 2 eSIM Viettel được không"
+    - "iPhone 11 dùng 2 eSIM cùng lúc được không"
+    - "2 eSIM Viettel trên iPhone"
+    - "bật 2 eSIM trên iPhone Viettel"
+  primary_intent: SUPPORT
+  secondary_intent: INFORMATIONAL
+  entity_type: device_compatibility
+  entity_name: "Viettel eSIM dual-SIM compatibility on iPhone"
+  parent_cluster: "esim-5g"
+  cluster_id: "esim-iphone-dual-active"
+  content_type: support_article
+  canonical_owner: "https://www.tracuugoicuoc.com/posts/iphone-dung-2-esim-viettel-cung-luc/"
+  indexability: index
+  priority_tier: P1
+  why_new_url: >-
+    Existing eSIM owners explain conversion, QR installation and general 5G setup. The selected search job is narrower and device-specific: whether two eSIM lines can be active simultaneously on an iPhone, which iPhone generations support that mode, and how to distinguish it from one physical SIM plus one eSIM. This compatibility question has independent first-party evidence from Viettel and Apple and no dedicated repository owner.
+
+serp_evidence:
+  dominant_intent: SUPPORT_INFORMATIONAL
+  dominant_page_types:
+    - official_carrier_esim_faq
+    - official_device_support_guide
+  evidence:
+    - id: SERP-VIETTEL-ESIM-FAQ
+      source: "https://esim.viettel.vn/"
+      source_type: OFFICIAL_VIETTEL
+      observed_at: 2026-08-16T13:02:10+07:00
+      finding: "Viettel lists supported iPhone models and states that from iPhone 13 onward users can have two eSIM subscriptions active simultaneously; it also distinguishes physical-SIM-plus-eSIM use."
+    - id: SERP-APPLE-DUAL-ESIM-VN
+      source: "https://support.apple.com/vi-vn/109317"
+      source_type: OFFICIAL_APPLE
+      observed_at: 2026-08-16T13:02:10+07:00
+      finding: "Apple states iPhone 13 models and later support Dual SIM with two eSIMs, while earlier supported iPhones can use one physical SIM plus one eSIM."
+    - id: SERP-APPLE-DUAL-SIM-GUIDE-VN
+      source: "https://support.apple.com/vi-vn/guide/iphone/iph9c5776d3c/ios"
+      source_type: OFFICIAL_APPLE
+      observed_at: 2026-08-16T13:02:10+07:00
+      finding: "Apple's current iPhone guide separates one-physical-plus-one-eSIM support from two-eSIM support and notes model/region limitations."
+
+cannibalization:
+  decision: PASS
+  compared_urls:
+    - url: "https://www.tracuugoicuoc.com/posts/esim-5g-kich-hoat-quet-qr/"
+      relationship: PARENT_SUPPORT_OWNER
+      differentiation: "Owns eSIM conversion/QR activation and general 5G setup, not simultaneous dual-eSIM device compatibility."
+    - url: "https://www.tracuugoicuoc.com/posts/cai-dat-4g-5g-volte-iphone-viettel/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns iPhone mobile-network/4G/5G/VoLTE settings, not whether two eSIM lines can be active at once."
+    - url: "https://www.tracuugoicuoc.com/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns biometric re-verification after moving a SIM to another device; different trigger and job."
+  internal_link_plan:
+    - from: "new owner"
+      to: "/posts/esim-5g-kich-hoat-quet-qr/"
+      purpose: "Send users who still need conversion/QR installation to the parent eSIM setup guide."
+    - from: "new owner"
+      to: "/posts/cai-dat-4g-5g-volte-iphone-viettel/"
+      purpose: "Send users who have both lines installed but need 4G/5G settings to the iPhone network guide."
+    - from: "new owner"
+      to: "/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu/"
+      purpose: "Differentiate dual-eSIM configuration from device-change biometric restrictions."
+
+factual_policy:
+  business_facts_source_of_truth: OFFICIAL_VIETTEL_AND_DEVICE_VENDOR
+  package_price_claims_added: false
+  package_benefit_claims_added: false
+  affiliate_registration_claims_added: false
+  fabricated_metrics: false
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking_position: UNKNOWN
+  traffic_potential: UNKNOWN
+
+invariants:
+  dns_or_domain_change: false
+  registration_cta_contract_changed: false
+  approved_registration_contract: "MÃ_GÓI GB sent to 290"
+  production_claim_requires_exact_main_vercel_ready_and_http_200: true
