@@ -1,0 +1,113 @@
+version: 1.0.0
+decision: PASS
+observed_at: 2026-08-16T07:03:00+07:00
+website_os_source_repo: capquangfptminhlh/seo-web
+website_os_source_ref: main
+website_os_source_commit: 271928de181040a5c4234a4d5386e362b8b7a0a1
+website_os_manifest_version: 1.2.0
+project_repo: capquangfptminhlh/viettel-4g-web
+project_main_at_start: 6eae5237af34d972d67d8c26d0afc959947e62fe
+operation_slot: "07:00"
+
+research_chain:
+  - candidate: "SIM Viettel bị chặn 2 chiều do chưa xác thực"
+    disposition: SKIP_EXISTING_OWNER
+    reason: "Freshness/support owner was published on 2026-08-15 at /posts/sim-viettel-bi-chan-2-chieu-chua-xac-thuc/. No material new primary-source fact was found for a second URL."
+  - candidate: "đổi SIM vật lý sang eSIM trên Viettel Tammi"
+    disposition: SKIP_EXISTING_OWNER
+    reason: "Existing canonical eSIM owner /posts/esim-5g-kich-hoat-quet-qr/ was refreshed on 2026-08-15 with current Tammi conversion flow."
+  - candidate: "SIM Viettel lắp sang máy mới bị chặn 1 chiều / xác thực khuôn mặt"
+    disposition: SKIP_EXISTING_OWNER
+    reason: "Existing owner /posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu/ already covers 2-hour, 30-day and 5-day milestones."
+  - candidate: "xác thực SIM Viettel khi đang ở nước ngoài / roaming"
+    disposition: SKIP_CANNIBALIZATION_RISK
+    reason: "Current two-way suspension owner already contains a dedicated overseas/OTP/roaming recovery section, while Japan roaming has a separate network-failure owner. No clean independent job was proven in this run."
+  - candidate: "5G150E Viettel dành cho eSIM"
+    disposition: HOLD_CONTENT_TYPE_AND_REGISTRATION_EVIDENCE
+    reason: "Official Viettel evidence verifies the package family, but exact-package intent should be owned by a package/entity page and the approved affiliate GB-to-290 eligibility for 5G150E is not independently verified. Do not create a commercial owner with an unverified registration path."
+  - candidate: "tra cứu chuẩn hóa thông tin thuê bao Viettel theo Nghị định 49"
+    disposition: SELECT
+    reason: "Current SERP is dominated by Viettel's live NĐ49 lookup tool and Viettel support guidance. Repository search found no dedicated owner for the job of checking whether a number is in the standardization list. This differs from checking who owns a SIM and from recovering an already blocked SIM."
+
+selected_target:
+  primary_keyword: "tra cứu chuẩn hóa thông tin thuê bao Viettel"
+  secondary_queries:
+    - "tra cứu Nghị định 49 Viettel"
+    - "kiểm tra thuê bao Viettel có cần chuẩn hóa không"
+    - "SIM Viettel đã chuẩn hóa thông tin chưa"
+    - "thuê bao không nằm trong danh sách chuẩn hóa Viettel"
+  primary_intent: SUPPORT
+  secondary_intent: NAVIGATIONAL
+  entity_type: support_tool
+  entity_name: "Viettel subscriber information standardization lookup"
+  parent_cluster: "sim-verification"
+  cluster_id: "sim-standardization-lookup"
+  content_type: support_article
+  canonical_owner: "https://www.tracuugoicuoc.com/posts/tra-cuu-chuan-hoa-thong-tin-thue-bao-viettel/"
+  indexability: index
+  priority_tier: P1
+  why_new_url: >-
+    The search job is to determine whether a Viettel number is currently flagged for subscriber-information standardization using Viettel's official NĐ49 lookup or the equivalent My Viettel utility. Existing owners answer different jobs: who the SIM is registered to, recovery after two-way suspension, and biometric re-verification after moving a SIM to another device.
+
+serp_evidence:
+  dominant_intent: SUPPORT_NAVIGATIONAL
+  dominant_page_types:
+    - official_lookup_tool
+    - official_support_guide
+  evidence:
+    - id: SERP-ND49-LIVE-TOOL
+      source: "https://www.vietteltelecom.vn/index.php/tra-cuu-thong-tin-thue-bao"
+      source_type: OFFICIAL_VIETTEL
+      observed_at: 2026-08-16T07:03:00+07:00
+      finding: "Viettel exposes a live 'Tra cứu chuẩn hóa nghị định 49' number lookup under customer support."
+    - id: SERP-ND49-GUIDE
+      source: "https://shop.viettel.vn/tin-tuc/chi-tiet/lam-cach-nao-de-xac-dinh-sim-phai-chuan-hoa-thong-tin-thue-bao/13523052"
+      source_type: OFFICIAL_VIETTEL
+      observed_at: 2026-08-16T07:03:00+07:00
+      finding: "Viettel describes checking the standardization status in My Viettel / NĐ49 lookup and interpreting the 'not in standardization list' outcome."
+    - id: SERP-SIM-OWNER-GUIDE
+      source: "https://www.viettel.vn/tin-tuc/chi-tiet/3-cach-kiem-tra-sim-chinh-chu-nhanh-hoan-toan-mien-phi/15860752"
+      source_type: OFFICIAL_VIETTEL
+      observed_at: 2026-08-16T07:03:00+07:00
+      finding: "Viettel separates checking SIM ownership from the subsequent standardization flow, supporting intent differentiation."
+
+cannibalization:
+  decision: PASS
+  compared_urls:
+    - url: "https://www.tracuugoicuoc.com/posts/kiem-tra-sim-viettel-chinh-chu/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Checks registered subscriber identity; does not own the dedicated NĐ49 list-status lookup job."
+    - url: "https://www.tracuugoicuoc.com/posts/sim-viettel-bi-chan-2-chieu-chua-xac-thuc/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Recovery after suspension; new target is pre/recovery diagnostic lookup of standardization-list status."
+    - url: "https://www.tracuugoicuoc.com/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Device-change biometric re-verification; different trigger and SERP job."
+  internal_link_plan:
+    - from: "new owner"
+      to: "/posts/kiem-tra-sim-viettel-chinh-chu/"
+      purpose: "Differentiate ownership check from standardization status."
+    - from: "new owner"
+      to: "/posts/sim-viettel-bi-chan-2-chieu-chua-xac-thuc/"
+      purpose: "Route already-suspended users to recovery guidance."
+    - from: "new owner"
+      to: "/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu/"
+      purpose: "Route device-swap users to biometric re-verification guidance."
+
+factual_policy:
+  business_facts_source_of_truth: OFFICIAL_VIETTEL_ONLY
+  package_price_claims_added: false
+  package_benefit_claims_added: false
+  affiliate_registration_claims_added: false
+  fabricated_metrics: false
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking_position: UNKNOWN
+  traffic_potential: UNKNOWN
+
+invariants:
+  dns_or_domain_change: false
+  registration_cta_contract_changed: false
+  approved_registration_contract: "MÃ_GÓI GB sent to 290"
+  production_claim_requires_exact_main_vercel_ready_and_http_200: true
