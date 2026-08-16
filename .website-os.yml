@@ -5,12 +5,12 @@ website_os_entrypoint: AGENTS.md
 project_name: viettel-4g-web
 project_repo: capquangfptminhlh/viettel-4g-web
 compliance_status: REQUIRED
-observed_at: 2026-08-15T09:31:00+07:00
-source_commit_sha: 48182a858b728878b5913d262880c7facd1a1b70
-manifest_version: 1.1.0
+observed_at: 2026-08-16T23:49:00+07:00
+source_commit_sha: 271928de181040a5c4234a4d5386e362b8b7a0a1
+manifest_version: 1.2.0
 mandatory_read_complete: true
 project_rules_loaded: true
 bootstrap_decision: PASS
-enforcement_target: k0
+enforcement_target: auto
 evidence_dir: .website-os/evidence
 local_seo: false
