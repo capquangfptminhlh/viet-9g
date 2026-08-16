@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const ALLOWED_DISPOSITIONS = new Set(['keep', 'improve', 'canonicalize', 'noindex', '301']);
+const ALLOWED_DISPOSITIONS = new Set(['keep', 'improve', 'canonicalize', 'noindex', '301', '404']);
 const REQUIRED_HEADERS = ['source', 'target', 'disposition', 'intentMatch', 'ownerApproved', 'notes'];
 
 type Row = Record<string, string>;
@@ -45,6 +45,10 @@ export function validateUrlDisposition(file: string): void {
       if (!row.target) throw new Error(`${label}: 301 requires target.`);
       if (row.intentMatch !== 'true') throw new Error(`${label}: 301 requires intentMatch=true.`);
       if (row.ownerApproved !== 'true') throw new Error(`${label}: 301 requires ownerApproved=true.`);
+    }
+    if (row.disposition === '404') {
+      if (row.target) throw new Error(`${label}: 404 must not have a target.`);
+      if (row.ownerApproved !== 'true') throw new Error(`${label}: 404 requires ownerApproved=true.`);
     }
   }
 }

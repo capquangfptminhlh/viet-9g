@@ -6,6 +6,66 @@
       "source": "/sitemap.xml",
       "destination": "/sitemap-index.xml",
       "permanent": true
+    },
+    {
+      "source": "/posts/topic-b1-esim-5g-tuong-thich",
+      "destination": "/posts/esim-5g-kich-hoat-quet-qr",
+      "permanent": true
+    },
+    {
+      "source": "/posts/topic-b1-esim-kich-hoat-ket-noi",
+      "destination": "/posts/esim-5g-kich-hoat-quet-qr",
+      "permanent": true
+    },
+    {
+      "source": "/posts/topic-b1-esim-quet-qr-buoc-dau",
+      "destination": "/posts/esim-5g-kich-hoat-quet-qr",
+      "permanent": true
+    },
+    {
+      "source": "/posts/topic-b1-iphone-chon-4g-5g-volte",
+      "destination": "/posts/cai-dat-4g-5g-volte-iphone-viettel",
+      "permanent": true
+    },
+    {
+      "source": "/posts/topic-b1-roaming-nhat-che-do-mang",
+      "destination": "/posts/viettel-roaming-nhat-ban-khong-co-mang",
+      "permanent": true
+    },
+    {
+      "source": "/posts/topic-b1-roaming-bat-data-truoc-khi-di",
+      "destination": "/posts/data-roaming-viettel-iphone-android",
+      "permanent": true
+    },
+    {
+      "source": "/posts/topic-b1-iphone-data-roaming-duong-dan",
+      "destination": "/posts/data-roaming-viettel-iphone-android",
+      "permanent": true
+    },
+    {
+      "source": "/posts/topic-b1-android-data-roaming-duong-dan",
+      "destination": "/posts/data-roaming-viettel-iphone-android",
+      "permanent": true
+    },
+    {
+      "source": "/posts/topic-b1-roaming-khoi-dong-lai-may",
+      "destination": "/posts/data-roaming-viettel-iphone-android",
+      "permanent": true
+    },
+    {
+      "source": "/posts/gói-cước-viettel-xem-tiktok-youtube-facebook-miễn-phí-data",
+      "destination": "/goi-cuoc/mang-xa-hoi",
+      "permanent": true
+    },
+    {
+      "source": "/posts/hướng-dẫn-hủy-gói-cước-viettel-tránh-trừ-tiền-tự-động",
+      "destination": "/posts/cach-huy-gia-han-4g-viettel",
+      "permanent": true
+    },
+    {
+      "source": "/posts/dang-ky-sd70-viettel",
+      "destination": "/goi-cuoc/sd70",
+      "permanent": true
     }
   ],
   "buildCommand": "npm test && npm run k0:check && npm run build"

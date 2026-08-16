@@ -1,0 +1,46 @@
+version: 1.0.0
+scope_type: POST_LAUNCH_INDEXABILITY_REMEDIATION
+observed_at: 2026-08-16T23:49:00+07:00
+website_os:
+  source_commit_sha: 271928de181040a5c4234a4d5386e362b8b7a0a1
+  manifest_version: 1.2.0
+validated_code:
+  branch: seo/gsc-indexability-complete-20260816
+  sha: 791312f0e14386bd86e29a2507747a61ffa55349
+  preview_deployment_id: dpl_E5ASXWiQWbWBdy4HZsdrdYimS3Bq
+  preview_state: READY
+quality_gate:
+  test_files: 42
+  test_files_passed: 42
+  tests: 215
+  tests_passed: 215
+  k0: PASS
+  astro_check: PASS
+  static_pages_built: 96
+  audit_score: 100
+  audit_critical: 0
+  audit_warning: 0
+runtime_evidence:
+  preview_money_page_sample:
+    url: /goi-cuoc/mxh100
+    http_status: 200
+    canonical: https://www.tracuugoicuoc.com/goi-cuoc/mxh100
+    robots_html: index_follow
+    cta: "MXH100 GB -> 290"
+  preview_full_sweep: BLOCKED_BY_VERCEL_PREVIEW_SSO
+  production_full_sweep: REQUIRED_AFTER_MERGE
+changes_verified:
+  stale_static_sitemap_absent: true
+  thin_duplicate_sources_removed: true
+  permanent_redirect_map_added: true
+  unsupported_legacy_articles_retired: true
+  verified_package_crawl_hub_added: true
+  markdown_internal_link_normalizer_added: true
+  blogger_referrals_resolve_canonical_owner: true
+  current_viettel_support_copy_refreshed: true
+invariants:
+  dns_changed: false
+  domain_routing_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
+release_decision: FINAL_EXACT_PREVIEW_REQUIRED_THEN_MERGE
+live_claim_allowed: false

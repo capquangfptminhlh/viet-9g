@@ -19,7 +19,7 @@ describe('Blogger Content Generator - Multi-Intent Tests', () => {
     expect(resultHtml).toContain("mất ưu đãi/data còn lại");
     expect(resultHtml).toContain("<h3>Câu hỏi thường gặp (FAQ)</h3>");
     expect(resultHtml).toContain("<p><strong>Thao tác này có mất phí không?</strong></p>");
-    expect(resultHtml).toContain('href="https://tracuugoicuoc.com/huong-dan/huy-goi-cuoc-viettel/?utm_source=blogger');
+    expect(resultHtml).toContain('href="https://tracuugoicuoc.com/huong-dan/huy-goi-cuoc-viettel?utm_source=blogger');
     
     // Cross-contamination
     expect(resultHtml).not.toContain("đăng ký");
@@ -39,7 +39,7 @@ describe('Blogger Content Generator - Multi-Intent Tests', () => {
     expect(resultHtml).toContain('<h2>' + title + '</h2>');
     expect(resultHtml).toContain("<h3>Câu hỏi thường gặp (FAQ)</h3>");
     expect(resultHtml).toContain("<p><strong>Tại sao kết quả trả về bị chậm?</strong></p>");
-    expect(resultHtml).toContain('href="https://tracuugoicuoc.com/huong-dan/kiem-tra-toc-do-mang/?utm_source=blogger');
+    expect(resultHtml).toContain('href="https://tracuugoicuoc.com/huong-dan/kiem-tra-toc-do-mang?utm_source=blogger');
     
     // Cross-contamination
     expect(resultHtml).not.toContain("mất ưu đãi/data còn lại");
@@ -68,7 +68,7 @@ describe('Blogger Content Generator - Multi-Intent Tests', () => {
     expect(resultHtml).toContain("<p><strong>Làm sao biết gói có phù hợp với thuê bao của tôi?</strong></p>");
     expect(resultHtml).toContain("Ai nên dùng");
     expect(resultHtml).toContain("Giá rẻ");
-    expect(resultHtml).toContain('href="https://tracuugoicuoc.com/goi-cuoc/st15k/?utm_source=blogger');
+    expect(resultHtml).toContain('href="https://tracuugoicuoc.com/goi-cuoc/st15k?utm_source=blogger');
     expect(resultHtml).toContain("Kiểm tra điều kiện áp dụng và thông tin gia hạn hiện tại");
     expect(resultHtml).not.toContain("Thông thường các gói cước data của Viettel đều có tính năng tự động gia hạn");
     

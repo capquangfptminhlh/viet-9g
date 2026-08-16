@@ -1,0 +1,16 @@
+keyword,cluster_id,target_url,coverage_type,launch_status,content_section_or_page,evidence_ref,status
+MXH100,package-entity,/goi-cuoc/mxh100,ENTITY_PAGE,BUILD_LAUNCH,exact package owner,package-catalog|existing-k0,PASS
+MXH120,package-entity,/goi-cuoc/mxh120,ENTITY_PAGE,BUILD_LAUNCH,exact package owner,package-catalog|existing-k0,PASS
+MXH150,package-entity,/goi-cuoc/mxh150,ENTITY_PAGE,BUILD_LAUNCH,exact package owner,package-catalog|existing-k0,PASS
+SD70,package-entity,/goi-cuoc/sd70,ENTITY_PAGE,BUILD_LAUNCH,exact package owner,package-catalog|existing-k0,PASS
+SD90,package-entity,/goi-cuoc/sd90,ENTITY_PAGE,BUILD_LAUNCH,exact package owner,package-catalog|existing-k0,PASS
+SD120,package-entity,/goi-cuoc/sd120,ENTITY_PAGE,BUILD_LAUNCH,exact package owner,package-catalog|existing-k0,PASS
+SD135,package-entity,/goi-cuoc/sd135,ENTITY_PAGE,BUILD_LAUNCH,exact package owner,package-catalog|existing-k0,PASS
+SD150,package-entity,/goi-cuoc/sd150,ENTITY_PAGE,BUILD_LAUNCH,exact package owner,package-catalog|existing-k0,PASS
+V90B,package-entity,/goi-cuoc/v90b,ENTITY_PAGE,BUILD_LAUNCH,exact package owner,package-catalog|existing-k0,PASS
+V120B,package-entity,/goi-cuoc/v120b,ENTITY_PAGE,BUILD_LAUNCH,exact package owner,package-catalog|existing-k0,PASS
+đăng ký SD135 không được,sd135-support,/posts/đăng-ký-sd135-viettel,SUPPORTING_ARTICLE,BUILD_LAUNCH,troubleshooting checklist,cannibalization-register,PASS
+SIM Viettel mới kích hoạt đăng ký mạng,new-sim-support,/posts/cách-đăng-ký-mạng-viettel-cho-sim-mới-kích-hoạt,SUPPORTING_ARTICLE,BUILD_LAUNCH,official-channel package selection,official-viettel-2026,PASS
+lỗi đăng ký 4G Viettel không thành công,registration-support,/posts/lỗi-đăng-ký-4g-viettel-không-thành-công-và-cách-khắc-phục,SUPPORTING_ARTICLE,BUILD_LAUNCH,generic registration troubleshooting,official-viettel-2026,PASS
+gói Viettel TikTok YouTube Facebook,social-package-consolidation,/goi-cuoc/mang-xa-hoi,PRIMARY_PAGE,BUILD_LAUNCH,generic social package hub,cannibalization-register,PASS
+hủy gói Viettel tránh trừ tiền,cancellation-consolidation,/posts/cach-huy-gia-han-4g-viettel,PRIMARY_PAGE,BUILD_LAUNCH,refreshed cancellation owner,official-viettel-2026,PASS

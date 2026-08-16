@@ -10,7 +10,7 @@ tags: ["Viettel", "SD135", "đăng ký không được", "hỗ trợ"]
 
 **Nếu SD135 không đăng ký được, đừng tiếp tục gửi cùng một lệnh nhiều lần.** Hãy kiểm tra cú pháp, điều kiện thuê bao và nội dung SMS phản hồi trước.
 
-Bài này chỉ phục vụ **intent hỗ trợ lỗi đăng ký SD135**. Giá, data, chu kỳ và quyền lợi hiện hành được tập trung tại [trang SD135](/goi-cuoc/sd135/).
+Bài này chỉ phục vụ **intent hỗ trợ lỗi đăng ký SD135**. Giá, data, chu kỳ và quyền lợi hiện hành được tập trung tại [trang SD135](/goi-cuoc/sd135).
 
 ## Cú pháp của website
 
@@ -36,7 +36,7 @@ Các bài cũ có thể chứa claim giá/data/cú pháp quản lý không còn 
 
 ### Xem thông tin đầy đủ SD135 ở đâu?
 
-Tại [landing SD135](/goi-cuoc/sd135/).
+Tại [landing SD135](/goi-cuoc/sd135).
 
 ### Cú pháp website dùng là gì?
 
@@ -48,4 +48,4 @@ Không. Hãy xử lý nguyên nhân được báo trước.
 
 ## Kết luận
 
-`/goi-cuoc/sd135/` giữ intent thương mại/entity; URL này giữ intent troubleshooting. Việc retarget giúp loại bỏ cạnh tranh nội bộ và tránh tiếp tục phát tán các claim cũ chưa được kiểm chứng.
+`/goi-cuoc/sd135` giữ intent thương mại/entity; URL này giữ intent troubleshooting. Việc retarget giúp loại bỏ cạnh tranh nội bộ và tránh tiếp tục phát tán các claim cũ chưa được kiểm chứng.

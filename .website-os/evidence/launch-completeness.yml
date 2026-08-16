@@ -1,0 +1,30 @@
+version: 1.0.0
+observed_at: 2026-08-16T23:49:00+07:00
+scope_type: POST_LAUNCH_INDEXABILITY_REMEDIATION
+website_os_source_commit: 271928de181040a5c4234a4d5386e362b8b7a0a1
+manifest_version: 1.2.0
+baseline_main_sha: b496bb36b1029f03cb85ef176552aba0174b8883
+preview_code_sha: 791312f0e14386bd86e29a2507747a61ffa55349
+preview_deployment_id: dpl_E5ASXWiQWbWBdy4HZsdrdYimS3Bq
+checks:
+  project_scope_matrix: PASS
+  page_inventory: PASS
+  keyword_page_coverage: PASS
+  image_plan: PASS_NOT_APPLICABLE_TECHNICAL_SCOPE
+  url_disposition: PASS
+  canonical_owner_consolidation: PASS
+  internal_link_normalization: PASS
+  blogger_canonical_target_resolution: PASS
+  tests: PASS_215_OF_215
+  k0: PASS
+  static_build: PASS_96_PAGES
+  seo_aeo_geo_audit: PASS_100_OF_100
+  preview_runtime: PARTIAL_VERIFIED
+  production_runtime: PENDING_AFTER_MERGE
+production_invariants:
+  dns_unchanged: true
+  domain_routing_unchanged: true
+  registration_contract_preserved: "MÃ_GÓI GB -> 290"
+decision: PASS_FOR_MERGE_AFTER_FINAL_EXACT_PREVIEW
+whole_site_launch_complete_claim: false
+reason: This record applies only to the explicit GSC crawl/indexability remediation scope. Full production runtime verification remains mandatory after merge before LIVE can be claimed.
