@@ -42,7 +42,7 @@ describe('sitemap and canonical routing', () => {
     ];
 
     for (const [source, destination] of expected) {
-      expect(vercel.redirects).toContainEqual({ source, destination, permanent: true });
+      expect(vercel.redirects).toContainEqual({ source: encodeURI(source), destination, permanent: true });
       const markdown = path.resolve('src/content/posts', `${source.split('/').pop()}.md`);
       expect(fs.existsSync(markdown)).toBe(false);
     }
