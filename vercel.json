@@ -1,5 +1,12 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap-index.xml",
+      "permanent": true
+    }
+  ],
   "buildCommand": "npm test && npm run k0:check && npm run build"
 }
