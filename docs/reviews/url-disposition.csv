@@ -1,5 +1,41 @@
 source,target,disposition,intentMatch,ownerApproved,notes
-/posts/cach-do-toc-do-4g-5g-viettel,,keep,,,Current local article retained for editorial review.
-/posts/cach-huy-gia-han-4g-viettel,,improve,,,Refresh package facts before the next content update.
-/posts/cach-huy-goi-mxh120,/posts/cach-huy-gia-han-4g-viettel,canonicalize,,,Potential overlapping cancellation intent; review only.
-/posts/cach-kiem-tra-tai-khoan-chinh,,noindex,,,Utility page candidate; review only and no implementation action.
+/chinh-sach-bao-mat,,keep,,,Valid trust and privacy page
+/goi-cuoc/12mxh120,,404,,true,Retired legacy package without current verified facts and absent from sitemap
+/goi-cuoc/6mxh120,,404,,true,Retired legacy package without current verified facts and absent from sitemap
+/goi-cuoc/mxh100,,keep,,,Verified package canonical owner and crawl priority target
+/goi-cuoc/mxh120,,keep,,,Verified package canonical owner and crawl priority target
+/goi-cuoc/mxh150,,keep,,,Verified package canonical owner and crawl priority target
+/goi-cuoc/sd120,,keep,,,Verified package canonical owner and crawl priority target
+/goi-cuoc/sd135,,keep,,,Verified package canonical owner and crawl priority target
+/goi-cuoc/sd150,,keep,,,Verified package canonical owner and crawl priority target
+/goi-cuoc/sd70,,keep,,,Verified package canonical owner and crawl priority target
+/goi-cuoc/sd90,,keep,,,Verified package canonical owner and crawl priority target
+/goi-cuoc/st5k,,404,,true,Retired legacy package without current verified facts and absent from sitemap
+/goi-cuoc/st70k,,404,,true,Retired legacy package without current verified facts and absent from sitemap
+/goi-cuoc/st90k,,404,,true,Retired legacy package without current verified facts and absent from sitemap
+/goi-cuoc/v120b,,keep,,,Verified package canonical owner and crawl priority target
+/goi-cuoc/v150b,,404,,true,Retired legacy package without current verified facts and absent from sitemap
+/goi-cuoc/v200b,,404,,true,Retired legacy package without current verified facts and absent from sitemap
+/goi-cuoc/v90b,,keep,,,Verified package canonical owner and crawl priority target
+/posts/đăng-ký-sd135-viettel,,improve,,,Support owner retained and canonical links normalized
+/posts/cách-đăng-ký-mạng-viettel-cho-sim-mới-kích-hoạt,,improve,,,Rebuilt with current Viettel sources and no fabricated new-SIM offer table
+/posts/gói-cước-viettel-xem-tiktok-youtube-facebook-miễn-phí-data,/goi-cuoc/mang-xa-hoi,301,true,true,Generic social-package intent belongs to the verified social hub
+/posts/hướng-dẫn-hủy-gói-cước-viettel-tránh-trừ-tiền-tự-động,/posts/cach-huy-gia-han-4g-viettel,301,true,true,Stale cancellation page merged into refreshed cancellation owner
+/posts/lỗi-đăng-ký-4g-viettel-không-thành-công-và-cách-khắc-phục,,improve,,,Rebuilt as source-backed registration troubleshooting owner
+/posts/topic-b1-esim-5g-tuong-thich,/posts/esim-5g-kich-hoat-quet-qr,301,true,true,Micro-content merged into comprehensive eSIM owner
+/posts/topic-b1-esim-kich-hoat-ket-noi,/posts/esim-5g-kich-hoat-quet-qr,301,true,true,Micro-content merged into comprehensive eSIM owner
+/posts/topic-b1-esim-quet-qr-buoc-dau,/posts/esim-5g-kich-hoat-quet-qr,301,true,true,Micro-content merged into comprehensive eSIM owner
+/posts/topic-b1-iphone-chon-4g-5g-volte,/posts/cai-dat-4g-5g-volte-iphone-viettel,301,true,true,iPhone network-setting micro-content merged into canonical owner
+/posts/topic-b1-roaming-nhat-che-do-mang,/posts/viettel-roaming-nhat-ban-khong-co-mang,301,true,true,Japan roaming micro-content merged into country troubleshooting owner
+/posts/topic-b1-roaming-bat-data-truoc-khi-di,/posts/data-roaming-viettel-iphone-android,301,true,true,Data-roaming prerequisite merged into generic setup owner
+/posts/topic-b1-iphone-data-roaming-duong-dan,/posts/data-roaming-viettel-iphone-android,301,true,true,iPhone path merged into generic setup owner
+/posts/topic-b1-android-data-roaming-duong-dan,/posts/data-roaming-viettel-iphone-android,301,true,true,Android path merged into generic setup owner
+/posts/topic-b1-roaming-khoi-dong-lai-may,/posts/data-roaming-viettel-iphone-android,301,true,true,Restart step merged into generic roaming setup owner
+/posts/dang-ky-sd70-viettel,/goi-cuoc/sd70,301,true,true,Commercial SD70 duplicate merged into exact package owner
+/posts/đăng-ký-st5k-viettel,,404,,true,Unsupported legacy commercial article retired
+/posts/đăng-ký-st90k-viettel,,404,,true,Unsupported legacy commercial article retired
+/posts/đăng-ký-v200b-viettel,,404,,true,Unsupported legacy commercial article retired
+/posts/cach-do-toc-do-4g-5g-viettel,,keep,,,Current canonical article retained
+/posts/cach-huy-gia-han-4g-viettel,,improve,,,Refreshed canonical cancellation owner with current Viettel sources
+/posts/cach-huy-goi-mxh120,/posts/cach-huy-gia-han-4g-viettel,canonicalize,,,Potential overlapping cancellation intent remains review-only pending exact merge decision
+/posts/cach-kiem-tra-tai-khoan-chinh,,noindex,,,Utility page candidate remains review-only with no implementation action
