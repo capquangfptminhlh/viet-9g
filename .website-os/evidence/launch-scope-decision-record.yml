@@ -1,0 +1,38 @@
+version: 1.0.0
+observed_at: 2026-08-16T23:49:00+07:00
+scope_type: POST_LAUNCH_INDEXABILITY_REMEDIATION
+website_os:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: 271928de181040a5c4234a4d5386e362b8b7a0a1
+  manifest_version: 1.2.0
+project:
+  repo: capquangfptminhlh/viettel-4g-web
+  baseline_main_sha: b496bb36b1029f03cb85ef176552aba0174b8883
+approved_scope:
+  gsc_discovered_not_indexed_urls: 23
+  retain_indexable_money_pages: 10
+  retain_policy_pages: 1
+  retain_or_refresh_support_pages: 3
+  redirect_gsc_duplicates: 2
+  retire_legacy_package_routes: 7
+  additional_thin_micro_urls_to_redirect: 10
+  additional_unsupported_articles_to_retire: 3
+visual_scope:
+  visual_change_required: false
+  reason: Technical crawl/indexability remediation keeps the existing approved visual system and does not create a new page template or visual composition.
+production_invariants:
+  dns_changes_allowed: false
+  domain_routing_changes_allowed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
+  exact_main_vercel_ready_required: true
+  production_readback_required: true
+quality_gates:
+  k0_required: true
+  cannibalization_required: true
+  tests_required: true
+  build_required: true
+  seo_audit_required: true
+  preview_required_before_merge: true
+decision: PASS
+reason: The remediation scope is explicit and evidence-backed. It reduces duplicate crawl inventory while preserving current canonical package and support owners.
