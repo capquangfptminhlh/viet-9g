@@ -1,0 +1,2 @@
+image_id,page_id,target_url,role,asset_path,width,height,format,alt_text,source_mode,status
+img-gsc-remediation,remediation-batch,,technical-remediation,N_A,0,0,N_A,N_A,NOT_REQUIRED_TECHNICAL_REMEDIATION,PASS
