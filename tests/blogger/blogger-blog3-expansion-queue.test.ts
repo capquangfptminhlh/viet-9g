@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { describe, expect, it } from 'vitest';
+import { resolveCanonicalTargetPath } from '../../src/data/canonical-target-path';
 
 const root = path.resolve(import.meta.dirname, '../..');
 const blogId = '2757413717171314447';
@@ -17,12 +18,14 @@ const isOfficialViettelUrl = (value: string) => {
   );
 };
 
-const routeExists = (targetUrlPath: string) => fs.existsSync(
-  path.join(root, 'src', 'content', targetUrlPath.replace(/^\/posts\//, 'posts/').replace(/\/$/, '.md')),
-);
+const routeExists = (targetUrlPath: string) => {
+  const canonicalPath = resolveCanonicalTargetPath(targetUrlPath);
+  const relative = canonicalPath.replace(/^\/posts\//, 'posts/').replace(/\/$/, '');
+  return fs.existsSync(path.join(root, 'src', 'content', `${relative}.md`));
+};
 
 describe('Blog 3 expansion queue configuration', () => {
-  it('queues every ready Blog 3 topic only with an official, unexpired fact and matching markdown route', () => {
+  it('queues every ready Blog 3 topic only with an official, unexpired fact and resolvable canonical route', () => {
     const candidates = readJson('docs/topic-candidates/ready-blog3-expansion.json');
     const topics = readJson('config/topics.json');
     const factsById = new Map(readJson('data/facts.json').map((fact: any) => [fact.id, fact]));
