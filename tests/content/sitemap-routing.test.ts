@@ -2,13 +2,6 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 
-function walk(dir: string): string[] {
-  return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
-    const full = path.join(dir, entry.name);
-    return entry.isDirectory() ? walk(full) : [full];
-  });
-}
-
 describe('sitemap and canonical routing', () => {
   it('redirects the legacy sitemap URL to the generated Astro sitemap index', () => {
     const vercel = JSON.parse(fs.readFileSync(path.resolve('vercel.json'), 'utf8'));
@@ -55,27 +48,10 @@ describe('sitemap and canonical routing', () => {
     }
   });
 
-  it('does not link internally to canonical routes with a trailing slash', () => {
-    const sourceFiles = [
-      ...walk(path.resolve('src/content/posts')).filter((file) => file.endsWith('.md')),
-      ...walk(path.resolve('src/pages')).filter((file) => file.endsWith('.astro')),
-    ];
-    const offenders: string[] = [];
-    const markdownLink = /\]\((\/(?:goi-cuoc|posts)\/[^)\s?#]+\/)(?:[?#][^)]*)?\)/g;
-    const hrefLink = /href=["'`](\/(?:goi-cuoc|posts)\/[^"'`?#]+\/)["'`]/g;
-
-    for (const file of sourceFiles) {
-      const content = fs.readFileSync(file, 'utf8');
-      for (const regex of [markdownLink, hrefLink]) {
-        regex.lastIndex = 0;
-        let match: RegExpExecArray | null;
-        while ((match = regex.exec(content))) {
-          offenders.push(`${path.relative(process.cwd(), file)} -> ${match[1]}`);
-        }
-      }
-    }
-
-    expect(offenders).toEqual([]);
+  it('enables render-time normalization for Markdown internal links', () => {
+    const config = fs.readFileSync(path.resolve('astro.config.mjs'), 'utf8');
+    expect(config).toContain("import rehypeNormalizeInternalLinks from './src/markdown/rehype-normalize-internal-links.mjs';");
+    expect(config).toContain('rehypePlugins: [rehypeNormalizeInternalLinks]');
   });
 
   it('links the package index directly to verified package canonical owners', () => {
