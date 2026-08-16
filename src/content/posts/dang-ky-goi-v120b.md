@@ -10,7 +10,7 @@ tags: ["Viettel", "V120B", "SMS 290", "hỗ trợ"]
 
 **Trang này chỉ xử lý lỗi thao tác SMS của V120B trên điện thoại**, không sở hữu intent giá/gói cước và cũng không thay bài troubleshooting điều kiện thuê bao.
 
-Thông tin thương mại thuộc [trang V120B](/goi-cuoc/v120b/). Nếu SMS đã gửi đúng nhưng Viettel từ chối đăng ký, xem bài [đăng ký V120B không được](/posts/đăng-ký-v120b-viettel/).
+Thông tin thương mại thuộc [trang V120B](/goi-cuoc/v120b). Nếu SMS đã gửi đúng nhưng Viettel từ chối đăng ký, xem bài [đăng ký V120B không được](/posts/đăng-ký-v120b-viettel).
 
 ## Nội dung SMS đúng của website
 
@@ -22,7 +22,7 @@ Nếu nút đăng ký hoạt động đúng, điện thoại sẽ mở ứng d�
 
 Một số trình duyệt hoặc thiết bị có thể yêu cầu bạn cho phép mở ứng dụng nhắn tin. Hãy thử:
 
-1. Mở [trang V120B](/goi-cuoc/v120b/) trực tiếp trên điện thoại.
+1. Mở [trang V120B](/goi-cuoc/v120b) trực tiếp trên điện thoại.
 2. Bấm **Đăng ký** lại.
 3. Nếu trình duyệt hỏi quyền mở ứng dụng SMS, chọn cho phép.
 4. Kiểm tra người nhận là `290` và nội dung là `V120B GB` trước khi gửi.
@@ -41,12 +41,12 @@ Nếu thấy nội dung khác, quay lại landing V120B và thử lại thay vì
 
 Hãy chờ phản hồi hệ thống trong một khoảng hợp lý và kiểm tra ứng dụng SMS có gửi thành công hay không. Nếu tin nhắn không được gửi ở cấp thiết bị, đây là lỗi thao tác/SMS chứ chưa phải bằng chứng rằng V120B không áp dụng cho thuê bao.
 
-Nếu SMS đã gửi thành công và Viettel trả thông báo từ chối, chuyển sang bài [kiểm tra lỗi đăng ký V120B](/posts/đăng-ký-v120b-viettel/) để xử lý đúng intent.
+Nếu SMS đã gửi thành công và Viettel trả thông báo từ chối, chuyển sang bài [kiểm tra lỗi đăng ký V120B](/posts/đăng-ký-v120b-viettel) để xử lý đúng intent.
 
 ## Vì sao V120B có ba URL khác nhau trên site?
 
-- `/goi-cuoc/v120b/`: owner cho **entity/commercial intent**.
-- `/posts/đăng-ký-v120b-viettel/`: owner cho **registration troubleshooting**.
+- `/goi-cuoc/v120b`: owner cho **entity/commercial intent**.
+- `/posts/đăng-ký-v120b-viettel`: owner cho **registration troubleshooting**.
 - URL hiện tại: owner cho **SMS/deep-link troubleshooting**.
 
 Ba trang chỉ được giữ khi phục vụ ba user job khác nhau; không lặp lại toàn bộ bảng giá/quyền lợi giữa các trang.
@@ -59,11 +59,11 @@ Ba trang chỉ được giữ khi phục vụ ba user job khác nhau; không l�
 
 ### Nếu SMS gửi đúng nhưng bị từ chối thì đọc bài nào?
 
-Xem [đăng ký V120B không được](/posts/đăng-ký-v120b-viettel/).
+Xem [đăng ký V120B không được](/posts/đăng-ký-v120b-viettel).
 
 ### Nếu muốn xem giá và quyền lợi V120B?
 
-Xem [landing V120B](/goi-cuoc/v120b/).
+Xem [landing V120B](/goi-cuoc/v120b).
 
 ## Kết luận
 
