@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { resolveCanonicalTargetPath } from '../../src/data/canonical-target-path';
 
 const root = path.resolve(import.meta.dirname, '../..');
 const auditDate = new Date('2026-08-03T00:00:00Z');
@@ -17,13 +18,15 @@ const readJson = (file: string) => JSON.parse(
 );
 
 const routeExists = (targetUrlPath: string) => {
-  if (targetUrlPath.startsWith('/goi-cuoc/')) {
-    const packageId = targetUrlPath.split('/').filter(Boolean).at(-1);
+  const canonicalPath = resolveCanonicalTargetPath(targetUrlPath);
+  if (canonicalPath.startsWith('/goi-cuoc/')) {
+    const packageId = canonicalPath.split('/').filter(Boolean).at(-1);
     const catalog = readJson('data/package-catalog.v1.json');
     return catalog.packages.some((pkg: any) => pkg.id === packageId);
   }
-  const relative = targetUrlPath.replace(/^\/posts\//, 'posts/').replace(/\/$/, '.md');
-  return fs.existsSync(path.join(root, 'src', 'content', relative));
+  const relative = canonicalPath.replace(/^\/posts\//, 'posts/').replace(/\/$/, '.md');
+  const markdownPath = relative.endsWith('.md') ? relative : `${relative}.md`;
+  return fs.existsSync(path.join(root, 'src', 'content', markdownPath));
 };
 
 describe('five-blog publication queue', () => {
