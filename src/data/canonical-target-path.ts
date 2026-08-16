@@ -7,12 +7,20 @@ type RedirectRule = {
   permanent?: boolean;
 };
 
+function safeDecode(value: string): string {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+}
+
 function normalizePath(value: string): string {
   if (!value.startsWith('/') || value === '/') return value;
   const hashIndex = value.indexOf('#');
   const queryIndex = value.indexOf('?');
   const cutAt = [hashIndex, queryIndex].filter((index) => index >= 0).sort((a, b) => a - b)[0] ?? value.length;
-  const pathname = value.slice(0, cutAt);
+  const pathname = safeDecode(value.slice(0, cutAt));
   const suffix = value.slice(cutAt);
   return `${pathname.length > 1 && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname}${suffix}`;
 }
