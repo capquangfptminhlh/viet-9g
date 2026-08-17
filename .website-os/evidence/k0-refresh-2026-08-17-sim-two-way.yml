@@ -1,0 +1,110 @@
+version: 1.0.0
+decision: PASS
+operation: REFRESH_EXISTING_OWNER
+observed_at: 2026-08-17T07:01:03+07:00
+website_os_source_repo: capquangfptminhlh/seo-web
+website_os_source_ref: main
+website_os_source_commit: 524ae731f8ba15c1284c78b5d5f275c8c234fb17
+website_os_manifest_version: 1.3.0
+project_repo: capquangfptminhlh/viettel-4g-web
+project_main_at_start: 38c5173684e21b4adec356e0904478ae4ce2d3ec
+operation_slot: "07:00 Asia/Ho_Chi_Minh"
+
+trend_observation:
+  primary_query_family:
+    - "SIM Viettel bị chặn 2 chiều 15/8/2026"
+    - "SIM Viettel chưa xác thực bị thu hồi số"
+    - "Viettel sau 5 ngày khóa 2 chiều"
+  freshness_trigger: >-
+    The 15/08/2026 two-way suspension milestone is active. A Viettel-authored notice republished on the Quang Ngai government portal states that after 60 days from one-way suspension, unverified subscribers are suspended two-way from 15/08/2026 and after 05 additional days the subscriber number is reclaimed according to regulation.
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking_position: UNKNOWN
+  traffic_potential: UNKNOWN
+  fabricated_metrics: false
+
+selected_target:
+  primary_keyword: "SIM Viettel bị chặn 2 chiều"
+  primary_intent: SUPPORT
+  secondary_intents:
+    - FRESHNESS
+    - INFORMATIONAL
+  entity_type: support_problem
+  entity_name: "Viettel subscriber verification suspension"
+  parent_cluster: "sim-verification"
+  cluster_id: "sim-two-way-unverified"
+  content_type: support_article
+  canonical_owner: "https://www.tracuugoicuoc.com/posts/sim-viettel-bi-chan-2-chieu-chua-xac-thuc"
+  indexability: index
+  priority_tier: P1
+  new_url_created: false
+  reason: >-
+    The existing canonical owner already satisfies the recovery intent. The new evidence is a freshness update to the same job, not an independent SERP job, so the correct action is to refresh the existing owner rather than create another indexable URL.
+
+source_evidence:
+  - id: VIETTEL-BLOCKED-GUIDE
+    source: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/thong-bao-thue-bao-viettel-bi-chan-do-chua-xac-thuc-thong-tin-huong-dan-cach-xu-ly/15333972"
+    source_type: OFFICIAL_VIETTEL
+    observed_at: 2026-08-17T07:01:03+07:00
+    finding: "Viettel confirms subscribers not completing verification were blocked and provides official recovery channels, including My Viettel and Viettel Tammi."
+  - id: VIETTEL-QUANGNGAI-TIMELINE
+    source: "https://quangngai.gov.vn/tin-tuc/0h-ngay-15-6-khoa-sim-mot-chieu-voi-cac-thue-bao-chua-xac-thuc-thong-tin-theo-quy-dinh-cua-thong-tu-08.html"
+    source_type: GOVERNMENT_PORTAL_VIETTEL_AUTHORED
+    observed_at: 2026-08-17T07:01:03+07:00
+    finding: "The page identifies the author as VIETTEL and states the 15/08 two-way suspension milestone plus subscriber-number reclamation after 05 additional days."
+  - id: VIETTEL-DEVICE-CHANGE
+    source: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/thong-bao-quan-trong-quy-dinh-bat-buoc-xac-thuc-lai-khuon-mat-khi-thay-doi-dien-thoai-ap-dung-tu-15062026/19138832"
+    source_type: OFFICIAL_VIETTEL
+    observed_at: 2026-08-17T07:01:03+07:00
+    finding: "Viettel documents a separate biometric re-verification path after moving a SIM to a different device, supporting intent separation from general subscriber-information suspension."
+
+cannibalization:
+  decision: PASS
+  canonical_owner_retained: true
+  compared_urls:
+    - url: "https://www.tracuugoicuoc.com/posts/tra-cuu-chuan-hoa-thong-tin-thue-bao-viettel"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns diagnostic lookup of whether a number is in the standardization list; does not own recovery after two-way suspension."
+    - url: "https://www.tracuugoicuoc.com/posts/kiem-tra-sim-viettel-chinh-chu"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns subscriber-name/ownership checking, not suspension recovery."
+    - url: "https://www.tracuugoicuoc.com/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns device-change biometric re-verification, not the general unverified-subscriber timeline."
+  internal_link_plan:
+    - from: "/posts/sim-viettel-bi-chan-2-chieu-chua-xac-thuc"
+      to: "/posts/tra-cuu-chuan-hoa-thong-tin-thue-bao-viettel"
+      purpose: "Route users who need diagnostic standardization status before recovery."
+    - from: "/posts/sim-viettel-bi-chan-2-chieu-chua-xac-thuc"
+      to: "/posts/kiem-tra-sim-viettel-chinh-chu"
+      purpose: "Separate ownership lookup from verification state."
+    - from: "/posts/sim-viettel-bi-chan-2-chieu-chua-xac-thuc"
+      to: "/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu"
+      purpose: "Route device-swap cases to the distinct biometric owner."
+
+unique_value:
+  decision: PASS
+  additions:
+    - "Fresh 17/08 urgency framing while preserving the existing URL."
+    - "Adds the documented post-15/08 05-day reclamation milestone with provenance."
+    - "Adds a direct diagnostic path to the existing NĐ49 standardization lookup owner."
+    - "Keeps the general two-way suspension path distinct from device-change biometric verification."
+
+image_requirements:
+  new_image_required: false
+  reason: "This is a factual freshness refresh of an existing support owner with an existing production hero; no new visual concept or unique image requirement is introduced."
+
+factual_policy:
+  package_price_claims_added: false
+  package_benefit_claims_added: false
+  affiliate_registration_claims_added: false
+  unsupported_quantitative_claims_added: false
+  missing_facts_state: HOLD
+
+invariants:
+  dns_or_domain_change: false
+  registration_cta_contract_changed: false
+  approved_registration_contract: "MÃ_GÓI GB sent to 290"
+  new_indexable_url_created: false
+  production_claim_requires_exact_main_vercel_ready_and_http_readback: true
