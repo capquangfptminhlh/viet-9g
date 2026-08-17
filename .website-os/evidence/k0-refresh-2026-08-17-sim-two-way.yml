@@ -1,14 +1,14 @@
 version: 1.0.0
 decision: PASS
 operation: REFRESH_EXISTING_OWNER
-observed_at: 2026-08-17T00:34:00+07:00
+observed_at: 2026-08-17T07:01:03+07:00
 website_os_source_repo: capquangfptminhlh/seo-web
 website_os_source_ref: main
-website_os_source_commit: 271928de181040a5c4234a4d5386e362b8b7a0a1
-website_os_manifest_version: 1.2.0
+website_os_source_commit: 524ae731f8ba15c1284c78b5d5f275c8c234fb17
+website_os_manifest_version: 1.3.0
 project_repo: capquangfptminhlh/viettel-4g-web
 project_main_at_start: 38c5173684e21b4adec356e0904478ae4ce2d3ec
-operation_slot: "manual-continuation"
+operation_slot: "07:00 Asia/Ho_Chi_Minh"
 
 trend_observation:
   primary_query_family:
@@ -46,17 +46,17 @@ source_evidence:
   - id: VIETTEL-BLOCKED-GUIDE
     source: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/thong-bao-thue-bao-viettel-bi-chan-do-chua-xac-thuc-thong-tin-huong-dan-cach-xu-ly/15333972"
     source_type: OFFICIAL_VIETTEL
-    observed_at: 2026-08-17T00:34:00+07:00
+    observed_at: 2026-08-17T07:01:03+07:00
     finding: "Viettel confirms subscribers not completing verification were blocked and provides official recovery channels, including My Viettel and Viettel Tammi."
   - id: VIETTEL-QUANGNGAI-TIMELINE
     source: "https://quangngai.gov.vn/tin-tuc/0h-ngay-15-6-khoa-sim-mot-chieu-voi-cac-thue-bao-chua-xac-thuc-thong-tin-theo-quy-dinh-cua-thong-tu-08.html"
     source_type: GOVERNMENT_PORTAL_VIETTEL_AUTHORED
-    observed_at: 2026-08-17T00:34:00+07:00
+    observed_at: 2026-08-17T07:01:03+07:00
     finding: "The page identifies the author as VIETTEL and states the 15/08 two-way suspension milestone plus subscriber-number reclamation after 05 additional days."
   - id: VIETTEL-DEVICE-CHANGE
     source: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/thong-bao-quan-trong-quy-dinh-bat-buoc-xac-thuc-lai-khuon-mat-khi-thay-doi-dien-thoai-ap-dung-tu-15062026/19138832"
     source_type: OFFICIAL_VIETTEL
-    observed_at: 2026-08-17T00:34:00+07:00
+    observed_at: 2026-08-17T07:01:03+07:00
     finding: "Viettel documents a separate biometric re-verification path after moving a SIM to a different device, supporting intent separation from general subscriber-information suspension."
 
 cannibalization:
