@@ -1,0 +1,111 @@
+version: 1.0.0
+decision: PASS
+observed_at: 2026-08-18T13:05:48+07:00
+website_os_source_repo: capquangfptminhlh/seo-web
+website_os_source_ref: main
+website_os_source_commit: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+website_os_manifest_version: 1.3.0
+project_repo: capquangfptminhlh/viettel-4g-web
+project_main_at_start: c0fd4e4a05adab32cafaa2c2f8d135c1794f3c62
+operation_slot: "13:00"
+
+research_chain:
+  - candidate: "same-day Viettel 4G/5G/eSIM/SIM breaking update on 2026-08-18"
+    disposition: SKIP_NO_MATERIAL_PRIMARY_SOURCE_UPDATE
+    reason: "Fresh search did not surface a same-day official Viettel announcement strong enough to justify a new owner. Continued to fallback support chains."
+  - candidate: "SIM Viettel chưa xác thực ở nước ngoài"
+    disposition: SKIP_ALREADY_PUBLISHED_TODAY
+    reason: "Dedicated canonical owner /posts/xac-thuc-sim-viettel-o-nuoc-ngoai/ was published in the 07:00 run; a second URL would repeat the same support job."
+  - candidate: "mất mã QR eSIM / quét lại QR"
+    disposition: SKIP_EXISTING_OWNER
+    reason: "Repository already has /posts/lo-xoa-esim-viettel-quet-lai-qr/ and /posts/esim-5g-kich-hoat-quet-qr/ for reinstallation and activation intents."
+  - candidate: "5G/VoLTE hoặc roaming không có mạng"
+    disposition: SKIP_EXISTING_OWNER
+    reason: "Existing iPhone 4G/5G/VoLTE and country-specific roaming owners already cover those jobs."
+  - candidate: "đổi eSIM Viettel có mất danh bạ không"
+    disposition: SELECT_NEW_CANONICAL_OWNER
+    reason: "Official Viettel guidance dated 30/06/2026 explicitly states contacts stored on the physical SIM do not automatically move to eSIM, while current repository owners focus on setup, QR recovery, compatibility and conversion. The distinct user job is preserving/restoring contacts before and after conversion."
+
+selected_target:
+  action: NEW
+  primary_keyword: "đổi eSIM Viettel có mất danh bạ không"
+  secondary_queries:
+    - "đổi eSIM Viettel có mất danh bạ không"
+    - "chuyển SIM vật lý sang eSIM có mất danh bạ"
+    - "cách giữ danh bạ khi đổi eSIM Viettel"
+    - "danh bạ trên SIM có chuyển sang eSIM không"
+    - "đổi eSIM xong mất danh bạ"
+  primary_intent: SUPPORT
+  secondary_intent: INFORMATIONAL_PROBLEM
+  entity_type: esim_data_migration
+  entity_name: "Viettel eSIM contact migration"
+  parent_cluster: "esim-5g"
+  cluster_id: "esim-contact-migration"
+  content_type: support_article
+  canonical_owner: "https://www.tracuugoicuoc.com/posts/doi-esim-viettel-co-mat-danh-ba-khong/"
+  indexability: index
+  priority_tier: P2
+  why_new: >-
+    Existing eSIM owners answer activation, QR recovery, dual-eSIM, device compatibility and conversion process. This page owns a materially different support job: whether contact data stored on the physical SIM survives conversion and what the user should do before/after switching to eSIM.
+
+serp_evidence:
+  dominant_intent: SUPPORT_INFORMATIONAL
+  dominant_page_types:
+    - official_carrier_howto
+    - support_article
+  evidence:
+    - id: SERP-VIETTEL-TAMMI-ESIM-20260818
+      source: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/huong-dan-chi-tiet-5-buoc-doi-esim-tren-viettel-tammi-cuc-don-gian/18477972"
+      source_type: OFFICIAL_VIETTEL
+      observed_at: 2026-08-18T13:05:48+07:00
+      finding: "Viettel states contacts stored on the old physical SIM do not automatically transfer to eSIM; once eSIM activates, the old physical SIM is disabled; current 4G/5G packages are preserved."
+    - id: SERP-VIETTEL-ESIM-PROMO-20260818
+      source: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/viettel-giam-toi-hon-50-phi-chuyen-doi-esim-uu-dai-cao-hon-tren-ung-dung-viettel-tammi/17076372"
+      source_type: OFFICIAL_VIETTEL
+      observed_at: 2026-08-18T13:05:48+07:00
+      finding: "Viettel confirms the current online conversion route through Viettel Tammi and that conversion is available nationwide from 01/07/2026. No unsupported fee amount is copied into this page."
+
+cannibalization:
+  decision: PASS
+  new_url_created: true
+  compared_urls:
+    - url: "https://www.tracuugoicuoc.com/posts/doi-esim-viettel-tren-my-viettel/"
+      relationship: PARENT_PROCESS_OWNER
+      differentiation: "Owns conversion steps and current Tammi flow; does not own contact-data preservation/recovery intent."
+    - url: "https://www.tracuugoicuoc.com/posts/esim-5g-kich-hoat-quet-qr/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns initial eSIM QR activation, not contact migration."
+    - url: "https://www.tracuugoicuoc.com/posts/lo-xoa-esim-viettel-quet-lai-qr/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns deleted eSIM/QR reinstallation, not address-book data."
+    - url: "https://www.tracuugoicuoc.com/posts/iphone-dung-2-esim-viettel-cung-luc/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns simultaneous dual-eSIM capability, not contact migration."
+  internal_link_plan:
+    - from: "new contact-migration owner"
+      to: "/posts/doi-esim-viettel-tren-my-viettel/"
+      purpose: "Route users who are ready to convert to the process owner."
+    - from: "new contact-migration owner"
+      to: "/posts/lo-xoa-esim-viettel-quet-lai-qr/"
+      purpose: "Route deleted eSIM/QR recovery questions to the reinstallation owner."
+    - from: "new contact-migration owner"
+      to: "/posts/esim-5g-kich-hoat-quet-qr/"
+      purpose: "Route first-time QR activation questions to the setup owner."
+
+factual_policy:
+  business_facts_source_of_truth: OFFICIAL_VIETTEL
+  package_price_claims_added: false
+  package_benefit_claims_added: false
+  affiliate_registration_claims_added: false
+  fabricated_metrics: false
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking_position: UNKNOWN
+  traffic_potential: UNKNOWN
+
+invariants:
+  dns_or_domain_change: false
+  registration_cta_contract_changed: false
+  approved_registration_contract: "MÃ_GÓI GB sent to 290"
+  production_claim_requires_exact_main_vercel_ready_and_http_200: true
