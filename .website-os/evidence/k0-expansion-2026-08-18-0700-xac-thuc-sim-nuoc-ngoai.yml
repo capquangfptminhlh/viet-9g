@@ -1,0 +1,118 @@
+version: 1.0.0
+decision: PASS
+observed_at: 2026-08-18T07:12:00+07:00
+website_os_source_repo: capquangfptminhlh/seo-web
+website_os_source_ref: main
+website_os_source_commit: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+website_os_manifest_version: 1.3.0
+project_repo: capquangfptminhlh/viettel-4g-web
+project_main_at_start: 3d97f3007525926750c0402d7371c50755d6b615
+operation_slot: "07:00"
+
+research_chain:
+  - candidate: "same-day Viettel 4G/5G/eSIM/SIM/support/roaming breaking update on 2026-08-18"
+    disposition: SKIP_NO_MATERIAL_PRIMARY_SOURCE_UPDATE
+    reason: "Fresh same-day research did not surface a materially stronger new official Viettel announcement than the current support and subscriber-verification sources. Continued to independent fallback chains instead of forcing a freshness article."
+  - candidate: "SIM Viettel chưa xác thực sau mốc chặn hai chiều và thu hồi số"
+    disposition: SKIP_RECENT_EXISTING_OWNER
+    reason: "The canonical owner /posts/sim-viettel-bi-chan-2-chieu-chua-xac-thuc/ was refreshed on 2026-08-17 for the 15/08 two-way suspension and documented next-five-days lifecycle. Another URL or near-duplicate update would repeat the same blocked-state search job."
+  - candidate: "Android hỗ trợ eSIM Viettel"
+    disposition: SKIP_RECENT_EXISTING_OWNER
+    reason: "The canonical Android compatibility owner /posts/kiem-tra-android-co-ho-tro-esim-viettel/ was expanded in the immediately preceding governed slot. Repeating it would not add an independent search job."
+  - candidate: "iPhone 17 / iPhone Air hỗ trợ eSIM Viettel"
+    disposition: SKIP_RECENT_EXISTING_OWNER
+    reason: "The canonical iPhone compatibility owner /posts/kiem-tra-iphone-co-ho-tro-esim-viettel/ was refreshed on 2026-08-17 with current iPhone 17-family and iPhone Air evidence."
+  - candidate: "roaming Viettel tại Nhật / mạng chỉ còn 4G-5G cần VoLTE"
+    disposition: SKIP_EXISTING_OWNER
+    reason: "Official roaming/VoLTE guidance is useful, but the repository already has general roaming setup and country-specific roaming troubleshooting ownership. A new broad article would overlap those jobs without a defensible new canonical intent."
+  - candidate: "xác thực SIM Viettel khi đang ở nước ngoài, roaming và OTP"
+    disposition: SELECT_NEW_URL
+    reason: "Viettel publishes a dedicated first-party support guide for customers physically abroad who need subscriber verification and may be blocked by roaming/OTP/document constraints. Repository review found no dedicated canonical owner for this audience/use-case job. It is materially different from the generic two-way-block lifecycle owner and from device data-roaming setup, so a new support URL is justified."
+
+selected_target:
+  action: NEW
+  primary_keyword: "xác thực SIM Viettel ở nước ngoài"
+  secondary_queries:
+    - "ở nước ngoài xác thực SIM Viettel thế nào"
+    - "SIM Viettel ở nước ngoài không nhận OTP xác thực"
+    - "My Viettel xác thực SIM ở nước ngoài"
+    - "chưa đăng ký roaming có xác thực SIM Viettel được không"
+    - "SIM Viettel ở nước ngoài bị chặn chưa xác thực"
+  primary_intent: SUPPORT
+  secondary_intent: INFORMATIONAL_PROBLEM
+  entity_type: subscriber_verification_use_case
+  entity_name: "Viettel subscriber verification abroad"
+  parent_cluster: "sim-verification"
+  cluster_id: "sim-verification-abroad"
+  content_type: support_article
+  canonical_owner: "https://www.tracuugoicuoc.com/posts/xac-thuc-sim-viettel-o-nuoc-ngoai/"
+  indexability: index
+  priority_tier: P1
+  why_new: >-
+    The search job is not merely "why is my SIM blocked" or "how do I enable mobile data roaming". The user is already abroad and needs an end-to-end support path across roaming availability, SMS/OTP reception, app access, subscriber verification and official escalation when documents or roaming are unavailable. Viettel has a dedicated official guide for this exact audience/use case, and repository route review found no dedicated owner. A new canonical support article therefore adds distinct value without splitting the existing blocked-state or roaming-configuration intents.
+
+serp_evidence:
+  dominant_intent: SUPPORT_INFORMATIONAL
+  dominant_page_types:
+    - official_carrier_support_guide
+    - official_subscriber_verification_troubleshooting
+  evidence:
+    - id: SERP-VIETTEL-VERIFY-ABROAD-20260818
+      source: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/cung-viettel-roaming-xac-thuc-sim-chinh-chu-tai-nuoc-ngoai/16655608"
+      source_type: OFFICIAL_VIETTEL
+      observed_at: 2026-08-18T07:12:00+07:00
+      finding: "Viettel provides a dedicated guide for customers abroad, emphasizing roaming/SMS-OTP availability, My Viettel access, official support channels for users already abroad without roaming, and special handling when valid identification is unavailable."
+    - id: SERP-VIETTEL-BLOCKED-VERIFY-20260818
+      source: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/thong-bao-thue-bao-viettel-bi-chan-do-chua-xac-thuc-thong-tin-huong-dan-cach-xu-ly/15333972"
+      source_type: OFFICIAL_VIETTEL
+      observed_at: 2026-08-18T07:12:00+07:00
+      finding: "Viettel's blocked-subscriber guidance separately addresses customers abroad, including checking roaming/OTP and using official verification/support channels. This corroborates the overseas support job while the existing generic blocked-state page remains the lifecycle owner."
+
+cannibalization:
+  decision: PASS
+  new_url_created: true
+  compared_urls:
+    - url: "https://www.tracuugoicuoc.com/posts/xac-thuc-sim-viettel-o-nuoc-ngoai/"
+      relationship: NEW_CANONICAL_OWNER
+      differentiation: "Owns the abroad-specific verification journey: roaming availability -> OTP -> app access -> verification -> official escalation."
+    - url: "https://www.tracuugoicuoc.com/posts/sim-viettel-bi-chan-2-chieu-chua-xac-thuc/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns the generic two-way suspension/verification lifecycle, deadlines, reactivation and reclamation-risk job, regardless of user location."
+    - url: "https://www.tracuugoicuoc.com/posts/data-roaming-viettel-iphone-android/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns device/network roaming setup and mobile-data use abroad, not subscriber identity verification."
+    - url: "https://www.tracuugoicuoc.com/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns biometric re-verification and one-way restriction after changing devices, not the abroad-specific roaming/OTP constraint."
+    - url: "https://www.tracuugoicuoc.com/posts/tra-cuu-chuan-hoa-thong-tin-thue-bao-viettel/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns checking whether a number requires normalization, not completing verification while overseas."
+  internal_link_plan:
+    - from: "new overseas verification owner"
+      to: "/posts/sim-viettel-bi-chan-2-chieu-chua-xac-thuc/"
+      purpose: "Route deadline/two-way-block/reclamation lifecycle questions to the blocked-state owner."
+    - from: "new overseas verification owner"
+      to: "/posts/data-roaming-viettel-iphone-android/"
+      purpose: "Route device data-roaming setup to the existing roaming owner."
+    - from: "new overseas verification owner"
+      to: "/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu/"
+      purpose: "Route change-device biometric restriction to its dedicated owner."
+
+factual_policy:
+  business_facts_source_of_truth: OFFICIAL_VIETTEL
+  package_price_claims_added: false
+  package_benefit_claims_added: false
+  affiliate_registration_claims_added: false
+  coverage_claims_added: false
+  fabricated_metrics: false
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking_position: UNKNOWN
+  traffic_potential: UNKNOWN
+
+invariants:
+  dns_or_domain_change: false
+  registration_cta_contract_changed: false
+  approved_registration_contract: "MÃ_GÓI GB sent to 290"
+  production_claim_requires_exact_main_vercel_ready_and_http_200: true
