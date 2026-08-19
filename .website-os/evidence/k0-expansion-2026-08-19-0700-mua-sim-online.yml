@@ -1,0 +1,121 @@
+version: 1.0.0
+decision: PASS
+observed_at: 2026-08-19T07:00:00+07:00
+website_os_source_repo: capquangfptminhlh/seo-web
+website_os_source_ref: main
+website_os_source_commit: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+website_os_manifest_version: 1.3.0
+project_repo: capquangfptminhlh/viettel-4g-web
+project_main_at_start: c796cef175f1006df98bf1a8000e10b98503530a
+operation_slot: "07:00"
+
+research_chain:
+  - candidate: "same-day Viettel 4G/5G/eSIM/SIM breaking update on 2026-08-19"
+    disposition: SKIP_NO_MATERIAL_PRIMARY_SOURCE_UPDATE
+    reason: "Fresh official-source search did not surface a same-day Viettel announcement strong enough to justify a new owner."
+  - candidate: "tra cứu chuẩn hóa thông tin thuê bao / Nghị định 49"
+    disposition: SKIP_EXISTING_OWNER
+    reason: "Repository already has a dedicated canonical support owner for subscriber-information standardization lookup."
+  - candidate: "chuyển thuê bao Viettel sang trả sau"
+    disposition: SKIP_INSUFFICIENT_FRESH_DEMAND_EVIDENCE
+    reason: "Official utility exists, but this run did not find enough fresh query/SERP evidence to justify a new owner ahead of stronger candidates."
+  - candidate: "đổi SIM Viettel"
+    disposition: SKIP_BROAD_AMBIGUOUS_INTENT
+    reason: "Broad query mixes replacement, eSIM conversion, damaged/lost SIM and device-change verification; existing owners cover several sub-jobs, so a broad new URL would risk overlap."
+  - candidate: "Viettel++ tra cứu hội viên/ưu đãi"
+    disposition: SKIP_OUTSIDE_CURRENT_PRIORITY
+    reason: "Official product area exists but is less aligned with the current 4G/5G/SIM support acquisition focus and no same-day freshness signal was observed."
+  - candidate: "mua SIM Viettel online / chọn số Viettel online"
+    disposition: SELECT_NEW_CANONICAL_OWNER
+    reason: "Official Viettel currently exposes a dedicated online SIM-number purchase flow and official guidance for buying SIM/eSIM at home. Repo search found no canonical owner for this transactional-support job."
+
+selected_target:
+  action: NEW
+  primary_keyword: "mua SIM Viettel online"
+  secondary_queries:
+    - "chọn số Viettel online"
+    - "mua SIM Viettel chính chủ online"
+    - "mua SIM Viettel tại nhà"
+    - "mua SIM Viettel trả trước online"
+    - "mua SIM Viettel trả sau online"
+    - "mua eSIM Viettel online"
+  primary_intent: TRANSACTIONAL
+  secondary_intent: SUPPORT_INFORMATIONAL
+  entity_type: telecom_onboarding_flow
+  entity_name: "Viettel online SIM purchase"
+  parent_cluster: "viettel-sim-onboarding"
+  cluster_id: "viettel-sim-online-purchase"
+  content_type: transactional_support_guide
+  canonical_owner: "https://www.tracuugoicuoc.com/posts/mua-sim-viettel-online-chon-so/"
+  indexability: index
+  priority_tier: P1
+  why_new: >-
+    The user job is selecting a Viettel number and completing an official online SIM/eSIM purchase/onboarding flow. Existing SIM verification, eSIM conversion, compatibility and package owners do not satisfy this purchase-and-number-selection intent.
+
+serp_evidence:
+  dominant_intent: TRANSACTIONAL
+  dominant_page_types:
+    - official_carrier_purchase_flow
+    - official_how_to_guide
+  evidence:
+    - id: SERP-VIETTEL-SIMSHOP-20260819-0700
+      source: "https://www.vietteltelecom.vn/vx/di-dong/sim-so?tab=simData"
+      source_type: OFFICIAL_VIETTEL
+      observed_at: 2026-08-19T07:00:00+07:00
+      finding: "Official Viettel SIM purchase flow exposes number search, prepaid selection, package selection and checkout continuation."
+    - id: SERP-VIETTEL-SIMHOME-20260819-0700
+      source: "https://www.viettel.vn/tin-tuc/chi-tiet/khach-hang-viettel-co-the-tu-mua-va-dang-ky-simesim-tai-nha/16296884"
+      source_type: OFFICIAL_VIETTEL
+      observed_at: 2026-08-19T07:00:00+07:00
+      finding: "Official Viettel guidance documents online SIM purchase via My Viettel including SIM type, number/package selection, identity information and delivery/online registration flow."
+    - id: SERP-VIETTEL-SIMONLINE-20260819-0700
+      source: "https://098.viettel.vn/tin-tuc/chi-tiet/cac-cach-mua-sim-so-viettel-online-tren-kenh-so-chinh-hang-gia-tot/19696872"
+      source_type: OFFICIAL_VIETTEL
+      observed_at: 2026-08-19T07:00:00+07:00
+      finding: "Official Viettel article confirms online purchase on Viettel channels with number search, SIM type, prepaid/postpaid choice, package selection and delivery/payment steps."
+
+cannibalization:
+  decision: PASS
+  new_url_created: true
+  repository_search:
+    exact_slug_match: false
+    exact_primary_intent_owner_found: false
+    notes: "Repository search did not surface a canonical article owning the online SIM purchase/number-selection job; existing SIM/eSIM articles focus on verification, conversion or compatibility."
+  compared_urls:
+    - url: "https://www.tracuugoicuoc.com/posts/tra-cuu-chuan-hoa-thong-tin-thue-bao-viettel/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns subscriber-information standardization lookup, not SIM purchase."
+    - url: "https://www.tracuugoicuoc.com/posts/doi-esim-viettel-co-mat-danh-ba-khong/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns contact preservation during physical-SIM to eSIM conversion, not new-number purchase."
+    - url: "https://www.tracuugoicuoc.com/posts/kiem-tra-iphone-co-ho-tro-esim-viettel/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns iPhone eSIM compatibility, not SIM/eSIM purchase."
+  internal_link_plan:
+    - from: "new online SIM purchase owner"
+      to: "/posts/tra-cuu-chuan-hoa-thong-tin-thue-bao-viettel/"
+      purpose: "Route post-purchase subscriber-information questions to the canonical lookup owner."
+    - from: "new online SIM purchase owner"
+      to: "/posts/kiem-tra-iphone-co-ho-tro-esim-viettel/"
+      purpose: "Route iPhone eSIM compatibility questions to the dedicated device owner."
+    - from: "new online SIM purchase owner"
+      to: "/posts/kiem-tra-android-co-ho-tro-esim-viettel/"
+      purpose: "Route Android eSIM compatibility questions to the dedicated device owner."
+
+factual_policy:
+  business_facts_source_of_truth: OFFICIAL_VIETTEL
+  package_price_claims_added: false
+  package_benefit_claims_added: false
+  affiliate_registration_claims_added: false
+  fabricated_metrics: false
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking_position: UNKNOWN
+  traffic_potential: UNKNOWN
+
+invariants:
+  dns_or_domain_change: false
+  registration_cta_contract_changed: false
+  approved_registration_contract: "MÃ_GÓI GB sent to 290"
+  production_claim_requires_exact_main_vercel_ready_and_http_200: true
