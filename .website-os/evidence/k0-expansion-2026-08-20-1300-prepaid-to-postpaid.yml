@@ -1,0 +1,114 @@
+version: 1.0.0
+decision: PASS
+observed_at: 2026-08-20T13:03:04+07:00
+website_os_source_repo: capquangfptminhlh/seo-web
+website_os_source_ref: main
+website_os_source_commit: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+website_os_manifest_version: 1.3.0
+project_repo: capquangfptminhlh/viettel-4g-web
+project_main_at_start: b4745a8da49f81b0e6f4e725fe7878387133d7ba
+operation_slot: "13:00"
+
+research_chain:
+  - candidate: "same-day Viettel 4G/5G/eSIM/SIM/support breaking update on 2026-08-20"
+    disposition: SKIP_NO_MATERIAL_PRIMARY_SOURCE_UPDATE
+    reason: "Fresh official-source search did not surface a same-day Viettel announcement with a distinct publishable search job at observation time."
+  - candidate: "tạm khóa/mở khóa SIM Viettel online"
+    disposition: SKIP_EVIDENCE_INSUFFICIENT
+    reason: "No sufficiently current first-party source was found in this run to support a durable standalone workflow without guessing eligibility or UI behavior."
+  - candidate: "đổi SIM 4G Viettel trên My Viettel"
+    disposition: SKIP_LOW_FRESHNESS_AND_OVERLAP
+    reason: "The available official guide is old and the repo already has multiple SIM/5G troubleshooting owners; creating another page now risks overlap without stronger current evidence."
+  - candidate: "đổi điểm Viettel++ sang data"
+    disposition: SKIP_LOW_FRESHNESS
+    reason: "Official how-to evidence found is several years old and no current programme terms were verified in this run, so a fresh transactional/support article would risk stale claims."
+  - candidate: "tìm cửa hàng Viettel gần nhất"
+    disposition: SKIP_LOCAL_VALUE_NOT_PROVEN
+    reason: "A generic store-finder intent exists, but this run did not obtain verified local inventory/value data needed to justify location-scaled indexable content."
+  - candidate: "chuyển thuê bao Viettel trả trước sang trả sau online"
+    disposition: SELECT_NEW_CANONICAL_OWNER
+    reason: "Viettel's current mobile-service hub still lists 'Chuyển sang trả sau' as an official My Viettel utility, while an official Viettel guide documents the prepaid-to-postpaid online workflow. Repository search found no current article owner for this distinct conversion job."
+
+selected_target:
+  action: NEW
+  primary_keyword: "chuyển trả trước sang trả sau Viettel"
+  secondary_queries:
+    - "chuyển thuê bao trả trước sang trả sau Viettel online"
+    - "cách chuyển sang trả sau Viettel trên My Viettel"
+    - "đổi sim trả trước sang trả sau Viettel"
+    - "chuyển trả sau Viettel có cần ra cửa hàng không"
+    - "My Viettel chuyển sang trả sau"
+  primary_intent: SUPPORT
+  secondary_intent: TRANSACTIONAL_INFORMATIONAL
+  entity_type: telecom_subscription_conversion
+  entity_name: "Viettel prepaid-to-postpaid conversion"
+  parent_cluster: "viettel-sim-onboarding"
+  cluster_id: "viettel-prepaid-to-postpaid-conversion"
+  content_type: support_conversion_guide
+  canonical_owner: "https://www.tracuugoicuoc.com/posts/chuyen-tra-truoc-sang-tra-sau-viettel-online/"
+  indexability: index
+  priority_tier: P1
+  why_new: >-
+    The user job is converting an existing Viettel mobile subscription from prepaid to postpaid through the official account/app flow. It is materially different from paying an already-postpaid bill, buying a new SIM, mobile-number portability, invoice lookup and SIM verification.
+
+serp_evidence:
+  dominant_intent: SUPPORT_TRANSACTIONAL_INFORMATIONAL
+  dominant_page_types:
+    - official_carrier_mobile_service_hub
+    - official_carrier_how_to_guide
+  evidence:
+    - id: SERP-VIETTEL-MOBILE-HUB-20260820-1300
+      source: "https://www.vietteltelecom.vn/vx/di-dong/"
+      source_type: OFFICIAL_VIETTEL
+      observed_at: 2026-08-20T13:03:04+07:00
+      finding: "Current Viettel mobile-service hub lists 'Chuyển sang trả sau' under Tiện ích My Viettel, supporting continued existence of the conversion utility."
+    - id: SERP-VIETTEL-PREPAID-POSTPAID-GUIDE-20260820-1300
+      source: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/huong-dan-chuyen-doi-tu-thue-bao-tra-truoc-sang-thue-bao-tra-sau-tren-ung-dung-my-viettel/10868840"
+      source_type: OFFICIAL_VIETTEL
+      observed_at: 2026-08-20T13:03:04+07:00
+      finding: "Official Viettel guide documents the My Viettel prepaid-to-postpaid flow: open Tiện ích > Chuyển sang trả sau, select an available postpaid plan, review customer information, complete the displayed contract/verification steps and submit the conversion."
+
+cannibalization:
+  decision: PASS
+  new_url_created: true
+  repository_search:
+    exact_slug_match: false
+    exact_primary_intent_owner_found: false
+    notes: "Repository search for prepaid-to-postpaid terms found postpaid payment, invoice and MNP content but no existing article whose primary job is conversion of an existing Viettel subscription from prepaid to postpaid."
+  compared_urls:
+    - url: "https://www.tracuugoicuoc.com/posts/thanh-toan-cuoc-tra-sau-viettel-online/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns payment of charges after a subscriber is already postpaid, not conversion from prepaid to postpaid."
+    - url: "https://www.tracuugoicuoc.com/posts/mua-sim-viettel-online-chon-so/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns buying/selecting a new Viettel SIM/number, not changing the billing model of an existing subscription."
+    - url: "https://www.tracuugoicuoc.com/posts/tra-cuu-tien-do-chuyen-mang-giu-so-viettel/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns mobile-number-portability status lookup, not prepaid/postpaid conversion inside Viettel."
+  internal_link_plan:
+    - from: "new prepaid-to-postpaid conversion owner"
+      to: "/posts/thanh-toan-cuoc-tra-sau-viettel-online/"
+      purpose: "Route users who have completed conversion and later need to pay postpaid charges."
+    - from: "new prepaid-to-postpaid conversion owner"
+      to: "/posts/tra-cuu-hoa-don-dien-tu-viettel/"
+      purpose: "Route users who later need invoice lookup rather than conversion guidance."
+
+factual_policy:
+  business_facts_source_of_truth: OFFICIAL_VIETTEL
+  current_utility_verified: true
+  historical_workflow_source_disclosed: true
+  package_price_claims_added: false
+  package_benefit_claims_added: false
+  eligibility_claims_added_without_current_source: false
+  fabricated_metrics: false
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking_position: UNKNOWN
+  traffic_potential: UNKNOWN
+
+invariants:
+  dns_or_domain_change: false
+  registration_cta_contract_changed: false
+  approved_registration_contract: "MÃ_GÓI GB sent to 290"
+  production_claim_requires_exact_main_vercel_ready_and_http_200: true
