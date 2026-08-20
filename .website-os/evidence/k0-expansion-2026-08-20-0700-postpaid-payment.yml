@@ -1,0 +1,106 @@
+version: 1.0.0
+decision: PASS
+observed_at: 2026-08-20T07:01:45+07:00
+website_os_source_repo: capquangfptminhlh/seo-web
+website_os_source_ref: main
+website_os_source_commit: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+website_os_manifest_version: 1.3.0
+project_repo: capquangfptminhlh/viettel-4g-web
+project_main_at_start: b5f1818d45eeb639ae2a532292c858ef63188dd6
+operation_slot: "07:00"
+
+research_chain:
+  - candidate: "same-day Viettel 4G/5G/eSIM/SIM/support breaking update on 2026-08-20"
+    disposition: SKIP_NO_MATERIAL_PRIMARY_SOURCE_UPDATE
+    reason: "Fresh official-source search did not surface a same-day announcement with a distinct publishable search job at observation time."
+  - candidate: "xác thực sinh trắc học khi đổi điện thoại"
+    disposition: SKIP_EXISTING_OWNER
+    reason: "Official 15/06/2026 policy remains relevant but repository already has an owner for the device-change verification job; a new URL would cannibalize it."
+  - candidate: "đổi SIM vật lý sang eSIM trên Viettel Tammi"
+    disposition: SKIP_EXISTING_OWNER
+    reason: "Official 30/06/2026 Tammi workflow is already represented by existing eSIM conversion/support owners."
+  - candidate: "mua SIM/chọn số Viettel online"
+    disposition: SKIP_EXISTING_OWNER
+    reason: "Repository already published a dedicated canonical owner for online SIM purchase and number selection."
+  - candidate: "tra cứu hóa đơn điện tử Viettel"
+    disposition: SKIP_EXISTING_OWNER
+    reason: "Repository already has a canonical invoice-lookup owner; duplicating it would violate one-intent-one-owner."
+  - candidate: "thanh toán cước trả sau Viettel online"
+    disposition: SELECT_NEW_CANONICAL_OWNER
+    reason: "Viettel currently exposes a distinct official payment utility for mobile postpaid subscribers: choose Trả sau, enter phone number, inspect Nợ cước/Cước tạm tính, then choose debt or enter an amount. Repository search found no current canonical content owner for this payment job."
+
+selected_target:
+  action: NEW
+  primary_keyword: "thanh toán cước trả sau Viettel"
+  secondary_queries:
+    - "thanh toán cước Viettel trả sau online"
+    - "tra cứu nợ cước Viettel trả sau"
+    - "cước tạm tính Viettel trả sau"
+    - "cách đóng cước điện thoại Viettel trả sau"
+    - "thanh toán nợ cước Viettel bằng số điện thoại"
+  primary_intent: SUPPORT
+  secondary_intent: NAVIGATIONAL_TRANSACTIONAL
+  entity_type: telecom_billing_payment_utility
+  entity_name: "Viettel postpaid mobile payment"
+  parent_cluster: "viettel-account-billing-support"
+  cluster_id: "viettel-postpaid-payment"
+  content_type: support_navigation_guide
+  canonical_owner: "https://www.tracuugoicuoc.com/posts/thanh-toan-cuoc-tra-sau-viettel-online/"
+  indexability: index
+  priority_tier: P1
+  why_new: >-
+    The user job is paying a postpaid mobile bill after looking up debt/current estimated charges by subscriber number. It is materially distinct from invoice lookup, prepaid top-up, package registration, password recovery and SIM/eSIM support.
+
+serp_evidence:
+  dominant_intent: SUPPORT_NAVIGATIONAL_TRANSACTIONAL
+  dominant_page_types:
+    - official_carrier_payment_utility
+    - official_carrier_mobile_service_hub
+  evidence:
+    - id: SERP-VIETTEL-POSTPAID-PAYMENT-20260820-0700
+      source: "https://www.vietteltelecom.vn/pay/ts"
+      source_type: OFFICIAL_VIETTEL
+      observed_at: 2026-08-20T07:01:45+07:00
+      finding: "Official Viettel utility exposes Di động > Trả sau, phone-number input, Nợ cước, Cước tạm tính, debt/amount selection, total payment and Thanh toán action."
+    - id: SERP-VIETTEL-MOBILE-HUB-20260820-0700
+      source: "https://www.vietteltelecom.vn/vx/di-dong/"
+      source_type: OFFICIAL_VIETTEL
+      observed_at: 2026-08-20T07:01:45+07:00
+      finding: "Official mobile-service hub lists Thanh toán cước/Nạp tiền and Tra cứu Hóa đơn điện tử as separate utilities, supporting distinct payment vs invoice intents."
+
+cannibalization:
+  decision: PASS
+  new_url_created: true
+  repository_search:
+    exact_slug_match: false
+    exact_primary_intent_owner_found: false
+    notes: "Repository search for thanh toán cước trả sau returned keyword/data references but no existing article owner for the payment support intent."
+  compared_urls:
+    - url: "https://www.tracuugoicuoc.com/posts/tra-cuu-hoa-don-dien-tu-viettel/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns invoice/document lookup after or around billing events, not execution of postpaid payment."
+    - url: "https://www.tracuugoicuoc.com/posts/quen-mat-khau-tai-khoan-viettel-lay-lai-bang-otp/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns account credential recovery, not billing/payment."
+  internal_link_plan:
+    - from: "new postpaid payment owner"
+      to: "/posts/tra-cuu-hoa-don-dien-tu-viettel/"
+      purpose: "Route users who have paid and need an invoice to the canonical invoice owner."
+
+factual_policy:
+  business_facts_source_of_truth: OFFICIAL_VIETTEL
+  package_price_claims_added: false
+  package_benefit_claims_added: false
+  affiliate_registration_claims_added: false
+  fabricated_metrics: false
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking_position: UNKNOWN
+  traffic_potential: UNKNOWN
+
+invariants:
+  dns_or_domain_change: false
+  registration_cta_contract_changed: false
+  approved_registration_contract: "MÃ_GÓI GB sent to 290"
+  production_claim_requires_exact_main_vercel_ready_and_http_200: true
