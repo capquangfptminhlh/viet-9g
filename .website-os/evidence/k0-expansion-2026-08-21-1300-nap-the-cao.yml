@@ -1,0 +1,138 @@
+version: 1.0.0
+decision: PASS
+observed_at: 2026-08-21T13:01:15+07:00
+website_os_source_repo: capquangfptminhlh/seo-web
+website_os_source_ref: main
+website_os_source_commit: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+website_os_manifest_version: 1.3.0
+project_repo: capquangfptminhlh/viettel-4g-web
+project_main_at_start: 79bfe9589c4cee36c5cd799172745affe3fd0422
+operation_slot: "13:00"
+bootstrap:
+  mandatory_read_complete: true
+  project_agents_loaded: true
+  anti_mock_rules_loaded: true
+  original_request_loaded: true
+  k0_state_loaded: true
+  decision: PASS
+
+research_chain:
+  - candidate: "same-day Viettel 4G/5G/eSIM/SIM/support breaking update on 2026-08-21"
+    disposition: SKIP_NO_MATERIAL_PRIMARY_SOURCE_UPDATE
+    reason: "Fresh first-party search at observation time did not surface a same-day Viettel announcement with a distinct publishable search job."
+  - candidate: "nạp thẻ cào Viettel"
+    disposition: SELECT_NEW_CANONICAL_OWNER
+    reason: "Current official Viettel service hub lists Nạp thẻ cào as a separate payment utility from Thanh toán cước/Nạp tiền. Repository inspection found an owner for online prepaid top-up by phone number but no dedicated owner for users who already possess a scratch-card/card code."
+  - candidate: "tìm cửa hàng Viettel"
+    disposition: SKIP_LOCAL_VALUE_NOT_YET_DECOMPOSED
+    reason: "A store-search article would require verified local/store data and route evidence to avoid a thin navigational page."
+  - candidate: "kiểm tra thời hạn sử dụng SIM Viettel"
+    disposition: SKIP_SOURCE_FRESHNESS_WEAK
+    reason: "No sufficiently current first-party procedure was verified for a distinct owner during this run."
+  - candidate: "đổi điểm Viettel++ sang data"
+    disposition: SKIP_STALE_BUSINESS_FACT_RISK
+    reason: "Official articles exist but include older point ratios/eligibility details; publishing those values without current first-party verification would risk stale business facts."
+  - candidate: "PUK Viettel / mở khóa SIM"
+    disposition: SKIP_EXISTING_OWNER
+    reason: "Repository already contains support coverage for PUK/SIM lock recovery, so a new URL would risk duplicate support ownership."
+
+selected_target:
+  action: NEW
+  primary_keyword: "nạp thẻ cào Viettel"
+  secondary_queries:
+    - "cách nạp thẻ cào Viettel"
+    - "nạp thẻ Viettel bằng mã thẻ"
+    - "nạp mã thẻ Viettel"
+    - "nạp thẻ cào Viettel bị lỗi"
+    - "nạp thẻ cào Viettel xong kiểm tra tài khoản"
+  primary_intent: SUPPORT
+  secondary_intent: TRANSACTIONAL_INFORMATIONAL
+  entity_type: telecom_prepaid_topup_method
+  entity_name: "Viettel scratch-card top-up / Nạp thẻ cào"
+  parent_cluster: "viettel-account-billing-support"
+  cluster_id: "viettel-scratch-card-topup"
+  content_type: support_how_to_guide
+  canonical_owner: "https://www.tracuugoicuoc.com/posts/nap-the-cao-viettel-bang-ma-the/"
+  indexability: index
+  priority_tier: P1
+  why_new: >-
+    The search job starts with an existing physical/digital scratch-card code and asks how to redeem it or troubleshoot redemption. That is materially different from online prepaid top-up, where the user starts from a phone number and proceeds through an electronic payment flow.
+
+serp_evidence:
+  dominant_intent: SUPPORT_TRANSACTIONAL_INFORMATIONAL
+  dominant_page_types:
+    - official_carrier_service_hub
+    - support_how_to
+  evidence:
+    - id: SERP-VIETTEL-SCRATCH-CARD-HUB-20260821-1300
+      source: "https://www.vietteltelecom.vn/vx/"
+      source_type: OFFICIAL_VIETTEL
+      observed_at: 2026-08-21T13:01:15+07:00
+      finding: "Current Viettel Telecom service hub lists Nạp thẻ cào as a distinct payment utility alongside Thanh toán cước/Nạp tiền and Tra cứu Hóa đơn điện tử."
+    - id: SERP-VIETTEL-MOBILE-HUB-20260821-1300
+      source: "https://www.vietteltelecom.vn/vx/di-dong/"
+      source_type: OFFICIAL_VIETTEL
+      observed_at: 2026-08-21T13:01:15+07:00
+      finding: "Current official mobile-service hub continues to expose the Nạp thẻ cào utility."
+
+cannibalization:
+  decision: PASS
+  new_url_created: true
+  repository_search:
+    exact_slug_match: false
+    exact_primary_intent_owner_found: false
+    notes: "Existing nap-tien-viettel-tra-truoc-online owner covers online prepaid top-up by phone number, not redemption/troubleshooting of an already-owned card code."
+  compared_urls:
+    - url: "https://www.tracuugoicuoc.com/posts/nap-tien-viettel-tra-truoc-online/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns online prepaid top-up/payment flow starting from a phone number; does not own scratch-card code redemption."
+    - url: "https://www.tracuugoicuoc.com/posts/cach-kiem-tra-tai-khoan-chinh/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns balance lookup/read-back after a transaction, not top-up itself."
+    - url: "https://www.tracuugoicuoc.com/posts/thanh-toan-cuoc-tra-sau-viettel-online/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns postpaid bill payment, not prepaid scratch-card redemption."
+
+internal_link_plan:
+  inbound_candidates:
+    - "/posts/nap-tien-viettel-tra-truoc-online/"
+    - "/posts/cach-kiem-tra-tai-khoan-chinh/"
+  outbound:
+    - "/posts/nap-tien-viettel-tra-truoc-online/"
+    - "/posts/cach-kiem-tra-tai-khoan-chinh/"
+    - "/posts/thanh-toan-cuoc-tra-sau-viettel-online/"
+
+source_of_truth:
+  official_viettel_required_for_business_facts: true
+  price_claims_added: false
+  package_benefit_claims_added: false
+  eligibility_claims_added: false
+  coverage_claims_added: false
+  fixed_ussd_syntax_asserted: false
+  stale_detail_handling: "The article intentionally does not hard-code a recharge syntax because no sufficiently current first-party procedural evidence for an exact syntax was verified in this run."
+
+metrics:
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking_position: UNKNOWN
+  traffic_potential: UNKNOWN
+  fabricated_metrics: false
+
+invariants:
+  dns_or_domain_routing_changed: false
+  registration_cta_changed: false
+  approved_registration_cta: "MÃ_GÓI GB"
+  registration_destination: "290"
+
+k0_enforcement:
+  fresh_research: PASS
+  intent_mapping: PASS
+  entity_mapping: PASS
+  cluster_mapping: PASS
+  canonical_ownership: PASS
+  cannibalization: PASS
+  factual_source_of_truth: PASS
+  unsupported_metrics: PASS
+  content_type_assignment: PASS
+  decision: PASS
