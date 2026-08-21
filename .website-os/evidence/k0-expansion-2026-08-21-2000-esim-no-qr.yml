@@ -1,0 +1,131 @@
+version: 1.0.0
+decision: PASS
+observed_at: 2026-08-21T20:02:51+07:00
+website_os_source_repo: capquangfptminhlh/seo-web
+website_os_source_ref: main
+website_os_source_commit: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+website_os_manifest_version: 1.3.0
+project_repo: capquangfptminhlh/viettel-4g-web
+project_main_at_start: 9d232fffac5a954a79a014ad7d98da01f7b50183
+operation_slot: "20:00"
+bootstrap:
+  mandatory_read_complete: true
+  project_agents_loaded: true
+  anti_mock_rules_loaded: true
+  original_request_loaded: true
+  k0_state_loaded: true
+  decision: PASS
+research_chain:
+  - candidate: "same-day Viettel 4G/5G/eSIM/SIM/support breaking update on 2026-08-21"
+    disposition: SKIP_NO_MATERIAL_PRIMARY_SOURCE_UPDATE
+    reason: "Fresh first-party search did not surface a same-day Viettel announcement with a distinct stronger search job than the currently fresh eSIM activation change."
+  - candidate: "eSIM Viettel không cần quét QR trên iPhone"
+    disposition: SELECT_UPDATE_CANONICAL_OWNER
+    reason: "Official Viettel announcement dated 2026-08-18 materially changes the activation flow on iOS. Existing canonical owner already covers eSIM activation/QR/5G, so a new URL would cannibalize the same activation intent."
+  - candidate: "roaming Viettel đi Lào"
+    disposition: SKIP_EXISTING_OR_NEAR_OWNER
+    reason: "Official Viettel article dated 2026-08-17 is fresh, but roaming destination/package coverage already belongs to the roaming cluster and would require route-level owner confirmation before another destination article; lower priority than a direct owner refresh."
+  - candidate: "tìm cửa hàng Viettel gần nhất"
+    disposition: SKIP_LOCAL_VALUE_NOT_DECOMPOSED
+    reason: "Indexable local/store content requires verified store/location data and real local value; a generic article risks becoming thin navigational content."
+  - candidate: "kiểm tra thời hạn sử dụng SIM Viettel"
+    disposition: SKIP_SOURCE_FRESHNESS_WEAK
+    reason: "Search surfaced older references but no sufficiently current first-party procedure to justify a new canonical owner in this run."
+  - candidate: "đổi điểm Viettel++ sang data"
+    disposition: SKIP_STALE_BUSINESS_FACT_RISK
+    reason: "Current 2026 program material contains conditional point and benefit details; publishing a broad how-to without verifying the exact redemption flow for the target query risks stale or over-generalized business facts."
+selected_target:
+  action: UPDATE
+  primary_keyword: "eSIM Viettel không cần quét QR"
+  secondary_queries:
+    - "kích hoạt eSIM Viettel không cần QR"
+    - "eSIM Viettel iPhone không cần quét mã QR"
+    - "cách kích hoạt eSIM Viettel trên iPhone 2026"
+    - "eSIM Viettel còn cần QR không"
+    - "eSIM Viettel tự động gán vào iPhone"
+  primary_intent: SUPPORT
+  secondary_intent: INFORMATIONAL_FRESHNESS
+  entity_type: telecom_esim_activation
+  entity_name: "Viettel eSIM activation on iOS"
+  parent_cluster: "esim-5g"
+  cluster_id: "esim-activation-qr"
+  content_type: support_how_to_guide
+  canonical_owner: "https://www.tracuugoicuoc.com/posts/esim-5g-kich-hoat-quet-qr/"
+  indexability: index
+  priority_tier: P1
+  why_update: >-
+    The existing URL already owns the search job for Viettel eSIM activation, QR setup and post-activation 4G/5G checks. Viettel's 2026-08-18 announcement changes the same job by adding automatic no-QR activation on iOS. Creating another indexable URL would split authority and increase cannibalization risk.
+serp_evidence:
+  dominant_intent: SUPPORT_INFORMATIONAL_FRESHNESS
+  dominant_page_types:
+    - official_carrier_announcement
+    - support_how_to
+  evidence:
+    - id: SERP-VIETTEL-ESIM-NO-QR-20260821-2000
+      source: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/esim-viettel-cham-la-ket-noi-kich-hoat-khong-can-ma-qr/13707592"
+      source_type: OFFICIAL_VIETTEL
+      published_at: 2026-08-18
+      observed_at: 2026-08-21T20:02:51+07:00
+      finding: "Viettel officially launched automatic eSIM activation on iOS from 2026-08-18 without QR scanning for supported flows, available for eSIM purchases via Tammi, website and stores."
+    - id: SERP-VIETTEL-ESIM-TAMMI-20260821-2000
+      source: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/huong-dan-chi-tiet-5-buoc-doi-esim-tren-viettel-tammi-cuc-don-gian/18477972"
+      source_type: OFFICIAL_VIETTEL
+      published_at: 2026-06-30
+      observed_at: 2026-08-21T20:02:51+07:00
+      finding: "Viettel's mid-2026 conversion guidance establishes Tammi as an official eSIM conversion channel and provides the preceding transaction context for activation."
+cannibalization:
+  decision: PASS
+  new_url_created: false
+  repository_search:
+    exact_existing_owner: "src/content/posts/esim-5g-kich-hoat-quet-qr.md"
+    competing_new_url_rejected: true
+    notes: "The no-QR iOS change is a freshness expansion of the same activation job, not a distinct primary intent."
+  compared_urls:
+    - url: "https://www.tracuugoicuoc.com/posts/kiem-tra-iphone-co-ho-tro-esim-viettel/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns device compatibility, not activation method."
+    - url: "https://www.tracuugoicuoc.com/posts/lo-xoa-esim-viettel-quet-lai-qr/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns recovery after accidental deletion/lost QR, not first activation."
+    - url: "https://www.tracuugoicuoc.com/posts/iphone-dung-2-esim-viettel-cung-luc/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns dual-eSIM simultaneous-use capability, not activation workflow."
+internal_link_plan:
+  inbound_candidates:
+    - "/posts/kiem-tra-iphone-co-ho-tro-esim-viettel/"
+    - "/posts/lo-xoa-esim-viettel-quet-lai-qr/"
+  outbound:
+    - "/posts/kiem-tra-iphone-co-ho-tro-esim-viettel/"
+    - "/posts/kiem-tra-android-co-ho-tro-esim-viettel/"
+    - "/posts/esim-viettel-doi-may-quet-lai-qr/"
+    - "/goi-cuoc/5g/"
+source_of_truth:
+  official_viettel_required_for_business_facts: true
+  price_claims_added: false
+  package_benefit_claims_added: false
+  eligibility_claims_added: false
+  coverage_claims_added: false
+  scope_guardrail: "No-QR activation is stated only for iOS/supported flows as published by Viettel; Android is not generalized without first-party evidence."
+metrics:
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking_position: UNKNOWN
+  traffic_potential: UNKNOWN
+  fabricated_metrics: false
+invariants:
+  dns_or_domain_routing_changed: false
+  registration_cta_changed: false
+  approved_registration_cta: "MÃ_GÓI GB"
+  registration_destination: "290"
+k0_enforcement:
+  fresh_research: PASS
+  intent_mapping: PASS
+  entity_mapping: PASS
+  cluster_mapping: PASS
+  canonical_ownership: PASS
+  cannibalization: PASS
+  factual_source_of_truth: PASS
+  unsupported_metrics: PASS
+  content_type_assignment: PASS
+  decision: PASS
