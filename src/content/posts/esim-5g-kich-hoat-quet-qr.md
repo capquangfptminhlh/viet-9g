@@ -1,183 +1,160 @@
 ---
-title: "eSIM 5G Viettel: đổi trên Tammi, quét QR và kiểm tra 5G"
-description: "Hướng dẫn eSIM 5G Viettel cập nhật 2026: đổi SIM vật lý sang eSIM trên Viettel Tammi, nhận và quét QR trên iPhone/Android, kiểm tra 4G/5G và lỗi thường gặp."
-date: 2026-08-15
+title: "eSIM Viettel không cần quét QR trên iPhone: cách kích hoạt mới 2026"
+description: "Cập nhật 21/08/2026: Viettel đã triển khai kích hoạt eSIM tự động trên iOS từ 18/08/2026, không cần quét QR. Xem khi nào dùng cách mới, khi nào vẫn cần QR và cách kiểm tra 4G/5G."
+date: 2026-08-21
 ---
 
-# eSIM 5G Viettel: đổi trên Tammi, quét QR và kiểm tra 5G
+# eSIM Viettel không cần quét QR trên iPhone: cách kích hoạt mới 2026
 
-Nếu bạn đang chuẩn bị đổi SIM vật lý sang eSIM Viettel hoặc đã có mã QR nhưng chưa biết cài thế nào, hãy tách quy trình thành ba phần: **đổi sang eSIM trên kênh Viettel → thêm eSIM vào điện thoại bằng thông tin Viettel cấp → kiểm tra dữ liệu di động và 5G**. Làm đúng thứ tự giúp tránh tình trạng đã đổi eSIM nhưng chọn nhầm SIM data, quét sai QR hoặc tưởng rằng eSIM tự động bảo đảm máy luôn hiện 5G.
+Viettel đã thay đổi đáng kể quy trình kích hoạt eSIM trên iPhone. Từ **18/08/2026**, nhà mạng chính thức triển khai cơ chế kích hoạt eSIM tự động trên thiết bị iOS, cho phép khách hàng kích hoạt ngay trên chính máy đang sử dụng mà **không cần quét mã QR** trong luồng được hỗ trợ.
 
-> **Trả lời nhanh:** Viettel hướng dẫn người dùng có thể thực hiện đổi SIM vật lý sang eSIM trên **Viettel Tammi**. Sau khi hoàn tất xác thực và thanh toán theo thông tin hiển thị cho thuê bao, hệ thống gửi thông tin đổi eSIM và mã QR về email đăng ký. Trên iPhone, bắt đầu từ **Cài đặt → Di động/Mạng di động → Thêm eSIM**; trên Android, mục tương ứng thường nằm trong phần quản lý SIM và có thể khác tên theo hãng. eSIM có thể dùng 4G/5G khi thiết bị, cấu hình mạng, vùng phủ và trạng thái dịch vụ đáp ứng điều kiện.
+> **Trả lời nhanh:** nếu bạn mua hoặc đăng ký eSIM Viettel qua luồng mới được hỗ trợ trên iPhone/iOS, sau khi hoàn tất các bước chọn số, gói cước và xác thực thông tin, bạn có thể bấm kích hoạt trực tiếp trên thiết bị để hệ thống tự gán eSIM. Không cần gửi QR sang máy khác để quét. Tuy nhiên, QR vẫn có thể xuất hiện ở các luồng cũ, thiết bị khác hoặc tình huống hỗ trợ chưa chuyển sang cơ chế tự động.
 
-## Cập nhật đáng chú ý trong năm 2026
+## Cập nhật mới từ 18/08/2026
 
-Hai nguồn Viettel gần đây làm thay đổi cách nên đọc các hướng dẫn eSIM cũ trên Internet.
+Theo thông báo chính thức của Viettel ngày **18/08/2026**, tính năng kích hoạt eSIM không cần QR hiện áp dụng cho **thiết bị sử dụng hệ điều hành iOS**. Viettel mô tả quy trình mới theo hướng: sau khi hoàn tất đăng ký eSIM, người dùng bấm nút kích hoạt ngay trên thiết bị, eSIM sẽ được gán tự động vào máy.
 
-Ngày **30/06/2026**, Viettel công bố hướng dẫn 5 bước đổi eSIM trên Viettel Tammi. Luồng chính thức gồm đăng nhập Tammi, chọn chức năng đổi eSIM, xác thực thông tin, kiểm tra và thanh toán đơn hàng, sau đó nhận thông tin eSIM để cài đặt trên thiết bị.
+Điểm khác biệt lớn nhất so với quy trình trước là người dùng không còn bắt buộc phải:
 
-Ngày **03/07/2026**, Viettel tiếp tục thông báo chương trình ưu đãi phí chuyển đổi từ SIM vật lý sang eSIM áp dụng từ **01/07/2026** trên toàn quốc và cho biết kênh trực tuyến trên Tammi có mức phí ưu đãi hơn. Bài nguồn công khai hiển thị bảng phí dưới dạng hình ảnh, vì vậy bài này **không tự suy đoán một mức tiền cố định**. Khi thực hiện, hãy kiểm tra số tiền mà hệ thống Viettel hiển thị cho chính thuê bao của bạn trước khi xác nhận.
+- gửi QR sang một thiết bị thứ hai để quét;
+- lưu file hoặc ảnh QR để kích hoạt lần đầu;
+- phụ thuộc vào thao tác quét mã giữa hai màn hình trong luồng mới được hỗ trợ.
 
-Nếu bạn đang xem một bài cũ chỉ hướng dẫn qua My Viettel, nên ưu tiên luồng Tammi mới hơn do Viettel công bố.
+Viettel cho biết tính năng đã sẵn sàng phục vụ trên diện rộng cho khách hàng mua eSIM qua **Viettel Tammi, website và cửa hàng trực tiếp**. Nhà mạng cũng cho biết sẽ tiếp tục nâng cấp để quá trình chuyển đổi eSIM giữa thiết bị giảm phụ thuộc QR hơn nữa.
 
-## Đổi SIM vật lý sang eSIM Viettel trên Tammi: 5 bước
+## Kích hoạt eSIM Viettel không cần QR trên iPhone hoạt động thế nào?
 
-### Bước 1: đăng nhập Viettel Tammi
+Luồng thực tế có thể thay đổi theo phiên bản hệ thống và loại giao dịch, nhưng logic chính của cơ chế mới là:
 
-Mở Viettel Tammi và đăng nhập bằng số thuê bao cần chuyển đổi. Nên cập nhật ứng dụng lên phiên bản hiện hành trước khi bắt đầu để tránh giao diện khác quá nhiều so với hướng dẫn mới.
+1. Khách hàng bắt đầu giao dịch eSIM trên kênh Viettel được hỗ trợ.
+2. Hoàn tất chọn số/gói và các bước xác thực thông tin mà hệ thống yêu cầu.
+3. Khi giao dịch đủ điều kiện, thiết bị iOS hiển thị thao tác kích hoạt.
+4. Người dùng bấm kích hoạt trên chính iPhone.
+5. Hệ thống Viettel gán hồ sơ eSIM vào thiết bị mà không cần quét QR bằng máy khác.
+6. Sau khi eSIM xuất hiện, kiểm tra đường dây, SIM data và kết nối 4G/5G.
 
-### Bước 2: mở chức năng Đổi eSIM
+Không nên cố tìm một nút hoặc đường dẫn cố định từ ảnh chụp cũ trên Internet vì vị trí giao diện có thể thay đổi theo phiên bản iOS, Tammi hoặc website Viettel.
 
-Theo hướng dẫn Viettel ngày 30/06/2026, từ khu vực dịch vụ của ứng dụng, người dùng đi đến nhóm dịch vụ di động và chọn **Đổi eSIM**. Tên hoặc vị trí menu có thể tiếp tục được Viettel điều chỉnh theo phiên bản ứng dụng, vì vậy hãy bám theo tên chức năng thay vì phụ thuộc hoàn toàn vào ảnh chụp màn hình cũ.
+## Khi nào vẫn có thể cần QR?
 
-### Bước 3: xác thực thông tin thuê bao
+Tính năng mới không có nghĩa mọi tình huống eSIM của Viettel trên mọi thiết bị đều đã loại bỏ QR.
 
-Viettel hướng dẫn thực hiện xác thực thông tin theo quy trình trên ứng dụng, bao gồm các bước nhận diện giấy tờ/chủ thuê bao mà hệ thống yêu cầu. Nếu ứng dụng yêu cầu xác thực NFC hoặc thông tin bổ sung, hãy làm theo đúng dữ liệu chính chủ; không nên dùng thông tin của người khác hoặc tìm cách bỏ qua bước xác thực.
+Bạn vẫn có thể gặp quy trình QR khi:
 
-### Bước 4: kiểm tra và thanh toán
+- đang dùng Android hoặc thiết bị không thuộc phạm vi iOS được Viettel công bố;
+- đang xử lý một eSIM được cấp theo luồng cũ;
+- đang khôi phục, cấp lại hoặc xử lý lỗi eSIM;
+- giao diện Viettel của thuê bao chưa đưa ra lựa chọn kích hoạt tự động;
+- nhà mạng yêu cầu dùng thông tin kích hoạt khác cho tình huống cụ thể.
 
-Trước khi xác nhận, đọc lại thông tin thuê bao và chi tiết đơn hàng. Đây là điểm phù hợp nhất để kiểm tra **mức phí thực tế đang áp dụng** cho giao dịch. Không nên lấy mức phí từ bài cũ rồi mặc định áp dụng cho thời điểm hiện tại.
+Nếu hệ thống Viettel cấp QR cho thuê bao của bạn, chỉ dùng **QR do Viettel cấp cho chính thuê bao đó**. Không dùng QR mẫu trên Internet hoặc QR của người khác.
 
-### Bước 5: nhận thông tin eSIM và mã QR
+## Nếu iPhone vẫn hiện “Thêm eSIM” và yêu cầu QR thì sao?
 
-Theo hướng dẫn Viettel, sau khi xử lý thành công, thông tin đổi eSIM và mã QR được gửi về email đã đăng ký. Hãy lưu QR ở nơi an toàn và không đăng ảnh QR lên mạng xã hội, diễn đàn hoặc gửi cho người lạ.
+Đầu tiên, không nên coi đây là lỗi chỉ vì bạn đã đọc về cơ chế mới. Hãy xác định mình đang ở luồng nào:
 
-Nếu bạn chỉ đang ở giai đoạn đổi SIM vật lý sang eSIM và muốn xem riêng phần phí/kênh thực hiện, có thể đọc thêm [hướng dẫn đổi eSIM Viettel trên Tammi](/posts/doi-esim-viettel-tren-my-viettel/).
+- **Luồng kích hoạt tự động mới:** làm theo nút kích hoạt do Viettel/iOS hiển thị.
+- **Luồng QR:** vào **Cài đặt → Di động/Mạng di động → Thêm eSIM** và dùng QR Viettel đã cấp.
+- **Không thấy tùy chọn eSIM:** kiểm tra đúng model/biến thể iPhone trước khi xử lý sâu hơn.
 
-## Quét mã QR eSIM Viettel trên iPhone
+Bạn có thể xem thêm [cách kiểm tra iPhone có hỗ trợ eSIM Viettel](/posts/kiem-tra-iphone-co-ho-tro-esim-viettel/) nếu thiết bị không hiển thị tùy chọn phù hợp.
 
-Sau khi có QR do Viettel cấp, đừng dùng một QR mẫu trên Internet. Hãy thêm eSIM từ phần cài đặt di động của iPhone.
+## Android có được kích hoạt eSIM Viettel không cần QR chưa?
 
-1. Mở **Cài đặt**.
-2. Chọn **Di động** hoặc **Mạng di động**.
-3. Chọn **Thêm eSIM**.
-4. Chọn phương án dùng mã QR khi iPhone hiển thị.
-5. Quét QR Viettel cấp và làm theo hướng dẫn trên màn hình.
-6. Khi eSIM xuất hiện, đặt nhãn dễ phân biệt nếu máy đang dùng nhiều SIM.
-7. Kiểm tra eSIM Viettel có được chọn làm SIM dữ liệu di động hay không nếu bạn muốn dùng Internet qua đường dây này.
+Thông báo Viettel ngày 18/08/2026 nêu rõ phạm vi triển khai mới trên **thiết bị sử dụng iOS**. Vì vậy bài này không suy diễn rằng toàn bộ Android đã có cùng cơ chế tự động.
 
-Nếu không thấy tùy chọn thêm eSIM, vấn đề có thể nằm ở đúng model hoặc biến thể thiết bị. Xem thêm [cách kiểm tra iPhone có hỗ trợ eSIM Viettel](/posts/kiem-tra-iphone-co-ho-tro-esim-viettel/) trước khi thử quét lại nhiều lần.
+Với Samsung, Xiaomi, OPPO, vivo, Pixel hoặc Android khác, hãy kiểm tra đúng model và luồng Viettel hiện tại. Xem [checklist Android hỗ trợ eSIM Viettel](/posts/kiem-tra-android-co-ho-tro-esim-viettel/) để tách lỗi tương thích thiết bị khỏi lỗi kích hoạt.
 
-## Quét mã QR eSIM Viettel trên Android
+## Đổi SIM vật lý sang eSIM vẫn nên bắt đầu ở đâu?
 
-Android không có một đường dẫn hoàn toàn giống nhau giữa Samsung, Xiaomi, OPPO, vivo, Pixel và các hãng khác. Luồng phổ biến là:
+Viettel đã có hướng dẫn giữa năm 2026 cho quy trình đổi SIM vật lý sang eSIM trên **Viettel Tammi**. Luồng thường gồm đăng nhập, chọn chức năng đổi eSIM, xác thực thông tin, kiểm tra giao dịch rồi nhận thông tin kích hoạt.
 
-1. Vào **Cài đặt**.
-2. Mở **Kết nối**, **Mạng di động**, **SIM & mạng** hoặc mục tương đương.
-3. Chọn **Quản lý SIM**.
-4. Chọn **Thêm eSIM**.
-5. Chọn **Quét mã QR**.
-6. Quét QR Viettel cấp và chờ thiết bị hoàn tất thêm eSIM.
+Điểm mới từ 18/08 là **bước kích hoạt trên iPhone có thể không còn cần quét QR** khi giao dịch đi qua cơ chế mới được hỗ trợ.
 
-Nếu không có nút **Thêm eSIM**, đừng kết luận ngay rằng Viettel đang lỗi. Cần kiểm tra chính xác model và biến thể thị trường của máy. Bạn có thể dùng [checklist kiểm tra Android có hỗ trợ eSIM Viettel](/posts/kiem-tra-android-co-ho-tro-esim-viettel/).
+Nếu bạn đang xem hướng dẫn cũ chỉ nói “nhận QR rồi quét”, hãy coi đó là một luồng vẫn có thể tồn tại nhưng không còn là cách duy nhất trên iOS.
 
-## Kích hoạt eSIM xong nhưng chưa thấy 5G: kiểm tra theo thứ tự
+## Kích hoạt xong nhưng chưa thấy 5G: kiểm tra theo thứ tự
 
-### 1. Điện thoại có hỗ trợ 5G không?
+### 1. iPhone có hỗ trợ 5G không?
 
-Một thiết bị có eSIM không đồng nghĩa có 5G. eSIM là hình thức SIM; 5G là công nghệ mạng. Máy chỉ hỗ trợ 4G vẫn có thể dùng eSIM nếu phần cứng hỗ trợ eSIM, nhưng không thể có 5G chỉ nhờ đổi loại SIM.
+eSIM và 5G là hai khái niệm khác nhau. Máy có eSIM không đồng nghĩa chắc chắn có 5G.
 
-### 2. Viettel eSIM có đang là SIM data không?
+### 2. eSIM Viettel có đang bật không?
 
-Với điện thoại hai SIM, đây là lỗi cấu hình rất dễ gặp. eSIM có thể đã cài thành công nhưng dữ liệu di động vẫn chạy qua SIM còn lại. Kiểm tra SIM mặc định cho data trước khi xử lý sâu hơn.
+Vào cài đặt di động và kiểm tra đường dây eSIM đã được bật.
 
-### 3. Chế độ 5G đã được bật chưa?
+### 3. eSIM Viettel có đang là SIM data không?
 
-Trong phần cài đặt mạng di động, kiểm tra thiết bị có cho phép 5G hay không. Tên tùy chọn có thể là **5G Auto**, **5G On**, **Ưu tiên 5G** hoặc tên tương đương tùy hệ điều hành.
+Nếu máy dùng nhiều SIM, dữ liệu di động có thể vẫn chạy qua đường dây khác. Kiểm tra SIM mặc định cho data.
 
-### 4. Kiểm tra mạng tại vị trí đang dùng
+### 4. Chế độ mạng 5G đã được bật chưa?
 
-Khả năng thấy 5G phụ thuộc điều kiện mạng thực tế và vùng phủ tại vị trí sử dụng. Vì vậy cùng một thuê bao có thể thấy 5G ở địa điểm này nhưng chỉ thấy 4G ở địa điểm khác. Không nên dùng một bản đồ hoặc danh sách vùng phủ cũ để khẳng định chắc chắn trạng thái tại thời điểm hiện tại.
+Tên tùy chọn có thể là **5G Auto**, **5G On** hoặc tên tương đương tùy phiên bản iOS.
 
-### 5. Kiểm tra trạng thái dịch vụ và gói data
+### 5. Kiểm tra điều kiện mạng và trạng thái dịch vụ
 
-Biểu tượng 5G không đồng nghĩa thuê bao chắc chắn có dung lượng data đang sử dụng. Nếu cần chọn gói phù hợp, xem [nhóm gói 5G Viettel đã được xác minh trên website](/goi-cuoc/5g/) và kiểm tra điều kiện thực tế của số thuê bao trên kênh Viettel trước khi đăng ký.
+Khả năng thấy 5G còn phụ thuộc vị trí sử dụng, trạng thái mạng và điều kiện dịch vụ thực tế của thuê bao. Không nên mặc định rằng chỉ cần đổi sang eSIM là máy sẽ luôn hiện 5G.
+
+Nếu cần chọn gói data, xem [nhóm gói 5G Viettel đã được xác minh trên website](/goi-cuoc/5g/) và kiểm tra điều kiện áp dụng cho chính thuê bao trước khi đăng ký.
+
+## Đổi máy có còn phải giữ QR không?
+
+Thông báo 18/08/2026 cho biết cơ chế mới giúp giảm nhu cầu lưu QR và đơn giản hóa việc chuyển eSIM giữa thiết bị. Tuy vậy, Viettel đồng thời nói hệ thống sẽ **tiếp tục nâng cấp** để việc chuyển đổi eSIM cũng không cần QR.
+
+Vì vậy, không nên kết luận rằng mọi tình huống đổi máy hiện đã hoàn toàn bỏ QR. Nếu bạn vừa đổi máy và eSIM không tự chuyển, xem [eSIM Viettel đổi máy và quét lại QR](/posts/esim-viettel-doi-may-quet-lai-qr/) hoặc dùng kênh hỗ trợ Viettel cho tình huống thực tế.
 
 ## QR eSIM báo lỗi hoặc không thêm được thì làm gì?
 
-Hãy kiểm tra lần lượt thay vì quét lặp lại liên tục:
+Nếu bạn đang ở một luồng vẫn sử dụng QR, hãy kiểm tra lần lượt:
 
-- **QR có đúng do Viettel cấp cho thuê bao của bạn không?** Không dùng QR mẫu hoặc QR của người khác.
-- **Máy có hỗ trợ eSIM không?** Kiểm tra đúng model/biến thể.
-- **Thiết bị có Internet ổn định không?** Quá trình thêm eSIM cần kết nối để hoàn tất.
-- **eSIM đã được thêm trước đó chưa?** Không tự xóa hồ sơ đang hoạt động khi chưa có phương án khôi phục.
-- **Bạn vừa đổi máy hoặc khôi phục thiết bị?** Đây là tình huống khác với lần kích hoạt đầu tiên.
-- **QR bị mất hoặc không còn dùng được?** Dùng kênh hỗ trợ Viettel để xử lý thay vì tìm QR khác trên mạng.
+- QR có đúng do Viettel cấp cho thuê bao của bạn không;
+- iPhone/Android có hỗ trợ eSIM đúng biến thể không;
+- thiết bị có Internet ổn định không;
+- hồ sơ eSIM đã được thêm trước đó chưa;
+- bạn có vừa đổi máy/khôi phục thiết bị hay không;
+- QR có bị mất hoặc không còn dùng được hay không.
 
-Nếu lỗi phát sinh sau khi đổi máy, xem [eSIM Viettel đổi máy và quét lại QR](/posts/esim-viettel-doi-may-quet-lai-qr/).
-
-## eSIM có sóng nhưng không vào mạng
-
-Nếu tên mạng Viettel và cột sóng đã xuất hiện nhưng Internet không chạy, kiểm tra:
-
-- dữ liệu di động đã bật;
-- eSIM Viettel đang là SIM data mặc định;
-- đường dây eSIM không bị tắt trong cài đặt;
-- chế độ máy bay đã tắt;
-- chế độ mạng 4G/5G phù hợp;
-- trạng thái gói data của thuê bao.
-
-Nếu eSIM có vấn đề kèm SMS hoặc sóng yếu, nên tách triệu chứng để xử lý đúng nguyên nhân. Xem [eSIM Viettel yếu sóng hoặc không gửi được SMS](/posts/esim-viettel-yeu-song-khong-gui-duoc-sms/).
-
-## Có thể dùng eSIM Viettel cùng SIM vật lý không?
-
-Khả năng dùng đồng thời nhiều đường dây phụ thuộc thiết bị. Khi máy có cả SIM vật lý và eSIM, hãy kiểm tra riêng ba lựa chọn:
-
-- SIM mặc định cho **cuộc gọi**;
-- SIM mặc định cho **SMS**;
-- SIM mặc định cho **dữ liệu di động**.
-
-Việc chọn sai SIM data là một trong những tình huống dễ khiến người dùng tưởng eSIM không có 4G/5G dù hồ sơ eSIM đã hoạt động.
-
-Xem thêm [dùng eSIM và SIM vật lý Viettel cùng lúc](/posts/dung-esim-va-sim-vat-ly-viettel-cung-luc/) nếu bạn đang cấu hình máy hai SIM.
+Không nên tự xóa hồ sơ eSIM đang hoạt động chỉ để thử lại khi chưa có phương án khôi phục.
 
 ## FAQ
 
-### eSIM Viettel có dùng được 5G không?
+### eSIM Viettel trên iPhone giờ có cần QR không?
 
-Có thể, nếu thiết bị hỗ trợ 5G, cấu hình mạng phù hợp, thuê bao đáp ứng điều kiện dịch vụ và vị trí sử dụng có mạng 5G. Việc chuyển sang eSIM tự nó không phải cam kết rằng máy luôn hiển thị 5G.
+Không phải lúc nào cũng cần. Từ **18/08/2026**, Viettel đã triển khai cơ chế kích hoạt tự động trên iOS cho luồng được hỗ trợ, cho phép bấm kích hoạt ngay trên thiết bị mà không phải quét QR.
 
-### Đổi eSIM Viettel hiện làm trên ứng dụng nào?
+### Tính năng không cần QR áp dụng cho Android chưa?
 
-Nguồn Viettel cập nhật giữa năm 2026 hướng dẫn thực hiện đổi SIM vật lý sang eSIM trên **Viettel Tammi**. Nếu bạn đang xem một hướng dẫn cũ chỉ nhắc My Viettel, nên kiểm tra lại luồng Tammi hiện hành.
+Nguồn Viettel công bố ngày 18/08/2026 xác nhận phạm vi trên **iOS**. Bài này không coi Android là đã được áp dụng tương tự nếu chưa có nguồn first-party tương ứng.
 
-### Đổi sang eSIM có làm mất gói 4G/5G đang dùng không?
+### Mua eSIM ở đâu thì có thể dùng cơ chế mới?
 
-Trong hướng dẫn Viettel ngày 30/06/2026, nhà mạng nêu các gói 4G/5G đang sử dụng được bảo lưu sau khi đổi sang eSIM. Tuy vậy, nếu giao diện giao dịch của thuê bao hiển thị điều kiện khác, hãy ưu tiên thông tin Viettel hiển thị tại thời điểm xác nhận.
+Viettel cho biết công nghệ mới sẵn sàng phục vụ trên diện rộng với khách hàng mua eSIM qua **Viettel Tammi, website và cửa hàng trực tiếp**. Việc giao dịch cụ thể có hiển thị kích hoạt tự động hay không cần theo thông tin hệ thống Viettel tại thời điểm thực hiện.
 
-### Phí đổi eSIM Viettel hiện bao nhiêu?
+### Cơ chế mới có đảm bảo iPhone luôn có 5G không?
 
-Viettel thông báo từ 01/07/2026 có chương trình giảm tới hơn 50% phí chuyển đổi và kênh Tammi có mức ưu đãi hơn. Bài công khai hiển thị bảng phí dưới dạng hình ảnh nên bài này không tự suy đoán một số tiền cố định. Hãy kiểm tra mức phí trên Tammi hoặc tại điểm giao dịch trước khi xác nhận.
+Không. Kích hoạt eSIM và khả năng dùng 5G là hai việc khác nhau. 5G còn phụ thuộc thiết bị, cấu hình, trạng thái dịch vụ và điều kiện mạng tại vị trí sử dụng.
 
-### Mất mã QR eSIM thì có nên tìm QR mẫu trên mạng không?
+### Có nên xóa QR eSIM cũ ngay không?
 
-Không. QR mẫu hoặc QR của người khác không phải thông tin kích hoạt của thuê bao bạn. Hãy dùng kênh Viettel để xử lý cấp lại hoặc hỗ trợ theo tình trạng thực tế.
+Không cần chủ động xóa mọi thông tin cũ chỉ vì có cơ chế mới. Nếu eSIM hiện tại đang hoạt động ổn định, không nên tự xóa hồ sơ hoặc thay đổi cấu hình chỉ để thử lại quy trình mới.
 
-### Kích hoạt eSIM có cần kết nối Internet không?
-
-Nên có kết nối Internet ổn định trong quá trình thêm và kích hoạt eSIM theo hướng dẫn của Viettel.
-
-## Checklist sau khi cài eSIM
-
-Sau khi quét QR, kiểm tra sáu điểm:
+## Checklist sau khi kích hoạt
 
 1. eSIM Viettel xuất hiện trong danh sách SIM.
 2. Đường dây eSIM đang bật.
 3. Máy nhận mạng Viettel.
-4. eSIM được chọn đúng cho data nếu muốn dùng Internet qua Viettel.
-5. Chế độ 4G/5G phù hợp đã bật.
-6. Thử truy cập Internet hoặc kiểm tra trạng thái dịch vụ bằng kênh Viettel chính thức.
-
-Nếu các bước trên đều ổn, không cần tiếp tục thay đổi cấu hình chỉ vì biểu tượng mạng đôi lúc chuyển giữa 4G và 5G theo vị trí.
+4. Chọn đúng eSIM cho dữ liệu di động nếu cần.
+5. Kiểm tra chế độ 4G/5G phù hợp.
+6. Thử truy cập Internet hoặc kiểm tra trạng thái dịch vụ trên kênh Viettel.
 
 ## Kết luận
 
-Với eSIM 5G Viettel, cách xử lý an toàn nhất là **đổi eSIM trên kênh Viettel hiện hành, chỉ dùng QR do Viettel cấp, thêm eSIM từ phần cài đặt SIM của điện thoại và kiểm tra từng lớp theo thứ tự: eSIM → SIM data → chế độ mạng → điều kiện mạng → gói data**.
+Từ **18/08/2026**, người dùng iPhone đã có một luồng eSIM Viettel đơn giản hơn: **kích hoạt trực tiếp trên thiết bị mà không cần quét QR** khi giao dịch thuộc phạm vi được hỗ trợ. Đây là thay đổi đủ lớn để các hướng dẫn chỉ nói “nhận QR rồi quét” không còn phản ánh đầy đủ trải nghiệm hiện tại.
 
-Điểm mới đáng chú ý trong năm 2026 là Viettel đã đưa luồng đổi eSIM lên **Viettel Tammi** và triển khai chương trình ưu đãi phí từ 01/07/2026. Khi giá hoặc điều kiện có thể thay đổi theo thời điểm/thuê bao, hãy ưu tiên thông tin hiển thị trong giao dịch Viettel thay vì một con số được sao chép từ bài cũ.
+Tuy nhiên, QR vẫn có thể xuất hiện ở Android, luồng cũ, cấp lại hoặc tình huống hỗ trợ khác. Cách an toàn nhất là làm theo thông tin Viettel hiển thị cho chính giao dịch của bạn, không dùng QR mẫu và không suy diễn rằng mọi thiết bị đã chuyển sang cùng một cơ chế.
 
 ## Nguồn tham khảo
 
+- Viettel Telecom, **eSIM Viettel: Chạm là kết nối — kích hoạt không cần mã QR**, 18/08/2026: https://www.vietteltelecom.vn/tin-tuc/chi-tiet/esim-viettel-cham-la-ket-noi-kich-hoat-khong-can-ma-qr/13707592
 - Viettel Telecom, **Hướng dẫn chi tiết 5 bước đổi eSIM trên Viettel Tammi cực đơn giản**, 30/06/2026: https://www.vietteltelecom.vn/tin-tuc/chi-tiet/huong-dan-chi-tiet-5-buoc-doi-esim-tren-viettel-tammi-cuc-don-gian/18477972
 - Viettel Telecom, **Viettel giảm tới hơn 50% phí chuyển đổi eSIM, ưu đãi cao hơn trên ứng dụng Viettel Tammi**, 03/07/2026: https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/viettel-giam-toi-hon-50-phi-chuyen-doi-esim-uu-dai-cao-hon-tren-ung-dung-viettel-tammi/17076372
-- Viettel Telecom, **eSIM 5G Viettel: Lợi ích, thiết bị hỗ trợ và cách kích hoạt**, 01/02/2026: https://098.viettel.vn/tin-tuc/chi-tiet/esim-5g-viettel-loi-ich-thiet-bi-ho-tro-va-cach-kich-hoat/10391888
