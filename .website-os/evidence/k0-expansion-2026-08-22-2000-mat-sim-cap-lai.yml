@@ -1,0 +1,131 @@
+version: 1.0.0
+decision: PASS
+observed_at: 2026-08-22T19:57:05+07:00
+website_os_source_repo: capquangfptminhlh/seo-web
+website_os_source_ref: main
+website_os_source_commit: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+website_os_manifest_version: 1.3.0
+project_repo: capquangfptminhlh/viettel-4g-web
+project_main_at_start: 31c53abd68ea6be335d4030a01206d95831e4dc5
+operation_slot: "20:00"
+bootstrap:
+  mandatory_read_complete: true
+  project_agents_loaded: true
+  anti_mock_rules_loaded: true
+  original_request_loaded: true
+  k0_state_loaded: true
+  decision: PASS
+research_chain:
+  - candidate: "same-day Viettel 4G/5G/eSIM/SIM/support breaking update on 2026-08-22"
+    disposition: SKIP_NO_MATERIAL_PRIMARY_SOURCE_UPDATE
+    reason: "Fresh first-party search did not surface a same-day Viettel telecom announcement with a distinct publishable search job. The freshest 21/08 TV360 promotion is outside the core mobile-support acquisition scope."
+  - candidate: "roaming Viettel / chọn mạng / VoLTE khi roaming"
+    disposition: SKIP_EXISTING_CLUSTER_OR_STALE_GUIDE
+    reason: "Official guidance exists, including Japan 4G/5G roaming and network-selection documents, but these jobs are already represented by the roaming cluster and did not present a stronger distinct gap than the selected support intent."
+  - candidate: "hạn sử dụng SIM Viettel / thời gian giữ số"
+    disposition: SKIP_PROCEDURE_EVIDENCE_INCOMPLETE
+    reason: "Current Viettel contract terms confirm that service validity and number-retention periods exist by package, but do not provide one universal duration/check procedure that can safely be asserted for all prepaid subscribers."
+  - candidate: "chuyển tiền I-Share / nạp thẻ hộ Viettel"
+    disposition: SKIP_CURRENT_TRANSACTION_EVIDENCE_WEAK
+    reason: "No sufficiently current first-party transactional procedure, fee and eligibility evidence was found in this run for a reliable how-to."
+  - candidate: "Android/eSIM compatibility"
+    disposition: SKIP_EXISTING_OWNER
+    reason: "The repository already has a canonical Android eSIM compatibility owner; creating another URL would duplicate the same search job."
+  - candidate: "mất SIM Viettel / cấp lại SIM mới / khóa chiều đi"
+    disposition: SELECT_NEW_CANONICAL_OWNER
+    reason: "Viettel's recently published prepaid mobile general terms explicitly state that a customer who loses a SIM must go to a Viettel transaction point or use My Viettel to request a replacement SIM, may request outgoing-service suspension, and may call 18008098 for urgent outgoing-call blocking. Repository search found no existing article owner for this lost-SIM recovery job."
+selected_target:
+  action: NEW
+  primary_keyword: "mất SIM Viettel làm lại"
+  secondary_queries:
+    - "mất SIM Viettel phải làm sao"
+    - "cấp lại SIM Viettel"
+    - "mất SIM Viettel có làm lại trên My Viettel không"
+    - "mất SIM Viettel khóa chiều đi"
+    - "mất SIM Viettel có cần ra cửa hàng không"
+    - "cấp lại SIM Viettel có giữ số cũ không"
+  primary_intent: SUPPORT
+  secondary_intent: INFORMATIONAL_PROBLEM
+  entity_type: telecom_subscriber_support
+  entity_name: "Viettel lost SIM replacement"
+  parent_cluster: "viettel-sim-support"
+  cluster_id: "viettel-lost-sim-replacement"
+  content_type: support_how_to_guide
+  canonical_owner: "https://www.tracuugoicuoc.com/posts/mat-sim-viettel-lam-lai-cap-lai-sim/"
+  indexability: index
+  priority_tier: P1
+  why_new: >-
+    The user job begins after physical possession/control of a Viettel SIM is lost and requires immediate risk reduction plus replacement/recovery. It is distinct from planned physical SIM 4G replacement, physical-SIM-to-eSIM conversion, deleted eSIM QR recovery, subscriber-information blocking, and moving an existing SIM to a new handset.
+serp_evidence:
+  dominant_intent: SUPPORT_INFORMATIONAL_PROBLEM
+  dominant_page_types:
+    - official_contract_terms
+    - support_how_to
+  evidence:
+    - id: SERP-VIETTEL-PREPAID-TERMS-LOST-SIM-20260822-2000
+      source: "https://media.vietteltelecom.vn/upload/ckfinder/files/01_Dieu%20kien%20GDC%20DVDD%20tra%20truoc%20CN%20_%20UQ%281%29.pdf"
+      source_type: OFFICIAL_VIETTEL_GENERAL_TRANSACTION_TERMS
+      published_recency_observed: "approximately 8 months old in search index"
+      observed_at: 2026-08-22T19:57:05+07:00
+      finding: "For lost SIM, Viettel directs prepaid customers to a Viettel transaction point or My Viettel for replacement, permits requesting outgoing-service suspension, and gives 18008098 for urgent outgoing-call blocking."
+    - id: SERP-VIETTEL-UTILITY-HUB-20260822-2000
+      source: "https://www.vietteltelecom.vn/tra-cuu-thong-tin-thue-bao"
+      source_type: OFFICIAL_VIETTEL_UTILITY_PAGE
+      observed_at: 2026-08-22T19:57:05+07:00
+      finding: "The current Viettel utility surface lists subscriber-management utilities including Đổi sim and Tìm kiếm cửa hàng Viettel, supporting the channel context without inventing local store data."
+cannibalization:
+  decision: PASS
+  new_url_created: true
+  repository_search:
+    exact_existing_owner: NONE_FOUND
+    notes: "Repository search for mất SIM/cấp lại SIM returned adjacent SIM verification, device-change, eSIM and physical-SIM replacement articles, but no lost-SIM recovery owner."
+  compared_urls:
+    - url: "https://www.tracuugoicuoc.com/posts/doi-sim-4g-viettel-tren-my-viettel/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns planned physical SIM 4G replacement while the subscriber still controls the old SIM, not loss/recovery."
+    - url: "https://www.tracuugoicuoc.com/posts/lo-xoa-esim-viettel-quet-lai-qr/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns deleted eSIM profile/QR recovery, not loss of a physical SIM."
+    - url: "https://www.tracuugoicuoc.com/posts/sim-viettel-bi-chan-2-chieu-chua-xac-thuc/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns blocking caused by subscriber-information verification, not lost SIM."
+internal_link_plan:
+  inbound_candidates:
+    - "/posts/doi-sim-4g-viettel-tren-my-viettel/"
+    - "/posts/kiem-tra-sim-viettel-chinh-chu/"
+  outbound:
+    - "/posts/doi-sim-4g-viettel-tren-my-viettel/"
+    - "/posts/doi-esim-viettel-tren-my-viettel/"
+    - "/posts/lo-xoa-esim-viettel-quet-lai-qr/"
+    - "/posts/sim-viettel-bi-chan-2-chieu-chua-xac-thuc/"
+source_of_truth:
+  official_viettel_required_for_business_facts: true
+  replacement_fee_claim_added: false
+  processing_time_claim_added: false
+  fixed_document_checklist_added: false
+  universal_keep_number_guarantee_added: false
+  verified_support_number: "18008098"
+  scope_guardrail: "Only the lost-SIM actions explicitly supported by current Viettel terms are asserted. Fee, processing time, fixed document list and eligibility for remote completion remain UNKNOWN/UNVERIFIED."
+metrics:
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking_position: UNKNOWN
+  traffic_potential: UNKNOWN
+  fabricated_metrics: false
+invariants:
+  dns_or_domain_routing_changed: false
+  registration_cta_changed: false
+  approved_registration_cta: "MÃ_GÓI GB"
+  registration_destination: "290"
+k0_enforcement:
+  fresh_research: PASS
+  intent_mapping: PASS
+  entity_mapping: PASS
+  cluster_mapping: PASS
+  canonical_ownership: PASS
+  cannibalization: PASS
+  factual_source_of_truth: PASS
+  unsupported_metrics: PASS
+  content_type_assignment: PASS
+  decision: PASS
