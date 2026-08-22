@@ -63,6 +63,21 @@
       "permanent": true
     },
     {
+      "source": "/posts/%C4%91%C4%83ng-k%C3%BD-sd135-viettel",
+      "destination": "/posts/dang-ky-sd135-viettel",
+      "permanent": true
+    },
+    {
+      "source": "/posts/c%C3%A1ch-%C4%91%C4%83ng-k%C3%BD-m%E1%BA%A1ng-viettel-cho-sim-m%E1%BB%9Bi-k%C3%ADch-ho%E1%BA%A1t",
+      "destination": "/posts/cach-dang-ky-mang-viettel-cho-sim-moi-kich-hoat",
+      "permanent": true
+    },
+    {
+      "source": "/posts/l%E1%BB%97i-%C4%91%C4%83ng-k%C3%BD-4g-viettel-kh%C3%B4ng-th%C3%A0nh-c%C3%B4ng-v%C3%A0-c%C3%A1ch-kh%E1%BA%AFc-ph%E1%BB%A5c",
+      "destination": "/posts/loi-dang-ky-4g-viettel-khong-thanh-cong-va-cach-khac-phuc",
+      "permanent": true
+    },
+    {
       "source": "/posts/dang-ky-sd70-viettel",
       "destination": "/goi-cuoc/sd70",
       "permanent": true
