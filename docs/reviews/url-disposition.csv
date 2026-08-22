@@ -17,11 +17,14 @@ source,target,disposition,intentMatch,ownerApproved,notes
 /goi-cuoc/v150b,,404,,true,Retired legacy package without current verified facts and absent from sitemap
 /goi-cuoc/v200b,,404,,true,Retired legacy package without current verified facts and absent from sitemap
 /goi-cuoc/v90b,,keep,,,Verified package canonical owner and crawl priority target
-/posts/đăng-ký-sd135-viettel,,improve,,,Support owner retained and canonical links normalized
-/posts/cách-đăng-ký-mạng-viettel-cho-sim-mới-kích-hoạt,,improve,,,Rebuilt with current Viettel sources and no fabricated new-SIM offer table
+/posts/đăng-ký-sd135-viettel,/posts/dang-ky-sd135-viettel,301,true,true,Unicode legacy URL migrated to ASCII canonical support owner
+/posts/dang-ky-sd135-viettel,,improve,,,Support owner retained as ASCII canonical and linked to SD135 package landing
+/posts/cách-đăng-ký-mạng-viettel-cho-sim-mới-kích-hoạt,/posts/cach-dang-ky-mang-viettel-cho-sim-moi-kich-hoat,301,true,true,Unicode legacy URL migrated to ASCII canonical support owner
+/posts/cach-dang-ky-mang-viettel-cho-sim-moi-kich-hoat,,improve,,,Current source-backed new-SIM support owner on ASCII canonical URL
 /posts/gói-cước-viettel-xem-tiktok-youtube-facebook-miễn-phí-data,/goi-cuoc/mang-xa-hoi,301,true,true,Generic social-package intent belongs to the verified social hub
 /posts/hướng-dẫn-hủy-gói-cước-viettel-tránh-trừ-tiền-tự-động,/posts/cach-huy-gia-han-4g-viettel,301,true,true,Stale cancellation page merged into refreshed cancellation owner
-/posts/lỗi-đăng-ký-4g-viettel-không-thành-công-và-cách-khắc-phục,,improve,,,Rebuilt as source-backed registration troubleshooting owner
+/posts/lỗi-đăng-ký-4g-viettel-không-thành-công-và-cách-khắc-phục,/posts/loi-dang-ky-4g-viettel-khong-thanh-cong-va-cach-khac-phuc,301,true,true,Unicode legacy URL migrated to ASCII canonical support owner
+/posts/loi-dang-ky-4g-viettel-khong-thanh-cong-va-cach-khac-phuc,,improve,,,Current source-backed registration troubleshooting owner on ASCII canonical URL
 /posts/topic-b1-esim-5g-tuong-thich,/posts/esim-5g-kich-hoat-quet-qr,301,true,true,Micro-content merged into comprehensive eSIM owner
 /posts/topic-b1-esim-kich-hoat-ket-noi,/posts/esim-5g-kich-hoat-quet-qr,301,true,true,Micro-content merged into comprehensive eSIM owner
 /posts/topic-b1-esim-quet-qr-buoc-dau,/posts/esim-5g-kich-hoat-quet-qr,301,true,true,Micro-content merged into comprehensive eSIM owner
