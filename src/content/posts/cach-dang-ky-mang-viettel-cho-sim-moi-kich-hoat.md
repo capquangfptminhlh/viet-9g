@@ -48,7 +48,7 @@ Hãy giữ lại SMS hoặc thông báo lỗi và kiểm tra theo thứ tự:
 4. SIM có đang hoạt động bình thường không;
 5. hệ thống có yêu cầu xác thực hoặc thao tác bổ sung không.
 
-Xem [checklist lỗi đăng ký 4G/5G Viettel](/posts/lỗi-đăng-ký-4g-viettel-không-thành-công-và-cách-khắc-phục) nếu cần xử lý sâu hơn.
+Xem [checklist lỗi đăng ký 4G/5G Viettel](/posts/loi-dang-ky-4g-viettel-khong-thanh-cong-va-cach-khac-phuc) nếu cần xử lý sâu hơn.
 
 ## FAQ
 
