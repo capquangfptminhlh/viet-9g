@@ -1,0 +1,135 @@
+version: 1.0.0
+decision: PASS
+observed_at: 2026-08-22T07:03:50+07:00
+website_os_source_repo: capquangfptminhlh/seo-web
+website_os_source_ref: main
+website_os_source_commit: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+website_os_manifest_version: 1.3.0
+project_repo: capquangfptminhlh/viettel-4g-web
+project_main_at_start: aacd708fd7bfe38966211b93629db47d230a4162
+operation_slot: "07:00"
+bootstrap:
+  mandatory_read_complete: true
+  project_agents_loaded: true
+  anti_mock_rules_loaded: true
+  original_request_loaded: true
+  k0_state_loaded: true
+  decision: PASS
+research_chain:
+  - candidate: "same-day Viettel 4G/5G/eSIM/SIM/support breaking update on 2026-08-22"
+    disposition: SKIP_NO_MATERIAL_PRIMARY_SOURCE_UPDATE
+    reason: "Fresh first-party search did not surface a same-day Viettel announcement with a distinct publishable search job at observation time."
+  - candidate: "eSIM Viettel không cần quét QR trên iPhone"
+    disposition: SKIP_ALREADY_REFRESHED_OWNER
+    reason: "The canonical eSIM activation owner was refreshed in the immediately preceding 2026-08-21 20:00 operation with Viettel's 2026-08-18 no-QR iOS flow; another update would be repetitive without new evidence."
+  - candidate: "roaming Viettel đi Lào"
+    disposition: SKIP_EXISTING_OR_NEAR_OWNER
+    reason: "Viettel published a fresh 2026-08-17 Laos roaming guide, but destination/package coverage belongs to the existing roaming cluster and is lower priority than an uncovered support job with a clear owner gap."
+  - candidate: "mất hoặc hỏng SIM Viettel làm lại SIM"
+    disposition: SKIP_SOURCE_FRESHNESS_WEAK
+    reason: "Repository has no obvious article owner, but the first-party guidance surfaced in this run is materially older (2021) and insufficient to assert current replacement procedure, fees or eligibility."
+  - candidate: "ứng tiền Viettel 911 / Airtime Credit"
+    disposition: SKIP_CURRENT_PROCEDURE_EVIDENCE_WEAK
+    reason: "A Viettel service-quality document confirms the services exist, but this run did not find a sufficiently current first-party procedure/eligibility source for a reliable how-to owner."
+  - candidate: "đổi điểm Viettel++ sang data"
+    disposition: SELECT_NEW_CANONICAL_OWNER
+    reason: "Official Viettel++ 2026 program material applies from 2026-01-01 through 2026-12-31 and explicitly defines data-redemption ratios, minimum data-redemption points, eligible customer classes and redemption channels. Repository search found mentions/history but no article owner for this search job."
+selected_target:
+  action: NEW
+  primary_keyword: "đổi điểm Viettel++ sang data"
+  secondary_queries:
+    - "cách đổi điểm Viettel++ sang data"
+    - "1000 điểm Viettel++ đổi được bao nhiêu data"
+    - "đổi điểm Viettel++ lấy data 2026"
+    - "Viettel++ VTID1 VTID2"
+    - "đổi điểm Viettel++ trên My Viettel"
+    - "điểm Viettel++ đổi data tối thiểu bao nhiêu"
+  primary_intent: SUPPORT
+  secondary_intent: TRANSACTIONAL_INFORMATIONAL
+  entity_type: telecom_loyalty_redemption
+  entity_name: "Viettel++ data redemption"
+  parent_cluster: "viettel-account-support"
+  cluster_id: "viettel-plus-data-redemption"
+  content_type: support_how_to_guide
+  canonical_owner: "https://www.tracuugoicuoc.com/posts/doi-diem-viettel-plus-sang-data/"
+  indexability: index
+  priority_tier: P1
+  why_new: >-
+    The job starts with an existing Viettel++ point balance and asks how those points convert into mobile data. It is distinct from prepaid top-up, postpaid payment, package registration and generic account-balance jobs. Repository search did not find an indexable article owner for the Viettel++ data-redemption intent.
+serp_evidence:
+  dominant_intent: SUPPORT_TRANSACTIONAL_INFORMATIONAL
+  dominant_page_types:
+    - official_program_terms
+    - support_how_to
+  evidence:
+    - id: SERP-VIETTEL-PLUS-2026-PROGRAM-20260822-0700
+      source: "https://media.vietteltelecom.vn/upload/ckfinder/files/File_The%20le%20chuong%20trinh%20Viettel%2B%2B%20nam%202026_up%281%29.pdf"
+      source_type: OFFICIAL_VIETTEL_PROGRAM_TERMS
+      effective_from: 2026-01-01
+      effective_to: 2026-12-31
+      observed_at: 2026-08-22T07:03:50+07:00
+      finding: "The 2026 Viettel++ program explicitly supports exchanging points for voice/SMS/data. For data, VTID1 is 100 points = 10MB with 30-day validity and VTID2 is 100 points = 20MB valid on the redemption day; data redemption has a minimum of 1,000 points. Listed channels include Viettel app/web, *098#, 198, SMS and Viettel Money."
+    - id: SERP-VIETTEL-ROAMING-LAOS-20260822-0700
+      source: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/di-lao-dung-goi-roaming-nao-goi-y-cac-goi-cuoc-uu-dai-cua-viettel/18333764"
+      source_type: OFFICIAL_VIETTEL
+      published_at: 2026-08-17
+      observed_at: 2026-08-22T07:03:50+07:00
+      finding: "Fresh roaming candidate exists but belongs to the roaming package/destination cluster and was not selected."
+cannibalization:
+  decision: PASS
+  new_url_created: true
+  repository_search:
+    exact_existing_owner: NONE_FOUND
+    mentions_without_owner:
+      - "docs/fact-audits/news.md"
+      - "docs/topic-candidates/hot-blog5.md"
+      - "data/facts.json"
+      - "historical K0 expansion artifacts"
+    notes: "No existing src/content/posts owner was found for the Viettel++ data-redemption job."
+  compared_urls:
+    - url: "https://www.tracuugoicuoc.com/posts/nap-tien-viettel-tra-truoc-online/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns prepaid monetary top-up, not loyalty-point redemption."
+    - url: "https://www.tracuugoicuoc.com/posts/thanh-toan-cuoc-tra-sau-viettel-online/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns postpaid debt/payment, not Viettel++ point use."
+    - url: "https://www.tracuugoicuoc.com/goi-cuoc/5g/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns 5G package discovery/registration rather than loyalty redemption."
+internal_link_plan:
+  inbound_candidates:
+    - "/posts/nap-tien-viettel-tra-truoc-online/"
+    - "/goi-cuoc/5g/"
+  outbound:
+    - "/goi-cuoc/5g/"
+    - "/posts/nap-tien-viettel-tra-truoc-online/"
+source_of_truth:
+  official_viettel_required_for_business_facts: true
+  price_claims_added: false
+  package_benefit_claims_added: false
+  roaming_package_claims_added: false
+  loyalty_business_facts_source: "Official Viettel++ 2026 program terms"
+  scope_guardrail: "Only redemption ratios, validity, minimum points and channels explicitly present in the 2026 program terms are asserted. App/web availability can change, so users are told to follow the currently displayed official redemption option."
+metrics:
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking_position: UNKNOWN
+  traffic_potential: UNKNOWN
+  fabricated_metrics: false
+invariants:
+  dns_or_domain_routing_changed: false
+  registration_cta_changed: false
+  approved_registration_cta: "MÃ_GÓI GB"
+  registration_destination: "290"
+k0_enforcement:
+  fresh_research: PASS
+  intent_mapping: PASS
+  entity_mapping: PASS
+  cluster_mapping: PASS
+  canonical_ownership: PASS
+  cannibalization: PASS
+  factual_source_of_truth: PASS
+  unsupported_metrics: PASS
+  content_type_assignment: PASS
+  decision: PASS
