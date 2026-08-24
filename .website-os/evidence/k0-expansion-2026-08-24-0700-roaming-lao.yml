@@ -1,0 +1,58 @@
+run: "2026-08-24-0700"
+observed_at: "2026-08-24T10:22:00+07:00"
+action: NEW
+status: PASS
+primary_keyword: "roaming Viettel đi Lào"
+secondary_queries:
+  - "đi Lào dùng roaming Viettel nào"
+  - "gói roaming Viettel Lào 2026"
+  - "đăng ký roaming Viettel khi đi Lào"
+  - "gói IRU Viettel Lào"
+  - "gói ASEAN Viettel đi Lào"
+intent: "SUPPORT + TRANSACTIONAL_INFORMATIONAL"
+cluster: "viettel-roaming-laos"
+parent_cluster: "viettel-roaming"
+canonical_owner: "/posts/roaming-viettel-di-lao/"
+new_url_created: true
+cannibalization: PASS
+reason: >-
+  Repository search found no existing Laos-specific roaming article owner. Existing roaming/support
+  mentions cover generic roaming, device/network troubleshooting, or verification abroad; the selected
+  job is country-specific package selection plus registration for Viettel subscribers travelling to Laos.
+candidates_checked:
+  - candidate: "same-day Viettel mobile breaking update"
+    decision: HOLD
+    reason: "No sufficiently strong first-party 24/08 mobile-support update found during the research window."
+  - candidate: "eSIM no-QR iOS"
+    decision: REJECT
+    reason: "Existing canonical owner was refreshed on 21/08 from Viettel's 18/08 announcement."
+  - candidate: "roaming Viettel đi Lào"
+    decision: SELECT
+    reason: "Fresh first-party Viettel guide dated 17/08/2026 plus no Laos-specific canonical owner in repository."
+  - candidate: "lost SIM replacement"
+    decision: REJECT
+    reason: "Canonical owner published 22/08."
+  - candidate: "Viettel++ data redemption"
+    decision: REJECT
+    reason: "Canonical owner published 22/08."
+  - candidate: "billing/account support"
+    decision: REJECT
+    reason: "Recent canonical owners already cover invoice lookup, postpaid payment, prepaid top-up and password recovery."
+sources:
+  - url: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/di-lao-dung-goi-roaming-nao-goi-y-cac-goi-cuoc-uu-dai-cua-viettel/18333764"
+    publisher: "Viettel Telecom"
+    published: "2026-08-17"
+    role: "primary freshness and package/registration evidence"
+  - url: "https://098.viettel.vn/di-dong/chuyen-vung-quoc-te-2"
+    publisher: "Viettel Telecom"
+    role: "official roaming service hub"
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
