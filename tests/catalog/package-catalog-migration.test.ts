@@ -2,11 +2,16 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
 import { describe, expect, it } from 'vitest';
-import { VIETTEL_PACKAGES } from '../../src/data/packages';
+import catalogJson from '../../data/package-catalog.v1.json';
+import { catalogToTelecomPackages } from '../../packages/catalog/package-adapters';
 import { buildPackageCatalog, computeSourceSnapshotHash, LEGACY_PACKAGE_SOURCE } from '../../scripts/migrate-package-catalog';
+import { parsePackageCatalog } from '../../src/data/package-catalog-runtime';
 
 const root = process.cwd();
 const catalogPath = path.join(root, 'data', 'package-catalog.v1.json');
+const catalogSnapshot = parsePackageCatalog(catalogJson);
+const withinEvidenceWindow = new Date('2026-08-22T12:00:00.000Z');
+const afterEvidenceExpiry = new Date('2026-08-24T00:00:00.000Z');
 
 describe('package catalog migration', () => {
   it('preserves all legacy package IDs and keeps activation evidence explicit', () => {
@@ -39,12 +44,18 @@ describe('package catalog migration', () => {
     });
   });
 
-  it('exposes only source-backed package facts and withholds unsupported partner SMS CTAs', () => {
+  it('exposes only source-backed package facts during their evidence window and withholds unsupported partner SMS CTAs', () => {
     const catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
+    const verifiedPackages = catalogToTelecomPackages(catalogSnapshot, withinEvidenceWindow);
+
     expect(catalog.packages).toHaveLength(41);
-    expect(VIETTEL_PACKAGES).toHaveLength(15);
-    expect(VIETTEL_PACKAGES.every((pkg) => pkg.price > 0 && pkg.duration.length > 0)).toBe(true);
-    expect(VIETTEL_PACKAGES.every((pkg) => pkg.registrationEligible === false)).toBe(true);
+    expect(verifiedPackages).toHaveLength(15);
+    expect(verifiedPackages.every((pkg) => pkg.price > 0 && pkg.duration.length > 0)).toBe(true);
+    expect(verifiedPackages.every((pkg) => pkg.registrationEligible === false)).toBe(true);
+  });
+
+  it('fails closed after package evidence expires instead of exposing stale package facts', () => {
+    expect(catalogToTelecomPackages(catalogSnapshot, afterEvidenceExpiry)).toHaveLength(0);
   });
 
   it('runs a deterministic no-write migration check', () => {
