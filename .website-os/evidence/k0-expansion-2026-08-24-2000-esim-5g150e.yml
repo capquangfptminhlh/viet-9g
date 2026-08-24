@@ -1,0 +1,71 @@
+run: "2026-08-24-2000"
+observed_at: "2026-08-24T20:15:24+07:00"
+action: NEW
+status: PASS
+primary_keyword: "gói 5G150E Viettel eSIM"
+secondary_queries:
+  - "5G150E Viettel"
+  - "gói 5G Viettel cho eSIM"
+  - "3T5G150E Viettel"
+  - "6T5G150E Viettel"
+  - "eSIM Viettel 200GB tháng"
+intent: "COMMERCIAL + TRANSACTIONAL_INFORMATIONAL"
+entity:
+  type: "package-family"
+  name: "5G150E"
+cluster: "esim-5g-package-5g150e"
+parent_cluster: "esim-5g"
+canonical_owner: "/posts/goi-5g150e-viettel-esim/"
+content_type: "package-family support guide"
+new_url_created: true
+cannibalization: PASS
+priority:
+  tier: P2
+  reason: "Official Viettel package-family evidence exists; repository has eSIM setup/conversion owners but no 5G150E package-family owner."
+internal_links:
+  parent: "/posts/esim-5g-kich-hoat-quet-qr/"
+  related:
+    - "/posts/doi-esim-viettel-tren-my-viettel/"
+reason: >-
+  Repository search found no article containing 5G150E, 3T5G150E or 6T5G150E. Existing eSIM owners answer conversion,
+  QR activation, device compatibility and troubleshooting. This candidate answers a materially different package-selection
+  job for customers considering the eSIM-specific 5G150E family, so a separate canonical owner is justified.
+candidates_checked:
+  - candidate: "same-day Viettel mobile breaking update"
+    decision: HOLD
+    reason: "No sufficiently strong first-party 24/08 mobile-support/package announcement surfaced in the research window."
+  - candidate: "eSIM no-QR iOS activation"
+    decision: REJECT
+    reason: "Existing canonical owner /posts/esim-5g-kich-hoat-quet-qr/ was refreshed from Viettel's 18/08 announcement."
+  - candidate: "SIM moved to new phone biometric verification"
+    decision: REJECT
+    reason: "Existing canonical owner /posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu/ already owns the support/compliance intent."
+  - candidate: "physical SIM to eSIM conversion fee on Tammi"
+    decision: REJECT
+    reason: "Existing canonical owner /posts/doi-esim-viettel-tren-my-viettel/ already covers the conversion and fee intent."
+  - candidate: "5G150E package family for eSIM"
+    decision: SELECT
+    reason: "Official Viettel source dated 09/06/2026 provides package names, durations and prices; no repository canonical owner exists for this package-family selection intent."
+  - candidate: "roaming Viettel Laos"
+    decision: REJECT
+    reason: "Canonical owner /posts/roaming-viettel-di-lao/ was published earlier on 24/08."
+sources:
+  - url: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/hoa-mang-esim-tan-huong-5g-sieu-toc-voi-uu-dai-len-den-200gb-datathang/19892340"
+    publisher: "Viettel Telecom"
+    published: "2026-06-09"
+    role: "primary package-family facts: 5G150E, 3T5G150E, 6T5G150E, durations, prices and up-to data claim"
+  - url: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/viettel-giam-toi-hon-50-phi-chuyen-doi-esim-uu-dai-cao-hon-tren-ung-dung-viettel-tammi/17076372"
+    publisher: "Viettel Telecom"
+    published: "2026-07-03"
+    role: "supporting evidence to distinguish eSIM conversion intent from package-selection intent"
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
+  partner_290_cta_added_for_5g150e: false
