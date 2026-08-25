@@ -1,0 +1,72 @@
+run: "2026-08-25-2000"
+observed_at: "2026-08-25T20:00:00+07:00"
+action: NEW
+status: PASS
+primary_keyword: "kiểm tra tốc độ mạng My Viettel"
+secondary_queries:
+  - "đo tốc độ 4G Viettel"
+  - "đo tốc độ 5G Viettel"
+  - "My Viettel speed test"
+  - "ping jitter My Viettel"
+  - "i-SPEED My Viettel"
+intent: "SUPPORT + INFORMATIONAL"
+entity:
+  type: "diagnostic-tool"
+  name: "My Viettel network speed test"
+cluster: "mobile-network-diagnostics"
+parent_cluster: "viettel-4g-5g-support"
+canonical_owner: "/posts/kiem-tra-toc-do-mang-my-viettel/"
+content_type: "support how-to guide"
+new_url_created: true
+cannibalization: PASS
+priority:
+  tier: P2
+  reason: "Official Viettel evidence documents a reproducible speed-test workflow and repository search found no canonical owner for the measurement intent."
+internal_links:
+  parent: "/posts/loi-khong-dang-ky-duoc-mang-5g-viettel/"
+  related:
+    - "/posts/cach-kiem-tra-tai-khoan-chinh/"
+reason: >-
+  Existing troubleshooting owners focus on registration, device/network configuration, account lookup, eSIM or roaming symptoms.
+  Repository search found no content owner for the distinct diagnostic job of measuring Viettel connectivity in My Viettel,
+  interpreting download/upload/ping/jitter, and recording repeatable evidence before escalation.
+candidates_checked:
+  - candidate: "same-day Viettel 4G/5G/eSIM breaking update"
+    decision: HOLD
+    reason: "No sufficiently strong first-party 25/08/2026 mobile announcement surfaced during the research window."
+  - candidate: "physical SIM to eSIM fee on Viettel Tammi"
+    decision: REJECT
+    reason: "Existing canonical owner /posts/doi-esim-viettel-tren-my-viettel/ already covers conversion, Tammi flow and current fee-promotion boundaries."
+  - candidate: "subscriber information standardization / Nghị định 49"
+    decision: REJECT
+    reason: "Existing canonical owner /posts/tra-cuu-chuan-hoa-thong-tin-thue-bao-viettel/ already owns the lookup/standardization intent."
+  - candidate: "Japan roaming has signal but no mobile data"
+    decision: REJECT
+    reason: "Existing canonical owner /posts/viettel-roaming-nhat-ban-khong-co-mang/ already owns the country-specific troubleshooting job."
+  - candidate: "TV360 / World Cup mobile-data package content"
+    decision: REJECT
+    reason: "World Cup 2026 event intent is no longer freshness-appropriate on 25/08/2026 and does not justify a new current canonical owner."
+  - candidate: "measure 4G/5G speed in My Viettel using i-SPEED"
+    decision: SELECT
+    reason: "Official Viettel source documents download/upload/ping/jitter measurement, and repository search found no matching article owner."
+sources:
+  - url: "https://www.viettel.vn/tin-tuc/chi-tiet/kiem-tra-toc-do-truy-cap-internet-de-dang-ngay-tren-my-viettel/19436224/"
+    publisher: "Viettel"
+    published: "2025-04-25"
+    observed_at: "2026-08-25T20:00:00+07:00"
+    role: "primary evidence for My Viettel speed-test workflow, i-SPEED, download/upload/ping/jitter"
+  - url: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/esim-viettel-cham-la-ket-noi-kich-hoat-khong-can-ma-qr/13707592"
+    publisher: "Viettel Telecom"
+    published: "2026-08-18"
+    observed_at: "2026-08-25T20:00:00+07:00"
+    role: "fresh candidate-chain evidence; rejected because existing eSIM activation owner already covers the search job"
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
