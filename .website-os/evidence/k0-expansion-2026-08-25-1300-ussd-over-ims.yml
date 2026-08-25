@@ -1,0 +1,65 @@
+run: "2026-08-25-1300"
+observed_at: "2026-08-25T13:07:00+07:00"
+action: UPDATE
+status: PASS
+primary_keyword: "*101# Viettel không chạy"
+secondary_queries:
+  - "kiểm tra tài khoản Viettel khi *101# không được"
+  - "USSD Viettel 4G"
+  - "USSD over IMS Viettel"
+  - "TK gửi 191 Viettel"
+  - "kiểm tra tài khoản Viettel sau tắt 2G"
+intent: "SUPPORT"
+entity:
+  type: "service-capability"
+  name: "Viettel USSD over IMS"
+cluster: "account-check-support"
+parent_cluster: "viettel-account-support"
+canonical_owner: "/posts/cach-kiem-tra-tai-khoan-chinh/"
+content_type: "support guide update"
+new_url_created: false
+cannibalization: PASS
+priority:
+  tier: P1
+  reason: "Official Viettel operational guidance dated 03/07/2026 changes how users should recover when legacy USSD account-check codes fail after 2G/3G shutdown; the existing account-check owner is the correct canonical destination."
+internal_links:
+  parent: "/posts/cach-kiem-tra-tai-khoan-chinh/"
+reason: >-
+  The search job remains account-balance checking and recovery when *101#/*102# fail, so a new URL would compete with the existing
+  canonical owner. Updating the owner adds current USSD-over-IMS constraints and source-backed alternatives (My Viettel/Tammi,
+  TK to 191, 198) without creating a duplicate article.
+candidates_checked:
+  - candidate: "same-day Viettel mobile breaking update"
+    decision: HOLD
+    reason: "No sufficiently strong first-party Viettel mobile-support/package announcement dated 25/08/2026 surfaced in the research window."
+  - candidate: "SIM identity verification while abroad"
+    decision: REJECT
+    reason: "Existing canonical owner /posts/xac-thuc-sim-viettel-o-nuoc-ngoai/ already owns this support intent."
+  - candidate: "eSIM no-QR iOS activation"
+    decision: REJECT
+    reason: "Existing canonical owner /posts/esim-5g-kich-hoat-quet-qr/ already owns the activation intent."
+  - candidate: "roaming Viettel Laos"
+    decision: REJECT
+    reason: "Existing canonical owner /posts/roaming-viettel-di-lao/ is already live."
+  - candidate: "TV360 World Cup mobile viewing/data benefit"
+    decision: HOLD
+    reason: "Official evidence exists, but it is less aligned with the site's core mobile-support owner set than the current USSD operational update and would require a new entertainment-service cluster decision."
+  - candidate: "USSD account check after 2G/3G shutdown"
+    decision: SELECT_UPDATE
+    reason: "Official Viettel source dated 03/07/2026 directly changes the recovery path for the existing account-check intent; update avoids cannibalization."
+sources:
+  - url: "https://shop.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320"
+    publisher: "Viettel"
+    published: "2026-07-03"
+    observed_at: "2026-08-25T13:07:00+07:00"
+    role: "primary source for USSD over IMS condition and replacement channels My Viettel/Tammi, TK to 191 and 198"
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
