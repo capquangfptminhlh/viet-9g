@@ -1,0 +1,80 @@
+run: "2026-08-25-1300"
+observed_at: "2026-08-25T13:07:00+07:00"
+action: UPDATE
+status: PASS
+primary_keyword: "cách kiểm tra tài khoản chính Viettel"
+secondary_queries:
+  - "kiểm tra tài khoản Viettel"
+  - "TK gửi 191 Viettel"
+  - "kiểm tra số dư Viettel không dùng USSD"
+  - "kiểm tra tài khoản Viettel trên My Viettel Tammi"
+  - "*101# kiểm tra tài khoản Viettel"
+intent: "SUPPORT"
+entity:
+  type: "support-job"
+  name: "Viettel account balance lookup"
+cluster: "account-check-support"
+parent_cluster: "viettel-account-support"
+canonical_owner: "/posts/cach-kiem-tra-tai-khoan-chinh/"
+content_type: "support guide update"
+new_url_created: false
+cannibalization: PASS
+priority:
+  tier: P1
+  reason: "Official Viettel guidance dated 03/07/2026 adds current replacement channels for account lookup; the existing account-balance owner should be refreshed rather than creating another URL."
+internal_links:
+  parent: "/posts/cach-kiem-tra-tai-khoan-chinh/"
+  related:
+    - "/posts/ussd-viettel-qua-4g-volte-ims/"
+    - "/posts/cú-pháp-kiểm-tra-dung-lượng-data-4g-viettel-còn-lại/"
+ownership_boundary:
+  account_lookup_owner: "/posts/cach-kiem-tra-tai-khoan-chinh/"
+  ussd_ims_troubleshooting_owner: "/posts/ussd-viettel-qua-4g-volte-ims/"
+  data_balance_owner: "/posts/cú-pháp-kiểm-tra-dung-lượng-data-4g-viettel-còn-lại/"
+  decision: >-
+    Keep this update focused on the job of checking monetary account balances and choosing a working lookup channel.
+    Device compatibility, VoLTE/IMS diagnostics and the broad '*101# not working' troubleshooting job remain owned by the
+    existing USSD-over-IMS article. Data-balance lookup remains owned by the separate data-balance guide.
+reason: >-
+  The current account-check page contained older/thin guidance. Viettel's 03/07/2026 operational guidance supports refreshing
+  the existing owner with My Viettel/Tammi, TK to 191 and 198 as current alternatives. A new URL would duplicate the same
+  account-lookup job; targeting generic USSD-over-IMS queries here would also collide with the existing technical owner, so those
+  queries are explicitly excluded and linked instead.
+candidates_checked:
+  - candidate: "same-day Viettel mobile breaking update"
+    decision: HOLD
+    reason: "No sufficiently strong first-party Viettel mobile-support/package announcement dated 25/08/2026 surfaced in the research window."
+  - candidate: "SIM identity verification while abroad"
+    decision: REJECT
+    reason: "Existing canonical owner /posts/xac-thuc-sim-viettel-o-nuoc-ngoai/ already owns this support intent."
+  - candidate: "eSIM no-QR iOS activation"
+    decision: REJECT
+    reason: "Existing canonical owner /posts/esim-5g-kich-hoat-quet-qr/ already owns the activation intent."
+  - candidate: "roaming Viettel Laos"
+    decision: REJECT
+    reason: "Existing canonical owner /posts/roaming-viettel-di-lao/ is already live."
+  - candidate: "TV360 World Cup mobile viewing/data benefit"
+    decision: HOLD
+    reason: "Official evidence exists, but it is less aligned with the site's core mobile-support owner set and would require a new entertainment-service cluster decision."
+  - candidate: "current channels for checking Viettel account balance"
+    decision: SELECT_UPDATE
+    reason: "Official Viettel source dated 03/07/2026 adds current account-lookup alternatives; the existing account-check canonical owner is the correct page to refresh."
+  - candidate: "USSD over IMS device troubleshooting"
+    decision: REJECT_AS_SEPARATE_OWNER
+    reason: "Existing canonical owner /posts/ussd-viettel-qua-4g-volte-ims/ already covers device/IMS troubleshooting; this update links to it instead of retargeting its queries."
+sources:
+  - url: "https://shop.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320"
+    publisher: "Viettel"
+    published: "2026-07-03"
+    observed_at: "2026-08-25T13:07:00+07:00"
+    role: "primary source for current account-lookup alternatives My Viettel/Tammi, TK to 191 and 198, plus the USSD compatibility boundary"
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
