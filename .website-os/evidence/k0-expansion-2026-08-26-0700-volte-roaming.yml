@@ -1,0 +1,81 @@
+run: "2026-08-26-0700"
+observed_at: "2026-08-26T07:02:59+07:00"
+action: NEW
+status: PASS
+primary_keyword: "bật VoLTE khi roaming Viettel"
+secondary_queries:
+  - "VoLTE roaming Viettel"
+  - "HDCALL gửi 191"
+  - "roaming Viettel có data nhưng không gọi được"
+  - "bật VoLTE roaming iPhone Viettel"
+  - "bật VoLTE roaming Android Viettel"
+intent: "SUPPORT + INFORMATIONAL"
+entity:
+  type: "mobile-service-feature"
+  name: "Viettel VoLTE Roaming"
+cluster: "volte-roaming-support"
+parent_cluster: "viettel-roaming"
+canonical_owner: "/posts/bat-volte-khi-roaming-viettel/"
+content_type: "support how-to guide"
+new_url_created: true
+cannibalization: PASS
+priority:
+  tier: P2
+  reason: "Official Viettel documentation defines a distinct VoLTE-roaming call setup job; repository search found country-specific roaming and domestic VoLTE owners but no canonical owner for generic roaming voice over LTE."
+internal_links:
+  parent: "/posts/data-roaming-viettel-iphone-android/"
+  related:
+    - "/posts/viettel-roaming-nhat-ban-khong-co-mang/"
+    - "/posts/roaming-viettel-di-lao/"
+reason: >-
+  The selected search job is generic roaming voice-call configuration over LTE, including the official HDCALL 191 registration condition and device VoLTE setup.
+  Existing /posts/viettel-roaming-nhat-ban-khong-co-mang/ owns Japan-specific no-signal/no-data troubleshooting, while /posts/cai-dat-4g-5g-volte-iphone-viettel/ owns domestic iPhone 4G/5G/VoLTE configuration.
+  A dedicated roaming-voice owner is therefore materially different and can support country pages without competing with them.
+candidates_checked:
+  - candidate: "same-day Viettel mobile breaking update"
+    decision: HOLD
+    reason: "No sufficiently strong first-party 26/08/2026 mobile 4G/5G/eSIM/SIM announcement surfaced during the research window."
+  - candidate: "internet Viettel registration on Tammi promotion"
+    decision: REJECT
+    reason: "Fresh official article dated 25/08/2026, but it is fixed broadband acquisition rather than the project's mobile 4G/5G/eSIM/SIM editorial operating focus."
+  - candidate: "eSIM activation without QR on iOS"
+    decision: REJECT
+    reason: "Fresh official Viettel evidence dated 18/08/2026 but an existing canonical owner already covers the no-QR activation search job."
+  - candidate: "physical SIM to eSIM on Tammi"
+    decision: REJECT
+    reason: "Existing canonical owner covers conversion flow and current fee-promotion boundaries."
+  - candidate: "Japan roaming no signal/no data"
+    decision: REJECT
+    reason: "Existing /posts/viettel-roaming-nhat-ban-khong-co-mang/ owns the country-specific troubleshooting intent."
+  - candidate: "VoLTE voice calling while roaming"
+    decision: SELECT
+    reason: "Official Viettel roaming documentation supplies device/registration evidence and repository search found no generic VoLTE-roaming canonical owner."
+sources:
+  - url: "https://media.vietteltelecom.vn/upload/InternationalMessagePrice/b6/d7/7b/0b394bd302ad3427a447221a9b89661ec4399ea5.pdf"
+    publisher: "Viettel Telecom"
+    observed_at: "2026-08-26T07:02:59+07:00"
+    role: "primary evidence for VoLTE roaming conditions, HDCALL to 191 and iOS/Android configuration"
+  - url: "https://media.vietteltelecom.vn/upload/InternationalMessagePrice/ed/cf/fe/472bc67201bc609be3830366ec546607573f53ff.pdf"
+    publisher: "Viettel Telecom"
+    observed_at: "2026-08-26T07:02:59+07:00"
+    role: "primary supporting evidence for VoLTE calling on roaming networks where 2G/3G is unavailable"
+  - url: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/di-nhat-ban-khong-co-mang-huong-dan-bat-4g5g-va-roaming-viettel-chi-tiet/16239800"
+    publisher: "Viettel Telecom"
+    published: "2026-04-14"
+    observed_at: "2026-08-26T07:02:59+07:00"
+    role: "freshness-context evidence for 4G/5G and VoLTE roaming troubleshooting"
+  - url: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/dang-ky-internet-viettel-tren-tammi-nhan-ngay-uu-dai-toi-300000-dong/14829136"
+    publisher: "Viettel Telecom"
+    published: "2026-08-25"
+    observed_at: "2026-08-26T07:02:59+07:00"
+    role: "fresh candidate-chain evidence; rejected as fixed-broadband intent"
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
