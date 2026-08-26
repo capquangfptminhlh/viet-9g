@@ -1,0 +1,69 @@
+run: "2026-08-26-2000"
+observed_at: "2026-08-26T19:57:27+07:00"
+action: NEW
+status: PASS
+primary_keyword: "iPhone 16e Viettel SIM lock"
+secondary_queries:
+  - "iPhone 16e Viettel khóa mạng"
+  - "mở khóa iPhone 16e Viettel"
+  - "iPhone 16e Viettel bao lâu mở khóa"
+  - "điều kiện unlock iPhone 16e Viettel"
+  - "iPhone 16e Viettel dùng SIM mạng khác"
+intent: "SUPPORT + INFORMATIONAL"
+cluster: "iphone16e-viettel-sim-lock"
+parent_cluster: "device-sim-compatibility"
+canonical_owner: "/posts/iphone-16e-viettel-sim-lock-mo-khoa/"
+content_type: "support article"
+new_url_created: true
+cannibalization: PASS
+reason: >-
+  Repository search found iPhone/eSIM compatibility owners and SIM/device-verification owners, but no
+  article owning the device-carrier-lock job for subsidized iPhone 16e hardware. SIM lock is materially
+  different from eSIM compatibility, SIM PIN/PUK, subscriber blocking, or moving a SIM to another phone.
+candidates_checked:
+  - candidate: "same-day Viettel mobile breaking update"
+    decision: HOLD
+    reason: "No sufficiently strong first-party 26/08/2026 mobile/eSIM/SIM/package breaking item was found during the research window."
+  - candidate: "Viettel Tammi internet promotion"
+    decision: REJECT
+    reason: "Fresh first-party item dated 25/08/2026, but it is fixed-broadband installation rather than the mobile 4G/5G/SIM focus."
+  - candidate: "data roaming toggle / APN troubleshooting"
+    decision: REJECT
+    reason: "Existing roaming Japan, manual network selection and VoLTE roaming owners already cover the nearby troubleshooting jobs; a new generic page risks overlap."
+  - candidate: "eSIM conversion keeps 4G/5G package"
+    decision: REJECT
+    reason: "Existing canonical eSIM conversion/contact-loss owner already states package preservation; same conversion job should not get a new URL."
+  - candidate: "5G without changing SIM"
+    decision: REJECT
+    reason: "Existing 5G troubleshooting, eSIM/5G compatibility and SIM-upgrade content create substantial overlap for this generic question."
+  - candidate: "iPhone 16e Viettel SIM lock / unlock after commitment"
+    decision: SELECT
+    reason: "Official Viettel program document provides device-specific carrier-lock terms and repository has no canonical owner for this distinct hardware support intent."
+sources:
+  - url: "https://media.vietteltelecom.vn/upload/ckfinder/files/CT%20Viettel%20tr%E1%BB%A3%20gi%C3%A1%20iPhone%2016e%20khi%20mua%20c%C3%B9ng%20g%C3%B3i%205G%20Viettel.pdf"
+    publisher: "Viettel Telecom"
+    role: "primary source for SIM-lock definition, eligible postpaid plan group, 12-month commitment and unlock conditions"
+  - url: "https://esim.viettel.vn/"
+    publisher: "Viettel Telecom"
+    role: "supporting source to distinguish iPhone 16e eSIM capability from carrier-lock state"
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+internal_link_plan:
+  - "/posts/kiem-tra-iphone-co-ho-tro-esim-viettel/"
+  - "/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu/"
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
+website_os_bootstrap:
+  source_repo: "capquangfptminhlh/seo-web"
+  source_ref: "main"
+  source_commit_sha: "ef18d255150f3a77a7c7587feccf1ba7c419ad7b"
+  manifest_version: "1.3.0"
+  observed_at: "2026-08-26T19:57:27+07:00"
+  mandatory_read_complete: true
+  bootstrap_decision: PASS
