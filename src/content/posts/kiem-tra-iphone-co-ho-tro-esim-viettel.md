@@ -1,18 +1,70 @@
-# iPhone nào hỗ trợ eSIM Viettel? Cách kiểm tra và danh sách 2026
+# iPhone nào hỗ trợ eSIM Viettel? Cách kiểm tra EID và Carrier Lock 2026
 
-**Cập nhật 17/08/2026:** trang eSIM chính thức của Viettel hiện liệt kê các dòng iPhone hỗ trợ từ **iPhone XR / XS / XS Max** trở lên, bao gồm các thế hệ iPhone 11, 12, 13, 14, 15, 16 và các mẫu mới như **iPhone 17, iPhone 17 Pro, iPhone 17 Pro Max và iPhone Air**. Khả năng eSIM thực tế vẫn có thể phụ thuộc phiên bản máy và thị trường phân phối, vì vậy nên kiểm tra trực tiếp trên thiết bị trước khi đổi hoặc đăng ký eSIM.
+**Cập nhật 27/08/2026:** ngoài việc xem danh sách model và mục **Thêm eSIM**, người dùng iPhone nên kiểm tra thêm **EID** và **Carrier Lock** trước khi kết luận máy đã sẵn sàng dùng eSIM. Hướng dẫn chính thức của Viettel cho iPhone 11 và iPhone 12 xác nhận hai phép kiểm tra này giúp phân biệt rõ giữa **máy có phần cứng eSIM** và **máy có bị khóa theo nhà mạng hay không**.
+
+> **Trả lời nhanh:** iPhone 11, 11 Pro, 11 Pro Max và toàn bộ dòng iPhone 12 bản tiêu chuẩn tại Việt Nam đều được Viettel xác nhận hỗ trợ eSIM. Nếu chưa chắc máy cụ thể có dùng được hay không, bấm `*#06#` để kiểm tra **EID**, sau đó vào **Cài đặt → Cài đặt chung → Giới thiệu → Khóa mạng (Carrier Lock)**. Nếu hiện **Không giới hạn SIM / No SIM restrictions**, máy không bị khóa nhà mạng theo trạng thái iOS hiển thị.
 
 ## Cách kiểm tra nhanh iPhone có hỗ trợ eSIM Viettel không
 
-Theo hướng dẫn trên trang eSIM của Viettel, trên iPhone hãy vào:
+Nên kiểm tra theo ba lớp thay vì chỉ dựa vào tên model:
 
-**Cài đặt (Settings) → Di động (Cellular) → tìm mục “Thêm eSIM” (Add eSIM).**
+1. **Kiểm tra mục Thêm eSIM:** vào **Cài đặt (Settings) → Di động (Cellular)** và tìm **Thêm eSIM (Add eSIM)**.
+2. **Kiểm tra EID:** mở bàn phím gọi điện, nhập `*#06#`. Nếu màn hình có trường **EID**, thiết bị có phần cứng eSIM.
+3. **Kiểm tra Carrier Lock:** vào **Cài đặt → Cài đặt chung → Giới thiệu → Khóa mạng**. Nếu hiện **Không giới hạn SIM / No SIM restrictions**, thiết bị đang ở trạng thái không khóa nhà mạng theo iOS.
 
-Nếu có tùy chọn này, thiết bị có khả năng hỗ trợ eSIM. Bạn cũng có thể vào **Cài đặt → Cài đặt chung → Giới thiệu** để xem chính xác model máy rồi đối chiếu với thông tin của Apple hoặc danh sách thiết bị Viettel đang hỗ trợ.
+Ba bước này trả lời ba câu hỏi khác nhau: giao diện có cho thêm eSIM hay không, máy có định danh eSIM hay không, và máy có bị giới hạn bởi carrier lock hay không.
+
+## EID là gì và vì sao nên kiểm tra `*#06#`?
+
+**EID** là mã định danh gắn với phần eSIM trên thiết bị. Trong hướng dẫn chính thức cho iPhone 11 và iPhone 12, Viettel hướng dẫn mở trình quay số, nhập `*#06#` và kiểm tra xem có trường EID hay không.
+
+Điểm quan trọng là **có EID không đồng nghĩa chắc chắn kích hoạt được mọi eSIM trong mọi tình huống**. EID giúp xác nhận phần cứng eSIM; người dùng vẫn nên kiểm tra trạng thái khóa mạng và quy trình kích hoạt/đổi eSIM của thuê bao.
+
+Nếu máy có EID nhưng không thấy tùy chọn thêm eSIM, nên kiểm tra lại phiên bản iOS, model/thị trường phân phối và trạng thái thiết bị trước khi thực hiện chuyển đổi thuê bao.
+
+## Carrier Lock khác gì với khả năng hỗ trợ eSIM?
+
+Đây là hai điều kiện khác nhau:
+
+- **Hỗ trợ eSIM:** thiết bị có phần cứng/tính năng eSIM, có thể kiểm tra qua EID và mục Thêm eSIM.
+- **Carrier Lock:** thiết bị có thể bị ràng buộc chỉ sử dụng với một nhà mạng nhất định.
+
+Theo hướng dẫn Viettel cho iPhone 11 và iPhone 12, trên iOS 14 trở lên có thể kiểm tra tại:
+
+**Cài đặt → Cài đặt chung → Giới thiệu → Khóa mạng (Carrier Lock).**
+
+Nếu trạng thái là **Không giới hạn SIM / No SIM restrictions**, iPhone được hệ thống hiển thị là không bị khóa theo nhà mạng. Nếu máy đang bị khóa, việc có EID vẫn không tự động đồng nghĩa có thể dùng eSIM của một nhà mạng khác.
+
+Nếu bạn đang kiểm tra một thiết bị iPhone 16e mua theo chương trình trợ giá Viettel, đó là search job riêng về chính sách carrier lock/unlock; xem [iPhone 16e Viettel SIM lock và điều kiện mở khóa](/posts/iphone-16e-viettel-sim-lock-mo-khoa/).
+
+## iPhone 11 có hỗ trợ eSIM Viettel không?
+
+**Có.** Tài liệu Viettel ngày 01/11/2025 xác nhận các mẫu tiêu chuẩn tại Việt Nam gồm:
+
+- iPhone 11
+- iPhone 11 Pro
+- iPhone 11 Pro Max
+
+đều hỗ trợ eSIM và có thể vận hành Dual SIM theo mô hình **1 nano-SIM vật lý + 1 eSIM**.
+
+Tuy vậy, với máy mua từ nước ngoài hoặc máy cũ không rõ thị trường phân phối, vẫn nên kiểm tra EID và Carrier Lock trực tiếp trên thiết bị thay vì chỉ dựa vào tên “iPhone 11”.
+
+## iPhone 12 có hỗ trợ eSIM Viettel không?
+
+**Có.** Hướng dẫn Viettel ngày 01/11/2025 xác nhận toàn bộ dòng iPhone 12 tiêu chuẩn gồm:
+
+- iPhone 12
+- iPhone 12 mini
+- iPhone 12 Pro
+- iPhone 12 Pro Max
+
+hỗ trợ eSIM và Dual SIM theo mô hình **1 nano-SIM + 1 eSIM**.
+
+Tương tự iPhone 11, nếu cần kiểm tra một máy cụ thể, hãy dùng EID và trạng thái Carrier Lock làm bằng chứng kỹ thuật bổ sung.
 
 ## Danh sách iPhone Viettel đang công bố hỗ trợ eSIM
 
-Danh sách trên trang eSIM Viettel tại thời điểm kiểm tra ngày 17/08/2026 gồm:
+Danh sách trên trang eSIM Viettel tại thời điểm kiểm tra gần nhất của bài gồm:
 
 - iPhone XR, iPhone XS, iPhone XS Max
 - iPhone 11, 11 Pro, 11 Pro Max
@@ -25,57 +77,71 @@ Danh sách trên trang eSIM Viettel tại thời điểm kiểm tra ngày 17/08/
 - iPhone 17, 17 Pro, 17 Pro Max
 - iPhone Air
 
-Viettel lưu ý thiết bị eSIM có thể khác nhau theo quốc gia/phiên bản. Vì vậy, **tên model nằm trong danh sách chưa nên là bước kiểm tra duy nhất**; dấu hiệu “Thêm eSIM” trên máy và thông tin model cụ thể vẫn là bằng chứng thực tế quan trọng nhất.
+Viettel lưu ý thiết bị eSIM có thể khác nhau theo quốc gia/phiên bản. Vì vậy, **tên model nằm trong danh sách chưa nên là bước kiểm tra duy nhất**; mục Thêm eSIM, EID, model cụ thể và trạng thái Carrier Lock giúp giảm nhầm lẫn với máy thuộc thị trường/phân phối đặc thù.
 
 ## iPhone dùng eSIM Viettel có lên 5G được không?
 
-Có, nếu thiết bị, vùng phủ và cấu hình mạng đáp ứng điều kiện tương ứng. Apple hiện liệt kê **Viettel tại Việt Nam hỗ trợ 5G, eSIM, LTE và VoLTE trên iPhone**. Với nhu cầu chỉ kiểm tra tương thích eSIM, bạn không cần đổi sang một URL khác: bài này là canonical owner cho câu hỏi “iPhone có hỗ trợ eSIM Viettel hay không”.
+Có thể, nếu thiết bị, thuê bao, cấu hình mạng và vùng phủ đáp ứng điều kiện tương ứng. Apple liệt kê Viettel tại Việt Nam hỗ trợ 5G, eSIM, LTE và VoLTE trên iPhone.
 
-Nếu eSIM đã cài nhưng bạn cần kiểm tra cấu hình dữ liệu/5G/VoLTE trên iPhone, xem thêm [cách cài đặt 4G/5G/VoLTE Viettel trên iPhone](/posts/cai-dat-4g-5g-volte-iphone-viettel/).
+Nhưng **eSIM compatibility và 5G compatibility không phải cùng một search job**. Bài này sở hữu câu hỏi “iPhone có hỗ trợ eSIM Viettel hay không”. Nếu eSIM đã hoạt động nhưng bạn cần kiểm tra dữ liệu/5G/VoLTE, xem [cách cài đặt 4G/5G/VoLTE Viettel trên iPhone](/posts/cai-dat-4g-5g-volte-iphone-viettel/).
 
 ## Có thể dùng 2 eSIM Viettel cùng lúc trên iPhone không?
 
-Đây là một search job hẹp hơn về **Dual SIM / hai eSIM hoạt động đồng thời**. Viettel cho biết từ iPhone 13 trở lên có thể bật song song hai thuê bao eSIM trên các thiết bị phù hợp. Hướng dẫn chi tiết và các khác biệt giữa “1 SIM vật lý + 1 eSIM” với “2 eSIM cùng hoạt động” được tách riêng tại [iPhone dùng 2 eSIM Viettel cùng lúc](/posts/iphone-dung-2-esim-viettel-cung-luc/).
+Đây là một intent hẹp hơn về **Dual SIM / hai eSIM hoạt động đồng thời**. Viettel cho biết từ iPhone 13 trở lên có thể bật song song hai thuê bao eSIM trên các thiết bị phù hợp.
 
-## Nếu đang dùng SIM vật lý và muốn đổi sang eSIM
+Hướng dẫn chi tiết và sự khác nhau giữa “1 SIM vật lý + 1 eSIM” với “2 eSIM cùng hoạt động” được tách riêng tại [iPhone dùng 2 eSIM Viettel cùng lúc](/posts/iphone-dung-2-esim-viettel-cung-luc/).
 
-Việc máy hỗ trợ eSIM không đồng nghĩa quá trình chuyển đổi đã hoàn tất. Viettel hiện hướng dẫn khách hàng có thể thực hiện chuyển SIM vật lý sang eSIM trên **My Viettel** trong các trường hợp đủ điều kiện hoặc tại hệ thống điểm giao dịch/đại lý được hỗ trợ.
+## Nếu máy hỗ trợ eSIM thì kích hoạt Viettel thế nào?
 
-Xem quy trình riêng tại [hướng dẫn eSIM 5G Viettel và kích hoạt bằng QR](/posts/esim-5g-kich-hoat-quet-qr/).
+**Khả năng tương thích thiết bị** và **quy trình kích hoạt eSIM** là hai intent khác nhau. Từ 18/08/2026, Viettel đã công bố cơ chế kích hoạt eSIM tự động trên thiết bị iOS, không cần quét QR trong luồng được hỗ trợ.
+
+Nếu mục tiêu của bạn là kích hoạt eSIM chứ không phải kiểm tra thiết bị, xem [hướng dẫn eSIM 5G Viettel và kích hoạt](/posts/esim-5g-kich-hoat-quet-qr/). Nếu đang dùng SIM vật lý và muốn chuyển sang eSIM, xem [đổi eSIM Viettel trên My Viettel/Tammi](/posts/doi-esim-viettel-tren-my-viettel/).
 
 ## Khi nào nên kiểm tra lại thay vì chỉ dựa vào danh sách?
 
-Bạn nên kiểm tra trực tiếp model và mục “Thêm eSIM” khi:
+Bạn nên kiểm tra trực tiếp model, EID, Carrier Lock và mục Thêm eSIM khi:
 
 - iPhone được mua từ thị trường nước ngoài;
 - máy đã qua sử dụng hoặc không rõ phiên bản phân phối;
-- iPhone có tên model hỗ trợ nhưng trong **Cài đặt → Di động** không xuất hiện tùy chọn thêm eSIM;
-- bạn chuẩn bị đổi từ SIM vật lý sang eSIM hoặc chuyển eSIM sang máy khác.
+- model nằm trong danh sách nhưng **Cài đặt → Di động** không xuất hiện tùy chọn thêm eSIM;
+- có EID nhưng kích hoạt eSIM vẫn bị từ chối;
+- thiết bị báo trạng thái khóa mạng;
+- bạn chuẩn bị đổi SIM vật lý sang eSIM hoặc chuyển eSIM sang máy khác.
 
-Nếu vừa chuyển SIM/eSIM sang một thiết bị khác và thuê bao phát sinh chặn chiều/xác thực, đó là một intent khác. Xem [SIM Viettel lắp sang máy mới bị chặn 1 chiều](/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu/) để xử lý đúng luồng xác thực thiết bị.
+Nếu vừa chuyển SIM/eSIM sang một thiết bị khác và thuê bao phát sinh chặn chiều/xác thực, đó là intent khác. Xem [SIM Viettel lắp sang máy mới bị chặn 1 chiều](/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu/) để xử lý đúng luồng xác thực thiết bị.
 
 ## Câu hỏi nhanh
 
+### EID có nghĩa là iPhone chắc chắn dùng được eSIM Viettel không?
+
+EID là bằng chứng mạnh cho thấy thiết bị có phần cứng eSIM, nhưng không thay thế việc kiểm tra Carrier Lock, phiên bản máy và điều kiện kích hoạt thuê bao. Vì vậy, nên kiểm tra cả EID và trạng thái **Không giới hạn SIM**.
+
+### iPhone 11 có cần đổi SIM vật lý mới dùng eSIM không?
+
+Không nên hiểu theo hướng “đổi SIM vật lý” là điều kiện phần cứng của iPhone 11. iPhone 11 hỗ trợ mô hình 1 nano-SIM vật lý + 1 eSIM; còn việc chuyển thuê bao Viettel hiện tại sang eSIM là một quy trình dịch vụ riêng.
+
+### iPhone 12 mini có eSIM không?
+
+Có. Viettel liệt kê iPhone 12 mini cùng iPhone 12, 12 Pro và 12 Pro Max trong nhóm hỗ trợ eSIM.
+
+### “No SIM restrictions” nghĩa là gì?
+
+Đó là trạng thái iOS hiển thị tại mục Carrier Lock để cho biết thiết bị không bị giới hạn SIM theo một nhà mạng. Viettel dùng chính kiểm tra này trong hướng dẫn iPhone 11 và iPhone 12.
+
 ### iPhone Air có hỗ trợ eSIM Viettel không?
 
-**Có trong danh sách thiết bị hỗ trợ eSIM mà Viettel đang công bố ngày 17/08/2026.** Tuy vậy, vẫn nên kiểm tra mục **Thêm eSIM** trên chính thiết bị và đối chiếu model/phiên bản thị trường.
-
-### iPhone 17 có dùng eSIM Viettel được không?
-
-Trang eSIM Viettel hiện liệt kê **iPhone 17, iPhone 17 Pro và iPhone 17 Pro Max** trong nhóm iPhone hỗ trợ eSIM.
-
-### iPhone XR có dùng eSIM Viettel được không?
-
-Viettel liệt kê **iPhone XR** trong danh sách hỗ trợ. Hãy kiểm tra thêm mục **Thêm eSIM** trên máy vì phiên bản theo thị trường có thể khác nhau.
+Có trong danh sách thiết bị hỗ trợ eSIM mà Viettel đang công bố tại lần kiểm tra gần nhất của bài. Tuy vậy, vẫn nên kiểm tra mục **Thêm eSIM**, EID và model/phiên bản thị trường trên chính thiết bị.
 
 ### iPhone có eSIM thì chắc chắn dùng được 5G Viettel không?
 
-Không nên đồng nhất hai điều kiện. eSIM là loại SIM tích hợp; 5G còn phụ thuộc model iPhone, hỗ trợ mạng của thiết bị, cấu hình thuê bao và vùng phủ tại thời điểm sử dụng.
+Không. eSIM là loại SIM tích hợp; 5G còn phụ thuộc model, khả năng mạng của thiết bị, cấu hình thuê bao và vùng phủ tại thời điểm sử dụng.
 
-## Nguồn tham khảo
+## Nguồn kiểm chứng
 
+- Viettel Telecom — **Does the iPhone 11 Support eSIM? A Comprehensive Guide**, đăng ngày 01/11/2025. Nguồn xác nhận iPhone 11/11 Pro/11 Pro Max hỗ trợ eSIM, cách kiểm tra EID bằng `*#06#` và Carrier Lock.
+- Viettel Telecom — **Does the iPhone 12 Support eSIM? A Comprehensive Guide**, đăng ngày 01/11/2025. Nguồn xác nhận toàn bộ dòng iPhone 12 tiêu chuẩn hỗ trợ eSIM và cùng quy trình kiểm tra EID/Carrier Lock.
 - [Viettel eSIM — danh sách thiết bị, cách kiểm tra và FAQ](https://esim.viettel.vn/)
 - [Apple — hỗ trợ từ nhà mạng và các tính năng dành cho iPhone tại Châu Á - Thái Bình Dương](https://support.apple.com/vi-vn/109510)
-- [Viettel — cách kiểm tra điện thoại có sử dụng được eSIM](https://098.viettel.vn/tin-tuc/chi-tiet/lam-the-nao-de-biet-dien-thoai-co-su-dung-duoc-esim-viettel-hay-khong/19405300)
+- Viettel Telecom — **eSIM Viettel: Chạm là kết nối — kích hoạt không cần mã QR**, đăng ngày 18/08/2026. Nguồn dùng để phân định intent kích hoạt eSIM với intent kiểm tra tương thích thiết bị.
 
-> Bài viết chỉ dùng thông tin tương thích đã xác minh từ Viettel/Apple; không suy diễn giá, ưu đãi, vùng phủ, tốc độ hay điều kiện thương mại chưa có nguồn chính thức.
+> Bài viết chỉ dùng thông tin tương thích và thao tác kiểm tra đã có nguồn Viettel/Apple; không suy diễn giá, ưu đãi, vùng phủ, tốc độ hay điều kiện thương mại chưa được xác minh.

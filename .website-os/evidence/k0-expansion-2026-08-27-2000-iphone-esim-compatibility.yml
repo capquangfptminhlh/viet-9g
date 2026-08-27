@@ -1,0 +1,100 @@
+run: "2026-08-27-2000"
+observed_at: "2026-08-27T20:01:52+07:00"
+action: UPDATE
+status: PASS
+primary_keyword: "kiểm tra iPhone có hỗ trợ eSIM Viettel"
+secondary_queries:
+  - "iPhone 11 có eSIM không"
+  - "iPhone 12 có eSIM không"
+  - "kiểm tra EID iPhone eSIM"
+  - "Carrier Lock iPhone eSIM Viettel"
+  - "No SIM restrictions eSIM"
+intent: "SUPPORT + INFORMATIONAL"
+cluster: "iphone-esim-compatibility"
+parent_cluster: "esim-device-compatibility"
+canonical_owner: "/posts/kiem-tra-iphone-co-ho-tro-esim-viettel/"
+content_type: "support article"
+new_url_created: false
+cannibalization: PASS
+reason: >-
+  Repository inventory already has /posts/kiem-tra-iphone-co-ho-tro-esim-viettel/ as the canonical owner
+  for the exact device-compatibility job. Official Viettel iPhone 11 and iPhone 12 guides provide useful
+  additional evidence for EID and Carrier Lock checks. Creating separate iPhone 11 or iPhone 12 URLs would
+  fragment the same primary intent, so the existing owner is expanded instead.
+candidates_checked:
+  - candidate: "same-day Viettel mobile breaking update on 27/08/2026"
+    mapping: "query -> same-day Viettel 4G/5G/eSIM/SIM/roaming news; intent -> FRESHNESS/INFORMATIONAL; entity -> Viettel mobile; cluster -> daily-trend-scan"
+    decision: HOLD
+    reason: "No sufficiently strong first-party Viettel mobile item published on 27/08/2026 was found in the observed research window; the 26/08 iMessage/RCS warning was already published by this site in the 13:00 slot."
+  - candidate: "iPhone 11 eSIM compatibility"
+    mapping: "query -> iPhone 11 có eSIM không; intent -> SUPPORT/INFORMATIONAL; entity -> iPhone 11 eSIM; cluster -> iphone-esim-compatibility; owner -> /posts/kiem-tra-iphone-co-ho-tro-esim-viettel/; content -> support article"
+    decision: UPDATE
+    reason: "Official Viettel evidence adds the EID and Carrier Lock verification workflow, but a separate model URL would duplicate the existing generic iPhone-eSIM owner."
+  - candidate: "iPhone 12 eSIM compatibility"
+    mapping: "query -> iPhone 12 có eSIM không; intent -> SUPPORT/INFORMATIONAL; entity -> iPhone 12 eSIM; cluster -> iphone-esim-compatibility; owner -> /posts/kiem-tra-iphone-co-ho-tro-esim-viettel/"
+    decision: MERGE_INTO_UPDATE
+    reason: "Same primary search job as iPhone compatibility owner; official Viettel evidence is useful as a model-specific section, not a new canonical URL."
+  - candidate: "eSIM activation without QR on iOS"
+    mapping: "intent -> SUPPORT/TRANSACTIONAL_INFORMATIONAL; entity -> eSIM activation; cluster -> esim-activation"
+    decision: REJECT
+    reason: "Fresh Viettel evidence dated 18/08/2026 already has a canonical activation owner; another URL would cannibalize."
+  - candidate: "5G150E package family for eSIM"
+    mapping: "intent -> COMMERCIAL/TRANSACTIONAL_INFORMATIONAL; entity -> 5G150E; cluster -> esim-5g-package-5g150e"
+    decision: REJECT
+    reason: "Existing canonical owner /posts/goi-5g150e-viettel-esim/ already covers this package family."
+  - candidate: "physical SIM to eSIM conversion on Viettel Tammi"
+    mapping: "intent -> SUPPORT/TRANSACTIONAL; entity -> SIM-to-eSIM conversion; cluster -> esim-conversion"
+    decision: REJECT
+    reason: "Existing conversion owner /posts/doi-esim-viettel-tren-my-viettel/ already owns the job; the 03/07/2026 fee-promotion source does not justify a second URL."
+  - candidate: "5G SA device/network compatibility explanation"
+    mapping: "intent -> SUPPORT/INFORMATIONAL; entity -> 5G SA; cluster -> 5g-device-network-compatibility"
+    decision: HOLD
+    reason: "Available first-party evidence is older and generic; no sufficiently specific current device/support fact set was found to outperform the selected evidence-backed owner expansion."
+sources:
+  - url: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/does-the-iphone-11-support-esim-a-comprehensive-guide/16523700"
+    publisher: "Viettel Telecom"
+    published: "2025-11-01"
+    observed_at: "2026-08-27T20:01:52+07:00"
+    role: "primary iPhone 11 compatibility evidence; EID *#06# check; Carrier Lock / No SIM restrictions check"
+  - url: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/does-the-iphone-12-support-esim-a-comprehensive-guide/16813096"
+    publisher: "Viettel Telecom"
+    published: "2025-11-01"
+    observed_at: "2026-08-27T20:01:52+07:00"
+    role: "primary iPhone 12 compatibility evidence; EID and Carrier Lock verification"
+  - url: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/esim-viettel-cham-la-ket-noi-kich-hoat-khong-can-ma-qr/13707592"
+    publisher: "Viettel Telecom"
+    published: "2026-08-18"
+    observed_at: "2026-08-27T20:01:52+07:00"
+    role: "fresh candidate-chain and intent-boundary evidence; activation job already owned"
+  - url: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/viettel-giam-toi-hon-50-phi-chuyen-doi-esim-uu-dai-cao-hon-tren-ung-dung-viettel-tammi/17076372"
+    publisher: "Viettel Telecom"
+    published: "2026-07-03"
+    observed_at: "2026-08-27T20:01:52+07:00"
+    role: "candidate-chain evidence; conversion job rejected due existing canonical owner"
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+priority:
+  tier: P2
+  reason: "Clear support utility and official technical verification evidence; improves an existing owner without creating duplicate URLs; quantitative demand metrics remain unverified."
+internal_link_plan:
+  - "/posts/esim-5g-kich-hoat-quet-qr/"
+  - "/posts/doi-esim-viettel-tren-my-viettel/"
+  - "/posts/iphone-dung-2-esim-viettel-cung-luc/"
+  - "/posts/iphone-16e-viettel-sim-lock-mo-khoa/"
+  - "/posts/cai-dat-4g-5g-volte-iphone-viettel/"
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
+website_os_bootstrap:
+  source_repo: "capquangfptminhlh/seo-web"
+  source_ref: "main"
+  source_commit_sha: "ef18d255150f3a77a7c7587feccf1ba7c419ad7b"
+  manifest_version: "1.3.0"
+  observed_at: "2026-08-27T20:01:52+07:00"
+  mandatory_read_complete: true
+  bootstrap_decision: PASS
