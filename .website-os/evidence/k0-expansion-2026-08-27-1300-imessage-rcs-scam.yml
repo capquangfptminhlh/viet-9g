@@ -1,0 +1,89 @@
+run: "2026-08-27-1300"
+observed_at: "2026-08-27T13:01:10+07:00"
+action: NEW
+status: PASS
+primary_keyword: "chặn tin nhắn lừa đảo iMessage RCS"
+secondary_queries:
+  - "chặn tin nhắn rác iMessage iPhone"
+  - "chặn spam RCS Android"
+  - "tin nhắn lừa đảo iMessage Viettel"
+  - "tin nhắn RCS lừa đảo phải làm gì"
+  - "lọc người gửi không xác định iPhone"
+intent: "SUPPORT + INFORMATIONAL"
+cluster: "mobile-message-scam-protection"
+parent_cluster: "subscriber-security-support"
+canonical_owner: "/posts/chan-tin-nhan-lua-dao-imessage-rcs/"
+content_type: "support article"
+new_url_created: true
+cannibalization: PASS
+reason: >-
+  Fresh first-party Viettel warning dated 26/08/2026 creates a distinct subscriber-security support job:
+  filtering and safely handling scam/spam messages delivered through iMessage and RCS. Repository search found
+  no existing article owning iMessage/RCS spam filtering. Existing SIM-verification, blocked-subscriber, eSIM,
+  roaming and device-compatibility owners solve different jobs and are linked only as adjacent support context.
+candidates_checked:
+  - candidate: "same-day/near-same-day iMessage and RCS scam warning"
+    mapping: "query -> chặn tin nhắn lừa đảo iMessage/RCS; intent -> SUPPORT; entity/topic -> iMessage/RCS spam; cluster -> mobile-message-scam-protection; owner -> /posts/chan-tin-nhan-lua-dao-imessage-rcs/; content -> support article"
+    decision: SELECT
+    reason: "Official Viettel warning published 26/08/2026, crawled 27/08; repository has no canonical owner for this security/support intent."
+  - candidate: "eSIM activation without QR on iOS"
+    mapping: "intent -> SUPPORT/TRANSACTIONAL_INFORMATIONAL; entity -> eSIM activation; cluster -> esim-activation"
+    decision: REJECT
+    reason: "Official Viettel update dated 18/08/2026 is fresh but this intent already has a canonical owner published previously."
+  - candidate: "physical SIM to eSIM conversion on Viettel Tammi"
+    mapping: "intent -> SUPPORT/TRANSACTIONAL; entity -> SIM-to-eSIM conversion; cluster -> esim-conversion"
+    decision: REJECT
+    reason: "Existing conversion owner already covers this job; new URL would cannibalize."
+  - candidate: "roaming Viettel in Laos"
+    mapping: "intent -> SUPPORT/TRANSACTIONAL_INFORMATIONAL; entity -> Laos roaming packages; cluster -> viettel-roaming-laos"
+    decision: REJECT
+    reason: "Distinct owner was already published on 24/08; not eligible for another URL."
+  - candidate: "SIM blocked for missing subscriber verification"
+    mapping: "intent -> SUPPORT; entity -> subscriber verification/blocking; cluster -> subscriber-verification-support"
+    decision: REJECT
+    reason: "Existing canonical owners already cover blocked-SIM and subscriber-information verification jobs."
+  - candidate: "Viettel Tammi Internet installation promotion"
+    mapping: "intent -> TRANSACTIONAL; entity -> fixed broadband installation; cluster -> fixed-internet-acquisition"
+    decision: REJECT
+    reason: "First-party item dated 25/08/2026, but it is fixed broadband rather than the site's mobile 4G/5G/SIM support focus."
+sources:
+  - url: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/canh-bao-bung-phat-tin-nhan-lua-dao-thong-qua-imessage-ios-va-rcs-android/12667196"
+    publisher: "Viettel Telecom"
+    published: "2026-08-26"
+    observed_at: "2026-08-27T13:01:10+07:00"
+    role: "primary freshness and security/support evidence; filtering guidance for iPhone and Android"
+  - url: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/esim-viettel-cham-la-ket-noi-kich-hoat-khong-can-ma-qr/13707592"
+    publisher: "Viettel Telecom"
+    published: "2026-08-18"
+    observed_at: "2026-08-27T13:01:10+07:00"
+    role: "candidate-chain evidence; rejected because canonical intent owner already exists"
+  - url: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/dang-ky-internet-viettel-tren-tammi-nhan-ngay-uu-dai-toi-300000-dong/14829136"
+    publisher: "Viettel Telecom"
+    published: "2026-08-25"
+    observed_at: "2026-08-27T13:01:10+07:00"
+    role: "candidate-chain evidence; rejected as fixed-broadband scope"
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+priority:
+  tier: P2
+  reason: "Very fresh first-party warning, clear mobile-subscriber safety value, independent support intent, but no verified quantitative demand metrics available."
+internal_link_plan:
+  - "/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu/"
+  - "/posts/sim-viettel-bi-chan-2-chieu-chua-xac-thuc/"
+  - "/posts/tra-cuu-chuan-hoa-thong-tin-thue-bao-viettel/"
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
+website_os_bootstrap:
+  source_repo: "capquangfptminhlh/seo-web"
+  source_ref: "main"
+  source_commit_sha: "ef18d255150f3a77a7c7587feccf1ba7c419ad7b"
+  manifest_version: "1.3.0"
+  observed_at: "2026-08-27T13:01:10+07:00"
+  mandatory_read_complete: true
+  bootstrap_decision: PASS
