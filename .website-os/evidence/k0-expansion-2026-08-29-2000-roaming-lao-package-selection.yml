@@ -1,0 +1,113 @@
+run: "2026-08-29-2000"
+observed_at: "2026-08-29T20:02:00+07:00"
+action: UPDATE
+status: PASS
+primary_keyword: "đi Lào dùng gói roaming Viettel nào"
+secondary_queries:
+  - "ASEAN5 hay IRU3 Viettel đi Lào"
+  - "đi Lào 5 ngày dùng gói roaming nào"
+  - "CR15 Viettel đi Lào"
+  - "TX15 Viettel Lào"
+  - "gói roaming Viettel Lào 2026"
+intent: "SUPPORT + TRANSACTIONAL_INFORMATIONAL"
+cluster: "viettel-roaming-laos"
+parent_cluster: "viettel-roaming"
+entity:
+  type: "roaming_country_package_selection"
+  name: "Viettel roaming package selection for Laos"
+canonical_owner: "/posts/roaming-viettel-di-lao/"
+content_type: "canonical_owner_support_update"
+new_url_created: false
+cannibalization: PASS
+reason: >-
+  The existing Laos roaming route already owns the country-specific package-selection and registration search job.
+  Creating a second URL for ASEAN vs IRU vs CR/TX comparisons would fragment the same primary intent. The current owner
+  covered only a subset of the official 17/08/2026 package families and did not surface the official source's internal
+  ASEAN5/ASEAN15 data inconsistency. A substantive canonical-owner update can add IRU/DRU/DR/IR15/TX15/CR decision paths,
+  explain the conflict without fabricating a preferred value, and connect device troubleshooting to existing owners.
+candidates_checked:
+  - candidate: "same-day Viettel mobile/eSIM/SIM/5G/roaming breaking update 29/08/2026"
+    decision: HOLD
+    reason: "No sufficiently strong first-party Viettel mobile/eSIM/SIM/5G/roaming item dated 29/08 was found during the research window."
+  - candidate: "eSIM activation without QR on iPhone"
+    decision: REJECT
+    reason: "Existing canonical owner already covers the no-QR activation search job; a new URL would cannibalize it."
+  - candidate: "5G150E/3T5G150E/6T5G150E for eSIM"
+    decision: REJECT
+    reason: "Existing canonical owner /posts/goi-5g150e-viettel-esim/ already owns this package-family search job."
+  - candidate: "SIM moved to a new phone and face re-verification"
+    decision: REJECT
+    reason: "Existing canonical owner /posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu/ already owns the device-change verification problem."
+  - candidate: "Apple Watch eSIM/MultiSIM"
+    decision: HOLD
+    reason: "Repository already has /posts/dang-ky-multisim-viettel/ and discoverable first-party Apple Watch evidence is too stale to safely assert current commercial conditions."
+  - candidate: "TV360 World Cup 2026 package/access"
+    decision: REJECT
+    reason: "Tournament/promotion context is no longer fresh on 29/08/2026 and the prior same-day K0 review already rejected it for freshness."
+  - candidate: "Tammi fixed-internet promotion"
+    decision: REJECT
+    reason: "Fresh first-party evidence exists but the search job belongs to fixed broadband, outside this mobile 4G/5G/eSIM/SIM operation focus."
+  - candidate: "Laos roaming package selection by trip length and communication need"
+    decision: SELECT
+    reason: "Official Viettel evidence dated 17/08/2026 is fresh, the existing Laos owner is the correct canonical URL, and the owner can be materially expanded without creating a duplicate."
+sources:
+  - url: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/di-lao-dung-goi-roaming-nao-goi-y-cac-goi-cuoc-uu-dai-cua-viettel/18333764"
+    publisher: "Viettel Telecom"
+    published: "2026-08-17"
+    observed_at: "2026-08-29T20:02:00+07:00"
+    role: "primary package, registration and device-setup evidence"
+  - url: "https://vietteltelecom.vn/cvqt"
+    publisher: "Viettel Telecom"
+    observed_at: "2026-08-29T20:02:00+07:00"
+    role: "official live roaming hub for final eligibility and current-package verification"
+source_facts:
+  iru1: "1GB high-speed / 1 day / 25,000 VND; source says continued access at normal speed after high-speed allowance"
+  iru3: "3GB high-speed / 3 days, 1GB/day / 75,000 VND; source says continued access at normal speed after daily high-speed allowance"
+  iru7: "7GB high-speed / 7 days, 1GB/day / 175,000 VND; source says continued access at normal speed after daily high-speed allowance"
+  dru1: "1GB high-speed / 1 day / 50,000 VND"
+  dru3: "3GB high-speed / 3 days, 1GB/day / 150,000 VND"
+  dru7: "7GB high-speed / 7 days, 1GB/day / 350,000 VND"
+  dr3: "1GB / 3 days / 130,000 VND"
+  dr7: "2GB / 7 days / 250,000 VND"
+  dr15: "5GB / 15 days / 550,000 VND"
+  dr30: "10GB / 30 days / 1,100,000 VND"
+  ir15: "2GB / 15 days / 99,000 VND"
+  tx15: "10 SMS + 10 minutes call/receive / 15 days / 150,000 VND; no data"
+  cr15: "3GB + 10 SMS + 30 outgoing minutes / 15 days / 199,000 VND"
+  cr30: "5GB + 50 SMS + 100 outgoing minutes / 30 days / 450,000 VND"
+  asean_summary_conflict: true
+  asean_table_values: "ASEAN5 2GB/5 days/100,000 VND; ASEAN15 5GB/15 days/250,000 VND"
+  asean_detail_values: "ASEAN5 1GB/5 days/99,000 VND; ASEAN15 3GB/15 days/250,000 VND"
+  asean_authoritative_value_for_public_copy: UNKNOWN
+  registration_sms: "TENGOI -> 191"
+  registration_channels_include_my_viettel_website_hotline_store: true
+  universal_eligibility: UNKNOWN
+  universal_partner_network: UNKNOWN
+internal_link_plan:
+  related:
+    - "/posts/data-roaming-viettel-iphone-android/"
+    - "/posts/bat-volte-khi-roaming-viettel/"
+    - "/posts/goi-dre-viettel-roaming-nhan-otp/"
+    - "/posts/xac-thuc-sim-viettel-o-nuoc-ngoai/"
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+priority:
+  tier: P1
+  reason: "Fresh country-specific first-party evidence supports a materially stronger decision guide on the existing canonical owner, while explicitly resolving an official-source contradiction with fail-closed copy rather than fabricated certainty."
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
+website_os_bootstrap:
+  source_repo: "capquangfptminhlh/seo-web"
+  source_ref: "main"
+  source_commit_sha: "ef18d255150f3a77a7c7587feccf1ba7c419ad7b"
+  manifest_version: "1.3.0"
+  observed_at: "2026-08-29T20:02:00+07:00"
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
