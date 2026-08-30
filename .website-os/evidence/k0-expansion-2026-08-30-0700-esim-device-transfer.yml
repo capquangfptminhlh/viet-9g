@@ -1,0 +1,104 @@
+run: "2026-08-30-0700"
+observed_at: "2026-08-30T07:02:00+07:00"
+action: UPDATE
+status: PASS
+primary_keyword: "đổi máy eSIM Viettel có cần QR mới"
+secondary_queries:
+  - "chuyển eSIM Viettel sang iPhone mới"
+  - "đổi điện thoại eSIM Viettel có quét lại QR không"
+  - "eSIM Viettel đổi máy không cần QR iPhone"
+  - "QR eSIM Viettel máy cũ dùng máy mới được không"
+  - "chuyển eSIM Viettel sang máy khác 2026"
+intent: "SUPPORT + INFORMATIONAL"
+cluster: "esim-device-transfer"
+parent_cluster: "viettel-esim"
+entity:
+  type: "esim_device_transfer"
+  name: "Viettel eSIM transfer to a new device"
+canonical_owner: "/posts/esim-viettel-doi-may-quet-lai-qr/"
+content_type: "canonical_owner_support_update"
+new_url_created: false
+cannibalization: PASS
+reason: >-
+  The existing route already owns the device-transfer/QR search job but was only a few paragraphs long. Fresh first-party
+  Viettel evidence dated 18/08/2026 introduces automatic no-QR eSIM activation on iOS and explicitly contrasts it with the
+  former need to retain QR information for moving eSIM to another device. Creating a second URL around iPhone no-QR transfer
+  would fragment the same primary job. The update therefore expands the existing owner, distinguishes activation from
+  cross-device transfer, and links accidental deletion/recovery to its separate canonical owner.
+candidates_checked:
+  - candidate: "same-day Viettel mobile/eSIM/SIM/5G/roaming breaking update 30/08/2026"
+    decision: HOLD
+    reason: "No sufficiently strong first-party Viettel mobile/eSIM/SIM/5G/roaming item dated 30/08 surfaced during the research window."
+  - candidate: "eSIM transfer to a new phone and whether a new QR is required"
+    decision: SELECT
+    reason: "Existing owner is materially thin and fresh 18/08/2026 first-party evidence changes the iOS activation workflow; UPDATE avoids cannibalization."
+  - candidate: "SIM moved to another phone requiring biometric re-verification"
+    decision: REJECT
+    reason: "Existing canonical owner /posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu/ already owns the device-change verification problem."
+  - candidate: "eSIM 5G150E package family"
+    decision: REJECT
+    reason: "Existing canonical owner /posts/goi-5g150e-viettel-esim/ already owns the package-family search job."
+  - candidate: "physical SIM to eSIM conversion promotion on Tammi"
+    decision: REJECT
+    reason: "Existing conversion owner already covers the conversion job; the July 2026 promotion is not a distinct durable transfer intent."
+  - candidate: "Apple Watch / MultiSIM current setup"
+    decision: HOLD
+    reason: "Repository already has /posts/dang-ky-multisim-viettel/ and current first-party evidence sufficient to safely restate present commercial/device conditions was not found in this research window."
+  - candidate: "iPhone 17 dedicated 5G package"
+    decision: HOLD
+    reason: "First-party package article found is from 18/09/2025; current 2026 eligibility/availability was not independently verified, so package facts are not republished as current."
+  - candidate: "TV360 World Cup access/package"
+    decision: REJECT
+    reason: "Source exists but this is entertainment-service intent rather than the preferred mobile/eSIM/SIM support gap, and the eSIM transfer owner has fresher direct product evidence."
+sources:
+  - url: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/esim-viettel-cham-la-ket-noi-kich-hoat-khong-can-ma-qr/13707592"
+    publisher: "Viettel Telecom"
+    published: "2026-08-18"
+    observed_at: "2026-08-30T07:02:00+07:00"
+    role: "fresh primary evidence for automatic no-QR eSIM activation on iOS and the prior QR workflow"
+  - url: "https://098.viettel.vn/tin-tuc/chi-tiet/co-can-thay-doi-esim-viettel-khi-chuyen-sang-dien-thoai-moi/12554480"
+    publisher: "Viettel Telecom"
+    observed_at: "2026-08-30T07:02:00+07:00"
+    role: "primary device-transfer evidence distinguishing the registered device and the need for a new-device eSIM process"
+  - url: "https://098.viettel.vn/tin-tuc/chi-tiet/esim-5g-viettel-loi-ich-thiet-bi-ho-tro-va-cach-kich-hoat/10391888"
+    publisher: "Viettel Telecom"
+    published: "2026-02-01"
+    observed_at: "2026-08-30T07:02:00+07:00"
+    role: "supporting eSIM device-change evidence"
+source_facts:
+  ios_no_qr_activation_from: "2026-08-18"
+  ios_no_qr_activation_confirmed: true
+  all_ios_models_universally_eligible: UNKNOWN
+  android_no_qr_activation_confirmed: UNKNOWN
+  automatic_cross_device_transfer_for_all_existing_esims: UNKNOWN
+  old_qr_universally_reusable_on_new_device: false
+  apple_native_esim_transfer_universally_supported_by_viettel: UNKNOWN
+internal_link_plan:
+  related:
+    - "/posts/lo-xoa-esim-viettel-quet-lai-qr/"
+    - "/posts/esim-5g-kich-hoat-quet-qr/"
+    - "/posts/kiem-tra-iphone-co-ho-tro-esim-viettel/"
+    - "/posts/kiem-tra-android-co-ho-tro-esim-viettel/"
+    - "/posts/doi-esim-viettel-tren-my-viettel/"
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+priority:
+  tier: P1
+  reason: "Fresh 18/08 first-party evidence materially changes the iOS activation answer while the existing transfer owner is thin; updating it consolidates ownership and answers a high-intent support question without inventing cross-device support."
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
+website_os_bootstrap:
+  source_repo: "capquangfptminhlh/seo-web"
+  source_ref: "main"
+  source_commit_sha: "ef18d255150f3a77a7c7587feccf1ba7c419ad7b"
+  manifest_version: "1.3.0"
+  observed_at: "2026-08-30T07:02:00+07:00"
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
