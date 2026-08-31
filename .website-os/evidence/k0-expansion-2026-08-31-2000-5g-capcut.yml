@@ -1,0 +1,163 @@
+run: "2026-08-31-2000"
+observed_at: "2026-08-31T20:13:54+07:00"
+action: NEW
+status: PASS
+primary_keyword: "gói 5G Viettel CapCut"
+secondary_queries:
+  - "C180S Viettel"
+  - "12C180S Viettel"
+  - "12C270P Viettel"
+  - "gói Viettel tặng CapCut Pro"
+  - "5G Viettel miễn phí CapCut"
+  - "gói 5G CapCut Viettel giá bao nhiêu"
+intent: "COMMERCIAL + INFORMATIONAL"
+cluster: "viettel-5g-capcut"
+parent_cluster: "viettel-5g"
+entity:
+  type: "package_family"
+  name: "Viettel 5G + CapCut package family"
+  members:
+    - C180S
+    - 12C180S
+    - 12C270P
+canonical_owner: "/posts/goi-5g-viettel-capcut/"
+content_type: "package_comparison_guide"
+new_url_created: true
+cannibalization: PASS
+reason: >-
+  Repository-wide code search for CapCut returned zero existing content owners before this change.
+  The search job is materially distinct from generic 5G setup, eSIM-only 5G150E, device compatibility,
+  roaming and support owners: users need to compare a first-party Viettel package family whose defining
+  entity relation is 5G service bundled with licensed CapCut Standard/Pro and social-platform data.
+  One canonical page owns the package-family comparison; separate pages are not created for C180S,
+  12C180S and 12C270P because they share the same comparison/search job.
+
+candidates_checked:
+  - candidate: "same-day Viettel mobile breaking update 31/08/2026"
+    decision: HOLD
+    reason: "Fresh first-party search did not surface a sufficiently strong Viettel 4G/5G/eSIM/SIM/roaming/package item published on 31/08/2026. Candidate-level HOLD only."
+  - candidate: "eSIM Tammi + Be promotion last-day freshness update"
+    decision: DEFER
+    reason: "Existing canonical owner already accurately states the 31/08/2026 deadline. A freshness update is defensible, but publish logic prefers the distinct evidence-backed NEW CapCut owner for this one-item slot."
+  - candidate: "iPhone eSIM EID and Carrier Lock"
+    decision: REJECT
+    reason: "Existing owner /posts/kiem-tra-iphone-co-ho-tro-esim-viettel/ already comprehensively owns EID, Carrier Lock and iPhone eSIM compatibility."
+  - candidate: "USSD Viettel after 2G shutdown / USSD over IMS"
+    decision: REJECT
+    reason: "Existing owner /posts/ussd-viettel-qua-4g-volte-ims/ already owns the support job and includes iPhone/Android, IMS and fallback channels."
+  - candidate: "roaming OTP / receive SMS abroad"
+    decision: REJECT
+    reason: "Existing owner /posts/goi-dre-viettel-roaming-nhan-otp/ and related roaming support content already own this job."
+  - candidate: "5G150E for eSIM"
+    decision: REJECT
+    reason: "Canonical owner already exists at /posts/goi-5g150e-viettel-esim/."
+  - candidate: "Viettel 5G packages bundled with licensed CapCut"
+    decision: SELECT
+    reason: "Official Viettel evidence dated 09/07/2026 states the package family is effective from 06/07/2026; the first-party pricing/benefit image identifies three package entities, while repo search found no CapCut owner."
+
+sources:
+  - id: "viettel-capcut-article-2026-07-09"
+    url: "https://www.viettel.vn/tin-tuc/chi-tiet/goi-cuoc-5g-tich-hop-tai-khoan-capcut-ban-quyen-mien-phi-truy-cap-mang-xa-hoi/16667996"
+    publisher: "Viettel"
+    published: "2026-07-09"
+    observed_at: "2026-08-31T20:13:54+07:00"
+    role: "primary package-family, positioning, social-data, savings and effective-date evidence"
+    verification_status: VERIFIED
+  - id: "viettel-capcut-benefit-table"
+    url: "https://media.vietteltelecom.vn/upload/ckfinder/images/bang-gia%281%29.jpg"
+    publisher: "Viettel"
+    published_context: "embedded in the 2026-07-09 first-party article"
+    observed_at: "2026-08-31T20:13:54+07:00"
+    role: "first-party visual evidence for package codes, prices, CapCut tier and per-package stated savings"
+    verification_status: VERIFIED
+
+source_facts:
+  effective_from: "2026-07-06"
+  article_published: "2026-07-09"
+  source_expiry_date: UNKNOWN
+  source_claim_max_saving_percent: 20
+  package_C180S:
+    price_vnd: 180000
+    cycle: "month"
+    capcut_tier: "Standard"
+    stated_saving_vnd: 37000
+    stated_saving_cycle: "month"
+  package_12C180S:
+    price_vnd: 1550000
+    cycle: "year"
+    capcut_tier: "Standard"
+    stated_saving_vnd: 350000
+    stated_saving_cycle: "year"
+  package_12C270P:
+    price_vnd: 2150000
+    cycle: "year"
+    capcut_tier: "Pro"
+    stated_saving_vnd: 450000
+    stated_saving_cycle: "year"
+  high_speed_data: "1GB/day according to first-party table"
+  social_data: "Meta (Facebook, Threads, Instagram), YouTube, TikTok; 30GB/month according to first-party table"
+  tv360: "TV360 Standard according to first-party table"
+  universal_subscriber_eligibility: UNKNOWN
+
+query_mapping:
+  query: "gói 5G Viettel CapCut"
+  primary_intent: "COMMERCIAL"
+  secondary_intent: "INFORMATIONAL"
+  entity_topic: "Viettel 5G + licensed CapCut package family"
+  cluster: "viettel-5g-capcut"
+  canonical_url_owner: "/posts/goi-5g-viettel-capcut/"
+  content_type: "package_comparison_guide"
+  evidence_refs:
+    - "viettel-capcut-article-2026-07-09"
+    - "viettel-capcut-benefit-table"
+  priority: P1
+
+internal_link_plan:
+  parent: "/5g-viettel/"
+  related:
+    - "/posts/cai-dat-4g-5g-volte-iphone-viettel/"
+    - "/posts/goi-5g150e-viettel-esim/"
+
+image_plan:
+  role: "inline-primary/evidence"
+  subject: "Official Viettel table for C180S, 12C180S and 12C270P"
+  source_mode: "FIRST_PARTY_REMOTE_SOURCE"
+  source_ref: "viettel-capcut-benefit-table"
+  alt_text: "Bảng gói 5G Viettel tích hợp CapCut C180S, 12C180S và 12C270P"
+  topic_match: PASS
+
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+
+priority:
+  tier: P1
+  reason: >-
+    Distinct first-party package family with durable commercial and comparison intent, three named package entities,
+    official price/benefit evidence and no existing canonical owner. Quantitative demand metrics are unavailable,
+    so no volume/KD/CPC/ranking values are invented.
+
+k0_decision:
+  decision: PASS
+  duplicate_risk: PASS
+  cannibalization_result: PASS
+  unsupported_metrics: 0
+  unsupported_business_facts: 0
+
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
+
+website_os_bootstrap:
+  source_repo: "capquangfptminhlh/seo-web"
+  source_ref: "main"
+  source_commit_sha: "ef18d255150f3a77a7c7587feccf1ba7c419ad7b"
+  manifest_version: "1.3.0"
+  observed_at: "2026-08-31T20:13:54+07:00"
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
