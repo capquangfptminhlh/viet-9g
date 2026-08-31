@@ -1,0 +1,91 @@
+run: "2026-08-31-0700"
+observed_at: "2026-08-31T07:00:16+07:00"
+action: UPDATE
+status: PASS
+website_os_bootstrap:
+  source_repo: "capquangfptminhlh/seo-web"
+  source_ref: "main"
+  source_commit_sha: "ef18d255150f3a77a7c7587feccf1ba7c419ad7b"
+  manifest_version: "1.3.0"
+  mandatory_read_complete: true
+  bootstrap_decision: PASS
+project_main_at_start: "ba2764eb81b021c66cf0c1ab1d2a3f9ff548e4fa"
+primary_keyword: "cách bật VoLTE Viettel trên iPhone"
+secondary_queries:
+  - "HDCALL gửi 191 Viettel"
+  - "bật VoLTE iPhone Viettel 2026"
+  - "iPhone gọi điện bị mất 4G Viettel"
+  - "iPhone không thấy VoLTE Viettel"
+  - "kiểm tra VoLTE Viettel đã bật chưa"
+intent: "SUPPORT + INFORMATIONAL"
+cluster: "iphone-volte-setup"
+parent_cluster: "viettel-4g-5g-support"
+entity: "Viettel VoLTE / HD Voice on iPhone"
+content_type: "support how-to guide"
+canonical_owner: "/posts/cai-dat-4g-5g-volte-iphone-viettel/"
+new_url_created: false
+priority: "P1"
+cannibalization: PASS
+reason: >-
+  The existing canonical route already owns the domestic iPhone 4G/5G/VoLTE setup job but was materially thin and did not explain HDCALL -> 191 registration, how to verify an active VoLTE call, or a fail-closed troubleshooting sequence. Creating a new URL for "bật VoLTE iPhone Viettel" would duplicate this owner. The update expands the owner while keeping VoLTE Roaming on its separate canonical route.
+candidates_checked:
+  - candidate: "same-day Viettel mobile breaking update"
+    mapping: "freshness -> NEWS -> Viettel mobile/eSIM/SIM/5G/roaming -> freshness -> existing/new owner -> news article -> same-day first-party scan -> P0 if verified"
+    decision: HOLD
+    reason: "No sufficiently strong first-party Viettel mobile/eSIM/SIM/5G/roaming announcement dated 31/08/2026 was found during the research window; Viettel Telecom homepage surfaced 27-28/08 items as the newest relevant mobile-facing content."
+  - candidate: "iMessage/RCS scam protection"
+    mapping: "security support -> SUPPORT -> iMessage/RCS scam -> subscriber-security-support -> /posts/chan-tin-nhan-lua-dao-imessage-rcs/ -> support guide -> Viettel 26/08/2026 -> P1"
+    decision: REJECT
+    reason: "A canonical owner already exists and was recently published from the 26/08 first-party warning; another URL would duplicate the same protection job."
+  - candidate: "eSIM device transfer / QR on new iPhone"
+    mapping: "device transfer -> SUPPORT -> eSIM transfer -> esim-device-transfer -> /posts/esim-viettel-doi-may-quet-lai-qr/ -> support guide -> Viettel evidence -> P1"
+    decision: REJECT
+    reason: "Canonical owner was expanded on 30/08; no independent search job justifies another URL."
+  - candidate: "5G SA Viettel"
+    mapping: "technology -> INFORMATIONAL/SUPPORT -> 5G Standalone -> viettel-5g-sa -> /posts/5g-sa-viettel-la-gi/ -> explainer -> Viettel first-party evidence -> P2"
+    decision: REJECT
+    reason: "Canonical owner was published on 30/08 and already owns SA-vs-NSA / SIM requirement intent."
+  - candidate: "eSIM fees / Tammi conversion pricing"
+    mapping: "pricing -> COMMERCIAL/SUPPORT -> eSIM fees -> esim-fees-pricing -> /posts/phi-esim-viettel-2026/ -> pricing guide -> Viettel 2026 sources -> P1"
+    decision: REJECT
+    reason: "Canonical owner was published in the previous 20:00 slot; repeating the pricing intent would cannibalize it."
+  - candidate: "Apple Watch eSIM / MultiSIM current commercial terms"
+    mapping: "device compatibility -> SUPPORT/COMMERCIAL -> wearable eSIM -> multisim-device -> existing MultiSIM owner -> support/commercial -> first-party evidence -> P2"
+    decision: HOLD
+    reason: "Current first-party Apple Watch-specific commercial evidence was not strong/fresh enough to assert 2026 pricing or eligibility without unsupported facts."
+  - candidate: "domestic VoLTE setup on iPhone"
+    mapping: "support problem -> SUPPORT/INFORMATIONAL -> VoLTE/HD Voice -> iphone-volte-setup -> /posts/cai-dat-4g-5g-volte-iphone-viettel/ -> support how-to -> Viettel VoLTE official guidance -> P1"
+    decision: SELECT_UPDATE
+    reason: "Existing owner is the correct canonical target but was only ~1.3 KB and omitted core first-party-backed setup and verification steps. Expanding it improves the same search job without creating a competing URL."
+sources:
+  - url: "https://098.viettel.vn/tin-tuc/huong-dan-bat-dich-vu-cuoc-goi-volte-goi-chat-luong-tot-hon-an-toan-hon/15298552"
+    publisher: "098 Viettel"
+    published: "2026-04-14"
+    role: "primary current device-specific VoLTE setup guidance covering iPhone and other handset families"
+  - url: "https://098.viettel.vn/tin-tuc/chi-tiet/volte-dich-vu-thoai-chat-luong-cao-tren-ha-tang-mang-4g5g-viettel/13748208"
+    publisher: "098 Viettel"
+    published: "2025-04-23"
+    role: "official service evidence for VoLTE benefits, device/SIM prerequisites, HDCALL -> 191, 0 VND registration fee, iOS path and call verification"
+  - url: "https://www.vietteltelecom.vn/"
+    publisher: "Viettel Telecom"
+    observed: "2026-08-31"
+    role: "same-day freshness scan; newest relevant surfaced items were dated 27-28/08 rather than 31/08"
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+claims_boundary:
+  universal_ios_menu_labels_across_all_versions: UNKNOWN
+  universal_volte_icon_behavior_on_iphone: UNKNOWN
+  device_specific_volte_support_matrix_current_2026: UNKNOWN
+  guaranteed_network_quality_or_speed_during_calls: UNKNOWN
+internal_link_plan:
+  - "/posts/bat-volte-khi-roaming-viettel/"
+  - "/posts/kiem-tra-iphone-co-ho-tro-esim-viettel/"
+  - "/posts/5g-sa-viettel-la-gi/"
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
