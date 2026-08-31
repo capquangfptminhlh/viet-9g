@@ -1,0 +1,97 @@
+run: "2026-08-31-1300"
+observed_at: "2026-08-31T13:00:11+07:00"
+action: NEW
+status: PASS
+website_os_bootstrap:
+  source_repo: "capquangfptminhlh/seo-web"
+  source_ref: "main"
+  source_commit_sha: "ef18d255150f3a77a7c7587feccf1ba7c419ad7b"
+  manifest_version: "1.3.0"
+  mandatory_read_complete: true
+  bootstrap_decision: PASS
+project_main_at_start: "ba84614336a37078ebb4523a620c0628bf312402"
+primary_keyword: "SIM Viettel đổi máy xác thực khuôn mặt"
+secondary_queries:
+  - "đổi SIM Viettel sang máy khác có phải xác thực khuôn mặt không"
+  - "SIM Viettel đổi điện thoại xác thực trong 2 giờ"
+  - "đổi máy bị chặn 1 chiều Viettel"
+  - "My Viettel xác thực khuôn mặt khi đổi máy"
+  - "Thông tư 08 2026 đổi thiết bị SIM Viettel"
+intent: "SUPPORT + INFORMATIONAL"
+cluster: "sim-device-change-biometric-verification"
+parent_cluster: "viettel-sim-support"
+entity: "Viettel physical SIM device-change biometric verification"
+content_type: "support/regulatory how-to guide"
+canonical_owner: "/posts/sim-viettel-doi-may-xac-thuc-khuon-mat/"
+new_url_created: true
+priority: "P1"
+cannibalization: PASS
+reason: >-
+  Repository search found no canonical owner dedicated to the physical-SIM search job created by the 15/06/2026 device-change biometric requirement: what triggers verification, the two-hour window, the blocking timeline, and the My Viettel recovery path. Existing eSIM device-transfer, eSIM pricing, roaming/OTP and iPhone VoLTE owners answer different jobs. A new canonical owner is therefore defensible and avoids forcing regulatory SIM support into unrelated eSIM or network-setup pages.
+candidates_checked:
+  - candidate: "same-day Viettel mobile breaking update"
+    mapping: "same-day freshness -> NEWS -> Viettel mobile/eSIM/SIM/5G/roaming -> freshness cluster -> existing/new owner -> news article -> Viettel Telecom/098 scan observed 31/08 -> P0 if verified"
+    decision: HOLD
+    reason: "Same-day scan did not surface a sufficiently strong Viettel mobile/eSIM/SIM/5G/roaming announcement dated 31/08/2026; the newest relevant first-party items surfaced were from 28/08 and earlier."
+  - candidate: "physical SIM device-change biometric verification"
+    mapping: "change phone with SIM -> SUPPORT/INFORMATIONAL -> physical SIM + biometric verification -> sim-device-change-biometric-verification -> /posts/sim-viettel-doi-may-xac-thuc-khuon-mat/ -> support/regulatory how-to -> Viettel 15/06/2026 + Ministry guidance -> P1"
+    decision: SELECT_NEW
+    reason: "Distinct, source-backed support job with no direct canonical owner found. Official Viettel defines the 2-hour verification window and blocking timeline; Ministry guidance confirms Article 8 device-change rule applicability from 15/06/2026."
+  - candidate: "VoWiFi / Wi-Fi Calling Viettel"
+    mapping: "indoor calling -> SUPPORT/TECH -> VoWiFi/Wi-Fi Calling -> voice-over-wifi -> unknown owner -> support guide -> first-party evidence required -> P2"
+    decision: HOLD
+    reason: "Fresh search did not yield sufficiently clear current Viettel first-party provisioning/eligibility evidence to support a commercial or device-specific VoWiFi guide without inference."
+  - candidate: "Samsung eSIM activation / device compatibility"
+    mapping: "Android eSIM -> SUPPORT/TECH -> Samsung eSIM -> esim-device-compatibility -> existing compatibility owners -> support guide -> Viettel evidence -> P2"
+    decision: REJECT
+    reason: "Current repo already has broader eSIM compatibility and transfer owners; no independent source-backed Samsung-only search job was established in this run."
+  - candidate: "SS5G Samsung package"
+    mapping: "Samsung 5G package -> COMMERCIAL -> SS5G -> device-package -> potential package owner -> commercial guide -> Viettel 12/11/2025 source -> P2"
+    decision: HOLD
+    reason: "First-party source found is from 12/11/2025 and this run did not verify current 2026 commercial eligibility/availability; publishing current package facts would risk stale unsupported claims."
+  - candidate: "subscriber blocked for incomplete identity verification while abroad"
+    mapping: "blocked SIM abroad -> SUPPORT -> identity verification + roaming/OTP -> subscriber-verification -> existing roaming/OTP support ownership -> support guide -> Viettel 18/06/2026 -> P1"
+    decision: REJECT
+    reason: "The repo already covers the overseas roaming/OTP recovery job through the DRE/roaming owner; a second URL framed around OTP abroad would overlap that job."
+  - candidate: "5G SA / SIM requirement"
+    mapping: "5G architecture -> INFORMATIONAL/SUPPORT -> 5G SA -> viettel-5g-sa -> /posts/5g-sa-viettel-la-gi/ -> explainer -> Viettel first-party evidence -> P2"
+    decision: REJECT
+    reason: "Canonical owner was published on 30/08 and already owns SA-vs-NSA and SIM-requirement intent."
+sources:
+  - url: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/thong-bao-quan-trong-quy-dinh-bat-buoc-xac-thuc-lai-khuon-mat-khi-thay-doi-dien-thoai-ap-dung-tu-15062026/19138832"
+    publisher: "Viettel Telecom"
+    published: "2026-06-15"
+    role: "primary Viettel implementation evidence for physical-SIM device change, maximum two-hour biometric verification window, My Viettel recommendation, and blocking timeline"
+  - url: "https://mst.gov.vn/huong-dan-xac-thuc-thong-tin-thue-bao-di-dong-197260812202516555.htm"
+    publisher: "Bộ Khoa học và Công nghệ"
+    published: "2026-04-03"
+    role: "primary regulator guidance confirming device-change verification and Article 8 applicability from 15/06/2026"
+  - url: "https://mst.gov.vn/van-ban-phap-luat/25364.htm"
+    publisher: "Bộ Khoa học và Công nghệ"
+    published: "2026-03-31"
+    observed: "2026-08-31"
+    role: "primary legal record showing Circular 08/2026/TT-BKHCN and current effective status"
+  - url: "https://www.vietteltelecom.vn/"
+    publisher: "Viettel Telecom"
+    observed: "2026-08-31"
+    role: "same-day first-party freshness scan"
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+claims_boundary:
+  exact_user_visible_countdown_timer: UNKNOWN
+  universal_otp_receipt_while_one_way_blocked: UNKNOWN
+  same-device_sim_reinsert_always_triggers_verification: UNKNOWN
+  all_app_screen_labels_across_versions: UNKNOWN
+  automatic_restoration_timing_after_successful_verification: UNKNOWN
+internal_link_plan:
+  - "/posts/esim-viettel-doi-may-quet-lai-qr/"
+  - "/posts/goi-dre-viettel-roaming-nhan-otp/"
+  - "/posts/data-roaming-viettel-iphone-android/"
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
