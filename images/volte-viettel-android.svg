@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">VoLTE Viettel trên Android</title>
+  <desc id="desc">Minh họa điện thoại Android đang gọi VoLTE trên mạng Viettel 4G và 5G.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7f1d1d"/>
+      <stop offset="0.52" stop-color="#dc2626"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#f1f5f9"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#000" flood-opacity=".28"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1320" cy="160" r="250" fill="#fff" opacity=".06"/>
+  <circle cx="1450" cy="760" r="360" fill="#fff" opacity=".04"/>
+  <g transform="translate(150 160)">
+    <rect x="0" y="0" width="785" height="580" rx="42" fill="#fff" opacity=".08"/>
+    <text x="70" y="125" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700">HƯỚNG DẪN VIETTEL 2026</text>
+    <text x="70" y="240" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="86" font-weight="900">BẬT VoLTE</text>
+    <text x="70" y="340" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="78" font-weight="900">TRÊN ANDROID</text>
+    <text x="70" y="420" fill="#fecaca" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700">Samsung • Xiaomi • Oppo • Realme</text>
+    <g transform="translate(70 470)">
+      <rect width="360" height="64" rx="32" fill="#fff"/>
+      <text x="180" y="43" text-anchor="middle" fill="#b91c1c" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800">HDCALL → 191</text>
+    </g>
+  </g>
+  <g transform="translate(1040 100)" filter="url(#shadow)">
+    <rect x="0" y="0" width="380" height="700" rx="62" fill="#0f172a"/>
+    <rect x="18" y="18" width="344" height="664" rx="50" fill="url(#screen)"/>
+    <rect x="132" y="34" width="116" height="22" rx="11" fill="#111827"/>
+    <text x="190" y="135" text-anchor="middle" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="800">Viettel</text>
+    <g transform="translate(82 190)">
+      <circle cx="108" cy="108" r="108" fill="#dc2626"/>
+      <path d="M79 72c18 37 45 64 82 82l29-29c4-4 10-5 15-3 17 6 35 9 54 9 8 0 14 6 14 14v46c0 8-6 14-14 14C148 205 57 114 57 2c0-8 6-14 14-14h46c8 0 14 6 14 14 0 19 3 37 9 54 2 5 1 11-3 15l-29 29z" fill="#fff" transform="translate(-43 12) scale(.72)"/>
+    </g>
+    <text x="190" y="465" text-anchor="middle" fill="#b91c1c" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="900">VoLTE</text>
+    <text x="190" y="515" text-anchor="middle" fill="#475569" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700">Cuộc gọi trên 4G / 5G</text>
+    <g transform="translate(65 565)">
+      <rect width="250" height="72" rx="36" fill="#16a34a"/>
+      <text x="125" y="47" text-anchor="middle" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800">Đang gọi</text>
+    </g>
+  </g>
+  <g transform="translate(1210 64)">
+    <rect width="126" height="56" rx="28" fill="#fff" opacity=".92"/>
+    <text x="63" y="38" text-anchor="middle" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="900">5G</text>
+  </g>
+</svg>
