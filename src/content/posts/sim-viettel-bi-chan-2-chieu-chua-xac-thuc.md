@@ -1,151 +1,133 @@
 ---
-title: "SIM Viettel bị chặn 2 chiều từ 15/8/2026: xác thực trước mốc thu hồi số"
-description: "Thuê bao Viettel chưa xác thực có thể bị tạm dừng 2 chiều từ 15/8/2026. Nguồn Viettel đăng trên Cổng TTĐT Quảng Ngãi nêu sau 05 ngày tiếp theo số thuê bao sẽ bị thu hồi theo quy định. Cách kiểm tra và khôi phục an toàn."
+title: "SIM Viettel bị chặn 2 chiều: cách xác thực và khôi phục số 2026"
+description: "SIM Viettel bị chặn do chưa xác thực thông tin: phân biệt chặn 1 chiều, 2 chiều, đổi máy; cách xử lý trên My Viettel/Tammi và khi đang ở nước ngoài."
 date: 2026-08-15
 ---
 
-# SIM Viettel bị chặn 2 chiều từ 15/8/2026: xác thực trước mốc thu hồi số
+# SIM Viettel bị chặn 2 chiều: cách xác thực và khôi phục số 2026
 
-**Cập nhật 17/08/2026:** nếu SIM Viettel của bạn đã bị gián đoạn cả chiều gọi đi và chiều nhận liên lạc sau mốc 15/8, hãy kiểm tra ngay trạng thái xác thực thông tin thuê bao. Đây là giai đoạn cần xử lý sớm thay vì tiếp tục chờ hệ thống tự mở.
+**Cập nhật kiểm chứng 01/09/2026:** Viettel vẫn có hướng dẫn chính thức cho nhóm thuê bao bị chặn do chưa hoàn tất xác thực thông tin. Điểm quan trọng nhất là phải xác định **đúng nguyên nhân chặn** trước khi xử lý: chặn do chưa xác thực thông tin thuê bao, chặn sau khi đổi thiết bị, hay một lỗi dịch vụ khác.
 
-> **Thông tin cần chú ý:** Cổng Thông tin điện tử tỉnh Quảng Ngãi đăng nội dung với tác giả **VIETTEL** nêu rằng sau 60 ngày kể từ thời điểm khóa một chiều, tức **15/8/2026**, thuê bao chưa thực hiện xác thực sẽ bị tạm dừng hai chiều; **sau 05 ngày tiếp theo, số thuê bao sẽ bị thu hồi theo quy định**. Nếu số của bạn thuộc đúng nhóm này, nên hoàn tất xác thực qua kênh Viettel chính thức càng sớm càng tốt.
+> **Không nên chỉ nạp tiền hoặc khởi động lại máy rồi chờ tự mở.** Nếu hệ thống Viettel đang yêu cầu xác thực, cần hoàn tất đúng luồng xác thực đang áp dụng cho thuê bao.
 
-Bài này chỉ tập trung vào intent **SIM Viettel bị chặn 2 chiều vì chưa hoàn tất xác thực thông tin**. Nếu bạn chỉ muốn kiểm tra SIM có đang nằm trong danh sách cần chuẩn hóa hay không, xem [tra cứu chuẩn hóa thông tin thuê bao Viettel](/posts/tra-cuu-chuan-hoa-thong-tin-thue-bao-viettel). Nếu chỉ muốn biết SIM đứng tên ai, xem [cách kiểm tra SIM Viettel chính chủ](/posts/kiem-tra-sim-viettel-chinh-chu). Nếu lỗi xuất hiện ngay sau khi chuyển SIM sang điện thoại khác, xem [SIM Viettel lắp sang máy mới bị chặn 1 chiều](/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu).
+Bài này là canonical owner cho intent **SIM Viettel bị chặn 2 chiều vì chưa hoàn tất xác thực thông tin**. Nếu lỗi xuất hiện ngay sau khi chuyển SIM sang điện thoại khác, xem [SIM Viettel lắp sang máy mới bị chặn 1 chiều](/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu). Nếu bạn chỉ muốn kiểm tra số có cần chuẩn hóa không, xem [tra cứu chuẩn hóa thông tin thuê bao Viettel](/posts/tra-cuu-chuan-hoa-thong-tin-thue-bao-viettel).
 
-## Mốc 15/8/2026 và 05 ngày tiếp theo có ý nghĩa gì?
+## Phân biệt nhanh: bạn đang bị chặn theo trường hợp nào?
 
-Theo thông tin Viettel được đăng trên Cổng Thông tin điện tử tỉnh Quảng Ngãi, lộ trình với nhóm thuê bao chưa hoàn tất xác thực được nêu như sau:
+### 1. Bị chặn do chưa xác thực thông tin thuê bao
 
-- từ **15/6/2026**, thuê bao chưa xác thực bị khóa một chiều gọi đi và nhắn tin đi;
-- sau 60 ngày, tức **15/8/2026**, nếu vẫn chưa xác thực thì thuê bao bị tạm dừng hai chiều;
-- **sau 05 ngày tiếp theo**, số thuê bao sẽ bị thu hồi theo quy định.
+Viettel công bố từ 15/06/2026 nhóm thuê bao chưa hoàn tất xác thực có thể bị hạn chế chiều gọi đi và gửi SMS. Với nhóm này, hướng xử lý là **hoàn tất xác thực thông tin thuê bao** qua kênh Viettel cung cấp cho chính số đó.
 
-Vì vậy, người dùng đang ở trạng thái bị chặn hai chiều không nên chỉ nạp tiền, khởi động lại điện thoại hoặc gửi lại nhiều SMS với hy vọng tự khôi phục. Nếu nguyên nhân thực sự là chưa hoàn tất xác thực, việc cần làm là hoàn thành đúng luồng xác thực của Viettel.
+### 2. Bị chặn sau khi tháo SIM sang điện thoại khác
 
-Điều này **không có nghĩa mọi SIM mất sóng hoặc không gọi được sau 15/8 đều thuộc cùng một nhóm**. Lỗi thiết bị, vùng phủ, tài khoản, roaming, gói cước hoặc trạng thái dịch vụ khác vẫn có thể gây gián đoạn. Hãy xác định đúng nguyên nhân trước khi thao tác.
+Đây là luồng khác. Viettel công bố quy định xác thực lại sinh trắc học khuôn mặt khi SIM được tháo và lắp sang một thiết bị điện thoại khác. Nếu không hoàn tất trong thời gian quy định, thuê bao có thể bị hạn chế dịch vụ theo lộ trình riêng.
 
-## Kiểm tra nhanh xem SIM có thuộc nhóm cần xác thực không
+Nếu lỗi bắt đầu ngay sau khi đổi máy, không nên xử lý theo bài chặn 2 chiều chung này trước khi kiểm tra owner [xác thực lại khi đổi thiết bị](/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu).
 
-Thực hiện theo thứ tự sau:
+### 3. Không gọi được nhưng không có cảnh báo xác thực
+
+Không phải mọi lỗi mất gọi/SMS đều do xác thực. Tài khoản, vùng phủ, thiết bị, roaming hoặc trạng thái dịch vụ khác cũng có thể gây gián đoạn. Nếu My Viettel/Tammi không hiển thị yêu cầu xác thực, nên liên hệ Viettel để kiểm tra trạng thái thực tế thay vì tự suy đoán.
+
+## Cách kiểm tra SIM có thuộc nhóm cần xác thực không
+
+Thực hiện theo thứ tự:
 
 1. mở **My Viettel** hoặc **Viettel Tammi** bằng đúng số thuê bao;
 2. kiểm tra thông báo liên quan đến xác thực hoặc chuẩn hóa thông tin;
-3. dùng công cụ **Tra cứu chuẩn hóa Nghị định 49** của Viettel nếu cần xác định số có nằm trong danh sách chuẩn hóa hay không;
+3. dùng công cụ **Tra cứu chuẩn hóa Nghị định 49** của Viettel nếu cần;
 4. đối chiếu thông tin đăng ký thuê bao;
 5. nếu trạng thái vẫn không rõ, gọi **18008098** để Viettel kiểm tra trực tiếp.
 
-Bài [tra cứu chuẩn hóa thông tin thuê bao Viettel](/posts/tra-cuu-chuan-hoa-thong-tin-thue-bao-viettel) hướng dẫn riêng cách dùng công cụ Nghị định 49 và cách đọc kết quả. Đây là bước chẩn đoán hữu ích trước khi xử lý một SIM chưa bị khóa hoàn toàn.
+Việc `TTTB` gửi `1414` trả về đúng tên không nên được dùng để bỏ qua một yêu cầu xác thực đang hiển thị trực tiếp trên kênh Viettel chính thức. Kiểm tra chính chủ, chuẩn hóa thông tin và xác thực lại khi đổi thiết bị là các lớp kiểm tra khác nhau.
 
 ## Cách xác thực để khôi phục SIM Viettel
 
-### Cách 1: My Viettel
+### My Viettel
 
-Viettel hướng dẫn khách hàng có thể đăng nhập **My Viettel** và thực hiện luồng xác thực thông tin thuê bao đang hiển thị cho chính số của mình.
+Đăng nhập đúng thuê bao và thực hiện luồng **xác thực thông tin thuê bao** nếu ứng dụng đang hiển thị yêu cầu. Giao diện có thể thay đổi theo phiên bản, vì vậy ưu tiên luồng đang hiển thị thực tế thay vì ảnh hướng dẫn cũ trên Internet.
 
-Do giao diện ứng dụng có thể thay đổi theo phiên bản, hãy ưu tiên nội dung đang hiển thị trong ứng dụng thay vì làm theo ảnh chụp cũ trên Internet.
+### Viettel Tammi
 
-### Cách 2: Viettel Tammi
+Viettel cũng liệt kê **Viettel Tammi** trong các kênh hỗ trợ xác thực. Chỉ cung cấp thông tin trong ứng dụng/kênh chính thức.
 
-Viettel cũng liệt kê **Viettel Tammi** trong các kênh hỗ trợ xác thực. Hãy đăng nhập đúng thuê bao và chỉ cung cấp thông tin trong luồng chính thức của ứng dụng.
+### VNeID hoặc điểm hỗ trợ Viettel
 
-### Cách 3: VNeID
+Tùy trường hợp, người dùng có thể được hướng dẫn thực hiện qua luồng điện tử phù hợp hoặc tại điểm hỗ trợ Viettel. Nếu ứng dụng báo lỗi, không nhận OTP hoặc trạng thái thuê bao không rõ, chuyển sang tổng đài/điểm giao dịch thay vì lặp lại thao tác nhiều lần.
 
-Trong hướng dẫn triển khai xác thực thông tin thuê bao, **VNeID** được nêu là một trong các kênh người dùng có thể sử dụng khi trường hợp của mình đáp ứng điều kiện của luồng điện tử.
-
-### Cách 4: điểm xác thực hoặc tổng đài Viettel
-
-Thông tin Viettel đăng trên Cổng Thông tin điện tử tỉnh Quảng Ngãi nêu khách hàng có thể thực hiện xác thực tại các điểm hỗ trợ của Viettel và liên hệ **18008098** khi cần trợ giúp.
-
-Nếu ứng dụng báo lỗi, không nhận được OTP hoặc trạng thái thuê bao không rõ ràng, nên chuyển sang kênh hỗ trợ chính thức thay vì lặp lại thao tác nhiều lần.
-
-## Xác thực xong SIM có được mở lại không?
+## Xác thực xong SIM có tự mở lại không?
 
 Trong hướng dẫn xử lý thuê bao bị khóa do chưa xác thực, Viettel cho biết hệ thống **tự động mở lại sau khi khách hàng hoàn thành việc xác thực thông tin**.
 
-Nếu đã hoàn tất xác thực nhưng dịch vụ vẫn chưa trở lại:
+Nếu đã hoàn tất nhưng dịch vụ chưa trở lại:
 
 1. kiểm tra lại trạng thái trong My Viettel/Tammi;
-2. khởi động lại thiết bị một lần sau khi hệ thống báo hoàn tất;
+2. khởi động lại thiết bị sau khi hệ thống báo hoàn tất;
 3. không gửi OTP hoặc giấy tờ cho người lạ tự nhận có thể “mở khóa SIM”;
-4. gọi **18008098** để Viettel kiểm tra trạng thái thực tế của thuê bao.
+4. gọi **18008098** để Viettel kiểm tra trạng thái thực tế.
 
-## Chặn 2 chiều do chưa xác thực và chặn 1 chiều khi đổi máy có giống nhau không?
+Không có bằng chứng để khẳng định một thời gian mở lại cố định áp dụng cho mọi thuê bao, vì vậy bài này không tự đặt mốc phút/giờ nếu Viettel không công bố cho trường hợp cụ thể.
 
-**Không. Đây là hai luồng khác nhau.**
+## Đang ở nước ngoài mà SIM bị chặn thì làm gì?
 
-Viettel công bố một quy định riêng khi SIM được tháo và lắp sang thiết bị điện thoại khác: người dùng phải xác thực lại sinh trắc học khuôn mặt trong thời gian quy định. Nếu không hoàn tất, thuê bao có thể bị hạn chế chiều đi và tiếp tục đi theo một lộ trình xử lý riêng.
+Nguồn Viettel ngày 17–18/06/2026 hướng dẫn khách hàng ở nước ngoài cần kiểm tra **dịch vụ roaming và khả năng nhận SMS/OTP** để thực hiện xác thực qua ứng dụng.
 
-Trong khi đó, bài này nói về nhóm **chưa hoàn tất xác thực thông tin thuê bao theo lộ trình 15/6 → 15/8 → 05 ngày tiếp theo**.
+Nếu đã ở nước ngoài nhưng roaming chưa hoạt động hoặc không nhận được SMS, Viettel công bố hotline quốc tế **+84982198198** và các kênh online chính thức để hỗ trợ.
 
-Nếu lỗi xuất hiện ngay sau khi đổi điện thoại và bạn vẫn nhận được cuộc gọi hoặc SMS đến, đọc [SIM Viettel lắp sang máy mới bị chặn 1 chiều](/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu) trước để tránh xử lý nhầm intent.
+Không nên mặc định rằng mua một gói data roaming sẽ tự mở khóa một thuê bao đang bị hạn chế vì xác thực. **Roaming là điều kiện kết nối/nhận thông tin ở nước ngoài; xác thực thuê bao vẫn là một việc riêng.**
 
-## SIM đang chính chủ vẫn có thể bị yêu cầu xác thực không?
+Nếu vấn đề chính của bạn là xác thực khi đang ở nước ngoài, xem owner chuyên biệt [xác thực SIM Viettel ở nước ngoài](/posts/xac-thuc-sim-viettel-o-nuoc-ngoai).
 
-Có thể có nhiều lớp kiểm tra khác nhau, vì vậy cần tách ba việc:
+## Chặn 1 chiều và chặn 2 chiều khác nhau thế nào?
 
-- **kiểm tra chính chủ:** số thuê bao đang đăng ký dưới thông tin của ai;
-- **chuẩn hóa/xác thực thông tin:** hoàn tất yêu cầu dữ liệu thuê bao theo hệ thống Viettel;
-- **xác thực lại sinh trắc học khi đổi thiết bị:** luồng riêng khi thay đổi điện thoại.
+Trong các thông báo Viettel công bố năm 2026, “chặn 1 chiều” thường mô tả việc hạn chế chiều đi như gọi đi/gửi SMS đi ở nhóm chưa hoàn tất xác thực; “chặn 2 chiều” là mức hạn chế tiếp theo trong lộ trình xử lý. Tuy nhiên, **không nên suy ngược chỉ từ một biểu hiện trên điện thoại để kết luận nguyên nhân**, vì trạng thái dịch vụ của từng thuê bao có thể khác nhau.
 
-Vì vậy, việc `TTTB` gửi `1414` trả về đúng tên không nên được dùng để bỏ qua một cảnh báo xác thực đang hiển thị trực tiếp trên kênh Viettel chính thức.
-
-## Nếu đang ở nước ngoài thì xử lý thế nào?
-
-Viettel hướng dẫn khách hàng ở nước ngoài kiểm tra **roaming và khả năng nhận OTP** trước khi thực hiện xác thực qua ứng dụng.
-
-Nếu chưa có roaming hoặc không thể nhận SMS, Viettel công bố hotline quốc tế **+84982198198** cùng các kênh online chính thức để hỗ trợ khách hàng ở nước ngoài.
-
-Không nên chờ đến khi số bị gián đoạn hoàn toàn mới kiểm tra khả năng nhận OTP, vì số điện thoại thường còn được dùng cho tài khoản ngân hàng, email và các dịch vụ xác thực khác.
+Cách an toàn nhất là đọc thông báo trong My Viettel/Tammi hoặc nhờ tổng đài kiểm tra đúng số thuê bao.
 
 ## Có nên nhờ người khác “mở khóa SIM” qua Facebook/Zalo không?
 
-Không nên gửi:
+Không cung cấp cho tài khoản lạ:
 
 - ảnh căn cước/CCCD;
 - ảnh khuôn mặt;
 - mật khẩu My Viettel;
 - mã OTP;
-- mã QR eSIM;
+- mã QR eSIM.
 
-cho tài khoản lạ tự nhận có thể xử lý nhanh việc mở khóa thuê bao.
-
-Hãy ưu tiên My Viettel, Viettel Tammi, VNeID, website Viettel, tổng đài và điểm giao dịch chính thức.
+Ưu tiên My Viettel, Viettel Tammi, VNeID, website Viettel, tổng đài và điểm giao dịch chính thức.
 
 ## FAQ
 
-### SIM bị chặn 2 chiều từ 15/8 có bị thu hồi số ngay không?
+### SIM bị chặn 2 chiều có phải nạp tiền là mở lại không?
 
-Nguồn Viettel đăng trên Cổng Thông tin điện tử tỉnh Quảng Ngãi nêu **sau 05 ngày tiếp theo** kể từ giai đoạn tạm dừng hai chiều, số thuê bao sẽ bị thu hồi theo quy định. Vì vậy nếu SIM thuộc đúng nhóm chưa xác thực, nên xử lý sớm thay vì chờ đến cuối lộ trình.
+Không nên coi nạp tiền là bước thay thế xác thực. Nếu nguyên nhân là chưa hoàn tất xác thực, Viettel hướng dẫn hoàn tất xác thực thông tin; trạng thái tài khoản là vấn đề khác.
 
 ### Tra cứu Nghị định 49 có tự mở khóa SIM không?
 
-Không. Tra cứu chỉ giúp kiểm tra trạng thái chuẩn hóa. Nếu thuê bao đã bị tạm dừng dịch vụ, bạn vẫn phải hoàn tất luồng xác thực mà Viettel yêu cầu.
+Không. Tra cứu giúp kiểm tra trạng thái chuẩn hóa. Nếu thuê bao đã bị tạm dừng dịch vụ, bạn vẫn phải hoàn tất luồng xác thực mà Viettel yêu cầu.
 
-### Hoàn tất xác thực có cần nạp tiền để mở lại không?
+### Đổi điện thoại rồi bị chặn có dùng bài này không?
 
-Không nên coi nạp tiền là bước thay thế xác thực. Với trường hợp bị khóa do chưa xác thực, Viettel hướng dẫn hoàn tất xác thực thông tin; trạng thái tài khoản là vấn đề khác.
+Nếu lỗi xuất hiện ngay sau khi tháo SIM và lắp sang máy khác, ưu tiên owner [SIM Viettel lắp sang máy mới bị chặn 1 chiều](/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu), vì Viettel có quy định xác thực sinh trắc học riêng cho thay đổi thiết bị.
 
-### Nếu vừa đổi điện thoại thì nên đọc bài nào?
+### Ở nước ngoài không nhận OTP thì sao?
 
-Nếu việc chặn xảy ra ngay sau khi tháo SIM và lắp sang máy khác, hãy dùng bài [xác thực lại khi đổi thiết bị](/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu), vì đây là luồng riêng.
+Kiểm tra roaming và khả năng nhận SMS trước. Nếu chưa có roaming hoặc vẫn không nhận được OTP, liên hệ hotline quốc tế **+84982198198** hoặc kênh online chính thức của Viettel. Bài này không khẳng định mọi OTP đều nhận được trong mọi trạng thái chặn.
 
 ## Checklist xử lý ngay
 
-Nếu nghi SIM Viettel bị tạm dừng hai chiều vì chưa xác thực:
-
-1. kiểm tra cảnh báo trong My Viettel/Tammi;
-2. dùng công cụ Tra cứu Nghị định 49 nếu cần xác định trạng thái chuẩn hóa;
-3. hoàn tất xác thực qua kênh chính thức đang được cung cấp cho thuê bao;
-4. kiểm tra lại trạng thái sau khi hệ thống ghi nhận hoàn tất;
-5. nếu chưa khôi phục, gọi **18008098**;
-6. nếu vừa đổi điện thoại, tách riêng khả năng bị chặn do yêu cầu xác thực lại sinh trắc học;
-7. không cung cấp OTP, ảnh giấy tờ hoặc ảnh khuôn mặt cho tài khoản không xác minh.
+1. Kiểm tra cảnh báo trong My Viettel/Tammi.
+2. Xác định có vừa đổi thiết bị hay không.
+3. Nếu cần, tra cứu trạng thái chuẩn hóa thuê bao.
+4. Hoàn tất xác thực qua kênh chính thức đang áp dụng cho số của bạn.
+5. Nếu ở nước ngoài, kiểm tra roaming và khả năng nhận SMS/OTP.
+6. Sau khi hệ thống ghi nhận hoàn tất, kiểm tra lại dịch vụ.
+7. Nếu chưa khôi phục, gọi **18008098**; ở nước ngoài dùng **+84982198198**.
+8. Không cung cấp OTP, ảnh giấy tờ hoặc ảnh khuôn mặt cho tài khoản không xác minh.
 
 ## Nguồn kiểm chứng
 
 - Viettel Telecom, **“Thông báo: Thuê bao Viettel bị chặn do chưa xác thực thông tin – Hướng dẫn cách xử lý”**, 18/06/2026: https://www.vietteltelecom.vn/tin-tuc/chi-tiet/thong-bao-thue-bao-viettel-bi-chan-do-chua-xac-thuc-thong-tin-huong-dan-cach-xu-ly/15333972
-- Cổng Thông tin điện tử tỉnh Quảng Ngãi, tác giả **VIETTEL**, **“0 giờ ngày 15/6: Khóa SIM một chiều với các thuê bao chưa xác thực thông tin theo quy định của Thông tư 08”**, 15/06/2026: https://quangngai.gov.vn/tin-tuc/0h-ngay-15-6-khoa-sim-mot-chieu-voi-cac-thue-bao-chua-xac-thuc-thong-tin-theo-quy-dinh-cua-thong-tu-08.html
 - Viettel Telecom, **“Thông báo quan trọng: Quy định bắt buộc xác thực lại khuôn mặt khi thay đổi điện thoại”**, 15/06/2026: https://www.vietteltelecom.vn/tin-tuc/chi-tiet/thong-bao-quan-trong-quy-dinh-bat-buoc-xac-thuc-lai-khuon-mat-khi-thay-doi-dien-thoai-ap-dung-tu-15062026/19138832
 - Viettel Telecom, **“Cùng Viettel Roaming xác thực sim chính chủ tại nước ngoài”**, 17/06/2026: https://www.vietteltelecom.vn/tin-tuc/chi-tiet/cung-viettel-roaming-xac-thuc-sim-chinh-chu-tai-nuoc-ngoai/16655608
 
-*Nguồn và trend được kiểm tra lại ngày 17/08/2026. Trạng thái từng thuê bao có thể khác nhau; ưu tiên thông báo hiển thị trực tiếp trên kênh Viettel chính thức cho số của bạn.*
+*Nguồn được kiểm tra lại ngày 01/09/2026. Giá, gói cước, thời gian mở lại cố định và trạng thái cụ thể từng thuê bao không được suy diễn khi nguồn không xác nhận.*

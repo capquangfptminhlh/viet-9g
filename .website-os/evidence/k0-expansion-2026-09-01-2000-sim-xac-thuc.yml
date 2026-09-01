@@ -1,0 +1,125 @@
+version: 1.0.0
+run_slot: "20:00"
+observed_at: "2026-09-01T20:00:50+07:00"
+website_os:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest: governance/website-os.manifest.yml
+  manifest_version: 1.3.0
+  bootstrap_decision: PASS
+project_main_at_start: e491adca5eea98ad7f545ee56310648357a12329
+search_chain:
+  same_day_research:
+    result: HOLD_CANDIDATE_ONLY
+    reason: "No sufficiently strong same-day first-party Viettel mobile/5G/eSIM/SIM/roaming/package publication was found at observation time; fallback continued."
+  sources:
+    - url: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/thong-bao-thue-bao-viettel-bi-chan-do-chua-xac-thuc-thong-tin-huong-dan-cach-xu-ly/15333972"
+      publisher: Viettel Telecom
+      published_at: "2026-06-18"
+      observed_at: "2026-09-01T20:00:50+07:00"
+      provenance: FIRST_PARTY
+    - url: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/thong-bao-quan-trong-quy-dinh-bat-buoc-xac-thuc-lai-khuon-mat-khi-thay-doi-dien-thoai-ap-dung-tu-15062026/19138832"
+      publisher: Viettel Telecom
+      published_at: "2026-06-15"
+      observed_at: "2026-09-01T20:00:50+07:00"
+      provenance: FIRST_PARTY
+    - url: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/cung-viettel-roaming-xac-thuc-sim-chinh-chu-tai-nuoc-ngoai/16655608"
+      publisher: Viettel Telecom
+      published_at: "2026-06-17"
+      observed_at: "2026-09-01T20:00:50+07:00"
+      provenance: FIRST_PARTY
+candidates:
+  - query: "Viettel mobile news 01/09/2026"
+    intent: FRESHNESS
+    entity_topic: Viettel mobile news
+    cluster: freshness-news
+    canonical_owner: UNKNOWN
+    content_type: NEWS_FRESHNESS
+    evidence: INSUFFICIENT_FIRST_PARTY_SAME_DAY
+    priority: P0
+    decision: HOLD
+    reason: "No qualifying same-day first-party mobile item found; run continued."
+  - query: "VoWiFi Viettel / Wi-Fi Calling Viettel"
+    intent: SUPPORT
+    entity_topic: VoWiFi
+    cluster: voice-over-wifi
+    canonical_owner: UNKNOWN
+    content_type: SUPPORT_ARTICLE
+    evidence: INSUFFICIENT_CURRENT_FIRST_PARTY
+    priority: P1
+    decision: HOLD
+    reason: "Could not verify a current first-party Viettel provisioning/support contract robust enough for a publishable owner."
+  - query: "eSIM Viettel Android 2026"
+    intent: SUPPORT
+    entity_topic: eSIM Android
+    cluster: viettel-esim
+    canonical_owner: EXISTING_COMPATIBILITY_OWNERS
+    content_type: SUPPORT_ARTICLE
+    evidence: PARTIAL
+    priority: P1
+    decision: REJECT
+    reason: "Repository already has eSIM compatibility/conversion owners; no independent new search job proven."
+  - query: "ở nước ngoài nhận OTP Viettel"
+    intent: SUPPORT
+    entity_topic: roaming OTP
+    cluster: viettel-roaming
+    canonical_owner: /posts/goi-dre-viettel-roaming-nhan-otp/
+    content_type: SUPPORT_ARTICLE
+    evidence: FIRST_PARTY_VERIFIED
+    priority: P1
+    decision: REJECT
+    reason: "Existing canonical owner already targets roaming/OTP job."
+  - query: "SIM Viettel đổi máy xác thực khuôn mặt"
+    intent: SUPPORT
+    entity_topic: SIM device change biometric verification
+    cluster: sim-device-change-biometric-verification
+    canonical_owner: /posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu/
+    content_type: SUPPORT_ARTICLE
+    evidence: FIRST_PARTY_VERIFIED
+    priority: P0
+    decision: REJECT
+    reason: "Owner was expanded earlier today; do not repeat near-duplicate intent."
+  - query: "SIM Viettel bị chặn 2 chiều xác thực thế nào"
+    intent: SUPPORT
+    entity_topic: subscriber verification suspension recovery
+    cluster: sim-verification-recovery
+    canonical_owner: /posts/sim-viettel-bi-chan-2-chieu-chua-xac-thuc/
+    content_type: SUPPORT_ARTICLE
+    evidence: FIRST_PARTY_VERIFIED
+    priority: P0
+    decision: SELECT_UPDATE
+    reason: "Existing owner matches the same search job. Fresh first-party evidence supports expanding the decision tree, separating generic verification suspension from device-change biometrics, and adding overseas roaming/OTP recovery guidance. A new URL would cannibalize the owner."
+selected:
+  action: UPDATE
+  primary_keyword: "SIM Viettel bị chặn 2 chiều"
+  secondary_queries:
+    - "SIM Viettel bị chặn do chưa xác thực thông tin"
+    - "SIM Viettel bị chặn 1 chiều xác thực thế nào"
+    - "xác thực SIM Viettel để mở lại"
+    - "SIM Viettel bị chặn ở nước ngoài nhận OTP"
+    - "SIM Viettel đổi máy bị chặn khác gì chưa xác thực"
+  cluster: sim-verification-recovery
+  primary_intent: SUPPORT
+  secondary_intent: INFORMATIONAL
+  target_url: /posts/sim-viettel-bi-chan-2-chieu-chua-xac-thuc/
+  title: "SIM Viettel bị chặn 2 chiều: cách xác thực và khôi phục số 2026"
+  slug: sim-viettel-bi-chan-2-chieu-chua-xac-thuc
+  why_update: "The existing route already owns the primary search job; expansion avoids cannibalization and improves problem diagnosis using verified 2026 Viettel guidance."
+  duplicate_cannibalization: PASS
+  internal_link_plan:
+    - /posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu/
+    - /posts/tra-cuu-chuan-hoa-thong-tin-thue-bao-viettel/
+    - /posts/xac-thuc-sim-viettel-o-nuoc-ngoai/
+metrics:
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking_position: UNKNOWN
+  traffic_potential: UNKNOWN
+  fabricated_metrics: false
+k0_result: PASS
+notes:
+  - "No DNS/domain routing change authorized or performed."
+  - "Approved registration CTA MÃ_GÓI GB -> 290 must remain unchanged."
+  - "Deployment may only be called LIVE after exact resulting main SHA has Vercel production READY and public production HTTP 200 read-back."
