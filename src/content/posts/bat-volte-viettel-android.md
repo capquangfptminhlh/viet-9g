@@ -8,6 +8,8 @@ date: 2026-09-01
 
 Nếu điện thoại Android dùng SIM/eSIM Viettel nhưng khi gọi máy rơi khỏi 4G/5G, không thấy mục **VoLTE / Cuộc gọi VoLTE** hoặc data bị gián đoạn trong lúc gọi, hãy kiểm tra theo thứ tự: **máy hỗ trợ → SIM/thuê bao → dịch vụ VoLTE → cài đặt mạng → cuộc gọi thử**.
 
+![Minh họa VoLTE Viettel trên điện thoại Android Samsung, Xiaomi, Oppo và Realme](/images/volte-viettel-android.svg)
+
 Theo hướng dẫn chính thức của Viettel, thuê bao có thể đăng ký dịch vụ VoLTE/HD Voice bằng cú pháp **`HDCALL` gửi `191`**, phí dịch vụ được Viettel công bố là **0 đồng**. Viettel cũng lưu ý nhiều thuê bao có thể đã được đăng ký sẵn.
 
 ## VoLTE Viettel trên Android là gì?
