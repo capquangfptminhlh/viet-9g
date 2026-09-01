@@ -1,0 +1,158 @@
+run: "2026-09-01-0700"
+observed_at: "2026-09-01T07:01:47+07:00"
+action: NEW
+status: PASS
+primary_keyword: "cách bật VoLTE Viettel trên Android"
+secondary_queries:
+  - "bật VoLTE Viettel Samsung"
+  - "bật VoLTE Viettel Xiaomi"
+  - "bật VoLTE Viettel Oppo"
+  - "HDCALL gửi 191 Android"
+  - "Android gọi điện bị mất 4G Viettel"
+  - "Samsung không hiện VoLTE Viettel"
+intent: "SUPPORT + INFORMATIONAL"
+cluster: "android-volte-setup"
+parent_cluster: "viettel-4g-5g-support"
+entity:
+  type: "device_platform_support"
+  name: "Viettel VoLTE on Android"
+  members:
+    - Samsung
+    - Xiaomi
+    - Redmi
+    - Poco
+    - Oppo
+    - Realme
+    - Vivo
+    - Google Pixel
+    - Sony Xperia
+    - Huawei
+canonical_owner: "/posts/bat-volte-viettel-android/"
+content_type: "device_support_guide"
+new_url_created: true
+cannibalization: PASS
+reason: >-
+  Repository-wide search found no existing canonical owner for the Android-specific VoLTE setup job.
+  The existing domestic owner /posts/cai-dat-4g-5g-volte-iphone-viettel/ is explicitly scoped to iPhone/iOS,
+  while /posts/bat-volte-khi-roaming-viettel/ is scoped to international roaming. Android users have materially
+  different settings surfaces across Samsung, Xiaomi/Redmi/Poco, Oppo/Realme and other Android families.
+  A single Android canonical owner consolidates those device-family variants rather than creating thin pages per brand.
+
+candidates_checked:
+  - candidate: "same-day Viettel mobile breaking update 01/09/2026"
+    decision: HOLD
+    reason: "Same-day first-party search did not surface a sufficiently strong Viettel 4G/5G/eSIM/SIM/roaming/package publication on 01/09/2026 at observed_at. Candidate-level HOLD only."
+  - candidate: "VoLTE Viettel on Android / Samsung / Xiaomi / Oppo"
+    decision: SELECT
+    reason: "Official Viettel guidance dated 14/04/2026 explicitly covers Samsung, Huawei, Oppo & Realme, Redmi/Xiaomi, Nokia, Vivo, Poco, Google Pixel, Sony Xperia and other 4G devices; generic Viettel VoLTE documentation provides the Android path, HDCALL 191 and verification flow. Repo search found no Android-specific owner."
+  - candidate: "SS5G package for Samsung Galaxy devices"
+    decision: HOLD
+    reason: "First-party commercial source found is dated 12/11/2025 and current 2026 eligibility/availability was not independently verified. Do not publish stale commercial eligibility as current."
+  - candidate: "5G coverage areas in Hanoi"
+    decision: HOLD
+    reason: "First-party page exposes a coverage snapshot tied to 31/08/2025; location coverage is freshness-sensitive and cannot be presented as September 2026 coverage without current primary evidence."
+  - candidate: "eSIM hotspot / tethering on Android"
+    decision: REJECT
+    reason: "Existing canonical owner /posts/esim-viettel-co-phat-wifi-hotspot/ already owns this support job."
+  - candidate: "eSIM conversion fee on Tammi"
+    decision: REJECT
+    reason: "Existing canonical owner /posts/phi-esim-viettel-2026/ already owns current eSIM pricing/conversion intent."
+  - candidate: "Japan roaming no-network / Android setup"
+    decision: REJECT
+    reason: "Existing canonical owners /posts/viettel-roaming-nhat-ban-khong-co-mang/ and /posts/data-roaming-viettel-iphone-android/ already own the country troubleshooting and generic Data Roaming jobs."
+  - candidate: "5G + CapCut package family"
+    decision: REJECT
+    reason: "Published in the previous slot at /posts/goi-5g-viettel-capcut/; duplicate publication is prohibited."
+
+sources:
+  - id: "viettel-volte-device-guide-2026-04-14"
+    url: "https://098.viettel.vn/tin-tuc/huong-dan-bat-dich-vu-cuoc-goi-volte-goi-chat-luong-tot-hon-an-toan-hon/15298552"
+    publisher: "Viettel"
+    published: "2026-04-14"
+    observed_at: "2026-09-01T07:01:47+07:00"
+    role: "primary device-family evidence; explicitly lists iPhone, Samsung, Huawei, Oppo & Realme, Redmi/Xiaomi, Nokia, Vivo, Poco, Google Pixel, Sony Xperia, Masstel and 4G feature phones"
+    verification_status: VERIFIED
+  - id: "viettel-volte-service-guide-2025-04-23"
+    url: "https://098.viettel.vn/tin-tuc/chi-tiet/volte-dich-vu-thoai-chat-luong-cao-tren-ha-tang-mang-4g5g-viettel/13748208"
+    publisher: "Viettel"
+    published: "2025-04-23"
+    observed_at: "2026-09-01T07:01:47+07:00"
+    role: "first-party Android settings path, SIM/device requirements, HDCALL 191, zero service fee, call-test and restart guidance"
+    verification_status: VERIFIED
+
+source_facts:
+  android_generic_path: "Settings -> Mobile networks -> select SIM if applicable -> 4G/5G -> VoLTE/VoLTE calls"
+  registration_sms: "HDCALL"
+  registration_number: "191"
+  service_fee_vnd: 0
+  many_subscribers_may_be_preprovisioned: true
+  verification_method: "place an outgoing call and observe 4G/5G/LTE/VoLTE state where the device exposes it"
+  restart_if_not_successful: true
+  sim_requirement: "SIM 4G/5G according to first-party guide"
+  device_requirement: "VoLTE-capable device"
+  universal_model_support_list: UNKNOWN
+  exact_menu_per_android_model: UNKNOWN
+  universal_icon_behavior: UNKNOWN
+
+query_mapping:
+  query: "cách bật VoLTE Viettel trên Android"
+  primary_intent: "SUPPORT"
+  secondary_intent: "INFORMATIONAL"
+  entity_topic: "Android device VoLTE configuration on Viettel"
+  cluster: "android-volte-setup"
+  canonical_url_owner: "/posts/bat-volte-viettel-android/"
+  content_type: "device_support_guide"
+  evidence_refs:
+    - "viettel-volte-device-guide-2026-04-14"
+    - "viettel-volte-service-guide-2025-04-23"
+  priority: P1
+
+internal_link_plan:
+  parent: "/5g-viettel/"
+  related:
+    - "/posts/cai-dat-4g-5g-volte-iphone-viettel/"
+    - "/posts/bat-volte-khi-roaming-viettel/"
+    - "/posts/esim-5g-kich-hoat-quet-qr/"
+
+image_plan:
+  role: "source-linked instructional evidence"
+  subject: "Viettel official VoLTE device guide covering Android families"
+  source_mode: "FIRST_PARTY_ARTICLE_SOURCE"
+  source_ref: "viettel-volte-device-guide-2026-04-14"
+  topic_match: PASS
+  note: "No unrelated stock image or fabricated screenshot is introduced. The official source contains device-specific instructional imagery; article links directly to the first-party guide."
+
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+
+priority:
+  tier: P1
+  reason: >-
+    Durable support intent with current-enough 2026 first-party multi-device guidance, a distinct Android platform entity,
+    troubleshooting value and no Android-specific canonical owner. Quantitative demand metrics are unavailable and remain UNKNOWN.
+
+k0_decision:
+  decision: PASS
+  duplicate_risk: PASS
+  cannibalization_result: PASS
+  unsupported_metrics: 0
+  unsupported_business_facts: 0
+
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
+
+website_os_bootstrap:
+  source_repo: "capquangfptminhlh/seo-web"
+  source_ref: "main"
+  source_commit_sha: "ef18d255150f3a77a7c7587feccf1ba7c419ad7b"
+  manifest_version: "1.3.0"
+  observed_at: "2026-09-01T07:01:47+07:00"
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
