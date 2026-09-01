@@ -70,5 +70,13 @@
     "contentHash": "8d1ba5e4e3afc2ca74ef98135c37d97ef444e8c7d35e39327f345a17910230e5",
     "status": "PUBLISHED",
     "createdAt": "2026-08-12T00:53:33.907Z"
+  },
+  {
+    "idempotencyKey": "340c6f7e0dd0f828afbd9087b4bf4642634068eba842960f6a80406863c38534",
+    "topicId": "topic-b1-roaming-chon-mang-thu-cong",
+    "slug": "topic-b1-roaming-chon-mang-thu-cong",
+    "contentHash": "cac63ec978558a64b7f3cabb411d884bfd2f60c918d74ed08262a0d8668982a6",
+    "status": "PUBLISHED",
+    "createdAt": "2026-09-01T02:17:09.340Z"
   }
 ]
