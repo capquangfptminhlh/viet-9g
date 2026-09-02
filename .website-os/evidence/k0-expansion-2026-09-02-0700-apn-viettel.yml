@@ -1,0 +1,202 @@
+version: 1.0.0
+run_slot: "07:00"
+observed_at: "2026-09-02T07:03:00+07:00"
+action: NEW
+status: PASS
+website_os:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest: governance/website-os.manifest.yml
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
+project_main_at_start: 6f465f00c8f49db9767d221b9f91542df5c0e36d
+primary_keyword: "cài APN Viettel 4G 5G"
+secondary_queries:
+  - "APN Viettel v-internet"
+  - "cách cài APN Viettel Android"
+  - "APN Viettel iPhone"
+  - "Viettel có sóng nhưng không vào mạng APN"
+  - "5G Viettel không vào mạng kiểm tra APN"
+  - "APN Viettel roaming"
+intent: "SUPPORT + INFORMATIONAL"
+cluster: "viettel-apn-data-troubleshooting"
+parent_cluster: "viettel-4g-5g-support"
+entity:
+  type: "network_configuration"
+  name: "Viettel APN"
+  attribute: "v-internet"
+canonical_owner: "/posts/cai-apn-viettel-4g-5g-v-internet/"
+content_type: "support_guide"
+new_url_created: true
+cannibalization: PASS
+reason: >-
+  Repository-wide search found APN references only inside narrower roaming, VoLTE and device-change troubleshooting owners.
+  No canonical route owns the domestic/generic search job of checking Viettel APN when a device has signal but mobile data does not work.
+  The new owner centralizes APN-specific troubleshooting and links to the narrower roaming and VoLTE owners rather than duplicating them.
+
+search_chain:
+  same_day_research:
+    observed_at: "2026-09-02T07:03:00+07:00"
+    result: HOLD_CANDIDATE_ONLY
+    reason: "Same-day first-party searches did not surface a sufficiently strong Viettel 4G/5G/eSIM/SIM/roaming/package publication dated 02/09/2026 at observation time; fallback continued."
+  source_provenance:
+    - source: "Viettel Telecom"
+      url: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/di-nhat-ban-khong-co-mang-huong-dan-bat-4g5g-va-roaming-viettel-chi-tiet/16239800"
+      published_at: "2026-04-14"
+      observed_at: "2026-09-02T07:03:00+07:00"
+      provenance: FIRST_PARTY
+      verification_status: VERIFIED
+      bounded_facts:
+        - "APN is a necessary configuration for Internet access in Viettel's troubleshooting guidance."
+        - "An incorrect APN can interrupt data connectivity."
+        - "The Viettel APN named in the guide is v-internet."
+
+candidates_checked:
+  - query: "Viettel mobile breaking update 02/09/2026"
+    intent: FRESHNESS
+    entity_topic: "Viettel mobile news"
+    cluster: "freshness-news"
+    canonical_owner: UNKNOWN
+    content_type: "NEWS_FRESHNESS"
+    evidence: INSUFFICIENT_FIRST_PARTY_SAME_DAY
+    priority: P0
+    decision: HOLD
+    reason: "No qualifying same-day first-party mobile item found at observation time; candidate-level HOLD only."
+  - query: "VoWiFi Viettel / Wi-Fi Calling Viettel"
+    intent: SUPPORT
+    entity_topic: "VoWiFi"
+    cluster: "voice-over-wifi"
+    canonical_owner: UNKNOWN
+    content_type: "SUPPORT_ARTICLE"
+    evidence: INSUFFICIENT_CURRENT_FIRST_PARTY
+    priority: P1
+    decision: HOLD
+    reason: "Current first-party provisioning/support evidence was not strong enough to publish factual activation guidance."
+  - query: "cài APN Viettel 4G 5G / v-internet"
+    intent: SUPPORT
+    entity_topic: "Viettel APN data configuration"
+    cluster: "viettel-apn-data-troubleshooting"
+    canonical_owner: "/posts/cai-apn-viettel-4g-5g-v-internet/"
+    content_type: "SUPPORT_ARTICLE"
+    evidence: FIRST_PARTY_VERIFIED
+    priority: P1
+    decision: SELECT_NEW
+    reason: "Official Viettel evidence verifies APN purpose and v-internet; repository search found no generic APN owner."
+  - query: "eSIM 5G Viettel thiết bị hỗ trợ"
+    intent: INFORMATIONAL
+    entity_topic: "eSIM 5G compatibility"
+    cluster: "viettel-esim"
+    canonical_owner: "EXISTING_ESIM_COMPATIBILITY_OWNERS"
+    content_type: "SUPPORT_ARTICLE"
+    evidence: FIRST_PARTY_VERIFIED
+    priority: P1
+    decision: REJECT
+    reason: "Existing eSIM activation/compatibility routes already own this job; a new URL would create overlap."
+  - query: "Viettel roaming Nhật Bản không có mạng"
+    intent: SUPPORT
+    entity_topic: "Japan roaming connectivity"
+    cluster: "viettel-roaming"
+    canonical_owner: "/posts/viettel-roaming-nhat-ban-khong-co-mang/"
+    content_type: "SUPPORT_ARTICLE"
+    evidence: FIRST_PARTY_VERIFIED
+    priority: P1
+    decision: REJECT
+    reason: "Existing country-specific canonical owner already owns the Japan roaming job; APN owner links to it instead of duplicating it."
+  - query: "SS5G Viettel Samsung"
+    intent: COMMERCIAL
+    entity_topic: "SS5G package"
+    cluster: "viettel-5g-packages"
+    canonical_owner: UNKNOWN
+    content_type: "PACKAGE_SUPPORT"
+    evidence: STALE_COMMERCIAL_WINDOW
+    priority: P1
+    decision: HOLD
+    reason: "The first-party campaign source found applies 10/11/2025 through 30/01/2026; current September 2026 eligibility is not verified."
+  - query: "5G Viettel Hà Nội phủ sóng ở đâu"
+    intent: LOCAL_INFORMATIONAL
+    entity_topic: "5G coverage Hanoi"
+    cluster: "viettel-5g-coverage"
+    canonical_owner: UNKNOWN
+    content_type: "LOCAL_SUPPORT"
+    evidence: STALE_LOCATION_SNAPSHOT
+    priority: P1
+    decision: HOLD
+    reason: "Available first-party coverage snapshot is tied to 31/08/2025 and cannot be represented as current September 2026 coverage."
+
+query_mapping:
+  query: "cài APN Viettel 4G 5G"
+  primary_intent: SUPPORT
+  secondary_intent: INFORMATIONAL
+  entity_topic: "Viettel APN / v-internet / mobile data troubleshooting"
+  cluster: "viettel-apn-data-troubleshooting"
+  canonical_url_owner: "/posts/cai-apn-viettel-4g-5g-v-internet/"
+  content_type: "support_guide"
+  evidence_refs:
+    - "viettel-roaming-japan-2026-04-14"
+  priority: P1
+
+sources:
+  - id: "viettel-roaming-japan-2026-04-14"
+    url: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/di-nhat-ban-khong-co-mang-huong-dan-bat-4g5g-va-roaming-viettel-chi-tiet/16239800"
+    publisher: "Viettel Telecom"
+    published: "2026-04-14"
+    observed_at: "2026-09-02T07:03:00+07:00"
+    role: "first-party APN purpose, incorrect-APN troubleshooting and v-internet value"
+    verification_status: VERIFIED
+
+source_facts:
+  apn_name: "v-internet"
+  apn_is_required_configuration_for_internet_access_in_source_context: true
+  incorrect_apn_can_interrupt_data: true
+  universal_manual_configuration_required: UNKNOWN
+  universal_android_menu: UNKNOWN
+  universal_ios_editability: UNKNOWN
+  dedicated_5g_apn_required: UNKNOWN
+  mcc_mnc_values: UNKNOWN
+  apn_type_values: UNKNOWN
+  mms_values: UNKNOWN
+
+internal_link_plan:
+  parent: "/5g-viettel/"
+  related:
+    - "/posts/data-roaming-viettel-iphone-android/"
+    - "/posts/viettel-roaming-nhat-ban-khong-co-mang/"
+    - "/posts/bat-volte-viettel-android/"
+    - "/posts/cai-dat-4g-5g-volte-iphone-viettel/"
+    - "/posts/cach-kiem-tra-tai-khoan-chinh/"
+
+image_plan:
+  role: "instructional evidence"
+  subject: "Viettel APN/data troubleshooting"
+  source_mode: "FIRST_PARTY_ARTICLE_SOURCE"
+  source_ref: "viettel-roaming-japan-2026-04-14"
+  topic_match: PASS
+  note: "No unrelated stock image or fabricated screenshot is introduced; article points to the first-party Viettel source."
+
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+
+priority:
+  tier: P1
+  reason: >-
+    Distinct durable support job with first-party evidence, strong troubleshooting utility and no generic APN canonical owner.
+    Quantitative demand metrics are unavailable and remain UNKNOWN.
+
+k0_decision:
+  decision: PASS
+  duplicate_risk: PASS
+  cannibalization_result: PASS
+  unsupported_metrics: 0
+  unsupported_business_facts: 0
+
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
