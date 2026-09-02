@@ -78,5 +78,13 @@
     "contentHash": "cac63ec978558a64b7f3cabb411d884bfd2f60c918d74ed08262a0d8668982a6",
     "status": "PUBLISHED",
     "createdAt": "2026-09-01T02:17:09.340Z"
+  },
+  {
+    "idempotencyKey": "80ef38bbac203ad504b78e782055b3cf5d2784bb8d28eefc7fc622d4745b6eac",
+    "topicId": "topic-b1-roaming-tra-lai-tu-dong",
+    "slug": "topic-b1-roaming-tra-lai-tu-dong",
+    "contentHash": "ec1088a57f9638e67b35e4cdf1eaf7a64373af96c65169872ba4791b7a96b2b8",
+    "status": "PUBLISHED",
+    "createdAt": "2026-09-02T01:39:18.074Z"
   }
 ]
