@@ -1,0 +1,172 @@
+version: 1.0.0
+decision: PASS
+run_slot: "20:00"
+observed_at: "2026-09-02T20:02:45+07:00"
+action: UPDATE
+website_os_source_repo: capquangfptminhlh/seo-web
+website_os_source_ref: main
+website_os_source_commit: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+website_os_manifest_version: 1.3.0
+project_main_at_start: dc84c216c88d9caec966cb7b3508a70cf8548a60
+production_invariants:
+  dns_domain_routing_change: false
+  registration_cta_contract: "MÃ_GÓI GB -> 290"
+  exact_main_vercel_ready_required_before_live_claim: true
+
+same_day_research:
+  observed_at: "2026-09-02T20:02:45+07:00"
+  result: HOLD_CANDIDATE_ONLY
+  reason: "Fresh same-day searches across Viettel Telecom/Viettel 4G/5G/eSIM/SIM/roaming/package topics did not surface a sufficiently strong first-party publication dated 02/09/2026. Candidate-level HOLD only; fallback continued."
+  provenance:
+    - "https://www.vietteltelecom.vn/vx/"
+    - "https://5g.vietteltelecom.vn/vx/5g/"
+    - "Fresh web searches restricted to vietteltelecom.vn and viettel.vn observed at run time"
+
+candidates_checked:
+  - candidate: "same-day Viettel 4G/5G/eSIM/SIM/roaming/package breaking item"
+    query: "Viettel 5G eSIM SIM roaming 02/09/2026"
+    intent: FRESHNESS_INFORMATIONAL
+    entity_topic: "Viettel mobile freshness"
+    cluster: "viettel-mobile-freshness"
+    canonical_owner: UNKNOWN
+    content_type: NEWS_FRESHNESS
+    evidence: "Same-day official-site search did not surface a sufficiently strong dated mobile item."
+    priority: HOLD
+    disposition: HOLD_CANDIDATE_ONLY
+    reason: "Insufficient first-party same-day evidence; fallback continued."
+
+  - candidate: "5G Viettel chậm / sóng yếu"
+    query: "5G Viettel chậm, sóng yếu, máy hiện 5G nhưng Internet chậm"
+    intent: SUPPORT
+    entity_topic: "Viettel 5G connection diagnosis"
+    cluster: "viettel-mobile-speed-diagnosis"
+    canonical_owner: "/posts/kiem-tra-toc-do-mang-my-viettel/"
+    content_type: SUPPORT_ARTICLE
+    evidence:
+      - "https://shop.viettel.vn/tin-tuc/chi-tiet/nguyen-nhan-va-cach-khac-phuc-mang-5g-cham-hieu-qua/16939076"
+      - "https://www.viettel.vn/tin-tuc/chi-tiet/kiem-tra-toc-do-truy-cap-internet-de-dang-ngay-tren-my-viettel/19436224/"
+    priority: P1
+    disposition: SELECT_UPDATE
+    reason: "Existing owner already opens with the 4G/5G slow-speed job and owns measurement/diagnosis. A new URL would split the same support journey. Official Viettel evidence supports a materially stronger troubleshooting expansion."
+
+  - candidate: "roaming Viettel không có sóng"
+    query: "chuyển vùng quốc tế Viettel không có sóng"
+    intent: SUPPORT
+    entity_topic: "roaming network attachment"
+    cluster: "roaming-network-troubleshooting"
+    canonical_owner: "/posts/chon-mang-thu-cong-roaming-viettel/ plus existing roaming owners"
+    content_type: SUPPORT_ARTICLE
+    evidence: "Viettel Telecom official roaming troubleshooting result observed in live search."
+    priority: P2
+    disposition: SKIP_EXISTING_OWNER
+    reason: "The repo already owns manual network selection, Data Roaming and country-specific no-data/no-signal support. Avoid near-duplicate expansion in the same day."
+
+  - candidate: "kiểm tra SIM Viettel chính chủ"
+    query: "kiểm tra SIM chính chủ Viettel"
+    intent: SUPPORT_INFORMATIONAL
+    entity_topic: "subscriber identity verification"
+    cluster: "sim-owner-verification"
+    canonical_owner: "/posts/kiem-tra-sim-viettel-chinh-chu/"
+    content_type: SUPPORT_ARTICLE
+    evidence: "https://vietteltelecom.vn/tin-tuc/chi-tiet/3-cach-kiem-tra-sim-chinh-chu-nhanh-hoan-toan-mien-phi/15860752"
+    priority: P2
+    disposition: SKIP_EXISTING_OWNER
+    reason: "Dedicated canonical owner already exists and current 20:00 opportunity has stronger freshness/unique-value gain in 5G speed diagnosis."
+
+  - candidate: "gói 5G 7 ngày Viettel"
+    query: "gói data Viettel 7 ngày 5G70 5GVS80"
+    intent: COMMERCIAL
+    entity_topic: "short-cycle Viettel data packages"
+    cluster: "viettel-short-cycle-packages"
+    canonical_owner: UNKNOWN
+    content_type: COMPARISON_OR_PACKAGE_GUIDE
+    evidence: "Official Viettel result exists but surfaced as a 2025 package roundup."
+    priority: HOLD
+    disposition: HOLD_CANDIDATE_ONLY
+    reason: "Package eligibility/current availability is freshness-sensitive; the surfaced source is not strong enough to assert September 2026 commercial availability without additional current validation."
+
+  - candidate: "chuyển tiền cho thuê bao Viettel đã roaming"
+    query: "cách chuyển tiền cho thuê bao Viettel đã roaming"
+    intent: SUPPORT_TRANSACTIONAL
+    entity_topic: "roaming account funding"
+    cluster: "roaming-account-support"
+    canonical_owner: UNKNOWN
+    content_type: HOW_TO_GUIDE
+    evidence: "A Viettel Telecom result surfaced in live search, but the source could not be reliably opened/read back during the run."
+    priority: HOLD
+    disposition: HOLD_CANDIDATE_ONLY
+    reason: "Do not publish transaction steps or fees without readable current first-party evidence."
+
+  - candidate: "5G Viettel iPhone 17 package"
+    query: "gói 5G Viettel iPhone 17"
+    intent: COMMERCIAL
+    entity_topic: "iPhone 17 Viettel package family"
+    cluster: "viettel-device-package-bundles"
+    canonical_owner: UNKNOWN
+    content_type: PACKAGE_GUIDE
+    evidence: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/viettel-ra-mat-goi-cuoc-5g-%E2%80%9Cchinh-hieu%E2%80%9D-cho-iphone-17/16102884/"
+    priority: HOLD
+    disposition: HOLD_CANDIDATE_ONLY
+    reason: "Official source is from 18/09/2025; current September 2026 eligibility/benefits were not revalidated."
+
+selected_chain:
+  primary_keyword: "5G Viettel chậm"
+  secondary_queries:
+    - "sóng 5G Viettel yếu"
+    - "máy hiện 5G nhưng mạng chậm Viettel"
+    - "cách đo tốc độ 5G Viettel"
+    - "kiểm tra tốc độ mạng My Viettel"
+    - "5G Viettel chập chờn"
+    - "5G chậm có phải đổi SIM không"
+  primary_intent: SUPPORT
+  secondary_intent: INFORMATIONAL
+  entity_topic: "Viettel 5G mobile connection quality diagnosis"
+  cluster: "viettel-mobile-speed-diagnosis"
+  canonical_url_owner: "/posts/kiem-tra-toc-do-mang-my-viettel/"
+  content_type: SUPPORT_ARTICLE
+  action_reason: "UPDATE existing canonical owner because it already targets 4G/5G slow-speed measurement and diagnosis. New URL would create a competing owner for the same search job."
+  target_url: "/posts/kiem-tra-toc-do-mang-my-viettel/"
+  new_title: "5G Viettel chậm, sóng yếu: đo bằng My Viettel và kiểm tra gì trước?"
+  priority_tier: P1
+  demand_evidence: "Fresh qualitative live-search observation; no numeric search-volume provider available in this run."
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+
+source_provenance:
+  - id: viettel-my-viettel-ispeed-2025-04-25
+    source_type: FIRST_PARTY
+    url: "https://www.viettel.vn/tin-tuc/chi-tiet/kiem-tra-toc-do-truy-cap-internet-de-dang-ngay-tren-my-viettel/19436224/"
+    supports: "My Viettel speed-test feature, i-SPEED provenance, download/upload/ping/jitter."
+    verification_status: VERIFIED
+  - id: viettel-5g-slow-troubleshooting-2025-03-03
+    source_type: FIRST_PARTY
+    url: "https://shop.viettel.vn/tin-tuc/chi-tiet/nguyen-nhan-va-cach-khac-phuc-mang-5g-cham-hieu-qua/16939076"
+    supports: "Device/network configuration, data saver, position/coverage, software and SIM as troubleshooting factors for weak/slow 5G."
+    verification_status: VERIFIED
+
+cannibalization:
+  before_action: MEDIUM
+  compared_routes:
+    - "/posts/kiem-tra-toc-do-mang-my-viettel/"
+    - "/posts/loi-khong-dang-ky-duoc-mang-5g-viettel/"
+    - "/posts/cai-apn-viettel-4g-5g-v-internet/"
+  decision: UPDATE_EXISTING_OWNER
+  rationale: "Speed diagnosis stays with My Viettel/i-SPEED owner; package-registration failure remains separate; APN remains separate for no-Internet/configuration cases."
+  after_action: PASS
+
+internal_link_plan:
+  parent_owner: "/posts/kiem-tra-toc-do-mang-my-viettel/"
+  links_to:
+    - "/posts/cai-apn-viettel-4g-5g-v-internet/"
+    - "/posts/loi-khong-dang-ky-duoc-mang-5g-viettel/"
+  purpose: "Separate slow-speed diagnosis from APN/no-Internet and package-registration failures."
+
+k0_result:
+  decision: PASS
+  unsupported_metrics_fabricated: false
+  factual_claims_require_primary_source: true
+  high_risk_cannibalization_unresolved: false
+  publishable_content_change: true
