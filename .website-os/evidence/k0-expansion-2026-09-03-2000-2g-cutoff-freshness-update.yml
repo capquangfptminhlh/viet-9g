@@ -1,0 +1,56 @@
+version: 1.0.0
+run_slot: "20:00"
+observed_at: "2026-09-03T19:58:13+07:00"
+action: UPDATE
+website_os:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest: governance/website-os.manifest.yml
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  bootstrap_decision: PASS
+project_main_at_start: 5fdd5fda5b7c2e992e6c00ce09322d3056408050
+search_chain:
+  candidates_checked:
+    - {id: C1, candidate: "same-day Viettel first-party mobile breaking item", intent: FRESHNESS, decision: HOLD, reason: "No sufficiently strong first-party Viettel mobile publication dated 03/09/2026 surfaced."}
+    - {id: C2, candidate: "2G shutdown 15/09/2026 + 4G voice readiness", intent: "FRESHNESS+SUPPORT", decision: SELECT_UPDATE, canonical_owner: "/posts/tat-song-2g-15-9-2026-viettel-volte/", reason: "Strong same-day news demand reinforces the existing owner; new URL would duplicate the same search job."}
+    - {id: C3, candidate: "Viettel roaming Laos package comparison", intent: COMMERCIAL, decision: REJECT_DUPLICATE, canonical_owner: "/posts/roaming-viettel-di-lao/"}
+    - {id: C4, candidate: "eSIM Viettel 5G150E eligibility", intent: "TECHNOLOGY+COMMERCIAL", decision: REJECT_DUPLICATE, reason: "Existing eSIM/package owners already cover this entity family."}
+    - {id: C5, candidate: "buy extra data after quota exhaustion", intent: SUPPORT, decision: HOLD, reason: "Fresh first-party 2026 evidence was insufficient; older My Viettel documentation is not enough for current commercial facts."}
+    - {id: C6, candidate: "VoWiFi / Wi-Fi Calling provisioning", intent: SUPPORT, decision: HOLD, reason: "Current first-party provisioning and broad eligibility evidence remains insufficient."}
+    - {id: C7, candidate: "city-level 5G coverage", intent: LOCAL_INFORMATIONAL, decision: HOLD, reason: "No sufficiently fresh first-party city-level coverage snapshot found for September 2026."}
+selected_candidate:
+  primary_keyword: "tắt sóng 2G 15/9/2026 điện thoại 4G Viettel"
+  secondary_queries:
+    - "điện thoại 4G Viettel có mất cuộc gọi khi tắt 2G"
+    - "15/9/2026 tắt 2G Viettel"
+    - "tắt 2G cần bật VoLTE Viettel không"
+    - "máy hiện 4G nhưng không gọi được sau tắt 2G"
+    - "HDCALL gửi 191 trước khi tắt 2G"
+  primary_intent: SUPPORT
+  secondary_intent: FRESHNESS
+  cluster: "2g-shutdown-volte-readiness"
+  canonical_url: "/posts/tat-song-2g-15-9-2026-viettel-volte/"
+  content_type: "freshness support guide"
+  why_update: "Same-day 03/09/2026 reporting materially refreshes urgency around the same 15/09 cutoff and 4G/VoLTE readiness job already owned by this URL; a new route would cannibalize the established owner."
+source_provenance:
+  - {source: "Bộ Khoa học và Công nghệ — lộ trình tắt sóng 2G", source_type: PRIMARY_GOV, url: "https://mst.gov.vn/bo-tttt-cong-bo-lo-trinh-tat-song-2g-197240705094212138.htm", role: "official 15/09/2026 cutoff and exceptions"}
+  - {source: "Bộ Khoa học và Công nghệ — thông cáo lộ trình 2G", source_type: PRIMARY_GOV, url: "https://mst.gov.vn/thong-cao-bao-chi-ve-lo-trinh-dung-cong-nghe-di-dong-2g-197240705111036541.htm", role: "900/1800 MHz and formal roadmap"}
+  - {source: "Viettel — hướng dẫn VoLTE", source_type: FIRST_PARTY, url: "https://098.viettel.vn/tin-tuc/huong-dan-bat-dich-vu-cuoc-goi-volte-goi-chat-luong-tot-hon-an-toan-hon/15298552", role: "VoLTE setup and device guidance"}
+  - {source: "Báo Nghệ An 03/09/2026", source_type: FRESH_NEWS, url: "https://baonghean.vn/viet-nam-tat-hoan-toan-mang-2g-tu-ngay-1592026-de-giai-phong-bang-tan-phat-trien-5g-va-6g-10350360.html", role: "same-day freshness signal"}
+  - {source: "Báo Tuyên Quang 03/09/2026", source_type: FRESH_NEWS, url: "https://baotuyenquang.com.vn/khoa-hoc-cong-nghe/202609/tat-song-2g-dam-bao-quyen-loi-thong-tin-lien-lac-cho-nguoi-dan-2c6435a/", role: "same-day transition/support signal"}
+cannibalization:
+  risk_before: LOW
+  canonical_owner: "/posts/tat-song-2g-15-9-2026-viettel-volte/"
+  new_url_created: false
+  result: PASS
+metrics: {search_volume: UNKNOWN, keyword_difficulty: UNKNOWN, cpc: UNKNOWN, ranking_position: UNKNOWN, traffic_potential: UNKNOWN, fabricated_metrics: false}
+invariants:
+  dns_or_domain_routing_changed: false
+  registration_cta_contract_changed: false
+  registration_cta_contract: "MÃ_GÓI GB -> 290"
+  unsupported_business_facts_added: false
+k0_decision:
+  decision: PASS
+  reason: "Evidence-backed freshness expansion stays on the existing canonical owner, preserves topic ownership, and adds no fabricated metrics or unsupported Viettel commercial facts."
