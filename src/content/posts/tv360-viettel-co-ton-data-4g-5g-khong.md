@@ -10,6 +10,8 @@ date: 2026-09-03
 
 **Cập nhật kiểm chứng: 03/09/2026.** Bài này chỉ giải thích chính sách data được Viettel công bố; không suy diễn rằng mọi gói có chữ “TV360”, mọi gói di động hay mọi ưu đãi tương lai đều tự động được miễn data.
 
+![Minh họa chính sách data TV360 trên mạng di động Viettel: Free/Basic tính vào gói data, nhóm trả phí được Viettel nêu được miễn lưu lượng](/images/tv360-viettel-data-policy.svg)
+
 ## TV360 Free và Basic có bị trừ data Viettel không?
 
 **Có.** Trong thông báo chính thức về chính sách lưu lượng TV360, Viettel tách rõ hai nhóm:
