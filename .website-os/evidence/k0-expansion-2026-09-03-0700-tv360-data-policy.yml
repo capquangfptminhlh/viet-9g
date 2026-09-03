@@ -1,0 +1,200 @@
+version: 1.0.0
+run_slot: "07:00"
+observed_at: "2026-09-03T06:57:19+07:00"
+action: NEW
+status: PASS
+website_os:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest: governance/website-os.manifest.yml
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
+project_main_at_start: 69a6c8225f7cc177d7bd22170d85a95777348e45
+primary_keyword: "TV360 Viettel có tốn data không"
+secondary_queries:
+  - "xem TV360 có trừ data Viettel không"
+  - "TV360 miễn phí data 4G 5G"
+  - "TV360 Basic có tốn data không"
+  - "TV360 Free có trừ data Viettel"
+  - "tại sao xem TV360 bị trừ data"
+intent: "SUPPORT + INFORMATIONAL"
+cluster: "tv360-mobile-data-policy"
+parent_cluster: "viettel-digital-services-support"
+entity:
+  type: "digital_service"
+  name: "TV360"
+  attribute: "4G/5G mobile-data charging policy"
+canonical_owner: "/posts/tv360-viettel-co-ton-data-4g-5g-khong/"
+content_type: "support_guide"
+new_url_created: true
+cannibalization: PASS
+reason: >-
+  Repository-wide search found TV360 data policy facts inside package records and topic-candidate planning,
+  but no indexable article owns the cross-package support job of determining whether TV360 viewing consumes Viettel mobile data.
+  Package pages continue to own commercial/package intent. This new support owner explains the policy distinction between paid TV360 groups and Free/Basic,
+  and links users back to package-specific pages rather than duplicating package price, allowance or eligibility claims.
+
+search_chain:
+  same_day_research:
+    observed_at: "2026-09-03T06:57:19+07:00"
+    result: HOLD_CANDIDATE_ONLY
+    reason: "Same-day first-party searches did not surface a sufficiently strong Viettel 4G/5G/eSIM/SIM/roaming/package publication dated 03/09/2026 at observation time; fallback continued."
+  source_provenance:
+    - source: "Viettel Telecom"
+      url: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/cap-nhat-chinh-sach-mien-phi-luu-luong-data-khi-truy-cap-tv360-tren-mang-di-dong-viettel/10261324"
+      published_at: "2025-12-05"
+      observed_at: "2026-09-03T06:57:19+07:00"
+      provenance: FIRST_PARTY
+      verification_status: VERIFIED
+      bounded_facts:
+        - "From 05/12/2025, stated paid TV360 standalone and stated TV360 combo groups receive 100% free Viettel 4G/5G data while using the TV360 application."
+        - "TV360 Free and Basic usage is counted against the customer's current mobile-data package."
+        - "The policy is tier-dependent; having TV360 access does not by itself prove zero-rated mobile data."
+
+candidates_checked:
+  - query: "Viettel mobile breaking update 03/09/2026"
+    intent: FRESHNESS
+    entity_topic: "Viettel mobile news"
+    cluster: "freshness-news"
+    canonical_owner: UNKNOWN
+    content_type: "NEWS_FRESHNESS"
+    evidence: INSUFFICIENT_FIRST_PARTY_SAME_DAY
+    priority: P0
+    decision: HOLD
+    reason: "No qualifying same-day first-party mobile item found at observation time; candidate-level HOLD only."
+  - query: "eSIM Viettel iPhone kích hoạt không cần QR"
+    intent: SUPPORT
+    entity_topic: "eSIM iOS activation"
+    cluster: "viettel-esim"
+    canonical_owner: "/posts/esim-5g-kich-hoat-quet-qr/"
+    content_type: "SUPPORT_ARTICLE"
+    evidence: FIRST_PARTY_VERIFIED
+    priority: P1
+    decision: REJECT
+    reason: "Existing no-QR/activation and device-change eSIM owners already cover the job; a new URL would overlap."
+  - query: "đi Lào dùng gói roaming Viettel nào"
+    intent: COMMERCIAL
+    entity_topic: "Laos roaming package selection"
+    cluster: "viettel-roaming"
+    canonical_owner: "/posts/roaming-viettel-di-lao/"
+    content_type: "COMPARISON_SUPPORT"
+    evidence: FIRST_PARTY_VERIFIED
+    priority: P1
+    decision: REJECT
+    reason: "Existing owner was updated 29/08/2026 and already compares IRU, DRU, DR, IR, TX, CR and ASEAN caveats."
+  - query: "SIM/eSIM Viettel bị khóa PUK"
+    intent: SUPPORT
+    entity_topic: "PUK recovery"
+    cluster: "sim-security-support"
+    canonical_owner: "/posts/esim-viettel-bi-khoa-puk-cach-xu-ly/"
+    content_type: "SUPPORT_ARTICLE"
+    evidence: EXISTING_OWNER
+    priority: P1
+    decision: REJECT
+    reason: "Dedicated PUK recovery owner already exists."
+  - query: "khóa SIM Viettel khẩn cấp khi mất điện thoại"
+    intent: SUPPORT
+    entity_topic: "lost SIM emergency lock and reissue"
+    cluster: "sim-loss-recovery"
+    canonical_owner: "/posts/mat-sim-viettel-lam-lai-cap-lai-sim/"
+    content_type: "SUPPORT_ARTICLE"
+    evidence: EXISTING_OWNER
+    priority: P1
+    decision: REJECT
+    reason: "Existing lost-SIM owner already covers temporary outgoing lock and reissue channels."
+  - query: "bật 5G Viettel trên Samsung Xiaomi"
+    intent: SUPPORT
+    entity_topic: "Android 5G setup"
+    cluster: "viettel-5g-device-support"
+    canonical_owner: "EXISTING_5G_AND_ANDROID_SUPPORT_OWNERS"
+    content_type: "SUPPORT_ARTICLE"
+    evidence: OVERLAP_RISK
+    priority: P1
+    decision: REJECT
+    reason: "Existing 5G registration, 5G SA and Android VoLTE/device support owners already cover adjacent setup jobs; no independent owner gap was proven."
+  - query: "TV360 Viettel có tốn data không / Free Basic có trừ data không"
+    intent: SUPPORT
+    entity_topic: "TV360 mobile-data charging policy"
+    cluster: "tv360-mobile-data-policy"
+    canonical_owner: "/posts/tv360-viettel-co-ton-data-4g-5g-khong/"
+    content_type: "SUPPORT_ARTICLE"
+    evidence: FIRST_PARTY_VERIFIED
+    priority: P1
+    decision: SELECT_NEW
+    reason: "Official Viettel policy directly distinguishes zero-rated paid TV360 groups from Free/Basic data usage, and no dedicated cross-package support owner exists."
+
+query_mapping:
+  query: "TV360 Viettel có tốn data không"
+  primary_intent: SUPPORT
+  secondary_intent: INFORMATIONAL
+  entity_topic: "TV360 / Viettel 4G-5G data charging / Free-Basic-vs-paid"
+  cluster: "tv360-mobile-data-policy"
+  canonical_url_owner: "/posts/tv360-viettel-co-ton-data-4g-5g-khong/"
+  content_type: "support_guide"
+  evidence_refs:
+    - "viettel-tv360-data-policy-2025-12-05"
+  priority: P1
+
+sources:
+  - id: "viettel-tv360-data-policy-2025-12-05"
+    url: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/cap-nhat-chinh-sach-mien-phi-luu-luong-data-khi-truy-cap-tv360-tren-mang-di-dong-viettel/10261324"
+    publisher: "Viettel Telecom"
+    published: "2025-12-05"
+    observed_at: "2026-09-03T06:57:19+07:00"
+    role: "first-party TV360 4G/5G mobile-data charging policy"
+    verification_status: VERIFIED
+
+source_facts:
+  policy_effective_from: "2025-12-05"
+  stated_paid_tv360_groups_zero_rated_4g_5g: true
+  free_tv360_consumes_mobile_data_package: true
+  basic_tv360_consumes_mobile_data_package: true
+  every_package_named_tv360_basic_has_zero_rated_data: false
+  all_future_tv360_packages_zero_rated: UNKNOWN
+  current_paid_package_prices: UNKNOWN
+  universal_eligibility: UNKNOWN
+
+internal_link_plan:
+  parent: "/5g-viettel/"
+  related:
+    - "/goi-cuoc/5g135/"
+    - "/posts/goi-5g-viettel-capcut/"
+    - "/posts/kiem-tra-toc-do-mang-my-viettel/"
+    - "/posts/cach-kiem-tra-dung-luong-data-viettel-con-lai/"
+
+image_plan:
+  role: "source-evidence contextual"
+  subject: "TV360 viewing over Viettel mobile data"
+  source_mode: "FIRST_PARTY_ARTICLE_SOURCE"
+  source_ref: "viettel-tv360-data-policy-2025-12-05"
+  topic_match: PASS
+  note: "No unrelated stock image or fabricated screenshot is introduced in the article body; the official Viettel policy source is linked directly."
+
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+
+priority:
+  tier: P1
+  reason: >-
+    Distinct support job with direct first-party evidence and an existing documented topic-candidate gap.
+    It resolves a costly misunderstanding: TV360 Basic access is not the same thing as zero-rated mobile data.
+    Quantitative demand metrics are unavailable and remain UNKNOWN.
+
+k0_decision:
+  decision: PASS
+  duplicate_risk: PASS
+  cannibalization_result: PASS
+  unsupported_metrics: 0
+  unsupported_business_facts: 0
+
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
