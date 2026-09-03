@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">TV360 và chính sách data 4G/5G Viettel</title>
+  <desc id="desc">Minh họa TV360 trên điện thoại với hai trạng thái Free Basic dùng data và nhóm trả phí được miễn lưu lượng theo chính sách Viettel.</desc>
+  <rect width="1600" height="900" fill="#fff7f7"/>
+  <rect x="70" y="70" width="1460" height="760" rx="48" fill="#ffffff" stroke="#fecaca" stroke-width="4"/>
+  <circle cx="1320" cy="180" r="105" fill="#fee2e2"/>
+  <circle cx="240" cy="710" r="145" fill="#fef2f2"/>
+  <rect x="170" y="165" width="500" height="565" rx="64" fill="#111827"/>
+  <rect x="202" y="220" width="436" height="430" rx="28" fill="#b91c1c"/>
+  <circle cx="420" cy="690" r="18" fill="#d1d5db"/>
+  <text x="420" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="88" font-weight="800" fill="#ffffff">TV360</text>
+  <text x="420" y="455" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#fee2e2">trên data Viettel</text>
+  <g transform="translate(760 205)">
+    <rect width="650" height="190" rx="32" fill="#fff1f2" stroke="#fca5a5" stroke-width="3"/>
+    <circle cx="88" cy="95" r="48" fill="#dc2626"/>
+    <path d="M70 96h36M88 78v36" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+    <text x="165" y="82" font-family="Arial, sans-serif" font-size="40" font-weight="800" fill="#991b1b">Free / Basic</text>
+    <text x="165" y="135" font-family="Arial, sans-serif" font-size="31" fill="#374151">Lưu lượng tính vào gói data di động</text>
+  </g>
+  <g transform="translate(760 455)">
+    <rect width="650" height="190" rx="32" fill="#f0fdf4" stroke="#86efac" stroke-width="3"/>
+    <circle cx="88" cy="95" r="48" fill="#16a34a"/>
+    <path d="M66 96l16 16 30-36" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="165" y="82" font-family="Arial, sans-serif" font-size="40" font-weight="800" fill="#166534">Nhóm trả phí được nêu</text>
+    <text x="165" y="135" font-family="Arial, sans-serif" font-size="31" fill="#374151">Miễn 100% data 4G/5G khi dùng TV360</text>
+  </g>
+  <text x="1085" y="725" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" fill="#6b7280">Minh họa theo chính sách Viettel công bố 05/12/2025</text>
+</svg>
