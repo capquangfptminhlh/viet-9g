@@ -2,7 +2,7 @@
 title: "Chọn mạng thủ công khi roaming Viettel: khi nào cần trả về tự động?"
 description: "Hướng dẫn chọn mạng thủ công khi roaming Viettel trên iPhone/Android và khi nào phải bật lại chọn mạng tự động khi đổi quốc gia hoặc về Việt Nam."
 date: 2026-09-02
-updatedDate: 2026-09-03
+updatedDate: 2026-09-04
 ---
 
 # Chọn mạng thủ công khi roaming Viettel: khi nào cần trả về tự động?
@@ -48,6 +48,12 @@ Theo tài liệu Viettel, đường dẫn mẫu là:
 
 Trên Samsung, Xiaomi, Oppo, Realme và các hãng Android khác, tên mục có thể khác đôi chút. Hãy tìm các mục tương đương “Mạng di động”, “Nhà cung cấp mạng” hoặc “Network operators”.
 
+## Trả lời nhanh: Android roaming Viettel mở Network Operators ở đâu?
+
+Trên Android, đường dẫn Viettel dùng trong hướng dẫn là **Cài đặt → Kết nối → Các mạng di động → Nhà cung cấp mạng (Network Operators) → tắt lựa chọn tự động**, sau đó chọn mạng hiển thị hoặc mạng đối tác phù hợp. Một số phiên bản Android có thể đặt mục này trực tiếp dưới **Di động/Mạng di động → Lựa chọn mạng**.
+
+Search job “Android roaming Viettel mở Network Operators” là một nhánh thiết bị của cùng intent chọn mạng roaming, vì vậy nội dung được hợp nhất vào canonical này thay vì duy trì một bài indexable riêng chỉ lặp lại một đường dẫn cài đặt.
+
 ## Khi nào phải trả về chế độ tự động?
 
 Đây là phần Viettel lưu ý rõ trong tài liệu: nếu bạn đã tắt lựa chọn mạng tự động, **khi di chuyển sang quốc gia khác hoặc trở về Việt Nam, cần chuyển lại sang TỰ ĐỘNG** để thiết bị quét và hiển thị nhà mạng tại địa điểm mới.
@@ -76,12 +82,13 @@ Việc đổi cài đặt lựa chọn mạng trên điện thoại không tự 
 - Bình thường nên để thiết bị **chọn mạng tự động**.
 - Khi cần, có thể chuyển sang **chọn mạng thủ công** để thử mạng ổn định hơn hoặc đúng mạng nằm trong phạm vi gói.
 - Trên iPhone: **Cài đặt → Di động → Lựa chọn mạng → tắt Tự động**.
+- Trên Android: tìm **Các mạng di động → Nhà cung cấp mạng/Network Operators → tắt lựa chọn tự động**.
 - Sau khi đã tắt chế độ tự động, **khi sang quốc gia khác hoặc về Việt Nam hãy bật lại Tự động**.
 - Nếu vẫn lỗi, kiểm tra roaming, Data Roaming, APN, VoLTE và điều kiện gói thay vì chỉ đổi nhà mạng liên tục.
 
 ## Nguồn kiểm chứng
 
 - [Viettel — Hướng dẫn chọn mạng Roaming trên điện thoại](https://media.vietteltelecom.vn/upload/InternationalMessagePrice/e2/99/9e/c4b3c6195f1625a2348d376cafac129dbdb253b3.pdf): xác nhận mặc định chọn mạng tự động, trường hợp có thể chọn thủ công, đường dẫn iOS/Android và yêu cầu bật lại **TỰ ĐỘNG** khi sang quốc gia khác hoặc về Việt Nam.
-- [Viettel Telecom — Đi Lào dùng gói Roaming nào?](https://www.vietteltelecom.vn/tin-tuc/chi-tiet/di-lao-dung-goi-roaming-nao-goi-y-cac-goi-cuoc-uu-dai-cua-viettel/18333764): nguồn first-party ngày 17/08/2026 xác nhận thao tác chọn mạng thủ công trong phần cài đặt sử dụng roaming và nhắc kiểm tra đúng gói/mạng áp dụng.
+- [Viettel Telecom — Đi Lào dùng gói Roaming nào?](https://www.vietteltelecom.vn/tin-tuc/chi-tiet/di-lao-dung-goi-roaming-nao-goi-y-cac-goi-cuoc-uu-dai-cua-viettel/18333764): nguồn first-party ngày 17/08/2026 xác nhận thao tác chọn mạng thủ công trên iPhone/Android trong phần cài đặt sử dụng roaming và nhắc kiểm tra đúng gói/mạng áp dụng.
 
-**Cập nhật kiểm chứng:** 03/09/2026. Các mức giá, danh sách mạng đối tác và điều kiện gói có thể thay đổi; bài này chỉ khẳng định những điểm được nguồn Viettel nêu rõ ở trên.
+**Cập nhật kiểm chứng:** 04/09/2026. Các mức giá, danh sách mạng đối tác và điều kiện gói có thể thay đổi; bài này chỉ khẳng định những điểm được nguồn Viettel nêu rõ ở trên.
