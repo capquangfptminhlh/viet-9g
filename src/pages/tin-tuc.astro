@@ -9,6 +9,9 @@ const posts = await getCollection('posts');
 // Hàm chọn ảnh minh họa theo chủ đề bài viết khớp chính xác nội dung
 function getPostImage(slug: string, title: string) {
   const s = (slug + ' ' + title).toLowerCase();
+  if (s.includes('sim-4g-viettel-co-dung-duoc-5g-khong')) {
+    return '/images/blogger/topic-b2-5g-doi-sim-727def8baa2d.svg';
+  }
   if (s.includes('cai-apn-viettel-4g-5g-v-internet') || s.includes('apn viettel')) {
     return '/images/apn-viettel-v-internet.svg';
   }
