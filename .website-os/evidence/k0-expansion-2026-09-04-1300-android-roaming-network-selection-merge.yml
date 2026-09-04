@@ -1,0 +1,179 @@
+run:
+  slot: "13:00"
+  observed_at: "2026-09-04T13:03:07+07:00"
+  action: MERGE
+  publish_count: 1
+
+website_os_bootstrap:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest: governance/website-os.manifest.yml
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_agents_loaded: true
+  anti_mock_rules_loaded: true
+  original_request_loaded: true
+  k0_state_loaded: true
+  decision: PASS
+
+production_invariants:
+  dns_domain_routing_changes: false
+  registration_cta: "MÃ_GÓI GB"
+  registration_destination: "290"
+  exact_main_vercel_verification_required: true
+
+research_chain:
+  - candidate: same-day Viettel mobile breaking/freshness
+    query: "Viettel 4G 5G eSIM SIM roaming 04/09/2026"
+    intent: FRESHNESS
+    entity_topic: Viettel mobile news
+    cluster: freshness-mobile
+    canonical_owner: UNKNOWN
+    content_type: news/freshness
+    evidence:
+      - "https://www.vietteltelecom.vn/"
+      - "https://www.viettel.vn/"
+    priority: HOLD
+    decision: HOLD_CANDIDATE
+    reason: "No first-party Viettel mobile/eSIM/SIM/5G/roaming/package publication dated 04/09/2026 was found in the same-day scan; do not manufacture a freshness angle."
+
+  - candidate: Android roaming manual network selection
+    query: "Android roaming Viettel chọn mạng thủ công"
+    intent: SUPPORT
+    entity_topic: Android roaming network selection
+    cluster: roaming-network-selection
+    canonical_owner: "https://www.tracuugoicuoc.com/posts/chon-mang-thu-cong-roaming-viettel/"
+    duplicate_url: "https://www.tracuugoicuoc.com/posts/topic-b1-android-roaming-chon-mang/"
+    content_type: support article
+    evidence:
+      - "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/di-lao-dung-goi-roaming-nao-goi-y-cac-goi-cuoc-uu-dai-cua-viettel/18333764"
+      - "repo:tests/blogger/blogger-blog1-queue.test.ts"
+      - "repo:src/content/posts/topic-b1-android-roaming-chon-mang.md"
+      - "repo:src/content/posts/chon-mang-thu-cong-roaming-viettel.md"
+    priority: P1
+    decision: SELECT_MERGE
+    reason: "A same-day automation article was published at the topic slug even though the governed route map already assigns this Android sub-intent to the established roaming network-selection canonical. Keeping both indexable is high-risk cannibalization."
+
+  - candidate: eSIM activation without QR
+    query: "eSIM Viettel kích hoạt không cần mã QR"
+    intent: SUPPORT
+    entity_topic: Viettel eSIM activation
+    cluster: esim-5g-setup
+    canonical_owner: "https://www.tracuugoicuoc.com/posts/esim-5g-kich-hoat-quet-qr/"
+    content_type: support article
+    evidence:
+      - "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/esim-viettel-cham-la-ket-noi-kich-hoat-khong-can-ma-qr"
+    priority: P2
+    decision: REJECT_DUPLICATE
+    reason: "Existing eSIM activation owner already owns this setup job; no defensible new canonical URL."
+
+  - candidate: roaming Laos packages
+    query: "đi Lào dùng gói roaming Viettel nào"
+    intent: COMMERCIAL
+    entity_topic: Viettel roaming Laos
+    cluster: roaming-country-laos
+    canonical_owner: existing country/package owner
+    content_type: comparison/support
+    evidence:
+      - "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/di-lao-dung-goi-roaming-nao-goi-y-cac-goi-cuoc-uu-dai-cua-viettel/18333764"
+    priority: P2
+    decision: REJECT_EXISTING_OWNER
+    reason: "Fresh official source exists but the search job is already covered by the existing Laos roaming owner; do not create a near-duplicate."
+
+  - candidate: Wi-Fi Calling / VoWiFi Viettel
+    query: "Wi-Fi Calling Viettel VoWiFi 2026"
+    intent: SUPPORT
+    entity_topic: VoWiFi provisioning
+    cluster: voice-over-wifi
+    canonical_owner: UNKNOWN
+    content_type: support article
+    evidence: []
+    priority: HOLD
+    decision: HOLD_CANDIDATE
+    reason: "Current first-party provisioning/eligibility evidence was not sufficient to publish reliable 2026 instructions."
+
+  - candidate: buy extra data after allowance is exhausted
+    query: "Viettel mua thêm data khi hết dung lượng 2026"
+    intent: TRANSACTIONAL_SUPPORT
+    entity_topic: data add-on
+    cluster: data-topup-support
+    canonical_owner: UNKNOWN
+    content_type: support/how-to
+    evidence: []
+    priority: HOLD
+    decision: HOLD_CANDIDATE
+    reason: "No sufficiently current first-party commercial contract was verified for package codes, price, eligibility and purchase flow; do not fabricate."
+
+  - candidate: 5G SA device/SIM readiness
+    query: "5G SA Viettel có cần đổi SIM"
+    intent: INFORMATIONAL_SUPPORT
+    entity_topic: Viettel 5G SA
+    cluster: 5g-sa-readiness
+    canonical_owner: "https://www.tracuugoicuoc.com/posts/5g-sa-viettel-la-gi/"
+    content_type: support/entity article
+    evidence:
+      - "repo:existing 5G SA canonical owner"
+    priority: P2
+    decision: REJECT_DUPLICATE
+    reason: "The existing 5G SA owner already owns this technology/readiness job; a new URL would fragment intent."
+
+selected_candidate:
+  primary_keyword: "chọn mạng thủ công roaming Viettel"
+  secondary_queries:
+    - "Android roaming Viettel chọn mạng thủ công"
+    - "Android roaming Viettel Network Operators"
+    - "Network Operators Viettel roaming"
+    - "Android roaming Viettel tắt Select automatically"
+    - "khi nào bật lại chọn mạng tự động roaming Viettel"
+  cluster: roaming-network-selection
+  primary_intent: SUPPORT
+  canonical_url: "https://www.tracuugoicuoc.com/posts/chon-mang-thu-cong-roaming-viettel/"
+  slug: chon-mang-thu-cong-roaming-viettel
+  title: "Chọn mạng thủ công khi roaming Viettel: khi nào cần trả về tự động?"
+  why_merge: "The Android topic is a device-specific subsection of the already-owned manual network-selection search job. The repository's route contract explicitly maps topic-b1-android-roaming-chon-mang to this canonical owner."
+  unique_value_added:
+    - "Direct Android AEO answer for Network Operators path"
+    - "Clarifies Android menu-name variants without claiming universal UI labels"
+    - "Preserves the Automatic/Tự động recovery guidance"
+    - "Retires the thin duplicate via permanent redirect"
+
+source_provenance:
+  official_primary:
+    - url: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/di-lao-dung-goi-roaming-nao-goi-y-cac-goi-cuoc-uu-dai-cua-viettel/18333764"
+      published_at: "2026-08-17"
+      observed_at: "2026-09-04T13:03:07+07:00"
+      supports: "Android/iPhone manual network selection in roaming setup and current first-party roaming context."
+  repository_evidence:
+    - "tests/blogger/blogger-blog1-queue.test.ts maps topic-b1-android-roaming-chon-mang to /posts/chon-mang-thu-cong-roaming-viettel/."
+    - "The duplicate Markdown was published on main at 2026-09-04T01:40:01.577Z."
+
+metrics:
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+
+k0_decision:
+  decision: PASS
+  duplicate_risk_before: HIGH
+  duplicate_risk_after: PASS
+  cannibalization_result: PASS
+  resolution: "Expand canonical, delete duplicate Markdown, add permanent redirect, retain one indexable owner."
+
+internal_link_plan:
+  parent_owner: "https://www.tracuugoicuoc.com/posts/chon-mang-thu-cong-roaming-viettel/"
+  supporting_links:
+    - "https://www.tracuugoicuoc.com/posts/data-roaming-viettel-iphone-android/"
+    - "https://www.tracuugoicuoc.com/posts/cai-apn-viettel-4g-5g-v-internet/"
+    - "https://www.tracuugoicuoc.com/posts/bat-volte-khi-roaming-viettel/"
+
+release_requirements:
+  branch_pr_required: true
+  npm_test_required: true
+  k0_check_required: true
+  build_required: true
+  content_readback_required: true
+  exact_main_vercel_ready_required: true
+  production_http_200_required: true
