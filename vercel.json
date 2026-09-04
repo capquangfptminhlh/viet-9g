@@ -13,6 +13,11 @@
       "permanent": true
     },
     {
+      "source": "/posts/topic-b1-android-roaming-chon-mang",
+      "destination": "/posts/chon-mang-thu-cong-roaming-viettel",
+      "permanent": true
+    },
+    {
       "source": "/posts/topic-b1-roaming-tra-lai-tu-dong",
       "destination": "/posts/chon-mang-thu-cong-roaming-viettel",
       "permanent": true
