@@ -1,34 +1,34 @@
 ---
 title: "Tắt sóng 2G 15/9/2026: điện thoại 4G Viettel có bị mất cuộc gọi không?"
-description: "Cập nhật 03/09/2026: giải thích mốc tắt 2G 15/9, vì sao điện thoại 4G vẫn có thể mất thoại và checklist VoLTE Viettel cần kiểm tra trước thời điểm chuyển đổi."
-date: 2026-09-03
+description: "Cập nhật 04/09/2026: còn 11 ngày tới mốc dừng 2G, cách kiểm tra VoLTE Viettel, máy 4G có cần đổi không và phí đăng ký VoLTE theo nguồn chính thức."
+date: 2026-09-04
 ---
 
 # Tắt sóng 2G 15/9/2026: điện thoại 4G Viettel có bị mất cuộc gọi không?
 
-**Cập nhật kiểm chứng 03/09/2026:** nhu cầu tìm kiếm và tin tức trong ngày đang tăng mạnh quanh mốc **15/9/2026**. Điểm quan trọng không thay đổi: **máy có 4G chưa chắc đã sẵn sàng cho cuộc gọi thoại khi 2G dừng**. Nếu thiết bị chỉ dùng 4G cho data nhưng cuộc gọi vẫn phải rơi xuống lớp mạng cũ, dịch vụ thoại có thể bị gián đoạn.
+**Cập nhật kiểm chứng 04/09/2026:** bản tin mới trong ngày tiếp tục nhấn mạnh chỉ còn **11 ngày** tới mốc 15/9/2026. Với người dùng Viettel, câu hỏi cần kiểm tra không chỉ là điện thoại có hiện 4G/5G hay không, mà là **cuộc gọi thoại có hoạt động qua VoLTE trên 4G/LTE hay không**.
 
 ![Minh họa điện thoại 4G/5G Viettel duy trì cuộc gọi khi mạng 2G được dừng](/images/tat-song-2g-volte-viettel.svg)
 
-Nếu đang dùng Viettel, hãy kiểm tra theo thứ tự: **thiết bị hỗ trợ VoLTE → SIM/thuê bao dùng 4G/5G → VoLTE đã hoạt động → gọi thử thành công**. Không nên chỉ nhìn biểu tượng 4G/5G rồi kết luận máy đã sẵn sàng.
+> **Trả lời nhanh:** điện thoại có 4G không tự động đồng nghĩa đã sẵn sàng cho thoại khi 2G dừng. Hãy kiểm tra **thiết bị hỗ trợ VoLTE → SIM/thuê bao dùng 4G/5G → VoLTE đã hoạt động → gọi thử thành công**. Viettel công bố đăng ký dịch vụ VoLTE bằng **`HDCALL` gửi `191`**, **phí dịch vụ 0 đồng**.
 
-## Tin mới ngày 03/09/2026: vì sao chủ đề tắt 2G nóng trở lại?
+## Tin mới 04/09/2026: còn 11 ngày tới mốc dừng 2G
 
-Ngày **03/09/2026**, nhiều cơ quan báo chí tiếp tục cảnh báo người dùng trước mốc tắt hoàn toàn 2G. Các bản tin cùng ngày tập trung vào đúng vấn đề người dùng dễ bỏ sót: **điện thoại 4G vẫn có thể bị gián đoạn thoại nếu chưa hỗ trợ hoặc chưa kích hoạt VoLTE**.
+Ngày **04/09/2026**, một bản tin mới tiếp tục nhắc mốc **15/09/2026** và quá trình chuyển đổi người dùng sang hạ tầng 4G/5G. Đây là tín hiệu freshness cho đúng search job mà bài này đã sở hữu, nên nội dung được cập nhật tại canonical hiện hữu thay vì tạo một URL gần trùng.
 
-Đây là tín hiệu freshness cho cùng một search job, không phải lý do tạo thêm một URL mới. Bài này là canonical owner của câu hỏi “tắt 2G 15/9/2026 thì máy 4G Viettel có gọi được không?”, nên nội dung được cập nhật tại đây thay vì tách thành bài mỏng mới.
+Nguồn thời sự ngày 04/09 cũng đề cập Viettel tiếp tục hỗ trợ khách hàng chuyển đổi thiết bị và duy trì liên lạc trước mốc dừng 2G. Bài này chỉ dùng nguồn thời sự để xác nhận tính cấp thời của chủ đề; các hướng dẫn VoLTE và phí dịch vụ vẫn lấy từ nguồn Viettel chính thức.
 
-Nguồn thời sự cùng ngày:
+Nguồn thời sự:
+- [Vietnam.vn / Báo An Giang — Chỉ còn 11 ngày nữa, khách hàng sẽ chính thức tạm biệt 2G, 04/09/2026](https://www.vietnam.vn/chi-con-11-ngay-nua-khach-hang-se-chinh-thuc-tam-biet-2g)
 - [Báo Nghệ An — Việt Nam tắt hoàn toàn mạng 2G từ 15/9/2026, 03/09/2026](https://baonghean.vn/viet-nam-tat-hoan-toan-mang-2g-tu-ngay-1592026-de-giai-phong-bang-tan-phat-trien-5g-va-6g-10350360.html)
-- [Báo Tuyên Quang — Tắt sóng 2G: Đảm bảo quyền lợi, thông tin liên lạc cho người dân, 03/09/2026](https://baotuyenquang.com.vn/khoa-hoc-cong-nghe/202609/tat-song-2g-dam-bao-quyen-loi-thong-tin-lien-lac-cho-nguoi-dan-2c6435a/)
 
 ## Mốc 15/9/2026 có ý nghĩa gì?
 
-Theo Cổng thông tin Bộ Khoa học và Công nghệ, hệ thống GSM/2G được tiếp tục sử dụng đến hết **15/9/2026**, ngoại trừ các khu vực đặc thù được nêu trong nguồn chính thức như Trường Sa, Hoàng Sa và nhà giàn DK.
+Theo Cổng thông tin Bộ Khoa học và Công nghệ, hệ thống GSM/2G được tiếp tục sử dụng đến hết **15/09/2026**, ngoại trừ các khu vực đặc thù được nêu trong nguồn chính thức như Trường Sa, Hoàng Sa và nhà giàn DK.
 
-Điều này khác mốc năm 2024. Từ 16/9/2024, nhà mạng dừng phục vụ thiết bị **2G only** theo lộ trình; hạ tầng 2G vẫn tồn tại trong giai đoạn chuyển tiếp. Đến hết 15/9/2026 là mốc kết thúc hệ thống 2G theo quy hoạch tần số hiện hành.
+Điều này khác mốc năm 2024. Từ 16/09/2024, nhà mạng dừng phục vụ thiết bị **2G only** theo lộ trình; hạ tầng 2G vẫn tồn tại trong giai đoạn chuyển tiếp. Đến hết 15/09/2026 là mốc kết thúc hệ thống 2G theo quy hoạch tần số hiện hành.
 
-Bộ cũng nêu các băng tần **900 MHz và 1800 MHz** trong lộ trình quy hoạch lại tài nguyên tần số. Việc giải phóng tài nguyên cũ nhằm phục vụ các thế hệ mạng hiện đại hơn; bài này không suy diễn rằng mọi khu vực sẽ chuyển đổi ở cùng một giờ cụ thể.
+Bộ cũng nêu các băng tần **900 MHz và 1800 MHz** trong lộ trình quy hoạch lại tài nguyên tần số. Bài này không suy diễn rằng mọi khu vực sẽ chuyển đổi ở cùng một giờ cụ thể.
 
 Nguồn quản lý nhà nước:
 - [Bộ Khoa học và Công nghệ — Lộ trình tắt sóng 2G](https://mst.gov.vn/bo-tttt-cong-bo-lo-trinh-tat-song-2g-197240705094212138.htm)
@@ -38,44 +38,51 @@ Nguồn quản lý nhà nước:
 
 **Có thể.** Kết nối 4G để dùng Internet và khả năng gọi thoại trên 4G là hai việc khác nhau.
 
-Một điện thoại có thể:
+Một điện thoại có thể vẫn hiện 4G/5G và truy cập Internet bình thường nhưng cuộc gọi chưa chạy qua VoLTE. Nếu cuộc gọi còn phụ thuộc vào lớp mạng cũ, người dùng có nguy cơ gặp gián đoạn thoại khi lớp mạng đó không còn phục vụ.
 
-- vẫn hiện 4G/5G và truy cập Internet bình thường;
-- nhưng khi gọi lại chuyển xuống mạng cũ;
-- hoặc chưa hỗ trợ / chưa kích hoạt VoLTE;
-- vì vậy có nguy cơ không thiết lập được cuộc gọi khi lớp mạng thoại cũ không còn.
+Vì vậy, chỉ thử tốc độ Internet chưa đủ. Điều cần kiểm tra là **cuộc gọi có được thiết lập bình thường và thiết bị có duy trì trạng thái 4G/LTE/5G/VoLTE trong lúc gọi hay không**, tùy cách từng model hiển thị.
 
-Điểm cần quan sát khi gọi thử là **cuộc gọi có được duy trì trên 4G/LTE/VoLTE hay không**, tùy cách từng model hiển thị trạng thái mạng. Nếu chỉ thử tốc độ Internet thì chưa đủ để xác nhận khả năng thoại.
+## VoLTE là gì và Viettel bật bằng cách nào?
 
-## VoLTE là phần quan trọng nhất cần kiểm tra
+VoLTE là cuộc gọi thoại trên nền 4G/LTE. Viettel công bố dịch vụ này cho phép cuộc gọi được thiết lập trên hạ tầng 4G/5G thay vì phải rơi xuống lớp mạng thoại cũ.
 
-VoLTE là cuộc gọi thoại trên nền 4G/LTE. Viettel công bố dịch vụ này cho phép cuộc gọi được thiết lập trên mạng 4G/5G thay vì phải rơi xuống lớp mạng thoại cũ.
-
-Với thuê bao Viettel, tài liệu chính thức hướng dẫn đăng ký dịch vụ bằng:
+Theo Viettel, khách hàng có thể đăng ký dịch vụ bằng:
 
 **`HDCALL` gửi `191`**
 
-Viettel công bố **phí đăng ký dịch vụ VoLTE là 0 đồng**. Nhiều thuê bao có thể đã được kích hoạt sẵn, nên không cần nhắn lặp lại nếu dịch vụ đã hoạt động.
+Viettel cũng lưu ý nhiều khách hàng có thể đã được đăng ký sẵn. Sau khi kiểm tra/bật dịch vụ, hãy thực hiện cuộc gọi thử thay vì chỉ dựa vào một biểu tượng trên màn hình.
 
 Nguồn Viettel:
-- [Hướng dẫn bật dịch vụ cuộc gọi VoLTE, 14/04/2026](https://098.viettel.vn/tin-tuc/huong-dan-bat-dich-vu-cuoc-goi-volte-goi-chat-luong-tot-hon-an-toan-hon/15298552)
-- [VoLTE — dịch vụ thoại chất lượng cao trên hạ tầng mạng 4G/5G](https://098.viettel.vn/tin-tuc/chi-tiet/volte-dich-vu-thoai-chat-luong-cao-tren-ha-tang-mang-4g5g-viettel/13748208)
+- [Viettel — Hướng dẫn bật dịch vụ cuộc gọi VoLTE, 14/04/2026](https://098.viettel.vn/tin-tuc/huong-dan-bat-dich-vu-cuoc-goi-volte-goi-chat-luong-tot-hon-an-toan-hon/15298552)
+- [Viettel — VoLTE, dịch vụ thoại chất lượng cao trên hạ tầng mạng 4G/5G](https://098.viettel.vn/tin-tuc/chi-tiet/volte-dich-vu-thoai-chat-luong-cao-tren-ha-tang-mang-4g5g-viettel/13748208)
+
+## Bật VoLTE Viettel có tốn tiền không?
+
+**Viettel công bố phí dịch vụ VoLTE là 0 đồng.** Đây là mức phí cho việc sử dụng/đăng ký dịch vụ VoLTE được nêu trong tài liệu chính thức của Viettel.
+
+Cần phân biệt rõ ba khái niệm:
+
+1. **Phí dịch vụ VoLTE:** Viettel công bố **0 đồng**.
+2. **Cước của cuộc gọi cụ thể:** bài này không tự đặt một mức cước mới; cước thực tế phụ thuộc chính sách thoại/gói cước của thuê bao tại thời điểm gọi.
+3. **Data của thuê bao:** nguồn Viettel được dùng ở đây không nêu một mức MB bị trừ cho mỗi cuộc gọi VoLTE, vì vậy bài không khẳng định hoặc tự tính lượng data bị trừ.
+
+Nói ngắn gọn: **đừng hiểu “VoLTE miễn phí” thành “mọi cuộc gọi đều miễn phí”**. Điều Viettel xác nhận trong nguồn là **phí dịch vụ VoLTE = 0 đồng**.
 
 ## Checklist 5 bước trước ngày 15/9
 
 ### 1. Xác định máy có hỗ trợ 4G/5G và VoLTE
 
-Không nên chỉ nhìn biểu tượng 4G để kết luận máy đã sẵn sàng. Hãy kiểm tra model có hỗ trợ VoLTE hay không và cập nhật phần mềm ổn định nếu nhà sản xuất/Viettel có hướng dẫn.
+Không nên chỉ nhìn biểu tượng 4G. Hãy kiểm tra model có hỗ trợ VoLTE hay không và cập nhật phần mềm ổn định nếu nhà sản xuất/Viettel có hướng dẫn.
 
-Viettel có hướng dẫn VoLTE cho nhiều nhóm thiết bị như iPhone, Samsung, Huawei, Oppo/Realme, Redmi/Xiaomi, Vivo, Poco, Google Pixel, Sony Xperia và một số dòng khác. Tuy nhiên, **không suy rộng rằng mọi model của mọi hãng đều tương thích**.
+Viettel có hướng dẫn cho nhiều nhóm thiết bị, nhưng **không suy rộng rằng mọi model của mọi hãng đều tương thích**.
 
 ### 2. Kiểm tra đúng SIM/eSIM Viettel đang dùng cho thoại
 
-Nếu máy dùng hai SIM, hãy xác nhận đúng SIM Viettel được chọn cho cuộc gọi và dữ liệu. Nếu SIM quá cũ hoặc trạng thái thuê bao chưa rõ, nên xác minh với Viettel thay vì tự kết luận từ biểu tượng sóng.
+Nếu máy dùng hai SIM, hãy xác nhận đúng SIM Viettel được chọn cho cuộc gọi. Nếu trạng thái SIM/thuê bao chưa rõ, nên xác minh với Viettel thay vì tự kết luận từ biểu tượng sóng.
 
 ### 3. Kiểm tra dịch vụ VoLTE trên thuê bao
 
-Nếu chưa từng kiểm tra, có thể dùng cú pháp **`HDCALL` gửi `191`** theo hướng dẫn Viettel. Đây là bước xác minh dịch vụ thoại, không phải đăng ký một gói data mới.
+Nếu chưa từng kiểm tra, có thể dùng **`HDCALL` gửi `191`** theo hướng dẫn Viettel. Đây là dịch vụ thoại, không phải thao tác đăng ký một gói data.
 
 ### 4. Bật VoLTE / Cuộc gọi 4G trên điện thoại nếu máy có công tắc
 
@@ -84,13 +91,13 @@ Tên và vị trí menu thay đổi theo hệ điều hành, model và phiên b�
 - Android: xem [cách bật VoLTE Viettel trên Android](/posts/bat-volte-viettel-android/).
 - iPhone: xem [cách bật VoLTE Viettel trên iPhone](/posts/cai-dat-4g-5g-volte-iphone-viettel/).
 
-Bài này không lặp lại toàn bộ menu thiết bị để tránh cannibalize hai owner thao tác theo nền tảng.
+Hai bài trên là canonical owner cho thao tác theo nền tảng; bài hiện tại không lặp lại toàn bộ menu để tránh cannibalization.
 
 ### 5. Gọi thử trước khi đến sát mốc chuyển đổi
 
 Sau khi bật VoLTE, hãy thực hiện một cuộc gọi đi. Tùy điện thoại, máy có thể tiếp tục hiển thị 4G/5G/LTE hoặc VoLTE trong khi gọi.
 
-Nếu cuộc gọi vẫn rơi khỏi 4G/LTE hoặc không thiết lập được, còn thời gian để kiểm tra thiết bị, firmware, SIM và trạng thái dịch vụ với Viettel trước 15/9.
+Nếu cuộc gọi vẫn rơi khỏi 4G/LTE hoặc không thiết lập được, hãy kiểm tra thiết bị, phần mềm, SIM và trạng thái dịch vụ với Viettel trước 15/9.
 
 ## Máy hiện 4G/5G nhưng gọi không được: xử lý theo thứ tự nào?
 
@@ -115,7 +122,7 @@ Có, nhưng đó là **một search job khác**. Nếu vấn đề của bạn l
 
 **Không nên mặc định.** Nếu SIM/eSIM Viettel hiện tại đã hỗ trợ 4G/5G và thuê bao hoạt động bình thường, vấn đề cần kiểm tra tiếp là thiết bị và VoLTE.
 
-Chỉ nên đổi SIM khi trạng thái thực tế cho thấy SIM chưa đáp ứng hoặc Viettel xác nhận cần chuyển đổi. Bài này không khẳng định mọi SIM cũ đều phải đổi và không tự đặt mức phí đổi SIM.
+Nếu câu hỏi của bạn là SIM 4G hiện tại có dùng được 5G hay bắt buộc đổi SIM, xem canonical riêng [SIM 4G Viettel có dùng được 5G không?](/posts/sim-4g-viettel-co-dung-duoc-5g-khong/).
 
 ## Có phải đổi điện thoại nếu máy đang có 4G?
 
@@ -132,6 +139,8 @@ Nếu model hỗ trợ VoLTE và cuộc gọi thử hoạt động trên 4G/LTE,
 - mọi thuê bao có cùng trình tự xử lý;
 - mọi SMS/OTP sẽ có hành vi giống nhau trên mọi thiết bị sau khi 2G dừng;
 - mọi SIM cũ đều phải đổi;
+- mọi cuộc gọi VoLTE đều miễn phí;
+- một cuộc gọi VoLTE cụ thể sẽ trừ bao nhiêu MB data;
 - mọi lỗi thoại đều do 2G shutdown;
 - mọi khu vực sẽ ngay lập tức có cùng chất lượng 4G/5G sau khi giải phóng băng tần.
 
@@ -144,13 +153,19 @@ Nếu thiết bị, SIM và vùng phủ 4G/5G đáp ứng, data có thể vẫn 
 Kiểm tra VoLTE của thiết bị và thuê bao, đúng SIM, loại mạng 4G/5G rồi gọi thử lại. Android và iPhone có hướng dẫn riêng trên website.
 
 ### Viettel bật VoLTE bằng cú pháp nào?
-Theo tài liệu Viettel: **`HDCALL` gửi `191`**, phí đăng ký dịch vụ được công bố là **0 đồng**.
+Theo tài liệu Viettel: **`HDCALL` gửi `191`**.
+
+### Đăng ký VoLTE Viettel có mất phí không?
+Theo tài liệu Viettel được kiểm tra lại trong run này, **phí dịch vụ VoLTE là 0 đồng**. Điều đó không đồng nghĩa mọi cuộc gọi của thuê bao đều có cước 0 đồng.
+
+### VoLTE có trừ data 4G/5G không?
+Nguồn Viettel dùng cho bài này không công bố một mức MB trừ theo từng cuộc gọi VoLTE. Vì vậy bài không tự suy diễn con số hoặc khẳng định cơ chế tính data ngoài phạm vi nguồn.
 
 ### Mốc 15/9/2026 có phải mốc tắt 2G theo lộ trình không?
-Theo nguồn quản lý nhà nước, GSM/2G được sử dụng đến hết **15/9/2026**, với các ngoại lệ khu vực đặc thù được nêu trong nguồn chính thức.
+Theo nguồn quản lý nhà nước, GSM/2G được sử dụng đến hết **15/09/2026**, với các ngoại lệ khu vực đặc thù được nêu trong nguồn chính thức.
 
-### Vì sao ngày 03/09 chủ đề này lại cần cập nhật?
-Vì trong ngày 03/09/2026 xuất hiện thêm nhiều bản tin mới về mốc tắt 2G và rủi ro thoại trên máy 4G chưa sẵn sàng VoLTE. Đây là freshness signal để mở rộng canonical owner hiện hữu, không phải bằng chứng cho một intent mới cần URL riêng.
+### Vì sao ngày 04/09 chủ đề này lại cần cập nhật?
+Vì trong ngày 04/09/2026 tiếp tục xuất hiện bản tin mới nhấn mạnh chỉ còn 11 ngày tới mốc dừng 2G. Đây là freshness signal để mở rộng canonical owner hiện hữu, không phải bằng chứng cho một intent mới cần URL riêng.
 
 ## Nguồn kiểm chứng
 
@@ -158,7 +173,7 @@ Vì trong ngày 03/09/2026 xuất hiện thêm nhiều bản tin mới về mố
 - [Bộ Khoa học và Công nghệ — Thông cáo báo chí về lộ trình dừng công nghệ di động 2G](https://mst.gov.vn/thong-cao-bao-chi-ve-lo-trinh-dung-cong-nghe-di-dong-2g-197240705111036541.htm)
 - [Viettel — Hướng dẫn bật dịch vụ cuộc gọi VoLTE, 14/04/2026](https://098.viettel.vn/tin-tuc/huong-dan-bat-dich-vu-cuoc-goi-volte-goi-chat-luong-tot-hon-an-toan-hon/15298552)
 - [Viettel — VoLTE trên hạ tầng 4G/5G](https://098.viettel.vn/tin-tuc/chi-tiet/volte-dich-vu-thoai-chat-luong-cao-tren-ha-tang-mang-4g5g-viettel/13748208)
+- [Vietnam.vn / Báo An Giang — Chỉ còn 11 ngày nữa, khách hàng sẽ chính thức tạm biệt 2G, 04/09/2026](https://www.vietnam.vn/chi-con-11-ngay-nua-khach-hang-se-chinh-thuc-tam-biet-2g)
 - [Báo Nghệ An — Việt Nam tắt hoàn toàn mạng 2G từ ngày 15/9/2026, 03/09/2026](https://baonghean.vn/viet-nam-tat-hoan-toan-mang-2g-tu-ngay-1592026-de-giai-phong-bang-tan-phat-trien-5g-va-6g-10350360.html)
-- [Báo Tuyên Quang — Tắt sóng 2G: Đảm bảo quyền lợi, thông tin liên lạc cho người dân, 03/09/2026](https://baotuyenquang.com.vn/khoa-hoc-cong-nghe/202609/tat-song-2g-dam-bao-quyen-loi-thong-tin-lien-lac-cho-nguoi-dan-2c6435a/)
 
-**Cập nhật nguồn:** 03/09/2026. Giá gói cước, vùng phủ, model tương thích phổ quát và các chỉ số search volume/KD/CPC/ranking/traffic potential không được suy diễn trong bài này.
+**Cập nhật nguồn:** 04/09/2026. Giá gói cước, vùng phủ theo địa chỉ, model tương thích phổ quát và các chỉ số search volume/KD/CPC/ranking/traffic potential không được suy diễn trong bài này.

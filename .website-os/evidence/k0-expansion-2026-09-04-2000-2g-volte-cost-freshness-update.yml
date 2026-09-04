@@ -1,0 +1,189 @@
+run:
+  slot: "20:00"
+  observed_at: "2026-09-04T20:01:24+07:00"
+  action: UPDATE
+  publish_count: 1
+
+website_os_bootstrap:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest: governance/website-os.manifest.yml
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_agents_loaded: true
+  anti_mock_rules_loaded: true
+  original_request_loaded: true
+  k0_state_loaded: true
+  decision: PASS
+
+production_invariants:
+  dns_domain_routing_changes: false
+  registration_cta: "MÃ_GÓI GB"
+  registration_destination: "290"
+  exact_main_vercel_verification_required: true
+
+research_chain:
+  - id: C1
+    query: "Viettel 4G 5G eSIM SIM roaming 04/09/2026"
+    intent: FRESHNESS
+    entity_topic: "Viettel mobile same-day news"
+    cluster: freshness-mobile
+    canonical_owner: UNKNOWN
+    content_type: news/freshness
+    evidence:
+      - "same-day web search observed 2026-09-04"
+    priority: HOLD
+    decision: HOLD
+    reason: "No sufficiently strong first-party Viettel mobile publication dated 04/09/2026 surfaced; do not invent same-day first-party freshness."
+  - id: C2
+    query: "tắt sóng 2G 15/9/2026 Viettel còn 11 ngày VoLTE"
+    intent: "FRESHNESS+SUPPORT"
+    entity_topic: "2G shutdown and Viettel VoLTE readiness"
+    cluster: 2g-shutdown-volte-readiness
+    canonical_owner: "/posts/tat-song-2g-15-9-2026-viettel-volte/"
+    content_type: freshness_support_guide
+    evidence:
+      - "Vietnam.vn/Bao An Giang 04/09/2026: only 11 days remain to 2G shutdown"
+      - "Viettel VoLTE official guide: HDCALL to 191, service fee 0 VND"
+      - "Ministry 2G roadmap"
+    priority: P1
+    decision: SELECT_UPDATE
+    reason: "Fresh same-day demand reinforces an existing canonical owner; a new URL would duplicate the same search job."
+  - id: C3
+    query: "eSIM Viettel kích hoạt rồi chưa thấy 5G"
+    intent: SUPPORT
+    entity_topic: "eSIM activation and 5G troubleshooting"
+    cluster: esim-activation-5g
+    canonical_owner: "/posts/esim-5g-kich-hoat-quet-qr/"
+    content_type: support_section
+    evidence:
+      - "existing owner already contains a dedicated 'kích hoạt xong nhưng chưa thấy 5G' section"
+      - "hot-blog2 candidate #7"
+    priority: P2
+    decision: REJECT_DUPLICATE
+    reason: "Existing activation owner already satisfies the query; no independent canonical gap."
+  - id: C4
+    query: "phí chuyển đổi eSIM Viettel Tammi 2026"
+    intent: SUPPORT
+    entity_topic: "eSIM conversion fee"
+    cluster: esim-conversion
+    canonical_owner: "/posts/phi-esim-viettel-2026/"
+    content_type: support_article
+    evidence:
+      - "Viettel Telecom 03/07/2026 eSIM conversion fee update"
+      - "existing fee and conversion owners in repository"
+    priority: P2
+    decision: REJECT_DUPLICATE
+    reason: "Dedicated fee/conversion owners already exist."
+  - id: C5
+    query: "roaming Viettel đi Lào gói nào"
+    intent: COMMERCIAL
+    entity_topic: "Viettel roaming Laos"
+    cluster: roaming-country-laos
+    canonical_owner: "/posts/roaming-viettel-di-lao/"
+    content_type: country_roaming_guide
+    evidence:
+      - "Viettel Telecom official Laos roaming guide 17/08/2026"
+      - "existing canonical owner in repository"
+    priority: P2
+    decision: REJECT_DUPLICATE
+    reason: "Country-specific owner already exists; new URL would cannibalize it."
+  - id: C6
+    query: "SIM Viettel đổi máy bị chặn xác thực khuôn mặt"
+    intent: SUPPORT
+    entity_topic: "device-change subscriber verification"
+    cluster: sim-verification-recovery
+    canonical_owner: "/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu/"
+    content_type: support_article
+    evidence:
+      - "Viettel Telecom 15/06/2026 face re-verification guidance"
+      - "existing device-change owner"
+    priority: P2
+    decision: REJECT_DUPLICATE
+    reason: "Existing canonical owner already covers the device-change verification job."
+  - id: C7
+    query: "Wi-Fi Calling VoWiFi Viettel bật thế nào 2026"
+    intent: SUPPORT
+    entity_topic: "Viettel Wi-Fi Calling / VoWiFi"
+    cluster: vowifi-support
+    canonical_owner: UNKNOWN
+    content_type: support_article
+    evidence:
+      - "search performed during run"
+    priority: HOLD
+    decision: HOLD
+    reason: "Current first-party provisioning and eligibility contract was not strong enough to publish safely."
+
+selected_chain:
+  primary_keyword: "tắt sóng 2G 15/9/2026 điện thoại 4G Viettel"
+  secondary_queries:
+    - "bật VoLTE Viettel có tốn tiền không"
+    - "đăng ký VoLTE Viettel có mất phí không"
+    - "VoLTE Viettel có trừ data không"
+    - "tắt 2G điện thoại 4G có cần đổi máy không"
+    - "HDCALL gửi 191 phí bao nhiêu"
+  primary_intent: SUPPORT
+  secondary_intent: FRESHNESS
+  entity_topic: "Viettel VoLTE readiness before 2G shutdown"
+  cluster: 2g-shutdown-volte-readiness
+  canonical_url_owner: "/posts/tat-song-2g-15-9-2026-viettel-volte/"
+  content_type: freshness_support_guide
+  priority_tier: P1
+  why_update: >-
+    The same-day 04/09/2026 freshness signal and fee question are direct sub-intents of the established 2G/VoLTE readiness job. Creating a new URL would split one SERP job across multiple indexable owners.
+  internal_link_plan:
+    - "/posts/bat-volte-viettel-android/"
+    - "/posts/cai-dat-4g-5g-volte-iphone-viettel/"
+    - "/posts/ussd-viettel-qua-4g-volte-ims/"
+    - "/posts/sim-4g-viettel-co-dung-duoc-5g-khong/"
+
+source_provenance:
+  - id: GOV-2G
+    source: "Ministry of Science and Technology 2G roadmap"
+    source_type: PRIMARY_GOVERNMENT
+    verification_status: VERIFIED
+  - id: VT-VOLTE
+    source: "https://098.viettel.vn/tin-tuc/chi-tiet/volte-dich-vu-thoai-chat-luong-cao-tren-ha-tang-mang-4g5g-viettel/13748208"
+    source_type: FIRST_PARTY_VIETTEL
+    claims: "HDCALL to 191; VoLTE service fee 0 VND; device/SIM conditions"
+    verification_status: VERIFIED
+  - id: NEWS-20260904
+    source: "https://www.vietnam.vn/chi-con-11-ngay-nua-khach-hang-se-chinh-thuc-tam-biet-2g"
+    source_type: SAME_DAY_NEWS
+    observed_at: "2026-09-04T20:01:24+07:00"
+    claims: "11 days remain to 15/09/2026 2G shutdown; conversion remains timely"
+    verification_status: VERIFIED
+
+url_ownership:
+  existing_owner: "/posts/tat-song-2g-15-9-2026-viettel-volte/"
+  proposed_new_url: NONE
+  decision: UPDATE_EXISTING_OWNER
+  duplicate_risk: PASS
+  cannibalization_result: PASS
+
+metrics:
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking_position: UNKNOWN
+  traffic_potential: UNKNOWN
+  fabricated_metrics: false
+
+fact_boundaries:
+  - "VoLTE service fee 0 VND is sourced; this is not rewritten as all voice calls being free."
+  - "No MB-per-VoLTE-call data deduction is asserted because the checked first-party source does not publish such a figure."
+  - "No universal device compatibility, exact shutdown hour, address-level coverage, package price or eligibility claim is invented."
+
+k0_result:
+  fresh_research: PASS
+  intent_mapping: PASS
+  cluster_mapping: PASS
+  canonical_owner: PASS
+  duplicate_check: PASS
+  cannibalization_check: PASS
+  source_of_truth: PASS
+  content_type_assignment: PASS
+  internal_link_plan: PASS
+  unsupported_metrics: NONE
+  decision: PASS
