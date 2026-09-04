@@ -33,6 +33,9 @@ const displayTitle = titleMatch ? titleMatch[1] : (entry.data?.title || entry.sl
 // Hàm chọn ảnh minh họa cao cấp khớp chính xác với từng nội dung bài viết
 function getPostImage(slug: string, title: string) {
   const s = (slug + ' ' + title).toLowerCase();
+  if (s.includes('sim-4g-viettel-co-dung-duoc-5g-khong')) {
+    return '/images/blogger/topic-b2-5g-doi-sim-727def8baa2d.svg';
+  }
   if (s.includes('kiem-tra-toc-do-mang-my-viettel')) {
     return '/images/viettel-4g-speed-banner.jpg';
   }
