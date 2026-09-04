@@ -1,0 +1,215 @@
+version: 1.0.0
+run_slot: "07:00"
+observed_at: "2026-09-04T06:58:41+07:00"
+action: NEW
+status: PASS
+website_os:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest: governance/website-os.manifest.yml
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
+project_main_at_start: 0d840ee647627cb0c18c9966627a5f0b18e93674
+primary_keyword: "SIM 4G Viettel có dùng được 5G không"
+secondary_queries:
+  - "SIM 4G Viettel có cần đổi SIM 5G không"
+  - "điện thoại 5G dùng SIM 4G Viettel được không"
+  - "Viettel 5G có cần đổi SIM không"
+  - "máy hỗ trợ 5G nhưng chỉ hiện 4G Viettel"
+  - "SIM 4G có bắt được sóng 5G Viettel"
+intent: "SUPPORT + INFORMATIONAL"
+cluster: "viettel-5g-eligibility"
+parent_cluster: "viettel-4g-5g-support"
+entity:
+  type: "mobile_network_eligibility"
+  name: "Viettel 5G"
+  attribute: "existing 4G SIM eligibility"
+canonical_owner: "/posts/sim-4g-viettel-co-dung-duoc-5g-khong/"
+content_type: "support_guide"
+new_url_created: true
+cannibalization: PASS
+reason: >-
+  The repository already records topic-b2-5g-doi-sim as a QUEUE item and has a matching exact-topic asset,
+  but there is no indexable article whose primary job is answering whether an existing Viettel 4G SIM must be replaced to use 5G.
+  Existing iPhone, 5G SA, APN, speed and SIM-replacement owners cover adjacent but different jobs.
+  The new owner centralizes the basic 5G eligibility answer and links to those specialist owners instead of duplicating them.
+
+search_chain:
+  same_day_research:
+    observed_at: "2026-09-04T06:58:41+07:00"
+    result: HOLD_CANDIDATE_ONLY
+    reason: "Same-day first-party searches did not surface a sufficiently strong Viettel 4G/5G/eSIM/SIM/support/roaming/package publication dated 04/09/2026 at observation time; fallback continued."
+  source_provenance:
+    - source: "Viettel Telecom"
+      url: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/toc-do-mang-5g-nhanh-den-muc-do-nao/16860196"
+      published_at: "2025-03-03"
+      observed_at: "2026-09-04T06:58:41+07:00"
+      provenance: FIRST_PARTY
+      verification_status: VERIFIED
+      bounded_facts:
+        - "Viettel states that customers with a 5G-capable phone can use 5G without changing SIM."
+        - "The source does not establish universal device, coverage, package or account eligibility for every customer."
+    - source: "Viettel Telecom"
+      url: "https://www.vietteltelecom.vn/index.php/chat-luong-dich-vu/thu-tuc-hoa-mang"
+      published_at: UNKNOWN
+      observed_at: "2026-09-04T06:58:41+07:00"
+      provenance: FIRST_PARTY
+      verification_status: VERIFIED
+      bounded_facts:
+        - "Current connection procedures list separate blank-SIM fees for SIM 4G and SIM 5G."
+        - "This listing is not treated as evidence that an existing 4G SIM must be replaced to use 5G."
+
+candidates_checked:
+  - query: "Viettel mobile breaking update 04/09/2026"
+    intent: FRESHNESS
+    entity_topic: "Viettel mobile news"
+    cluster: "freshness-news"
+    canonical_owner: UNKNOWN
+    content_type: "NEWS_FRESHNESS"
+    evidence: INSUFFICIENT_FIRST_PARTY_SAME_DAY
+    priority: P0
+    decision: HOLD
+    reason: "No qualifying same-day first-party mobile item found at observation time; candidate-level HOLD only."
+  - query: "Wi-Fi Calling / VoWiFi Viettel"
+    intent: SUPPORT
+    entity_topic: "Wi-Fi Calling provisioning"
+    cluster: "voice-over-wifi"
+    canonical_owner: UNKNOWN
+    content_type: "SUPPORT_ARTICLE"
+    evidence: INSUFFICIENT_CURRENT_FIRST_PARTY_PROVISIONING
+    priority: P1
+    decision: HOLD
+    reason: "No sufficiently current first-party provisioning and eligibility contract was verified for a safe 2026 owner."
+  - query: "đi Hàn Quốc dùng gói roaming Viettel nào"
+    intent: COMMERCIAL
+    entity_topic: "South Korea roaming package selection"
+    cluster: "viettel-roaming"
+    canonical_owner: UNKNOWN
+    content_type: "COMPARISON_SUPPORT"
+    evidence: STALE_OR_PROMO_BOUND
+    priority: P1
+    decision: HOLD
+    reason: "Search surfaced older/expired promotional evidence, not a sufficiently current first-party country guide comparable to the 17/08/2026 Laos source."
+  - query: "đi Thái Lan dùng gói roaming Viettel nào"
+    intent: COMMERCIAL
+    entity_topic: "Thailand roaming package selection"
+    cluster: "viettel-roaming"
+    canonical_owner: UNKNOWN
+    content_type: "COMPARISON_SUPPORT"
+    evidence: STALE_PACKAGE_TABLE
+    priority: P1
+    decision: HOLD
+    reason: "The official package table surfaced from 2022 and explicitly warns terms may change; not used for current 2026 package claims."
+  - query: "mua thêm data Viettel khi hết dung lượng"
+    intent: SUPPORT_COMMERCIAL
+    entity_topic: "data add-on purchase"
+    cluster: "viettel-data-support"
+    canonical_owner: UNKNOWN
+    content_type: "SUPPORT_ARTICLE"
+    evidence: STALE_FIRST_PARTY
+    priority: P1
+    decision: HOLD
+    reason: "Official My Viettel instructions found are old and insufficient for current package/eligibility claims."
+  - query: "SIM 4G Viettel có dùng được 5G không / có cần đổi SIM không"
+    intent: SUPPORT
+    entity_topic: "5G eligibility with existing 4G SIM"
+    cluster: "viettel-5g-eligibility"
+    canonical_owner: "/posts/sim-4g-viettel-co-dung-duoc-5g-khong/"
+    content_type: "SUPPORT_ARTICLE"
+    evidence: FIRST_PARTY_VERIFIED
+    priority: P1
+    decision: SELECT_NEW
+    reason: "Direct first-party answer plus a pre-existing QUEUE topic and no indexable canonical owner for the exact search job."
+  - query: "5G SA Viettel có cần đổi SIM không"
+    intent: INFORMATIONAL_SUPPORT
+    entity_topic: "5G SA architecture and SIM"
+    cluster: "viettel-5g-sa"
+    canonical_owner: "/posts/5g-sa-viettel-la-gi/"
+    content_type: "SUPPORT_ARTICLE"
+    evidence: EXISTING_OWNER
+    priority: P1
+    decision: REJECT
+    reason: "Existing 5G SA owner already covers SA-specific SIM interpretation; new basic eligibility owner links to it rather than duplicating SA content."
+
+query_mapping:
+  query: "SIM 4G Viettel có dùng được 5G không"
+  primary_intent: SUPPORT
+  secondary_intent: INFORMATIONAL
+  entity_topic: "Viettel 5G / existing 4G SIM eligibility"
+  cluster: "viettel-5g-eligibility"
+  canonical_url_owner: "/posts/sim-4g-viettel-co-dung-duoc-5g-khong/"
+  content_type: "support_guide"
+  evidence_refs:
+    - "viettel-5g-no-sim-change-2025-03-03"
+    - "viettel-current-connection-procedure"
+  priority: P1
+
+sources:
+  - id: "viettel-5g-no-sim-change-2025-03-03"
+    url: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/toc-do-mang-5g-nhanh-den-muc-do-nao/16860196"
+    publisher: "Viettel Telecom"
+    published: "2025-03-03"
+    observed_at: "2026-09-04T06:58:41+07:00"
+    role: "first-party 5G eligibility statement"
+    verification_status: VERIFIED
+  - id: "viettel-current-connection-procedure"
+    url: "https://www.vietteltelecom.vn/index.php/chat-luong-dich-vu/thu-tuc-hoa-mang"
+    publisher: "Viettel Telecom"
+    published: UNKNOWN
+    observed_at: "2026-09-04T06:58:41+07:00"
+    role: "current SIM product/procedure context"
+    verification_status: VERIFIED
+
+source_facts:
+  5g_capable_phone_can_use_5g_without_sim_change: true
+  every_existing_sim_guaranteed_5g: UNKNOWN
+  universal_device_compatibility: UNKNOWN
+  universal_coverage: UNKNOWN
+  universal_package_eligibility: UNKNOWN
+  speed_improvement_from_sim_replacement: UNKNOWN
+  current_connection_procedure_lists_sim_4g_and_sim_5g: true
+
+internal_link_plan:
+  parent: "/5g-viettel/"
+  related:
+    - "/posts/cai-dat-4g-5g-volte-iphone-viettel/"
+    - "/posts/5g-sa-viettel-la-gi/"
+    - "/posts/cai-apn-viettel-4g-5g-v-internet/"
+    - "/posts/kiem-tra-toc-do-mang-my-viettel/"
+    - "/posts/doi-sim-4g-viettel-tren-my-viettel/"
+
+image_plan:
+  role: "exact-topic existing governed asset"
+  subject: "5G-capable phone using an existing Viettel SIM"
+  path: "/images/blogger/topic-b2-5g-doi-sim-727def8baa2d.svg"
+  topic_id: "topic-b2-5g-doi-sim"
+  topic_match: PASS
+  note: "Existing repository asset is explicitly titled and tagged for this queued topic; no unrelated stock image or fabricated screenshot is introduced."
+
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+
+priority:
+  tier: P1
+  reason: >-
+    Distinct support job with direct first-party evidence, an existing queued content gap and an exact-topic governed asset.
+    It resolves a high-friction user question before users unnecessarily replace a SIM. Quantitative metrics remain UNKNOWN.
+
+k0_decision:
+  decision: PASS
+  duplicate_risk: PASS
+  cannibalization_result: PASS
+  unsupported_metrics: 0
+  unsupported_business_facts: 0
+
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
