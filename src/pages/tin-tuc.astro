@@ -9,6 +9,9 @@ const posts = await getCollection('posts');
 // Hàm chọn ảnh minh họa theo chủ đề bài viết khớp chính xác nội dung
 function getPostImage(slug: string, title: string) {
   const s = (slug + ' ' + title).toLowerCase();
+  if (s.includes('esim-viettel-yeu-song-khong-gui-duoc-sms')) {
+    return '/images/blogger/b5-complete-16-e9ba5da114a8.svg';
+  }
   if (s.includes('ussd-viettel-qua-4g-volte-ims')) {
     return '/images/blogger/topic-b1-ussd-2g-tat-can-cap-nhat-gi-0a95b8de4e45.svg';
   }
@@ -88,67 +91,33 @@ const formattedPosts: FormattedPost[] = posts.map((post: { slug: string; body?: 
           Tin Tức & Hướng Dẫn Viettel
         </h1>
         <p class="text-red-100 text-sm sm:text-base mt-3 leading-relaxed">
-          Tổng hợp đầy đủ cách đăng ký, hủy gói cước, tra cứu lưu lượng Data 4G/5G và giải đáp thắc mắc liên quan đến dịch vụ di động Viettel chính thức.
+          Cập nhật các hướng dẫn sử dụng dịch vụ, đăng ký gói cước, kiểm tra tài khoản và xử lý lỗi phổ biến dựa trên nguồn được dẫn.
         </p>
       </div>
     </div>
 
-    {/* Posts Grid */}
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {formattedPosts.map((item) => (
-        <article class="bg-white rounded-xl border border-gray-200 hover:border-red-500 hover:shadow-lg transition-all duration-300 flex flex-col justify-between overflow-hidden group">
-          <div>
-            <a href={`/posts/${item.slug}`} class="block overflow-hidden h-48 w-full relative">
-              <img 
-                src={item.image} 
-                alt={item.title}
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                loading="lazy"
-              />
-              <span class="absolute top-3 left-3 bg-red-600/90 text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider shadow-sm">
-                Viettel 2026
-              </span>
-            </a>
-
-            <div class="p-6 pb-2">
-              <div class="flex items-center gap-2 text-xs font-bold text-red-600 uppercase tracking-wider mb-2">
-                <span class="w-2 h-2 rounded-full bg-red-600"></span>
-                Hướng dẫn di động
-              </div>
-              <h2 class="text-lg font-bold text-gray-900 hover:text-red-600 transition-colors line-clamp-2 leading-snug mb-3">
-                <a href={`/posts/${item.slug}`} class="hover:underline">
-                  {item.title}
-                </a>
-              </h2>
-              <p class="text-sm text-gray-600 line-clamp-3 leading-relaxed">
-                {item.excerpt}
-              </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+      {formattedPosts.map((post) => (
+        <article class="bg-white rounded-2xl border border-gray-100 shadow-lg shadow-slate-900/5 overflow-hidden flex flex-col hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+          <a href={`/posts/${post.slug}/`} class="block overflow-hidden bg-gray-100 aspect-[16/9]">
+            <img src={post.image} alt={post.title} class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" />
+          </a>
+          <div class="p-5 sm:p-6 flex flex-col flex-1">
+            <div class="flex items-center gap-2 text-[11px] font-bold text-red-600 uppercase tracking-wider mb-3">
+              <span>Hướng dẫn Viettel</span>
+              <span class="text-gray-300">•</span>
+              <span class="text-gray-500">2026</span>
             </div>
-          </div>
-
-          <div class="px-6 pb-6 pt-4 border-t border-gray-100 flex items-center justify-between">
-            <a 
-              href={`/posts/${item.slug}`}
-              class="inline-flex items-center gap-1.5 text-sm font-bold text-red-600 hover:text-red-700 min-h-[44px] py-2"
-            >
-              Đọc chi tiết
-              <span aria-hidden="true">→</span>
+            <h2 class="text-lg sm:text-xl font-extrabold text-gray-900 leading-snug mb-3">
+              <a href={`/posts/${post.slug}/`} class="hover:text-red-600 transition-colors">{post.title}</a>
+            </h2>
+            <p class="text-sm text-gray-600 leading-relaxed mb-5 flex-1">{post.excerpt}</p>
+            <a href={`/posts/${post.slug}/`} class="inline-flex items-center text-sm font-extrabold text-red-600 hover:text-red-700 min-h-[44px]">
+              Xem hướng dẫn →
             </a>
-            <span class="text-xs text-gray-400 font-medium">Miễn phí SMS 290</span>
           </div>
         </article>
       ))}
-    </div>
-
-    {/* Call to action footer box */}
-    <div class="mt-12 bg-red-50 border border-red-200 rounded-2xl p-6 text-center">
-      <h3 class="text-lg font-bold text-red-800">Cần tư vấn chọn gói cước phù hợp nhất?</h3>
-      <p class="text-sm text-red-700 mt-1">Liên hệ ngay tổng đài chăm sóc khách hàng Viettel 1800.8098 (Miễn phí).</p>
-      <div class="mt-4">
-        <a href="/" class="inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-bold bg-red-600 text-white hover:bg-red-700 shadow-md transition-colors min-h-[44px]">
-          ← Về trang tra cứu gói cước
-        </a>
-      </div>
     </div>
   </main>
 
