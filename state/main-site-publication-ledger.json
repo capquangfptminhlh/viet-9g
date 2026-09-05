@@ -102,5 +102,13 @@
     "contentHash": "dc0fd80ebafe3e615b3001d04ae0c09aec8634c53d35261c2539729b1ed209fa",
     "status": "PUBLISHED",
     "createdAt": "2026-09-04T01:40:01.577Z"
+  },
+  {
+    "idempotencyKey": "3ee89d221c65e423267349ee2c33ffb012e1597a58df18faa82261879ff2bf34",
+    "topicId": "topic-b1-ussd-2g-tat-can-cap-nhat-gi",
+    "slug": "topic-b1-ussd-2g-tat-can-cap-nhat-gi",
+    "contentHash": "d973d76845a0761e471cae6c0be84f733f8fca28d2b194edaaf4cb3b739cd70f",
+    "status": "PUBLISHED",
+    "createdAt": "2026-09-05T01:39:15.277Z"
   }
 ]
