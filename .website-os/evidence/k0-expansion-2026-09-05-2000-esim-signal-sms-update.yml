@@ -1,0 +1,214 @@
+run:
+  slot: "20:00"
+  observed_at: "2026-09-05T20:00:00+07:00"
+  action: UPDATE
+  publish_count: 1
+
+website_os_bootstrap:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest: governance/website-os.manifest.yml
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_agents_loaded: true
+  anti_mock_rules_loaded: true
+  original_request_loaded: true
+  k0_state_loaded: true
+  decision: PASS
+
+project_state:
+  main_at_start: f3719582339c7db876a3501a404798dbe8c7476c
+  same_day_existing_updates:
+    - "https://www.tracuugoicuoc.com/posts/cai-dat-4g-5g-volte-iphone-viettel/"
+    - "https://www.tracuugoicuoc.com/posts/ussd-viettel-qua-4g-volte-ims/"
+  governed_existing_owner: "https://www.tracuugoicuoc.com/posts/esim-viettel-yeu-song-khong-gui-duoc-sms/"
+
+production_invariants:
+  dns_domain_routing_changes: false
+  registration_cta: "MÃ_GÓI GB"
+  registration_destination: "290"
+  exact_main_vercel_verification_required: true
+
+research_chain:
+  - candidate: same-day Viettel mobile breaking/freshness
+    query: "Viettel 4G 5G eSIM SIM roaming package 05/09/2026"
+    intent: FRESHNESS
+    entity_topic: Viettel mobile news
+    cluster: freshness-mobile
+    canonical_owner: UNKNOWN
+    content_type: news/freshness
+    evidence:
+      - "https://www.vietteltelecom.vn/"
+      - "https://098.viettel.vn/"
+    priority: HOLD
+    decision: HOLD_CANDIDATE
+    reason: "Same-day scan did not surface a first-party Viettel mobile/eSIM/SIM/5G/roaming/package publication dated 05/09/2026 strong enough to justify a distinct freshness owner."
+
+  - candidate: eSIM weak signal / speed / SMS diagnosis after conversion
+    query: "đổi sang eSIM Viettel có yếu sóng không"
+    intent: SUPPORT
+    entity_topic: eSIM signal and SMS troubleshooting
+    cluster: esim-signal-sms-troubleshooting
+    canonical_owner: "https://www.tracuugoicuoc.com/posts/esim-viettel-yeu-song-khong-gui-duoc-sms/"
+    content_type: support article
+    evidence:
+      - "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/huong-dan-chi-tiet-5-buoc-doi-esim-tren-viettel-tammi-cuc-don-gian/18477972"
+      - "https://098.viettel.vn/tin-tuc/chi-tiet/nguyen-nhan-va-cach-khac-phuc-esim-viettel-khong-gui-duoc-tin-nhan-nhanh-chong/19495412"
+      - "repo:src/content/posts/esim-viettel-yeu-song-khong-gui-duoc-sms.md"
+      - "repo:src/content/posts/doi-esim-viettel-tren-my-viettel.md"
+    priority: P1
+    decision: SELECT_UPDATE
+    reason: "The existing weak-signal/SMS troubleshooting article already owns this search job but was thin and lacked the newer first-party clarification that converting to eSIM does not inherently weaken signal or reduce 4G/5G speed. Expanding this owner adds evidence-backed value without creating a competing URL."
+
+  - candidate: eSIM hotspot / tethering
+    query: "eSIM Viettel có phát Wi-Fi được không"
+    intent: INFORMATIONAL_SUPPORT
+    entity_topic: eSIM tethering/hotspot
+    cluster: esim-hotspot-tethering
+    canonical_owner: "https://www.tracuugoicuoc.com/posts/esim-viettel-co-phat-wifi-hotspot/"
+    content_type: support article
+    evidence:
+      - "https://098.viettel.vn/tin-tuc/chi-tiet/giai-dap-esim-co-phat-wi-fi-duoc-khong-cach-chia-se-mang-don-gian/10594300"
+      - "repo:.website-os/evidence/k0-expansion-2026-08-28-2000-esim-hotspot.yml"
+    priority: P2
+    decision: REJECT_EXISTING_OWNER
+    reason: "A dedicated indexable canonical owner already exists and was K0-approved on 28/08/2026."
+
+  - candidate: eSIM automatic activation without QR
+    query: "eSIM Viettel kích hoạt không cần QR"
+    intent: SUPPORT
+    entity_topic: eSIM activation
+    cluster: esim-activation
+    canonical_owner: existing eSIM activation/device-change owners
+    content_type: support article
+    evidence:
+      - "first-party Viettel eSIM activation material observed during the same-day research chain"
+      - "repo existing eSIM activation owners"
+    priority: P2
+    decision: REJECT_EXISTING_OWNER
+    reason: "Activation and QR/device-change jobs are already assigned to existing canonical owners; no independent URL gap was established."
+
+  - candidate: SIM moved to another phone / biometric verification
+    query: "SIM Viettel lắp sang máy mới bị chặn xác thực khuôn mặt"
+    intent: SUPPORT_COMPLIANCE
+    entity_topic: device-change biometric verification
+    cluster: sim-device-change-biometric-verification
+    canonical_owner: "https://www.tracuugoicuoc.com/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu/"
+    content_type: support article
+    evidence:
+      - "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/thong-bao-quan-trong-quy-dinh-bat-buoc-xac-thuc-lai-khuon-mat-khi-thay-doi-dien-thoai-ap-dung-tu-15062026/19138832"
+      - "repo:.website-os/evidence/url-ownership-map.csv"
+    priority: P2
+    decision: REJECT_EXISTING_OWNER
+    reason: "The repository already has a canonical owner for this support/compliance search job."
+
+  - candidate: Laos roaming package selection
+    query: "đi Lào dùng gói roaming Viettel nào"
+    intent: COMMERCIAL_SUPPORT
+    entity_topic: Viettel roaming Laos
+    cluster: roaming-country-laos
+    canonical_owner: existing Laos roaming owner
+    content_type: comparison/support
+    evidence:
+      - "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/di-lao-dung-goi-roaming-nao-goi-y-cac-goi-cuoc-uu-dai-cua-viettel/18333764"
+    priority: P2
+    decision: REJECT_EXISTING_OWNER
+    reason: "A country-specific roaming canonical already owns the job; a new URL would risk duplication."
+
+  - candidate: Wi-Fi Calling / VoWiFi Viettel
+    query: "Wi-Fi Calling Viettel VoWiFi 2026"
+    intent: SUPPORT
+    entity_topic: VoWiFi provisioning
+    cluster: voice-over-wifi
+    canonical_owner: UNKNOWN
+    content_type: support article
+    evidence: []
+    priority: HOLD
+    decision: HOLD_CANDIDATE
+    reason: "No sufficiently current first-party provisioning and eligibility contract was verified; unsupported setup or eligibility claims are prohibited."
+
+  - candidate: iPhone 17 Viettel 5G package eligibility
+    query: "gói 5G Viettel iPhone 17 2026"
+    intent: COMMERCIAL
+    entity_topic: iPhone 17 5G packages
+    cluster: device-package-iphone17
+    canonical_owner: UNKNOWN
+    content_type: commercial/entity article
+    evidence:
+      - "https://098.viettel.vn/tin-tuc/chi-tiet/viettel-ra-mat-goi-cuoc-5g-chinh-hieu-cho-iphone-17/16102884"
+    priority: HOLD
+    decision: HOLD_CANDIDATE
+    reason: "The retrieved first-party commercial evidence is from September 2025; current September 2026 price, benefits and eligibility were not re-verified."
+
+selected_candidate:
+  primary_keyword: "đổi sang eSIM Viettel có yếu sóng không"
+  secondary_queries:
+    - "eSIM Viettel yếu sóng"
+    - "đổi eSIM có giảm tốc độ 4G 5G không"
+    - "eSIM Viettel có sóng nhưng không gửi được SMS"
+    - "eSIM Viettel sóng yếu chập chờn"
+    - "eSIM có sóng nhưng mạng chậm"
+    - "đổi eSIM xong không gửi được tin nhắn"
+  cluster: esim-signal-sms-troubleshooting
+  primary_intent: SUPPORT
+  canonical_url: "https://www.tracuugoicuoc.com/posts/esim-viettel-yeu-song-khong-gui-duoc-sms/"
+  slug: esim-viettel-yeu-song-khong-gui-duoc-sms
+  title: "Đổi sang eSIM Viettel có yếu sóng không? Khi nào SMS không gửi được"
+  why_update: "The canonical already owns weak-signal/SMS troubleshooting. The fresh first-party clarification about eSIM signal equivalence is a missing sub-intent inside the same diagnosis job, so a new URL would be unnecessary and could cannibalize the existing owner."
+  unique_value_added:
+    - "Direct AEO answer that converting to eSIM does not inherently weaken signal or reduce 4G/5G speed according to Viettel."
+    - "Separates coverage, data-speed, SMS-center, account/status and dual-SIM selection diagnoses."
+    - "Warns against deleting the eSIM profile or switching back to physical SIM as a first troubleshooting step."
+    - "Adds a structured pre-support diagnostic checklist and links to specialized canonical owners for speed, APN, QR recovery and device compatibility."
+
+source_provenance:
+  official_primary:
+    - url: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/huong-dan-chi-tiet-5-buoc-doi-esim-tren-viettel-tammi-cuc-don-gian/18477972"
+      publisher: Viettel Telecom
+      published_at: "2026-06-30"
+      observed_at: "2026-09-05T20:00:00+07:00"
+      supports: "Viettel states that converting from a physical SIM to eSIM does not weaken signal or reduce 4G/5G speed because eSIM uses the same telecom infrastructure; actual quality depends on service/package and coverage."
+    - url: "https://098.viettel.vn/tin-tuc/chi-tiet/nguyen-nhan-va-cach-khac-phuc-esim-viettel-khong-gui-duoc-tin-nhan-nhanh-chong/19495412"
+      publisher: Viettel
+      published_at: "2023-04-10"
+      observed_at: "2026-09-05T20:00:00+07:00"
+      supports: "Viettel lists weak/unstable coverage, account/status and SMS configuration among possible reasons eSIM SMS can fail, and recommends retrying in an area with more stable signal when coverage is poor."
+  repository_evidence:
+    - "The existing canonical is /posts/esim-viettel-yeu-song-khong-gui-duoc-sms/."
+    - "The eSIM conversion owner already links to this troubleshooting article, establishing an existing canonical boundary."
+    - "Dedicated speed, APN, QR-recovery and compatibility owners remain separate and are linked rather than duplicated."
+
+metrics:
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+
+k0_decision:
+  decision: PASS
+  duplicate_risk_before: LOW
+  duplicate_risk_after: PASS
+  cannibalization_result: PASS
+  resolution: "Expand the existing canonical owner; do not create a new indexable URL."
+
+internal_link_plan:
+  parent_owner: "https://www.tracuugoicuoc.com/posts/esim-viettel-yeu-song-khong-gui-duoc-sms/"
+  supporting_links:
+    - "https://www.tracuugoicuoc.com/posts/doi-esim-viettel-tren-my-viettel/"
+    - "https://www.tracuugoicuoc.com/posts/kiem-tra-iphone-co-ho-tro-esim-viettel/"
+    - "https://www.tracuugoicuoc.com/posts/kiem-tra-android-co-ho-tro-esim-viettel/"
+    - "https://www.tracuugoicuoc.com/posts/kiem-tra-toc-do-mang-my-viettel/"
+    - "https://www.tracuugoicuoc.com/posts/cai-apn-viettel-4g-5g-v-internet/"
+    - "https://www.tracuugoicuoc.com/posts/lo-xoa-esim-viettel-quet-lai-qr/"
+
+release_requirements:
+  branch_pr_required: true
+  npm_test_required: true
+  k0_check_required: true
+  build_required: true
+  content_readback_required: true
+  exact_head_quality_gate_required: true
+  exact_main_vercel_ready_required: true
+  production_http_200_required: true
