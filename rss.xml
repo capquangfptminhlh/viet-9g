@@ -7,6 +7,13 @@
 <language>vi-VN</language>
 <atom:link href="https://www.tracuugoicuoc.com/rss.xml" rel="self" type="application/rss+xml" />
 <item>
+<title>Cách bật VoLTE Viettel trên iPhone trước tắt 2G 15/9/2026</title>
+<link>https://www.tracuugoicuoc.com/posts/cai-dat-4g-5g-volte-iphone-viettel</link>
+<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/cai-dat-4g-5g-volte-iphone-viettel</guid>
+<pubDate>Sat, 05 Sep 2026 00:00:00 GMT</pubDate>
+<description>Kiểm tra HDCALL gửi 191, Voice &amp; Data 4G/5G và cuộc gọi thử trên iPhone Viettel trước mốc tắt 2G 15/9/2026; tránh nhầm có data 4G/5G là đã sẵn sàng thoại.</description>
+</item>
+<item>
 <title>SIM 4G Viettel có dùng được 5G không? Có cần đổi SIM 5G?</title>
 <link>https://www.tracuugoicuoc.com/posts/sim-4g-viettel-co-dung-duoc-5g-khong</link>
 <guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/sim-4g-viettel-co-dung-duoc-5g-khong</guid>
@@ -54,13 +61,6 @@
 <guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/bat-volte-viettel-android</guid>
 <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
 <description>Hướng dẫn bật VoLTE Viettel trên Android, đăng ký HDCALL gửi 191, chọn SIM 4G/5G và xử lý khi Samsung, Xiaomi, Oppo, Realme không hiện VoLTE.</description>
-</item>
-<item>
-<title>Cách bật VoLTE Viettel trên iPhone: HDCALL 191, 4G/5G và cách kiểm tra 2026</title>
-<link>https://www.tracuugoicuoc.com/posts/cai-dat-4g-5g-volte-iphone-viettel</link>
-<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/cai-dat-4g-5g-volte-iphone-viettel</guid>
-<pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
-<description>Hướng dẫn bật VoLTE Viettel trên iPhone, đăng ký HDCALL gửi 191, chọn 4G/5G trong Voice &amp; Data và kiểm tra cuộc gọi đã chạy trên VoLTE hay chưa.</description>
 </item>
 <item>
 <title>Gói 5G Viettel CapCut 2026: C180S, 12C180S, 12C270P có gì?</title>
@@ -336,16 +336,16 @@
 <description>Phân biệt cú pháp kiểm tra phút gọi khuyến mãi và data cho thuê bao trả sau Viettel.</description>
 </item>
 <item>
-<title>Cach Kiem Tra So Dien Thoai Viettel Dang Dung</title>
-<link>https://www.tracuugoicuoc.com/posts/cach-kiem-tra-so-dien-thoai-viettel-dang-dung</link>
-<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/cach-kiem-tra-so-dien-thoai-viettel-dang-dung</guid>
-<description>Bài hướng dẫn Cach Kiem Tra So Dien Thoai Viettel Dang Dung trên TraCuuGoiCuoc.com.</description>
-</item>
-<item>
 <title>Cach Kiem Tra Tai Khoan Chinh</title>
 <link>https://www.tracuugoicuoc.com/posts/cach-kiem-tra-tai-khoan-chinh</link>
 <guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/cach-kiem-tra-tai-khoan-chinh</guid>
 <description>Bài hướng dẫn Cach Kiem Tra Tai Khoan Chinh trên TraCuuGoiCuoc.com.</description>
+</item>
+<item>
+<title>Cach Kiem Tra So Dien Thoai Viettel Dang Dung</title>
+<link>https://www.tracuugoicuoc.com/posts/cach-kiem-tra-so-dien-thoai-viettel-dang-dung</link>
+<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/cach-kiem-tra-so-dien-thoai-viettel-dang-dung</guid>
+<description>Bài hướng dẫn Cach Kiem Tra So Dien Thoai Viettel Dang Dung trên TraCuuGoiCuoc.com.</description>
 </item>
 <item>
 <title>Chuyen Tra Truoc Sang Tra Sau Viettel Online</title>
@@ -450,6 +450,12 @@
 <description>Bài hướng dẫn Esim Viettel Bi Khoa Puk Cach Xu Ly trên TraCuuGoiCuoc.com.</description>
 </item>
 <item>
+<title>Esim Viettel Co Dung Duoc 4g Khong</title>
+<link>https://www.tracuugoicuoc.com/posts/esim-viettel-co-dung-duoc-4g-khong</link>
+<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/esim-viettel-co-dung-duoc-4g-khong</guid>
+<description>Bài hướng dẫn Esim Viettel Co Dung Duoc 4g Khong trên TraCuuGoiCuoc.com.</description>
+</item>
+<item>
 <title>Esim Viettel Khong Gui Duoc Sms Do Het Tien</title>
 <link>https://www.tracuugoicuoc.com/posts/esim-viettel-khong-gui-duoc-sms-do-het-tien</link>
 <guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/esim-viettel-khong-gui-duoc-sms-do-het-tien</guid>
@@ -474,12 +480,6 @@
 <description>Bài hướng dẫn Esim Viettel Yeu Song Khong Gui Duoc Sms trên TraCuuGoiCuoc.com.</description>
 </item>
 <item>
-<title>Esim Viettel Co Dung Duoc 4g Khong</title>
-<link>https://www.tracuugoicuoc.com/posts/esim-viettel-co-dung-duoc-4g-khong</link>
-<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/esim-viettel-co-dung-duoc-4g-khong</guid>
-<description>Bài hướng dẫn Esim Viettel Co Dung Duoc 4g Khong trên TraCuuGoiCuoc.com.</description>
-</item>
-<item>
 <title>Gói 5G150E Viettel cho eSIM: giá, chu kỳ và cách đăng ký 2026</title>
 <link>https://www.tracuugoicuoc.com/posts/goi-5g150e-viettel-esim</link>
 <guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/goi-5g150e-viettel-esim</guid>
@@ -492,16 +492,16 @@
 <description>Bài hướng dẫn Gói 4g Viettel Rẻ Nhất Cho Học Sinh Sinh Viên trên TraCuuGoiCuoc.com.</description>
 </item>
 <item>
-<title>Gói Cước 4g Viettel Không Giới Hạn Dung Lượng</title>
-<link>https://www.tracuugoicuoc.com/posts/g%C3%B3i-c%C6%B0%E1%BB%9Bc-4g-viettel-kh%C3%B4ng-gi%E1%BB%9Bi-h%E1%BA%A1n-dung-l%C6%B0%E1%BB%A3ng</link>
-<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/g%C3%B3i-c%C6%B0%E1%BB%9Bc-4g-viettel-kh%C3%B4ng-gi%E1%BB%9Bi-h%E1%BA%A1n-dung-l%C6%B0%E1%BB%A3ng</guid>
-<description>Bài hướng dẫn Gói Cước 4g Viettel Không Giới Hạn Dung Lượng trên TraCuuGoiCuoc.com.</description>
-</item>
-<item>
 <title>Gói Combo Viettel Data Thoại Rẻ Nhất</title>
 <link>https://www.tracuugoicuoc.com/posts/g%C3%B3i-combo-viettel-data-tho%E1%BA%A1i-r%E1%BA%BB-nh%E1%BA%A5t</link>
 <guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/g%C3%B3i-combo-viettel-data-tho%E1%BA%A1i-r%E1%BA%BB-nh%E1%BA%A5t</guid>
 <description>Bài hướng dẫn Gói Combo Viettel Data Thoại Rẻ Nhất trên TraCuuGoiCuoc.com.</description>
+</item>
+<item>
+<title>Gói Cước 4g Viettel Không Giới Hạn Dung Lượng</title>
+<link>https://www.tracuugoicuoc.com/posts/g%C3%B3i-c%C6%B0%E1%BB%9Bc-4g-viettel-kh%C3%B4ng-gi%E1%BB%9Bi-h%E1%BA%A1n-dung-l%C6%B0%E1%BB%A3ng</link>
+<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/g%C3%B3i-c%C6%B0%E1%BB%9Bc-4g-viettel-kh%C3%B4ng-gi%E1%BB%9Bi-h%E1%BA%A1n-dung-l%C6%B0%E1%BB%A3ng</guid>
+<description>Bài hướng dẫn Gói Cước 4g Viettel Không Giới Hạn Dung Lượng trên TraCuuGoiCuoc.com.</description>
 </item>
 <item>
 <title>Huong Dan Dang Ky 5g135n Choi Lien Quan</title>
@@ -552,6 +552,12 @@
 <description>Bài hướng dẫn Mua Sim Viettel Online Chon So trên TraCuuGoiCuoc.com.</description>
 </item>
 <item>
+<title>Nap The Cao Viettel Bang Ma The</title>
+<link>https://www.tracuugoicuoc.com/posts/nap-the-cao-viettel-bang-ma-the</link>
+<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/nap-the-cao-viettel-bang-ma-the</guid>
+<description>Bài hướng dẫn Nap The Cao Viettel Bang Ma The trên TraCuuGoiCuoc.com.</description>
+</item>
+<item>
 <title>Nap Tien Viettel Tra Truoc Online</title>
 <link>https://www.tracuugoicuoc.com/posts/nap-tien-viettel-tra-truoc-online</link>
 <guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/nap-tien-viettel-tra-truoc-online</guid>
@@ -568,12 +574,6 @@
 <link>https://www.tracuugoicuoc.com/posts/roaming-viettel-di-lao</link>
 <guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/roaming-viettel-di-lao</guid>
 <description>Cách chọn gói Roaming Viettel khi đi Lào theo số ngày và nhu cầu data, thoại, SMS; đối chiếu IRU, DRU, DR, IR15, TX15, CR và lưu ý dữ liệu ASEAN đang lệch ngay trên nguồn Viettel.</description>
-</item>
-<item>
-<title>Nap The Cao Viettel Bang Ma The</title>
-<link>https://www.tracuugoicuoc.com/posts/nap-the-cao-viettel-bang-ma-the</link>
-<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/nap-the-cao-viettel-bang-ma-the</guid>
-<description>Bài hướng dẫn Nap The Cao Viettel Bang Ma The trên TraCuuGoiCuoc.com.</description>
 </item>
 <item>
 <title>So Sanh 5g135 Va 5g150 Viettel</title>
@@ -630,12 +630,6 @@
 <description>Nếu đăng ký MXH150 Viettel không thành công, kiểm tra mã gói, cú pháp MXH150 GB gửi 290, điều kiện thuê bao và SMS phản hồi trước khi thử lại.</description>
 </item>
 <item>
-<title>Đăng Ký Mạng Viettel Tháng Ưu Đãi Khủng Nhất</title>
-<link>https://www.tracuugoicuoc.com/posts/%C4%91%C4%83ng-k%C3%BD-m%E1%BA%A1ng-viettel-th%C3%A1ng-%C6%B0u-%C4%91%C3%A3i-kh%E1%BB%A7ng-nh%E1%BA%A5t</link>
-<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/%C4%91%C4%83ng-k%C3%BD-m%E1%BA%A1ng-viettel-th%C3%A1ng-%C6%B0u-%C4%91%C3%A3i-kh%E1%BB%A7ng-nh%E1%BA%A5t</guid>
-<description>Bài hướng dẫn Đăng Ký Mạng Viettel Tháng Ưu Đãi Khủng Nhất trên TraCuuGoiCuoc.com.</description>
-</item>
-<item>
 <title>Đăng ký SD120 không được? Kiểm tra cú pháp, điều kiện và SMS phản hồi</title>
 <link>https://www.tracuugoicuoc.com/posts/%C4%91%C4%83ng-k%C3%BD-sd120-viettel</link>
 <guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/%C4%91%C4%83ng-k%C3%BD-sd120-viettel</guid>
@@ -646,6 +640,12 @@
 <link>https://www.tracuugoicuoc.com/posts/%C4%91%C4%83ng-k%C3%BD-sd90-viettel</link>
 <guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/%C4%91%C4%83ng-k%C3%BD-sd90-viettel</guid>
 <description>Hướng dẫn xử lý khi đăng ký SD90 Viettel thất bại: kiểm tra mã gói, cú pháp SD90 GB gửi 290, điều kiện thuê bao và SMS phản hồi.</description>
+</item>
+<item>
+<title>Đăng Ký Mạng Viettel Tháng Ưu Đãi Khủng Nhất</title>
+<link>https://www.tracuugoicuoc.com/posts/%C4%91%C4%83ng-k%C3%BD-m%E1%BA%A1ng-viettel-th%C3%A1ng-%C6%B0u-%C4%91%C3%A3i-kh%E1%BB%A7ng-nh%E1%BA%A5t</link>
+<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/%C4%91%C4%83ng-k%C3%BD-m%E1%BA%A1ng-viettel-th%C3%A1ng-%C6%B0u-%C4%91%C3%A3i-kh%E1%BB%A7ng-nh%E1%BA%A5t</guid>
+<description>Bài hướng dẫn Đăng Ký Mạng Viettel Tháng Ưu Đãi Khủng Nhất trên TraCuuGoiCuoc.com.</description>
 </item>
 <item>
 <title>Đăng ký V120B không được? Kiểm tra điều kiện và SMS phản hồi</title>
