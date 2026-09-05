@@ -9,6 +9,9 @@ const posts = await getCollection('posts');
 // Hàm chọn ảnh minh họa theo chủ đề bài viết khớp chính xác nội dung
 function getPostImage(slug: string, title: string) {
   const s = (slug + ' ' + title).toLowerCase();
+  if (s.includes('esim-viettel-yeu-song-khong-gui-duoc-sms')) {
+    return '/images/blogger/b5-complete-16-e9ba5da114a8.svg';
+  }
   if (s.includes('ussd-viettel-qua-4g-volte-ims')) {
     return '/images/blogger/topic-b1-ussd-2g-tat-can-cap-nhat-gi-0a95b8de4e45.svg';
   }
