@@ -1,0 +1,189 @@
+run:
+  slot: "13:00"
+  observed_at: "2026-09-05T13:00:00+07:00"
+  action: MERGE
+  publish_count: 1
+
+website_os_bootstrap:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest: governance/website-os.manifest.yml
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_agents_loaded: true
+  anti_mock_rules_loaded: true
+  original_request_loaded: true
+  k0_state_loaded: true
+  decision: PASS
+
+project_state:
+  main_at_start: 44e54db4640780879bf07e5e3ef9c77b6cc7b1fa
+  same_day_already_published_route: "https://www.tracuugoicuoc.com/posts/topic-b1-ussd-2g-tat-can-cap-nhat-gi/"
+  governed_existing_owner: "https://www.tracuugoicuoc.com/posts/ussd-viettel-qua-4g-volte-ims/"
+
+production_invariants:
+  dns_domain_routing_changes: false
+  registration_cta: "MÃ_GÓI GB"
+  registration_destination: "290"
+  exact_main_vercel_verification_required: true
+
+research_chain:
+  - candidate: same-day Viettel mobile breaking/freshness
+    query: "Viettel 4G 5G eSIM SIM roaming 05/09/2026"
+    intent: FRESHNESS
+    entity_topic: Viettel mobile news
+    cluster: freshness-mobile
+    canonical_owner: UNKNOWN
+    content_type: news/freshness
+    evidence:
+      - "https://www.vietteltelecom.vn/"
+      - "https://098.viettel.vn/"
+    priority: HOLD
+    decision: HOLD_CANDIDATE
+    reason: "Same-day scan did not surface a first-party Viettel mobile/eSIM/SIM/5G/roaming/package publication dated 05/09/2026 strong enough for a new freshness owner."
+
+  - candidate: USSD after 2G/3G shutdown - software/device update
+    query: "tắt 2G 3G ảnh hưởng USSD Viettel cần cập nhật gì"
+    intent: SUPPORT
+    entity_topic: USSD over IMS device/software readiness
+    cluster: ussd-4g-troubleshooting
+    canonical_owner: "https://www.tracuugoicuoc.com/posts/ussd-viettel-qua-4g-volte-ims/"
+    duplicate_url: "https://www.tracuugoicuoc.com/posts/topic-b1-ussd-2g-tat-can-cap-nhat-gi/"
+    content_type: support article
+    evidence:
+      - "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320"
+      - "repo:state/k0-decision.json"
+      - "repo:tests/blogger/blogger-blog1-queue.test.ts"
+      - "repo:src/content/posts/ussd-viettel-qua-4g-volte-ims.md"
+      - "repo:src/content/posts/topic-b1-ussd-2g-tat-can-cap-nhat-gi.md"
+    priority: P1
+    decision: SELECT_MERGE
+    reason: "The same-day automation created a thin topic-slug page even though state/k0-decision.json and the queue route contract already assign this exact USSD/2G software-device sub-intent to the established USSD over IMS canonical. Keeping both indexable would create high cannibalization risk."
+
+  - candidate: eSIM hotspot/tethering
+    query: "eSIM Viettel có phát Wi-Fi được không"
+    intent: INFORMATIONAL_SUPPORT
+    entity_topic: eSIM tethering/hotspot
+    cluster: esim-device-usage
+    canonical_owner: UNKNOWN
+    content_type: support article
+    evidence:
+      - "https://098.viettel.vn/tin-tuc/chi-tiet/giai-dap-esim-co-phat-wi-fi-duoc-khong-cach-chia-se-mang-don-gian/10594300"
+    priority: P2
+    decision: DEFER_AFTER_SELECTED_PASS
+    reason: "Official evidence exists and the query may support a future independent owner, but this run publishes at most one item and the active USSD cannibalization requires higher-priority remediation."
+
+  - candidate: Laos roaming package selection
+    query: "đi Lào dùng gói roaming Viettel nào"
+    intent: COMMERCIAL_SUPPORT
+    entity_topic: Viettel roaming Laos
+    cluster: roaming-country-laos
+    canonical_owner: existing Laos roaming owner
+    content_type: comparison/support
+    evidence:
+      - "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/di-lao-dung-goi-roaming-nao-goi-y-cac-goi-cuoc-uu-dai-cua-viettel/18333764"
+    priority: P2
+    decision: REJECT_EXISTING_OWNER
+    reason: "Fresh first-party evidence exists but this search job already has a country/package owner; no new URL is justified in this run."
+
+  - candidate: SIM moved to another phone / biometric verification
+    query: "SIM Viettel lắp sang máy mới bị chặn xác thực khuôn mặt"
+    intent: SUPPORT_COMPLIANCE
+    entity_topic: device-change biometric verification
+    cluster: sim-device-change-biometric-verification
+    canonical_owner: "https://www.tracuugoicuoc.com/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu/"
+    content_type: support article
+    evidence:
+      - "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/thong-bao-quan-trong-quy-dinh-bat-buoc-xac-thuc-lai-khuon-mat-khi-thay-doi-dien-thoai-ap-dung-tu-15062026/19138832"
+      - "repo:state/k0-decision.json"
+    priority: P2
+    decision: REJECT_EXISTING_OWNER
+    reason: "The repository already assigns this support/compliance intent to an existing canonical owner."
+
+  - candidate: Wi-Fi Calling / VoWiFi Viettel
+    query: "Wi-Fi Calling Viettel VoWiFi 2026"
+    intent: SUPPORT
+    entity_topic: VoWiFi provisioning
+    cluster: voice-over-wifi
+    canonical_owner: UNKNOWN
+    content_type: support article
+    evidence: []
+    priority: HOLD
+    decision: HOLD_CANDIDATE
+    reason: "No sufficiently current first-party provisioning/eligibility contract was verified; do not publish unsupported setup or eligibility claims."
+
+  - candidate: iPhone 17 Viettel 5G package eligibility
+    query: "gói 5G Viettel iPhone 17 2026"
+    intent: COMMERCIAL
+    entity_topic: iPhone 17 5G packages
+    cluster: device-package-iphone17
+    canonical_owner: UNKNOWN
+    content_type: commercial/entity article
+    evidence:
+      - "https://098.viettel.vn/tin-tuc/chi-tiet/viettel-ra-mat-goi-cuoc-5g-chinh-hieu-cho-iphone-17/16102884"
+    priority: HOLD
+    decision: HOLD_CANDIDATE
+    reason: "The retrieved first-party commercial article is dated 18/09/2025; current September 2026 price, benefits and eligibility were not re-verified, so no current commercial owner is created."
+
+selected_candidate:
+  primary_keyword: "USSD Viettel sau tắt 2G"
+  secondary_queries:
+    - "tắt 2G ảnh hưởng USSD Viettel"
+    - "USSD over IMS Viettel"
+    - "*101# Viettel không chạy trên 4G"
+    - "*098# Viettel không phản hồi sau tắt 2G"
+    - "cập nhật phần mềm để dùng USSD qua 4G Viettel"
+    - "thiết bị hỗ trợ USSD qua 4G Viettel"
+  cluster: ussd-4g-troubleshooting
+  primary_intent: SUPPORT
+  canonical_url: "https://www.tracuugoicuoc.com/posts/ussd-viettel-qua-4g-volte-ims/"
+  slug: ussd-viettel-qua-4g-volte-ims
+  title: "USSD Viettel sau tắt 2G: cách kiểm tra 4G/IMS và phương án thay thế"
+  why_merge: "The new topic is a software/device-readiness subsection of the existing USSD over IMS troubleshooting job. The repository's K0 state and queue test explicitly map topic-b1-ussd-2g-tat-can-cap-nhat-gi to this canonical owner."
+  unique_value_added:
+    - "Fresh 05/09/2026 verification note"
+    - "Direct AEO answer for what software/device checks to do when 2G/3G shutdown affects USSD"
+    - "Clarifies that device replacement is not automatically required"
+    - "Retires the thin duplicate via permanent redirect"
+
+source_provenance:
+  official_primary:
+    - url: "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320"
+      published_at: "2026-07-03"
+      observed_at: "2026-09-05T13:00:00+07:00"
+      supports: "Viettel recommendation to update device software or use devices supporting USSD over 4G/USSD over IMS; examples of affected USSD commands and troubleshooting context."
+  repository_evidence:
+    - "state/k0-decision.json defines ussd-4g-troubleshooting owner as /posts/ussd-viettel-qua-4g-volte-ims/."
+    - "tests/blogger/blogger-blog1-queue.test.ts maps topic-b1-ussd-2g-tat-can-cap-nhat-gi to /posts/ussd-viettel-qua-4g-volte-ims/."
+    - "The duplicate Markdown was published on main at 2026-09-05T01:39:15.277Z."
+
+metrics:
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+
+k0_decision:
+  decision: PASS
+  duplicate_risk_before: HIGH
+  duplicate_risk_after: PASS
+  cannibalization_result: PASS
+  resolution: "Expand canonical, delete duplicate Markdown, add permanent redirect, retain one indexable owner."
+
+internal_link_plan:
+  parent_owner: "https://www.tracuugoicuoc.com/posts/ussd-viettel-qua-4g-volte-ims/"
+  supporting_links:
+    - "https://www.tracuugoicuoc.com/posts/cai-dat-4g-5g-volte-iphone-viettel/"
+    - "https://www.tracuugoicuoc.com/posts/cach-kiem-tra-tai-khoan-chinh/"
+    - "https://www.tracuugoicuoc.com/posts/tat-song-2g-15-9-2026-viettel-volte/"
+
+release_requirements:
+  branch_pr_required: true
+  npm_test_required: true
+  k0_check_required: true
+  build_required: true
+  content_readback_required: true
+  exact_main_vercel_ready_required: true
+  production_http_200_required: true
