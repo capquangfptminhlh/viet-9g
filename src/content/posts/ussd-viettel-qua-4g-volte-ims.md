@@ -1,7 +1,7 @@
 ---
 title: "USSD Viettel sau tắt 2G: cách kiểm tra 4G/IMS và phương án thay thế"
 description: "*101# hoặc *098# không chạy? Xem cách Viettel hướng dẫn kiểm tra USSD over IMS trên 4G/5G, điều kiện iPhone/Android và các kênh thay thế."
-date: 2026-08-10
+date: 2026-09-05
 ---
 
 # USSD Viettel sau tắt 2G: cách kiểm tra 4G/IMS và phương án thay thế
@@ -11,6 +11,20 @@ Nếu bạn bấm `*101#`, `*102#`, `*098#` hoặc một mã USSD quen thuộc n
 Điểm cần kiểm tra vì vậy không chỉ là “máy có 4G hay không”, mà là **máy, phần mềm và trạng thái IMS có cho phép USSD hoạt động trên kết nối 4G/5G hay không**. Nếu chưa dùng được, Viettel cũng công bố các kênh thay thế như ứng dụng My Viettel/Tammi, SMS và tổng đài 198.
 
 > **Tóm tắt nhanh:** tắt Wi-Fi, giữ dữ liệu di động, kiểm tra VoLTE/IMS rồi thử `*101#` hoặc `*098#`. Nếu lệnh trả kết quả mà máy vẫn giữ 4G/LTE/5G, đó là dấu hiệu kiểm tra thực tế mà Viettel hướng dẫn cho USSD qua 4G. Nếu chưa được, hãy cập nhật phần mềm hoặc dùng kênh thay thế thay vì thử đi thử lại một mã USSD.
+
+## Cập nhật kiểm chứng 05/09/2026: tắt 2G/3G ảnh hưởng USSD thì cần cập nhật gì?
+
+Viettel khuyến nghị người dùng **kiểm tra và nâng cấp phần mềm thiết bị**, hoặc chuyển sang thiết bị hỗ trợ **USSD qua 4G (USSD over IMS)** nếu máy hiện tại không tương thích. Đây là cùng một search job với lỗi `*101#`, `*102#`, `*098#` không phản hồi trên 4G/5G, nên nội dung được hợp nhất vào canonical này thay vì tách thành một bài mới.
+
+Các thao tác cần ưu tiên trước khi nghĩ tới đổi SIM hay đổi gói cước:
+
+1. cập nhật hệ điều hành/phần mềm thiết bị lên bản ổn định mà máy hỗ trợ;
+2. tắt Wi-Fi và thử USSD trong trạng thái dữ liệu di động;
+3. kiểm tra VoLTE/IMS khi thiết bị có hiển thị trạng thái này;
+4. thử lại `*101#` hoặc `*098#`;
+5. nếu vẫn không dùng được, chuyển sang My Viettel/Tammi, SMS hoặc gọi `198` để xử lý nhu cầu trước mắt.
+
+Không nên hiểu khuyến nghị “đổi sang thiết bị hỗ trợ” là mọi máy cũ đều bắt buộc phải đổi ngay. Cần xác nhận khả năng cập nhật phần mềm và tương thích thực tế của chính thiết bị trước.
 
 ## Vì sao *101# có thể không chạy dù điện thoại vẫn có 4G/5G?
 
@@ -140,4 +154,4 @@ Có. Hướng dẫn kiểm tra của Viettel yêu cầu tắt Wi-Fi và dùng k�
 
 Nếu USSD Viettel không hoạt động trong giai đoạn chuyển dịch khỏi 2G/3G, cách xử lý hiệu quả là **kiểm tra khả năng USSD over IMS của thiết bị trước, đồng thời dùng kênh thay thế nếu cần thao tác ngay**. Trên Android, chú ý VoLTE/IMS; trên iPhone, kiểm tra 4G/5G, VoLTE và phiên bản iOS. Nếu vẫn không xử lý được, tổng đài 198 là kênh phù hợp để kiểm tra theo thuê bao cụ thể.
 
-**Nguồn kiểm chứng:** [Viettel — “Cập nhật phần mềm và thiết bị hỗ trợ USSD: Không lo gián đoạn dịch vụ khi tắt sóng 2G”, đăng 03/07/2026](https://shop.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320). Nội dung bài này được cập nhật ngày 10/08/2026 dựa trên phạm vi thông tin mà nguồn chính thức nêu; không suy rộng thành cam kết tương thích cho mọi thiết bị.
+**Nguồn kiểm chứng:** [Viettel — “Cập nhật phần mềm và thiết bị hỗ trợ USSD: Không lo gián đoạn dịch vụ khi tắt sóng 2G”, đăng 03/07/2026](https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320). Nội dung bài này được kiểm chứng lại ngày 05/09/2026 dựa trên phạm vi thông tin mà nguồn chính thức nêu; không suy rộng thành cam kết tương thích cho mọi thiết bị.
