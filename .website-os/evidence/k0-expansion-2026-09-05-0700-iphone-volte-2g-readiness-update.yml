@@ -1,0 +1,204 @@
+run:
+  slot: "07:00"
+  observed_at: "2026-09-05T07:00:00+07:00"
+  action: UPDATE
+  publish_count: 1
+
+website_os_bootstrap:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest: governance/website-os.manifest.yml
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_agents_loaded: true
+  anti_mock_rules_loaded: true
+  original_request_loaded: true
+  k0_state_loaded: true
+  decision: PASS
+
+project_main_at_start: 87ef3b5ffccd55b8afd69e403555df4678714668
+
+production_invariants:
+  dns_domain_routing_changes: false
+  registration_cta: "MÃ_GÓI GB"
+  registration_destination: "290"
+  exact_main_vercel_verification_required: true
+
+research_chain:
+  - id: C1
+    query: "Viettel 4G 5G eSIM SIM roaming 05/09/2026"
+    intent: FRESHNESS
+    entity_topic: "Viettel mobile same-day news"
+    cluster: freshness-mobile
+    canonical_owner: UNKNOWN
+    content_type: news/freshness
+    evidence:
+      - "same-day web search observed 2026-09-05"
+    priority: HOLD
+    decision: HOLD
+    reason: "No sufficiently strong first-party Viettel mobile publication dated 05/09/2026 surfaced at observation time; candidate-level HOLD only."
+
+  - id: C2
+    query: "iPhone Viettel VoLTE trước tắt 2G 15/9/2026"
+    intent: "SUPPORT+FRESHNESS"
+    entity_topic: "iPhone VoLTE readiness before 2G shutdown"
+    cluster: iphone-volte-setup
+    canonical_owner: "/posts/cai-dat-4g-5g-volte-iphone-viettel/"
+    content_type: support_guide_update
+    evidence:
+      - "Viettel Telecom 14/04/2026 official VoLTE device guidance"
+      - "Viettel Telecom official VoLTE service guide: iOS Voice & Data, HDCALL to 191, service fee 0 VND"
+      - "current 2G-shutdown news evidence: 4G data availability does not itself prove voice readiness"
+    priority: P1
+    decision: SELECT_UPDATE
+    reason: "Fresh 2G-shutdown urgency creates a useful iPhone-specific readiness expansion, but the existing iPhone VoLTE URL already owns the same setup/support job; a new URL would cannibalize it."
+
+  - id: C3
+    query: "Android Viettel gọi điện bị mất 4G không thấy VoLTE"
+    intent: SUPPORT
+    entity_topic: "Android VoLTE setup"
+    cluster: android-volte-setup
+    canonical_owner: "/posts/bat-volte-viettel-android/"
+    content_type: support_article
+    evidence:
+      - "existing canonical article already covers call drops from 4G/5G, Samsung/Xiaomi/Oppo/Realme and HDCALL 191"
+    priority: P2
+    decision: REJECT_EXISTING_OWNER
+    reason: "Exact support job already has a dedicated canonical owner; no independent gap."
+
+  - id: C4
+    query: "SIM 4G Viettel có dùng được 5G không"
+    intent: SUPPORT
+    entity_topic: "4G SIM to 5G eligibility"
+    cluster: viettel-5g-eligibility
+    canonical_owner: "/posts/sim-4g-viettel-co-dung-duoc-5g-khong/"
+    content_type: support_article
+    evidence:
+      - "canonical owner published 04/09/2026"
+    priority: P2
+    decision: REJECT_RECENT_OWNER
+    reason: "Dedicated owner was just published and already satisfies the search job; do not create or force another near-duplicate update."
+
+  - id: C5
+    query: "roaming Viettel chọn mạng thủ công Automatic"
+    intent: SUPPORT
+    entity_topic: "roaming network selection"
+    cluster: roaming-network-selection
+    canonical_owner: "/posts/chon-mang-thu-cong-roaming-viettel/"
+    content_type: support_article
+    evidence:
+      - "existing canonical owner recently consolidated iPhone and Android network-selection sub-intents"
+    priority: P2
+    decision: REJECT_EXISTING_OWNER
+    reason: "Search job already consolidated into one canonical owner; no new independent intent."
+
+  - id: C6
+    query: "Wi-Fi Calling VoWiFi Viettel bật thế nào 2026"
+    intent: SUPPORT
+    entity_topic: "Viettel Wi-Fi Calling / VoWiFi provisioning"
+    cluster: voice-over-wifi
+    canonical_owner: UNKNOWN
+    content_type: support_article
+    evidence:
+      - "fresh web/repository review"
+      - "multiple recent governed run records also held this candidate"
+    priority: HOLD
+    decision: HOLD
+    reason: "Current first-party provisioning/eligibility contract is still insufficient to publish precise activation/support claims without speculation."
+
+  - id: C7
+    query: "phí chuyển đổi eSIM Viettel Tammi 2026"
+    intent: SUPPORT
+    entity_topic: "eSIM conversion fee"
+    cluster: esim-conversion
+    canonical_owner: "/posts/phi-esim-viettel-2026/"
+    content_type: support_article
+    evidence:
+      - "Viettel Telecom 03/07/2026 eSIM conversion fee update"
+      - "existing canonical owner"
+    priority: P2
+    decision: REJECT_EXISTING_OWNER
+    reason: "Dedicated fee/conversion owner already exists."
+
+selected_candidate:
+  primary_keyword: "bật VoLTE Viettel trên iPhone"
+  secondary_queries:
+    - "iPhone Viettel có mất cuộc gọi khi tắt 2G"
+    - "iPhone 4G Viettel có gọi được sau 15/9/2026 không"
+    - "iPhone hiện 5G nhưng gọi có cần VoLTE không"
+    - "iPhone không thấy VoLTE Viettel trước tắt 2G"
+    - "HDCALL 191 iPhone Viettel"
+    - "Voice & Data Viettel iPhone"
+  primary_intent: SUPPORT
+  secondary_intent: FRESHNESS
+  entity_topic: "Viettel VoLTE on iPhone"
+  cluster: iphone-volte-setup
+  canonical_url_owner: "/posts/cai-dat-4g-5g-volte-iphone-viettel/"
+  content_type: support_guide_update
+  action: UPDATE
+  why_update: "The existing iPhone VoLTE page already owns setup, HDCALL 191, Voice & Data and verification. The 2G-shutdown readiness question is a direct freshness/support expansion of that job, not a defensible new canonical owner."
+
+source_provenance:
+  - source: "Viettel Telecom — Hướng dẫn bật dịch vụ cuộc gọi VoLTE"
+    date: "2026-04-14"
+    role: "PRIMARY_BUSINESS_FACT"
+    url: "https://098.viettel.vn/tin-tuc/huong-dan-bat-dich-vu-cuoc-goi-volte-goi-chat-luong-tot-hon-an-toan-hon/15298552"
+    verified: true
+  - source: "Viettel Telecom — VoLTE, dịch vụ thoại chất lượng cao trên hạ tầng 4G/5G Viettel"
+    date: "2025-04-23"
+    role: "PRIMARY_SERVICE_FACT"
+    url: "https://098.viettel.vn/tin-tuc/chi-tiet/volte-dich-vu-thoai-chat-luong-cao-tren-ha-tang-mang-4g5g-viettel/13748208"
+    verified: true
+  - source: "Báo Tuyên Quang — Tắt 2G từ 15/9: điện thoại 4G cũng có thể mất liên lạc"
+    date: "2026-08-27"
+    role: "FRESHNESS_DEMAND_CONTEXT_ONLY"
+    url: "https://baotuyenquang.com.vn/xa-hoi/202608/tat-2g-tu-159-dien-thoai-4g-cung-co-the-mat-lien-lac-cf21430/"
+    verified: true
+
+metrics:
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking_position: UNKNOWN
+  traffic_potential: UNKNOWN
+  fabricated_metrics: false
+
+cannibalization:
+  risk_before_action: MEDIUM
+  conflicting_new_url_created: false
+  existing_owner_reviewed: true
+  related_owner_2g_general: "/posts/tat-song-2g-15-9-2026-viettel-volte/"
+  related_owner_android: "/posts/bat-volte-viettel-android/"
+  resolution: "Expand only the existing iPhone VoLTE owner and link to the general 2G owner. Keep Android and general 2G jobs on their existing canonical URLs."
+  result: PASS
+
+internal_link_plan:
+  - from: "/posts/cai-dat-4g-5g-volte-iphone-viettel/"
+    to: "/posts/tat-song-2g-15-9-2026-viettel-volte/"
+    purpose: "broader 2G shutdown readiness context"
+  - from: "/posts/cai-dat-4g-5g-volte-iphone-viettel/"
+    to: "/posts/sim-4g-viettel-co-dung-duoc-5g-khong/"
+    purpose: "separate SIM-to-5G eligibility from VoLTE voice readiness"
+  - from: "/posts/cai-dat-4g-5g-volte-iphone-viettel/"
+    to: "/posts/bat-volte-khi-roaming-viettel/"
+    purpose: "keep roaming VoLTE as separate support job"
+
+k0:
+  baseline_decision_record: ".website-os/evidence/k0-decision-record.yml"
+  new_canonical_owner_required: false
+  baseline_ownership_maps_modified: false
+  expansion_supported_by_real_evidence: true
+  duplicate_check: PASS
+  cannibalization_check: PASS
+  decision: PASS
+
+quality_requirements:
+  run_project_tests: true
+  run_k0_check: true
+  run_build: true
+  content_readback_required: true
+  branch_pr_required: true
+  exact_head_gate_required_before_merge: true
+  exact_main_vercel_ready_required_before_live_claim: true
+  production_http_200_required_before_live_claim: true
