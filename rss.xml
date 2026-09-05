@@ -14,6 +14,13 @@
 <description>Kiểm tra HDCALL gửi 191, Voice &amp; Data 4G/5G và cuộc gọi thử trên iPhone Viettel trước mốc tắt 2G 15/9/2026; tránh nhầm có data 4G/5G là đã sẵn sàng thoại.</description>
 </item>
 <item>
+<title>Đổi sang eSIM Viettel có yếu sóng không? Khi nào SMS không gửi được</title>
+<link>https://www.tracuugoicuoc.com/posts/esim-viettel-yeu-song-khong-gui-duoc-sms</link>
+<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/esim-viettel-yeu-song-khong-gui-duoc-sms</guid>
+<pubDate>Sat, 05 Sep 2026 00:00:00 GMT</pubDate>
+<description>Viettel xác nhận đổi sang eSIM không tự làm yếu sóng hay giảm tốc độ 4G/5G. Xem cách phân biệt lỗi vùng phủ, data, SMS và các bước kiểm tra trước khi xử lý sâu.</description>
+</item>
+<item>
 <title>USSD Viettel sau tắt 2G: cách kiểm tra 4G/IMS và phương án thay thế</title>
 <link>https://www.tracuugoicuoc.com/posts/ussd-viettel-qua-4g-volte-ims</link>
 <guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/ussd-viettel-qua-4g-volte-ims</guid>
@@ -301,13 +308,6 @@
 <description>Thông tin Viettel công bố về thời gian khôi phục FB30 sau khi gia hạn không thành công.</description>
 </item>
 <item>
-<title>Hủy hoặc dừng gia hạn gói FB7 Viettel qua 191</title>
-<link>https://www.tracuugoicuoc.com/posts/huy-goi-fb7-viettel</link>
-<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/huy-goi-fb7-viettel</guid>
-<pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
-<description>Phân biệt cú pháp dừng gia hạn và hủy gói FB7 theo hướng dẫn của Viettel.</description>
-</item>
-<item>
 <title>Cách kiểm tra biểu tượng 4G, LTE hoặc 5G trên iPhone</title>
 <link>https://www.tracuugoicuoc.com/posts/kiem-tra-bieu-tuong-4g-lte-5g-iphone</link>
 <guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/kiem-tra-bieu-tuong-4g-lte-5g-iphone</guid>
@@ -320,6 +320,13 @@
 <guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/kiem-tra-data-roaming-viettel</guid>
 <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
 <description>Cú pháp kiểm tra dung lượng đã dùng khi sử dụng gói data roaming không giới hạn.</description>
+</item>
+<item>
+<title>Hủy hoặc dừng gia hạn gói FB7 Viettel qua 191</title>
+<link>https://www.tracuugoicuoc.com/posts/huy-goi-fb7-viettel</link>
+<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/huy-goi-fb7-viettel</guid>
+<pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+<description>Phân biệt cú pháp dừng gia hạn và hủy gói FB7 theo hướng dẫn của Viettel.</description>
 </item>
 <item>
 <title>Điều kiện cần kiểm tra trước khi dùng gói data roaming Viettel</title>
@@ -378,16 +385,16 @@
 <description>Hướng dẫn kiểm tra khi nút đăng ký V120B không mở SMS đúng nội dung, gửi sai cú pháp hoặc không nhận phản hồi.</description>
 </item>
 <item>
-<title>Dang Ky Multisim Viettel</title>
-<link>https://www.tracuugoicuoc.com/posts/dang-ky-multisim-viettel</link>
-<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/dang-ky-multisim-viettel</guid>
-<description>Bài hướng dẫn Dang Ky Multisim Viettel trên TraCuuGoiCuoc.com.</description>
-</item>
-<item>
 <title>Đăng ký SD135 không được? Cách kiểm tra lỗi trước khi thử lại</title>
 <link>https://www.tracuugoicuoc.com/posts/dang-ky-sd135-viettel</link>
 <guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/dang-ky-sd135-viettel</guid>
 <description>Hướng dẫn xử lý khi đăng ký SD135 Viettel thất bại: kiểm tra SD135 GB gửi 290, điều kiện thuê bao, trạng thái SIM và SMS phản hồi.</description>
+</item>
+<item>
+<title>Dang Ky Multisim Viettel</title>
+<link>https://www.tracuugoicuoc.com/posts/dang-ky-multisim-viettel</link>
+<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/dang-ky-multisim-viettel</guid>
+<description>Bài hướng dẫn Dang Ky Multisim Viettel trên TraCuuGoiCuoc.com.</description>
 </item>
 <item>
 <title>Dieu Kien Kich Hoat Esim 5g Viettel</title>
@@ -438,6 +445,12 @@
 <description>Bài hướng dẫn Esim Viettel Bi Khoa Mot Chieu Khong Gui Duoc Sms trên TraCuuGoiCuoc.com.</description>
 </item>
 <item>
+<title>Esim Viettel Bi Khoa Pin Cach Xu Ly</title>
+<link>https://www.tracuugoicuoc.com/posts/esim-viettel-bi-khoa-pin-cach-xu-ly</link>
+<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/esim-viettel-bi-khoa-pin-cach-xu-ly</guid>
+<description>Bài hướng dẫn Esim Viettel Bi Khoa Pin Cach Xu Ly trên TraCuuGoiCuoc.com.</description>
+</item>
+<item>
 <title>Esim Viettel Bi Khoa Puk Cach Xu Ly</title>
 <link>https://www.tracuugoicuoc.com/posts/esim-viettel-bi-khoa-puk-cach-xu-ly</link>
 <guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/esim-viettel-bi-khoa-puk-cach-xu-ly</guid>
@@ -448,12 +461,6 @@
 <link>https://www.tracuugoicuoc.com/posts/esim-viettel-co-dung-duoc-4g-khong</link>
 <guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/esim-viettel-co-dung-duoc-4g-khong</guid>
 <description>Bài hướng dẫn Esim Viettel Co Dung Duoc 4g Khong trên TraCuuGoiCuoc.com.</description>
-</item>
-<item>
-<title>Esim Viettel Bi Khoa Pin Cach Xu Ly</title>
-<link>https://www.tracuugoicuoc.com/posts/esim-viettel-bi-khoa-pin-cach-xu-ly</link>
-<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/esim-viettel-bi-khoa-pin-cach-xu-ly</guid>
-<description>Bài hướng dẫn Esim Viettel Bi Khoa Pin Cach Xu Ly trên TraCuuGoiCuoc.com.</description>
 </item>
 <item>
 <title>Esim Viettel Khong Gui Duoc Sms Do Het Tien</title>
@@ -472,18 +479,6 @@
 <link>https://www.tracuugoicuoc.com/posts/esim-viettel-sai-trung-tam-tin-nhan</link>
 <guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/esim-viettel-sai-trung-tam-tin-nhan</guid>
 <description>Bài hướng dẫn Esim Viettel Sai Trung Tam Tin Nhan trên TraCuuGoiCuoc.com.</description>
-</item>
-<item>
-<title>Esim Viettel Yeu Song Khong Gui Duoc Sms</title>
-<link>https://www.tracuugoicuoc.com/posts/esim-viettel-yeu-song-khong-gui-duoc-sms</link>
-<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/esim-viettel-yeu-song-khong-gui-duoc-sms</guid>
-<description>Bài hướng dẫn Esim Viettel Yeu Song Khong Gui Duoc Sms trên TraCuuGoiCuoc.com.</description>
-</item>
-<item>
-<title>Gói 5G150E Viettel cho eSIM: giá, chu kỳ và cách đăng ký 2026</title>
-<link>https://www.tracuugoicuoc.com/posts/goi-5g150e-viettel-esim</link>
-<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/goi-5g150e-viettel-esim</guid>
-<description>Tổng hợp thông tin chính thức về 5G150E, 3T5G150E và 6T5G150E dành cho khách hàng hòa mạng eSIM Viettel, kèm lưu ý kiểm tra ưu đãi trước khi đăng ký.</description>
 </item>
 <item>
 <title>Gói 4g Viettel Rẻ Nhất Cho Học Sinh Sinh Viên</title>
@@ -508,6 +503,12 @@
 <link>https://www.tracuugoicuoc.com/posts/huong-dan-dang-ky-5g135n-choi-lien-quan</link>
 <guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/huong-dan-dang-ky-5g135n-choi-lien-quan</guid>
 <description>Bài hướng dẫn Huong Dan Dang Ky 5g135n Choi Lien Quan trên TraCuuGoiCuoc.com.</description>
+</item>
+<item>
+<title>Gói 5G150E Viettel cho eSIM: giá, chu kỳ và cách đăng ký 2026</title>
+<link>https://www.tracuugoicuoc.com/posts/goi-5g150e-viettel-esim</link>
+<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/goi-5g150e-viettel-esim</guid>
+<description>Tổng hợp thông tin chính thức về 5G150E, 3T5G150E và 6T5G150E dành cho khách hàng hòa mạng eSIM Viettel, kèm lưu ý kiểm tra ưu đãi trước khi đăng ký.</description>
 </item>
 <item>
 <title>Iphone Hai Sim Vat Ly Co Dung Esim Viettel Khong</title>
@@ -630,28 +631,28 @@
 <description>Nếu đăng ký MXH150 Viettel không thành công, kiểm tra mã gói, cú pháp MXH150 GB gửi 290, điều kiện thuê bao và SMS phản hồi trước khi thử lại.</description>
 </item>
 <item>
-<title>Đăng Ký Mạng Viettel Tháng Ưu Đãi Khủng Nhất</title>
-<link>https://www.tracuugoicuoc.com/posts/%C4%91%C4%83ng-k%C3%BD-m%E1%BA%A1ng-viettel-th%C3%A1ng-%C6%B0u-%C4%91%C3%A3i-kh%E1%BB%A7ng-nh%E1%BA%A5t</link>
-<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/%C4%91%C4%83ng-k%C3%BD-m%E1%BA%A1ng-viettel-th%C3%A1ng-%C6%B0u-%C4%91%C3%A3i-kh%E1%BB%A7ng-nh%E1%BA%A5t</guid>
-<description>Bài hướng dẫn Đăng Ký Mạng Viettel Tháng Ưu Đãi Khủng Nhất trên TraCuuGoiCuoc.com.</description>
-</item>
-<item>
 <title>Đăng ký SD120 không được? Kiểm tra cú pháp, điều kiện và SMS phản hồi</title>
 <link>https://www.tracuugoicuoc.com/posts/%C4%91%C4%83ng-k%C3%BD-sd120-viettel</link>
 <guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/%C4%91%C4%83ng-k%C3%BD-sd120-viettel</guid>
 <description>Cách xử lý khi đăng ký SD120 Viettel không thành công: kiểm tra SD120 GB gửi 290, điều kiện thuê bao, trạng thái SIM và SMS phản hồi.</description>
 </item>
 <item>
-<title>Đăng ký V120B không được? Kiểm tra điều kiện và SMS phản hồi</title>
-<link>https://www.tracuugoicuoc.com/posts/%C4%91%C4%83ng-k%C3%BD-v120b-viettel</link>
-<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/%C4%91%C4%83ng-k%C3%BD-v120b-viettel</guid>
-<description>Hướng dẫn xử lý khi đăng ký V120B Viettel không thành công: kiểm tra V120B GB gửi 290, điều kiện thuê bao, trạng thái SIM và SMS phản hồi.</description>
+<title>Đăng Ký Mạng Viettel Tháng Ưu Đãi Khủng Nhất</title>
+<link>https://www.tracuugoicuoc.com/posts/%C4%91%C4%83ng-k%C3%BD-m%E1%BA%A1ng-viettel-th%C3%A1ng-%C6%B0u-%C4%91%C3%A3i-kh%E1%BB%A7ng-nh%E1%BA%A5t</link>
+<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/%C4%91%C4%83ng-k%C3%BD-m%E1%BA%A1ng-viettel-th%C3%A1ng-%C6%B0u-%C4%91%C3%A3i-kh%E1%BB%A7ng-nh%E1%BA%A5t</guid>
+<description>Bài hướng dẫn Đăng Ký Mạng Viettel Tháng Ưu Đãi Khủng Nhất trên TraCuuGoiCuoc.com.</description>
 </item>
 <item>
 <title>Đăng ký SD90 không được? Cách kiểm tra cú pháp và lỗi thuê bao</title>
 <link>https://www.tracuugoicuoc.com/posts/%C4%91%C4%83ng-k%C3%BD-sd90-viettel</link>
 <guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/%C4%91%C4%83ng-k%C3%BD-sd90-viettel</guid>
 <description>Hướng dẫn xử lý khi đăng ký SD90 Viettel thất bại: kiểm tra mã gói, cú pháp SD90 GB gửi 290, điều kiện thuê bao và SMS phản hồi.</description>
+</item>
+<item>
+<title>Đăng ký V120B không được? Kiểm tra điều kiện và SMS phản hồi</title>
+<link>https://www.tracuugoicuoc.com/posts/%C4%91%C4%83ng-k%C3%BD-v120b-viettel</link>
+<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/%C4%91%C4%83ng-k%C3%BD-v120b-viettel</guid>
+<description>Hướng dẫn xử lý khi đăng ký V120B Viettel không thành công: kiểm tra V120B GB gửi 290, điều kiện thuê bao, trạng thái SIM và SMS phản hồi.</description>
 </item>
 <item>
 <title>Đăng ký V90B không được? Cách kiểm tra cú pháp và điều kiện</title>
