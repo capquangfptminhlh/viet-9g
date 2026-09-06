@@ -23,6 +23,11 @@
       "permanent": true
     },
     {
+      "source": "/posts/topic-b1-ussd-thiet-bi-khong-tuong-thich",
+      "destination": "/posts/ussd-viettel-qua-4g-volte-ims",
+      "permanent": true
+    },
+    {
       "source": "/posts/topic-b1-roaming-tra-lai-tu-dong",
       "destination": "/posts/chon-mang-thu-cong-roaming-viettel",
       "permanent": true

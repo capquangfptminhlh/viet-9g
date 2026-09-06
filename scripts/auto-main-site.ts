@@ -13,6 +13,7 @@ type Topic = {
   packageId?: string;
   riskTier?: 'low' | 'medium' | 'high';
   sourceFactIds: string[];
+  targetUrlPath?: string;
 };
 
 type Fact = { id: string; claim: string; sourceUrl: string; expiresAt: string };
@@ -47,6 +48,14 @@ function idempotencyKey(topic: Topic): string {
   return crypto.createHash('sha256').update(`main-site:${topic.topicId}`).digest('hex');
 }
 
+function existingCanonicalDestination(topic: Topic, outputDir: string): string | null {
+  if (!topic.targetUrlPath) return null;
+  const match = topic.targetUrlPath.match(/^\/posts\/([^/?#]+)\/?$/);
+  if (!match) return null;
+  const destination = path.join(outputDir, `${decodeURIComponent(match[1])}.md`);
+  return fs.existsSync(destination) ? destination : null;
+}
+
 export async function runAutoMainSite(options: AutoMainSiteOptions = {}): Promise<{ status: 'SUCCESS' | 'NO_ELIGIBLE_TOPIC'; topicId?: string; slug?: string }> {
   const topics = options.topics ?? readJson<Topic[]>('config/topics.json');
   const facts = options.facts ?? readJson<Fact[]>('data/facts.json');
@@ -68,6 +77,19 @@ export async function runAutoMainSite(options: AutoMainSiteOptions = {}): Promis
       ledger.push({ idempotencyKey: `${key}:${now.toISOString()}`, topicId: topic.topicId, status: 'HOLD', failureReason: factDecision.decision !== 'PASS' ? 'FACT_VALIDATION_REJECTED' : !policyDecision.allowed ? policyDecision.reason : 'MEDIA_MANIFEST_REJECTED', createdAt: now.toISOString() });
       continue;
     }
+
+    const canonicalDestination = existingCanonicalDestination(topic, outputDir);
+    if (canonicalDestination) {
+      ledger.push({
+        idempotencyKey: `${key}:${now.toISOString()}`,
+        topicId: topic.topicId,
+        status: 'HOLD',
+        failureReason: 'CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE',
+        createdAt: now.toISOString(),
+      });
+      continue;
+    }
+
     const article = generateMainSiteArticle({ topic, facts, media, publishedAt: now });
     const destination = path.join(outputDir, `${article.slug}.md`);
     if (fs.existsSync(destination)) continue;

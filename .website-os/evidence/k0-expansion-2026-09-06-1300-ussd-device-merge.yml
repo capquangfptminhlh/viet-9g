@@ -1,0 +1,195 @@
+version: 1.0.0
+decision: PASS
+run:
+  slot: "13:00"
+  observed_at: "2026-09-06T13:01:55+07:00"
+  action: MERGE
+  main_at_start: "08667e5e0bd92f435797fd21ef0ab1ad940d087a"
+  website_os_source_repo: "capquangfptminhlh/seo-web"
+  website_os_source_ref: "main"
+  website_os_source_commit: "ef18d255150f3a77a7c7587feccf1ba7c419ad7b"
+  website_os_manifest_version: "1.3.0"
+  mandatory_read_complete: true
+  bootstrap_decision: PASS
+
+production_invariants:
+  dns_or_domain_routing_changed: false
+  approved_registration_cta: "MÃ_GÓI GB -> 290"
+  approved_registration_cta_changed: false
+  deployment_claim_requires_exact_main_vercel_ready: true
+
+research_chain:
+  same_day_search_performed: true
+  same_day_first_party_viettel_mobile_publication_found: false
+  source_provenance:
+    - id: viettel_ussd_2026_07_03
+      publisher: "Viettel"
+      source_type: FIRST_PARTY
+      url: "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320"
+      published_at: "2026-07-03"
+      observed_at: "2026-09-06T13:01:55+07:00"
+      supports: "Thiết bị chưa cập nhật phần mềm tương thích hoặc không hỗ trợ có thể không thực hiện được USSD khi 2G/3G dừng; Viettel khuyến nghị cập nhật phần mềm/thiết bị và nêu các kênh thay thế."
+    - id: viettel_esim_5g_2026_06_09
+      publisher: "Viettel Telecom"
+      source_type: FIRST_PARTY
+      url: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/hoa-mang-esim-tan-huong-5g-sieu-toc-voi-uu-dai-len-den-200gb-datathang/19892340"
+      published_at: "2026-06-09"
+      observed_at: "2026-09-06T13:01:55+07:00"
+    - id: viettel_esim_no_qr_2026_08_18
+      publisher: "Viettel Telecom"
+      source_type: FIRST_PARTY
+      url: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/esim-viettel-cham-la-ket-noi-kich-hoat-khong-can-ma-qr/13707592"
+      published_at: "2026-08-18"
+      observed_at: "2026-09-06T13:01:55+07:00"
+    - id: viettel_roaming_lao_2026_08_17
+      publisher: "Viettel Telecom"
+      source_type: FIRST_PARTY
+      url: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/di-lao-dung-goi-roaming-nao-goi-y-cac-goi-cuoc-uu-dai-cua-viettel/18333764"
+      published_at: "2026-08-17"
+      observed_at: "2026-09-06T13:01:55+07:00"
+    - id: viettel_roaming_japan_2026_04_14
+      publisher: "Viettel"
+      source_type: FIRST_PARTY
+      url: "https://098.viettel.vn/tin-tuc/di-nhat-ban-khong-co-mang-huong-dan-bat-4g5g-va-roaming-viettel-chi-tiet/16239800"
+      published_at: "2026-04-14"
+      observed_at: "2026-09-06T13:01:55+07:00"
+    - id: viettel_subscriber_verification_2026_06_18
+      publisher: "Viettel Telecom"
+      source_type: FIRST_PARTY
+      url: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/thong-bao-thue-bao-viettel-bi-chan-do-chua-xac-thuc-thong-tin-huong-dan-cach-xu-ly/15333972"
+      published_at: "2026-06-18"
+      observed_at: "2026-09-06T13:01:55+07:00"
+
+candidates:
+  - id: c1_same_day_breaking
+    query: "Viettel 4G 5G eSIM SIM roaming gói cước 06/09/2026"
+    intent: FRESHNESS
+    entity_topic: "Viettel mobile same-day news"
+    cluster: "freshness-mobile"
+    canonical_url_owner: UNKNOWN
+    content_type: NEWS_FRESHNESS
+    evidence: "No same-day first-party Viettel mobile publication found at observation time."
+    priority: HOLD
+    decision: HOLD_CANDIDATE
+    reason: "Insufficient same-day primary-source evidence; not a run-level HOLD."
+
+  - id: c2_ussd_device_incompatibility
+    query: "điện thoại chưa tương thích USSD Viettel sau tắt 2G"
+    secondary_queries:
+      - "thiết bị không hỗ trợ USSD qua 4G Viettel"
+      - "USSD over IMS Viettel thiết bị không tương thích"
+      - "cập nhật phần mềm để dùng USSD Viettel 4G"
+    intent: SUPPORT
+    entity_topic: "USSD over IMS device/software compatibility"
+    cluster: "ussd-4g-troubleshooting"
+    canonical_url_owner: "/posts/ussd-viettel-qua-4g-volte-ims/"
+    content_type: SUPPORT_ARTICLE
+    evidence: "First-party Viettel 2026-07-03 plus current canonical content and repository route contract."
+    priority: P1
+    decision: SELECT_MERGE
+    reason: "A thin same-day route was auto-published although repository governance already assigns this topic to the existing USSD canonical owner. Existing owner already covers device/software incompatibility, so a new URL would cannibalize the same search job."
+
+  - id: c3_esim_hotspot
+    query: "eSIM Viettel phát hotspot được không"
+    intent: SUPPORT
+    entity_topic: "eSIM tethering/hotspot"
+    cluster: "esim-support"
+    canonical_url_owner: "existing owner in repository"
+    content_type: SUPPORT_ARTICLE
+    evidence: "Repository route review found existing coverage; no new owner required."
+    priority: HOLD
+    decision: REJECT_DUPLICATE
+    reason: "Existing owner already covers the search job."
+
+  - id: c4_esim_activation_no_qr
+    query: "eSIM Viettel kích hoạt không cần QR"
+    intent: SUPPORT
+    entity_topic: "eSIM activation"
+    cluster: "esim-activation"
+    canonical_url_owner: "/posts/esim-5g-kich-hoat-quet-qr/"
+    content_type: SUPPORT_ARTICLE
+    evidence: "Viettel first-party 2026-08-18 and current repository owner."
+    priority: HOLD
+    decision: REJECT_DUPLICATE
+    reason: "Activation/no-QR intent already has a canonical owner."
+
+  - id: c5_roaming_lao_packages
+    query: "đi Lào dùng gói roaming Viettel nào"
+    intent: COMMERCIAL
+    entity_topic: "Viettel roaming Laos"
+    cluster: "roaming-laos"
+    canonical_url_owner: "existing country owner in repository"
+    content_type: SUPPORT_COMPARISON
+    evidence: "Viettel first-party 2026-08-17 and current route review."
+    priority: HOLD
+    decision: REJECT_DUPLICATE
+    reason: "Country/package search job already has an owner."
+
+  - id: c6_roaming_japan_no_network
+    query: "roaming Viettel Nhật Bản không có mạng"
+    intent: SUPPORT
+    entity_topic: "Japan roaming troubleshooting"
+    cluster: "roaming-japan"
+    canonical_url_owner: "/posts/viettel-roaming-nhat-ban-khong-co-mang/"
+    content_type: SUPPORT_ARTICLE
+    evidence: "Viettel first-party 2026-04-14 and current route review."
+    priority: HOLD
+    decision: REJECT_DUPLICATE
+    reason: "Existing country troubleshooting owner."
+
+  - id: c7_vowifi
+    query: "Wi-Fi Calling VoWiFi Viettel 2026"
+    intent: SUPPORT
+    entity_topic: "VoWiFi/Wi-Fi Calling"
+    cluster: "voice-over-wifi"
+    canonical_url_owner: UNKNOWN
+    content_type: SUPPORT_ARTICLE
+    evidence: "No sufficiently current first-party provisioning/eligibility contract found in this run."
+    priority: HOLD
+    decision: HOLD_CANDIDATE
+    reason: "Cannot assert current provisioning, device eligibility or commercial availability without stronger first-party evidence."
+
+selected:
+  action: MERGE
+  primary_keyword: "điện thoại chưa tương thích USSD Viettel sau tắt 2G"
+  secondary_queries:
+    - "thiết bị không hỗ trợ USSD qua 4G Viettel"
+    - "USSD over IMS Viettel thiết bị không tương thích"
+    - "cập nhật phần mềm để dùng USSD Viettel 4G"
+  cluster: "ussd-4g-troubleshooting"
+  intent: SUPPORT
+  canonical_owner: "/posts/ussd-viettel-qua-4g-volte-ims/"
+  duplicate_route: "/posts/topic-b1-ussd-thiet-bi-khong-tuong-thich/"
+  why_merge: "Same query-to-intent-to-entity job; current governance test already assigns the topic to the canonical USSD owner and the canonical content already contains the device/software compatibility answer."
+  content_change:
+    - "retire duplicate Markdown route"
+    - "add permanent redirect to canonical owner"
+    - "prevent auto-main-site from generating a new slug when targetUrlPath already resolves to an existing canonical owner"
+    - "continue to later independent candidates after candidate-level canonical-owner HOLD"
+
+k0:
+  baseline_decision_record: ".website-os/evidence/k0-decision-record.yml"
+  new_canonical_owner_required: false
+  baseline_ownership_maps_modified: false
+  expansion_supported_by_real_evidence: true
+  duplicate_risk_before: HIGH
+  duplicate_risk_after: PASS
+  cannibalization_before: HIGH
+  cannibalization_after: PASS
+  decision: PASS
+  metrics:
+    search_volume: UNKNOWN
+    keyword_difficulty: UNKNOWN
+    cpc: UNKNOWN
+    ranking_position: UNKNOWN
+    traffic_potential: UNKNOWN
+    fabricated_metrics: false
+
+quality_requirements:
+  tests_required: true
+  k0_check_required: true
+  build_required: true
+  branch_pr_required: true
+  exact_head_quality_gate_required: true
+  exact_main_vercel_ready_required_before_live_claim: true
+  production_http_200_readback_required: true
