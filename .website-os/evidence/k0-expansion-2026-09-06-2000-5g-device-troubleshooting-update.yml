@@ -1,0 +1,164 @@
+version: 1.0.0
+decision: PASS
+run_slot: "20:00"
+observed_at: 2026-09-06T20:00:00+07:00
+website_os:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest: governance/website-os.manifest.yml
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  bootstrap_decision: PASS
+project:
+  repo: capquangfptminhlh/viettel-4g-web
+  main_at_start: 5c301be7c4bfdf693f5e58366e309e9c35d49e10
+  baseline_k0_decision: .website-os/evidence/k0-decision-record.yml
+production_invariants:
+  dns_domain_routing_changed: false
+  approved_registration_cta: "MÃ_GÓI GB gửi 290"
+  approved_registration_cta_changed: false
+  exact_main_vercel_required_before_live_claim: true
+research:
+  same_day_search:
+    status: HOLD_CANDIDATE
+    finding: "No same-day 2026-09-06 first-party Viettel mobile/5G/eSIM/SIM/roaming/package publication with enough bounded factual value was found during this run. The run therefore continued through fallback candidates."
+  sources:
+    - id: S1
+      type: FIRST_PARTY_VIETTEL
+      url: "https://098.viettel.vn/tin-tuc/chi-tiet/danh-sach-cac-quan-phu-song-5g-viettel-tai-tphcm-moi-nhat/17085448"
+      published_at: 2025-04-03
+      observed_at: 2026-09-06T20:00:00+07:00
+      bounded_use: "iOS/Android 5G setting paths and requirement to be in actual 5G coverage"
+      prohibited_reuse: "Do not reuse old district lists, universal address coverage promises, speed claims or freshness claims."
+    - id: S2
+      type: FIRST_PARTY_VIETTEL
+      url: "https://098.viettel.vn/tin-tuc/chi-tiet/cach-nang-cap-sim-4g-len-5g-viettel-tai-nha/16709056"
+      observed_at: 2026-09-06T20:00:00+07:00
+      bounded_use: "Android network-mode path; general 5G activation context"
+      prohibited_reuse: "Do not reuse unverified speed or coverage statistics."
+    - id: S3
+      type: FIRST_PARTY_VIETTEL
+      url: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/hoa-mang-esim-tan-huong-5g-sieu-toc-voi-uu-dai-len-den-200gb-datathang/19892340"
+      published_at: 2026-06-09
+      observed_at: 2026-09-06T20:00:00+07:00
+      bounded_use: "compatible-device/eSIM and 5G context only"
+      prohibited_reuse: "Do not assert current package price, allowance or eligibility unless separately reverified."
+candidates_checked:
+  - id: C1
+    query: "Viettel 4G/5G/eSIM/SIM/roaming tin mới 06/09/2026"
+    intent: FRESHNESS
+    entity_topic: "Viettel mobile same-day news"
+    cluster: freshness-mobile
+    canonical_owner: null
+    content_type: news_freshness
+    evidence: "Same-day research did not surface a sufficient first-party Viettel publication."
+    priority: HOLD
+    decision: HOLD_CANDIDATE
+    reason: "Insufficient same-day first-party evidence; continue fallback."
+  - id: C2
+    query: "bật VoLTE Viettel Android trước tắt 2G"
+    intent: SUPPORT
+    entity_topic: "Android VoLTE readiness"
+    cluster: android-volte-setup
+    canonical_owner: "/posts/bat-volte-viettel-android/"
+    content_type: support_article
+    evidence: "Owner already received a governed 07:00 update on 2026-09-06."
+    priority: HOLD
+    decision: REJECT_NEAR_DUPLICATE
+    reason: "Same-day owner already updated; avoid repeatedly testing the same freshness job."
+  - id: C3
+    query: "eSIM Viettel không cần QR / đổi máy eSIM"
+    intent: SUPPORT
+    entity_topic: "eSIM activation and transfer"
+    cluster: esim-activation-transfer
+    canonical_owner: "/posts/esim-5g-kich-hoat-quet-qr/ and related existing owners"
+    content_type: support_article
+    evidence: "Repository review found existing eSIM no-QR, device-transfer and deleted-eSIM owners."
+    priority: HOLD
+    decision: REJECT_DUPLICATE
+    reason: "Existing canonical ownership already covers the jobs."
+  - id: C4
+    query: "SIM Viettel ở nước ngoài chưa xác thực / bị chặn"
+    intent: SUPPORT
+    entity_topic: "subscriber verification abroad"
+    cluster: sim-verification-abroad
+    canonical_owner: "/posts/xac-thuc-sim-viettel-o-nuoc-ngoai/"
+    content_type: support_article
+    evidence: "Repository contains the governed abroad-verification owner and related blocked-SIM owner."
+    priority: HOLD
+    decision: REJECT_DUPLICATE
+    reason: "No defensible new canonical owner."
+  - id: C5
+    query: "roaming Viettel Lào/Nhật không có mạng"
+    intent: SUPPORT
+    entity_topic: "country roaming troubleshooting"
+    cluster: roaming-country-support
+    canonical_owner: "/posts/roaming-viettel-di-lao/ and existing Japan owner"
+    content_type: support_article
+    evidence: "Country-specific canonical owners already exist."
+    priority: HOLD
+    decision: REJECT_DUPLICATE
+    reason: "Would cannibalize established country jobs."
+  - id: C6
+    query: "điện thoại Viettel không hiện 5G"
+    intent: SUPPORT
+    entity_topic: "5G device setup and coverage diagnosis"
+    cluster: 5g-device-troubleshooting
+    canonical_owner: "/posts/loi-khong-dang-ky-duoc-mang-5g-viettel/"
+    content_type: support_article
+    evidence: "S1 + S2 and repo hot-blog2 QUEUE map iPhone/Android network-mode and no-5G troubleshooting to this existing owner."
+    priority: P1
+    decision: SELECT_UPDATE
+    reason: "Real first-party evidence supports a materially better owner update; current owner contained stale unsupported commercial troubleshooting claims."
+selected:
+  action: UPDATE
+  primary_keyword: "điện thoại Viettel không hiện 5G"
+  secondary_queries:
+    - "Android có 5G LTE 3G 2G chọn thế nào Viettel"
+    - "iPhone Viettel chỉ hiện 4G không có 5G"
+    - "đã bật 5G nhưng không có sóng Viettel"
+    - "Viettel không hiện 5G"
+    - "chế độ mạng 5G Viettel Android"
+  cluster: 5g-device-troubleshooting
+  primary_intent: SUPPORT
+  entity_topic: "Viettel 5G device setup / coverage diagnosis"
+  target_url: "/posts/loi-khong-dang-ky-duoc-mang-5g-viettel/"
+  title: "Điện thoại Viettel không hiện 5G: kiểm tra cài đặt, thiết bị và vùng phủ"
+  slug: "loi-khong-dang-ky-duoc-mang-5g-viettel"
+  why_update: >-
+    The existing URL is already the repository-assigned destination for the iPhone/Android 5G-setting and no-signal job. Creating a new URL would split one support intent. Updating the owner also removes unsupported legacy commercial assumptions and replaces them with bounded first-party setup and coverage evidence.
+  why_not_new_url: "Existing canonical owner matches the same SERP job; new URL would increase cannibalization."
+  internal_link_plan:
+    - "/posts/sim-4g-viettel-co-dung-duoc-5g-khong/"
+    - "/posts/cai-dat-4g-5g-volte-iphone-viettel/"
+    - "/posts/cai-apn-viettel-4g-5g-v-internet/"
+  image_requirement:
+    existing_asset: "/images/5g-error.jpg"
+    relevance: "5G troubleshooting"
+    new_asset_required: false
+k0:
+  baseline_decision_record: ".website-os/evidence/k0-decision-record.yml"
+  new_canonical_owner_required: false
+  baseline_ownership_maps_modified: false
+  expansion_supported_by_real_evidence: true
+  query_intent_cluster_owner_mapped: true
+  source_provenance_recorded: true
+  content_type_assigned: true
+  internal_link_plan_recorded: true
+  duplicate_check: PASS
+  cannibalization_check: PASS
+  decision: PASS
+metrics:
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking_position: UNKNOWN
+  traffic_potential: UNKNOWN
+  fabricated_metrics: false
+content_guardrails:
+  - "Do not state old district coverage lists as current address-level truth."
+  - "Do not fabricate universal handset compatibility."
+  - "Do not fabricate package price, benefit or eligibility."
+  - "Do not infer that changing APN forces a 5G icon."
+  - "Preserve MÃ_GÓI GB sent to 290."
