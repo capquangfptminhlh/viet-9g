@@ -33,6 +33,9 @@ const displayTitle = titleMatch ? titleMatch[1] : (entry.data?.title || entry.sl
 // Hàm chọn ảnh minh họa cao cấp khớp chính xác với từng nội dung bài viết
 function getPostImage(slug: string, title: string) {
   const s = (slug + ' ' + title).toLowerCase();
+  if (s.includes('bat-volte-viettel-android')) {
+    return '/images/volte-viettel-android.svg';
+  }
   if (s.includes('esim-viettel-yeu-song-khong-gui-duoc-sms')) {
     return '/images/blogger/b5-complete-16-e9ba5da114a8.svg';
   }
