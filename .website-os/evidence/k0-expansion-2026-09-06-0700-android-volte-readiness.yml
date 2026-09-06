@@ -1,0 +1,217 @@
+run:
+  slot: "07:00"
+  observed_at: "2026-09-06T07:01:13+07:00"
+  action: UPDATE
+  publish_count: 1
+
+website_os_bootstrap:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest: governance/website-os.manifest.yml
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_agents_loaded: true
+  anti_mock_rules_loaded: true
+  original_request_loaded: true
+  k0_state_loaded: true
+  decision: PASS
+
+project_state:
+  main_at_start: 73b60286d7e9b5ba997b10f7c6f2cb524f8f9ed5
+  same_day_existing_updates: []
+  governed_existing_owner: "https://www.tracuugoicuoc.com/posts/bat-volte-viettel-android/"
+
+production_invariants:
+  dns_domain_routing_changes: false
+  registration_cta: "MÃ_GÓI GB"
+  registration_destination: "290"
+  exact_main_vercel_verification_required: true
+
+research_chain:
+  - candidate: same-day Viettel mobile breaking/freshness
+    query: "Viettel 4G 5G eSIM SIM roaming package 06/09/2026"
+    intent: FRESHNESS
+    entity_topic: Viettel mobile news
+    cluster: freshness-mobile
+    canonical_owner: UNKNOWN
+    content_type: news/freshness
+    evidence:
+      - "same-day search: site:vietteltelecom.vn and site:098.viettel.vn"
+    priority: HOLD
+    decision: HOLD_CANDIDATE
+    reason: "The early 06/09 scan did not surface a first-party Viettel mobile/eSIM/SIM/5G/roaming/package publication dated 06/09/2026 strong enough to justify a distinct freshness owner."
+
+  - candidate: Android VoLTE readiness before 2G shutdown
+    query: "Android 4G Viettel có mất cuộc gọi khi tắt 2G 15/9/2026"
+    intent: SUPPORT
+    entity_topic: Android VoLTE readiness
+    cluster: android-volte-setup
+    canonical_owner: "https://www.tracuugoicuoc.com/posts/bat-volte-viettel-android/"
+    content_type: support article
+    evidence:
+      - "https://media.vietteltelecom.vn/upload/InternationalMessagePrice/b6/d7/7b/0b394bd302ad3427a447221a9b89661ec4399ea5.pdf"
+      - "https://media.vietteltelecom.vn/upload/InternationalMessagePrice/ed/cf/fe/472bc67201bc609be3830366ec546607573f53ff.pdf"
+      - "freshness: early-September 2026 reporting on 4G phones and the 15/09/2026 2G shutdown"
+      - "repo:src/content/posts/bat-volte-viettel-android.md"
+    priority: P1
+    decision: SELECT_UPDATE
+    reason: "The canonical already owns Android VoLTE setup/troubleshooting. The approaching 15/09 shutdown creates a freshness-backed sub-intent about 4G/5G data versus VoLTE voice readiness, so expanding the owner adds value without creating a competing URL."
+
+  - candidate: 5G150E eSIM package family
+    query: "5G150E Viettel eSIM 2026"
+    intent: COMMERCIAL
+    entity_topic: eSIM 5G package family
+    cluster: esim-5g150e
+    canonical_owner: "https://www.tracuugoicuoc.com/posts/goi-5g150e-viettel-esim/"
+    content_type: package/entity article
+    evidence:
+      - "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/hoa-mang-esim-tan-huong-5g-sieu-toc-voi-uu-dai-len-den-200gb-datathang/19892340"
+      - "repo:src/content/posts/goi-5g150e-viettel-esim.md"
+    priority: P2
+    decision: REJECT_EXISTING_OWNER
+    reason: "A dedicated K0-approved canonical already owns this package/entity search job."
+
+  - candidate: Viettel++ redeem points for mobile data
+    query: "đổi điểm Viettel++ sang data"
+    intent: SUPPORT
+    entity_topic: Viettel++ data redemption
+    cluster: viettel-plus-data-redemption
+    canonical_owner: "https://www.tracuugoicuoc.com/posts/doi-diem-viettel-plus-sang-data/"
+    content_type: support article
+    evidence:
+      - "repo:src/content/posts/doi-diem-viettel-plus-sang-data.md"
+      - "repo:.website-os/evidence/k0-expansion-2026-08-22-0700-viettel-plus-data.yml"
+    priority: P2
+    decision: REJECT_EXISTING_OWNER
+    reason: "The repository already has a dedicated owner for redemption ratios/channels and another URL would cannibalize it."
+
+  - candidate: overseas subscriber verification / blocked SIM
+    query: "SIM Viettel ở nước ngoài bị chặn chưa xác thực"
+    intent: SUPPORT_COMPLIANCE
+    entity_topic: overseas subscriber verification
+    cluster: sim-verification-overseas
+    canonical_owner: "https://www.tracuugoicuoc.com/posts/xac-thuc-sim-viettel-o-nuoc-ngoai/"
+    content_type: support article
+    evidence:
+      - "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/thong-bao-thue-bao-viettel-bi-chan-do-chua-xac-thuc-thong-tin-huong-dan-cach-xu-ly/15333972"
+      - "repo:src/content/posts/xac-thuc-sim-viettel-o-nuoc-ngoai.md"
+    priority: P2
+    decision: REJECT_EXISTING_OWNER
+    reason: "A dedicated canonical already owns the overseas verification search job."
+
+  - candidate: Japan roaming no network
+    query: "Viettel roaming Nhật Bản không có mạng"
+    intent: SUPPORT
+    entity_topic: Japan roaming connectivity
+    cluster: roaming-country-japan
+    canonical_owner: "https://www.tracuugoicuoc.com/posts/viettel-roaming-nhat-ban-khong-co-mang/"
+    content_type: support article
+    evidence:
+      - "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/di-nhat-ban-khong-co-mang-huong-dan-bat-4g5g-va-roaming-viettel-chi-tiet/16239800"
+      - "repo:src/content/posts/viettel-roaming-nhat-ban-khong-co-mang.md"
+    priority: P2
+    decision: REJECT_EXISTING_OWNER
+    reason: "The country-specific connectivity owner already covers 4G/5G, Data Roaming and APN troubleshooting."
+
+  - candidate: Laos roaming package selection
+    query: "đi Lào dùng gói roaming Viettel nào"
+    intent: COMMERCIAL_SUPPORT
+    entity_topic: Viettel roaming Laos
+    cluster: roaming-country-laos
+    canonical_owner: "https://www.tracuugoicuoc.com/posts/roaming-viettel-di-lao/"
+    content_type: comparison/support
+    evidence:
+      - "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/di-lao-dung-goi-roaming-nao-goi-y-cac-goi-cuoc-uu-dai-cua-viettel/18333764"
+      - "repo:src/content/posts/roaming-viettel-di-lao.md"
+    priority: P2
+    decision: REJECT_EXISTING_OWNER
+    reason: "A country-specific roaming canonical already owns package selection; no new independent intent was established."
+
+  - candidate: gifting mobile/roaming package to another Viettel number
+    query: "tặng gói data Viettel cho số khác"
+    intent: TRANSACTIONAL_INFORMATIONAL
+    entity_topic: mobile package gifting
+    cluster: package-gifting
+    canonical_owner: UNKNOWN
+    content_type: support/how-to
+    evidence:
+      - "older first-party Viettel material about gifting roaming packages"
+      - "repo:data/keywords.txt includes package-gifting demand patterns"
+    priority: HOLD
+    decision: HOLD_CANDIDATE
+    reason: "The operational first-party process found is old and current 2026 eligibility/syntax was not re-verified; publishing transactional steps would risk stale business facts."
+
+selected_candidate:
+  primary_keyword: "bật VoLTE Viettel trên Android trước tắt 2G"
+  secondary_queries:
+    - "Android 4G Viettel có mất cuộc gọi khi tắt 2G"
+    - "máy Android hiện 5G có cần bật VoLTE không"
+    - "Samsung Viettel không thấy VoLTE trước 15/9/2026"
+    - "Xiaomi Viettel 4G gọi bị rớt mạng"
+    - "HDCALL 191 Android Viettel"
+    - "Android có 4G nhưng chưa gọi VoLTE Viettel"
+  cluster: android-volte-setup
+  primary_intent: SUPPORT
+  canonical_url: "https://www.tracuugoicuoc.com/posts/bat-volte-viettel-android/"
+  slug: bat-volte-viettel-android
+  title: "Bật VoLTE Viettel trên Android trước tắt 2G 15/9/2026"
+  why_update: "The existing page already owns Android VoLTE setup and troubleshooting. Fresh 2G-shutdown demand is a direct sub-intent about voice readiness on the same device job; a new URL would split ownership."
+  unique_value_added:
+    - "Direct AEO distinction between seeing 4G/5G data and having VoLTE voice readiness."
+    - "A five-minute pre-15/09 checklist based on device, SIM, service, network mode and call test."
+    - "Brand-aware but non-universal guidance for Samsung, Xiaomi/Redmi/Poco, Oppo/Realme."
+    - "Clear separation from APN/data, iPhone VoLTE, roaming VoLTE and SIM device-change verification owners."
+    - "Explicit warning not to delete eSIM, reset network settings or use unsupported engineering codes as a first step."
+
+source_provenance:
+  official_primary:
+    - url: "https://media.vietteltelecom.vn/upload/InternationalMessagePrice/b6/d7/7b/0b394bd302ad3427a447221a9b89661ec4399ea5.pdf"
+      publisher: Viettel Telecom
+      observed_at: "2026-09-06T07:01:13+07:00"
+      supports: "VoLTE conditions, HDCALL to 191, free service registration, device-side VoLTE enablement."
+    - url: "https://media.vietteltelecom.vn/upload/InternationalMessagePrice/ed/cf/fe/472bc67201bc609be3830366ec546607573f53ff.pdf"
+      publisher: Viettel Telecom
+      observed_at: "2026-09-06T07:01:13+07:00"
+      supports: "Viettel Android menu example for enabling VoLTE; article limits this to an example because menus vary by device/software."
+  freshness_context:
+    - url: "https://www.vietnam.vn/en/tat-song-2g-tu-15-9-dien-thoai-4g-van-co-nguy-co-mat-lien-lac"
+      publisher: "Vietnam.vn republication of Tuoi Tre reporting"
+      published_at: "2026-09-01"
+      observed_at: "2026-09-06T07:01:13+07:00"
+      supports: "Fresh search-demand context that some 4G devices can still face voice disruption if not technically ready after the 2G shutdown. Not used for Viettel price/package/eligibility facts."
+
+metrics:
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+
+k0_decision:
+  decision: PASS
+  duplicate_risk_before: LOW
+  duplicate_risk_after: PASS
+  cannibalization_result: PASS
+  resolution: "Expand the existing Android VoLTE canonical owner; do not create a new indexable URL."
+
+internal_link_plan:
+  parent_owner: "https://www.tracuugoicuoc.com/posts/bat-volte-viettel-android/"
+  supporting_links:
+    - "https://www.tracuugoicuoc.com/posts/tat-song-2g-15-9-2026-viettel-volte/"
+    - "https://www.tracuugoicuoc.com/posts/cai-dat-4g-5g-volte-iphone-viettel/"
+    - "https://www.tracuugoicuoc.com/posts/cai-apn-viettel-4g-5g-v-internet/"
+    - "https://www.tracuugoicuoc.com/posts/sim-4g-viettel-co-dung-duoc-5g-khong/"
+    - "https://www.tracuugoicuoc.com/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu/"
+    - "https://www.tracuugoicuoc.com/posts/bat-volte-khi-roaming-viettel/"
+    - "https://www.tracuugoicuoc.com/posts/data-roaming-viettel-iphone-android/"
+
+release_requirements:
+  branch_pr_required: true
+  npm_test_required: true
+  k0_check_required: true
+  build_required: true
+  content_readback_required: true
+  exact_head_quality_gate_required: true
+  exact_main_vercel_ready_required: true
+  production_http_200_required: true
