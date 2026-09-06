@@ -3,11 +3,20 @@ import os from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import { runAutoMainSite } from '../../scripts/auto-main-site';
+import type { AutomationPolicy } from '../../packages/policy-engine/automation-policy';
 
 const directories: string[] = [];
 afterEach(() => directories.splice(0).forEach((directory) => fs.rmSync(directory, { recursive: true, force: true })));
 
-const policy = { policyVersion: 'test', automationMode: 'full_auto', publishPolicy: { killSwitchActive: false, conditionalAutoRiskTiers: ['low'], fullAutoRiskTiers: ['low', 'medium'] } } as const;
+const policy: AutomationPolicy = {
+  policyVersion: 'test',
+  automationMode: 'full_auto',
+  publishPolicy: {
+    killSwitchActive: false,
+    conditionalAutoRiskTiers: ['low'],
+    fullAutoRiskTiers: ['low', 'medium'],
+  },
+};
 
 describe('auto main-site publication', () => {
   it('writes one fact-validated article and an audit ledger entry', async () => {
