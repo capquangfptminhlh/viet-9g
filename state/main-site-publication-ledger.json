@@ -110,5 +110,13 @@
     "contentHash": "d973d76845a0761e471cae6c0be84f733f8fca28d2b194edaaf4cb3b739cd70f",
     "status": "PUBLISHED",
     "createdAt": "2026-09-05T01:39:15.277Z"
+  },
+  {
+    "idempotencyKey": "233c744fd37eb573b1292ca41531895fe7acb045d064e39c85ad85663ace79a3",
+    "topicId": "topic-b1-ussd-thiet-bi-khong-tuong-thich",
+    "slug": "topic-b1-ussd-thiet-bi-khong-tuong-thich",
+    "contentHash": "e5903d62b9270bf38a6350e044fc89bf661babdfc864243ee3ad214ca8d54ff1",
+    "status": "PUBLISHED",
+    "createdAt": "2026-09-06T01:33:13.511Z"
   }
 ]
