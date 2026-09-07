@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Minh họa REDMI Note 17 Pro 5G và eSIM Viettel</title>
+  <desc id="desc">Hai điện thoại thông minh với mô-típ SIM điện tử và sóng di động 5G, không chứa giá hay thông tin thương mại.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff7f7"/>
+      <stop offset="1" stop-color="#eef6ff"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#172033"/>
+      <stop offset="1" stop-color="#2d3d5f"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" rx="36" fill="url(#bg)"/>
+  <circle cx="185" cy="110" r="90" fill="#d91f2b" opacity=".08"/>
+  <circle cx="1030" cy="510" r="145" fill="#2563eb" opacity=".08"/>
+  <g fill="none" stroke="#d91f2b" stroke-width="15" stroke-linecap="round" opacity=".9">
+    <path d="M515 178c48-48 122-48 170 0"/>
+    <path d="M542 210c33-33 83-33 116 0"/>
+    <path d="M573 241c16-16 38-16 54 0"/>
+  </g>
+  <circle cx="600" cy="270" r="11" fill="#d91f2b"/>
+  <g transform="translate(280 148)">
+    <rect width="250" height="398" rx="42" fill="#111827"/>
+    <rect x="13" y="14" width="224" height="370" rx="32" fill="url(#screen)"/>
+    <circle cx="125" cy="34" r="8" fill="#0b1020"/>
+    <g transform="translate(55 120)">
+      <rect width="140" height="105" rx="16" fill="#f8fafc"/>
+      <path d="M25 26h62l28 28v25H25z" fill="#d91f2b" opacity=".13"/>
+      <path d="M46 36h42l18 18v18H46z" fill="none" stroke="#d91f2b" stroke-width="7"/>
+      <path d="M55 80h30M91 80h15" stroke="#d91f2b" stroke-width="6" stroke-linecap="round"/>
+    </g>
+  </g>
+  <g transform="translate(670 105)">
+    <rect width="250" height="440" rx="42" fill="#111827"/>
+    <rect x="13" y="14" width="224" height="412" rx="32" fill="url(#screen)"/>
+    <circle cx="125" cy="34" r="8" fill="#0b1020"/>
+    <g transform="translate(48 135)" fill="none" stroke="#60a5fa" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="16" y="10" width="138" height="112" rx="18"/>
+      <path d="M45 41h80M45 68h80M45 95h48"/>
+      <path d="M70 10V0M100 10V0M70 132v-10M100 132v-10M16 49H5M16 82H5M165 49h-11M165 82h-11"/>
+    </g>
+  </g>
+  <g transform="translate(555 405)">
+    <circle cx="45" cy="45" r="45" fill="#fff" stroke="#d91f2b" stroke-width="8"/>
+    <path d="M25 46l14 14 27-31" fill="none" stroke="#d91f2b" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
