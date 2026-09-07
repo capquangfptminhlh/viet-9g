@@ -9,6 +9,9 @@ const posts = await getCollection('posts');
 // Hàm chọn ảnh minh họa theo chủ đề bài viết khớp chính xác nội dung
 function getPostImage(slug: string, title: string) {
   const s = (slug + ' ' + title).toLowerCase();
+  if (s.includes('samsung-galaxy-z-fold8-esim-viettel')) {
+    return '/images/blogger/topic-b1-esim-5g-tuong-thich-4435b941a4f9.svg';
+  }
   if (s.includes('oppo-find-x9-esim-viettel')) {
     return '/images/oppo-find-x9-esim-5g-viettel.svg';
   }
