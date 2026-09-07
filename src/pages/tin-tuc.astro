@@ -9,6 +9,9 @@ const posts = await getCollection('posts');
 // Hàm chọn ảnh minh họa theo chủ đề bài viết khớp chính xác nội dung
 function getPostImage(slug: string, title: string) {
   const s = (slug + ' ' + title).toLowerCase();
+  if (s.includes('redmi-note-17-pro-5g-esim-viettel')) {
+    return '/images/redmi-note-17-esim-5g-viettel.svg';
+  }
   if (s.includes('esim-viettel-yeu-song-khong-gui-duoc-sms')) {
     return '/images/blogger/b5-complete-16-e9ba5da114a8.svg';
   }

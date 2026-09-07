@@ -1,0 +1,231 @@
+version: 1.0.0
+run_slot: "07:00"
+observed_at: "2026-09-07T07:01:10+07:00"
+action: NEW
+status: PASS
+website_os:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest: governance/website-os.manifest.yml
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
+project_main_at_start: b32e730b9ecb98f48cbbc317a23d0e9a799f5b9d
+primary_keyword: "REDMI Note 17 Pro 5G eSIM Viettel"
+secondary_queries:
+  - "REDMI Note 17 Pro 5G có eSIM không"
+  - "REDMI Note 17 Pro Max 5G có eSIM Viettel không"
+  - "REDMI Note 17 Pro 5G dùng Viettel 5G được không"
+  - "REDMI Note 17 Pro Max 5G dùng 2 eSIM được không"
+  - "REDMI Note 17 Pro 5G Viettel không hiện 5G"
+intent: "SUPPORT + INFORMATIONAL"
+cluster: "device-esim-5g-compatibility"
+parent_cluster: "viettel-5g-device-support"
+entity:
+  type: "device_model_family"
+  name: "REDMI Note 17 Pro 5G / REDMI Note 17 Pro Max 5G"
+  attribute: "eSIM and 5G carrier-readiness"
+canonical_owner: "/posts/redmi-note-17-pro-5g-esim-viettel/"
+content_type: "device_compatibility_support_guide"
+new_url_created: true
+cannibalization: PASS
+reason: >-
+  The repository has generic owners for Android eSIM capability, SIM-to-5G eligibility and 5G troubleshooting,
+  but no current indexable owner for the newly available REDMI Note 17 Pro 5G family and its model-specific SIM/eSIM configurations.
+  This page owns the device-entity compatibility question and links to generic owners for activation and troubleshooting instead of duplicating them.
+
+search_chain:
+  same_day_research:
+    observed_at: "2026-09-07T07:01:10+07:00"
+    result: "FRESH_DEVICE_EVENT_FOUND_AFTER_FIRST_PARTY_VIETTEL_HOLD"
+    reason: >-
+      Same-day searches did not surface a sufficiently strong Viettel-owned mobile publication dated 07/09/2026 at observation time.
+      Fallback continued and found the REDMI Note 17 Pro/Pro Max 5G on-sale freshness event, then verified device facts against Xiaomi primary specifications and carrier-side eSIM/5G facts against Viettel primary sources.
+  source_provenance:
+    - source: "Xiaomi"
+      url: "https://www.mi.com/tw/product/redmi-note-17-pro-5g/specs/"
+      published_at: UNKNOWN
+      observed_at: "2026-09-07T07:01:10+07:00"
+      provenance: FIRST_PARTY_DEVICE_VENDOR
+      verification_status: VERIFIED
+      bounded_facts:
+        - "REDMI Note 17 Pro 5G supports 5G/4G/3G/2G."
+        - "Its dual-SIM configurations are nano+nano or nano+eSIM."
+        - "Xiaomi states eSIM/network availability can vary by country, region and carrier."
+    - source: "Xiaomi"
+      url: "https://www.mi.com/tw/product/redmi-note-17-pro-max-5g/specs/"
+      published_at: UNKNOWN
+      observed_at: "2026-09-07T07:01:10+07:00"
+      provenance: FIRST_PARTY_DEVICE_VENDOR
+      verification_status: VERIFIED
+      bounded_facts:
+        - "REDMI Note 17 Pro Max 5G supports 5G/4G/3G/2G."
+        - "Its published configurations include nano+nano, nano+eSIM and eSIM+eSIM."
+        - "Xiaomi states eSIM/network availability can vary by country, region and carrier."
+    - source: "Viettel Telecom"
+      url: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/huong-dan-chi-tiet-5-buoc-doi-esim-tren-viettel-tammi-cuc-don-gian/18477972"
+      published_at: "2026-06-30"
+      observed_at: "2026-09-07T07:01:10+07:00"
+      provenance: FIRST_PARTY_CARRIER
+      verification_status: VERIFIED
+      bounded_facts:
+        - "Viettel Tammi supports a current eSIM conversion flow."
+        - "The Android guidance uses Add eSIM and QR scanning, while menu placement can differ by device/software."
+    - source: "Viettel Telecom"
+      url: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/toc-do-mang-5g-nhanh-den-muc-do-nao/16860196"
+      published_at: "2025-03-03"
+      observed_at: "2026-09-07T07:01:10+07:00"
+      provenance: FIRST_PARTY_CARRIER
+      verification_status: VERIFIED_BOUNDED
+      bounded_facts:
+        - "Viettel states customers with a 5G-capable phone can use 5G without a default SIM replacement requirement."
+        - "Speed, universal coverage and per-model carrier certification claims from this source are not reused here."
+    - source: "The Gioi So"
+      url: "https://tgs.vn/dong-chay/redmi-note-17-series-voi-pin-den-10-000mah-dung-3-ngay-moi-sac-lai-thach-thuc-moi-roi-rot-va-dap/"
+      published_at: "2026-08"
+      observed_at: "2026-09-07T07:01:10+07:00"
+      provenance: SECONDARY_FRESHNESS_ONLY
+      verification_status: VERIFIED_FOR_DATE_CONTEXT
+      bounded_facts:
+        - "REDMI Note 17 Pro 5G and Pro Max 5G were reported to officially go on sale in Vietnam on 07/09/2026."
+
+candidates_checked:
+  - query: "Viettel mobile breaking update 07/09/2026"
+    intent: FRESHNESS
+    entity_topic: "Viettel mobile news"
+    cluster: "freshness-news"
+    canonical_owner: UNKNOWN
+    content_type: "NEWS_FRESHNESS"
+    evidence: INSUFFICIENT_FIRST_PARTY_SAME_DAY
+    priority: P0
+    decision: HOLD
+    reason: "No qualifying same-day Viettel-owned mobile item found at observation time; candidate-level HOLD only."
+  - query: "REDMI Note 17 Pro/Pro Max 5G eSIM Viettel"
+    intent: SUPPORT
+    entity_topic: "new device eSIM/5G carrier readiness"
+    cluster: "device-esim-5g-compatibility"
+    canonical_owner: "/posts/redmi-note-17-pro-5g-esim-viettel/"
+    content_type: "DEVICE_COMPATIBILITY_SUPPORT"
+    evidence: FIRST_PARTY_VENDOR_AND_CARRIER_VERIFIED
+    priority: P1
+    decision: SELECT_NEW
+    reason: "Fresh model-family entity, primary Xiaomi specs, carrier-side Viettel eSIM/5G evidence and no existing exact model owner."
+  - query: "Wi-Fi Calling / VoWiFi Viettel"
+    intent: SUPPORT
+    entity_topic: "Wi-Fi Calling provisioning"
+    cluster: "voice-over-wifi"
+    canonical_owner: UNKNOWN
+    content_type: "SUPPORT_ARTICLE"
+    evidence: INSUFFICIENT_CURRENT_FIRST_PARTY_PROVISIONING
+    priority: P1
+    decision: HOLD
+    reason: "Current carrier provisioning/eligibility evidence remains insufficient for a safe owner."
+  - query: "Android eSIM Viettel kích hoạt không cần QR"
+    intent: SUPPORT
+    entity_topic: "Android eSIM activation method"
+    cluster: "esim-activation"
+    canonical_owner: "/posts/esim-5g-kich-hoat-quet-qr/"
+    content_type: "SUPPORT_ARTICLE"
+    evidence: EXISTING_OWNER_AND_PLATFORM_BOUNDARY
+    priority: P1
+    decision: REJECT
+    reason: "Existing activation owner covers the job; current Viettel Android guidance still describes QR activation, so no separate Android no-QR owner is justified."
+  - query: "SIM Viettel bị chặn khi ở nước ngoài chưa xác thực"
+    intent: SUPPORT
+    entity_topic: "subscriber verification abroad"
+    cluster: "sim-verification-abroad"
+    canonical_owner: EXISTING_OWNER
+    content_type: "SUPPORT_ARTICLE"
+    evidence: EXISTING_OWNER
+    priority: P1
+    decision: REJECT
+    reason: "A governed owner already exists for this support job."
+  - query: "điện thoại Viettel không hiện 5G"
+    intent: SUPPORT
+    entity_topic: "5G device troubleshooting"
+    cluster: "5g-device-troubleshooting"
+    canonical_owner: "/posts/loi-khong-dang-ky-duoc-mang-5g-viettel/"
+    content_type: "SUPPORT_ARTICLE"
+    evidence: EXISTING_OWNER_UPDATED_2026_09_06
+    priority: P1
+    decision: REJECT
+    reason: "Generic 5G troubleshooting owner was refreshed in the prior slot; model-specific page links to it for post-activation troubleshooting."
+  - query: "iPhone 17 gói 5G Viettel"
+    intent: COMMERCIAL
+    entity_topic: "device-bound 5G package"
+    cluster: "device-package-commercial"
+    canonical_owner: UNKNOWN
+    content_type: "COMMERCIAL_SUPPORT"
+    evidence: STALE_2025_COMMERCIAL_EVIDENCE
+    priority: P1
+    decision: HOLD
+    reason: "Evidence found is 2025-bound and insufficient to assert September 2026 package price/benefit/eligibility."
+
+query_mapping:
+  query: "REDMI Note 17 Pro 5G eSIM Viettel"
+  primary_intent: SUPPORT
+  secondary_intent: INFORMATIONAL
+  entity_topic: "REDMI Note 17 Pro family / eSIM / 5G carrier readiness"
+  cluster: "device-esim-5g-compatibility"
+  canonical_url_owner: "/posts/redmi-note-17-pro-5g-esim-viettel/"
+  content_type: "device_compatibility_support_guide"
+  evidence_refs:
+    - "xiaomi-redmi-note-17-pro-specs"
+    - "xiaomi-redmi-note-17-pro-max-specs"
+    - "viettel-tammi-esim-2026-06-30"
+    - "viettel-5g-capable-phone"
+  priority: P1
+
+source_facts:
+  redmi_note_17_pro_5g_supports_5g: true
+  redmi_note_17_pro_supports_nano_plus_esim: true
+  redmi_note_17_pro_max_supports_esim_plus_esim: true
+  universal_viettel_esim_certification_for_every_unit: UNKNOWN
+  universal_viettel_5g_availability: UNKNOWN
+  exact_viettel_band_to_model_certification: UNKNOWN
+  current_package_price_benefit_eligibility: UNKNOWN
+
+internal_link_plan:
+  parent: "/5g-viettel/"
+  related:
+    - "/posts/kiem-tra-android-co-ho-tro-esim-viettel/"
+    - "/posts/loi-khong-dang-ky-duoc-mang-5g-viettel/"
+    - "/posts/sim-4g-viettel-co-dung-duoc-5g-khong/"
+    - "/posts/esim-5g-kich-hoat-quet-qr/"
+    - "/posts/esim-viettel-yeu-song-khong-gui-duoc-sms/"
+
+image_plan:
+  role: "exact-topic newly authored editorial SVG"
+  subject: "REDMI Note 17 Pro family, eSIM and 5G compatibility concept"
+  path: "/images/redmi-note-17-esim-5g-viettel.svg"
+  topic_match: PASS
+  prohibited_claims_present: false
+  note: "Original text-free diagram; no price, package benefit, logo, fabricated screenshot or carrier-certification badge."
+
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+
+priority:
+  tier: P1
+  reason: >-
+    Fresh device availability creates a time-sensitive entity query. Primary vendor specs answer the hardware question,
+    Viettel first-party sources bound the carrier-side activation/5G interpretation, and the repo has no exact model-family owner.
+    Quantitative SEO metrics remain UNKNOWN.
+
+k0_decision:
+  decision: PASS
+  duplicate_risk: PASS
+  cannibalization_result: PASS
+  unsupported_metrics: 0
+  unsupported_business_facts: 0
+
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
