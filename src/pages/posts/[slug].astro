@@ -33,6 +33,9 @@ const displayTitle = titleMatch ? titleMatch[1] : (entry.data?.title || entry.sl
 // Hàm chọn ảnh minh họa cao cấp khớp chính xác với từng nội dung bài viết
 function getPostImage(slug: string, title: string) {
   const s = (slug + ' ' + title).toLowerCase();
+  if (s.includes('redmi-note-17-pro-5g-esim-viettel')) {
+    return '/images/redmi-note-17-esim-5g-viettel.svg';
+  }
   if (s.includes('bat-volte-viettel-android')) {
     return '/images/volte-viettel-android.svg';
   }
