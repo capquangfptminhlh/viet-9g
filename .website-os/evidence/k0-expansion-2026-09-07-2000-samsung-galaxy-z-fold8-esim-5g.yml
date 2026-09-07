@@ -1,0 +1,223 @@
+version: 1.0.0
+run_slot: "20:00"
+observed_at: "2026-09-07T20:15:45+07:00"
+action: NEW
+status: PASS
+website_os:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest: governance/website-os.manifest.yml
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
+project_main_at_start: 62a7efc0456094677002a74624e4c17c3dfe03f4
+primary_keyword: "Samsung Galaxy Z Fold8 eSIM Viettel"
+secondary_queries:
+  - "Samsung Galaxy Z Fold8 có eSIM không"
+  - "Galaxy Z Fold8 dùng eSIM Viettel được không"
+  - "Galaxy Z Fold8 có 5G Viettel không"
+  - "Galaxy Z Fold8 Dual eSIM là gì"
+  - "Galaxy Z Fold8 quét QR eSIM Viettel"
+intent: "SUPPORT + INFORMATIONAL"
+cluster: "device-esim-5g-compatibility"
+parent_cluster: "viettel-5g-device-support"
+entity:
+  type: "device_model"
+  name: "Samsung Galaxy Z Fold8"
+  attribute: "eSIM and 5G carrier-readiness"
+canonical_owner: "/posts/samsung-galaxy-z-fold8-esim-viettel/"
+content_type: "device_compatibility_support_guide"
+new_url_created: true
+cannibalization: PASS
+reason: >-
+  Repository search found no existing Galaxy Z Fold8 canonical owner. Generic Android eSIM capability,
+  eSIM activation and 5G troubleshooting owners cover broader jobs, while this URL answers the model-specific
+  device entity question and links to generic owners only when activation or troubleshooting begins.
+
+search_chain:
+  same_day_research:
+    observed_at: "2026-09-07T20:15:45+07:00"
+    result: "NO_QUALIFYING_SAME_DAY_FIRST_PARTY_MOBILE_ITEM"
+    reason: >-
+      Same-day searches did not surface a sufficiently strong Viettel-owned mobile/5G/eSIM/SIM/roaming/package
+      publication dated 07/09/2026 at observation time. This was a candidate-level HOLD only, so fallback continued.
+  source_provenance:
+    - source: "Samsung Vietnam"
+      url: "https://www.samsung.com/vn/smartphones/galaxy-z-fold8/specs/"
+      published_at: UNKNOWN
+      observed_at: "2026-09-07T20:15:45+07:00"
+      provenance: FIRST_PARTY_DEVICE_VENDOR
+      verification_status: VERIFIED
+      bounded_facts:
+        - "Galaxy Z Fold8 Vietnam specifications list Nano-SIM/eSIM support and SIM 1 + eSIM / Dual eSIM configurations."
+        - "The specifications list 5G support."
+        - "Samsung notes SIM/eSIM availability can vary by market, operator and device variant."
+        - "The device datasheet is not treated as Viettel carrier certification."
+    - source: "Samsung Vietnam Business"
+      url: "https://www.samsung.com/vn/business/smartphones/galaxy-z/galaxy-z-fold8-cream-256gb-sm-f971bzwdxxv/"
+      published_at: UNKNOWN
+      observed_at: "2026-09-07T20:15:45+07:00"
+      provenance: FIRST_PARTY_DEVICE_VENDOR
+      verification_status: VERIFIED
+      bounded_facts:
+        - "Vietnam business product data lists 2G/3G/4G/5G and SIM 1 + eSIM / Dual eSIM capability for the referenced Fold8 variant."
+    - source: "Viettel Telecom"
+      url: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/huong-dan-chi-tiet-5-buoc-doi-esim-tren-viettel-tammi-cuc-don-gian/18477972"
+      published_at: "2026-06-30"
+      observed_at: "2026-09-07T20:15:45+07:00"
+      provenance: FIRST_PARTY_CARRIER
+      verification_status: VERIFIED
+      bounded_facts:
+        - "Viettel Tammi provides a current eSIM conversion flow."
+        - "Viettel Android guidance describes Settings -> Connections -> SIM manager -> Add eSIM -> Scan QR on a compatible device."
+
+candidates_checked:
+  - query: "Viettel mobile breaking update 07/09/2026"
+    intent: FRESHNESS
+    entity_topic: "Viettel mobile news"
+    cluster: "freshness-news"
+    canonical_owner: UNKNOWN
+    content_type: "NEWS_FRESHNESS"
+    evidence: INSUFFICIENT_FIRST_PARTY_SAME_DAY
+    priority: P0
+    decision: HOLD
+    reason: "No qualifying same-day Viettel-owned mobile item was found at observation time; candidate-level HOLD only."
+  - query: "Wi-Fi Calling / VoWiFi Viettel"
+    intent: SUPPORT
+    entity_topic: "Wi-Fi Calling provisioning"
+    cluster: "voice-over-wifi"
+    canonical_owner: UNKNOWN
+    content_type: "SUPPORT_ARTICLE"
+    evidence: INSUFFICIENT_CURRENT_FIRST_PARTY_PROVISIONING
+    priority: P1
+    decision: HOLD
+    reason: "Current first-party provisioning and eligibility evidence remains insufficient for a safe canonical owner."
+  - query: "Samsung Galaxy Z Fold8 eSIM Viettel"
+    intent: SUPPORT
+    entity_topic: "Samsung Galaxy Z Fold8 eSIM/5G carrier readiness"
+    cluster: "device-esim-5g-compatibility"
+    canonical_owner: "/posts/samsung-galaxy-z-fold8-esim-viettel/"
+    content_type: "DEVICE_COMPATIBILITY_SUPPORT"
+    evidence: FIRST_PARTY_VENDOR_AND_CARRIER_VERIFIED
+    priority: P1
+    decision: SELECT_NEW
+    reason: "Fresh Samsung Vietnam specifications, current Viettel eSIM guidance and no exact Fold8 owner create a defensible device-entity canonical job."
+  - query: "Samsung Galaxy S26 Ultra eSIM Viettel"
+    intent: SUPPORT
+    entity_topic: "Galaxy S26 Ultra eSIM/5G carrier readiness"
+    cluster: "device-esim-5g-compatibility"
+    canonical_owner: UNKNOWN
+    content_type: "DEVICE_COMPATIBILITY_SUPPORT"
+    evidence: FIRST_PARTY_VENDOR_AVAILABLE
+    priority: P2
+    decision: DEFER
+    reason: "Materially different credible device candidate, but only one item may publish in this run and Fold8 has the stronger freshness/model-gap priority."
+  - query: "Android eSIM Viettel kích hoạt không cần QR"
+    intent: SUPPORT
+    entity_topic: "Android eSIM activation method"
+    cluster: "esim-activation"
+    canonical_owner: "/posts/esim-5g-kich-hoat-quet-qr/"
+    content_type: "SUPPORT_ARTICLE"
+    evidence: EXISTING_OWNER_AND_CURRENT_QR_GUIDANCE
+    priority: P1
+    decision: REJECT
+    reason: "Existing activation owner covers the search job and current Viettel Android guidance still describes QR activation."
+  - query: "SIM Viettel bị chặn khi ở nước ngoài chưa xác thực"
+    intent: SUPPORT
+    entity_topic: "subscriber verification abroad"
+    cluster: "sim-verification-abroad"
+    canonical_owner: EXISTING_OWNER
+    content_type: "SUPPORT_ARTICLE"
+    evidence: EXISTING_OWNER
+    priority: P1
+    decision: REJECT
+    reason: "A governed canonical owner already exists for this support job."
+  - query: "điện thoại Viettel không hiện 5G"
+    intent: SUPPORT
+    entity_topic: "5G device troubleshooting"
+    cluster: "5g-device-troubleshooting"
+    canonical_owner: "/posts/loi-khong-dang-ky-duoc-mang-5g-viettel/"
+    content_type: "SUPPORT_ARTICLE"
+    evidence: EXISTING_OWNER_UPDATED_2026_09_06
+    priority: P1
+    decision: REJECT
+    reason: "Generic 5G troubleshooting has an existing refreshed owner; Fold8 links there only for post-activation diagnosis."
+  - query: "iPhone 17 gói 5G Viettel"
+    intent: COMMERCIAL
+    entity_topic: "device-bound 5G package"
+    cluster: "device-package-commercial"
+    canonical_owner: UNKNOWN
+    content_type: "COMMERCIAL_SUPPORT"
+    evidence: STALE_OR_INSUFFICIENT_CURRENT_COMMERCIAL_EVIDENCE
+    priority: P1
+    decision: HOLD
+    reason: "Current September 2026 price/benefit/eligibility evidence is insufficient for safe commercial claims."
+
+query_mapping:
+  query: "Samsung Galaxy Z Fold8 eSIM Viettel"
+  primary_intent: SUPPORT
+  secondary_intent: INFORMATIONAL
+  entity_topic: "Samsung Galaxy Z Fold8 / eSIM / 5G carrier readiness"
+  cluster: "device-esim-5g-compatibility"
+  canonical_url_owner: "/posts/samsung-galaxy-z-fold8-esim-viettel/"
+  content_type: "device_compatibility_support_guide"
+  evidence_refs:
+    - "samsung-vn-galaxy-z-fold8-specs"
+    - "samsung-vn-business-fold8"
+    - "viettel-tammi-esim-2026-06-30"
+  priority: P1
+
+source_facts:
+  samsung_fold8_esim_listed_by_samsung_vietnam: true
+  samsung_fold8_dual_esim_configuration_listed: true
+  samsung_fold8_5g_listed_by_samsung_vietnam: true
+  current_viettel_android_esim_qr_flow_verified: true
+  universal_viettel_esim_certification_for_every_fold8_unit: UNKNOWN
+  simultaneous_two_viettel_esim_active_guarantee: UNKNOWN
+  universal_viettel_5g_availability: UNKNOWN
+  exact_viettel_band_to_model_certification: UNKNOWN
+  current_package_price_benefit_eligibility: UNKNOWN
+
+internal_link_plan:
+  parent: "/5g-viettel/"
+  related:
+    - "/posts/kiem-tra-android-co-ho-tro-esim-viettel/"
+    - "/posts/esim-5g-kich-hoat-quet-qr/"
+    - "/posts/loi-khong-dang-ky-duoc-mang-5g-viettel/"
+    - "/posts/esim-viettel-yeu-song-khong-gui-duoc-sms/"
+
+image_plan:
+  role: "existing governed eSIM/5G compatibility editorial asset"
+  subject: "smartphone, eSIM and 5G compatibility concept"
+  path: "/images/blogger/topic-b1-esim-5g-tuong-thich-4435b941a4f9.svg"
+  source_mode: "EXISTING_GOVERNED_PROJECT_ASSET"
+  topic_match: PASS
+  new_visual_generated_this_run: false
+  reason: "No explicit D0 decision file was found for authoring a new visual in this run; fail-closed reuse is limited to an existing project asset that directly depicts the same eSIM/5G compatibility subject."
+
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+
+priority:
+  tier: P1
+  reason: >-
+    A fresh model-specific compatibility question can be answered with Samsung Vietnam primary specifications
+    plus current Viettel first-party activation guidance, while no exact Fold8 owner exists. Quantitative SEO metrics remain UNKNOWN.
+
+k0_decision:
+  decision: PASS
+  duplicate_risk: PASS
+  cannibalization_result: PASS
+  unsupported_metrics: 0
+  unsupported_business_facts: 0
+
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
