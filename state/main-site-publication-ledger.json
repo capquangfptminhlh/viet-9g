@@ -252,5 +252,160 @@
     "contentHash": "68849b802953a640e4445168c4234cfea8efbd121f366c8a63f9a3e5ff1230b3",
     "status": "PUBLISHED",
     "createdAt": "2026-09-07T01:31:41.318Z"
+  },
+  {
+    "idempotencyKey": "522ab9dfcf4242967649a234d9444219b462140e776f5e1ad636c1d903dc5fa9:2026-09-08T01:41:48.868Z",
+    "topicId": "topic-b1-ussd-dich-vu-bi-anh-huong",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-09-08T01:41:48.868Z"
+  },
+  {
+    "idempotencyKey": "5ea8b4a87a7bd1cea21c5bab2e5a6d4513bfdc848731ca2ba7d74804559f3239:2026-09-08T01:41:48.868Z",
+    "topicId": "topic-b1-android-kiem-tra-ussd-ims",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-09-08T01:41:48.868Z"
+  },
+  {
+    "idempotencyKey": "e753c46cd79faf0c376e86b333a951d07c8b1f41f67f6428016e9d4d25c77915:2026-09-08T01:41:48.868Z",
+    "topicId": "topic-b1-android-thu-ussd-4g",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-09-08T01:41:48.868Z"
+  },
+  {
+    "idempotencyKey": "d0858e65c51effd8c79aee9ffe47b382ae07283db79d17a02003f9188c3a6bd2:2026-09-08T01:41:48.868Z",
+    "topicId": "topic-b1-iphone-ussd-4g-volte",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-09-08T01:41:48.868Z"
+  },
+  {
+    "idempotencyKey": "496fe563938397341e57676da14214f2b04eddf506b12d81a7cf17d092ed940d:2026-09-08T01:41:48.868Z",
+    "topicId": "topic-b1-iphone-kiem-tra-bieu-tuong-mang",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-09-08T01:41:48.868Z"
+  },
+  {
+    "idempotencyKey": "809aeeb5bf2d5871f6f27f8fa191ce21ad727987fc2990915d0f5605e2a1b0c6:2026-09-08T01:41:48.868Z",
+    "topicId": "topic-b1-ios-181-ussd-ims",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-09-08T01:41:48.868Z"
+  },
+  {
+    "idempotencyKey": "785a0e80faef51c17d4d8cd22cad015d6d10c92358f3081d52ed9141c21d8d6f:2026-09-08T01:41:48.868Z",
+    "topicId": "topic-b1-do-toc-do-4g-5g-speedtest-ping",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-09-08T01:41:48.868Z"
+  },
+  {
+    "idempotencyKey": "d403dba9aeba6b8432e441c8a3343d490a53a9af21b11f7c5a12b76ffd3954a7:2026-09-08T01:41:48.868Z",
+    "topicId": "topic-b1-esim-khong-can-doi-sim-5g",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-09-08T01:41:48.868Z"
+  },
+  {
+    "idempotencyKey": "1fc511816ac755a4a924a39c0403d8e4057d406d7a38b5d0f71981ca343a8060:2026-09-08T01:41:48.868Z",
+    "topicId": "topic-b1-roaming-chon-mang-iphone-android",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-09-08T01:41:48.868Z"
+  },
+  {
+    "idempotencyKey": "abdec7f248c078644b325b97bb0af4ec20f28880686274dcc8188c0eefa82d90:2026-09-08T01:41:48.868Z",
+    "topicId": "b1-complete-01",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-09-08T01:41:48.868Z"
+  },
+  {
+    "idempotencyKey": "9f247c31ba316f763c62653b6f26b0cdd41cf5855005212677e62cffa8307a18:2026-09-08T01:41:48.868Z",
+    "topicId": "b1-complete-02",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-09-08T01:41:48.868Z"
+  },
+  {
+    "idempotencyKey": "030b3ae8c6d72362d6b8d082a6836d182e0c4e3520edd4e9ac765b11b974cb8a:2026-09-08T01:41:48.868Z",
+    "topicId": "b1-complete-03",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-09-08T01:41:48.868Z"
+  },
+  {
+    "idempotencyKey": "a109a5fb6ffad6648555ad8fd4262aa477f43cc4d69907373b5e55766080f87d:2026-09-08T01:41:48.868Z",
+    "topicId": "b1-complete-04",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-09-08T01:41:48.868Z"
+  },
+  {
+    "idempotencyKey": "0b293dac30cbcc85ba5622a659f4983da208a87a3d70505749d4875a778ab554:2026-09-08T01:41:48.868Z",
+    "topicId": "b1-complete-05",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-09-08T01:41:48.868Z"
+  },
+  {
+    "idempotencyKey": "c0ba5dd0f2d599d88cc350e514756baec2eba4da734a47867f49e11baddb7939:2026-09-08T01:41:48.868Z",
+    "topicId": "b1-complete-06",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-09-08T01:41:48.868Z"
+  },
+  {
+    "idempotencyKey": "fdab3e4921023807a9897a4334695bffc040a1a9d4c28f0f9f64d94f8ad0ce6b:2026-09-08T01:41:48.868Z",
+    "topicId": "topic-b2-kiem-tra-data-kttk-191",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-09-08T01:41:48.868Z"
+  },
+  {
+    "idempotencyKey": "02b3225b02b815d36d6c89a8c13c300dd25bf55b0b508783b218ab11e51c6eb4:2026-09-08T01:41:48.868Z",
+    "topicId": "topic-b2-tra-cuu-goi-098",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-09-08T01:41:48.868Z"
+  },
+  {
+    "idempotencyKey": "c100fefeb1065bc838a75d9639406073ba257b847d4807a3860fe7c0cf49f025:2026-09-08T01:41:48.868Z",
+    "topicId": "topic-b2-my-viettel-dung-luong-han-dung",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-09-08T01:41:48.868Z"
+  },
+  {
+    "idempotencyKey": "93a68e636a014c3ac88bee71215b9f29da8008a7ffe59f62977a7b53f40a73d9:2026-09-08T01:41:48.868Z",
+    "topicId": "b2-complete-01",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-09-08T01:41:48.868Z"
+  },
+  {
+    "idempotencyKey": "fc94d3cf0e022fe6ab43b5ee7353453a7d838a0718653eced2dba3b52095d66a:2026-09-08T01:41:48.868Z",
+    "topicId": "b2-complete-02",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-09-08T01:41:48.868Z"
+  },
+  {
+    "idempotencyKey": "0c525e626f01ca4d2ddfd407667754bb760fc00c53c0e8ceb69047f6d9dcf4b5:2026-09-08T01:41:48.868Z",
+    "topicId": "b2-complete-03",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-09-08T01:41:48.868Z"
+  },
+  {
+    "idempotencyKey": "8224dfba4cf66953050f63b7bb097172043f23776b79612ad9d65f4da102c4ba",
+    "topicId": "b2-complete-04",
+    "slug": "b2-complete-04",
+    "contentHash": "05bda58300f73a1be3b61a57f33f15c7e490a52b452e501a7c600c41d0cb2dad",
+    "status": "PUBLISHED",
+    "createdAt": "2026-09-08T01:41:48.868Z"
   }
 ]
