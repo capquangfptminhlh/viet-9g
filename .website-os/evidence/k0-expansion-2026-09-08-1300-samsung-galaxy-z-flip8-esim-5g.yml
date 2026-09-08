@@ -1,0 +1,268 @@
+version: 1.0.0
+run_slot: "13:00"
+observed_at: "2026-09-08T13:00:00+07:00"
+action: NEW
+status: PASS
+website_os:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest: governance/website-os.manifest.yml
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
+project_main_at_start: 8822cb48862fb73e267d015c4b8ebb82a34e4c2a
+primary_keyword: "Samsung Galaxy Z Flip8 eSIM Viettel"
+secondary_queries:
+  - "Samsung Galaxy Z Flip8 có eSIM không"
+  - "Galaxy Z Flip8 dùng eSIM Viettel được không"
+  - "Galaxy Z Flip8 có 5G Viettel không"
+  - "Galaxy Z Flip8 quét QR eSIM Viettel"
+  - "Galaxy Z Flip8 Dual eSIM Viettel"
+  - "Galaxy Z Flip8 không thấy 5G Viettel"
+intent: "SUPPORT + INFORMATIONAL"
+cluster: "device-esim-5g-compatibility"
+parent_cluster: "viettel-5g-device-support"
+entity:
+  type: "device_model"
+  name: "Samsung Galaxy Z Flip8"
+  attribute: "eSIM and 5G carrier-readiness"
+canonical_owner: "/posts/samsung-galaxy-z-flip8-esim-viettel/"
+content_type: "device_compatibility_support_guide"
+new_url_created: true
+cannibalization: PASS
+reason: >-
+  Repository search found no existing Galaxy Z Flip8 canonical owner. Samsung Vietnam currently lists Galaxy Z Flip8
+  among Galaxy devices supporting eSIM and lists Viettel Mobile among Vietnam carriers that may support eSIM. Samsung
+  Vietnam also maintains the local Flip8 product/support page with 5G guidance. Generic Android eSIM activation and
+  generic 5G troubleshooting owners cover broader jobs, while this URL answers the model-specific device entity question.
+
+search_chain:
+  same_day_research:
+    observed_at: "2026-09-08T13:00:00+07:00"
+    result: "NO_QUALIFYING_SAME_DAY_FIRST_PARTY_MOBILE_ITEM"
+    reason: >-
+      Same-day searches at observation time did not surface a qualifying Viettel-owned mobile/5G/eSIM/SIM/roaming/package
+      publication dated 08/09/2026. This was a candidate-level HOLD only, so fallback continued.
+  today_already_published:
+    - path: "/posts/b2-complete-04/"
+      title: "Đăng ký gói qua SMS 191: cách đọc đúng ví dụ từ Viettel"
+      published_commit: "8822cb48862fb73e267d015c4b8ebb82a34e4c2a"
+      relation_to_selected_candidate: "INDEPENDENT_INTENT"
+    - path: "/posts/samsung-galaxy-s26-ultra-esim-viettel/"
+      title: "Samsung Galaxy S26 Ultra có eSIM Viettel không? Dùng 5G thế nào?"
+      relation_to_selected_candidate: "SAME_CLUSTER_DIFFERENT_DEVICE_ENTITY"
+  source_provenance:
+    - source: "Samsung Vietnam Support"
+      url: "https://www.samsung.com/vn/support/mobile-devices/galaxy-esim-and-supported-network-carriers/"
+      updated_at: "2026-08-15"
+      observed_at: "2026-09-08T13:00:00+07:00"
+      provenance: FIRST_PARTY_DEVICE_VENDOR
+      verification_status: VERIFIED
+      bounded_facts:
+        - "Samsung Vietnam lists Galaxy Z Fold8 Ultra / Z Fold8 / Z Flip8 among Galaxy devices supporting eSIM."
+        - "Samsung Vietnam lists Viettel Mobile among Vietnam carriers that may support eSIM."
+        - "Samsung states eSIM availability can vary by country and carrier."
+        - "Samsung documents QR-scan setup under Settings -> Connections -> SIM manager -> Add eSIM."
+    - source: "Samsung Vietnam"
+      url: "https://www.samsung.com/vn/smartphones/galaxy-z-flip8/"
+      published_at: UNKNOWN
+      observed_at: "2026-09-08T13:00:00+07:00"
+      provenance: FIRST_PARTY_DEVICE_VENDOR
+      verification_status: VERIFIED
+      bounded_facts:
+        - "Samsung Vietnam maintains the official Galaxy Z Flip8 product page for the Vietnam market."
+        - "Samsung Vietnam states Galaxy Z Flip8 supports 5G."
+    - source: "Samsung Vietnam Support"
+      url: "https://www.samsung.com/vn/support/model.SM-F776BZWAXXV/"
+      published_at: UNKNOWN
+      observed_at: "2026-09-08T13:00:00+07:00"
+      provenance: FIRST_PARTY_DEVICE_VENDOR
+      verification_status: VERIFIED
+      bounded_facts:
+        - "Samsung Vietnam identifies Galaxy Z Flip8 support model SM-F776B."
+        - "The support page includes 5G guidance for the device family."
+    - source: "Samsung official specifications"
+      url: "https://www.samsung.com/sg/smartphones/galaxy-z-flip8/specs/"
+      published_at: "2026-08"
+      observed_at: "2026-09-08T13:00:00+07:00"
+      provenance: FIRST_PARTY_DEVICE_VENDOR
+      verification_status: VERIFIED
+      bounded_facts:
+        - "Galaxy Z Flip8 supports Nano-SIM and eSIM options."
+        - "Listed SIM configuration includes SIM 1 + eSIM / Dual eSIM."
+        - "Samsung states configuration availability may vary by market, network operator and device variant."
+    - source: "Viettel Telecom"
+      url: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/huong-dan-chi-tiet-5-buoc-doi-esim-tren-viettel-tammi-cuc-don-gian/18477972"
+      published_at: "2026-06-30"
+      observed_at: "2026-09-08T13:00:00+07:00"
+      provenance: FIRST_PARTY_CARRIER
+      verification_status: VERIFIED
+      bounded_facts:
+        - "Viettel Tammi provides a current eSIM conversion flow."
+        - "Viettel Android guidance describes Settings -> Connections -> SIM manager -> Add eSIM -> Scan QR on a compatible device."
+    - source: "Samsung Vietnam Support"
+      url: "https://www.samsung.com/vn/support/mobile-devices/network-carriers-that-support-5g-for-samsung-galaxy-devices/"
+      published_at: UNKNOWN
+      observed_at: "2026-09-08T13:00:00+07:00"
+      provenance: FIRST_PARTY_DEVICE_VENDOR
+      verification_status: VERIFIED
+      bounded_facts:
+        - "Samsung lists Viettel among Vietnam network carriers supporting 5G for Samsung Galaxy devices."
+        - "Samsung states 5G service availability can vary by area or product."
+
+candidates_checked:
+  - query: "Viettel mobile breaking update 08/09/2026"
+    intent: FRESHNESS
+    entity_topic: "Viettel mobile news"
+    cluster: "freshness-news"
+    canonical_owner: UNKNOWN
+    content_type: "NEWS_FRESHNESS"
+    evidence: INSUFFICIENT_FIRST_PARTY_SAME_DAY
+    priority: P0
+    decision: HOLD
+    reason: "No qualifying same-day Viettel-owned mobile item was found at observation time; candidate-level HOLD only."
+  - query: "Wi-Fi Calling / VoWiFi Viettel"
+    intent: SUPPORT
+    entity_topic: "Wi-Fi Calling provisioning"
+    cluster: "voice-over-wifi"
+    canonical_owner: UNKNOWN
+    content_type: "SUPPORT_ARTICLE"
+    evidence: INSUFFICIENT_CURRENT_FIRST_PARTY_PROVISIONING
+    priority: P1
+    decision: HOLD
+    reason: "Current first-party provisioning and eligibility evidence remains insufficient for a safe canonical owner."
+  - query: "Samsung Galaxy Z Flip8 eSIM Viettel"
+    intent: SUPPORT
+    entity_topic: "Galaxy Z Flip8 eSIM/5G carrier readiness"
+    cluster: "device-esim-5g-compatibility"
+    canonical_owner: "/posts/samsung-galaxy-z-flip8-esim-viettel/"
+    content_type: "DEVICE_COMPATIBILITY_SUPPORT"
+    evidence: FIRST_PARTY_VENDOR_AND_CARRIER_VERIFIED
+    priority: P1
+    decision: SELECT_NEW
+    reason: "Samsung Vietnam lists Z Flip8 as eSIM-capable and Viettel Mobile among Vietnam eSIM carriers; current Viettel QR guidance exists and no exact Flip8 owner exists."
+  - query: "Samsung Galaxy Z Fold8 eSIM Viettel"
+    intent: SUPPORT
+    entity_topic: "Galaxy Z Fold8 eSIM/5G carrier readiness"
+    cluster: "device-esim-5g-compatibility"
+    canonical_owner: "/posts/samsung-galaxy-z-fold8-esim-viettel/"
+    content_type: "DEVICE_COMPATIBILITY_SUPPORT"
+    evidence: EXISTING_OWNER
+    priority: P2
+    decision: REJECT
+    reason: "Exact model-specific owner already exists."
+  - query: "Samsung Galaxy S26 Ultra eSIM Viettel"
+    intent: SUPPORT
+    entity_topic: "Galaxy S26 Ultra eSIM/5G carrier readiness"
+    cluster: "device-esim-5g-compatibility"
+    canonical_owner: "/posts/samsung-galaxy-s26-ultra-esim-viettel/"
+    content_type: "DEVICE_COMPATIBILITY_SUPPORT"
+    evidence: EXISTING_OWNER_PUBLISHED_2026_09_08
+    priority: P2
+    decision: REJECT
+    reason: "Exact model-specific owner was published earlier today."
+  - query: "Android eSIM Viettel kích hoạt không cần QR"
+    intent: SUPPORT
+    entity_topic: "Android eSIM activation method"
+    cluster: "esim-activation"
+    canonical_owner: "/posts/esim-5g-kich-hoat-quet-qr/"
+    content_type: "SUPPORT_ARTICLE"
+    evidence: EXISTING_OWNER_AND_CURRENT_QR_GUIDANCE
+    priority: P1
+    decision: REJECT
+    reason: "Existing activation owner covers the job and current Viettel Android guidance still documents QR activation."
+  - query: "điện thoại Viettel không hiện 5G"
+    intent: SUPPORT
+    entity_topic: "5G device troubleshooting"
+    cluster: "5g-device-troubleshooting"
+    canonical_owner: "/posts/loi-khong-dang-ky-duoc-mang-5g-viettel/"
+    content_type: "SUPPORT_ARTICLE"
+    evidence: EXISTING_OWNER
+    priority: P1
+    decision: REJECT
+    reason: "Generic 5G troubleshooting already has a governed owner; Flip8 links there only for diagnosis."
+  - query: "iPhone 17 gói 5G Viettel"
+    intent: COMMERCIAL
+    entity_topic: "device-bound 5G package"
+    cluster: "device-package-commercial"
+    canonical_owner: UNKNOWN
+    content_type: "COMMERCIAL_SUPPORT"
+    evidence: INSUFFICIENT_CURRENT_COMMERCIAL_EVIDENCE
+    priority: P1
+    decision: HOLD
+    reason: "Current September 2026 price/benefit/eligibility evidence remains insufficient for safe commercial claims."
+
+query_mapping:
+  query: "Samsung Galaxy Z Flip8 eSIM Viettel"
+  primary_intent: SUPPORT
+  secondary_intent: INFORMATIONAL
+  entity_topic: "Samsung Galaxy Z Flip8 / eSIM / 5G carrier readiness"
+  cluster: "device-esim-5g-compatibility"
+  canonical_url_owner: "/posts/samsung-galaxy-z-flip8-esim-viettel/"
+  content_type: "device_compatibility_support_guide"
+  evidence_refs:
+    - "samsung-vn-esim-carriers-2026-08-15"
+    - "samsung-vn-z-flip8-product"
+    - "samsung-vn-z-flip8-support-sm-f776b"
+    - "samsung-z-flip8-specs"
+    - "viettel-tammi-esim-2026-06-30"
+    - "samsung-vn-5g-carriers"
+  priority: P1
+
+source_facts:
+  samsung_vietnam_lists_z_flip8_esim: true
+  samsung_vietnam_lists_viettel_mobile_as_possible_esim_carrier: true
+  samsung_vietnam_z_flip8_5g_page_verified: true
+  samsung_official_lists_sim1_plus_esim_or_dual_esim: true
+  current_viettel_android_esim_qr_flow_verified: true
+  samsung_lists_viettel_5g_carrier_vietnam: true
+  universal_viettel_esim_certification_for_every_z_flip8_unit: UNKNOWN
+  simultaneous_dual_esim_behavior_viettel: UNKNOWN
+  universal_viettel_5g_availability: UNKNOWN
+  current_package_price_benefit_eligibility: UNKNOWN
+
+internal_link_plan:
+  parent: "/5g-viettel/"
+  related:
+    - "/posts/kiem-tra-android-co-ho-tro-esim-viettel/"
+    - "/posts/esim-5g-kich-hoat-quet-qr/"
+    - "/posts/loi-khong-dang-ky-duoc-mang-5g-viettel/"
+    - "/posts/esim-viettel-yeu-song-khong-gui-duoc-sms/"
+    - "/posts/samsung-galaxy-z-fold8-esim-viettel/"
+
+image_plan:
+  role: "existing governed eSIM/5G compatibility editorial asset"
+  subject: "smartphone, eSIM and 5G compatibility concept"
+  path: "/images/blogger/topic-b1-esim-5g-tuong-thich-4435b941a4f9.svg"
+  source_mode: "EXISTING_GOVERNED_PROJECT_ASSET"
+  topic_match: PASS
+  new_visual_generated_this_run: false
+  reason: "Existing project asset directly matches the eSIM/5G compatibility subject; no new visual generation is required for this content-only post-launch expansion."
+
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+
+priority:
+  tier: P1
+  reason: >-
+    Samsung Vietnam's current device/support evidence answers the exact model eSIM question and names Viettel Mobile
+    among Vietnam eSIM carriers, while Viettel provides current Android QR activation guidance and no exact model owner exists.
+    Quantitative SEO metrics remain UNKNOWN.
+
+k0_decision:
+  decision: PASS
+  duplicate_risk: PASS
+  cannibalization_result: PASS
+  unsupported_metrics: 0
+  unsupported_business_facts: 0
+
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
