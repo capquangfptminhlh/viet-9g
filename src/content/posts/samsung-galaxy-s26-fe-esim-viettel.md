@@ -1,10 +1,10 @@
 ---
-title: "Samsung Galaxy S26 FE có eSIM Viettel không? Vì sao danh sách Samsung chưa có?"
+title: "Samsung Galaxy S26 FE có eSIM Viettel không? 5G và danh sách Samsung"
 description: "Đối chiếu Galaxy S26 FE bản Việt Nam với Samsung và Viettel: máy có eSIM, Dual eSIM, 5G; giải thích vì sao danh sách hỗ trợ Samsung chưa ghi S26 FE và cách kiểm tra an toàn."
 date: 2026-09-09
 ---
 
-# Samsung Galaxy S26 FE có eSIM Viettel không? Vì sao danh sách Samsung chưa có?
+# Samsung Galaxy S26 FE có eSIM Viettel không? 5G và danh sách Samsung
 
 > **Trả lời nhanh:** **Galaxy S26 FE bản Việt Nam có phần cứng eSIM và 5G theo thông số chính thức của Samsung Việt Nam.** Trang sản phẩm ghi **SIM Nano + SIM gắn sẵn**, hỗ trợ **SIM 1 + SIM 2 / SIM 1 + eSIM / Dual eSIM** và mạng **5G Sub6**. Samsung cũng liệt kê **Viettel Mobile** trong nhóm nhà mạng Việt Nam có thể hỗ trợ eSIM. Tuy nhiên, tại thời điểm kiểm chứng **09/09/2026**, trang danh sách thiết bị eSIM chung của Samsung lại chưa liệt kê riêng Galaxy S26 FE. Vì vậy, có đủ cơ sở để nói máy **có capability eSIM**, nhưng chưa nên biến điều đó thành cam kết “Viettel hỗ trợ 100% mọi S26 FE” nếu chưa kiểm tra đúng máy và provisioning thuê bao.
 
