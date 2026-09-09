@@ -1,0 +1,194 @@
+version: 1.0.0
+decision: PASS
+action: MERGE
+observed_at: 2026-09-09T13:00:46+07:00
+website_os_bootstrap:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest: governance/website-os.manifest.yml
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  bootstrap_decision: PASS
+project:
+  repo: capquangfptminhlh/viettel-4g-web
+  main_at_start: 0f77d45159d02af27f95c0e45b754f1407b5f9e0
+  baseline_k0_decision: .website-os/evidence/k0-decision-record.yml
+production_invariants:
+  dns_or_domain_routing_changes: false
+  approved_registration_cta: "MÃ_GÓI GB"
+  approved_registration_destination: "290"
+  exact_main_vercel_ready_required_before_live_claim: true
+research:
+  same_day_window: 2026-09-09
+  source_provenance:
+    - id: viettel-gic70-official
+      type: FIRST_PARTY
+      url: https://shop.viettel.vn/tin-tuc/chi-tiet/dang-ky-ngay-goi-cuoc-%E2%80%9Cthuong-hieu-tre%E2%80%9D-gic70-va-gic70t-de-nhan-sieu-uu-dai-data-hap-dan/11385444/
+      observed_at: 2026-09-09T13:00:46+07:00
+      use: "GIC70/GIC70T HUY vs HUYDATA cancellation facts"
+    - id: viettel-esim-5g-2026
+      type: FIRST_PARTY
+      url: https://vietteltelecom.vn/tin-tuc/chi-tiet/esim-viettel-co-dung-duoc-5g-khong-cach-kich-hoat-goi-5g/18177553
+      observed_at: 2026-09-09T13:00:46+07:00
+      use: "fallback eSIM/5G candidate research only"
+    - id: viettel-esim-conversion-2026
+      type: FIRST_PARTY
+      url: https://shop.viettel.vn/tin-tuc/chi-tiet/doi-esim-viettel-online-chi-phi-cach-thuc-va-luu-y/17210258/
+      observed_at: 2026-09-09T13:00:46+07:00
+      use: "fallback eSIM support candidate research only"
+    - id: viettel-roaming-laos-2026
+      type: FIRST_PARTY
+      url: https://vietteltelecom.vn/tin-tuc/chi-tiet/roaming-lao-viettel-cach-dang-ky-goi-cuoc-va-luu-y/18179051
+      observed_at: 2026-09-09T13:00:46+07:00
+      use: "fallback roaming candidate research only"
+    - id: viettel-sim-verification-abroad-2026
+      type: FIRST_PARTY
+      url: https://vietteltelecom.vn/tin-tuc/chi-tiet/dang-o-nuoc-ngoai-sim-viettel-bi-chan-do-chua-xac-thuc-thong-tin-phai-lam-sao/18179164
+      observed_at: 2026-09-09T13:00:46+07:00
+      use: "fallback SIM support candidate research only"
+candidates:
+  - id: same-day-viettel-mobile-news
+    fallback_order: 1
+    query: "Viettel 4G 5G eSIM SIM roaming gói cước 09/09/2026"
+    intent: INFORMATIONAL
+    entity_topic: Viettel mobile freshness
+    cluster: freshness-news
+    canonical_owner: HOLD
+    content_type: news_freshness
+    evidence: "No sufficiently strong same-day first-party Viettel mobile publication found during the run."
+    priority: HOLD
+    decision: SKIP
+    reason: "Insufficient same-day first-party evidence."
+  - id: gic70-huy-huydata
+    fallback_order: 2
+    query: "GIC70 HUY HUYDATA 191"
+    intent: SUPPORT
+    secondary_intent: INFORMATIONAL
+    entity_topic: "GIC70/GIC70T cancellation and renewal"
+    cluster: package-cancellation-support
+    canonical_owner: /posts/cach-huy-gia-han-4g-viettel/
+    content_type: support_article
+    evidence: viettel-gic70-official
+    priority: P1
+    decision: SELECT_MERGE
+    reason: "Official source supports a useful named-package clarification, while repository ownership already assigns this cancellation job to the existing canonical owner."
+  - id: esim-5g-package
+    fallback_order: 3
+    query: "eSIM Viettel gói 5G 2026"
+    intent: SUPPORT
+    entity_topic: eSIM and 5G package use
+    cluster: esim-5g-support
+    canonical_owner: EXISTING_OWNER
+    content_type: support_article
+    evidence: viettel-esim-5g-2026
+    priority: P2
+    decision: SKIP
+    reason: "Existing eSIM/5G owners already cover the search job; no independent intent established for this slot."
+  - id: esim-conversion-fee
+    fallback_order: 3
+    query: "đổi eSIM Viettel online chi phí"
+    intent: SUPPORT
+    entity_topic: eSIM conversion
+    cluster: esim-activation-conversion
+    canonical_owner: EXISTING_OWNER
+    content_type: support_article
+    evidence: viettel-esim-conversion-2026
+    priority: P2
+    decision: SKIP
+    reason: "Existing eSIM activation/conversion ownership; avoid near-duplicate expansion."
+  - id: roaming-laos
+    fallback_order: 4
+    query: "roaming Viettel Lào gói cước"
+    intent: SUPPORT
+    entity_topic: Viettel roaming Laos
+    cluster: roaming-country-support
+    canonical_owner: EXISTING_OWNER
+    content_type: support_article
+    evidence: viettel-roaming-laos-2026
+    priority: P2
+    decision: SKIP
+    reason: "Country-level roaming ownership already exists; no new canonical job required."
+  - id: sim-verification-abroad
+    fallback_order: 2
+    query: "ở nước ngoài SIM Viettel bị chặn chưa xác thực"
+    intent: SUPPORT
+    entity_topic: SIM identity verification abroad
+    cluster: sim-support
+    canonical_owner: EXISTING_OWNER
+    content_type: support_article
+    evidence: viettel-sim-verification-abroad-2026
+    priority: P2
+    decision: SKIP
+    reason: "Existing support owner already covers this problem."
+  - id: device-no-5g
+    fallback_order: 3
+    query: "điện thoại Viettel không hiện 5G"
+    intent: SUPPORT
+    entity_topic: 5G device troubleshooting
+    cluster: 5g-device-troubleshooting
+    canonical_owner: /posts/loi-khong-dang-ky-duoc-mang-5g-viettel/
+    content_type: support_article
+    evidence: "Existing refreshed canonical owner reviewed in repository."
+    priority: P2
+    decision: SKIP
+    reason: "Existing owner already refreshed; new URL would cannibalize."
+  - id: viettel-store-hanoi-opening
+    fallback_order: 1
+    query: "Viettel Store Hà Nội 08/09/2026"
+    intent: LOCAL_INFORMATIONAL
+    entity_topic: Viettel retail store
+    cluster: retail-local
+    canonical_owner: HOLD
+    content_type: news_freshness
+    evidence: "Fresh retail/store result observed, but it does not match the approved mobile package/support search operation."
+    priority: HOLD
+    decision: SKIP
+    reason: "Business/cluster fit is weak for this site operation."
+selected:
+  primary_keyword: "hủy GIC70 Viettel HUY hay HUYDATA"
+  secondary_queries:
+    - "GIC70 hủy gia hạn"
+    - "GIC70 hủy gói"
+    - "GIC70T HUY 191"
+    - "GIC70T HUYDATA 191"
+    - "HUY và HUYDATA khác nhau thế nào"
+  intent: SUPPORT
+  secondary_intent: INFORMATIONAL
+  entity_topic: "GIC70/GIC70T cancellation and renewal"
+  cluster: package-cancellation-support
+  canonical_url_owner: /posts/cach-huy-gia-han-4g-viettel/
+  content_type: support_article
+  title: "Cách hủy gia hạn gói Viettel qua 191 và My Viettel"
+  slug: cach-huy-gia-han-4g-viettel
+  why_merge: >-
+    The queue map assigns GIC70/GIC70T HUY/HUYDATA to the existing cancellation owner. The 09/09 bot-created
+    topic-b3-gic70-cancel-package article is a thin duplicate caused by the auto-publisher checking only the
+    legacy target file instead of resolving its permanent redirect to the canonical owner. The correct action is
+    to expand the canonical owner, retire the duplicate route, and fix the publisher guard rather than create another URL.
+k0:
+  baseline_decision_record: .website-os/evidence/k0-decision-record.yml
+  new_canonical_owner_required: false
+  expansion_supported_by_real_evidence: true
+  source_of_truth_verified: true
+  content_type_assigned: true
+  internal_link_plan: "Preserve the existing cancellation owner and its current support links; do not create a competing GIC70 owner."
+  duplicate_cannibalization_before: HIGH
+  duplicate_cannibalization_resolution: "Delete thin duplicate content and permanently redirect /posts/topic-b3-gic70-cancel-package to /posts/cach-huy-gia-han-4g-viettel."
+  duplicate_cannibalization_after: PASS
+  decision: PASS
+metrics:
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking_position: UNKNOWN
+  traffic_potential: UNKNOWN
+  fabricated_metrics: false
+quality_requirements:
+  tests: REQUIRED
+  k0_check: REQUIRED
+  build: REQUIRED
+  content_readback: REQUIRED
+  exact_head_preview: REQUIRED_IF_USED_AS_GATE
+  exact_main_vercel_production_ready: REQUIRED
+  production_http_200: REQUIRED

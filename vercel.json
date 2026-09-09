@@ -78,6 +78,11 @@
       "permanent": true
     },
     {
+      "source": "/posts/topic-b3-gic70-cancel-package",
+      "destination": "/posts/cach-huy-gia-han-4g-viettel",
+      "permanent": true
+    },
+    {
       "source": "/posts/g%C3%B3i-c%C6%B0%E1%BB%9Bc-viettel-xem-tiktok-youtube-facebook-mi%E1%BB%85n-ph%C3%AD-data",
       "destination": "/goi-cuoc/mang-xa-hoi",
       "permanent": true

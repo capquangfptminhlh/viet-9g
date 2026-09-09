@@ -89,4 +89,52 @@ describe('auto main-site publication', () => {
     });
     expect(ledger[1]).toMatchObject({ topicId: 'independent-support-guide', status: 'PUBLISHED' });
   });
+
+  it('resolves a legacy redirect before deciding canonical ownership', async () => {
+    const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'main-site-'));
+    directories.push(outputDir);
+    fs.writeFileSync(path.join(outputDir, 'cach-huy-gia-han-4g-viettel.md'), '# Canonical cancellation owner\n', 'utf8');
+    const ledger: any[] = [];
+
+    const result = await runAutoMainSite({
+      outputDir,
+      topics: [
+        {
+          topicId: 'topic-b3-gic70-cancel-package',
+          title: 'GIC70/GIC70T: khi nào dùng HUYDATA 191 để hủy gói?',
+          status: 'QUEUE',
+          intent: 'cancellation',
+          sourceFactIds: ['fact-gic70'],
+          targetUrlPath: '/posts/hướng-dẫn-hủy-gói-cước-viettel-tránh-trừ-tiền-tự-động/',
+        },
+        {
+          topicId: 'independent-support-guide',
+          title: 'Hướng dẫn hỗ trợ độc lập',
+          status: 'QUEUE',
+          intent: 'informational',
+          sourceFactIds: ['fact-independent'],
+        },
+      ],
+      facts: [
+        { id: 'fact-gic70', claim: 'Với GIC70/GIC70T, soạn HUYDATA gửi 191 để hủy gói cước.', sourceUrl: 'https://shop.viettel.vn/tin-tuc/gic70', expiresAt: '2026-12-31T23:59:59Z' },
+        { id: 'fact-independent', claim: 'Hướng dẫn hỗ trợ độc lập đã được xác minh.', sourceUrl: 'https://098.viettel.vn/huong-dan/support', expiresAt: '2026-12-31T23:59:59Z' },
+      ],
+      mediaManifest: { assets: [
+        { topicId: 'topic-b3-gic70-cancel-package', publicUrl: 'https://www.tracuugoicuoc.com/images/blogger/gic70.svg', alt: 'GIC70.', imageBrief: 'GIC70.' },
+        { topicId: 'independent-support-guide', publicUrl: 'https://www.tracuugoicuoc.com/images/blogger/support.svg', alt: 'Hỗ trợ.', imageBrief: 'Hỗ trợ.' },
+      ] },
+      automationPolicy: policy,
+      ledgerStore: { async load() { return ledger; }, async save(entries: any[]) { ledger.splice(0, ledger.length, ...structuredClone(entries)); } },
+      now: new Date('2026-09-09T06:00:46.000Z'),
+    });
+
+    expect(result).toMatchObject({ status: 'SUCCESS', topicId: 'independent-support-guide', slug: 'independent-support-guide' });
+    expect(fs.existsSync(path.join(outputDir, 'topic-b3-gic70-cancel-package.md'))).toBe(false);
+    expect(ledger[0]).toMatchObject({
+      topicId: 'topic-b3-gic70-cancel-package',
+      status: 'HOLD',
+      failureReason: 'CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE',
+    });
+    expect(ledger[1]).toMatchObject({ topicId: 'independent-support-guide', status: 'PUBLISHED' });
+  });
 });

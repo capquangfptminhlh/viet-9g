@@ -1,9 +1,9 @@
 ---
 title: "Cách hủy gia hạn gói Viettel qua 191 và My Viettel"
-description: "Hướng dẫn phân biệt dừng gia hạn và hủy gói Viettel, cách kiểm tra tên gói trước khi thao tác qua SMS 191 hoặc My Viettel."
-date: 2026-08-16
+description: "Hướng dẫn phân biệt dừng gia hạn và hủy gói Viettel, gồm ví dụ GIC70/GIC70T với HUY và HUYDATA gửi 191, cùng cách kiểm tra trước khi thao tác."
+date: 2026-09-09
 category: "support"
-tags: ["Viettel", "hủy gia hạn", "191", "My Viettel"]
+tags: ["Viettel", "hủy gia hạn", "191", "My Viettel", "GIC70", "GIC70T"]
 ---
 
 # Cách hủy gia hạn gói Viettel qua 191 và My Viettel
@@ -27,6 +27,17 @@ Trong hướng dẫn chính thức cho các gói như FB7, FB30 và YT7, Viettel
 
 Không nên suy rộng một cú pháp cho mọi gói. Khi SMS phản hồi yêu cầu xác nhận hoặc hiển thị điều kiện khác, hãy làm theo phản hồi thực tế của Viettel.
 
+## GIC70/GIC70T: HUY và HUYDATA gửi 191 khác nhau thế nào?
+
+Trong hướng dẫn chính thức dành riêng cho **GIC70/GIC70T**, Viettel nêu hai thao tác khác nhau:
+
+- Soạn `HUY` gửi `191` để **hủy gia hạn**.
+- Soạn `HUYDATA` gửi `191` để **hủy gói cước**.
+
+Đây là hướng dẫn cho đúng nhóm gói GIC70/GIC70T trong nguồn được dẫn bên dưới, không phải cú pháp mặc định cho mọi gói Viettel. Trước khi thao tác, hãy kiểm tra đúng gói đang dùng và đọc SMS phản hồi của `191`; nếu hệ thống hiển thị yêu cầu hoặc điều kiện khác, ưu tiên làm theo phản hồi thực tế của nhà mạng.
+
+Nếu bạn chỉ muốn tránh bị gia hạn ở chu kỳ tiếp theo, cần phân biệt rõ mục tiêu này với việc hủy hẳn gói. Việc chọn sai giữa `HUY` và `HUYDATA` có thể không cho kết quả bạn đang cần.
+
 ## Bước 3: hủy trên My Viettel nếu muốn thao tác bằng giao diện
 
 Viettel cũng cho phép quản lý/hủy nhiều gói ngay trong My Viettel. Cách này hữu ích khi bạn không nhớ chính xác cú pháp SMS: đăng nhập đúng thuê bao, mở phần gói cước đang sử dụng, chọn gói cần quản lý và đọc kỹ lựa chọn hủy/gia hạn trước khi xác nhận.
@@ -47,7 +58,7 @@ Nếu vấn đề của bạn là **đăng ký gói bị từ chối**, xem [che
 
 ### Hủy gia hạn có giống hủy gói không?
 
-Không nhất thiết. Viettel có các gói phân biệt rõ thao tác dừng gia hạn và hủy hoàn toàn. Hãy kiểm tra hướng dẫn đúng của gói trước khi gửi SMS.
+Không nhất thiết. Viettel có các gói phân biệt rõ thao tác dừng gia hạn và hủy hoàn toàn. Với GIC70/GIC70T, nguồn Viettel nêu `HUY` gửi `191` cho hủy gia hạn và `HUYDATA` gửi `191` cho hủy gói.
 
 ### Có thể hủy bằng My Viettel không?
 
@@ -59,6 +70,7 @@ Không. Hãy đọc SMS phản hồi trước. Việc gửi lặp lại không t
 
 ## Nguồn Viettel
 
+- [GIC70/GIC70T: hướng dẫn HUY và HUYDATA gửi 191](https://shop.viettel.vn/tin-tuc/chi-tiet/dang-ky-ngay-goi-cuoc-%E2%80%9Cthuong-hieu-tre%E2%80%9D-gic70-va-gic70t-de-nhan-sieu-uu-dai-data-hap-dan/11385444/)
 - [Tổng hợp gói trả trước Viettel và hướng dẫn hủy theo tên gói](https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500)
 - [FB7/FB30: Viettel phân biệt hủy gia hạn và hủy gói](https://098.viettel.vn/tin-tuc/chi-tiet/luot-facebook-khong-gioi-han-data-cung-viettel-voi-goi-cuoc-moi-fb7-va-fb30/17165624)
 - [Kiểm tra thời hạn/lưu lượng gói data qua My Viettel hoặc KTTK 191](https://098.viettel.vn/tin-tuc/chi-tiet/huong-dan-kiem-tra-ngay-het-han-cua-goi-cuoc-data-viettel/10455428)

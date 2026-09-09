@@ -4,6 +4,7 @@ import path from 'node:path';
 import { generateMainSiteArticle } from '../packages/content-engine/main-site-content-generator';
 import { requireFactStore, validateBloggerFacts } from '../packages/content-engine/blogger-fact-validator';
 import { AutomationPolicy, decideBloggerPublication } from '../packages/policy-engine/automation-policy';
+import { resolveCanonicalTargetPath } from '../src/data/canonical-target-path';
 
 type Topic = {
   topicId: string;
@@ -50,7 +51,8 @@ function idempotencyKey(topic: Topic): string {
 
 function existingCanonicalDestination(topic: Topic, outputDir: string): string | null {
   if (!topic.targetUrlPath) return null;
-  const match = topic.targetUrlPath.match(/^\/posts\/([^/?#]+)\/?$/);
+  const canonicalTarget = resolveCanonicalTargetPath(topic.targetUrlPath);
+  const match = canonicalTarget.match(/^\/posts\/([^/?#]+)\/?$/);
   if (!match) return null;
   const destination = path.join(outputDir, `${decodeURIComponent(match[1])}.md`);
   return fs.existsSync(destination) ? destination : null;
