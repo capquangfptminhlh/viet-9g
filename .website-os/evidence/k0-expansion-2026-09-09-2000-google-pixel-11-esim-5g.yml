@@ -1,0 +1,204 @@
+version: 1.0.0
+run_slot: "20:00"
+observed_at: "2026-09-09T20:02:19+07:00"
+action: NEW
+status: PASS
+website_os:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest: governance/website-os.manifest.yml
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
+project_main_at_start: 8d381a4597b750a7323b971c589c2533ff84e73f
+primary_keyword: "Google Pixel 11 eSIM Viettel"
+secondary_queries:
+  - "Pixel 11 có eSIM không"
+  - "Pixel 11 dùng eSIM Viettel được không"
+  - "Pixel 11 có 5G Viettel không"
+  - "Pixel 11 quét QR eSIM Viettel"
+  - "Pixel 11 nano SIM eSIM"
+  - "Pixel 11 không hiện 5G Viettel"
+intent: "SUPPORT + INFORMATIONAL"
+cluster: "device-esim-5g-compatibility"
+parent_cluster: "viettel-5g-device-support"
+entity:
+  type: "device_model"
+  name: "Google Pixel 11"
+  attribute: "eSIM and 5G carrier-readiness"
+canonical_owner: "/posts/google-pixel-11-esim-viettel/"
+content_type: "device_compatibility_support_guide"
+new_url_created: true
+cannibalization: PASS
+reason: >-
+  Repository-wide search found no exact Google Pixel 11 canonical owner. Google Store's current Pixel 11 specifications
+  explicitly state dual SIM with one nano-SIM plus eSIM and 5G Sub-6 support. Viettel's current eSIM portal documents an
+  Android QR installation flow and its Android support content includes Google Pixel as a device family that may support
+  eSIM. The article therefore owns the exact model-specific search job while explicitly keeping universal Viettel carrier
+  certification, imported-variant behavior, provisioning and location-specific 5G availability UNKNOWN.
+search_chain:
+  same_day_research:
+    observed_at: "2026-09-09T20:02:19+07:00"
+    result: "NO_QUALIFYING_SAME_DAY_FIRST_PARTY_MOBILE_ITEM"
+    reason: >-
+      Fresh searches around Viettel 4G/5G/eSIM/SIM/support/roaming/packages did not surface a qualifying Viettel-owned
+      mobile publication dated 09/09/2026. Candidate-level HOLD only; fallback continued to independent support/device jobs.
+  today_already_published:
+    - "/posts/samsung-galaxy-s26-fe-esim-viettel/"
+    - "/posts/cach-huy-gia-han-4g-viettel/"
+  source_provenance:
+    - source: "Google Store Pixel 11 specifications"
+      url: "https://store.google.com/product/pixel_11_specs?hl=en-US"
+      observed_at: "2026-09-09T20:02:19+07:00"
+      provenance: FIRST_PARTY_DEVICE_VENDOR
+      verification_status: VERIFIED
+      bounded_facts:
+        - "Google Pixel 11 specifications state dual SIM: one nano-SIM plus eSIM."
+        - "Pixel 11 has a 5G Sub-6 model and official band specifications include n78."
+        - "Hardware capability is not treated as Viettel carrier certification."
+    - source: "Viettel eSIM portal"
+      url: "https://esim.viettel.vn/"
+      observed_at: "2026-09-09T20:02:19+07:00"
+      provenance: FIRST_PARTY_CARRIER
+      verification_status: VERIFIED
+      bounded_facts:
+        - "Viettel publishes separate iOS and Android eSIM installation guidance."
+        - "Android guidance uses Settings > Connections > SIM manager > Add mobile plan > Add using QR code."
+        - "The portal does not provide an exact Pixel 11 carrier-certification claim."
+    - source: "Viettel no-QR eSIM notice"
+      url: "https://www.viettel.vn/tin-tuc/chi-tiet/esim-viettel-cham-la-ket-noi-kich-hoat-khong-can-ma-qr/13707592"
+      published_at: "2026-08-18"
+      observed_at: "2026-09-09T20:02:19+07:00"
+      provenance: FIRST_PARTY_CARRIER
+      verification_status: VERIFIED
+      bounded_facts:
+        - "Viettel's no-QR activation announcement is explicitly for iOS."
+        - "The article must not transfer that iOS-only activation method to Pixel 11 Android."
+candidates_checked:
+  - query: "Viettel mobile breaking update 09/09/2026"
+    intent: FRESHNESS
+    entity_topic: "same-day Viettel mobile news"
+    cluster: "freshness-news"
+    canonical_owner: UNKNOWN
+    content_type: "NEWS_FRESHNESS"
+    evidence: INSUFFICIENT_FIRST_PARTY_SAME_DAY
+    priority: P0
+    decision: HOLD
+    reason: "No qualifying Viettel-owned same-day mobile item surfaced at observation time."
+  - query: "SIM Viettel lắp sang máy mới xác thực khuôn mặt"
+    intent: SUPPORT
+    entity_topic: "physical-SIM device-change biometric verification"
+    cluster: "sim-device-change-biometric-verification"
+    canonical_owner: "/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu/"
+    content_type: "SUPPORT_ARTICLE"
+    evidence: EXISTING_OWNER
+    priority: P1
+    decision: REJECT
+    reason: "Exact support/compliance owner already exists; another URL would cannibalize it."
+  - query: "gói 5G150E Viettel eSIM"
+    intent: COMMERCIAL
+    entity_topic: "5G150E eSIM package selection"
+    cluster: "esim-package-selection"
+    canonical_owner: "/posts/goi-5g150e-viettel-esim/"
+    content_type: "PACKAGE_SUPPORT"
+    evidence: EXISTING_OWNER
+    priority: P1
+    decision: REJECT
+    reason: "Existing canonical owner already covers the package/entity job."
+  - query: "My Viettel speed test ping jitter"
+    intent: SUPPORT
+    entity_topic: "mobile network measurement"
+    cluster: "network-measurement"
+    canonical_owner: "/posts/kiem-tra-toc-do-mang-my-viettel/"
+    content_type: "SUPPORT_GUIDE"
+    evidence: EXISTING_OWNER
+    priority: P1
+    decision: REJECT
+    reason: "Existing canonical owner already covers My Viettel/i-SPEED measurement and metric interpretation."
+  - query: "iPhone 18 Pro eSIM Viettel"
+    intent: SUPPORT
+    entity_topic: "unverified future iPhone carrier readiness"
+    cluster: "device-esim-5g-compatibility"
+    canonical_owner: UNKNOWN
+    content_type: "DEVICE_COMPATIBILITY_SUPPORT"
+    evidence: INSUFFICIENT_OFFICIAL_DEVICE_EVIDENCE
+    priority: P1
+    decision: HOLD
+    reason: "No official Apple product/spec evidence for an iPhone 18 generation was available in the fresh check; do not publish rumor-based compatibility."
+  - query: "Google Pixel 11 eSIM Viettel"
+    intent: SUPPORT
+    entity_topic: "Pixel 11 eSIM/5G carrier readiness"
+    cluster: "device-esim-5g-compatibility"
+    canonical_owner: "/posts/google-pixel-11-esim-viettel/"
+    content_type: "DEVICE_COMPATIBILITY_SUPPORT"
+    evidence: FIRST_PARTY_DEVICE_AND_CARRIER_BOUNDED_FACTS
+    priority: P1
+    decision: SELECT_NEW
+    reason: "Exact Pixel 11 hardware specs are first-party, current, and the repo has no exact model owner; Viettel Android eSIM guidance supports a safe activation path without claiming universal certification."
+  - query: "phí đổi eSIM Viettel Tammi 2026"
+    intent: COMMERCIAL_SUPPORT
+    entity_topic: "eSIM conversion fee/channel"
+    cluster: "esim-conversion"
+    canonical_owner: "/posts/phi-esim-viettel-2026/"
+    content_type: "SUPPORT_ARTICLE"
+    evidence: EXISTING_OWNER
+    priority: P2
+    decision: REJECT
+    reason: "Existing fee/conversion canonical owner already covers the job; no new independent intent."
+query_mapping:
+  query: "Google Pixel 11 eSIM Viettel"
+  primary_intent: SUPPORT
+  secondary_intent: INFORMATIONAL
+  entity_topic: "Google Pixel 11 / eSIM / 5G / Viettel carrier readiness"
+  cluster: "device-esim-5g-compatibility"
+  canonical_url_owner: "/posts/google-pixel-11-esim-viettel/"
+  content_type: "device_compatibility_support_guide"
+  priority: P1
+source_facts:
+  google_pixel_11_nano_sim_plus_esim_verified: true
+  google_pixel_11_5g_sub6_verified: true
+  google_pixel_11_band_n78_verified: true
+  viettel_android_qr_flow_verified: true
+  viettel_no_qr_announcement_is_ios_only: true
+  universal_viettel_esim_certification_for_every_pixel_11_variant: UNKNOWN
+  imported_variant_behavior: UNKNOWN
+  universal_viettel_5g_availability: UNKNOWN
+  current_package_price_benefit_eligibility: UNKNOWN
+internal_link_plan:
+  parent: "/5g-viettel/"
+  related:
+    - "/posts/kiem-tra-android-co-ho-tro-esim-viettel/"
+    - "/posts/esim-5g-kich-hoat-quet-qr/"
+    - "/posts/loi-khong-dang-ky-duoc-mang-5g-viettel/"
+    - "/posts/esim-viettel-yeu-song-khong-gui-duoc-sms/"
+image_plan:
+  role: "existing governed eSIM/5G compatibility editorial asset"
+  subject: "smartphone, eSIM and 5G compatibility concept"
+  path: "/images/blogger/topic-b1-esim-5g-tuong-thich-4435b941a4f9.svg"
+  source_mode: "EXISTING_GOVERNED_PROJECT_ASSET"
+  topic_match: PASS
+  new_visual_generated_this_run: false
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+priority:
+  tier: P1
+  reason: >-
+    Current first-party Pixel 11 specifications directly answer the model-specific eSIM/5G hardware questions, while
+    Viettel's Android guidance provides a bounded activation path. The content adds exact-model verification and carrier
+    caveats rather than duplicating the generic Android eSIM owner.
+k0_decision:
+  decision: PASS
+  duplicate_risk: PASS
+  cannibalization_result: PASS
+  unsupported_metrics: 0
+  unsupported_business_facts: 0
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
