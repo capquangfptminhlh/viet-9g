@@ -1,6 +1,7 @@
 import React from 'react';
 import type { VerifiedPackage } from '../data/verified-package';
 import { getPackagePageModel } from '../data/package-page';
+import { getPackageEditorial } from '../data/package-editorial';
 import { getPackageRoutes } from '../data/package-routes';
 import { buildSmsSyntax, buildSmsUri, REGISTRATION_CHANNEL } from '../config/agent-code';
 
@@ -14,6 +15,7 @@ function formatDate(value: string): string {
 
 export default function DynamicPostPage({ pkg }: DynamicPostPageProps) {
   const page = getPackagePageModel(pkg);
+  const editorial = getPackageEditorial(pkg.id);
   const affiliateSyntax = buildSmsSyntax(pkg.code);
   const affiliateSmsUri = buildSmsUri(pkg.code);
   const relatedPackages = getPackageRoutes()
@@ -50,6 +52,22 @@ export default function DynamicPostPage({ pkg }: DynamicPostPageProps) {
             {page.benefits.map((benefit) => <li key={benefit}>{benefit}</li>)}
           </ul>
         </section>
+
+        {editorial ? (
+          <section aria-labelledby="danh-gia-goi" className="space-y-3 rounded-xl border border-blue-100 bg-blue-50/40 p-5">
+            <h2 id="danh-gia-goi" className="text-xl font-extrabold text-gray-900">{editorial.heading}</h2>
+            <p className="text-sm leading-6 text-gray-700">{editorial.summary}</p>
+            <ul className="list-disc space-y-2 pl-5 text-sm leading-6 text-gray-700">
+              {editorial.decisionPoints.map((point) => <li key={point}>{point}</li>)}
+            </ul>
+            {editorial.relatedPath && editorial.relatedLabel ? (
+              <a className="inline-flex text-sm font-bold text-blue-700 underline" href={editorial.relatedPath}>{editorial.relatedLabel}</a>
+            ) : null}
+            <p className="text-xs leading-5 text-gray-600">
+              Nguồn cho phần đánh giá: <a className="font-semibold text-blue-700 underline" href={editorial.sourceUrl} rel="nofollow noopener noreferrer">bảng gói trả trước Viettel</a>.
+            </p>
+          </section>
+        ) : null}
 
         <section aria-labelledby="dieu-kien" className="space-y-3">
           <h2 id="dieu-kien" className="text-xl font-extrabold text-gray-900">Điều kiện cần lưu ý</h2>
