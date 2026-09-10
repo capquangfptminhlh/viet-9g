@@ -1,0 +1,154 @@
+run: "2026-09-10-2000"
+observed_at: "2026-09-10T20:01:48+07:00"
+action: UPDATE
+status: PASS
+primary_keyword: "MultiSIM Viettel Apple Watch"
+secondary_queries:
+  - "đăng ký MultiSIM Viettel online"
+  - "MultiSIM Viettel My Viettel"
+  - "Apple Watch eSIM Viettel"
+  - "Apple Watch Cellular Viettel"
+  - "eSIM iPhone có dùng cho Apple Watch Viettel không"
+  - "hủy MultiSIM trên My Viettel"
+intent: "SUPPORT + INFORMATIONAL"
+cluster: "multisim-device-support"
+entity:
+  type: "carrier_multisim_service"
+  name: "Viettel MultiSIM and Apple Watch cellular support"
+canonical_owner: "/posts/dang-ky-multisim-viettel/"
+content_type: "support_guide"
+new_url_created: false
+cannibalization: PASS
+reason: >-
+  Repository-wide search confirms /posts/dang-ky-multisim-viettel/ already owns the Viettel MultiSIM registration/service job.
+  A new URL for Apple Watch + MultiSIM would overlap that owner. The current owner is materially stale: it says registration requires an in-person store visit,
+  hard-codes fees and a maximum SIM count without current primary evidence, and does not reflect Viettel's My Viettel 7.19 online MultiSIM management or the live Viettel eSIM/Apple carrier guidance.
+  The correct governed action is therefore an evidence-backed UPDATE of the existing canonical owner, not a new URL.
+
+candidates_checked:
+  - candidate: "same-day Viettel-owned mobile news 10/09/2026"
+    mapping: "freshness scan -> FRESHNESS -> Viettel mobile 4G/5G/eSIM/SIM/support/roaming/packages -> existing/new owner depending event -> news/support -> official Viettel same-day source -> P0"
+    decision: HOLD_CANDIDATE_CONTINUE
+    reason: "Same-day official search surfaced Viettel Wi-Fi 7, which is fixed-broadband/Wi-Fi rather than the requested mobile scope; no separate qualifying same-day mobile publication surfaced at observed_at."
+  - candidate: "iPhone 18 Pro eSIM Viettel"
+    mapping: "device compatibility -> SUPPORT -> iPhone 18 Pro eSIM -> iphone-esim-device-compatibility -> /posts/kiem-tra-iphone-co-ho-tro-esim-viettel/ -> owner update -> Apple/Viettel primary sources -> P0"
+    decision: SKIP_ALREADY_UPDATED_TODAY
+    reason: "The canonical iPhone eSIM owner was already expanded in the 07:00 slot with fresh Apple evidence."
+  - candidate: "Viettel trúng đấu giá băng tần 900 MHz"
+    mapping: "freshness -> INFORMATIONAL -> 900 MHz C4-C4' -> telecom-spectrum-4g-5g -> /posts/viettel-trung-dau-gia-bang-tan-900mhz-4g-5g/ -> news explainer -> regulator/Viettel sources -> P0"
+    decision: SKIP_ALREADY_PUBLISHED_TODAY
+    reason: "A distinct canonical owner was already published in the 13:00 slot."
+  - candidate: "đánh giá gói 5G135 Viettel"
+    mapping: "package evaluation -> COMMERCIAL/INFORMATIONAL -> 5G135 -> package-owner -> /goi-cuoc/5g135/ -> package page -> official current package facts required -> P1"
+    decision: HOLD_CANDIDATE_CONTINUE
+    reason: "Earlier exact-head validation today found the assigned package route non-publishable because local render facts had expired; no new primary evidence in this scan resolves that gate."
+  - candidate: "Apple Watch eSIM / MultiSIM đăng ký online"
+    mapping: "support -> SUPPORT/INFORMATIONAL -> MultiSIM + Apple Watch cellular -> multisim-device-support -> /posts/dang-ky-multisim-viettel/ -> support guide -> Viettel 2025 My Viettel + live Viettel eSIM portal + Apple VN carrier list -> P0"
+    decision: SELECT_UPDATE
+    reason: "Current owner is stale and thin; newer first-party evidence materially changes the supported registration channel and clarifies Apple Watch cellular/eSIM boundaries without requiring a new URL."
+  - candidate: "VoWiFi/Wi-Fi Calling Viettel"
+    mapping: "support -> SUPPORT -> Wi-Fi Calling provisioning -> voice-over-wifi -> owner unresolved -> support guide -> current carrier provisioning evidence required -> P1"
+    decision: HOLD_CANDIDATE_CONTINUE
+    reason: "No sufficiently current Viettel first-party provisioning/eligibility evidence surfaced to support a hard commercial or compatibility claim."
+  - candidate: "phí đổi eSIM Viettel"
+    mapping: "pricing/support -> COMMERCIAL/SUPPORT -> eSIM conversion fee -> esim-fees-pricing -> /posts/phi-esim-viettel-2026/ -> pricing guide -> Viettel first-party source -> P1"
+    decision: REJECT_EXISTING_OWNER
+    reason: "Existing canonical owner already owns the fee/conversion pricing job; this candidate is not independent from that owner."
+
+sources:
+  - id: "viettel-my-viettel-719-multisim"
+    url: "https://098.viettel.vn/tin-tuc/chi-tiet/phien-ban-my-viettel-719-moi-ra-mat-co-gi-moi/11616616/"
+    publisher: "Viettel"
+    published: "2025-05-28"
+    observed_at: "2026-09-10T20:01:48+07:00"
+    role: "first-party source for MultiSIM registration, cancellation and SIM-sub lookup in My Viettel 7.19/mobile web"
+    verification_status: VERIFIED
+  - id: "viettel-esim-portal"
+    url: "https://esim.viettel.vn/"
+    publisher: "Viettel"
+    observed_at: "2026-09-10T20:01:48+07:00"
+    role: "live first-party eSIM FAQ; states Apple Watch can use eSIM when connected/setup from Apple Watch and that iPhone eSIM is not the Apple Watch eSIM"
+    verification_status: VERIFIED
+  - id: "apple-vn-watch-cellular"
+    url: "https://www.apple.com/vn/watch/cellular/"
+    publisher: "Apple Việt Nam"
+    observed_at: "2026-09-10T20:01:48+07:00"
+    role: "primary device-vendor carrier matrix; lists Viettel for Apple Watch cellular in Vietnam and documents model/region/plan eligibility caveats"
+    verification_status: VERIFIED
+  - id: "viettel-same-day-wifi7-out-of-scope"
+    url: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/viettel-chinh-thuc-cung-cap-cong-nghe-wi-fi-7-trai-nghiem-internet-dinh-cao-toc-do-den-2-gbps-chi-tu-279kthang/11394860"
+    publisher: "Viettel Telecom"
+    published: "2026-09-10"
+    observed_at: "2026-09-10T20:01:48+07:00"
+    role: "same-day freshness provenance; rejected because fixed broadband/Wi-Fi is outside this mobile SEO operation's candidate scope"
+    verification_status: VERIFIED
+
+source_facts:
+  multisim_online_management_announced: true
+  my_viettel_multisim_path: "Tiện ích -> MultiSim"
+  online_actions:
+    - "register MultiSIM"
+    - "cancel MultiSIM sub-SIM"
+    - "search/lookup MultiSIM sub-SIM"
+  apple_watch_esim_supported_by_viettel_portal: true
+  iphone_esim_same_as_watch_esim: false
+  apple_vn_lists_viettel_watch_cellular: true
+  universal_watch_model_support: UNKNOWN
+  universal_subscriber_eligibility: UNKNOWN
+  current_multisim_activation_fee: UNKNOWN
+  current_multisim_monthly_fee: UNKNOWN
+  current_maximum_sub_sims: UNKNOWN
+  prepaid_support_for_every_case: UNKNOWN
+
+query_mapping:
+  query: "MultiSIM Viettel Apple Watch"
+  primary_intent: "SUPPORT_INFORMATIONAL"
+  entity_topic: "Viettel MultiSIM online management and Apple Watch cellular/eSIM compatibility"
+  cluster: "multisim-device-support"
+  canonical_url_owner: "/posts/dang-ky-multisim-viettel/"
+  content_type: "support_guide_update"
+  priority: P0
+
+content_change:
+  update_existing_owner: true
+  changes:
+    - "replace store-only registration claim with Viettel-published My Viettel 7.19 online registration/cancellation/lookup flow"
+    - "add Apple Watch cellular compatibility boundary using live Viettel eSIM portal and Apple Vietnam carrier matrix"
+    - "remove unsupported hard-coded MultiSIM price and maximum-SIM claims from the article"
+    - "differentiate MultiSIM, eSIM and hotspot to reduce query ambiguity"
+    - "add explicit UNKNOWN handling for current fees, plan eligibility and imported device variants"
+    - "read-back QA corrected the device-transfer internal link to an existing canonical route before merge"
+
+internal_link_plan:
+  related:
+    - "/posts/esim-viettel-co-phat-wifi-hotspot/"
+    - "/posts/esim-viettel-doi-may-quet-lai-qr/"
+
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+
+k0_decision:
+  decision: PASS
+  duplicate_risk: PASS
+  cannibalization_result: PASS
+  unsupported_metrics: 0
+  unsupported_business_facts: 0
+
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
+  exact_main_vercel_ready_required: true
+
+website_os_bootstrap:
+  source_repo: "capquangfptminhlh/seo-web"
+  source_ref: "main"
+  source_commit_sha: "ef18d255150f3a77a7c7587feccf1ba7c419ad7b"
+  manifest_version: "1.3.0"
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
