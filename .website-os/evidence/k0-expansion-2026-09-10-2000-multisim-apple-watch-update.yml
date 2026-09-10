@@ -117,11 +117,12 @@ content_change:
     - "remove unsupported hard-coded MultiSIM price and maximum-SIM claims from the article"
     - "differentiate MultiSIM, eSIM and hotspot to reduce query ambiguity"
     - "add explicit UNKNOWN handling for current fees, plan eligibility and imported device variants"
+    - "read-back QA corrected the device-transfer internal link to an existing canonical route before merge"
 
 internal_link_plan:
   related:
     - "/posts/esim-viettel-co-phat-wifi-hotspot/"
-    - "/posts/chuyen-esim-viettel-sang-may-moi/"
+    - "/posts/esim-viettel-doi-may-quet-lai-qr/"
 
 metrics:
   volume: UNKNOWN
