@@ -83,6 +83,11 @@
       "permanent": true
     },
     {
+      "source": "/posts/b4-review-01-a",
+      "destination": "/goi-cuoc/5g135",
+      "permanent": true
+    },
+    {
       "source": "/posts/g%C3%B3i-c%C6%B0%E1%BB%9Bc-viettel-xem-tiktok-youtube-facebook-mi%E1%BB%85n-ph%C3%AD-data",
       "destination": "/goi-cuoc/mang-xa-hoi",
       "permanent": true
