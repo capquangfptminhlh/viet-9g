@@ -1,4 +1,4 @@
-# MultiSIM Viettel 2026: đăng ký online trên My Viettel, Apple Watch cần gì?
+﻿# MultiSIM Viettel 2026: đăng ký online trên My Viettel, Apple Watch cần gì?
 
 **MultiSIM Viettel hiện có thể được đăng ký, hủy và tra cứu SIM phụ ngay trên My Viettel. Nếu muốn dùng Apple Watch GPS + Cellular với Viettel, cần kiểm tra đúng phiên bản đồng hồ, điều kiện gói cước và thiết lập eSIM dành cho Apple Watch — không dùng eSIM trên iPhone như một mã eSIM dùng chung cho đồng hồ.**
 
@@ -60,7 +60,7 @@ Ba khái niệm này thường bị trộn lẫn:
 - **MultiSIM** là dịch vụ quản lý việc dùng thuê bao/SIM phụ trên nhiều thiết bị theo điều kiện của nhà mạng.
 - **Hotspot** chỉ là chia sẻ kết nối Internet của một thiết bị sang thiết bị khác qua Wi‑Fi; thiết bị nhận hotspot không trở thành một SIM phụ.
 
-Nếu chỉ cần phát mạng từ điện thoại sang laptop hoặc máy tính bảng, xem hướng dẫn [eSIM Viettel có phát Wi‑Fi hotspot được không?](/posts/esim-viettel-co-phat-wifi-hotspot/). Nếu đang chuyển eSIM sang điện thoại mới, xem [cách chuyển eSIM Viettel sang máy mới](/posts/chuyen-esim-viettel-sang-may-moi/).
+Nếu chỉ cần phát mạng từ điện thoại sang laptop hoặc máy tính bảng, xem hướng dẫn [eSIM Viettel có phát Wi‑Fi hotspot được không?](/posts/esim-viettel-co-phat-wifi-hotspot/). Nếu đang chuyển eSIM sang điện thoại mới, xem [cách chuyển eSIM Viettel sang máy mới](/posts/esim-viettel-doi-may-quet-lai-qr/).
 
 ## Có nên tin bảng giá MultiSIM cũ trên Internet?
 
