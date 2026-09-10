@@ -1,0 +1,140 @@
+version: 1.0.0
+decision: PASS
+operation: MERGE_UPDATE
+observed_at: 2026-09-10T12:58:24+07:00
+slot: "13:00"
+website_os_bootstrap:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest: governance/website-os.manifest.yml
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  bootstrap_decision: PASS
+project:
+  repo: capquangfptminhlh/viettel-4g-web
+  main_at_start: 10a0857345083cc9ad23c8ac890d1ebe353ca920
+  baseline_k0_decision: .website-os/evidence/k0-decision-record.yml
+production_invariants:
+  dns_or_domain_routing_change: false
+  approved_registration_cta: "MÃ_GÓI GB gửi 290"
+  registration_contract_changed: false
+  exact_main_vercel_ready_required_before_live_claim: true
+fresh_research:
+  same_day_search_window: 2026-09-10
+  result: "No qualifying same-day Viettel-owned mobile publication was found in the first-party searches at observed_at; candidate-level HOLD only."
+  source_provenance:
+    - type: FIRST_PARTY_VIETTEL
+      url: https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-cach-dang-ky-goi-cuoc-tra-truoc-viettel-gia-re-moi-nhat/17031500
+      supports: "5G135: 135.000đ/30 ngày, 4GB/ngày (120GB/tháng), TV360 Basic, 20GB MyBox; table states renewal after 30 days."
+      observed_at: 2026-09-10T12:58:24+07:00
+    - type: FIRST_PARTY_APPLE
+      url: https://www.apple.com/vn/iphone-18-pro/
+      supports: "Fresh device trend exists, but the iPhone 18 Pro eSIM owner was already updated in the 07:00 content operation."
+      observed_at: 2026-09-10T12:58:24+07:00
+metrics:
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking_position: UNKNOWN
+  traffic_potential: UNKNOWN
+  fabricated_metrics: false
+candidate_chain:
+  - id: same-day-viettel-mobile-news
+    query: "Viettel 4G 5G eSIM SIM support roaming package news 10/09/2026"
+    intent: FRESHNESS_INFORMATIONAL
+    entity_topic: Viettel mobile same-day news
+    cluster: freshness-mobile
+    canonical_owner: UNKNOWN
+    content_type: NEWS_FRESHNESS
+    evidence: "No qualifying same-day first-party Viettel mobile publication found at observed_at."
+    priority: HOLD
+    decision: HOLD_CANDIDATE_CONTINUE
+  - id: iphone-18-pro-esim-viettel
+    query: "iPhone 18 Pro eSIM Viettel"
+    intent: SUPPORT_INFORMATIONAL
+    entity_topic: iPhone 18 Pro eSIM and 5G
+    cluster: iphone-esim-device-compatibility
+    canonical_owner: /posts/kiem-tra-iphone-co-ho-tro-esim-viettel/
+    content_type: SUPPORT_ARTICLE
+    evidence: "Fresh Apple launch evidence exists; owner already expanded in the 07:00 operation."
+    priority: P1
+    decision: SKIP_ALREADY_UPDATED_TODAY
+  - id: gic70-cancellation
+    query: "GIC70 HUY hay HUYDATA"
+    intent: SUPPORT
+    entity_topic: GIC70 cancellation semantics
+    cluster: package-cancellation-support
+    canonical_owner: /posts/cach-huy-gia-han-4g-viettel/
+    content_type: SUPPORT_ARTICLE
+    evidence: "Canonical owner was expanded and duplicate consolidated on 2026-09-09."
+    priority: P2
+    decision: SKIP_EXISTING_OWNER_CURRENT
+  - id: 5g135-review
+    query: "đánh giá 5G135 Viettel"
+    intent: COMMERCIAL_INFORMATIONAL_REVIEW
+    entity_topic: Viettel package 5G135
+    cluster: verified-package-review
+    canonical_owner: /goi-cuoc/5g135/
+    content_type: PACKAGE_ENTITY_PAGE
+    evidence: "Baseline K0 explicitly assigns review intent to /goi-cuoc/5g135/; a bot-created /posts/b4-review-01-a duplicated that exact job. Official Viettel table supports the package facts."
+    priority: P1
+    decision: SELECT_MERGE_UPDATE
+  - id: roaming-japan-no-data
+    query: "Viettel roaming Nhật Bản không có mạng"
+    intent: SUPPORT
+    entity_topic: roaming troubleshooting Japan
+    cluster: roaming-japan-troubleshooting
+    canonical_owner: /posts/viettel-roaming-nhat-ban-khong-co-mang/
+    content_type: SUPPORT_ARTICLE
+    evidence: "Existing exact owner in approved K0 state."
+    priority: P2
+    decision: SKIP_EXISTING_OWNER
+  - id: esim-ios-no-qr
+    query: "eSIM Viettel iOS không cần QR"
+    intent: SUPPORT_INFORMATIONAL
+    entity_topic: eSIM activation on iOS
+    cluster: esim-activation
+    canonical_owner: /posts/kiem-tra-iphone-co-ho-tro-esim-viettel/
+    content_type: SUPPORT_ARTICLE
+    evidence: "Existing owner already contains 2026 iOS no-QR freshness expansion."
+    priority: P2
+    decision: SKIP_EXISTING_OWNER_CURRENT
+k0:
+  baseline_decision_record: .website-os/evidence/k0-decision-record.yml
+  baseline_owner_cluster: verified-package-review
+  primary_keyword: "đánh giá 5G135 Viettel"
+  secondary_queries:
+    - "gói 5G135 Viettel"
+    - "5G135 Viettel 4GB ngày"
+    - "5G135 120GB tháng"
+    - "5G135 có TV360 Basic không"
+    - "5G135 có MyBox không"
+  primary_intent: COMMERCIAL_INFORMATIONAL_REVIEW
+  cluster: verified-package-review
+  canonical_url_owner: /goi-cuoc/5g135/
+  new_canonical_owner_required: false
+  source_backed_owner_expansion: true
+  duplicate_url: /posts/b4-review-01-a
+  cannibalization_before: HIGH
+  resolution: "Expand /goi-cuoc/5g135/ with source-backed review context, remove duplicate source article, and permanently redirect duplicate route to canonical owner."
+  cannibalization_after: PASS
+  metrics_unknown_preserved: true
+  k0_result: PASS
+internal_link_plan:
+  - from: /goi-cuoc/5g135/
+    to: /posts/so-sanh-5g135-va-5g150-viettel
+    purpose: "Move comparison intent to the existing comparison owner instead of over-expanding the package entity page."
+quality_plan:
+  required:
+    - npm test
+    - npm run k0:check
+    - npm run build
+    - content read-back on exact-head preview
+    - exact-main Vercel production READY verification
+    - production canonical HTTP 200 read-back
+  merge_only_after_pass: true
+notes:
+  - "This run does not create a new indexable URL."
+  - "No price, benefit, eligibility, coverage, search volume, KD, CPC, ranking or traffic potential is fabricated."
+  - "The approved registration CTA remains generated by the existing registration configuration and is not changed by this operation."
