@@ -1,0 +1,154 @@
+run: "2026-09-11-2000"
+observed_at: "2026-09-11T19:59:46+07:00"
+action: UPDATE
+status: PASS
+primary_keyword: "Viettel băng tần 900 MHz có tăng tốc 4G 5G không"
+secondary_queries:
+  - "Viettel 900 MHz tăng tốc 10% có đúng không"
+  - "900 MHz Viettel có mạnh sóng hơn ngay không"
+  - "Viettel C4 C4 900 MHz sau 15/9/2026"
+  - "băng tần 900 MHz Viettel vùng phủ 4G 5G"
+  - "Viettel 900 MHz có phải đổi SIM không"
+intent: "FRESHNESS + INFORMATIONAL + FACT_CHECK"
+cluster: "telecom-spectrum-4g-5g"
+entity:
+  type: "spectrum_auction_event"
+  name: "Viettel 900 MHz C4-C4' auction and post-auction performance expectations"
+canonical_owner: "/posts/viettel-trung-dau-gia-bang-tan-900mhz-4g-5g/"
+content_type: "news_explainer_update"
+new_url_created: false
+cannibalization: PASS
+reason: >-
+  Same-day 11/09/2026 coverage introduced a fresh user question around a claimed roughly 10% speed improvement from the 900 MHz win.
+  The search job is not a new canonical intent: it is a freshness/fact-check expansion of the existing Viettel 900 MHz owner published 10/09.
+  Creating another URL would split the same event/entity intent, so the canonical owner is updated instead.
+
+production_context:
+  main_at_start: "d7553da35f1f3e80be9f2be97bc92584a6c082c7"
+  baseline_k0_decision: ".website-os/evidence/k0-decision-record.yml"
+  today_already_published:
+    - "/posts/tat-song-2g-15-9-2026-viettel-volte/"
+    - "/posts/data-roaming-viettel-iphone-android/"
+
+candidates_checked:
+  - candidate: "same-day Viettel-owned mobile news 11/09/2026"
+    mapping: "freshness -> INFORMATIONAL -> Viettel mobile news -> news/freshness -> candidate owner -> news -> first-party Viettel search -> P0"
+    decision: HOLD_CANDIDATE_CONTINUE
+    reason: "No qualifying same-day Viettel-owned 4G/5G/eSIM/SIM/support/roaming/package publication surfaced at observed_at."
+  - candidate: "Viettel 900 MHz tăng tốc 10% có đúng không"
+    mapping: "freshness/fact-check -> INFORMATIONAL -> 900 MHz C4-C4' -> telecom-spectrum-4g-5g -> /posts/viettel-trung-dau-gia-bang-tan-900mhz-4g-5g/ -> news explainer update -> Ministry + same-day media -> P0"
+    decision: SELECT_UPDATE
+    reason: "Same-day 11/09 coverage created a fresh performance-expectation question. Existing 900 MHz canonical owner is the correct owner; update adds a source-boundary fact-check rather than a competing URL."
+  - candidate: "điện thoại 4G Viettel có gọi được sau tắt 2G"
+    mapping: "support -> SUPPORT -> 2G/VoLTE readiness -> 2g-shutdown-volte-readiness -> /posts/tat-song-2g-15-9-2026-viettel-volte/ -> support article -> regulator/Viettel -> P0"
+    decision: REJECT_EXISTING_OWNER
+    reason: "General 2G shutdown/VoLTE job already has a canonical owner refreshed in the 07:00 slot."
+  - candidate: "USSD *098# Viettel sau tắt 2G"
+    mapping: "support -> SUPPORT -> USSD over IMS -> ussd-ims-support -> /posts/ussd-viettel-qua-4g-volte-ims/ -> support article -> Viettel -> P1"
+    decision: REJECT_EXISTING_OWNER
+    reason: "Existing USSD-over-IMS canonical owner already owns the troubleshooting job."
+  - candidate: "VoWiFi Wi-Fi Calling Viettel"
+    mapping: "technology/support -> SUPPORT -> Wi-Fi Calling -> voice-technology-support -> unresolved owner -> support article -> insufficient current provisioning evidence -> HOLD"
+    decision: HOLD_CANDIDATE_CONTINUE
+    reason: "Current first-party provisioning/eligibility evidence remains insufficient for a publishable Viettel-specific claim."
+  - candidate: "eSIM Viettel đổi máy quét lại QR"
+    mapping: "support -> SUPPORT -> eSIM device migration -> esim-device-support -> /posts/esim-viettel-doi-may-quet-lai-qr/ -> support article -> Viettel -> P1"
+    decision: REJECT_EXISTING_OWNER
+    reason: "Exact canonical owner already exists; no materially new sub-intent found in this run."
+  - candidate: "5G SA Viettel điện thoại có cần bật riêng không"
+    mapping: "technology/support -> INFORMATIONAL/SUPPORT -> 5G SA device behavior -> 5g-device-support -> candidate -> explainer -> first-party technology evidence but insufficient consumer provisioning evidence -> HOLD"
+    decision: HOLD_CANDIDATE_CONTINUE
+    reason: "Available sources establish Viettel 5G SA at network level but do not establish a universal user-facing toggle/provisioning rule for current devices."
+
+sources:
+  - id: "mst-900mhz-auction-2026-09-09"
+    url: "https://mst.gov.vn/vnpt-viettel-vietnamobile-cung-trung-dau-gia-3-cap-khoi-bang-tan-900mhz-197260909205107936.htm"
+    publisher: "Bộ Khoa học và Công nghệ"
+    published: "2026-09-09T21:30:00+07:00"
+    observed_at: "2026-09-11T19:59:46+07:00"
+    role: "primary authority for auction result, frequencies, winning price, 2G deadline and 4G/5G replanning"
+    verification_status: VERIFIED
+  - id: "mst-auction-asset-2026-08-07"
+    url: "https://mst.gov.vn/thong-bao-ket-qua-lua-chon-to-chuc-hanh-nghe-dau-gia-tai-san-197260807200255541.htm"
+    publisher: "Bộ Khoa học và Công nghệ"
+    published: "2026-08-07"
+    observed_at: "2026-09-11T19:59:46+07:00"
+    role: "primary authority confirming the auctioned 900 MHz usage rights are after 15/09/2026"
+    verification_status: VERIFIED
+  - id: "plvn-900mhz-viettel-2026-09-11"
+    url: "https://baophapluat.vn/bang-tan-900-mhz-manh-ghep-giup-viettel-phu-4g-5g-rong-va-dong-deu-hon.html"
+    publisher: "Báo Pháp Luật Việt Nam"
+    published: "2026-09-11T10:14:00+07:00"
+    observed_at: "2026-09-11T19:59:46+07:00"
+    role: "same-day freshness signal for the roughly 10% speed-improvement claim; treated as secondary analysis, not universal carrier guarantee"
+    verification_status: VERIFIED_SECONDARY
+  - id: "viettel-2g-transition"
+    url: "https://shop.viettel.vn/tin-tuc/chi-tiet/thong-bao-dieu-chinh-thoi-gian-dung-dich-vu-cho-thiet-bi-2g-only-theo-quy-dinh-cua-bo-thong-tin-truyen-thong/13691148"
+    publisher: "Viettel"
+    observed_at: "2026-09-11T19:59:46+07:00"
+    role: "first-party consumer boundary for 2G transition and readiness"
+    verification_status: VERIFIED
+
+source_facts:
+  viettel_winning_block: "C4-C4'"
+  first_range: "905-910 MHz"
+  paired_range: "950-955 MHz"
+  winning_price: "gần 1.077 tỷ đồng"
+  gsm_use_through: "2026-09-15"
+  regulator_replanned_use: "4G/5G"
+  usage_right_after_date: "after 2026-09-15"
+  secondary_reported_speed_improvement: "approximately 10% expected"
+  universal_immediate_speed_guarantee: UNKNOWN
+  immediate_location_specific_coverage_change: UNKNOWN
+  user_must_change_sim_due_to_auction: false
+
+query_mapping:
+  query: "Viettel băng tần 900 MHz có tăng tốc 4G 5G không"
+  primary_intent: "FRESHNESS_INFORMATIONAL_FACT_CHECK"
+  entity_topic: "Viettel C4-C4' 900 MHz and performance expectations"
+  cluster: "telecom-spectrum-4g-5g"
+  canonical_url_owner: "/posts/viettel-trung-dau-gia-bang-tan-900mhz-4g-5g/"
+  content_type: "news_explainer_update"
+  priority: P0
+
+internal_link_plan:
+  related:
+    - "/posts/tat-song-2g-15-9-2026-viettel-volte/"
+    - "/posts/bat-volte-viettel-android/"
+    - "/posts/cai-dat-4g-5g-volte-iphone-viettel/"
+    - "/posts/ussd-viettel-qua-4g-volte-ims/"
+    - "/posts/sim-4g-viettel-co-dung-duoc-5g-khong/"
+
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+
+k0:
+  baseline_decision_record: ".website-os/evidence/k0-decision-record.yml"
+  new_canonical_owner_required: false
+  baseline_ownership_maps_modified: false
+  expansion_supported_by_real_evidence: true
+  decision: PASS
+  duplicate_risk: PASS
+  cannibalization_result: PASS
+  unsupported_metrics: 0
+  unsupported_business_facts: 0
+
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
+  exact_main_vercel_ready_required: true
+
+website_os_bootstrap:
+  source_repo: "capquangfptminhlh/seo-web"
+  source_ref: "main"
+  source_commit_sha: "ef18d255150f3a77a7c7587feccf1ba7c419ad7b"
+  manifest_version: "1.3.0"
+  observed_at: "2026-09-11T19:59:46+07:00"
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
