@@ -1,10 +1,10 @@
 ---
-title: "eSIM Viettel đi nước ngoài: bật Data Roaming trên iPhone/Android và tránh chọn nhầm line"
+title: "eSIM Viettel đi nước ngoài: bật Data Roaming, chọn đúng line 4G/5G"
 description: "Hướng dẫn dùng eSIM Viettel khi đi nước ngoài: bật Data Roaming đúng line, chọn SIM dữ liệu trên máy hai SIM/eSIM, kiểm tra 4G/5G/VoLTE và xử lý khi có sóng nhưng không vào mạng."
 date: 2026-09-11
 ---
 
-# eSIM Viettel đi nước ngoài: bật Data Roaming trên iPhone/Android và tránh chọn nhầm line
+# eSIM Viettel đi nước ngoài: bật Data Roaming, chọn đúng line 4G/5G
 
 **eSIM Viettel vẫn cần dịch vụ Chuyển vùng quốc tế hoạt động trên thuê bao và cần bật Data Roaming/Chuyển vùng dữ liệu trên đúng line Viettel nếu bạn muốn dùng data ở nước ngoài.** Trên máy hai SIM/eSIM, lỗi phổ biến không chỉ là quên bật roaming mà còn là chọn nhầm line cho dữ liệu di động.
 
