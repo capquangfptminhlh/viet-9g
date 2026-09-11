@@ -1,6 +1,6 @@
 ---
 title: "Viettel trúng băng tần 900 MHz: có tăng tốc 4G/5G ngay không?"
-description: "Viettel trúng C4-C4' 900 MHz. Fact-check tin tốc độ 4G/5G tăng 10%, ý nghĩa sau tắt 2G 15/9 và điều người dùng cần biết."
+description: "Viettel trúng khối C4 900 MHz. Fact-check tin tốc độ 4G/5G tăng 10%, ý nghĩa sau tắt 2G ngày 15/9 và điều người dùng cần biết."
 date: 2026-09-11
 ---
 
