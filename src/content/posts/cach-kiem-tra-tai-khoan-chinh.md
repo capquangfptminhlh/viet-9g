@@ -1,5 +1,5 @@
 ---
-title: "Kiểm tra tài khoản Viettel: *101#, *102#, TK gửi 191"
+title: "Kiểm tra tài khoản Viettel *101#/*102#"
 description: "Cách kiểm tra tài khoản chính Viettel bằng *101#, tài khoản khuyến mãi bằng *102#, tra cứu qua TK gửi 191, My Viettel/Tammi và tổng đài 198."
 date: 2026-07-29
 ---
