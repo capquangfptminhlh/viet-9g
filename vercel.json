@@ -8,6 +8,56 @@
       "permanent": true
     },
     {
+      "source": "/goi-cuoc/12mxh120",
+      "destination": "/goi-cuoc/mang-xa-hoi",
+      "permanent": true
+    },
+    {
+      "source": "/goi-cuoc/6mxh120",
+      "destination": "/goi-cuoc/mang-xa-hoi",
+      "permanent": true
+    },
+    {
+      "source": "/goi-cuoc/st5k",
+      "destination": "/goi-cuoc",
+      "permanent": true
+    },
+    {
+      "source": "/goi-cuoc/st70k",
+      "destination": "/goi-cuoc",
+      "permanent": true
+    },
+    {
+      "source": "/goi-cuoc/st90k",
+      "destination": "/goi-cuoc",
+      "permanent": true
+    },
+    {
+      "source": "/goi-cuoc/v150b",
+      "destination": "/goi-cuoc/combo",
+      "permanent": true
+    },
+    {
+      "source": "/goi-cuoc/v200b",
+      "destination": "/goi-cuoc/combo",
+      "permanent": true
+    },
+    {
+      "source": "/posts/%C4%91%C4%83ng-k%C3%BD-st5k-viettel",
+      "destination": "/goi-cuoc",
+      "permanent": true
+    },
+    {
+      "source": "/posts/%C4%91%C4%83ng-k%C3%BD-st90k-viettel",
+      "destination": "/goi-cuoc",
+      "permanent": true
+    },
+    {
+      "source": "/posts/%C4%91%C4%83ng-k%C3%BD-v200b-viettel",
+      "destination": "/goi-cuoc/combo",
+      "permanent": true
+    },
+    {
       "source": "/posts/topic-b1-iphone-roaming-chon-mang",
       "destination": "/posts/chon-mang-thu-cong-roaming-viettel",
       "permanent": true
