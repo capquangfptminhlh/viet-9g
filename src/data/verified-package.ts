@@ -57,7 +57,10 @@ function toVerifiedPackage(pkg: PackageRecord, catalog: PackageCatalog, now: Dat
   const benefits = factTexts(facts, 'benefit');
   const eligibility = factTexts(facts, 'eligibility');
 
-  if (!priceFact || !priceVnd || !durationDays || (!dataAllowance && !dataPerDay) || benefits.length === 0 || eligibility.length === 0) return null;
+  // Core commercial facts are required to render a card. Optional benefit/eligibility copy is
+  // included only while separately current; stale optional facts must not make a still-current
+  // official package summary disappear from the catalog.
+  if (!priceFact || !priceVnd || !durationDays || (!dataAllowance && !dataPerDay)) return null;
 
   // getRenderablePackages is Task 1's single authority for status, current facts, and exact normalized registration evidence.
   const registration = pkg.registration

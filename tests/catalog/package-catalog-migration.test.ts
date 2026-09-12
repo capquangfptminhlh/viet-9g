@@ -11,7 +11,8 @@ const root = process.cwd();
 const catalogPath = path.join(root, 'data', 'package-catalog.v1.json');
 const catalogSnapshot = parsePackageCatalog(catalogJson);
 const withinEvidenceWindow = new Date('2026-08-22T12:00:00.000Z');
-const afterEvidenceExpiry = new Date('2026-08-24T00:00:00.000Z');
+const afterStructuredFactExpiry = new Date('2026-08-24T00:00:00.000Z');
+const afterAllEvidenceExpiry = new Date('2026-11-02T00:00:00.000Z');
 
 describe('package catalog migration', () => {
   it('preserves all legacy package IDs and keeps activation evidence explicit', () => {
@@ -54,8 +55,12 @@ describe('package catalog migration', () => {
     expect(verifiedPackages.every((pkg) => pkg.registrationEligible === false)).toBe(true);
   });
 
-  it('fails closed after package evidence expires instead of exposing stale package facts', () => {
-    expect(catalogToTelecomPackages(catalogSnapshot, afterEvidenceExpiry)).toHaveLength(0);
+  it('keeps packages visible after structured facts expire while the exact current official summary still revalidates core facts', () => {
+    expect(catalogToTelecomPackages(catalogSnapshot, afterStructuredFactExpiry)).toHaveLength(15);
+  });
+
+  it('fails closed after all official package evidence expires', () => {
+    expect(catalogToTelecomPackages(catalogSnapshot, afterAllEvidenceExpiry)).toHaveLength(0);
   });
 
   it('runs a deterministic no-write migration check', () => {
