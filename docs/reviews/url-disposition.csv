@@ -1,7 +1,7 @@
 source,target,disposition,intentMatch,ownerApproved,notes
 /chinh-sach-bao-mat,,keep,,,Valid trust and privacy page
-/goi-cuoc/12mxh120,,404,,true,Retired legacy package without current verified facts and absent from sitemap
-/goi-cuoc/6mxh120,,404,,true,Retired legacy package without current verified facts and absent from sitemap
+/goi-cuoc/12mxh120,/goi-cuoc/mang-xa-hoi,301,true,true,Retired long-cycle social package consolidated to the current verified social-package hub
+/goi-cuoc/6mxh120,/goi-cuoc/mang-xa-hoi,301,true,true,Retired long-cycle social package consolidated to the current verified social-package hub
 /goi-cuoc/mxh100,,keep,,,Verified package canonical owner and crawl priority target
 /goi-cuoc/mxh120,,keep,,,Verified package canonical owner and crawl priority target
 /goi-cuoc/mxh150,,keep,,,Verified package canonical owner and crawl priority target
@@ -10,12 +10,12 @@ source,target,disposition,intentMatch,ownerApproved,notes
 /goi-cuoc/sd150,,keep,,,Verified package canonical owner and crawl priority target
 /goi-cuoc/sd70,,keep,,,Verified package canonical owner and crawl priority target
 /goi-cuoc/sd90,,keep,,,Verified package canonical owner and crawl priority target
-/goi-cuoc/st5k,,404,,true,Retired legacy package without current verified facts and absent from sitemap
-/goi-cuoc/st70k,,404,,true,Retired legacy package without current verified facts and absent from sitemap
-/goi-cuoc/st90k,,404,,true,Retired legacy package without current verified facts and absent from sitemap
+/goi-cuoc/st5k,/goi-cuoc,301,true,true,Retired unsupported data package consolidated to the current verified package catalog
+/goi-cuoc/st70k,/goi-cuoc,301,true,true,Retired unsupported data package consolidated to the current verified package catalog
+/goi-cuoc/st90k,/goi-cuoc,301,true,true,Retired unsupported data package consolidated to the current verified package catalog
 /goi-cuoc/v120b,,keep,,,Verified package canonical owner and crawl priority target
-/goi-cuoc/v150b,,404,,true,Retired legacy package without current verified facts and absent from sitemap
-/goi-cuoc/v200b,,404,,true,Retired legacy package without current verified facts and absent from sitemap
+/goi-cuoc/v150b,/goi-cuoc/combo,301,true,true,Retired combo package consolidated to the current verified combo hub
+/goi-cuoc/v200b,/goi-cuoc/combo,301,true,true,Retired combo package consolidated to the current verified combo hub
 /goi-cuoc/v90b,,keep,,,Verified package canonical owner and crawl priority target
 /posts/đăng-ký-sd135-viettel,/posts/dang-ky-sd135-viettel,301,true,true,Unicode legacy URL migrated to ASCII canonical support owner
 /posts/dang-ky-sd135-viettel,,improve,,,Support owner retained as ASCII canonical and linked to SD135 package landing
@@ -35,9 +35,9 @@ source,target,disposition,intentMatch,ownerApproved,notes
 /posts/topic-b1-android-data-roaming-duong-dan,/posts/data-roaming-viettel-iphone-android,301,true,true,Android path merged into generic setup owner
 /posts/topic-b1-roaming-khoi-dong-lai-may,/posts/data-roaming-viettel-iphone-android,301,true,true,Restart step merged into generic roaming setup owner
 /posts/dang-ky-sd70-viettel,/goi-cuoc/sd70,301,true,true,Commercial SD70 duplicate merged into exact package owner
-/posts/đăng-ký-st5k-viettel,,404,,true,Unsupported legacy commercial article retired
-/posts/đăng-ký-st90k-viettel,,404,,true,Unsupported legacy commercial article retired
-/posts/đăng-ký-v200b-viettel,,404,,true,Unsupported legacy commercial article retired
+/posts/đăng-ký-st5k-viettel,/goi-cuoc,301,true,true,Unsupported legacy commercial article consolidated to the current verified package catalog
+/posts/đăng-ký-st90k-viettel,/goi-cuoc,301,true,true,Unsupported legacy commercial article consolidated to the current verified package catalog
+/posts/đăng-ký-v200b-viettel,/goi-cuoc/combo,301,true,true,Unsupported legacy commercial article consolidated to the current verified combo hub
 /posts/cach-do-toc-do-4g-5g-viettel,,keep,,,Current canonical article retained
 /posts/cach-huy-gia-han-4g-viettel,,improve,,,Refreshed canonical cancellation owner with current Viettel sources
 /posts/cach-huy-goi-mxh120,/posts/cach-huy-gia-han-4g-viettel,canonicalize,,,Potential overlapping cancellation intent remains review-only pending exact merge decision
