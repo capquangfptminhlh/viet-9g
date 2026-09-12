@@ -13,6 +13,24 @@ describe('sitemap and canonical routing', () => {
     });
   });
 
+  it('permanently normalizes trailing-slash variants to the no-slash canonical owners', () => {
+    const vercel = JSON.parse(fs.readFileSync(path.resolve('vercel.json'), 'utf8'));
+    const expected = [
+      ['/posts/:slug/', '/posts/:slug'],
+      ['/goi-cuoc/:slug/', '/goi-cuoc/:slug'],
+      ['/goi-cuoc/', '/goi-cuoc'],
+      ['/tin-tuc/', '/tin-tuc'],
+      ['/ve-chung-toi/', '/ve-chung-toi'],
+      ['/dieu-khoan-su-dung/', '/dieu-khoan-su-dung'],
+      ['/chinh-sach-bao-mat/', '/chinh-sach-bao-mat'],
+      ['/lien-he/', '/lien-he'],
+    ];
+
+    for (const [source, destination] of expected) {
+      expect(vercel.redirects).toContainEqual({ source, destination, permanent: true });
+    }
+  });
+
   it('does not ship the stale static sitemap inventory', () => {
     expect(fs.existsSync(path.resolve('public/sitemap.xml'))).toBe(false);
   });
