@@ -39,6 +39,61 @@ function isCurrentFact(fact: CatalogFact | undefined, now: Date): fact is Catalo
   return Date.parse(fact.effectiveAt) <= at && Date.parse(fact.expiresAt) > at;
 }
 
+const SnapshotRevalidatableKeys = new Set(['priceVnd', 'durationDays', 'dataAllowance', 'dataPerDay']);
+
+function normalizeEvidenceText(value: unknown): string {
+  return String(value ?? '')
+    .normalize('NFD')
+    .replace(/\p{Diacritic}/gu, '')
+    .toLowerCase()
+    .replace(/,/g, '.')
+    .replace(/\s+/g, '');
+}
+
+function snapshotText(fact: CatalogFact): string {
+  return `${fact.claim} ${String(fact.value)}`;
+}
+
+function supportsCoreFact(snapshot: CatalogFact, pkg: PackageRecord, fact: CatalogFact): boolean {
+  if (!SnapshotRevalidatableKeys.has(fact.key)) return false;
+  const rawSnapshot = snapshotText(snapshot);
+  const normalizedSnapshot = normalizeEvidenceText(rawSnapshot);
+  if (!normalizedSnapshot.includes(normalizeEvidenceText(pkg.code))) return false;
+
+  if (fact.key === 'priceVnd') {
+    if (typeof fact.value !== 'number') return false;
+    const en = new Intl.NumberFormat('en-US').format(fact.value);
+    const vi = new Intl.NumberFormat('vi-VN').format(fact.value);
+    return rawSnapshot.includes(en) || rawSnapshot.includes(vi) || normalizedSnapshot.includes(String(fact.value));
+  }
+
+  if (fact.key === 'durationDays') {
+    if (typeof fact.value !== 'number') return false;
+    return new RegExp(`\\b${fact.value}\\s*days?\\b`, 'i').test(rawSnapshot);
+  }
+
+  if (typeof fact.value !== 'string') return false;
+  const normalizedValue = normalizeEvidenceText(fact.value)
+    .replace('/ngay', '/day')
+    .replace('/thang', '/month');
+  return normalizedSnapshot.includes(normalizedValue);
+}
+
+function isRevalidatedCoreFact(
+  pkg: PackageRecord,
+  fact: CatalogFact | undefined,
+  catalog: PackageCatalog,
+  now: Date,
+): fact is CatalogFact {
+  if (!fact || !SnapshotRevalidatableKeys.has(fact.key)) return false;
+  if (!isOfficialSource(fact.sourceUrl) || Date.parse(fact.effectiveAt) > now.getTime()) return false;
+
+  return catalog.facts.some((snapshot) =>
+    snapshot.sourceUrl === fact.sourceUrl
+    && isCurrentFact(snapshot, now)
+    && supportsCoreFact(snapshot, pkg, fact));
+}
+
 function supportsRegistrationSyntax(fact: CatalogFact, syntax: string): boolean {
   if (typeof fact.value !== 'string') return false;
   const normalize = (value: string) => value.trim().replace(/\s+/g, ' ').toUpperCase();
@@ -49,7 +104,7 @@ export function getCurrentFacts(pkg: PackageRecord, catalog: PackageCatalog, now
   const facts = packageFacts(pkg, catalog);
   return pkg.factIds
     .map((id) => facts.get(id))
-    .filter((fact): fact is CatalogFact => isCurrentFact(fact, now));
+    .filter((fact): fact is CatalogFact => isCurrentFact(fact, now) || isRevalidatedCoreFact(pkg, fact, catalog, now));
 }
 
 export function parsePackageCatalog(input: unknown): PackageCatalog {
