@@ -40,9 +40,17 @@ describe('GSC ranking foundations', () => {
     const guide = fs.readFileSync(path.resolve('src/content/posts/cach-kiem-tra-tai-khoan-chinh.md'), 'utf8');
 
     expect(guide.startsWith('---\n')).toBe(true);
-    expect(guide).toContain('title: "Kiểm tra tài khoản Viettel: *101#, *102#, TK gửi 191"');
+    expect(guide).toContain('title: "Kiểm tra tài khoản Viettel *101#/*102#"');
     expect(guide).toContain('date: 2026-07-29');
     expect(guide).toContain('Viettel Store');
+  });
+
+  it('keeps the GSC-visible support titles concise and intent-aligned', () => {
+    const accountGuide = fs.readFileSync(path.resolve('src/content/posts/cach-kiem-tra-tai-khoan-chinh.md'), 'utf8');
+    const cancelGuide = fs.readFileSync(path.resolve('src/content/posts/cach-huy-goi-mxh120.md'), 'utf8');
+
+    expect(accountGuide).toContain('title: "Kiểm tra tài khoản Viettel *101#/*102#"');
+    expect(cancelGuide).toContain('title: "Hủy MXH120 Viettel qua 191"');
   });
 
   it('turns the package catalog into a descriptive canonical hub instead of a thin link list', () => {

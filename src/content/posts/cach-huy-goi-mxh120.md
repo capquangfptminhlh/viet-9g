@@ -1,5 +1,5 @@
 ---
-title: "Cách hủy gói MXH120 Viettel: hủy gia hạn qua 191 và kiểm tra trước khi thao tác"
+title: "Hủy MXH120 Viettel qua 191"
 description: "Hướng dẫn hủy MXH120 Viettel qua 191, phân biệt hủy gia hạn với dừng sử dụng, kiểm tra ưu đãi còn lại và tránh mất data ngoài ý muốn theo nguồn Viettel."
 date: 2026-08-12
 ---
