@@ -1,0 +1,234 @@
+version: 1.0.0
+run_slot: "07:00"
+observed_at: "2026-09-12T06:57:40+07:00"
+action: NEW
+status: PASS
+website_os:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest: governance/website-os.manifest.yml
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
+project_main_at_start: b7f6e8f269c420f9ed14bc55004d0a792140f1f4
+primary_keyword: "điện thoại bàn phím 4G Viettel VoLTE tắt 2G"
+secondary_queries:
+  - "điện thoại bàn phím 4G Viettel có gọi được sau tắt 2G không"
+  - "máy bàn phím 4G Viettel có VoLTE không"
+  - "cách bật VoLTE máy bàn phím Viettel"
+  - "feature phone 4G Viettel sau 15/9/2026"
+  - "máy 4G bàn phím gọi được nhưng USSD không chạy"
+  - "HDCALL 191 máy bàn phím 4G"
+intent: "SUPPORT + INFORMATIONAL + FRESHNESS"
+cluster: "featurephone-volte-2g-readiness"
+parent_cluster: "2g-shutdown-volte-readiness"
+entity:
+  type: "device_class"
+  name: "4G feature phone / điện thoại bàn phím 4G"
+  attribute: "VoLTE and post-2G voice readiness on Viettel"
+canonical_owner: "/posts/dien-thoai-ban-phim-4g-viettel-volte-tat-2g/"
+content_type: "device_class_support_guide"
+new_url_created: true
+cannibalization: PASS
+reason: >-
+  Repository-wide search found no exact canonical owner for 4G feature-phone / keypad-phone VoLTE readiness.
+  Existing owners cover the general 2G shutdown job, Android VoLTE, iPhone VoLTE, USSD over IMS and SIM 4G/5G questions.
+  Viettel's first-party VoLTE guidance explicitly includes "các dòng máy bàn phím 4G khác" and separately documents
+  a feature-phone settings path plus the SIM 4G/5G, VoLTE and HDCALL-to-191 requirements. The new page therefore owns
+  the device-class support job without duplicating platform-specific Android/iPhone owners or the general shutdown explainer.
+search_chain:
+  same_day_research:
+    observed_at: "2026-09-12T06:57:40+07:00"
+    queries:
+      - "site:vietteltelecom.vn 12/09/2026 Viettel 5G eSIM SIM roaming gói cước"
+      - "site:viettel.vn 12/09/2026 Viettel 5G eSIM SIM roaming"
+      - "Viettel 12/09/2026 5G eSIM SIM roaming gói cước"
+    result: "NO_QUALIFYING_SAME_DAY_FIRST_PARTY_MOBILE_ITEM"
+    reason: >-
+      Fresh searches did not surface a qualifying Viettel-owned mobile 4G/5G/eSIM/SIM/support/roaming/package publication
+      dated 12/09/2026 at observation time. Candidate-level HOLD only; fallback continued to fresh support/device gaps.
+  today_already_published: []
+  current_routes_reviewed: true
+  source_provenance:
+    - source: "Viettel — Hướng dẫn bật dịch vụ cuộc gọi VoLTE"
+      url: "https://098.viettel.vn/tin-tuc/huong-dan-bat-dich-vu-cuoc-goi-volte-goi-chat-luong-tot-hon-an-toan-hon/15298552"
+      published_at: "2026-04-14"
+      observed_at: "2026-09-12T06:57:40+07:00"
+      provenance: FIRST_PARTY_CARRIER
+      verification_status: VERIFIED
+      bounded_facts:
+        - "Viettel explicitly includes iPhone, multiple Android brands and 'các dòng máy bàn phím 4G khác' in its VoLTE guide."
+        - "The source supports device-class relevance but does not certify every keypad-phone model."
+    - source: "Viettel — VoLTE trên hạ tầng 4G/5G"
+      url: "https://098.viettel.vn/tin-tuc/chi-tiet/volte-dich-vu-thoai-chat-luong-cao-tren-ha-tang-mang-4g5g-viettel/13748208"
+      observed_at: "2026-09-12T06:57:40+07:00"
+      provenance: FIRST_PARTY_CARRIER
+      verification_status: VERIFIED
+      bounded_facts:
+        - "Viettel states VoLTE requires a 4G/5G SIM and a 4G/5G phone that supports VoLTE."
+        - "For feature phones, Viettel gives a generalized Settings > Connection > SIM > 4G/5G > VoLTE path, with menu differences by model/version."
+        - "Viettel documents HDCALL sent to 191 and states the VoLTE service fee is 0 VND."
+        - "A real outgoing call is part of the verification flow."
+    - source: "Viettel — USSD over 4G/IMS readiness"
+      url: "https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320"
+      published_at: "2026-07-03"
+      observed_at: "2026-09-12T06:57:40+07:00"
+      provenance: FIRST_PARTY_CARRIER
+      verification_status: VERIFIED
+      bounded_facts:
+        - "Viettel warns that devices/software without USSD over 4G/IMS support may lose USSD behavior as legacy layers are retired."
+        - "VoLTE success must not be treated as proof that every USSD code is supported."
+    - source: "Bộ Khoa học và Công nghệ — đấu giá 900 MHz và lộ trình GSM"
+      url: "https://mst.gov.vn/vnpt-viettel-vietnamobile-cung-trung-dau-gia-3-cap-khoi-bang-tan-900mhz-197260909205107936.htm"
+      published_at: "2026-09-09"
+      observed_at: "2026-09-12T06:57:40+07:00"
+      provenance: PRIMARY_REGULATOR
+      verification_status: VERIFIED
+      bounded_facts:
+        - "The regulator states GSM is used through 15/09/2026 under the current roadmap."
+        - "900 MHz is being replanned for 4G/5G; this is not used as a universal immediate speed/coverage claim."
+    - source: "Viettel Store — Cắt sóng 2G, kiểm tra thiết bị và VoLTE"
+      url: "https://viettelstore.vn/tin-tuc/cat-song-2g-len-doi-galaxy-a-series"
+      published_at: "2026-09-07"
+      observed_at: "2026-09-12T06:57:40+07:00"
+      provenance: FIRST_PARTY_VIETTEL_RETAIL
+      verification_status: VERIFIED
+      bounded_facts:
+        - "Viettel Store frames the shutdown as being in its final stage and recommends checking device/VoLTE readiness."
+candidates_checked:
+  - id: C1
+    query: "Viettel mobile breaking update 12/09/2026"
+    intent: FRESHNESS
+    entity_topic: "same-day Viettel mobile news"
+    cluster: "freshness-news"
+    canonical_owner: UNKNOWN
+    content_type: "NEWS_FRESHNESS"
+    evidence: INSUFFICIENT_FIRST_PARTY_SAME_DAY
+    priority: P0
+    decision: HOLD
+    reason: "No qualifying Viettel-owned same-day mobile item surfaced at observation time."
+  - id: C2
+    query: "điện thoại bàn phím 4G Viettel VoLTE sau tắt 2G"
+    intent: SUPPORT
+    entity_topic: "4G feature-phone voice readiness"
+    cluster: "featurephone-volte-2g-readiness"
+    canonical_owner: "/posts/dien-thoai-ban-phim-4g-viettel-volte-tat-2g/"
+    content_type: "DEVICE_CLASS_SUPPORT_GUIDE"
+    evidence: FIRST_PARTY_CARRIER_PLUS_REGULATOR
+    priority: P1
+    decision: SELECT_NEW
+    reason: "No exact owner exists; Viettel explicitly documents keypad-phone VoLTE support guidance and the September shutdown creates current support demand."
+  - id: C3
+    query: "VoWiFi Wi-Fi Calling Viettel 2026"
+    intent: SUPPORT
+    entity_topic: "Wi-Fi calling provisioning and eligibility"
+    cluster: "wifi-calling-support"
+    canonical_owner: UNKNOWN
+    content_type: "SUPPORT_GUIDE"
+    evidence: INSUFFICIENT_CURRENT_FIRST_PARTY_PROVISIONING_EVIDENCE
+    priority: P1
+    decision: HOLD
+    reason: "Fresh first-party searches did not provide a sufficiently current universal provisioning/eligibility contract; do not publish unsupported setup claims."
+  - id: C4
+    query: "5G SA Viettel có cần bật riêng trên điện thoại không"
+    intent: SUPPORT
+    entity_topic: "5G Standalone device-side controls"
+    cluster: "5g-sa-device-support"
+    canonical_owner: UNKNOWN
+    content_type: "TECHNOLOGY_SUPPORT"
+    evidence: INSUFFICIENT_UNIVERSAL_DEVICE_AND_NETWORK_EVIDENCE
+    priority: P1
+    decision: HOLD
+    reason: "No sufficiently bounded first-party evidence supports a universal device-toggle instruction across models and current Viettel network state."
+  - id: C5
+    query: "SIM Viettel lắp sang máy mới xác thực khuôn mặt"
+    intent: SUPPORT
+    entity_topic: "physical-SIM device-change biometric verification"
+    cluster: "sim-device-change-biometric-verification"
+    canonical_owner: "/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu/"
+    content_type: "SUPPORT_ARTICLE"
+    evidence: EXISTING_OWNER
+    priority: P1
+    decision: REJECT
+    reason: "Existing canonical owner already covers the June 2026 device-change verification job."
+  - id: C6
+    query: "SIM 4G Viettel có cần đổi SIM 5G không"
+    intent: SUPPORT
+    entity_topic: "SIM 4G/5G compatibility"
+    cluster: "sim-5g-readiness"
+    canonical_owner: "/posts/sim-4g-viettel-co-dung-duoc-5g-khong/"
+    content_type: "SUPPORT_GUIDE"
+    evidence: EXISTING_OWNER
+    priority: P1
+    decision: REJECT
+    reason: "Existing exact owner already covers SIM 4G-to-5G compatibility; new URL would cannibalize."
+  - id: C7
+    query: "USSD Viettel sau tắt 2G"
+    intent: SUPPORT
+    entity_topic: "USSD over 4G/IMS"
+    cluster: "ussd-over-ims"
+    canonical_owner: "/posts/ussd-viettel-qua-4g-volte-ims/"
+    content_type: "SUPPORT_GUIDE"
+    evidence: EXISTING_OWNER
+    priority: P1
+    decision: REJECT
+    reason: "Existing canonical owner covers USSD over IMS; selected feature-phone page links to it instead of duplicating it."
+query_mapping:
+  query: "điện thoại bàn phím 4G Viettel VoLTE tắt 2G"
+  primary_intent: SUPPORT
+  secondary_intent: "INFORMATIONAL + FRESHNESS"
+  entity_topic: "4G feature phone / keypad phone + Viettel VoLTE + 2G shutdown readiness"
+  cluster: "featurephone-volte-2g-readiness"
+  canonical_url_owner: "/posts/dien-thoai-ban-phim-4g-viettel-volte-tat-2g/"
+  content_type: "device_class_support_guide"
+  priority: P1
+source_facts:
+  viettel_featurephone_volte_guidance_verified: true
+  viettel_sim_4g_5g_requirement_verified: true
+  viettel_hdcall_191_verified: true
+  viettel_volte_service_fee_zero_verified: true
+  real_outgoing_call_check_verified: true
+  ussd_over_ims_is_separate_readiness_check: true
+  gsm_deadline_2026_09_15_verified: true
+  every_4g_featurephone_supports_volte: UNKNOWN
+  every_featurephone_supports_ussd_over_ims: UNKNOWN
+  exact_model_menu_path: UNKNOWN
+  immediate_post_2g_speed_or_coverage_gain: UNKNOWN
+  current_package_price_benefit_eligibility: UNKNOWN
+internal_link_plan:
+  parent: "/posts/tat-song-2g-15-9-2026-viettel-volte/"
+  related:
+    - "/posts/bat-volte-viettel-android/"
+    - "/posts/cai-dat-4g-5g-volte-iphone-viettel/"
+    - "/posts/ussd-viettel-qua-4g-volte-ims/"
+    - "/posts/sim-4g-viettel-co-dung-duoc-5g-khong/"
+image_plan:
+  role: "existing governed 2G/VoLTE readiness editorial asset"
+  subject: "4G/5G phone and VoLTE readiness before 2G shutdown"
+  path: "/images/tat-song-2g-volte-viettel.svg"
+  source_mode: "EXISTING_GOVERNED_PROJECT_ASSET"
+  topic_match: PASS
+  new_visual_generated_this_run: false
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+priority:
+  tier: P1
+  reason: >-
+    The 15/09/2026 shutdown is three days away at observation time, and Viettel explicitly provides guidance for keypad 4G phones.
+    The device-class job is materially different from Android/iPhone menu guides and from the general shutdown explainer.
+k0_decision:
+  decision: PASS
+  duplicate_risk: PASS
+  cannibalization_result: PASS
+  unsupported_metrics: 0
+  unsupported_business_facts: 0
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
