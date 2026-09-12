@@ -61,6 +61,26 @@ describe('sitemap and canonical routing', () => {
     }
   });
 
+  it('permanently consolidates GSC-discovered retired package URLs instead of leaving them as crawlable 404s', () => {
+    const vercel = JSON.parse(fs.readFileSync(path.resolve('vercel.json'), 'utf8'));
+    const expected = [
+      ['/goi-cuoc/12mxh120', '/goi-cuoc/mang-xa-hoi'],
+      ['/goi-cuoc/6mxh120', '/goi-cuoc/mang-xa-hoi'],
+      ['/goi-cuoc/st5k', '/goi-cuoc'],
+      ['/goi-cuoc/st70k', '/goi-cuoc'],
+      ['/goi-cuoc/st90k', '/goi-cuoc'],
+      ['/goi-cuoc/v150b', '/goi-cuoc/combo'],
+      ['/goi-cuoc/v200b', '/goi-cuoc/combo'],
+      ['/posts/đăng-ký-st5k-viettel', '/goi-cuoc'],
+      ['/posts/đăng-ký-st90k-viettel', '/goi-cuoc'],
+      ['/posts/đăng-ký-v200b-viettel', '/goi-cuoc/combo'],
+    ];
+
+    for (const [source, destination] of expected) {
+      expect(vercel.redirects).toContainEqual({ source: encodeURI(source), destination, permanent: true });
+    }
+  });
+
   it('keeps the migrated GSC support owners as ASCII canonical source files', () => {
     const migratedOwners = [
       'dang-ky-sd135-viettel.md',
