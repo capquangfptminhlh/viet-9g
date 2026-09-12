@@ -8,6 +8,46 @@
       "permanent": true
     },
     {
+      "source": "/posts/:slug/",
+      "destination": "/posts/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/goi-cuoc/:slug/",
+      "destination": "/goi-cuoc/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/goi-cuoc/",
+      "destination": "/goi-cuoc",
+      "permanent": true
+    },
+    {
+      "source": "/tin-tuc/",
+      "destination": "/tin-tuc",
+      "permanent": true
+    },
+    {
+      "source": "/ve-chung-toi/",
+      "destination": "/ve-chung-toi",
+      "permanent": true
+    },
+    {
+      "source": "/dieu-khoan-su-dung/",
+      "destination": "/dieu-khoan-su-dung",
+      "permanent": true
+    },
+    {
+      "source": "/chinh-sach-bao-mat/",
+      "destination": "/chinh-sach-bao-mat",
+      "permanent": true
+    },
+    {
+      "source": "/lien-he/",
+      "destination": "/lien-he",
+      "permanent": true
+    },
+    {
       "source": "/goi-cuoc/12mxh120",
       "destination": "/goi-cuoc/mang-xa-hoi",
       "permanent": true
