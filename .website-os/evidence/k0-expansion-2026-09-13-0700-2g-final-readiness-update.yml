@@ -1,0 +1,157 @@
+version: 1.0.0
+run_slot: "07:00"
+observed_at: "2026-09-13T06:57:05+07:00"
+action: UPDATE
+status: PASS
+website_os:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest: governance/website-os.manifest.yml
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
+project_main_at_start: a0c6463676b69b23900c6a067c664e0be6e6b650
+baseline_k0_decision: ".website-os/evidence/k0-decision-record.yml"
+production_invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
+  exact_main_vercel_required_before_live_claim: true
+primary_keyword: "kiểm tra Viettel trước tắt 2G 15/9/2026"
+secondary_queries:
+  - "13/9 còn mấy ngày tắt 2G Viettel"
+  - "còn 2 ngày tắt 2G Viettel cần kiểm tra gì"
+  - "kiểm tra VoLTE Viettel trước 15/9/2026"
+  - "gọi điện Viettel tụt 4G trước tắt 2G"
+  - "USSD Viettel *101# sau tắt 2G"
+intent: "SUPPORT + FRESHNESS + INFORMATIONAL"
+cluster: "2g-shutdown-volte-readiness"
+canonical_owner: "/posts/tat-song-2g-15-9-2026-viettel-volte/"
+content_type: "freshness_support_owner_update"
+new_url_created: false
+why_update: >-
+  The 13/09 two-day countdown, final call/VoLTE/USSD checks and the 15/09 infrastructure deadline are the same user job as the existing 2G/VoLTE readiness owner. A new URL would split the same deadline-driven support intent, so the canonical owner is refreshed instead.
+search_chain:
+  same_day_research:
+    observed_at: "2026-09-13T06:57:05+07:00"
+    result: "NO_QUALIFYING_SAME_DAY_FIRST_PARTY_MOBILE_ITEM"
+    note: >-
+      Fresh searches across Viettel-owned mobile/eSIM/5G/SIM/roaming/support surfaces did not surface a qualifying first-party mobile publication dated 13/09/2026 at observation time. The fallback chain continued.
+  today_already_published: []
+  current_routes_reviewed: true
+  duplicate_risk_reviewed: true
+candidates_checked:
+  - id: C1
+    query: "Viettel mobile breaking update 13/09/2026"
+    intent: FRESHNESS
+    cluster: freshness-news
+    canonical_owner: UNKNOWN
+    evidence: INSUFFICIENT_FIRST_PARTY_SAME_DAY
+    priority: P0
+    decision: HOLD
+    reason: "No qualifying Viettel-owned same-day mobile publication surfaced at observation time."
+  - id: C2
+    query: "đổi điện thoại eSIM Viettel xác thực khuôn mặt"
+    intent: SUPPORT
+    cluster: esim-device-transfer
+    canonical_owner: "/posts/chuyen-esim-viettel-sang-may-moi/"
+    evidence: FIRST_PARTY_EXISTING_OWNER
+    priority: P1
+    decision: REJECT
+    reason: "Existing eSIM transfer owner already owns the device-change job; the June 2026 biometric rule is supporting evidence, not a new canonical intent."
+  - id: C3
+    query: "Wi-Fi Calling VoWiFi Viettel 2026"
+    intent: SUPPORT
+    cluster: voice-over-wifi
+    canonical_owner: UNKNOWN
+    evidence: INSUFFICIENT_CURRENT_FIRST_PARTY_PROVISIONING_EVIDENCE
+    priority: P1
+    decision: HOLD
+    reason: "No current first-party universal provisioning/eligibility contract was found."
+  - id: C4
+    query: "đi Nhật không có mạng roaming Viettel"
+    intent: SUPPORT
+    cluster: roaming-japan
+    canonical_owner: "/posts/roaming-viettel-di-nhat/"
+    evidence: FIRST_PARTY_EXISTING_OWNER
+    priority: P1
+    decision: REJECT
+    reason: "Existing Japan roaming support owner already covers the job."
+  - id: C5
+    query: "5G150E Viettel eSIM"
+    intent: COMMERCIAL
+    cluster: esim-5g-package
+    canonical_owner: "/posts/goi-5g150e-viettel-esim/"
+    evidence: FIRST_PARTY_EXISTING_OWNER
+    priority: P1
+    decision: REJECT
+    reason: "Exact package/eSIM owner already exists; no separate canonical job is justified."
+  - id: C6
+    query: "thuê bao Viettel bị chặn chưa xác thực"
+    intent: SUPPORT
+    cluster: sim-verification
+    canonical_owner: "/posts/sim-viettel-bi-chan-2-chieu-chua-xac-thuc/"
+    evidence: FIRST_PARTY_EXISTING_OWNER
+    priority: P1
+    decision: REJECT
+    reason: "Exact support owner already exists."
+  - id: C7
+    query: "kiểm tra Viettel trước tắt 2G 15/9/2026"
+    intent: SUPPORT
+    cluster: 2g-shutdown-volte-readiness
+    canonical_owner: "/posts/tat-song-2g-15-9-2026-viettel-volte/"
+    evidence: "PRIMARY_REGULATOR + FIRST_PARTY_CARRIER"
+    priority: P0
+    decision: SELECT_UPDATE
+    reason: >-
+      The deadline is now two days away. The existing owner already covers the exact infrastructure/VoLTE readiness job, so a fresh two-day countdown and last-check guidance adds current utility without cannibalization.
+source_provenance:
+  - source: "Bộ Khoa học và Công nghệ — lộ trình dừng công nghệ di động 2G"
+    url: "https://mst.gov.vn/bo-tttt-cong-bo-lo-trinh-tat-song-2g-197240705094212138.htm"
+    observed_at: "2026-09-13T06:57:05+07:00"
+    provenance: PRIMARY_REGULATOR
+    verification_status: VERIFIED
+    fact_scope: "GSM/2G system may be used through 15/09/2026 except stated special areas."
+  - source: "Viettel — điều chỉnh thời gian dừng dịch vụ cho thiết bị 2G only"
+    url: "https://shop.viettel.vn/tin-tuc/chi-tiet/thong-bao-dieu-chinh-thoi-gian-dung-dich-vu-cho-thiet-bi-2g-only-theo-quy-dinh-cua-bo-thong-tin-truyen-thong/13691148"
+    observed_at: "2026-09-13T06:57:05+07:00"
+    provenance: FIRST_PARTY_CARRIER
+    verification_status: VERIFIED
+    fact_scope: "Viettel states the GSM infrastructure deadline and the need for 4G/5G equipment with VoLTE for continued voice use."
+  - source: "Viettel — VoLTE, dịch vụ thoại chất lượng cao trên hạ tầng mạng 4G/5G"
+    url: "https://098.viettel.vn/tin-tuc/chi-tiet/volte-dich-vu-thoai-chat-luong-cao-tren-ha-tang-mang-4g5g-viettel/13748208"
+    observed_at: "2026-09-13T06:57:05+07:00"
+    provenance: FIRST_PARTY_CARRIER
+    verification_status: VERIFIED
+    fact_scope: "VoLTE service guidance including HDCALL sent to 191 and zero service fee."
+  - source: "Viettel — cập nhật phần mềm và thiết bị hỗ trợ USSD khi tắt sóng 2G"
+    url: "https://shop.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320"
+    published_at: "2026-07-03"
+    observed_at: "2026-09-13T06:57:05+07:00"
+    provenance: FIRST_PARTY_CARRIER
+    verification_status: VERIFIED
+    fact_scope: "USSD on 4G/IMS depends on device/software support."
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+k0_decision:
+  decision: PASS
+  duplicate_risk: PASS
+  cannibalization_result: PASS
+  new_canonical_owner_required: false
+  baseline_ownership_maps_modified: false
+  expansion_supported_by_real_evidence: true
+  unsupported_metrics: 0
+  unsupported_business_facts: 0
+internal_link_plan:
+  parent_owner: "/posts/tat-song-2g-15-9-2026-viettel-volte/"
+  support_children:
+    - "/posts/bat-volte-viettel-android/"
+    - "/posts/cai-dat-4g-5g-volte-iphone-viettel/"
+    - "/posts/dien-thoai-ban-phim-4g-viettel-volte-tat-2g/"
+    - "/posts/ussd-viettel-qua-4g-volte-ims/"
