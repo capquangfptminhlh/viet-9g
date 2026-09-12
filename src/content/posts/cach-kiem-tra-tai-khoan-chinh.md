@@ -1,4 +1,10 @@
-﻿# Cách kiểm tra tài khoản chính Viettel và Data còn lại
+---
+title: "Kiểm tra tài khoản Viettel: *101#, *102#, TK gửi 191"
+description: "Cách kiểm tra tài khoản chính Viettel bằng *101#, tài khoản khuyến mãi bằng *102#, tra cứu qua TK gửi 191, My Viettel/Tammi và tổng đài 198."
+date: 2026-07-29
+---
+
+# Cách kiểm tra tài khoản chính Viettel và Data còn lại
 
 **Cập nhật các kênh kiểm tra tài khoản Viettel đang được nhà mạng hướng dẫn: USSD trên thiết bị tương thích, My Viettel/Tammi, SMS và tổng đài hỗ trợ.**
 
