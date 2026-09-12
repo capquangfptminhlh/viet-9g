@@ -1,0 +1,228 @@
+version: 1.0.0
+run_slot: "13:00"
+observed_at: "2026-09-12T13:00:10+07:00"
+action: UPDATE
+status: PASS
+website_os:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest: governance/website-os.manifest.yml
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
+project_main_at_start: 06edca8d08d79c8f3f6391c21f6a8fbaac1723ce
+baseline_k0_decision: ".website-os/evidence/k0-decision-record.yml"
+production_invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
+  exact_main_vercel_required_before_live_claim: true
+primary_keyword: "gọi điện Viettel bị tụt 4G trước tắt 2G"
+secondary_queries:
+  - "gọi điện Viettel bị mất 4G"
+  - "gọi điện Viettel tụt 4G về 2G"
+  - "Viettel gọi điện mất 5G trước 15/9/2026"
+  - "VoLTE Viettel gọi vẫn tụt mạng"
+  - "HDCALL 191 gọi điện vẫn mất 4G"
+  - "kiểm tra VoLTE Viettel trước tắt 2G"
+intent: "SUPPORT + FRESHNESS + INFORMATIONAL"
+cluster: "2g-shutdown-volte-readiness"
+entity:
+  type: "support_problem"
+  name: "call causes 4G/5G indicator or mobile data to drop"
+  parent_entity: "Viettel VoLTE / 2G shutdown readiness"
+  attribute: "voice path readiness before 15/09/2026"
+canonical_owner: "/posts/tat-song-2g-15-9-2026-viettel-volte/"
+content_type: "freshness_support_owner_update"
+new_url_created: false
+why_update: >-
+  The symptom query is a cross-platform sub-intent of the existing 2G shutdown + VoLTE readiness job.
+  Android and iPhone pages already own platform-specific setup/menu jobs, while the current canonical owner already covers
+  voice readiness, test calls and the 15/09/2026 deadline. A new generic call-drop URL would split the same primary job
+  and increase cannibalization, so the existing canonical owner is expanded instead.
+search_chain:
+  same_day_research:
+    observed_at: "2026-09-12T13:00:10+07:00"
+    queries:
+      - "site:vietteltelecom.vn 12/09/2026 Viettel 4G 5G eSIM SIM roaming gói cước"
+      - "site:viettel.vn 12/09/2026 Viettel 4G 5G eSIM SIM roaming"
+      - "Viettel 12/09/2026 4G 5G eSIM SIM roaming gói cước"
+    result: "NO_QUALIFYING_SAME_DAY_FIRST_PARTY_MOBILE_ITEM_AT_OBSERVATION_TIME"
+    reason: >-
+      Same-day searches did not surface a qualifying Viettel-owned mobile 4G/5G/eSIM/SIM/support/roaming/package publication
+      dated 12/09/2026. This is a candidate-level HOLD only; fallback continued to fresh support demand.
+  today_already_published:
+    - "/posts/dien-thoai-ban-phim-4g-viettel-volte-tat-2g/"
+    - "/posts/b4-review-02-a/"
+  current_routes_reviewed: true
+  duplicate_risk_reviewed: true
+  source_provenance:
+    - source: "Viettel — VoLTE, dịch vụ thoại chất lượng cao trên hạ tầng mạng 4G/5G"
+      url: "https://098.viettel.vn/tin-tuc/chi-tiet/volte-dich-vu-thoai-chat-luong-cao-tren-ha-tang-mang-4g5g-viettel/13748208"
+      observed_at: "2026-09-12T13:00:10+07:00"
+      provenance: FIRST_PARTY_CARRIER
+      verification_status: VERIFIED
+      bounded_facts:
+        - "Viettel describes conventional calling as potentially moving a handset away from 4G to legacy voice layers."
+        - "Viettel describes VoLTE as voice over 4G and states data can remain available during calls when conditions are met."
+        - "Viettel documents a 4G/5G SIM, VoLTE-capable phone, device setup, HDCALL sent to 191 and a real outgoing call as the verification path."
+        - "Viettel states the VoLTE service fee is 0 VND; this is not a claim that all calls cost 0 VND."
+    - source: "Bộ Khoa học và Công nghệ — kết quả đấu giá 900 MHz và lộ trình GSM"
+      url: "https://mst.gov.vn/vnpt-viettel-vietnamobile-cung-trung-dau-gia-3-cap-khoi-bang-tan-900mhz-197260909205107936.htm"
+      published_at: "2026-09-09"
+      observed_at: "2026-09-12T13:00:10+07:00"
+      provenance: PRIMARY_REGULATOR
+      verification_status: VERIFIED
+      bounded_facts:
+        - "The regulator states GSM is used through 15/09/2026 under the current roadmap."
+        - "900 MHz replanning is not used here as a universal immediate speed or coverage claim."
+    - source: "Viettel — USSD over 4G/IMS readiness"
+      url: "https://shop.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320"
+      published_at: "2026-07-03"
+      observed_at: "2026-09-12T13:00:10+07:00"
+      provenance: FIRST_PARTY_CARRIER
+      verification_status: VERIFIED
+      bounded_facts:
+        - "USSD over 4G/IMS remains a separate readiness check from VoLTE calling."
+    - source: "SERP observation — symptom queries around Viettel call drops from 4G/VoLTE"
+      observed_at: "2026-09-12T13:00:10+07:00"
+      provenance: SEARCH_RESULT_OBSERVATION
+      verification_status: VERIFIED_FOR_INTENT_ONLY
+      bounded_facts:
+        - "Current search results expose support wording such as calls losing 4G or falling to legacy networks."
+        - "No quantitative search volume, KD, CPC, rank or traffic potential is inferred from this observation."
+candidates_checked:
+  - id: C1
+    query: "Viettel mobile breaking update 12/09/2026"
+    intent: FRESHNESS
+    entity_topic: "same-day Viettel mobile news"
+    cluster: "freshness-news"
+    canonical_owner: UNKNOWN
+    content_type: "NEWS_FRESHNESS"
+    evidence: INSUFFICIENT_FIRST_PARTY_SAME_DAY
+    priority: P0
+    decision: HOLD
+    reason: "No qualifying Viettel-owned same-day mobile item surfaced at observation time."
+  - id: C2
+    query: "gọi điện Viettel bị tụt 4G/5G về 2G trước 15/9/2026"
+    intent: SUPPORT
+    entity_topic: "VoLTE voice-path readiness symptom"
+    cluster: "2g-shutdown-volte-readiness"
+    canonical_owner: "/posts/tat-song-2g-15-9-2026-viettel-volte/"
+    content_type: "FRESHNESS_SUPPORT_OWNER_UPDATE"
+    evidence: FIRST_PARTY_CARRIER_PLUS_REGULATOR_PLUS_SERP_INTENT
+    priority: P0
+    decision: SELECT_UPDATE
+    reason: "Fresh symptom demand is materially useful but belongs to the existing cross-platform 2G/VoLTE owner; update avoids a new competing URL."
+  - id: C3
+    query: "iPhone 18 Pro eSIM Viettel đặt trước 12/09/2026"
+    intent: INFORMATIONAL
+    entity_topic: "iPhone 18 Pro eSIM capability and retail timing"
+    cluster: "iphone-esim-device-compatibility"
+    canonical_owner: "/posts/kiem-tra-iphone-co-ho-tro-esim-viettel/"
+    content_type: "DEVICE_SUPPORT"
+    evidence: EXISTING_OWNER_UPDATED_2026_09_10
+    priority: P1
+    decision: REJECT
+    reason: "The canonical iPhone eSIM owner already absorbed iPhone 18 Pro/Pro Max official specs; preorder timing does not justify another telecom-support URL."
+  - id: C4
+    query: "VoWiFi Wi-Fi Calling Viettel 2026"
+    intent: SUPPORT
+    entity_topic: "Wi-Fi calling provisioning and eligibility"
+    cluster: "wifi-calling-support"
+    canonical_owner: UNKNOWN
+    content_type: "SUPPORT_GUIDE"
+    evidence: INSUFFICIENT_CURRENT_FIRST_PARTY_PROVISIONING_EVIDENCE
+    priority: P1
+    decision: HOLD
+    reason: "Current first-party evidence is insufficient for a universal provisioning/eligibility contract; do not publish unsupported setup claims."
+  - id: C5
+    query: "5G SA Viettel có cần bật riêng trên điện thoại không"
+    intent: SUPPORT
+    entity_topic: "5G Standalone device-side controls"
+    cluster: "5g-sa-device-support"
+    canonical_owner: UNKNOWN
+    content_type: "TECHNOLOGY_SUPPORT"
+    evidence: INSUFFICIENT_UNIVERSAL_DEVICE_AND_NETWORK_EVIDENCE
+    priority: P1
+    decision: HOLD
+    reason: "No sufficiently bounded first-party evidence supports a universal device-toggle instruction across models and current Viettel network state."
+  - id: C6
+    query: "Viettel roaming Nhật Bản không có mạng"
+    intent: SUPPORT
+    entity_topic: "Japan roaming troubleshooting"
+    cluster: "roaming-country-support"
+    canonical_owner: "/posts/viettel-roaming-nhat-ban-khong-co-mang/"
+    content_type: "COUNTRY_SUPPORT_GUIDE"
+    evidence: EXISTING_OWNER
+    priority: P1
+    decision: REJECT
+    reason: "An exact country/problem canonical owner already exists; a new URL would cannibalize it."
+  - id: C7
+    query: "SIM 4G Viettel có cần đổi SIM 5G không"
+    intent: SUPPORT
+    entity_topic: "SIM 4G/5G compatibility"
+    cluster: "sim-5g-readiness"
+    canonical_owner: "/posts/sim-4g-viettel-co-dung-duoc-5g-khong/"
+    content_type: "SUPPORT_GUIDE"
+    evidence: EXISTING_OWNER
+    priority: P1
+    decision: REJECT
+    reason: "Existing exact owner already covers SIM 4G-to-5G compatibility."
+query_mapping:
+  query: "gọi điện Viettel bị tụt 4G trước tắt 2G"
+  primary_intent: SUPPORT
+  secondary_intent: "FRESHNESS + INFORMATIONAL"
+  entity_topic: "Viettel VoLTE call-path symptom + 2G shutdown readiness"
+  cluster: "2g-shutdown-volte-readiness"
+  canonical_url_owner: "/posts/tat-song-2g-15-9-2026-viettel-volte/"
+  content_type: "freshness_support_owner_update"
+  priority: P0
+internal_link_plan:
+  owner: "/posts/tat-song-2g-15-9-2026-viettel-volte/"
+  children:
+    - "/posts/bat-volte-viettel-android/"
+    - "/posts/cai-dat-4g-5g-volte-iphone-viettel/"
+    - "/posts/dien-thoai-ban-phim-4g-viettel-volte-tat-2g/"
+    - "/posts/ussd-viettel-qua-4g-volte-ims/"
+    - "/posts/sim-4g-viettel-co-dung-duoc-5g-khong/"
+image_plan:
+  role: "existing governed 2G/VoLTE readiness editorial asset"
+  subject: "4G/5G phone and VoLTE readiness before 2G shutdown"
+  path: "/images/tat-song-2g-volte-viettel.svg"
+  source_mode: "EXISTING_GOVERNED_PROJECT_ASSET"
+  topic_match: PASS
+  new_visual_generated_this_run: false
+source_facts:
+  gsm_deadline_2026_09_15_verified: true
+  conventional_call_can_leave_4g_per_viettel: true
+  volte_voice_over_4g_verified: true
+  concurrent_data_during_volte_bounded_by_conditions: true
+  hdcall_191_verified: true
+  volte_service_fee_zero_verified: true
+  every_status_icon_behaves_identically: UNKNOWN
+  every_call_drop_is_caused_by_missing_volte: UNKNOWN
+  exact_location_coverage: UNKNOWN
+  current_package_price_benefit_eligibility: UNKNOWN
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+priority:
+  tier: P0
+  reason: >-
+    The 15/09/2026 shutdown is three days away at observation time and the symptom directly tests whether voice is still
+    depending on a legacy path. The existing canonical can answer it more completely without splitting ownership.
+k0_decision:
+  decision: PASS
+  duplicate_risk: PASS
+  cannibalization_result: PASS
+  new_canonical_owner_required: false
+  baseline_ownership_maps_modified: false
+  expansion_supported_by_real_evidence: true
+  unsupported_metrics: 0
+  unsupported_business_facts: 0
