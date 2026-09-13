@@ -1,27 +1,38 @@
 ---
-title: "Tắt 2G 15/9/2026: còn 3 ngày, gọi điện tụt 4G Viettel xử lý sao?"
-description: "Cập nhật 12/09/2026: còn 3 ngày tới mốc dừng 2G. Cách kiểm tra khi gọi điện bị tụt/mất 4G, VoLTE, HDCALL 191, SIM và USSD Viettel."
-date: 2026-09-12
+title: "Tắt 2G 15/9/2026: còn 2 ngày, kiểm tra VoLTE Viettel ngay"
+description: "Cập nhật 13/09/2026: còn 2 ngày tới mốc dừng 2G. Checklist kiểm tra cuộc gọi, VoLTE, HDCALL 191, SIM và USSD Viettel trước 15/9."
+date: 2026-09-13
 ---
 
-# Tắt 2G 15/9/2026: còn 3 ngày, gọi điện tụt 4G Viettel xử lý sao?
+# Tắt 2G 15/9/2026: còn 2 ngày, kiểm tra VoLTE Viettel ngay
 
-**Cập nhật kiểm chứng 12/09/2026:** chỉ còn **3 ngày** tới mốc 15/09/2026. Bộ Khoa học và Công nghệ ngày 09/09 tiếp tục xác nhận hệ thống GSM/2G được sử dụng đến hết 15/09/2026; Viettel cũng đang hướng dẫn người dùng kiểm tra VoLTE thay vì chỉ nhìn việc điện thoại có biểu tượng 4G/5G.
+**Cập nhật kiểm chứng 13/09/2026:** chỉ còn **2 ngày** tới mốc 15/09/2026. Cổng thông tin Bộ Khoa học và Công nghệ xác nhận hệ thống GSM/2G được tiếp tục sử dụng đến hết 15/09/2026, ngoại trừ các khu vực đặc thù được nêu trong nguồn chính thức. Viettel cũng yêu cầu thiết bị 4G/5G dùng thoại sau giai đoạn này cần hỗ trợ VoLTE, vì vậy sáng nay là thời điểm phù hợp để kiểm tra cuộc gọi thật thay vì chỉ nhìn biểu tượng 4G/5G.
 
 ![Minh họa điện thoại 4G/5G Viettel duy trì cuộc gọi khi mạng 2G được dừng](/images/tat-song-2g-volte-viettel.svg)
 
 > **Trả lời nhanh:** nếu máy đang hiện 4G/5G nhưng khi bắt đầu cuộc gọi lại mất 4G hoặc rơi về lớp mạng cũ, hãy coi đó là tín hiệu cần kiểm tra **VoLTE của thiết bị + SIM/thuê bao + cấu hình thoại + cuộc gọi thử thực tế** trước 15/09. Viettel hướng dẫn đăng ký VoLTE bằng **`HDCALL` gửi `191`** và công bố **phí dịch vụ VoLTE 0 đồng**. Việc biểu tượng mạng hiển thị thế nào vẫn có thể khác theo model/phần mềm.
 
-## Tin mới 12/09/2026: còn 3 ngày, symptom “gọi là mất 4G” cần kiểm tra ngay
+## Sáng 13/9: còn 2 ngày, nên kiểm tra 3 việc này trước
 
-Ngày 09/09/2026, Bộ Khoa học và Công nghệ công bố kết quả đấu giá băng tần 900 MHz và nhắc lại hệ thống GSM được sử dụng đến hết **15/09/2026**. Băng 900 MHz đang được quy hoạch lại cho 4G/5G sau khi kết thúc vai trò lịch sử của 2G.
+Mốc 15/09/2026 đã rất gần. Nếu bạn chưa từng kiểm tra cuộc gọi sau khi bật 4G/5G, hãy làm ba phép thử ngắn để phát hiện sớm thiết bị hoặc thuê bao còn phụ thuộc lớp thoại cũ:
 
-Ở phía thiết bị, tài liệu Viettel về VoLTE mô tả cuộc gọi truyền thống có thể khiến máy chuyển khỏi 4G sang lớp mạng cũ, trong khi VoLTE thực hiện thoại trên hạ tầng 4G và cho phép duy trì data khi điều kiện thiết bị, SIM, thuê bao và mạng đáp ứng.
+1. **Gọi thử khi máy đang có 4G/LTE/5G:** tắt Wi-Fi, gọi một cuộc và quan sát xem máy có rơi khỏi 4G/LTE/5G hay không. Đây là dấu hiệu kiểm tra, không phải chẩn đoán tuyệt đối cho mọi model.
+2. **Kiểm tra VoLTE của thuê bao và thiết bị:** Viettel công bố cú pháp dịch vụ **`HDCALL` gửi `191`**; sau đó vẫn cần bật VoLTE/Cuộc gọi 4G trên máy nếu model có công tắc và thực hiện cuộc gọi thử thực tế.
+3. **Nếu còn dùng USSD như `*101#`, `*102#`:** đừng mặc định điện thoại có 4G là USSD chắc chắn hoạt động sau khi 2G dừng. Viettel đã công bố hướng dẫn thiết bị/phần mềm hỗ trợ USSD trên 4G/IMS; nên cập nhật phần mềm và kiểm tra model trước mốc chuyển đổi.
 
-Vì vậy, search job “**gọi điện Viettel bị tụt/mất 4G**” không cần một URL mới. Nó là symptom cụ thể của cùng canonical owner về **tắt 2G + VoLTE readiness**. Bài này được mở rộng thay vì tạo thêm một bài cạnh tranh với owner Android/iPhone.
+Nếu một trong ba bước không ổn, xử lý theo đúng nhánh lỗi bên dưới hoặc liên hệ kênh hỗ trợ chính thức của Viettel. Không cần mua gói data mới chỉ để “sửa VoLTE”: khả năng thoại 4G phụ thuộc thiết bị, SIM/thuê bao, cấu hình và điều kiện mạng chứ không được quyết định chỉ bởi việc có một gói data.
+
+## Cập nhật 13/09/2026: hạ tầng 2G còn 2 ngày theo mốc hiện hành
+
+Cổng thông tin Bộ Khoa học và Công nghệ nêu hệ thống GSM/2G được tiếp tục sử dụng đến hết **15/09/2026**. Viettel cũng công bố mốc này cho hạ tầng GSM và hướng dẫn người dùng chuyển sang thiết bị 4G/5G có hỗ trợ VoLTE để tiếp tục sử dụng thoại sau giai đoạn chuyển đổi.
+
+Ở phía thiết bị, tài liệu Viettel về VoLTE mô tả cuộc gọi truyền thống có thể khiến máy chuyển khỏi 4G sang lớp mạng cũ, trong khi VoLTE thực hiện thoại trên hạ tầng 4G/5G và cho phép duy trì data khi điều kiện thiết bị, SIM, thuê bao và mạng đáp ứng.
+
+Vì vậy, search job “**gọi điện Viettel bị tụt/mất 4G**” không cần một URL mới. Nó là symptom cụ thể của cùng canonical owner về **tắt 2G + VoLTE readiness**. Bài này được cập nhật thay vì tạo thêm một bài cạnh tranh với owner Android/iPhone.
 
 Nguồn kiểm chứng chính:
-- [Bộ Khoa học và Công nghệ — VNPT, Viettel, Vietnamobile cùng trúng đấu giá 3 cặp khối băng tần 900 MHz, 09/09/2026](https://mst.gov.vn/vnpt-viettel-vietnamobile-cung-trung-dau-gia-3-cap-khoi-bang-tan-900mhz-197260909205107936.htm)
+- [Bộ Khoa học và Công nghệ — Lộ trình tắt sóng 2G](https://mst.gov.vn/bo-tttt-cong-bo-lo-trinh-tat-song-2g-197240705094212138.htm)
+- [Viettel — Thông báo điều chỉnh thời gian dừng dịch vụ cho thiết bị 2G only](https://shop.viettel.vn/tin-tuc/chi-tiet/thong-bao-dieu-chinh-thoi-gian-dung-dich-vu-cho-thiet-bi-2g-only-theo-quy-dinh-cua-bo-thong-tin-truyen-thong/13691148)
 - [Viettel — VoLTE, dịch vụ thoại chất lượng cao trên hạ tầng mạng 4G/5G](https://098.viettel.vn/tin-tuc/chi-tiet/volte-dich-vu-thoai-chat-luong-cao-tren-ha-tang-mang-4g5g-viettel/13748208)
 
 ## Gọi điện bị tụt 4G/5G về 2G nói lên điều gì?
@@ -118,90 +129,68 @@ Tên và vị trí menu thay đổi theo hệ điều hành, model và phiên b�
 - iPhone: xem [cách bật VoLTE Viettel trên iPhone](/posts/cai-dat-4g-5g-volte-iphone-viettel/).
 - Điện thoại bàn phím 4G: xem [cách kiểm tra VoLTE trước tắt 2G](/posts/dien-thoai-ban-phim-4g-viettel-volte-tat-2g/).
 
-Các bài trên là canonical owner cho thao tác theo nền tảng/device class; bài hiện tại không lặp lại toàn bộ menu để tránh cannibalization.
-
 ### 5. Gọi thử thực tế
 
-Sau khi bật VoLTE, hãy thực hiện một cuộc gọi đi. Tùy điện thoại, máy có thể tiếp tục hiển thị 4G/5G/LTE hoặc VoLTE trong khi gọi.
+Đừng dừng ở màn hình cài đặt. Hãy gọi thử, kiểm tra thoại và nếu phù hợp, quan sát data di động trong lúc gọi.
 
-Nếu cuộc gọi vẫn rơi khỏi 4G/LTE hoặc không thiết lập được, hãy kiểm tra thiết bị, phần mềm, SIM và trạng thái dịch vụ với Viettel trước 15/9.
+### 6. Kiểm tra USSD nếu bạn còn dùng `*101#`, `*102#`
 
-### 6. Kiểm tra USSD nếu bạn còn dùng *101#, *102#, *098# hoặc nạp thẻ bằng mã bấm
+Viettel đã công bố hướng dẫn cập nhật phần mềm và thiết bị hỗ trợ USSD trên 4G/IMS để tránh gián đoạn khi 2G dừng. Đây là bài toán khác với VoLTE: một máy gọi VoLTE được chưa chắc có thể suy ra mọi mã USSD đều hoạt động nếu phần mềm/model chưa hỗ trợ.
 
-Viettel ngày 03/07/2026 khuyến nghị cập nhật phần mềm hoặc thiết bị có hỗ trợ **USSD qua 4G/IMS**. Nếu USSD không hoạt động, Viettel nêu các kênh thay thế như My Viettel/Tammi, SMS hoặc tổng đài 198.
-
-Nếu vấn đề của bạn là USSD, xem canonical riêng [USSD Viettel qua 4G/VoLTE/IMS](/posts/ussd-viettel-qua-4g-volte-ims/).
+Xem [USSD Viettel qua 4G/VoLTE/IMS sau khi tắt 2G](/posts/ussd-viettel-qua-4g-volte-ims/).
 
 Nguồn Viettel:
-- [Viettel — Cập nhật phần mềm và thiết bị hỗ trợ USSD khi tắt 2G, 03/07/2026](https://shop.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320)
+- [Cập nhật phần mềm và thiết bị hỗ trợ USSD khi tắt sóng 2G](https://shop.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320)
 
-## Máy hiện 4G/5G nhưng gọi không được: xử lý theo thứ tự nào?
+## Nếu đã bật VoLTE mà gọi vẫn tụt 4G thì làm gì?
 
-Hãy xử lý từ ít rủi ro đến nhiều thay đổi hơn:
+Đi theo thứ tự để tránh đổi SIM/mua gói không cần thiết:
 
-1. kiểm tra đúng SIM Viettel trên máy hai SIM;
-2. kiểm tra loại mạng ưu tiên có 4G/LTE hoặc 5G;
-3. xác minh thiết bị có VoLTE;
-4. xác minh dịch vụ VoLTE trên thuê bao;
-5. bật VoLTE nếu máy có công tắc;
-6. khởi động lại máy sau thay đổi cấu hình;
-7. gọi thử lại;
-8. nếu vẫn lỗi, liên hệ Viettel để kiểm tra theo thuê bao và model cụ thể.
+1. khởi động lại điện thoại sau khi kiểm tra dịch vụ;
+2. cập nhật phần mềm/Carrier Settings nếu nhà sản xuất cung cấp;
+3. kiểm tra SIM Viettel được chọn làm SIM thoại mặc định;
+4. bật lại VoLTE/Cuộc gọi 4G nếu model có tùy chọn;
+5. thử lại ở vị trí có 4G/LTE/5G ổn định;
+6. nếu vẫn lỗi, ghi lại model máy, phiên bản hệ điều hành, vị trí và thời điểm thử rồi liên hệ Viettel để kiểm tra trạng thái thuê bao/mạng.
 
-Không nên xóa eSIM, reset toàn bộ máy hoặc nhập mã kỹ thuật không có trong hướng dẫn chính thức chỉ để thử sửa lỗi thoại.
+Không nên tự kết luận phải đổi SIM chỉ vì một lần gọi tụt mạng. Nếu câu hỏi của bạn là **SIM 4G hiện tại có dùng được 5G hay phải đổi SIM**, xem [SIM 4G Viettel có dùng được 5G không?](/posts/sim-4g-viettel-co-dung-duoc-5g-khong/).
 
-## Có phải đổi SIM chỉ vì sắp tắt 2G?
+## Sau 15/9 nên kiểm tra lại những gì?
 
-**Không nên mặc định.** Nếu SIM/eSIM Viettel hiện tại đã hỗ trợ 4G/5G và thuê bao hoạt động bình thường, vấn đề cần kiểm tra tiếp là thiết bị và VoLTE.
+Sau khi mốc chuyển đổi đi qua, nên thử lại ba luồng bạn thực sự sử dụng:
 
-Nếu câu hỏi của bạn là SIM 4G hiện tại có dùng được 5G hay bắt buộc đổi SIM, xem canonical riêng [SIM 4G Viettel có dùng được 5G không?](/posts/sim-4g-viettel-co-dung-duoc-5g-khong/).
+- cuộc gọi thoại;
+- data 4G/5G trong lúc gọi;
+- mã USSD nếu còn dùng.
 
-## Có phải đổi điện thoại nếu máy đang có 4G?
-
-Không phải mọi máy 4G đều cần đổi. Trước tiên hãy xác định **máy có hỗ trợ VoLTE phù hợp hay không**.
-
-Nếu model hỗ trợ VoLTE và cuộc gọi thử hoạt động trên 4G/LTE, không có cơ sở để kết luận chỉ vì tắt 2G mà bắt buộc phải thay máy. Ngược lại, nếu thiết bị chỉ dùng 4G cho data nhưng không có khả năng thoại VoLTE, cần cân nhắc thiết bị phù hợp hơn để tránh gián đoạn cuộc gọi.
-
-## Những điều bài này không khẳng định
-
-Để tránh suy diễn từ nguồn, các điểm sau giữ trạng thái **UNKNOWN/không xác minh phổ quát**:
-
-- mọi model 4G đều hỗ trợ VoLTE;
-- mọi nơi sẽ tắt 2G vào cùng một giờ chính xác;
-- mọi thuê bao có cùng trình tự xử lý;
-- mọi SMS/OTP sẽ có hành vi giống nhau trên mọi thiết bị sau khi 2G dừng;
-- mọi SIM cũ đều phải đổi;
-- mọi cuộc gọi VoLTE đều miễn phí;
-- một cuộc gọi VoLTE cụ thể sẽ trừ bao nhiêu MB data;
-- mọi lỗi thoại đều do 2G shutdown;
-- mọi biểu tượng mạng trên mọi model phản ánh VoLTE giống nhau;
-- mọi khu vực sẽ ngay lập tức có cùng chất lượng 4G/5G sau khi băng tần được tái quy hoạch.
+Nếu có lỗi, hãy mô tả đúng triệu chứng thay vì chỉ nói “mất sóng”: **không gọi được**, **gọi được nhưng mất data**, **không nhận cuộc gọi**, hay **USSD không chạy** là các nhánh xử lý khác nhau.
 
 ## Câu hỏi nhanh
 
-### Tắt 2G rồi điện thoại 4G Viettel có còn dùng Internet không?
-Nếu thiết bị, SIM và vùng phủ 4G/5G đáp ứng, data có thể vẫn hoạt động. Rủi ro được nói đến trong bài này là **thoại** trên một số máy 4G chưa sẵn sàng VoLTE.
+### Có 4G là chắc chắn gọi được sau khi tắt 2G không?
 
-### Gọi điện bị tụt 4G xuống 2G có phải VoLTE đang lỗi không?
-**Chưa thể kết luận chỉ từ biểu tượng mạng.** Đây là dấu hiệu nên kiểm tra xem model có hỗ trợ VoLTE, thuê bao đã sẵn sàng VoLTE chưa, đúng SIM thoại chưa và cuộc gọi thử có duy trì 4G/LTE/5G theo khả năng hiển thị của thiết bị hay không.
+Không. Data 4G và thoại VoLTE là hai khả năng khác nhau. Cần kiểm tra cuộc gọi thực tế.
 
-### Có 4G nhưng gọi điện bị mất mạng sau khi 2G dừng thì kiểm tra gì trước?
-Kiểm tra VoLTE của thiết bị và thuê bao, đúng SIM, loại mạng 4G/5G rồi gọi thử lại. Android, iPhone và máy bàn phím 4G có hướng dẫn riêng trên website.
+### Gửi HDCALL 191 là mua gói data mới phải không?
 
-### Viettel bật VoLTE bằng cú pháp nào?
-Theo tài liệu Viettel: **`HDCALL` gửi `191`**.
+Không. Đây là cú pháp Viettel hướng dẫn cho dịch vụ VoLTE. Nó không thay thế gói data của bạn.
 
-### Đăng ký VoLTE Viettel có mất phí không?
-Theo tài liệu Viettel được kiểm tra lại, **phí dịch vụ VoLTE là 0 đồng**. Điều đó không đồng nghĩa mọi cuộc gọi của thuê bao đều có cước 0 đồng.
+### Bật VoLTE có miễn phí toàn bộ cuộc gọi không?
 
-### Vì sao ngày 12/09 chủ đề này cần cập nhật?
-Vì chỉ còn 3 ngày tới mốc 15/09 và symptom “gọi là mất/tụt 4G” là câu hỏi hỗ trợ trực tiếp của cùng job VoLTE readiness. Canonical hiện hữu được mở rộng thay vì sinh URL mới cạnh tranh với bài Android/iPhone.
+Không. Viettel công bố **phí dịch vụ VoLTE 0 đồng**; cước cuộc gọi vẫn theo gói/chính sách thoại của thuê bao.
 
-## Nguồn kiểm chứng
+### Máy hai SIM cần chú ý gì?
 
-- [Bộ Khoa học và Công nghệ — Lộ trình tắt sóng 2G](https://mst.gov.vn/bo-tttt-cong-bo-lo-trinh-tat-song-2g-197240705094212138.htm)
-- [Bộ Khoa học và Công nghệ — Kết quả đấu giá băng tần 900 MHz, 09/09/2026](https://mst.gov.vn/vnpt-viettel-vietnamobile-cung-trung-dau-gia-3-cap-khoi-bang-tan-900mhz-197260909205107936.htm)
-- [Viettel — VoLTE trên hạ tầng 4G/5G](https://098.viettel.vn/tin-tuc/chi-tiet/volte-dich-vu-thoai-chat-luong-cao-tren-ha-tang-mang-4g5g-viettel/13748208)
-- [Viettel — USSD qua 4G/IMS khi tắt 2G, 03/07/2026](https://shop.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320)
+Hãy xác nhận đúng SIM Viettel được chọn cho thoại và data. Trạng thái VoLTE của một SIM không nên được suy diễn cho SIM còn lại.
 
-**Cập nhật nguồn:** 12/09/2026. Giá gói cước, vùng phủ theo địa chỉ, model tương thích phổ quát và các chỉ số search volume/KD/CPC/ranking/traffic potential không được suy diễn trong bài này.
+### Sau 15/9 nếu `*101#` không chạy thì có nghĩa SIM bị khóa không?
+
+Không thể kết luận như vậy chỉ từ một lỗi USSD. Hãy kiểm tra khả năng USSD over IMS/4G của thiết bị và phần mềm, rồi dùng kênh tra cứu thay thế hoặc liên hệ Viettel nếu cần.
+
+## Kết luận
+
+Trước 15/09/2026, câu hỏi quan trọng không phải chỉ là “điện thoại có 4G không”, mà là **cuộc gọi có thực sự chạy ổn trên VoLTE hay không**.
+
+Nếu gọi điện làm máy tụt/mất 4G, hãy kiểm tra ngay: **model hỗ trợ VoLTE → SIM/thuê bao → `HDCALL` gửi `191` → công tắc VoLTE/Cuộc gọi 4G → cuộc gọi thử → USSD nếu còn dùng**.
+
+Bài này chỉ dùng các mốc và hướng dẫn đã có nguồn Viettel/cơ quan quản lý. Khả năng hỗ trợ của từng model, vùng phủ tại một vị trí và trạng thái thuê bao cụ thể cần được xác minh riêng.
