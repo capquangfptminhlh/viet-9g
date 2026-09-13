@@ -1,4 +1,4 @@
-# Samsung eSIM Simple Setup có dùng với Viettel không? Vì sao vẫn cần QR?
+# Samsung eSIM/5G Simple Setup có dùng với Viettel không? Vì sao vẫn cần QR?
 
 **Cập nhật kiểm chứng: 13/09/2026.** Samsung có tính năng **eSIM Simple Setup** cho phép một số nhà mạng đẩy hồ sơ eSIM trực tiếp xuống máy Galaxy mà không cần người dùng tự quét QR. Tuy nhiên, việc **Galaxy hỗ trợ eSIM** và việc **nhà mạng hỗ trợ Simple Setup** là hai chuyện khác nhau.
 
