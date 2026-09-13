@@ -1,4 +1,4 @@
-# iPhone Handoff có dùng với Viettel không? Khác gì chuyển eSIM trên iPhone 18 Pro?
+# iPhone Handoff có dùng với Viettel không? Khác gì eSIM/5G trên iPhone 18 Pro?
 
 **Cập nhật kiểm chứng: 13/09/2026.** Apple vừa giới thiệu **iPhone Handoff** trên iOS 27: tính năng cho phép người dùng chuyển qua lại giữa **hai iPhone với cùng một số điện thoại** khi nhà mạng hỗ trợ. Ở thời điểm ra mắt, Apple chỉ nêu **T-Mobile tại Mỹ** và **Telekom Germany tại Đức** là hai nhà mạng hỗ trợ launch.
 
