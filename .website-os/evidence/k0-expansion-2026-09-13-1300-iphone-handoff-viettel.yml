@@ -1,0 +1,209 @@
+version: 1.0.0
+run_slot: "13:00"
+observed_at: "2026-09-13T12:57:13+07:00"
+action: NEW
+status: PASS
+website_os:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest: governance/website-os.manifest.yml
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
+project_main_at_start: c77ce6725cd37641213937f498763c6e5dc95f4a
+baseline_k0_decision: ".website-os/evidence/k0-decision-record.yml"
+production_invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
+  exact_main_vercel_required_before_live_claim: true
+primary_keyword: "iPhone Handoff Viettel"
+secondary_queries:
+  - "iPhone Handoff có dùng với Viettel không"
+  - "iPhone 18 Pro Handoff Viettel"
+  - "iPhone Handoff chuyển cùng số Viettel"
+  - "iPhone Handoff khác gì chuyển eSIM Viettel"
+  - "iOS 27 iPhone Handoff Viettel"
+  - "Viettel có hỗ trợ iPhone Handoff không"
+intent: "SUPPORT + INFORMATIONAL + FRESHNESS"
+cluster: "iphone-carrier-feature-compatibility"
+parent_cluster: "viettel-esim-device-support"
+entity:
+  type: "carrier_dependent_device_feature"
+  name: "Apple iPhone Handoff"
+  attribute: "same-number switching between two iPhone models on supported carriers"
+canonical_owner: "/posts/iphone-handoff-viettel-cung-so/"
+content_type: "carrier_feature_compatibility_support_guide"
+new_url_created: true
+cannibalization: PASS
+reason: >-
+  Repository-wide search found no existing owner for Apple's newly announced carrier-dependent iPhone Handoff feature.
+  Existing Viettel pages own eSIM device transfer, QR/no-QR activation, dual-eSIM and generic iPhone eSIM compatibility,
+  but none owns the launch-availability question for switching the same phone number back and forth between two iPhone
+  models. Apple states that iPhone Handoff launches with T-Mobile in the U.S. and Telekom Germany in Germany; Viettel is
+  not in Apple's launch-carrier statement. This article therefore answers the independent compatibility question while
+  explicitly distinguishing the feature from Viettel's existing eSIM activation/device-change flows and avoiding any claim
+  that Viettel will never support the feature later.
+search_chain:
+  same_day_research:
+    observed_at: "2026-09-13T12:57:13+07:00"
+    result: "NO_QUALIFYING_SAME_DAY_FIRST_PARTY_VIETTEL_MOBILE_ITEM"
+    reason: >-
+      Same-day searches around Viettel 4G/5G/eSIM/SIM/support/roaming/packages did not surface a qualifying Viettel-owned
+      mobile publication dated 13/09/2026 at observation time. Candidate-level HOLD only; fallback continued.
+  today_already_published:
+    - "/posts/tat-song-2g-15-9-2026-viettel-volte/ — governed 07:00 canonical-owner update"
+    - "automated main-site article about 5G150 published by repository workflow at 2026-09-13T01:40:28Z"
+  source_provenance:
+    - source: "Apple Newsroom — iPhone 18 Pro and iPhone 18 Pro Max"
+      url: "https://www.apple.com/newsroom/2026/09/apple-debuts-iphone-18-pro-and-iphone-18-pro-max/"
+      published_at: "2026-09-09"
+      observed_at: "2026-09-13T12:57:13+07:00"
+      provenance: FIRST_PARTY_DEVICE_PLATFORM
+      verification_status: VERIFIED
+      bounded_facts:
+        - "iOS 27 introduces iPhone Handoff for switching back and forth between two iPhone models with the same phone number when the carrier supports it."
+        - "Apple states iPhone Handoff will be available at launch with T-Mobile in the U.S. and Telekom Germany in Germany."
+        - "Apple does not list Viettel in that launch-carrier statement."
+    - source: "Apple Vietnam — iPhone 18 Pro availability"
+      url: "https://www.apple.com/vn/iphone-18-pro/"
+      observed_at: "2026-09-13T12:57:13+07:00"
+      provenance: FIRST_PARTY_DEVICE_PLATFORM
+      verification_status: VERIFIED
+      bounded_facts:
+        - "Apple Vietnam opened iPhone 18 Pro pre-orders at 19:00 on 12/09/2026 and lists availability from 18/09/2026."
+        - "This freshness creates current user interest but does not prove Viettel support for iPhone Handoff."
+    - source: "Viettel — eSIM no-QR activation on iOS"
+      url: "https://www.viettel.vn/tin-tuc/chi-tiet/esim-viettel-cham-la-ket-noi-kich-hoat-khong-can-ma-qr/13707592"
+      published_at: "2026-08-18"
+      observed_at: "2026-09-13T12:57:13+07:00"
+      provenance: FIRST_PARTY_CARRIER
+      verification_status: VERIFIED
+      bounded_facts:
+        - "Viettel supports automatic eSIM activation on iOS without QR in the supported flow from 18/08/2026."
+        - "Viettel describes easier eSIM movement to a new phone, but this is not evidence that Apple's separate iPhone Handoff feature is supported."
+candidates_checked:
+  - query: "Viettel mobile breaking update 13/09/2026"
+    intent: FRESHNESS
+    entity_topic: "same-day Viettel mobile news"
+    cluster: "freshness-news"
+    canonical_owner: UNKNOWN
+    content_type: "NEWS_FRESHNESS"
+    evidence: INSUFFICIENT_FIRST_PARTY_SAME_DAY
+    priority: P0
+    decision: HOLD
+    reason: "No qualifying Viettel-owned publication dated 13/09/2026 surfaced at observation time."
+  - query: "kiểm tra Viettel trước tắt 2G 15/9/2026"
+    intent: SUPPORT_FRESHNESS
+    entity_topic: "2G shutdown / VoLTE readiness"
+    cluster: "2g-shutdown-volte-readiness"
+    canonical_owner: "/posts/tat-song-2g-15-9-2026-viettel-volte/"
+    content_type: "SUPPORT_FRESHNESS_ARTICLE"
+    evidence: UPDATED_TODAY_EXISTING_OWNER
+    priority: P0
+    decision: REJECT
+    reason: "The 07:00 run already refreshed this exact canonical owner today; do not repeatedly test/publish the same intent."
+  - query: "5G150 Viettel data chu kỳ ưu đãi"
+    intent: COMMERCIAL
+    entity_topic: "5G150 package evaluation"
+    cluster: "package-entity-support"
+    canonical_owner: "existing 5G150/comparison package architecture"
+    content_type: "PACKAGE_SUPPORT"
+    evidence: TODAY_AUTOMATED_CONTENT_AND_EXISTING_OWNERSHIP
+    priority: P1
+    decision: REJECT
+    reason: "Repository automation already published a 5G150 article today and baseline K0 contains 5G150 ownership; another same-day article would add duplicate risk."
+  - query: "iPhone 18 Pro eSIM Viettel"
+    intent: SUPPORT
+    entity_topic: "iPhone 18 Pro eSIM/5G readiness"
+    cluster: "device-esim-5g-compatibility"
+    canonical_owner: "/posts/kiem-tra-iphone-co-ho-tro-esim-viettel/"
+    content_type: "DEVICE_COMPATIBILITY_SUPPORT"
+    evidence: EXISTING_OWNER_UPDATED_2026_09_10
+    priority: P1
+    decision: REJECT
+    reason: "Existing iPhone eSIM canonical owner already contains verified iPhone 18 Pro/Max hardware, availability and Viettel activation caveats."
+  - query: "VoWiFi Wi-Fi Calling Viettel 2026"
+    intent: SUPPORT
+    entity_topic: "Wi-Fi Calling provisioning/eligibility"
+    cluster: "voice-service-support"
+    canonical_owner: UNKNOWN
+    content_type: "SUPPORT_ARTICLE"
+    evidence: INSUFFICIENT_CURRENT_VIETTEL_PROVISIONING_EVIDENCE
+    priority: P1
+    decision: HOLD
+    reason: "Current first-party provisioning/eligibility evidence remains insufficient for a safe publishable answer."
+  - query: "Viettel roaming Lào dùng gói nào"
+    intent: COMMERCIAL_SUPPORT
+    entity_topic: "Laos roaming package selection"
+    cluster: "roaming-country-support"
+    canonical_owner: "existing Laos roaming owner/content"
+    content_type: "ROAMING_SUPPORT"
+    evidence: EXISTING_OWNER
+    priority: P1
+    decision: REJECT
+    reason: "Viettel has fresh first-party Laos package evidence, but repository already owns the Laos roaming search job; a new URL would cannibalize."
+  - query: "iPhone Handoff Viettel"
+    intent: SUPPORT_INFORMATIONAL_FRESHNESS
+    entity_topic: "carrier support for Apple iPhone Handoff same-number switching"
+    cluster: "iphone-carrier-feature-compatibility"
+    canonical_owner: "/posts/iphone-handoff-viettel-cung-so/"
+    content_type: "CARRIER_FEATURE_COMPATIBILITY_SUPPORT"
+    evidence: FIRST_PARTY_APPLE_LAUNCH_CARRIER_STATEMENT_PLUS_VIETTEL_ESIM_BOUNDARY
+    priority: P1
+    decision: SELECT_NEW
+    reason: >-
+      Apple's September 2026 launch creates a genuinely new carrier-dependent feature question. No repository owner exists,
+      Apple's launch-carrier list is explicit, and Viettel's eSIM evidence lets the article explain what existing Viettel
+      eSIM flows can do without falsely equating them with iPhone Handoff.
+query_mapping:
+  query: "iPhone Handoff Viettel"
+  primary_intent: SUPPORT
+  secondary_intent: "INFORMATIONAL + FRESHNESS"
+  entity_topic: "Apple iPhone Handoff / supported carrier / Viettel / eSIM distinction"
+  cluster: "iphone-carrier-feature-compatibility"
+  canonical_url_owner: "/posts/iphone-handoff-viettel-cung-so/"
+  content_type: "carrier_feature_compatibility_support_guide"
+  priority: P1
+source_facts:
+  iphone_handoff_same_number_feature_announced_by_apple: true
+  launch_carriers_named_by_apple: "T-Mobile U.S.; Telekom Germany"
+  viettel_named_as_launch_carrier_by_apple: false
+  viettel_ios_esim_no_qr_activation_verified: true
+  viettel_future_iphone_handoff_support: UNKNOWN
+  universal_device_or_account_eligibility: UNKNOWN
+  package_price_benefit_eligibility: UNKNOWN
+internal_link_plan:
+  parent: "/posts/kiem-tra-iphone-co-ho-tro-esim-viettel/"
+  related:
+    - "/posts/esim-viettel-doi-may-quet-lai-qr/"
+    - "/posts/iphone-dung-2-esim-viettel-cung-luc/"
+    - "/posts/doi-esim-viettel-tren-my-viettel/"
+    - "/posts/esim-5g-kich-hoat-quet-qr/"
+image_plan:
+  role: "existing governed iPhone/eSIM compatibility editorial asset"
+  subject: "smartphone, eSIM and carrier compatibility concept"
+  path: "/images/blogger/topic-b1-esim-5g-tuong-thich-4435b941a4f9.svg"
+  source_mode: "EXISTING_GOVERNED_PROJECT_ASSET"
+  topic_match: PASS
+  new_visual_generated_this_run: false
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+priority:
+  tier: P1
+  reason: >-
+    iPhone 18 Pro pre-orders opened in Vietnam on 12/09/2026 and Apple's launch note introduces a new carrier-dependent
+    same-number switching feature. The article can resolve a likely confusion between iPhone Handoff and ordinary eSIM
+    transfer using first-party Apple and Viettel evidence, without fabricating demand metrics.
+k0_decision:
+  decision: PASS
+  duplicate_risk: PASS
+  cannibalization_result: PASS
+  unsupported_metrics: 0
+  unsupported_business_facts: 0
