@@ -1,0 +1,141 @@
+version: 1.0.0
+run_slot: "13:00"
+observed_at: "2026-09-14T12:57:04+07:00"
+website_os_bootstrap:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: "ef18d255150f3a77a7c7587feccf1ba7c419ad7b"
+  manifest: governance/website-os.manifest.yml
+  manifest_version: "1.3.0"
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
+project_main_at_start: "1953316eba1b9df642b5ca985f592124b7dd316f"
+baseline_k0_decision: ".website-os/evidence/k0-decision-record.yml"
+production_invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_cta_contract: "MÃ_GÓI GB -> 290"
+  exact_main_vercel_verification_required: true
+research:
+  same_day_search:
+    decision: HOLD_CANDIDATE
+    reason: >-
+      Same-day search for a sufficiently strong first-party Viettel mobile publication dated
+      2026-09-14 did not surface a source strong enough to justify a distinct freshness URL in this run.
+      The run therefore continued through independent fallback candidates instead of stopping.
+  candidates:
+    - id: C1
+      query_job: "same-day Viettel 4G/5G/eSIM/SIM/support/roaming/package breaking item"
+      intent: FRESHNESS
+      decision: HOLD_CANDIDATE
+      reason: "No sufficiently strong dated 2026-09-14 first-party Viettel mobile item surfaced in this run."
+    - id: C2
+      query_job: "SIM Viettel moved to another phone + face verification within 2 hours"
+      intent: SUPPORT
+      canonical_owner: "/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu/"
+      decision: REJECT_NEW_URL
+      reason: "Existing exact support owner already covers the biometric/device-change job."
+    - id: C3
+      query_job: "verify Viettel SIM while abroad / roaming OTP"
+      intent: SUPPORT
+      canonical_owner: "/posts/xac-thuc-sim-viettel-o-nuoc-ngoai/"
+      decision: REJECT_NEW_URL
+      reason: "Existing exact owner and related roaming OTP support content already cover the job."
+    - id: C4
+      query_job: "5G180B Viettel package/review"
+      intent: COMMERCIAL
+      canonical_owner: "/goi-cuoc/5g180b/"
+      decision: REJECT_NEW_URL
+      reason: "Exact package entity already has a commercial canonical owner; a new review URL would risk overlap without a distinct SERP job."
+    - id: C5
+      query_job: "SIM 4G Viettel có cần đổi để dùng 5G"
+      intent: SUPPORT
+      canonical_owner: "/posts/sim-4g-viettel-co-dung-duoc-5g-khong/"
+      decision: REJECT_NEW_URL
+      reason: "Existing exact support owner already satisfies this query job."
+    - id: C6
+      query_job: "USSD *101#/*102#/*098# Viettel after 2G shutdown"
+      intent: SUPPORT
+      canonical_owner: "/posts/ussd-viettel-qua-4g-volte-ims/"
+      decision: REJECT_NEW_URL
+      reason: "Existing USSD-over-IMS owner already owns this support intent."
+    - id: C7
+      query_job: "14/09 còn 1 ngày trước mốc dừng 2G: kiểm tra VoLTE Viettel"
+      intent: "SUPPORT + FRESHNESS + INFORMATIONAL"
+      canonical_owner: "/posts/tat-song-2g-15-9-2026-viettel-volte/"
+      decision: SELECT_UPDATE
+      reason: >-
+        The 24-hour countdown materially changes freshness/actionability but remains the same user job
+        as the existing 2G shutdown + VoLTE readiness owner. Updating the owner avoids cannibalization.
+selected:
+  action: UPDATE
+  primary_keyword: "14/9 còn 1 ngày tắt 2G Viettel"
+  secondary_queries:
+    - "còn 1 ngày tắt 2G Viettel cần kiểm tra gì"
+    - "kiểm tra VoLTE Viettel trước 15/9/2026"
+    - "gọi điện Viettel tụt 4G trước tắt 2G"
+    - "USSD Viettel *101# sau tắt 2G"
+    - "điện thoại 4G Viettel có gọi được sau tắt 2G không"
+  entity_topic: "Viettel 2G shutdown + VoLTE readiness"
+  cluster: "2g-shutdown-volte-readiness"
+  canonical_owner: "/posts/tat-song-2g-15-9-2026-viettel-volte/"
+  content_type: "freshness_support_owner_update"
+  target_url: "https://www.tracuugoicuoc.com/posts/tat-song-2g-15-9-2026-viettel-volte/"
+  title: "Tắt 2G 15/9/2026: còn 1 ngày, kiểm tra VoLTE Viettel ngay"
+  slug: "tat-song-2g-15-9-2026-viettel-volte"
+  why_update: >-
+    The countdown, VoLTE readiness, call-test and USSD questions are the same search job already owned
+    by this canonical URL. A new URL would split freshness/support intent and increase cannibalization risk.
+source_provenance:
+  - source_type: "government_primary"
+    publisher: "Bộ Khoa học và Công nghệ"
+    url: "https://mst.gov.vn/bo-tttt-cong-bo-lo-trinh-tat-song-2g-197240705094212138.htm"
+    supports: "GSM/2G roadmap through 15/09/2026 and transition context"
+    verification_status: VERIFIED
+  - source_type: "viettel_primary"
+    publisher: "Viettel"
+    url: "https://shop.viettel.vn/tin-tuc/chi-tiet/thong-bao-dieu-chinh-thoi-gian-dung-dich-vu-cho-thiet-bi-2g-only-theo-quy-dinh-cua-bo-thong-tin-truyen-thong/13691148"
+    supports: "Viettel 2G-only transition guidance"
+    verification_status: VERIFIED
+  - source_type: "viettel_primary"
+    publisher: "Viettel"
+    url: "https://098.viettel.vn/tin-tuc/chi-tiet/volte-dich-vu-thoai-chat-luong-cao-tren-ha-tang-mang-4g5g-viettel/13748208"
+    supports: "VoLTE service, HDCALL to 191 and service-fee context"
+    verification_status: VERIFIED
+  - source_type: "viettel_primary"
+    publisher: "Viettel"
+    url: "https://shop.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320"
+    supports: "USSD over 4G/IMS compatibility guidance"
+    verification_status: VERIFIED
+k0:
+  decision: PASS
+  query_intent_entity_cluster_mapped: true
+  canonical_owner_decision: PASS
+  duplicate_check: PASS
+  cannibalization_check: PASS
+  new_canonical_owner_required: false
+  unsupported_business_facts_added: false
+  metrics:
+    search_volume: UNKNOWN
+    keyword_difficulty: UNKNOWN
+    cpc: UNKNOWN
+    ranking_position: UNKNOWN
+    traffic_potential: UNKNOWN
+    fabricated_metrics: false
+internal_link_plan:
+  keep_existing_owner_links:
+    - "/posts/bat-volte-viettel-android/"
+    - "/posts/cai-dat-4g-5g-volte-iphone-viettel/"
+    - "/posts/dien-thoai-ban-phim-4g-viettel-volte-tat-2g/"
+    - "/posts/ussd-viettel-qua-4g-volte-ims/"
+    - "/posts/sim-4g-viettel-co-dung-duoc-5g-khong/"
+release_requirements:
+  branch_pr_required: true
+  k0_check_required: true
+  tests_required: true
+  build_required: true
+  content_readback_required: true
+  exact_head_quality_gate_required: true
+  exact_main_vercel_ready_required: true
+  production_http_200_required: true
