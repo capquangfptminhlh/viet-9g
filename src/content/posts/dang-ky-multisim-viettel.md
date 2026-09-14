@@ -1,6 +1,6 @@
-﻿# MultiSIM Viettel 2026: đăng ký online trên My Viettel, Apple Watch cần gì?
+﻿# MultiSIM Viettel 2026: Apple Watch Series 12 có dùng được không?
 
-**MultiSIM Viettel hiện có thể được đăng ký, hủy và tra cứu SIM phụ ngay trên My Viettel. Nếu muốn dùng Apple Watch GPS + Cellular với Viettel, cần kiểm tra đúng phiên bản đồng hồ, điều kiện gói cước và thiết lập eSIM dành cho Apple Watch — không dùng eSIM trên iPhone như một mã eSIM dùng chung cho đồng hồ.**
+**MultiSIM Viettel hiện có thể được đăng ký, hủy và tra cứu SIM phụ ngay trên My Viettel. Với Apple Watch GPS + Cellular, Apple đang liệt kê Viettel là nhà mạng hỗ trợ tại Việt Nam và danh sách tương thích hiện đã có Apple Watch Series 12; tuy nhiên vẫn phải kiểm tra đúng mã model/khu vực và eligibility của thuê bao trước khi kích hoạt. eSIM trên iPhone không phải là eSIM dùng chung cho Apple Watch.**
 
 ## MultiSIM Viettel hiện đăng ký thế nào?
 
@@ -21,6 +21,20 @@ Có, nhưng cần hiểu đúng cách hoạt động. Cổng eSIM của Viettel 
 Apple cũng đang liệt kê **Viettel** trong danh sách nhà mạng hỗ trợ dịch vụ dữ liệu di động cho Apple Watch tại Việt Nam. Tuy nhiên, Apple lưu ý không phải mọi phiên bản Apple Watch đều hoạt động ở mọi quốc gia/khu vực và người dùng cần liên hệ nhà mạng để kiểm tra gói iPhone có đủ điều kiện dùng dịch vụ cellular trên Apple Watch hay không.
 
 > Nguồn: [Cổng eSIM Viettel](https://esim.viettel.vn/) · [Apple Watch GPS + Cellular — Nhà mạng tại Việt Nam](https://www.apple.com/vn/watch/cellular/)
+
+## Apple Watch Series 12 có dùng Cellular với Viettel không?
+
+**Có bằng chứng chính thức cho thấy Apple Watch Series 12 GPS + Cellular nằm trong nhóm thiết bị Apple Watch tương thích với dịch vụ cellular tại Việt Nam và Viettel được Apple liệt kê là nhà mạng hỗ trợ.**
+
+Tại thời điểm kiểm tra ngày **14/09/2026**, trang Apple Việt Nam liệt kê cho Việt Nam:
+
+- **Apple Watch Series 12: A3586 (42 mm), A3588 (46 mm)**;
+- **Apple Watch Ultra 4: A3580**;
+- cùng các thế hệ Series 11, Series 10, Series 9, Series 8, SE 3, SE 2, Ultra 3, Ultra 2 và Ultra trong danh sách model tương thích.
+
+Điểm quan trọng là không nên dừng ở tên “Series 12”. Apple có nhiều mã model cellular theo thị trường, và chính Apple cảnh báo không phải model nào cũng hoạt động với dịch vụ di động ở mọi quốc gia/khu vực. Nếu mua máy xách tay, hãy kiểm tra **mã model thực tế** trước khi coi thiết bị là tương thích với Viettel tại Việt Nam.
+
+Apple cũng yêu cầu người dùng kiểm tra với nhà mạng xem **gói iPhone/loại tài khoản có đủ điều kiện** cho Apple Watch cellular hay không. Vì vậy, việc model nằm trong danh sách tương thích **không đồng nghĩa mọi thuê bao Viettel đều chắc chắn kích hoạt được**, và bài này không tự suy diễn phí hay điều kiện thương mại chưa được Viettel công bố rõ trong nguồn hiện hành.
 
 ## Trước khi bật cellular trên Apple Watch, kiểm tra 4 điểm này
 
@@ -70,9 +84,13 @@ Cách an toàn là xem mức phí và điều kiện được hiển thị **tr�
 
 ## Câu hỏi thường gặp
 
-### Apple Watch Series mới nhất có chắc chắn dùng được Viettel không?
+### Apple Watch Series 12 có chắc chắn dùng được Viettel không?
 
-Không thể kết luận chỉ từ tên Series. Apple yêu cầu kiểm tra **đúng model cellular và khu vực**, còn eligibility dịch vụ phụ thuộc nhà mạng/gói. Danh sách Apple Việt Nam tại thời điểm bài được cập nhật xác nhận Viettel là nhà mạng hỗ trợ Apple Watch cellular, nhưng không nên suy rộng thành bảo đảm cho mọi model xách tay hoặc mọi loại thuê bao.
+Apple đang liệt kê **Viettel** là nhà mạng hỗ trợ Apple Watch cellular tại Việt Nam và liệt kê **Series 12 A3586 (42 mm), A3588 (46 mm)** trong nhóm model tương thích cho Việt Nam. Tuy vậy, vẫn cần kiểm tra đúng mã model và eligibility của thuê bao/gói với Viettel; không nên suy rộng thành bảo đảm cho mọi máy xách tay hoặc mọi loại tài khoản.
+
+### Apple Watch Ultra 4 có nằm trong danh sách tương thích tại Việt Nam không?
+
+Có. Apple Việt Nam đang liệt kê **Apple Watch Ultra 4 model A3580** trong nhóm model tương thích cho Việt Nam. Eligibility dịch vụ của thuê bao vẫn cần được kiểm tra với nhà mạng.
 
 ### Có thể dùng cùng QR eSIM của iPhone cho Apple Watch không?
 
@@ -89,7 +107,7 @@ Không. Phí hiện hành, điều kiện thuê bao và eligibility được đ�
 ## Nguồn kiểm chứng
 
 - Viettel, **“Phiên bản My Viettel 7.19 mới ra mắt có gì mới?”**, 28/05/2025: đăng ký/hủy/tra cứu MultiSIM online trên My Viettel và mobile web.
-- Viettel, **Cổng eSIM**: hướng dẫn eSIM và FAQ về Apple Watch; xác nhận eSIM trên iPhone không phải eSIM trên Apple Watch.
-- Apple Việt Nam, **Apple Watch GPS + Cellular — Các nhà mạng**: Viettel được liệt kê là nhà mạng hỗ trợ tại Việt Nam; Apple nêu các giới hạn model/khu vực và yêu cầu kiểm tra eligibility với nhà mạng.
+- Viettel, **Cổng eSIM**: FAQ về Apple Watch; xác nhận eSIM trên iPhone không phải eSIM trên Apple Watch.
+- Apple Việt Nam, **Apple Watch GPS + Cellular — Các nhà mạng**, kiểm tra ngày 14/09/2026: Viettel được liệt kê là nhà mạng hỗ trợ tại Việt Nam; Series 12 A3586/A3588 và Ultra 4 A3580 nằm trong nhóm model tương thích cho Việt Nam; Apple nêu giới hạn model/khu vực và yêu cầu kiểm tra eligibility với nhà mạng.
 
-*Cập nhật và kiểm chứng nguồn ngày 10/09/2026. Các mức phí, điều kiện thương mại, số lượng SIM phụ tối đa và eligibility cụ thể không được suy diễn khi chưa có nguồn Viettel hiện hành xác nhận.*
+*Cập nhật và kiểm chứng nguồn ngày 14/09/2026. Các mức phí, điều kiện thương mại, số lượng SIM phụ tối đa và eligibility cụ thể không được suy diễn khi chưa có nguồn Viettel hiện hành xác nhận.*
