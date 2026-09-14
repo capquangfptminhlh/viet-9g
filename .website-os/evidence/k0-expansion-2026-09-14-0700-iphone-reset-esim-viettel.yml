@@ -1,0 +1,210 @@
+version: 1.0.0
+run_slot: "07:00"
+observed_at: "2026-09-14T06:57:49+07:00"
+action: NEW
+status: PASS
+website_os:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest: governance/website-os.manifest.yml
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
+project_main_at_start: 4292892d3815fe643c9af4b6a2f65346ed7b6c71
+baseline_k0_decision: ".website-os/evidence/k0-decision-record.yml"
+production_invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
+  exact_main_vercel_required_before_live_claim: true
+primary_keyword: "reset cài đặt mạng iPhone eSIM Viettel"
+secondary_queries:
+  - "reset network settings iPhone có mất eSIM Viettel không"
+  - "đặt lại cài đặt mạng iPhone có xóa eSIM không"
+  - "xóa tất cả eSIM iPhone khác reset cài đặt mạng"
+  - "reset iPhone giữ eSIM Viettel"
+  - "xóa tất cả nội dung cài đặt có mất eSIM Viettel không"
+  - "reset mạng iPhone 5G Viettel có mất eSIM không"
+intent: "SUPPORT + INFORMATIONAL"
+cluster: "iphone-esim-reset-safety"
+parent_cluster: "viettel-esim-device-support"
+entity:
+  type: "device_setting_and_carrier_profile"
+  name: "Apple iPhone reset options and Viettel eSIM"
+  attribute: "Reset Network Settings versus Delete All eSIMs versus Erase All Content and Settings"
+canonical_owner: "/posts/reset-cai-dat-mang-iphone-esim-viettel/"
+content_type: "device_setting_support_guide"
+new_url_created: true
+cannibalization: PASS
+reason: >-
+  Repository search found no dedicated owner for the pre-reset safety question of whether iPhone Reset Network Settings removes a Viettel eSIM. Existing owners cover accidental eSIM deletion/recovery, moving an eSIM to another device, generic iPhone Viettel network configuration, APN troubleshooting and generic 5G troubleshooting. Apple documents Reset Network Settings, Delete All eSIMs and Erase All Content and Settings as materially different actions. The new owner answers which reset action affects the eSIM profile and how a Viettel user should check the line afterward without competing with the existing post-deletion recovery owner.
+search_chain:
+  same_day_research:
+    observed_at: "2026-09-14T06:57:49+07:00"
+    result: "NO_QUALIFYING_SAME_DAY_FIRST_PARTY_VIETTEL_MOBILE_ITEM"
+    reason: "Same-day searches around Viettel 4G/5G/eSIM/SIM/support/roaming/device compatibility/packages did not surface a qualifying Viettel-owned mobile publication dated 14/09/2026 at observation time; fallback continued."
+  today_already_published: []
+  source_provenance:
+    - source: "Apple Support Vietnam — Reset iPhone settings to their defaults"
+      url: "https://support.apple.com/en-vn/guide/iphone/iphea1c2fe48/ios"
+      observed_at: "2026-09-14T06:57:49+07:00"
+      provenance: FIRST_PARTY_DEVICE_PLATFORM
+      verification_status: VERIFIED
+      bounded_facts:
+        - "Reset Network Settings removes network settings and returns them to defaults."
+        - "Reset Network Settings and Delete All eSIMs are separate reset options."
+        - "After a network reset, cellular data roaming may be turned off and can require re-enabling when needed."
+    - source: "Apple Support Vietnam — How to factory reset your iPhone, iPad, or iPod touch"
+      url: "https://support.apple.com/vi-vn/108931"
+      observed_at: "2026-09-14T06:57:49+07:00"
+      provenance: FIRST_PARTY_DEVICE_PLATFORM
+      verification_status: VERIFIED
+      bounded_facts:
+        - "During Erase All Content and Settings, iPhone can offer a choice to erase or keep the eSIM."
+        - "If the eSIM is erased, Apple directs the user to the carrier to reactivate the cellular plan."
+    - source: "Apple Support Vietnam — How to erase an eSIM on iPhone or iPad"
+      url: "https://support.apple.com/vi-vn/102421"
+      observed_at: "2026-09-14T06:57:49+07:00"
+      provenance: FIRST_PARTY_DEVICE_PLATFORM
+      verification_status: VERIFIED
+      bounded_facts:
+        - "Apple advises not to erase an eSIM as a troubleshooting step unless the carrier directs the user to do so."
+        - "If an eSIM is erased, the user may need to contact the carrier for a new eSIM and set it up again."
+    - source: "Viettel Telecom — eSIM Viettel: Chạm là kết nối, kích hoạt không cần mã QR"
+      url: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/esim-viettel-cham-la-ket-noi-kich-hoat-khong-can-ma-qr/13707592"
+      published_at: "2026-08-18"
+      observed_at: "2026-09-14T06:57:49+07:00"
+      provenance: FIRST_PARTY_CARRIER
+      verification_status: VERIFIED
+      bounded_facts:
+        - "Viettel announced an iOS eSIM activation flow that can activate without manually scanning a QR code on supported flows."
+        - "This source is not used to claim every deleted eSIM can always be automatically restored."
+candidates_checked:
+  - query: "Viettel mobile breaking update 14/09/2026"
+    intent: FRESHNESS
+    entity_topic: "same-day Viettel mobile news"
+    cluster: "freshness-news"
+    canonical_owner: UNKNOWN
+    content_type: "NEWS_FRESHNESS"
+    evidence: INSUFFICIENT_FIRST_PARTY_SAME_DAY
+    priority: P0
+    decision: HOLD
+    reason: "No qualifying Viettel-owned mobile publication dated 14/09/2026 surfaced at observation time."
+  - query: "còn 1 ngày tắt 2G Viettel 15/9/2026"
+    intent: "SUPPORT + FRESHNESS"
+    entity_topic: "final 2G shutdown readiness"
+    cluster: "2g-shutdown-volte-readiness"
+    canonical_owner: "/posts/tat-song-2g-15-9-2026-viettel-volte/"
+    content_type: "SUPPORT_FRESHNESS_ARTICLE"
+    evidence: EXISTING_OWNER_ALREADY_COMPREHENSIVE_NO_NEW_FIRST_PARTY_FACT
+    priority: P0
+    decision: REJECT
+    reason: "The existing owner was updated on 13/09 and already covers call testing, VoLTE, HDCALL 191 and USSD. A countdown-only 2-days-to-1-day edit would be thin without a new meaningful fact."
+  - query: "reset cài đặt mạng iPhone eSIM Viettel"
+    intent: "SUPPORT + INFORMATIONAL"
+    entity_topic: "iPhone network reset versus eSIM deletion"
+    cluster: "iphone-esim-reset-safety"
+    canonical_owner: "/posts/reset-cai-dat-mang-iphone-esim-viettel/"
+    content_type: "DEVICE_SETTING_SUPPORT_GUIDE"
+    evidence: "APPLE_FIRST_PARTY_RESET_SEMANTICS_PLUS_VIETTEL_ESIM_CONTEXT"
+    priority: P1
+    decision: SELECT_NEW
+    reason: "Distinct pre-reset safety job with direct Apple documentation and a clear boundary from post-deletion eSIM recovery."
+  - query: "lỡ xóa eSIM Viettel quét lại QR"
+    intent: SUPPORT
+    entity_topic: "accidental eSIM deletion recovery"
+    cluster: "esim-recovery"
+    canonical_owner: "/posts/lo-xoa-esim-viettel-quet-lai-qr/"
+    content_type: "SUPPORT_ARTICLE"
+    evidence: EXISTING_OWNER
+    priority: P1
+    decision: REJECT
+    reason: "Existing canonical owner already owns the post-deletion recovery job."
+  - query: "đổi máy eSIM Viettel có cần QR mới"
+    intent: SUPPORT
+    entity_topic: "eSIM device transfer"
+    cluster: "esim-device-transfer"
+    canonical_owner: "/posts/esim-viettel-doi-may-quet-lai-qr/"
+    content_type: "SUPPORT_ARTICLE"
+    evidence: EXISTING_OWNER
+    priority: P1
+    decision: REJECT
+    reason: "Existing canonical owner already owns device-transfer intent."
+  - query: "VoWiFi Wi-Fi Calling Viettel 2026"
+    intent: SUPPORT
+    entity_topic: "Wi-Fi Calling provisioning"
+    cluster: "voice-service-support"
+    canonical_owner: UNKNOWN
+    content_type: "SUPPORT_ARTICLE"
+    evidence: INSUFFICIENT_CURRENT_VIETTEL_PROVISIONING_EVIDENCE
+    priority: P1
+    decision: HOLD
+    reason: "Current first-party provisioning and eligibility evidence remains insufficient."
+  - query: "SIM Viettel bị chặn chưa xác thực"
+    intent: SUPPORT
+    entity_topic: "subscriber identity verification block"
+    cluster: "subscriber-verification-support"
+    canonical_owner: "existing verification owner"
+    content_type: "SUPPORT_ARTICLE"
+    evidence: EXISTING_OWNER
+    priority: P1
+    decision: REJECT
+    reason: "Existing canonical content already covers subscriber verification/block remediation."
+  - query: "Samsung eSIM Simple Setup Viettel"
+    intent: SUPPORT
+    entity_topic: "Samsung automatic eSIM provisioning"
+    cluster: "samsung-esim-carrier-activation"
+    canonical_owner: "/posts/samsung-esim-simple-setup-viettel/"
+    content_type: "CARRIER_FEATURE_COMPATIBILITY_SUPPORT"
+    evidence: PUBLISHED_PREVIOUS_SLOT_EXISTING_OWNER
+    priority: P1
+    decision: REJECT
+    reason: "Exact owner was published in the previous run and should not be duplicated."
+query_mapping:
+  query: "reset cài đặt mạng iPhone eSIM Viettel"
+  primary_intent: SUPPORT
+  secondary_intent: INFORMATIONAL
+  entity_topic: "iPhone / Reset Network Settings / eSIM Viettel / reset safety"
+  cluster: "iphone-esim-reset-safety"
+  canonical_url_owner: "/posts/reset-cai-dat-mang-iphone-esim-viettel/"
+  content_type: "device_setting_support_guide"
+  priority: P1
+source_facts:
+  reset_network_settings_is_separate_from_delete_all_esims: true
+  reset_network_settings_explicitly_documented_to_delete_esim: false
+  delete_all_esims_deletes_esim_profiles: true
+  erase_all_content_settings_can_offer_keep_or_delete_esim_choice: true
+  apple_advises_against_esim_deletion_as_generic_troubleshooting: true
+  viettel_ios_no_qr_activation_announced: true
+  universal_deleted_esim_auto_restore_on_viettel: UNKNOWN
+  package_price_benefit_eligibility: UNKNOWN
+internal_link_plan:
+  parent: "/posts/lo-xoa-esim-viettel-quet-lai-qr/"
+  related:
+    - "/posts/esim-viettel-doi-may-quet-lai-qr/"
+    - "/posts/cai-dat-4g-5g-volte-iphone-viettel/"
+    - "/posts/loi-khong-dang-ky-duoc-mang-5g-viettel/"
+image_plan:
+  role: "existing governed eSIM/5G compatibility editorial asset"
+  subject: "iPhone, eSIM and cellular settings safety"
+  path: "/images/blogger/topic-b1-esim-5g-tuong-thich-4435b941a4f9.svg"
+  source_mode: "EXISTING_GOVERNED_PROJECT_ASSET"
+  topic_match: PASS
+  new_visual_generated_this_run: false
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+priority:
+  tier: P1
+  reason: "The query solves a practical pre-troubleshooting decision with direct first-party Apple evidence, while preserving the existing post-deletion and device-transfer owners. No unsupported demand metric is required for the decision."
+k0_decision:
+  decision: PASS
+  duplicate_risk: PASS
+  cannibalization_result: PASS
+  unsupported_metrics: 0
+  unsupported_business_facts: 0
