@@ -1,0 +1,151 @@
+version: 1.0.0
+run_slot: "20:00"
+observed_at: "2026-09-14T20:06:00+07:00"
+website_os_bootstrap:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: "ef18d255150f3a77a7c7587feccf1ba7c419ad7b"
+  manifest: governance/website-os.manifest.yml
+  manifest_version: "1.3.0"
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
+project_main_at_start: "777d491b737640dfc4a0e1bc6a11c714a8f40fb9"
+baseline_k0_decision: ".website-os/evidence/k0-decision-record.yml"
+production_invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_cta_contract: "MÃ_GÓI GB -> 290"
+  exact_main_vercel_verification_required: true
+research:
+  same_day_search:
+    decision: HOLD_CANDIDATE
+    reason: >-
+      Same-day searches around Viettel 4G/5G/eSIM/SIM/support/roaming/packages did not surface a
+      sufficiently strong Viettel-owned publication dated 2026-09-14 that justified its own new
+      freshness URL. The run continued through independent fallback candidates.
+  candidates:
+    - id: C1
+      query_job: "same-day Viettel 4G/5G/eSIM/SIM/support/roaming/package breaking item"
+      mapping: "freshness -> Viettel mobile news -> freshness-news -> no defensible new owner -> news/freshness page -> insufficient same-day primary evidence -> HOLD"
+      intent: FRESHNESS
+      decision: HOLD_CANDIDATE
+      reason: "No sufficiently strong dated 2026-09-14 Viettel first-party mobile item surfaced to justify a distinct URL."
+    - id: C2
+      query_job: "14/09 final 2G countdown / còn 1 ngày trước 15/09"
+      mapping: "freshness/support -> 2G shutdown + VoLTE -> 2g-shutdown-volte-readiness -> /posts/tat-song-2g-15-9-2026-viettel-volte/ -> freshness support owner -> government + Viettel -> P0"
+      intent: "SUPPORT + FRESHNESS"
+      canonical_owner: "/posts/tat-song-2g-15-9-2026-viettel-volte/"
+      decision: REJECT_REPEAT_UPDATE
+      reason: "The 13:00 slot already published the same-day 24-hour countdown update; another countdown-only change would be thin and repetitive."
+    - id: C3
+      query_job: "Apple Watch Series 12 GPS + Cellular dùng Viettel / MultiSIM"
+      mapping: "device compatibility/support -> Apple Watch Series 12 + Viettel -> multisim-apple-watch -> /posts/dang-ky-multisim-viettel/ -> canonical-owner expansion -> Apple Vietnam + Viettel eSIM -> P1"
+      intent: "SUPPORT + INFORMATIONAL + FRESHNESS"
+      canonical_owner: "/posts/dang-ky-multisim-viettel/"
+      decision: SELECT_UPDATE
+      reason: >-
+        Apple now lists Series 12 models for Vietnam and Viettel as a supported Apple Watch carrier.
+        The search job is still Apple Watch cellular/MultiSIM compatibility, already owned by the existing
+        MultiSIM article, so updating that owner avoids creating a competing model-only URL.
+    - id: C4
+      query_job: "Apple Watch Ultra 4 dùng Viettel Cellular"
+      mapping: "device compatibility -> Apple Watch Ultra 4 + Viettel -> multisim-apple-watch -> /posts/dang-ky-multisim-viettel/ -> support section -> Apple Vietnam -> P2"
+      intent: SUPPORT
+      canonical_owner: "/posts/dang-ky-multisim-viettel/"
+      decision: REJECT_NEW_URL
+      reason: "Ultra 4 is the same Apple Watch cellular/MultiSIM job and is covered as a supporting model inside the selected canonical owner update."
+    - id: C5
+      query_job: "iPhone 18 / eSIM Viettel compatibility"
+      mapping: "device/eSIM compatibility -> iPhone 18 -> iphone-esim-device-compatibility -> existing iPhone/eSIM owner set -> device support -> Apple/Viettel -> P1"
+      intent: SUPPORT
+      decision: REJECT_EXISTING_OWNER
+      reason: "Repository already contains iPhone/eSIM compatibility owners; no independent gap was established in this run."
+    - id: C6
+      query_job: "Samsung eSIM Simple Setup Viettel"
+      mapping: "carrier provisioning -> Samsung Simple Setup -> samsung-esim-carrier-activation -> /posts/samsung-esim-simple-setup-viettel/ -> support article -> Samsung/Viettel -> P2"
+      intent: SUPPORT
+      canonical_owner: "/posts/samsung-esim-simple-setup-viettel/"
+      decision: REJECT_EXISTING_OWNER
+      reason: "Exact canonical owner was already published; repeating the same provisioning intent would cannibalize it."
+    - id: C7
+      query_job: "VoWiFi/Wi-Fi Calling Viettel current provisioning"
+      mapping: "support/technology -> Wi-Fi Calling -> volte-vowifi-support -> no new owner approved -> support article -> evidence incomplete -> HOLD"
+      intent: SUPPORT
+      decision: HOLD_CANDIDATE
+      reason: "Current provisioning and eligibility evidence remains insufficient for a publishable claim set."
+selected:
+  action: UPDATE
+  primary_keyword: "Apple Watch Series 12 Viettel"
+  secondary_queries:
+    - "Apple Watch Series 12 có dùng Viettel không"
+    - "Apple Watch Series 12 Cellular Viettel"
+    - "Apple Watch Series 12 MultiSIM Viettel"
+    - "Apple Watch A3586 Viettel"
+    - "Apple Watch A3588 Viettel"
+    - "Apple Watch Ultra 4 A3580 Viettel"
+    - "Apple Watch eSIM Viettel cần model nào"
+  entity_topic: "Apple Watch Series 12 / Ultra 4 cellular compatibility with Viettel"
+  cluster: "multisim-apple-watch"
+  canonical_owner: "/posts/dang-ky-multisim-viettel/"
+  content_type: "evidence_backed_canonical_owner_update"
+  target_url: "https://www.tracuugoicuoc.com/posts/dang-ky-multisim-viettel/"
+  title: "MultiSIM Viettel 2026: Apple Watch Series 12 có dùng được không?"
+  slug: "dang-ky-multisim-viettel"
+  why_update: >-
+    Series 12 and Ultra 4 are new/current device entities inside the same Apple Watch cellular + MultiSIM
+    search job already owned by this URL. A separate Series-12 URL would unnecessarily split owner authority
+    and create near-duplicate compatibility content.
+source_provenance:
+  - source_type: "apple_primary"
+    publisher: "Apple Việt Nam"
+    url: "https://www.apple.com/vn/watch/cellular/"
+    observed_at: "2026-09-14T20:06:00+07:00"
+    supports: >-
+      Viettel is listed as an Apple Watch carrier in Vietnam; Vietnam-compatible current models include
+      Apple Watch Series 12 A3586 (42mm), A3588 (46mm) and Apple Watch Ultra 4 A3580; Apple warns model/region
+      compatibility varies and users must check carrier-plan eligibility.
+    verification_status: VERIFIED
+  - source_type: "viettel_primary"
+    publisher: "Viettel"
+    url: "https://esim.viettel.vn/"
+    observed_at: "2026-09-14T20:06:00+07:00"
+    supports: >-
+      Viettel eSIM FAQ states Apple Watch can use eSIM when connected/setup from Apple Watch and that
+      the eSIM on iPhone is not the Apple Watch eSIM.
+    verification_status: VERIFIED
+  - source_type: "viettel_primary"
+    publisher: "Viettel"
+    url: "https://098.viettel.vn/tin-tuc/chi-tiet/phien-ban-my-viettel-719-moi-ra-mat-co-gi-moi/11616616/"
+    observed_at: "2026-09-14T20:06:00+07:00"
+    supports: "My Viettel 7.19 online MultiSIM registration/cancellation/lookup channel retained as existing owner context."
+    verification_status: VERIFIED
+k0:
+  decision: PASS
+  query_intent_entity_cluster_mapped: true
+  canonical_owner_decision: PASS
+  duplicate_check: PASS
+  cannibalization_check: PASS
+  new_canonical_owner_required: false
+  unsupported_business_facts_added: false
+  metrics:
+    search_volume: UNKNOWN
+    keyword_difficulty: UNKNOWN
+    cpc: UNKNOWN
+    ranking_position: UNKNOWN
+    traffic_potential: UNKNOWN
+    fabricated_metrics: false
+internal_link_plan:
+  keep_existing_owner_links:
+    - "/posts/esim-viettel-co-phat-wifi-hotspot/"
+    - "/posts/esim-viettel-doi-may-quet-lai-qr/"
+  new_internal_link_required: false
+release_requirements:
+  branch_pr_required: true
+  k0_check_required: true
+  tests_required: true
+  build_required: true
+  content_readback_required: true
+  exact_head_quality_gate_required: true
+  exact_main_vercel_ready_required: true
+  production_http_200_required: true
