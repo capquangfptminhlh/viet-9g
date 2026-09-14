@@ -9,6 +9,9 @@ const posts = await getCollection('posts');
 // Hàm chọn ảnh minh họa theo chủ đề bài viết khớp chính xác nội dung
 function getPostImage(slug: string, title: string) {
   const s = (slug + ' ' + title).toLowerCase();
+  if (s.includes('dang-ky-multisim-viettel') || s.includes('apple watch')) {
+    return '/images/blogger/topic-b1-esim-5g-tuong-thich-4435b941a4f9.svg';
+  }
   if (s.includes('samsung-galaxy-z-fold8-esim-viettel')) {
     return '/images/blogger/topic-b1-esim-5g-tuong-thich-4435b941a4f9.svg';
   }
@@ -89,86 +92,37 @@ const formattedPosts: FormattedPost[] = posts.map((post: { slug: string; body?: 
     excerpt,
     image
   };
-});
-
+}).reverse();
 ---
-<BaseLayout title="Tin Tức & Hướng Dẫn Đăng Ký Gói Cước Viettel 2026 | tracuugoicuoc.com">
+<BaseLayout
+  title="Tin tức & Hướng dẫn Viettel 4G/5G | TraCuuGoiCuoc.com"
+  description="Tin tức, hướng dẫn sử dụng 4G/5G, eSIM, roaming, tra cứu và xử lý lỗi dịch vụ Viettel."
+  canonical="/tin-tuc"
+>
   <Header client:load />
-  
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 pt-24 min-h-screen font-sans">
-    {/* Header banner */}
-    <div class="bg-gradient-to-r from-red-600 to-red-700 rounded-2xl shadow-xl p-6 sm:p-10 text-white mb-10">
-      <div class="max-w-3xl">
-        <span class="inline-block bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3">
-          Kênh Kiến Thức & AEO/SEO
-        </span>
-        <h1 class="text-3xl sm:text-4xl font-black uppercase tracking-tight leading-tight">
-          Tin Tức & Hướng Dẫn Viettel
-        </h1>
-        <p class="text-red-100 text-sm sm:text-base mt-3 leading-relaxed">
-          Tổng hợp đầy đủ cách đăng ký, hủy gói cước, tra cứu lưu lượng Data 4G/5G và giải đáp thắc mắc liên quan đến dịch vụ di động Viettel chính thức.
-        </p>
+  <main class="min-h-screen bg-slate-50 pt-24">
+    <section class="mx-auto max-w-7xl px-4 py-12">
+      <div class="mx-auto max-w-3xl text-center">
+        <span class="inline-flex rounded-full bg-red-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-red-600">Tin tức & Hướng dẫn</span>
+        <h1 class="mt-4 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">Hướng dẫn Viettel 4G/5G, eSIM và roaming</h1>
+        <p class="mt-4 text-base leading-7 text-slate-600">Tổng hợp các bài hướng dẫn sử dụng, tra cứu, xử lý lỗi và cập nhật dịch vụ di động Viettel theo nguồn được dẫn.</p>
       </div>
-    </div>
 
-    {/* Posts Grid */}
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {formattedPosts.map((item) => (
-        <article class="bg-white rounded-xl border border-gray-200 hover:border-red-500 hover:shadow-lg transition-all duration-300 flex flex-col justify-between overflow-hidden group">
-          <div>
-            <a href={`/posts/${item.slug}`} class="block overflow-hidden h-48 w-full relative">
-              <img 
-                src={item.image} 
-                alt={item.title}
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                loading="lazy"
-              />
-              <span class="absolute top-3 left-3 bg-red-600/90 text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider shadow-sm">
-                Viettel 2026
-              </span>
+      <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {formattedPosts.map((post) => (
+          <article class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+            <a href={`/posts/${post.slug}`} class="block">
+              <img src={post.image} alt={post.title} class="h-48 w-full object-cover" loading="lazy" />
             </a>
-
-            <div class="p-6 pb-2">
-              <div class="flex items-center gap-2 text-xs font-bold text-red-600 uppercase tracking-wider mb-2">
-                <span class="w-2 h-2 rounded-full bg-red-600"></span>
-                Hướng dẫn di động
-              </div>
-              <h2 class="text-lg font-bold text-gray-900 hover:text-red-600 transition-colors line-clamp-2 leading-snug mb-3">
-                <a href={`/posts/${item.slug}`} class="hover:underline">
-                  {item.title}
-                </a>
-              </h2>
-              <p class="text-sm text-gray-600 line-clamp-3 leading-relaxed">
-                {item.excerpt}
-              </p>
+            <div class="p-5">
+              <a href={`/posts/${post.slug}`} class="text-lg font-extrabold leading-snug text-slate-900 transition-colors hover:text-red-600">{post.title}</a>
+              <p class="mt-3 text-sm leading-6 text-slate-600">{post.excerpt}</p>
+              <a href={`/posts/${post.slug}`} class="mt-5 inline-flex min-h-[44px] items-center font-bold text-red-600 hover:text-red-700">Đọc hướng dẫn →</a>
             </div>
-          </div>
-
-          <div class="px-6 pb-6 pt-4 border-t border-gray-100 flex items-center justify-between">
-            <a 
-              href={`/posts/${item.slug}`}
-              class="inline-flex items-center gap-1.5 text-sm font-bold text-red-600 hover:text-red-700 min-h-[44px] py-2"
-            >
-              Đọc chi tiết
-              <span aria-hidden="true">→</span>
-            </a>
-            <span class="text-xs text-gray-400 font-medium">Miễn phí SMS 290</span>
-          </div>
-        </article>
-      ))}
-    </div>
-
-    {/* Call to action footer box */}
-    <div class="mt-12 bg-red-50 border border-red-200 rounded-2xl p-6 text-center">
-      <h3 class="text-lg font-bold text-red-800">Cần tư vấn chọn gói cước phù hợp nhất?</h3>
-      <p class="text-sm text-red-700 mt-1">Liên hệ ngay tổng đài chăm sóc khách hàng Viettel 1800.8098 (Miễn phí).</p>
-      <div class="mt-4">
-        <a href="/" class="inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-bold bg-red-600 text-white hover:bg-red-700 shadow-md transition-colors min-h-[44px]">
-          ← Về trang tra cứu gói cước
-        </a>
+          </article>
+        ))}
       </div>
-    </div>
+    </section>
   </main>
-
   <Footer client:load />
 </BaseLayout>
