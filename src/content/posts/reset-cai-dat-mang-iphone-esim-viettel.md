@@ -1,4 +1,4 @@
-# Reset cài đặt mạng iPhone có xóa eSIM Viettel không? Khác gì Xóa tất cả eSIM?
+# Reset mạng iPhone có xóa eSIM Viettel, ảnh hưởng 5G không?
 
 **Cập nhật kiểm chứng: 14/09/2026.** Trên iPhone, **Đặt lại cài đặt mạng (Reset Network Settings)** và **Xóa tất cả eSIM (Delete All eSIMs)** là hai thao tác khác nhau. Apple liệt kê chúng thành các lựa chọn reset riêng biệt, nên nếu mục tiêu của bạn chỉ là xử lý lỗi Wi‑Fi, dữ liệu di động, 4G/5G hoặc cấu hình mạng, không nên tự xóa eSIM Viettel như một bước thử lỗi.
 
