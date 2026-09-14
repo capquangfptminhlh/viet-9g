@@ -392,11 +392,11 @@
 <description>Chu kỳ gia hạn dài hạn của các gói MXH100 theo thông tin Viettel.</description>
 </item>
 <item>
-<title>Hủy gói data roaming Viettel qua 191</title>
-<link>https://www.tracuugoicuoc.com/posts/huy-goi-data-roaming-viettel</link>
-<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/huy-goi-data-roaming-viettel</guid>
+<title>Dừng gia hạn gói YT1 Viettel bằng SMS 191</title>
+<link>https://www.tracuugoicuoc.com/posts/huy-gia-han-yt1-viettel</link>
+<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/huy-gia-han-yt1-viettel</guid>
 <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
-<description>Cách gửi yêu cầu hủy gói data roaming theo tên gói do Viettel hướng dẫn.</description>
+<description>Cú pháp dừng gia hạn hằng ngày của gói YT1 theo hướng dẫn Viettel.</description>
 </item>
 <item>
 <title>Gói 1N Viettel: phân biệt HUY 1N và HUYDATA 1N</title>
@@ -406,18 +406,18 @@
 <description>Hướng dẫn phân biệt hai cú pháp 191 dành cho gói data ngày 1N.</description>
 </item>
 <item>
+<title>Hủy gói data roaming Viettel qua 191</title>
+<link>https://www.tracuugoicuoc.com/posts/huy-goi-data-roaming-viettel</link>
+<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/huy-goi-data-roaming-viettel</guid>
+<pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+<description>Cách gửi yêu cầu hủy gói data roaming theo tên gói do Viettel hướng dẫn.</description>
+</item>
+<item>
 <title>Hủy hoặc dừng gia hạn gói FB30 Viettel qua 191</title>
 <link>https://www.tracuugoicuoc.com/posts/huy-goi-fb30-viettel</link>
 <guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/huy-goi-fb30-viettel</guid>
 <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
 <description>Cú pháp HUY FB30 và HUYDATA FB30 theo hướng dẫn từ Viettel.</description>
-</item>
-<item>
-<title>Dừng gia hạn gói YT1 Viettel bằng SMS 191</title>
-<link>https://www.tracuugoicuoc.com/posts/huy-gia-han-yt1-viettel</link>
-<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/huy-gia-han-yt1-viettel</guid>
-<pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
-<description>Cú pháp dừng gia hạn hằng ngày của gói YT1 theo hướng dẫn Viettel.</description>
 </item>
 <item>
 <title>Hủy hoặc dừng gia hạn gói FB7 Viettel qua 191</title>
@@ -529,12 +529,6 @@
 <description>Bài hướng dẫn Doi Diem Viettel Plus Sang Data trên TraCuuGoiCuoc.com.</description>
 </item>
 <item>
-<title>Doi Esim Viettel Co Mat Danh Ba Khong</title>
-<link>https://www.tracuugoicuoc.com/posts/doi-esim-viettel-co-mat-danh-ba-khong</link>
-<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/doi-esim-viettel-co-mat-danh-ba-khong</guid>
-<description>Bài hướng dẫn Doi Esim Viettel Co Mat Danh Ba Khong trên TraCuuGoiCuoc.com.</description>
-</item>
-<item>
 <title>Doi Esim Viettel Tren My Viettel</title>
 <link>https://www.tracuugoicuoc.com/posts/doi-esim-viettel-tren-my-viettel</link>
 <guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/doi-esim-viettel-tren-my-viettel</guid>
@@ -559,10 +553,10 @@
 <description>Bài hướng dẫn Esim Viettel Bi Khoa Chieu Nap The trên TraCuuGoiCuoc.com.</description>
 </item>
 <item>
-<title>Esim Viettel Bi Khoa Pin Cach Xu Ly</title>
-<link>https://www.tracuugoicuoc.com/posts/esim-viettel-bi-khoa-pin-cach-xu-ly</link>
-<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/esim-viettel-bi-khoa-pin-cach-xu-ly</guid>
-<description>Bài hướng dẫn Esim Viettel Bi Khoa Pin Cach Xu Ly trên TraCuuGoiCuoc.com.</description>
+<title>Doi Esim Viettel Co Mat Danh Ba Khong</title>
+<link>https://www.tracuugoicuoc.com/posts/doi-esim-viettel-co-mat-danh-ba-khong</link>
+<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/doi-esim-viettel-co-mat-danh-ba-khong</guid>
+<description>Bài hướng dẫn Doi Esim Viettel Co Mat Danh Ba Khong trên TraCuuGoiCuoc.com.</description>
 </item>
 <item>
 <title>Esim Viettel Bi Khoa Mot Chieu Khong Gui Duoc Sms</title>
@@ -571,16 +565,22 @@
 <description>Bài hướng dẫn Esim Viettel Bi Khoa Mot Chieu Khong Gui Duoc Sms trên TraCuuGoiCuoc.com.</description>
 </item>
 <item>
-<title>Esim Viettel Bi Khoa Puk Cach Xu Ly</title>
-<link>https://www.tracuugoicuoc.com/posts/esim-viettel-bi-khoa-puk-cach-xu-ly</link>
-<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/esim-viettel-bi-khoa-puk-cach-xu-ly</guid>
-<description>Bài hướng dẫn Esim Viettel Bi Khoa Puk Cach Xu Ly trên TraCuuGoiCuoc.com.</description>
+<title>Esim Viettel Bi Khoa Pin Cach Xu Ly</title>
+<link>https://www.tracuugoicuoc.com/posts/esim-viettel-bi-khoa-pin-cach-xu-ly</link>
+<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/esim-viettel-bi-khoa-pin-cach-xu-ly</guid>
+<description>Bài hướng dẫn Esim Viettel Bi Khoa Pin Cach Xu Ly trên TraCuuGoiCuoc.com.</description>
 </item>
 <item>
 <title>Esim Viettel Co Dung Duoc 4g Khong</title>
 <link>https://www.tracuugoicuoc.com/posts/esim-viettel-co-dung-duoc-4g-khong</link>
 <guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/esim-viettel-co-dung-duoc-4g-khong</guid>
 <description>Bài hướng dẫn Esim Viettel Co Dung Duoc 4g Khong trên TraCuuGoiCuoc.com.</description>
+</item>
+<item>
+<title>Esim Viettel Bi Khoa Puk Cach Xu Ly</title>
+<link>https://www.tracuugoicuoc.com/posts/esim-viettel-bi-khoa-puk-cach-xu-ly</link>
+<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/esim-viettel-bi-khoa-puk-cach-xu-ly</guid>
+<description>Bài hướng dẫn Esim Viettel Bi Khoa Puk Cach Xu Ly trên TraCuuGoiCuoc.com.</description>
 </item>
 <item>
 <title>Esim Viettel Khong Gui Duoc Sms Do Het Tien</title>
@@ -679,16 +679,16 @@
 <description>Bài hướng dẫn Mua Sim Viettel Online Chon So trên TraCuuGoiCuoc.com.</description>
 </item>
 <item>
-<title>Nap Tien Viettel Tra Truoc Online</title>
-<link>https://www.tracuugoicuoc.com/posts/nap-tien-viettel-tra-truoc-online</link>
-<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/nap-tien-viettel-tra-truoc-online</guid>
-<description>Bài hướng dẫn Nap Tien Viettel Tra Truoc Online trên TraCuuGoiCuoc.com.</description>
-</item>
-<item>
 <title>Nap The Cao Viettel Bang Ma The</title>
 <link>https://www.tracuugoicuoc.com/posts/nap-the-cao-viettel-bang-ma-the</link>
 <guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/nap-the-cao-viettel-bang-ma-the</guid>
 <description>Bài hướng dẫn Nap The Cao Viettel Bang Ma The trên TraCuuGoiCuoc.com.</description>
+</item>
+<item>
+<title>Nap Tien Viettel Tra Truoc Online</title>
+<link>https://www.tracuugoicuoc.com/posts/nap-tien-viettel-tra-truoc-online</link>
+<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/nap-tien-viettel-tra-truoc-online</guid>
+<description>Bài hướng dẫn Nap Tien Viettel Tra Truoc Online trên TraCuuGoiCuoc.com.</description>
 </item>
 <item>
 <title>Quen Mat Khau Tai Khoan Viettel Lay Lai Bang Otp</title>
@@ -715,16 +715,16 @@
 <description>Bài hướng dẫn Samsung Esim Simple Setup Viettel trên TraCuuGoiCuoc.com.</description>
 </item>
 <item>
-<title>So Sanh Goi 5g135n Va 5g150n Viettel</title>
-<link>https://www.tracuugoicuoc.com/posts/so-sanh-goi-5g135n-va-5g150n-viettel</link>
-<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/so-sanh-goi-5g135n-va-5g150n-viettel</guid>
-<description>Bài hướng dẫn So Sanh Goi 5g135n Va 5g150n Viettel trên TraCuuGoiCuoc.com.</description>
-</item>
-<item>
 <title>So Sanh 5g135 Va 5g150 Viettel</title>
 <link>https://www.tracuugoicuoc.com/posts/so-sanh-5g135-va-5g150-viettel</link>
 <guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/so-sanh-5g135-va-5g150-viettel</guid>
 <description>Bài hướng dẫn So Sanh 5g135 Va 5g150 Viettel trên TraCuuGoiCuoc.com.</description>
+</item>
+<item>
+<title>So Sanh Goi 5g135n Va 5g150n Viettel</title>
+<link>https://www.tracuugoicuoc.com/posts/so-sanh-goi-5g135n-va-5g150n-viettel</link>
+<guid isPermaLink="true">https://www.tracuugoicuoc.com/posts/so-sanh-goi-5g135n-va-5g150n-viettel</guid>
+<description>Bài hướng dẫn So Sanh Goi 5g135n Va 5g150n Viettel trên TraCuuGoiCuoc.com.</description>
 </item>
 <item>
 <title>Thanh Toan Cuoc Tra Sau Viettel Online</title>
