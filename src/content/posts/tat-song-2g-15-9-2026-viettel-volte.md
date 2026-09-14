@@ -1,18 +1,18 @@
 ---
-title: "Tắt 2G 15/9/2026: còn 2 ngày, kiểm tra VoLTE Viettel ngay"
-description: "Cập nhật 13/09/2026: còn 2 ngày tới mốc dừng 2G. Checklist kiểm tra cuộc gọi, VoLTE, HDCALL 191, SIM và USSD Viettel trước 15/9."
-date: 2026-09-13
+title: "Tắt 2G 15/9/2026: còn 1 ngày, kiểm tra VoLTE Viettel ngay"
+description: "Cập nhật 14/09/2026: còn 1 ngày tới mốc dừng 2G. Checklist kiểm tra cuộc gọi, VoLTE, HDCALL 191, SIM và USSD Viettel trước 15/9."
+date: 2026-09-14
 ---
 
-# Tắt 2G 15/9/2026: còn 2 ngày, kiểm tra VoLTE Viettel ngay
+# Tắt 2G 15/9/2026: còn 1 ngày, kiểm tra VoLTE Viettel ngay
 
-**Cập nhật kiểm chứng 13/09/2026:** chỉ còn **2 ngày** tới mốc 15/09/2026. Cổng thông tin Bộ Khoa học và Công nghệ xác nhận hệ thống GSM/2G được tiếp tục sử dụng đến hết 15/09/2026, ngoại trừ các khu vực đặc thù được nêu trong nguồn chính thức. Viettel cũng yêu cầu thiết bị 4G/5G dùng thoại sau giai đoạn này cần hỗ trợ VoLTE, vì vậy sáng nay là thời điểm phù hợp để kiểm tra cuộc gọi thật thay vì chỉ nhìn biểu tượng 4G/5G.
+**Cập nhật kiểm chứng 14/09/2026:** chỉ còn **1 ngày** tới mốc 15/09/2026. Cổng thông tin Bộ Khoa học và Công nghệ xác nhận hệ thống GSM/2G được tiếp tục sử dụng đến hết 15/09/2026, ngoại trừ các khu vực đặc thù được nêu trong nguồn chính thức. Viettel cũng yêu cầu thiết bị 4G/5G dùng thoại sau giai đoạn này cần hỗ trợ VoLTE, vì vậy hôm nay là thời điểm phù hợp để kiểm tra cuộc gọi thật thay vì chỉ nhìn biểu tượng 4G/5G.
 
 ![Minh họa điện thoại 4G/5G Viettel duy trì cuộc gọi khi mạng 2G được dừng](/images/tat-song-2g-volte-viettel.svg)
 
 > **Trả lời nhanh:** nếu máy đang hiện 4G/5G nhưng khi bắt đầu cuộc gọi lại mất 4G hoặc rơi về lớp mạng cũ, hãy coi đó là tín hiệu cần kiểm tra **VoLTE của thiết bị + SIM/thuê bao + cấu hình thoại + cuộc gọi thử thực tế** trước 15/09. Viettel hướng dẫn đăng ký VoLTE bằng **`HDCALL` gửi `191`** và công bố **phí dịch vụ VoLTE 0 đồng**. Việc biểu tượng mạng hiển thị thế nào vẫn có thể khác theo model/phần mềm.
 
-## Sáng 13/9: còn 2 ngày, nên kiểm tra 3 việc này trước
+## Ngày 14/9: còn 1 ngày, nên kiểm tra 3 việc này trước
 
 Mốc 15/09/2026 đã rất gần. Nếu bạn chưa từng kiểm tra cuộc gọi sau khi bật 4G/5G, hãy làm ba phép thử ngắn để phát hiện sớm thiết bị hoặc thuê bao còn phụ thuộc lớp thoại cũ:
 
@@ -22,7 +22,7 @@ Mốc 15/09/2026 đã rất gần. Nếu bạn chưa từng kiểm tra cuộc g�
 
 Nếu một trong ba bước không ổn, xử lý theo đúng nhánh lỗi bên dưới hoặc liên hệ kênh hỗ trợ chính thức của Viettel. Không cần mua gói data mới chỉ để “sửa VoLTE”: khả năng thoại 4G phụ thuộc thiết bị, SIM/thuê bao, cấu hình và điều kiện mạng chứ không được quyết định chỉ bởi việc có một gói data.
 
-## Cập nhật 13/09/2026: hạ tầng 2G còn 2 ngày theo mốc hiện hành
+## Cập nhật 14/09/2026: hạ tầng 2G còn 1 ngày theo mốc hiện hành
 
 Cổng thông tin Bộ Khoa học và Công nghệ nêu hệ thống GSM/2G được tiếp tục sử dụng đến hết **15/09/2026**. Viettel cũng công bố mốc này cho hạ tầng GSM và hướng dẫn người dùng chuyển sang thiết bị 4G/5G có hỗ trợ VoLTE để tiếp tục sử dụng thoại sau giai đoạn chuyển đổi.
 
