@@ -1,0 +1,149 @@
+version: 1.0.0
+decision: PASS
+run_slot: "07:00"
+observed_at: 2026-09-16T06:58:54+07:00
+website_os_source_repo: capquangfptminhlh/seo-web
+website_os_source_ref: main
+website_os_source_commit: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+manifest_version: 1.3.0
+project_repo: capquangfptminhlh/viettel-4g-web
+research_scope: "same-day Viettel 4G/5G/eSIM/SIM/support/roaming/device compatibility/packages"
+metrics:
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking_position: UNKNOWN
+  traffic_potential: UNKNOWN
+  fabricated_metrics: false
+candidates:
+  - id: C1
+    query: "Viettel 16/9/2026 tin mới 4G 5G eSIM SIM"
+    intent: FRESHNESS
+    entity_topic: "Viettel mobile same-day news"
+    cluster: "mobile-news-freshness"
+    canonical_owner: UNKNOWN
+    content_type: news_freshness
+    evidence: "same-day first-party Viettel search performed; no sufficiently strong 16/09 mobile publication observed"
+    priority: HOLD
+    decision: HOLD_CANDIDATE
+    reason: "no same-day primary-source mobile fact strong enough for a defensible freshness page"
+  - id: C2
+    query: "sau 15/9 Viettel có 4G 5G nhưng không gọi được"
+    intent: SUPPORT
+    entity_topic: "Viettel VoLTE post-2G call troubleshooting"
+    cluster: "volte-call-troubleshooting"
+    canonical_owner: "/posts/viettel-co-4g-nhung-khong-goi-duoc-sau-tat-2g/"
+    content_type: support_article_update
+    evidence: "existing canonical owner + Viettel VoLTE source + regulator 2G transition source; post-cutoff freshness materially improves troubleshooting job"
+    priority: P1
+    decision: SELECT_UPDATE
+    reason: "same canonical job as 15/09 article; update adds post-cutoff 16/09 diagnostic framing, device/USSD differentiation and internal links without creating a competing URL"
+  - id: C3
+    query: "đổi eSIM Viettel Android quét QR"
+    intent: SUPPORT
+    entity_topic: "Viettel eSIM Android activation"
+    cluster: "esim-activation"
+    canonical_owner: EXISTING_OWNER
+    content_type: support_article
+    evidence: "Viettel Tammi eSIM guide crawled 16/09; repo already contains eSIM activation/transfer owners"
+    priority: HOLD
+    decision: REJECT_NEW_URL
+    reason: "duplicate/cannibalization risk with existing eSIM activation owners"
+  - id: C4
+    query: "SIM Viettel đổi điện thoại xác thực khuôn mặt"
+    intent: SUPPORT
+    entity_topic: "Viettel SIM device-change biometric verification"
+    cluster: "sim-verification-device-change"
+    canonical_owner: EXISTING_OWNER
+    content_type: support_article
+    evidence: "Viettel 15/06/2026 official notice crawled 16/09; existing owner already covers the job"
+    priority: HOLD
+    decision: REJECT_NEW_URL
+    reason: "existing canonical owner"
+  - id: C5
+    query: "Viettel roaming Nhật không có mạng VoLTE"
+    intent: SUPPORT
+    entity_topic: "Viettel Japan roaming connectivity"
+    cluster: "roaming-japan-support"
+    canonical_owner: EXISTING_OWNER
+    content_type: support_article
+    evidence: "Viettel Japan roaming troubleshooting source crawled 16/09; existing owner already covers this country-specific job"
+    priority: HOLD
+    decision: REJECT_NEW_URL
+    reason: "existing canonical owner"
+  - id: C6
+    query: "5G150E Viettel eSIM 2026"
+    intent: COMMERCIAL
+    entity_topic: "Viettel 5G150E eSIM package"
+    cluster: "5g150e-package"
+    canonical_owner: EXISTING_OWNER
+    content_type: package_entity
+    evidence: "Viettel 09/06/2026 first-party package article; repository already has entity owner"
+    priority: HOLD
+    decision: REJECT_NEW_URL
+    reason: "package/entity owner exists; do not create a competing blog URL"
+  - id: C7
+    query: "VoWiFi Viettel Wi-Fi Calling 2026"
+    intent: SUPPORT
+    entity_topic: "Viettel Wi-Fi Calling provisioning"
+    cluster: "vowifi-support"
+    canonical_owner: HOLD
+    content_type: support_article
+    evidence: "no current first-party provisioning/eligibility evidence verified in this run"
+    priority: HOLD
+    decision: HOLD_CANDIDATE
+    reason: "insufficient current carrier provisioning evidence"
+selected_candidate:
+  action: UPDATE
+  primary_keyword: "sau 15/9 Viettel có 4G nhưng không gọi được"
+  secondary_queries:
+    - "16/9 Viettel có 5G nhưng không gọi được"
+    - "sau tắt 2G Viettel kiểm tra VoLTE thế nào"
+    - "HDCALL 191 Viettel sau 15/9"
+    - "điện thoại 4G Viettel không gọi được sau tắt 2G"
+    - "USSD lỗi sau tắt 2G có phải VoLTE lỗi không"
+    - "có 4G nhưng không gọi được có cần đổi SIM Viettel không"
+  entity_topic: "Viettel VoLTE post-2G call troubleshooting"
+  cluster: "volte-call-troubleshooting"
+  primary_intent: SUPPORT
+  supporting_intents:
+    - INFORMATIONAL
+    - FRESHNESS
+  canonical_url_owner: "/posts/viettel-co-4g-nhung-khong-goi-duoc-sau-tat-2g/"
+  content_type: support_article_update
+  why_update: "The 16/09 post-cutoff queries have the same diagnostic job as the existing 15/09 canonical owner. A new URL would split authority; expanding the owner is the correct K0 action."
+  internal_link_plan:
+    - "/posts/tat-song-2g-15-9-2026-viettel-volte/"
+    - "/posts/dien-thoai-ban-phim-4g-viettel-volte-tat-2g/"
+    - "/posts/ussd-viettel-qua-4g-volte-ims/"
+source_provenance:
+  - source: "Viettel Telecom — VoLTE/HD CALL guidance"
+    type: OFFICIAL_PRIMARY
+    purpose: "VoLTE definition and HDCALL 191 support fact"
+    verification_status: VERIFIED
+  - source: "Bộ Khoa học và Công nghệ — 2G transition roadmap"
+    type: GOVERNMENT_PRIMARY
+    purpose: "15/09/2026 transition milestone; no unsupported nationwide midnight shutdown claim"
+    verification_status: VERIFIED
+  - source: "Viettel Telecom — eSIM/Tammi, SIM biometric verification, Japan roaming, 5G150E"
+    type: OFFICIAL_PRIMARY
+    purpose: "fallback candidate research and ownership checks"
+    verification_status: VERIFIED
+ownership:
+  new_url_created: false
+  canonical_owner_changed: false
+  duplicate_check: PASS
+  cannibalization_check: PASS
+  reason: "owner expansion preserves one intent/entity job -> one canonical URL"
+commercial_fact_policy:
+  new_price_claims: false
+  new_package_benefit_claims: false
+  new_eligibility_claims: false
+  coverage_claims: false
+  fabricated_metrics: false
+invariants:
+  dns_or_domain_routing_change: false
+  registration_cta_changed: false
+  approved_registration_contract: "MÃ_GÓI GB -> 290"
+  exact_main_vercel_required_before_live_claim: true
+k0_result: PASS
