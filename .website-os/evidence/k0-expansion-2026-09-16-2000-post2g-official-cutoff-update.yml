@@ -1,0 +1,127 @@
+version: 1.0.0
+decision: PASS
+run_slot: "20:00"
+observed_at: 2026-09-16T20:00:40+07:00
+website_os_source_repo: capquangfptminhlh/seo-web
+website_os_source_ref: main
+website_os_source_commit: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+manifest_version: 1.3.0
+project_repo: capquangfptminhlh/viettel-4g-web
+project_main_at_start: 070b58e583fc3b8f93215deda2bbd4ac514fd446
+research_scope: "same-day Viettel 4G/5G/eSIM/SIM/support/roaming/device compatibility/packages"
+production_invariants:
+  dns_domain_routing_changed: false
+  registration_cta_contract: "MÃ_GÓI GB -> 290"
+  registration_cta_changed: false
+  exact_main_vercel_required_before_live_claim: true
+metrics:
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking_position: UNKNOWN
+  traffic_potential: UNKNOWN
+  fabricated_metrics: false
+candidates:
+  - id: C1
+    query: "16/9/2026 dừng 2G Viettel có 4G nhưng không gọi được"
+    intent: SUPPORT
+    entity_topic: "post-2G VoLTE call troubleshooting after official nationwide GSM stop"
+    cluster: "volte-call-troubleshooting"
+    canonical_owner: "/posts/viettel-co-4g-nhung-khong-goi-duoc-sau-tat-2g/"
+    content_type: support_article_update
+    evidence: "same-day Ministry/official government publication states nationwide 2G GSM stop from 16/09/2026, with specified exceptional areas; same-day search demand asks why 4G phones may still fail calls; existing canonical owner currently contains a caution that is now stale"
+    priority: P1
+    decision: SELECT_UPDATE
+    reason: "same search job and canonical owner; official same-day evidence materially changes the factual boundary, so update rather than create a competing URL"
+  - id: C2
+    query: "chuyển mạng giữ số Vietnamobile sang Viettel 2026"
+    intent: SUPPORT
+    entity_topic: "mobile number portability to Viettel"
+    cluster: "mnp-support"
+    canonical_owner: EXISTING_OWNER_OR_REQUIRES_PRIMARY_VERIFICATION
+    content_type: support_article
+    evidence: "same-day third-party freshness signal observed; commercial/procedural details require primary-source verification before any new owner"
+    priority: HOLD
+    decision: HOLD_CANDIDATE
+    reason: "third-party freshness alone is insufficient to establish a new canonical owner or current Viettel conditions"
+  - id: C3
+    query: "Viettel eSIM iPhone 2026"
+    intent: SUPPORT
+    entity_topic: "Viettel iPhone eSIM activation/transfer"
+    cluster: "esim-activation"
+    canonical_owner: EXISTING_OWNER
+    content_type: support_article
+    evidence: "repo already contains dedicated eSIM activation, transfer and recovery owners"
+    priority: HOLD
+    decision: REJECT_NEW_URL
+    reason: "duplicate/cannibalization risk"
+  - id: C4
+    query: "Viettel roaming Nhật VoLTE không gọi được"
+    intent: SUPPORT
+    entity_topic: "Japan roaming VoLTE/connectivity"
+    cluster: "roaming-japan-support"
+    canonical_owner: EXISTING_OWNER
+    content_type: support_article
+    evidence: "Viettel first-party Japan roaming guidance is current; repository already owns this country-specific job"
+    priority: HOLD
+    decision: REJECT_NEW_URL
+    reason: "existing canonical owner"
+  - id: C5
+    query: "VoWiFi Viettel Wi-Fi Calling 2026"
+    intent: SUPPORT
+    entity_topic: "Viettel Wi-Fi Calling provisioning"
+    cluster: "vowifi-support"
+    canonical_owner: HOLD
+    content_type: support_article
+    evidence: "no current first-party Viettel provisioning/eligibility evidence verified in this run"
+    priority: HOLD
+    decision: HOLD_CANDIDATE
+    reason: "insufficient current carrier provisioning evidence"
+  - id: C6
+    query: "gói Viettel 10K 5GB ngày 2026"
+    intent: COMMERCIAL
+    entity_topic: "short-duration Viettel data package"
+    cluster: "one-day-package"
+    canonical_owner: EXISTING_OWNER
+    content_type: package_or_existing_article
+    evidence: "same-day third-party demand signal observed, but current package availability/benefits must be verified first-party; baseline K0 preserves existing one-day owner"
+    priority: HOLD
+    decision: REJECT_NEW_URL
+    reason: "existing canonical owner plus current commercial facts not independently verified"
+  - id: C7
+    query: "điện thoại 4G Viettel sau tắt 2G có cần VoLTE"
+    intent: SUPPORT
+    entity_topic: "4G device/VoLTE compatibility"
+    cluster: "device-volte-compatibility"
+    canonical_owner: EXISTING_OWNER_SET
+    content_type: support_article
+    evidence: "repo has generic post-2G troubleshooting and feature-phone-specific VoLTE owners"
+    priority: HOLD
+    decision: REJECT_NEW_URL
+    reason: "near-duplicate of existing owners; factual freshness belongs in selected canonical update"
+selected_candidate:
+  action: UPDATE
+  primary_keyword: "16/9/2026 Viettel có 4G nhưng không gọi được sau tắt 2G"
+  secondary_queries:
+    - "từ 16/9/2026 tắt 2G Viettel có cần VoLTE"
+    - "điện thoại 4G Viettel sau 16/9 không gọi được"
+    - "HDCALL 191 Viettel sau tắt 2G"
+    - "2G dừng từ 16/9/2026 Viettel"
+    - "có 5G nhưng không gọi được Viettel sau tắt 2G"
+  cluster: "volte-call-troubleshooting"
+  primary_intent: SUPPORT
+  secondary_intents: [INFORMATIONAL, FRESHNESS]
+  canonical_owner: "/posts/viettel-co-4g-nhung-khong-goi-duoc-sau-tat-2g/"
+  content_type: support_article_update
+  why_update: "same-day official evidence now establishes the 16/09 nationwide GSM stop boundary (with stated exceptions), correcting the owner's earlier cautious wording; a new URL would cannibalize the same troubleshooting job"
+  source_provenance:
+    - "Ministry of Science and Technology / official government publication, observed 2026-09-16: Dừng hệ thống mạng di động 2G (GSM) trên toàn quốc từ ngày 16/9/2026"
+    - "Viettel Telecom first-party VoLTE guidance: HDCALL -> 191"
+    - "same-day news/search-demand observation: 4G phone but calls fail after 2G shutdown"
+  internal_link_plan:
+    - "/posts/tat-song-2g-15-9-2026-viettel-volte/"
+    - "/posts/dien-thoai-ban-phim-4g-viettel-volte-tat-2g/"
+    - "/posts/ussd-viettel-qua-4g-volte-ims/"
+  duplicate_check: PASS
+  cannibalization_check: PASS
+  k0_result: PASS

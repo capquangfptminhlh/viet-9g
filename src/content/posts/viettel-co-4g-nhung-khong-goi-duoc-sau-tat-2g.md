@@ -1,18 +1,18 @@
 ---
-title: "Sau 15/9/2026: Viettel có 4G/5G nhưng không gọi được, kiểm tra VoLTE thế nào?"
-description: "Sau mốc 15/9/2026, điện thoại vẫn có data 4G/5G Viettel nhưng gọi thoại lỗi? Kiểm tra VoLTE, HD CALL, chế độ mạng, thiết bị và trạng thái thuê bao."
-date: 2026-09-16T06:58:54+07:00
+title: "Từ 16/9/2026: Viettel có 4G/5G nhưng không gọi được, kiểm tra VoLTE thế nào?"
+description: "Từ 16/9/2026, hệ thống 2G/GSM dừng trên toàn quốc theo lộ trình, trừ khu vực đặc thù. Nếu Viettel vẫn có 4G/5G nhưng gọi lỗi, kiểm tra VoLTE, HD CALL và thiết bị."
+date: 2026-09-16T20:00:40+07:00
 ---
 
-# Sau 15/9/2026: Viettel có 4G/5G nhưng không gọi được, kiểm tra VoLTE thế nào?
+# Từ 16/9/2026: Viettel có 4G/5G nhưng không gọi được, kiểm tra VoLTE thế nào?
 
-Nếu điện thoại vẫn vào mạng bằng **4G/5G Viettel nhưng cuộc gọi thoại không thực hiện được**, đừng vội kết luận SIM đã hỏng. Data hoạt động và thoại hoạt động là hai việc cần kiểm tra riêng. Sau mốc quản lý 2G ngày 15/09/2026, điểm quan trọng là điện thoại, SIM/thuê bao và cấu hình mạng phải đáp ứng điều kiện để cuộc gọi thoại chạy trên nền 4G qua **VoLTE**.
+Nếu điện thoại vẫn vào mạng bằng **4G/5G Viettel nhưng cuộc gọi thoại không thực hiện được**, đừng vội kết luận SIM đã hỏng. Data hoạt động và thoại hoạt động là hai việc cần kiểm tra riêng. Theo thông tin chính thức công bố ngày 16/09/2026, hệ thống mạng di động **2G (GSM) dừng trên phạm vi toàn quốc từ ngày 16/09/2026**, ngoại trừ một số khu vực đặc thù được nêu trong lộ trình. Vì vậy, với lỗi “có 4G/5G nhưng không gọi được”, điểm cần kiểm tra đầu tiên là khả năng thoại trên nền 4G qua **VoLTE**, cùng trạng thái thiết bị và thuê bao.
 
 ## Trả lời nhanh cho ngày 16/9
 
-**Có 4G/5G không đồng nghĩa chắc chắn cuộc gọi thoại đã dùng được VoLTE.** Viettel mô tả VoLTE là dịch vụ thoại chất lượng cao trên nền 4G/LTE. Nếu sáng 16/09 hoặc sau mốc 15/09 máy vẫn có data nhưng gọi không được, hãy kiểm tra theo thứ tự: gọi thử → VoLTE/4G Calling → phản hồi HD CALL → chế độ mạng → đúng model máy → trạng thái thuê bao.
+**Có 4G/5G không đồng nghĩa chắc chắn cuộc gọi thoại đã dùng được VoLTE.** Viettel mô tả VoLTE là dịch vụ thoại chất lượng cao trên nền 4G/LTE. Nếu từ ngày 16/09 máy vẫn có data nhưng gọi không được, hãy kiểm tra theo thứ tự: gọi thử → VoLTE/4G Calling → phản hồi HD CALL → chế độ mạng → đúng model máy → trạng thái thuê bao.
 
-Không nên tự suy ra rằng mọi trạm 2G trên toàn quốc đã tắt đồng loạt vào 00:00 ngày 16/09. Nguồn quản lý được dùng trong bài xác nhận lộ trình/mốc 15/09/2026; bài này chỉ xử lý **triệu chứng thực tế của người dùng sau mốc đó**.
+Điểm freshness quan trọng: nguồn chính thức của cơ quan quản lý hiện đã xác nhận **dừng hệ thống 2G/GSM trên toàn quốc từ ngày 16/09/2026**, với ngoại lệ cho các khu vực đặc thù theo quy định. Vì vậy bài không còn giữ cảnh báo cũ rằng chưa thể xác nhận mốc dừng sau 15/09; thay vào đó, bài tập trung vào việc xử lý lỗi thoại sau khi lộ trình chuyển đổi đã sang giai đoạn hậu 2G.
 
 ## 1. Gọi thử và nhìn biểu tượng mạng
 
@@ -43,7 +43,7 @@ Nếu trước đó bạn từng ép máy về một chế độ mạng đặc b
 
 Không nên xóa eSIM, reset toàn bộ máy hoặc thay đổi APN hàng loạt chỉ để thử VoLTE. Những thao tác mạnh này không phải bước đầu tiên cho lỗi gọi thoại.
 
-## 5. Phân biệt lỗi data và lỗi thoại sau mốc 15/9
+## 5. Phân biệt lỗi data và lỗi thoại sau khi dừng 2G
 
 | Hiện tượng | Hướng kiểm tra ưu tiên |
 |---|---|
@@ -81,17 +81,23 @@ Khi liên hệ, nên chuẩn bị:
 - nội dung lỗi khi gọi;
 - SMS phản hồi sau thao tác HDCALL nếu có.
 
-## Mốc 15/9/2026 liên quan thế nào?
+## Mốc 16/9/2026 liên quan thế nào?
 
-Lộ trình quản lý tần số của Việt Nam đặt mốc chuyển đổi GSM/2G đến **15/09/2026**. Bài này tập trung vào **triệu chứng sau mốc: vẫn có 4G/5G data nhưng thoại lỗi**, còn phần giải thích deadline và checklist chuyển đổi được giữ ở bài [mốc tắt 2G và kiểm tra VoLTE Viettel](/posts/tat-song-2g-15-9-2026-viettel-volte/).
+Theo thông tin chính thức của cơ quan quản lý, các doanh nghiệp viễn thông dừng hệ thống mạng di động **2G/GSM trên phạm vi toàn quốc từ ngày 16/09/2026**, ngoại trừ các khu vực đặc thù theo quy định. Đây là bước tiếp theo sau thời hạn sử dụng hệ thống GSM đến hết ngày 15/09/2026.
 
-Không suy diễn mốc quản lý thành một giờ tắt đồng loạt cho mọi trạm, mọi khu vực nếu nguồn chính thức không công bố chi tiết đó.
+Điều đó không có nghĩa mọi lỗi gọi phát sinh từ ngày 16/09 đều do 2G. Với thuê bao Viettel vẫn có 4G/5G data nhưng thoại lỗi, cần tách riêng các khả năng về VoLTE/HD CALL, thiết bị, cấu hình và trạng thái thuê bao theo checklist ở trên.
+
+Phần giải thích deadline và checklist chuẩn bị trước chuyển đổi vẫn được giữ ở bài [mốc tắt 2G và kiểm tra VoLTE Viettel](/posts/tat-song-2g-15-9-2026-viettel-volte/).
 
 ## Câu hỏi thường gặp
 
-### Sáng 16/9 có 5G Viettel mà gọi không được thì có phải mạng 5G lỗi không?
+### Từ 16/9 có 5G Viettel mà gọi không được thì có phải mạng 5G lỗi không?
 
 Không thể kết luận như vậy chỉ từ một triệu chứng. Data và thoại cần được kiểm tra riêng; hãy kiểm tra VoLTE/HD CALL, thiết bị, cấu hình và trạng thái thuê bao.
+
+### Từ 16/9/2026, 2G đã dừng trên toàn quốc chưa?
+
+Theo thông tin chính thức của cơ quan quản lý, hệ thống mạng di động 2G/GSM dừng trên phạm vi toàn quốc từ ngày **16/09/2026**, ngoại trừ một số khu vực đặc thù theo quy định. Bài này không suy rộng ngoại lệ đó thành trạng thái của một thuê bao hoặc một vị trí cụ thể nếu chưa có dữ liệu thực tế.
 
 ### Bật VoLTE có cần đổi số điện thoại không?
 
@@ -107,6 +113,7 @@ Chưa đủ căn cứ để kết luận cần đổi SIM. Trước tiên hãy k
 
 ## Nguồn tham khảo
 
+- [Bộ Khoa học và Công nghệ / Cổng thông tin chính thức – Dừng hệ thống mạng di động 2G (GSM) trên toàn quốc từ ngày 16/9/2026](https://dangcongsan.vn/bokhoahoccongnghe/tin-tuc-hoat-dong/dung-he-thong-mang-di-dong-2g-gsm-tren-toan-quoc-tu-ngay-16-9-2026.html)
 - [Viettel Telecom – Dịch vụ VoLTE của Viettel mang đến những lợi ích gì?](https://vietteltelecom.vn/tin-tuc/chi-tiet/dich-vu-volte-cua-viettel-mang-den-nhung-loi-ich-gi/12781968)
 - [Bộ Khoa học và Công nghệ – Lộ trình tắt sóng 2G và giải pháp hỗ trợ người dùng chuyển đổi thiết bị 4G](https://mst.gov.vn/lo-trinh-tat-song-2g-va-cac-giai-phap-ho-tro-nguoi-dung-chuyen-doi-thiet-bi-4g-197250704095238417.htm)
 
