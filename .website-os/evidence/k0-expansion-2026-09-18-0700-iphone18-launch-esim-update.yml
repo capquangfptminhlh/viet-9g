@@ -1,0 +1,120 @@
+version: 1.0.0
+run_slot: "07:00"
+observed_at: "2026-09-18T07:02:32+07:00"
+action: UPDATE
+status: PASS
+website_os:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest: governance/website-os.manifest.yml
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
+project_main_at_start: f30d4ae7b403a23c7c64537bf57c06a7cdc4e0e6
+production_invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
+primary_keyword: "iPhone 18 Pro eSIM Viettel ngày mở bán 18/9/2026"
+secondary_queries:
+  - "iPhone 18 Pro Viettel eSIM"
+  - "iPhone 18 Pro bản Việt Nam nano SIM hay eSIM"
+  - "iPhone 18 Pro Viettel có cần QR eSIM không"
+  - "iPhone 18 Pro có 5G Viettel không"
+  - "Viettel Store mở bán iPhone 18 Pro 18/9/2026"
+  - "nhận iPhone 18 Pro chuyển eSIM Viettel thế nào"
+intent: "SUPPORT + INFORMATIONAL + FRESHNESS"
+cluster: "iphone-esim-device-compatibility"
+entity:
+  type: device_model_family
+  name: "Apple iPhone 18 Pro / iPhone 18 Pro Max"
+canonical_owner: "/posts/kiem-tra-iphone-co-ho-tro-esim-viettel/"
+content_type: device_compatibility_support_guide
+new_url_created: false
+reason: >-
+  The broad iPhone eSIM compatibility guide already owns this search job. Launch-day availability is a material freshness update to that owner, not an independent intent. A new URL would overlap the existing owner.
+source_provenance:
+  - source: "Apple Vietnam iPhone 18 Pro product/spec pages"
+    provenance: FIRST_PARTY_DEVICE_VENDOR_VIETNAM
+    observed_at: "2026-09-18T07:02:32+07:00"
+    verification_status: VERIFIED
+    bounded_facts:
+      - "Apple Vietnam states availability from 18/09/2026."
+      - "Vietnam specifications state nano-SIM + eSIM, dual eSIM and 5G sub-6 GHz."
+  - source: "Viettel Store launch-day event article"
+    url: "https://viettelstore.vn/tin-tuc/don-iphone-18-pro-series-cung-thom-dalab"
+    published_at: "2026-09-17"
+    provenance: FIRST_PARTY_VIETTEL_RETAIL
+    observed_at: "2026-09-18T07:02:32+07:00"
+    verification_status: VERIFIED
+    bounded_facts:
+      - "Viettel Store states more than 400 stores open sales from 08:00 on 18/09/2026."
+      - "Retail availability does not prove carrier certification or universal subscriber eligibility."
+  - source: "Viettel no-QR iOS eSIM notice"
+    url: "https://www.viettel.vn/tin-tuc/chi-tiet/esim-viettel-cham-la-ket-noi-kich-hoat-khong-can-ma-qr/13707592"
+    provenance: FIRST_PARTY_CARRIER
+    verification_status: VERIFIED
+candidates_checked:
+  - query: "same-day Viettel mobile breaking update 18/09/2026"
+    cluster: freshness-news
+    intent: FRESHNESS
+    decision: HOLD
+    reason: "No qualifying same-day Viettel Telecom mobile publication surfaced at 07:02; fallback continued."
+  - query: "post-2G 4G phone / VoLTE troubleshooting"
+    cluster: volte-call-troubleshooting
+    intent: SUPPORT
+    canonical_owner: "/posts/viettel-co-4g-nhung-khong-goi-duoc-sau-tat-2g/"
+    decision: REJECT
+    reason: "Existing canonical owner was refreshed recently; no independent job."
+  - query: "iPhone 18 Pro eSIM Viettel launch day"
+    cluster: iphone-esim-device-compatibility
+    intent: SUPPORT
+    canonical_owner: "/posts/kiem-tra-iphone-co-ho-tro-esim-viettel/"
+    decision: SELECT_UPDATE
+    reason: "Launch day plus first-party Viettel Store availability materially refreshes the existing compatibility owner."
+  - query: "SIM Viettel đổi máy / biometric verification"
+    cluster: sim-device-change-biometric-verification
+    intent: SUPPORT
+    canonical_owner: "/posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu/"
+    decision: REJECT
+    reason: "Existing owner."
+  - query: "Viettel roaming support"
+    cluster: roaming-support
+    intent: SUPPORT
+    decision: REJECT
+    reason: "Existing roaming owners; no new same-day first-party gap."
+  - query: "Viettel 5G package support/comparison"
+    cluster: package-support
+    intent: COMMERCIAL
+    decision: REJECT
+    reason: "Package/entity owners exist; no new verified package fact requiring a new owner."
+  - query: "iPhone 18 Pro purchase promotion at Viettel Store"
+    cluster: retail-device-promotion
+    intent: COMMERCIAL
+    decision: HOLD
+    reason: "Outside the site's durable telecom canonical architecture; do not create a thin retail-promotion URL."
+internal_link_plan:
+  parent: "/posts/kiem-tra-iphone-co-ho-tro-esim-viettel/"
+  related:
+    - "/posts/esim-5g-kich-hoat-quet-qr/"
+    - "/posts/doi-esim-viettel-tren-my-viettel/"
+    - "/posts/iphone-dung-2-esim-viettel-cung-luc/"
+    - "/posts/loi-khong-dang-ky-duoc-mang-5g-viettel/"
+image_plan:
+  path: "/images/blogger/topic-b1-esim-5g-tuong-thich-4435b941a4f9.svg"
+  topic_match: PASS
+  new_visual_generated_this_run: false
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+k0_decision:
+  decision: PASS
+  duplicate_risk: PASS
+  cannibalization_result: PASS
+  unsupported_metrics: 0
+  unsupported_business_facts: 0
