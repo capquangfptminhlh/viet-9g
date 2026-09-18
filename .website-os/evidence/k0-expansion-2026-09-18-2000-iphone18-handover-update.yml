@@ -1,0 +1,112 @@
+version: 1.0.0
+run_slot: "20:00"
+observed_at: "2026-09-18T20:00:27+07:00"
+action: UPDATE
+status: PASS
+website_os:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest: governance/website-os.manifest.yml
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
+project_main_at_start: 7294d4ca1644e8af7d27d374e22164913fb031e4
+production_invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
+primary_keyword: "nhận iPhone 18 Pro dùng eSIM Viettel"
+secondary_queries:
+  - "iPhone 18 Pro nhận máy 18/9 eSIM Viettel"
+  - "iPhone 18 Pro Viettel Store eSIM"
+  - "iPhone 18 Pro chuyển số Viettel sang eSIM"
+  - "iPhone 18 Pro EID Carrier Lock Viettel"
+  - "iPhone 18 Pro có 5G Viettel không"
+intent: "SUPPORT + INFORMATIONAL + FRESHNESS"
+cluster: "iphone-esim-device-compatibility"
+entity:
+  type: device_model_family
+  name: "Apple iPhone 18 Pro / iPhone 18 Pro Max"
+canonical_owner: "/posts/kiem-tra-iphone-co-ho-tro-esim-viettel/"
+content_type: device_compatibility_support_guide
+new_url_created: false
+reason: >-
+  Same-day first-party Viettel Store evidence now confirms actual customer handover of iPhone 18 Pro series on 18/09/2026. This strengthens the launch-day freshness and practical handover checklist of the existing iPhone/eSIM compatibility owner. A separate handover URL would overlap the same device/eSIM support job.
+source_provenance:
+  - source: "Viettel Store — iPhone 18 Pro series chính thức đến tay khách hàng đặt trước"
+    url: "https://viettelstore.vn/tin-tuc/iphone-18-pro-series-chinh-thuc-den-tay-khach-hang-dat-truoc-tren-shopee-mall-va-tiktok-shop"
+    published_at: "2026-09-18T15:00:00+07:00"
+    provenance: FIRST_PARTY_VIETTEL_RETAIL
+    observed_at: "2026-09-18T20:00:27+07:00"
+    verification_status: VERIFIED
+    bounded_facts:
+      - "Viettel Store reports that pre-ordered iPhone 18 Pro series devices were handed to customers on 18/09/2026."
+      - "The article describes customer handover/support at the Viettel building event in Cau Giay, Hanoi."
+      - "Retail handover does not prove universal carrier provisioning, subscriber eligibility, 5G coverage or package benefits."
+  - source: "Apple Vietnam iPhone 18 Pro product/spec pages"
+    provenance: FIRST_PARTY_DEVICE_VENDOR_VIETNAM
+    observed_at: "2026-09-18T20:00:27+07:00"
+    verification_status: VERIFIED
+    bounded_facts:
+      - "Vietnam specifications state nano-SIM + eSIM, dual eSIM and 5G sub-6 GHz."
+  - source: "Viettel no-QR iOS eSIM notice"
+    url: "https://www.viettel.vn/tin-tuc/chi-tiet/esim-viettel-cham-la-ket-noi-kich-hoat-khong-can-ma-qr/13707592"
+    provenance: FIRST_PARTY_CARRIER
+    verification_status: VERIFIED
+candidates_checked:
+  - query: "same-day Viettel mobile breaking update 18/09/2026"
+    cluster: freshness-news
+    intent: FRESHNESS
+    decision: SELECT_SIGNAL
+    reason: "A first-party Viettel Store article published at 15:00 confirms actual iPhone 18 Pro customer handover; map it to the existing device/eSIM owner rather than create news duplication."
+  - query: "post-2G 4G phone / VoLTE troubleshooting"
+    cluster: volte-call-troubleshooting
+    intent: SUPPORT
+    canonical_owner: "/posts/viettel-co-4g-nhung-khong-goi-duoc-sau-tat-2g/"
+    decision: REJECT
+    reason: "Existing owner was materially refreshed this week; no independent same-day first-party job found."
+  - query: "iPhone 18 Pro handover + eSIM Viettel"
+    cluster: iphone-esim-device-compatibility
+    intent: SUPPORT
+    canonical_owner: "/posts/kiem-tra-iphone-co-ho-tro-esim-viettel/"
+    decision: SELECT_UPDATE
+    reason: "Same-day actual handover evidence materially improves the existing launch-day compatibility checklist."
+  - query: "SIM Viettel bị chặn do chưa xác thực thông tin"
+    cluster: sim-identity-verification
+    intent: SUPPORT
+    decision: REJECT
+    reason: "First-party carrier guidance exists but the search job already has current site owners; no new same-day change."
+  - query: "Viettel roaming xác thực SIM ở nước ngoài"
+    cluster: roaming-support
+    intent: SUPPORT
+    decision: REJECT
+    reason: "First-party roaming verification guidance exists and is already covered; no independent fresh gap."
+  - query: "eSIM 5G Viettel device compatibility"
+    cluster: esim-device-compatibility
+    intent: INFORMATIONAL
+    decision: REJECT
+    reason: "Broad eSIM/device compatibility owners already exist; the iPhone 18 launch sub-intent belongs to the selected owner."
+  - query: "Viettel 5G package support/comparison"
+    cluster: package-support
+    intent: COMMERCIAL
+    decision: REJECT
+    reason: "No same-day first-party package fact was found that justifies a new canonical owner; package entities already have durable owners."
+duplicate_cannibalization:
+  result: PASS
+  reason: "UPDATE existing canonical owner; no new indexable URL."
+metrics:
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+priority:
+  tier: P1
+  reason: "Same-day first-party handover event plus high practical relevance for customers moving an existing Viettel number to a newly received iPhone."
+internal_link_plan:
+  - "/posts/esim-5g-kich-hoat-quet-qr/"
+  - "/posts/doi-esim-viettel-tren-my-viettel/"
+  - "/posts/iphone-dung-2-esim-viettel-cung-luc/"
+k0_result: PASS
