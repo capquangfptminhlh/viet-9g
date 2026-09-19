@@ -1,6 +1,6 @@
 # iPhone nào hỗ trợ eSIM Viettel? iPhone 18 Pro, EID, 5G và Carrier Lock 2026
 
-**Cập nhật kiểm chứng: 18/09/2026.** Hôm nay là ngày iPhone 18 Pro và iPhone 18 Pro Max chính thức có hàng tại Việt Nam theo Apple. Viettel Store cũng công bố mở bán iPhone 18 Pro series từ **8h ngày 18/09/2026** tại hơn 400 siêu thị. Nếu nhận máy hôm nay và muốn dùng số Viettel, hãy kiểm tra đúng biến thể máy, eSIM/EID và trạng thái khóa mạng trước khi chuyển SIM.
+**Cập nhật kiểm chứng: 18/09/2026, 20:00.** iPhone 18 Pro và iPhone 18 Pro Max đã chính thức có hàng tại Việt Nam theo Apple. Đến 15:00 cùng ngày, Viettel Store đăng thông tin những máy iPhone 18 Pro series đặt trước đầu tiên đã được trao tới khách hàng. Nếu vừa nhận máy và muốn giữ số Viettel, hãy kiểm tra đúng biến thể máy, eSIM/EID và trạng thái khóa mạng trước khi chuyển SIM.
 
 > **Trả lời nhanh:** iPhone 18 Pro/18 Pro Max theo thông số Apple Việt Nam hỗ trợ **SIM kép (nano-SIM và eSIM)**, **eSIM kép** và **5G sub-6 GHz**. Viettel đã có luồng kích hoạt eSIM tự động trên iOS không cần quét QR trong các trường hợp được hỗ trợ. Không nên suy từ đó rằng mọi máy nhập khẩu, firmware hay thuê bao đều kích hoạt giống nhau.
 
@@ -10,9 +10,17 @@
 
 Apple Việt Nam công bố iPhone 18 Pro và iPhone 18 Pro Max **có hàng từ ngày 18/09/2026**. Viettel Store ngày 17/09 cũng xác nhận từ **8h ngày 18/09/2026**, hơn 400 siêu thị Viettel Store trên toàn quốc đồng loạt mở bán iPhone 18 Pro series.
 
-Nguồn: [Apple Việt Nam — iPhone 18 Pro](https://www.apple.com/vn/iphone-18-pro/) và [Viettel Store — sự kiện mở bán iPhone 18 Pro series ngày 18/09](https://viettelstore.vn/tin-tuc/don-iphone-18-pro-series-cung-thom-dalab).
+Đến **15:00 ngày 18/09/2026**, Viettel Store tiếp tục đăng bài xác nhận những chiếc iPhone 18 Pro series đặt trước qua Viettel Store – AAR trên TikTok Shop và Shopee Mall đã được trao tới khách hàng tại sự kiện ở Tòa nhà Viettel, Cầu Giấy, Hà Nội. Đây là bằng chứng first-party về việc thiết bị đã thực sự bước vào ngày giao máy, thay vì chỉ còn ở trạng thái đặt trước.
 
-Thông tin mở bán xác nhận availability thiết bị, không phải bằng chứng rằng mọi thuê bao Viettel đều được một gói cước, ưu đãi hoặc điều kiện eSIM giống nhau.
+Nguồn: [Apple Việt Nam — iPhone 18 Pro](https://www.apple.com/vn/iphone-18-pro/), [Viettel Store — sự kiện mở bán iPhone 18 Pro series ngày 18/09](https://viettelstore.vn/tin-tuc/don-iphone-18-pro-series-cung-thom-dalab) và [Viettel Store — iPhone 18 Pro series chính thức đến tay khách hàng đặt trước](https://viettelstore.vn/tin-tuc/iphone-18-pro-series-chinh-thuc-den-tay-khach-hang-dat-truoc-tren-shopee-mall-va-tiktok-shop).
+
+Thông tin mở bán/giao máy xác nhận availability thiết bị, không phải bằng chứng rằng mọi thuê bao Viettel đều được một gói cước, ưu đãi hoặc điều kiện eSIM giống nhau.
+
+## Vừa nhận iPhone 18 Pro: có nên xóa SIM/eSIM ở máy cũ ngay không?
+
+**Không nên xóa eSIM ở máy cũ chỉ vì máy mới đã nhận được.** Trước hết hãy kiểm tra máy mới có mục **Thêm eSIM**, có **EID**, không bị **Carrier Lock**, sau đó đi theo đúng luồng chuyển/kích hoạt Viettel dành cho thuê bao của bạn. Chỉ khi số Viettel đã hoạt động đúng trên máy mới mới nên xử lý profile cũ theo hướng dẫn phù hợp.
+
+Lý do là việc Viettel Store đã giao máy không tự chứng minh profile eSIM của từng thuê bao đã được provision sang thiết bị mới. Với trường hợp cần đổi từ SIM vật lý sang eSIM, xem [đổi eSIM Viettel trên My Viettel/Tammi](/posts/doi-esim-viettel-tren-my-viettel/). Nếu cần kích hoạt eSIM, xem [hướng dẫn eSIM 5G Viettel và kích hoạt](/posts/esim-5g-kich-hoat-quet-qr/).
 
 ## iPhone 18 Pro và iPhone 18 Pro Max có eSIM không?
 
@@ -36,7 +44,7 @@ Có cơ sở thiết bị và dịch vụ để sử dụng eSIM Viettel trên m
 
 Nguồn Viettel: [eSIM Viettel: Chạm là kết nối, kích hoạt không cần mã QR](https://www.viettel.vn/tin-tuc/chi-tiet/esim-viettel-cham-la-ket-noi-kich-hoat-khong-can-ma-qr/13707592).
 
-Bài này **không coi thông số Apple hoặc việc Viettel Store bán máy là carrier-certification riêng cho mọi SKU iPhone 18 Pro/18 Pro Max**. Với máy nhập khẩu hoặc máy khóa mạng, vẫn nên kiểm tra EID, Carrier Lock và mục Thêm eSIM trên chính thiết bị.
+Bài này **không coi thông số Apple hoặc việc Viettel Store bán/giao máy là carrier-certification riêng cho mọi SKU iPhone 18 Pro/18 Pro Max**. Với máy nhập khẩu hoặc máy khóa mạng, vẫn nên kiểm tra EID, Carrier Lock và mục Thêm eSIM trên chính thiết bị.
 
 Nếu cần kích hoạt eSIM, xem [hướng dẫn eSIM 5G Viettel và kích hoạt](/posts/esim-5g-kich-hoat-quet-qr/). Nếu chuyển từ SIM vật lý sang eSIM, xem [đổi eSIM Viettel trên My Viettel/Tammi](/posts/doi-esim-viettel-tren-my-viettel/).
 
@@ -79,9 +87,9 @@ Vì vậy, đừng giả định mọi iPhone 18 Pro đều có khay nano-SIM ho
 
 **Không theo thông số Apple Việt Nam.** Trang kỹ thuật ghi SIM kép gồm nano-SIM và eSIM, đồng thời hỗ trợ eSIM kép.
 
-### Viettel Store mở bán iPhone 18 Pro khi nào?
+### Viettel Store đã giao iPhone 18 Pro cho khách chưa?
 
-Viettel Store công bố hơn 400 siêu thị đồng loạt mở bán từ **8h ngày 18/09/2026**. Tồn kho tại từng điểm có thể thay đổi và bài này không suy diễn tình trạng hàng tại một cửa hàng cụ thể.
+**Có bằng chứng first-party trong ngày 18/09/2026.** Viettel Store đăng lúc 15:00 rằng iPhone 18 Pro series đặt trước qua Viettel Store – AAR trên TikTok Shop và Shopee Mall đã chính thức đến tay khách hàng tại sự kiện ở Hà Nội. Điều này không đồng nghĩa mọi cửa hàng đều còn hàng hoặc mọi đơn đặt trước đã được giao.
 
 ### iPhone 18 Pro có eSIM thì chắc chắn lên 5G Viettel không?
 
@@ -97,13 +105,14 @@ Không hoàn toàn. EID xác nhận phần cứng eSIM, nhưng vẫn cần kiể
 
 - Apple Việt Nam công bố iPhone 18 Pro/Pro Max có hàng từ **18/09/2026**.
 - Viettel Store công bố mở bán iPhone 18 Pro series từ **8h ngày 18/09/2026** tại hơn 400 siêu thị.
+- Viettel Store đăng lúc **15:00 ngày 18/09/2026** rằng iPhone 18 Pro series đặt trước qua Viettel Store – AAR đã được trao tới khách hàng tại sự kiện ở Hà Nội.
 - Bản thông số Apple Việt Nam có **nano-SIM + eSIM**, **eSIM kép** và **5G sub-6 GHz**.
 - Viettel công bố kích hoạt eSIM tự động không cần QR cho thiết bị iOS từ 18/08/2026 trong luồng được hỗ trợ.
 
 ### Vẫn UNKNOWN / không được suy diễn
 
 - carrier-certification riêng của Viettel cho mọi SKU/region iPhone 18 Pro/Pro Max;
-- provisioning thành công cho mọi máy nhập khẩu;
+- provisioning thành công cho mọi máy nhập khẩu hoặc mọi thuê bao vừa nhận máy;
 - coverage 5G tại một địa chỉ cụ thể;
 - tồn kho tại từng Viettel Store;
 - giá/gói cước/ưu đãi hoặc eligibility viễn thông dành riêng cho từng thuê bao;
@@ -115,7 +124,8 @@ Không hoàn toàn. EID xác nhận phần cứng eSIM, nhưng vẫn cần kiể
 - [Apple Việt Nam — iPhone 18 Pro](https://www.apple.com/vn/iphone-18-pro/)
 - [Apple Newsroom — Apple debuts iPhone 18 Pro and iPhone 18 Pro Max](https://www.apple.com/newsroom/2026/09/apple-debuts-iphone-18-pro-and-iphone-18-pro-max/)
 - [Viettel Store — Đón iPhone 18 Pro series ngày 18/09](https://viettelstore.vn/tin-tuc/don-iphone-18-pro-series-cung-thom-dalab)
+- [Viettel Store — iPhone 18 Pro series chính thức đến tay khách hàng đặt trước](https://viettelstore.vn/tin-tuc/iphone-18-pro-series-chinh-thuc-den-tay-khach-hang-dat-truoc-tren-shopee-mall-va-tiktok-shop)
 - [Viettel — eSIM Viettel: Chạm là kết nối, kích hoạt không cần mã QR](https://www.viettel.vn/tin-tuc/chi-tiet/esim-viettel-cham-la-ket-noi-kich-hoat-khong-can-ma-qr/13707592)
 - [Viettel eSIM — cổng thông tin eSIM](https://esim.viettel.vn/)
 
-> Bài viết chỉ dùng fact thiết bị, eSIM, 5G, activation và availability có provenance first-party. Không suy diễn vùng phủ, traffic/ranking hoặc điều kiện thương mại chưa được xác minh.
+> Bài viết chỉ dùng fact thiết bị, eSIM, 5G, activation và availability/handover có provenance first-party. Không suy diễn vùng phủ, traffic/ranking hoặc điều kiện thương mại chưa được xác minh.
