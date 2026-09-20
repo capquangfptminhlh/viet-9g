@@ -1,0 +1,119 @@
+version: 1.0.0
+decision: PASS
+observed_at: 2026-09-20T07:00:20+07:00
+website_os:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
+project_main_at_start: fef721c4ee385eecf752b2c74dc3e2bc91711b1e
+baseline_k0_decision: .website-os/evidence/k0-decision-record.yml
+production_invariants:
+  dns_domain_routing_changed: false
+  registration_cta_contract: "MÃ_GÓI GB -> 290"
+  registration_cta_changed: false
+  exact_main_vercel_required_before_live_claim: true
+search_chain:
+  - id: C1
+    query: "Viettel có 4G nhưng không gọi được sau tắt 2G"
+    intent: SUPPORT
+    entity_topic: "Viettel / VoLTE / post-2G voice"
+    cluster: post2g-volte-troubleshooting
+    canonical_url_owner: /posts/tat-song-2g-15-9-2026-viettel-volte/
+    content_type: support_article
+    evidence: "Fresh post-cutoff news demand plus existing official Viettel VoLTE source"
+    priority: P1
+    decision: UPDATE
+  - id: C2
+    query: "điện thoại bàn phím 4G Viettel sau tắt 2G"
+    intent: SUPPORT
+    entity_topic: "feature phone / VoLTE"
+    cluster: featurephone-volte
+    canonical_url_owner: /posts/dien-thoai-ban-phim-4g-viettel-volte-tat-2g/
+    content_type: support_article
+    priority: P2
+    decision: SKIP_EXISTING_OWNER
+  - id: C3
+    query: "iPhone Viettel VoLTE sau tắt 2G"
+    intent: SUPPORT
+    entity_topic: "iPhone / VoLTE"
+    cluster: iphone-volte-device-support
+    canonical_url_owner: /posts/cai-dat-4g-5g-volte-iphone-viettel/
+    content_type: support_article
+    priority: P2
+    decision: SKIP_EXISTING_OWNER
+  - id: C4
+    query: "eSIM Viettel iPhone 18 Pro"
+    intent: SUPPORT
+    entity_topic: "iPhone 18 Pro / eSIM"
+    cluster: iphone-esim-device-compatibility
+    canonical_url_owner: /posts/kiem-tra-iphone-co-ho-tro-esim-viettel/
+    content_type: support_article
+    priority: P2
+    decision: SKIP_RECENT_OWNER_UPDATE
+  - id: C5
+    query: "phí eSIM Viettel Tammi"
+    intent: COMMERCIAL
+    entity_topic: "eSIM / Tammi / fee"
+    cluster: esim-fees-pricing
+    canonical_url_owner: /posts/phi-esim-viettel-2026/
+    content_type: commercial_support_article
+    priority: P2
+    decision: SKIP_RECENT_OWNER_UPDATE
+  - id: C6
+    query: "VoLTE Viettel roaming nước ngoài"
+    intent: SUPPORT
+    entity_topic: "roaming / VoLTE"
+    cluster: roaming-volte
+    canonical_url_owner: /posts/bat-volte-khi-roaming-viettel/
+    content_type: support_article
+    priority: P2
+    decision: SKIP_EXISTING_OWNER
+selected:
+  action: UPDATE
+  primary_keyword: "Viettel có 4G nhưng không gọi được sau tắt 2G"
+  secondary_queries:
+    - "sau 15/9 Viettel có 4G nhưng không gọi được"
+    - "Viettel có data nhưng không gọi được"
+    - "Viettel có 5G nhưng không gọi được"
+    - "bật VoLTE Viettel sau tắt 2G"
+  cluster: post2g-volte-troubleshooting
+  intent: SUPPORT
+  target_url: /posts/tat-song-2g-15-9-2026-viettel-volte/
+  title: "Sau tắt 2G: Viettel có 4G nhưng không gọi được, kiểm tra gì?"
+  slug: tat-song-2g-15-9-2026-viettel-volte
+  why_update: "Fresh post-cutoff demand is the same troubleshooting job already owned by the existing canonical URL; a new URL would cannibalize it."
+source_provenance:
+  - type: primary
+    source: Viettel
+    topic: VoLTE 4G/5G requirements and HDCALL 191
+  - type: primary
+    source: Ministry of Science and Technology
+    topic: 2G shutdown timeline
+  - type: fresh_serp
+    source: VnExpress
+    published_at: 2026-09-15
+    observed_at: 2026-09-20T07:00:20+07:00
+    topic: post-2G shutdown and VoLTE continuity
+  - type: fresh_serp
+    source: Vietnam.vn/Bao Gia Lai
+    published_at: 2026-09-16
+    observed_at: 2026-09-20T07:00:20+07:00
+    topic: 4G phones unable to call without VoLTE
+k0:
+  result: PASS
+  new_canonical_owner_required: false
+  duplicate_result: PASS_UPDATE_EXISTING_OWNER
+  cannibalization_result: PASS_NO_NEW_URL
+  internal_link_plan: "Preserve links to Android, iPhone, feature-phone and USSD support owners."
+  content_type_assignment: support_article
+metrics:
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking_position: UNKNOWN
+  traffic_potential: UNKNOWN
+  fabricated_metrics: false
