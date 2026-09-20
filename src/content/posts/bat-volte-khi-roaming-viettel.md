@@ -1,22 +1,22 @@
 ---
-title: "Cách bật VoLTE khi roaming Viettel: gọi 4G ở nước ngoài trên iPhone và Android"
-description: "Roaming Viettel có data nhưng gọi thoại gặp lỗi? Kiểm tra điều kiện VoLTE roaming, đăng ký HDCALL gửi 191 và bật VoLTE trên iPhone/Android theo hướng dẫn chính thức Viettel."
+title: "Roaming Viettel có 4G/data nhưng không gọi được? Cách bật VoLTE"
+description: "Roaming Viettel có 4G/5G hoặc data nhưng không gọi được? Kiểm tra VoLTE roaming, HDCALL gửi 191, thiết bị và cấu hình iPhone/Android theo nguồn Viettel."
 date: 2026-08-26
 ---
 
-# Cách bật VoLTE khi roaming Viettel: gọi 4G ở nước ngoài trên iPhone và Android
+# Roaming Viettel có 4G/data nhưng không gọi được? Cách bật VoLTE
 
-Khi đi nước ngoài, bạn có thể gặp tình huống **SIM Viettel vẫn có data roaming nhưng gọi thoại không ổn định hoặc không thực hiện được cuộc gọi**. Một nguyên nhân cần kiểm tra là mạng tại quốc gia đang đến đã giảm hoặc tắt hạ tầng 2G/3G, trong khi điện thoại chưa sẵn sàng gọi trên 4G bằng **VoLTE**.
+Khi đi nước ngoài, bạn có thể gặp tình huống **SIM Viettel vẫn có 4G/5G hoặc data roaming nhưng không thực hiện được cuộc gọi**. Có data không đồng nghĩa phần thoại đã sẵn sàng: tại các mạng/quốc gia đã tắt 2G/3G, cuộc gọi có thể cần chạy trên 4G bằng **VoLTE**.
 
-> **Trả lời nhanh:** Theo tài liệu hướng dẫn VoLTE Roaming của Viettel, thiết bị cần hỗ trợ VoLTE, thuê bao đăng ký dịch vụ gọi VoLTE bằng cú pháp **HDCALL gửi 191** và bật chức năng VoLTE trên điện thoại. Khi roaming, bạn cũng cần bật Data Roaming/cấu hình mạng phù hợp với thiết bị và quốc gia đang sử dụng.
+> **Trả lời nhanh:** Theo tài liệu hướng dẫn VoLTE Roaming của Viettel, hãy kiểm tra ba điều kiện: thiết bị hỗ trợ VoLTE, thuê bao đã đăng ký dịch vụ gọi VoLTE bằng cú pháp **HDCALL gửi 191**, và VoLTE/4G Calling đã được bật trên điện thoại. Viettel cũng khuyến nghị thiết bị hỗ trợ 4G, VoLTE và nhiều băng tần khi roaming tại các quốc gia đã tắt 2G/3G.
 
 Bài này tập trung vào **cuộc gọi VoLTE khi đang roaming ở nước ngoài**. Nếu vấn đề của bạn là data roaming tại Nhật không hoạt động, xem hướng dẫn riêng [Viettel roaming ở Nhật Bản không có mạng](/posts/viettel-roaming-nhat-ban-khong-co-mang/).
 
-## VoLTE roaming Viettel là gì?
+## Vì sao có 4G/5G hoặc data roaming nhưng vẫn không gọi được?
 
-VoLTE (Voice over LTE) cho phép cuộc gọi thoại được thực hiện trên hạ tầng 4G/LTE thay vì phụ thuộc vào 2G/3G. Trong tài liệu roaming chính thức, Viettel lưu ý rằng tại một số quốc gia hỗ trợ cuộc gọi 4G hoặc đã tắt 2G/3G, người dùng cần bật VoLTE để duy trì khả năng gọi thoại phù hợp với mạng đang khai thác.
+Dữ liệu và thoại là hai lớp khác nhau. Điện thoại có thể đăng ký được mạng 4G/5G và truy cập Internet, nhưng cuộc gọi vẫn thất bại nếu thiết bị/thuê bao chưa đáp ứng điều kiện VoLTE trên mạng roaming đang sử dụng.
 
-Điểm cần phân biệt là **data roaming** và **VoLTE roaming** không phải cùng một việc. Data roaming quyết định khả năng sử dụng dữ liệu di động ở nước ngoài; VoLTE liên quan đến việc thực hiện cuộc gọi thoại trên mạng 4G/LTE.
+Tài liệu chính thức của Viettel về VoLTE Roaming nêu rõ bối cảnh này: khi chuyển vùng vào mạng hoặc quốc gia đã tắt hạ tầng 2G/3G, khách hàng cần cấu hình điện thoại để gọi trên 4G. Vì vậy, nếu **data chạy nhưng gọi không được**, đừng vội reset APN; hãy kiểm tra VoLTE trước.
 
 ## Ba điều kiện Viettel nêu cho cuộc gọi VoLTE Roaming
 
@@ -27,6 +27,21 @@ Tài liệu hướng dẫn của Viettel liệt kê ba điều kiện chính:
 3. **Bật chức năng VoLTE trên thiết bị.**
 
 Viettel cũng lưu ý khả năng hỗ trợ có thể phụ thuộc model điện thoại, phiên bản hệ điều hành và mạng đối tác tại quốc gia roaming. Vì vậy, không nên hiểu rằng chỉ cần thấy biểu tượng 4G là cuộc gọi VoLTE chắc chắn hoạt động.
+
+## Đi Nhật: có data nhưng không gọi được thì kiểm tra gì trước?
+
+Hướng dẫn hiện hành của Viettel cho khách hàng roaming tại Nhật yêu cầu thiết bị hỗ trợ **VoLTE** để bảo đảm liên lạc khi mạng 2G/3G đã ngừng hoạt động. Trên iPhone, Viettel hướng dẫn vào **Cài đặt → Di động → SIM Viettel → Thoại & Dữ liệu** rồi chọn **4G/VoLTE hoặc 5G**; đồng thời cập nhật hệ điều hành và bật Data Roaming khi cần dùng dữ liệu.
+
+Nếu ở Nhật và Internet vẫn chạy nhưng cuộc gọi lỗi, kiểm tra theo thứ tự:
+
+1. xác nhận SIM Viettel đang là SIM cần gọi;
+2. kiểm tra `HDCALL` gửi `191` theo hướng dẫn Viettel về đăng ký VoLTE;
+3. kiểm tra VoLTE/4G Calling hoặc mục Thoại & Dữ liệu trên máy;
+4. ưu tiên 4G/LTE hoặc 5G thay vì khóa 2G/3G;
+5. cập nhật hệ điều hành/carrier settings chính thức;
+6. bật/tắt chế độ máy bay hoặc khởi động lại rồi thử một cuộc gọi thực tế.
+
+Nếu **không có mạng hoặc không có Internet** tại Nhật, đó là search job khác: dùng checklist [4G/5G, Data Roaming và APN cho roaming Nhật](/posts/viettel-roaming-nhat-ban-khong-co-mang/) thay vì chỉ tập trung vào VoLTE.
 
 ## Cách bật VoLTE roaming Viettel trên iPhone
 
@@ -107,8 +122,7 @@ Nếu bạn đang chuẩn bị chuyến đi Lào và cần chọn gói thay vì 
 
 ## Nguồn kiểm chứng
 
-- Viettel Telecom — **Hướng dẫn sử dụng gọi VoLTE (4G) Roaming**: tài liệu chính thức về điều kiện VoLTE roaming, cú pháp `HDCALL` gửi `191` và thiết lập trên iOS/Android.
-- Viettel Telecom — **Hướng dẫn bật chức năng gọi VoLTE khi Roaming trên điện thoại**: tài liệu chính thức nhấn mạnh bối cảnh mạng nước ngoài tắt 2G/3G và yêu cầu thiết bị/cấu hình phù hợp.
-- Viettel Telecom — **Đi Nhật Bản Không Có Mạng? Hướng Dẫn Bật 4G/5G Và Roaming Viettel Chi Tiết**, 14/04/2026: nguồn bổ sung về bối cảnh roaming trên mạng 4G/5G và troubleshooting thiết bị.
+- Viettel Telecom — **Hướng dẫn bật chức năng gọi VoLTE khi Roaming trên điện thoại**: tài liệu chính thức nêu điều kiện thiết bị, `HDCALL` gửi `191`, bật VoLTE và bối cảnh các mạng/quốc gia tắt 2G/3G.
+- Viettel Telecom — **Đi Nhật Bản Không Có Mạng? Hướng Dẫn Bật 4G/5G Và Roaming Viettel Chi Tiết**, 14/04/2026: nguồn chính thức nêu 4G/5G, Data Roaming, VoLTE và cập nhật phần mềm khi roaming tại Nhật.
 
 Thông tin roaming và khả năng tương thích có thể thay đổi theo mạng đối tác, quốc gia, thiết bị và thời điểm. Nếu máy vẫn không gọi được sau khi kiểm tra cấu hình, hãy xác minh trạng thái thuê bao và hướng dẫn hiện hành trực tiếp với Viettel thay vì tiếp tục đổi cài đặt ngẫu nhiên.
