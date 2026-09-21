@@ -1,0 +1,139 @@
+version: 1.0.0
+decision: PASS
+observed_at: 2026-09-20T20:00:50+07:00
+website_os:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
+project_main_at_start: 637e0bfda29eb0281b57c61fed4647fb0feb3d0a
+baseline_k0_decision: .website-os/evidence/k0-decision-record.yml
+production_invariants:
+  dns_domain_routing_changed: false
+  registration_cta_contract: "MÃ_GÓI GB -> 290"
+  registration_cta_changed: false
+  exact_main_vercel_required_before_live_claim: true
+metrics:
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking_position: UNKNOWN
+  traffic_potential: UNKNOWN
+  fabricated_metrics: false
+search_chain:
+  - id: C1
+    query: "iPhone 18 Pro eSIM Viettel"
+    intent: SUPPORT
+    entity_topic: "iPhone 18 Pro / eSIM"
+    cluster: iphone-esim-device-compatibility
+    canonical_url_owner: /posts/kiem-tra-iphone-co-ho-tro-esim-viettel/
+    content_type: device_compatibility_support_guide
+    evidence: "Fresh iPhone 18 launch/open-sale demand; canonical owner refreshed on 2026-09-18"
+    priority: P2
+    decision: SKIP_RECENT_OWNER_UPDATE
+  - id: C2
+    query: "Viettel có 4G nhưng không gọi được sau tắt 2G"
+    intent: SUPPORT
+    entity_topic: "Viettel / VoLTE / post-2G voice"
+    cluster: post2g-volte-troubleshooting
+    canonical_url_owner: /posts/tat-song-2g-15-9-2026-viettel-volte/
+    content_type: support_article
+    evidence: "Fresh post-cutoff demand; owner already expanded in 07:00 slot"
+    priority: P1
+    decision: SKIP_TODAY_ALREADY_PUBLISHED
+  - id: C3
+    query: "phí eSIM Viettel Tammi hoàn 100%"
+    intent: COMMERCIAL
+    entity_topic: "eSIM / Tammi / fee promotion"
+    cluster: esim-fees-pricing
+    canonical_url_owner: /posts/phi-esim-viettel-2026/
+    content_type: commercial_support_article
+    evidence: "Official Viettel article published 2026-09-18; owner refreshed in prior slot"
+    priority: P2
+    decision: SKIP_RECENT_OWNER_UPDATE
+  - id: C4
+    query: "5G150E Viettel eSIM"
+    intent: COMMERCIAL
+    entity_topic: "Viettel 5G150E / eSIM"
+    cluster: 5g150e-package
+    canonical_url_owner: /posts/goi-5g150e-viettel-esim/
+    content_type: package_support_article
+    evidence: "Official Viettel 5G150E source; existing exact owner"
+    priority: P2
+    decision: SKIP_EXISTING_OWNER_NO_NEW_EVIDENCE
+  - id: C5
+    query: "Viettel roaming Nhật có 4G nhưng không gọi được"
+    intent: SUPPORT
+    entity_topic: "Viettel roaming / VoLTE / Japan"
+    cluster: roaming-volte
+    canonical_url_owner: /posts/bat-volte-khi-roaming-viettel/
+    content_type: support_article
+    evidence: "Official Viettel VoLTE Roaming PDF plus official Japan 4G/5G roaming guide; same voice-troubleshooting job"
+    priority: P1
+    decision: SELECT_UPDATE
+  - id: C6
+    query: "Viettel roaming Nhật không có mạng"
+    intent: SUPPORT
+    entity_topic: "Viettel roaming / Japan / data-network"
+    cluster: roaming-japan-troubleshooting
+    canonical_url_owner: /posts/viettel-roaming-nhat-ban-khong-co-mang/
+    content_type: support_article
+    evidence: "Official Viettel Japan roaming guide; existing owner already comprehensive"
+    priority: P2
+    decision: SKIP_EXISTING_OWNER_NO_MATERIAL_GAP
+selected:
+  action: UPDATE
+  primary_keyword: "Viettel roaming có 4G nhưng không gọi được"
+  secondary_queries:
+    - "Viettel roaming có data nhưng không gọi được"
+    - "VoLTE roaming Viettel"
+    - "Viettel roaming Nhật có 4G nhưng không gọi được"
+    - "HDCALL 191 roaming"
+    - "bật VoLTE roaming Viettel iPhone"
+  cluster: roaming-volte
+  intent: SUPPORT
+  canonical_url_owner: /posts/bat-volte-khi-roaming-viettel/
+  content_type: support_article
+  title: "Roaming Viettel có 4G/data nhưng không gọi được? Cách bật VoLTE"
+  slug: bat-volte-khi-roaming-viettel
+  why_update: "The existing canonical already owns VoLTE roaming voice troubleshooting. Fresh device/roaming demand supports expanding the answer around the concrete 4G/data-but-no-call symptom; a new URL would cannibalize the same job."
+  new_url_created: false
+source_provenance:
+  - type: primary
+    source: Viettel Telecom
+    url: https://media.vietteltelecom.vn/upload/InternationalMessagePrice/ed/cf/fe/472bc67201bc609be3830366ec546607573f53ff.pdf
+    observed_at: 2026-09-20T20:00:50+07:00
+    topic: "VoLTE Roaming conditions; device support; HDCALL 191; VoLTE setting; 2G/3G shutdown abroad"
+  - type: primary
+    source: Viettel Telecom
+    url: https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/di-nhat-ban-khong-co-mang-huong-dan-bat-4g5g-va-roaming-viettel-chi-tiet/16239800
+    observed_at: 2026-09-20T20:00:50+07:00
+    topic: "Japan roaming 4G/5G, Data Roaming, VoLTE and software guidance"
+  - type: fresh_serp
+    source: Viettel Store
+    url: https://viettelstore.vn/tin-tuc/iphone-18-pro-series-chinh-thuc-den-tay-khach-hang-dat-truoc-tren-shopee-mall-va-tiktok-shop
+    published_at: 2026-09-18
+    observed_at: 2026-09-20T20:00:50+07:00
+    topic: "current iPhone 18 device demand; candidate discovery only, not business-fact source for roaming"
+duplicate_cannibalization:
+  result: PASS
+  new_url: false
+  existing_owner_expanded: /posts/bat-volte-khi-roaming-viettel/
+  adjacent_owner_preserved: /posts/viettel-roaming-nhat-ban-khong-co-mang/
+  rationale: "Voice/VoLTE failure remains with roaming-volte owner; no-network/data/APN troubleshooting remains with Japan roaming owner."
+internal_link_plan:
+  - from: /posts/bat-volte-khi-roaming-viettel/
+    to: /posts/viettel-roaming-nhat-ban-khong-co-mang/
+    purpose: "separate voice/VoLTE failure from no-network/data/APN troubleshooting"
+  - from: /posts/bat-volte-khi-roaming-viettel/
+    to: /posts/roaming-viettel-di-lao/
+    purpose: "separate troubleshooting from destination/package-selection intent"
+k0:
+  baseline_decision: PASS
+  expansion_decision: PASS
+  canonical_owner_conflict: false
+  unsupported_metrics_added: false
+  business_facts_primary_sourced: true
