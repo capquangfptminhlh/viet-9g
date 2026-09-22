@@ -1,0 +1,181 @@
+version: 1.0.0
+run_slot: "20:00"
+observed_at: "2026-09-22T19:57:09+07:00"
+action: NEW
+status: PASS
+website_os:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest: governance/website-os.manifest.yml
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
+project_main_at_start: 21609b7c64b6be59f37a65ab5c89e90836d679a2
+primary_keyword: "TV360 giảm 30% giá gói 2026"
+secondary_queries:
+  - "TV360 giảm 30% đến 31/12/2026"
+  - "giá VCine 21000"
+  - "giá VSport 24500"
+  - "giá VIP Mobile 28000"
+  - "giá Standard TV360 42000"
+  - "TV360 khuyến mãi tháng 9 2026"
+intent: "COMMERCIAL + FRESHNESS"
+cluster: "tv360-promotions"
+parent_cluster: "viettel-digital-services"
+entity:
+  type: "digital_service_promotion"
+  name: "TV360 30% promotion 2026"
+  attribute: "first-cycle 30-day package discount"
+canonical_owner: "/posts/tv360-giam-30-gia-goi-2026/"
+content_type: "news_freshness_commercial_guide"
+new_url_created: true
+cannibalization: PASS
+reason: >-
+  Same-day first-party Viettel publication creates a time-bounded commercial/freshness search job about a 30% TV360 price promotion.
+  The existing /posts/tv360-viettel-co-ton-data-4g-5g-khong/ owner is a support article about mobile-data charging policy and remains its canonical owner.
+  The new URL owns promotion price/timing/payment-condition intent and links to the support owner for the separate data-charging question.
+
+search_chain:
+  same_day_research:
+    observed_at: "2026-09-22T19:57:09+07:00"
+    result: PASS
+    source: "Viettel Telecom"
+    published_at: "2026-09-22"
+  source_provenance:
+    - source: "Viettel Telecom"
+      url: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/tv360-giam-30-gia-goi-cuoc-tan-huong-giai-tri-chi-tu-21000-dongthang/15965268"
+      published_at: "2026-09-22"
+      observed_at: "2026-09-22T19:57:09+07:00"
+      provenance: FIRST_PARTY
+      verification_status: VERIFIED
+      bounded_facts:
+        - "Promotion runs 11/09/2026 through 31/12/2026."
+        - "30-day Standard, VIP Mobile, VSport and VCine are included."
+        - "Promotional prices are VCine from 21,000đ; VSport from 24,500đ; VIP Mobile from 28,000đ; Standard from 42,000đ."
+        - "Eligible payment methods stated include Viettel mobile main account, Viettel Money, MoMo, ZaloPay, VNPAY and ShopeePay."
+        - "Promotional price applies to the first billing cycle only and excludes subscriptions registered through provincial/city sales consultants."
+        - "The announcement states free Viettel 4G/5G data while viewing in the TV360 app."
+
+candidates_checked:
+  - query: "TV360 giảm 30% giá gói 2026"
+    intent: "COMMERCIAL + FRESHNESS"
+    entity_topic: "TV360 promotion"
+    cluster: "tv360-promotions"
+    canonical_owner: "/posts/tv360-giam-30-gia-goi-2026/"
+    content_type: "NEWS_FRESHNESS"
+    evidence: FIRST_PARTY_SAME_DAY
+    priority: P0
+    decision: SELECT_NEW
+    reason: "Distinct same-day promotion job; existing TV360 article owns data-policy support intent, not promotion pricing."
+  - query: "TV360 AFC Champions League 2026 2027"
+    intent: INFORMATIONAL
+    entity_topic: "TV360 sports rights"
+    cluster: "tv360-sports-content"
+    canonical_owner: UNKNOWN
+    content_type: "NEWS_FRESHNESS"
+    evidence: FIRST_PARTY_SAME_DAY
+    priority: P2
+    decision: HOLD
+    reason: "Credible same-day source exists, but promotion query has stronger direct commercial fit for this site."
+  - query: "eSIM Viettel Tammi hoàn phí"
+    intent: COMMERCIAL
+    entity_topic: "eSIM Tammi promotion"
+    cluster: "esim-fees-pricing"
+    canonical_owner: "/posts/phi-esim-viettel-2026/"
+    content_type: "COMMERCIAL_SUPPORT"
+    evidence: FIRST_PARTY_RECENT
+    priority: P1
+    decision: REJECT
+    reason: "Existing canonical owner was already expanded for the same promotion/fee job."
+  - query: "Viettel roaming Lào gói nào"
+    intent: COMMERCIAL
+    entity_topic: "Laos roaming packages"
+    cluster: "viettel-roaming"
+    canonical_owner: "/posts/roaming-viettel-di-lao/"
+    content_type: "COMPARISON_SUPPORT"
+    evidence: FIRST_PARTY_VERIFIED
+    priority: P1
+    decision: REJECT
+    reason: "Existing country-specific canonical owner already covers package-selection intent."
+  - query: "Viettel SIM bị chặn chưa xác thực"
+    intent: SUPPORT
+    entity_topic: "SIM identity verification"
+    cluster: "sim-verification"
+    canonical_owner: "EXISTING_SIM_VERIFICATION_OWNERS"
+    content_type: "SUPPORT_ARTICLE"
+    evidence: FIRST_PARTY_VERIFIED
+    priority: P1
+    decision: REJECT
+    reason: "Existing support owners already cover verification and device-change blocking jobs."
+  - query: "eSIM Viettel 5G150E"
+    intent: COMMERCIAL
+    entity_topic: "eSIM 5G package"
+    cluster: "esim-5g-packages"
+    canonical_owner: "EXISTING_5G150E_OWNER"
+    content_type: "PACKAGE_GUIDE"
+    evidence: FIRST_PARTY_VERIFIED
+    priority: P1
+    decision: REJECT
+    reason: "Existing canonical owner covers the package/entity job; no new independent URL needed."
+
+query_mapping:
+  query: "TV360 giảm 30% giá gói 2026"
+  primary_intent: COMMERCIAL
+  secondary_intent: FRESHNESS
+  entity_topic: "TV360 / 30% promotion / 2026"
+  cluster: "tv360-promotions"
+  canonical_url_owner: "/posts/tv360-giam-30-gia-goi-2026/"
+  content_type: "news_freshness_commercial_guide"
+  evidence_refs:
+    - "viettel-tv360-promo-2026-09-22"
+  priority: P0
+
+sources:
+  - id: "viettel-tv360-promo-2026-09-22"
+    url: "https://www.vietteltelecom.vn/tin-tuc/chi-tiet/tv360-giam-30-gia-goi-cuoc-tan-huong-giai-tri-chi-tu-21000-dongthang/15965268"
+    publisher: "Viettel Telecom"
+    published: "2026-09-22"
+    observed_at: "2026-09-22T19:57:09+07:00"
+    role: "first-party promotion price, timing, payment and data-benefit source"
+    verification_status: VERIFIED
+
+internal_link_plan:
+  parent: "/posts/tv360-viettel-co-ton-data-4g-5g-khong/"
+  related:
+    - "/posts/tv360-viettel-co-ton-data-4g-5g-khong/"
+    - "/posts/cach-kiem-tra-dung-luong-data-viettel-con-lai/"
+
+image_plan:
+  role: "inline-primary"
+  subject: "TV360 on Viettel mobile data"
+  source_mode: "EXISTING_PROJECT_ASSET"
+  path: "/images/tv360-viettel-data-policy.svg"
+  topic_match: PASS
+  note: "Existing TV360-specific project illustration is reused; no unrelated stock image or fabricated promotion screenshot is introduced."
+
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+
+priority:
+  tier: P0
+  reason: >-
+    Same-day first-party freshness with a time-bounded commercial offer and direct user decision value.
+    Quantitative demand metrics are unavailable and remain UNKNOWN.
+
+k0_decision:
+  decision: PASS
+  duplicate_risk: PASS
+  cannibalization_result: PASS
+  unsupported_metrics: 0
+  unsupported_business_facts: 0
+
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
