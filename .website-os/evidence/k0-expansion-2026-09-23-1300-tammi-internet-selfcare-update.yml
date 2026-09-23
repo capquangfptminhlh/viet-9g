@@ -1,0 +1,144 @@
+version: 1.0.0
+decision: PASS
+observed_at: 2026-09-23T13:00:00+07:00
+slot: "13:00"
+website_os_bootstrap:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
+project_main_at_start: 79b9bf0f1ccf98bec5de1bbe8cce60871e6dc3a3
+baseline_k0_decision: .website-os/evidence/k0-decision-record.yml
+production_invariants:
+  dns_domain_routing_changed: false
+  registration_cta_contract: "MÃ_GÓI GB -> 290"
+  registration_cta_changed: false
+  exact_main_vercel_required_before_live_claim: true
+research:
+  observed_at: 2026-09-23T13:00:00+07:00
+  same_day_search_performed: true
+  source_provenance:
+    - id: V1
+      type: FIRST_PARTY
+      publisher: Viettel Telecom
+      published_at: 2026-09-23
+      url: https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/tang-2000-diem-viettel-cho-thue-bao-internet-tuong-tac-tinh-nang-tren-viettel-tammi/13012196
+      verified_facts: "Viettel Tammi exposes Internet Selfcare actions for changing the contract contact number and requesting an installation-address change. Eligible FTTH customers using the covered features can receive 2,000 Viettel++ points under the 23/09-31/12/2026 program, subject to published conditions."
+    - id: V2
+      type: FIRST_PARTY
+      publisher: Viettel Telecom
+      published_at: 2026-09-22
+      url: https://www.vietteltelecom.vn/tin-tuc/chi-tiet/tv360-giam-30-gia-goi-cuoc-tan-huong-giai-tri-chi-tu-21000-dongthang/15965268
+      verified_facts: "TV360 30% promotion is already owned by the dedicated TV360 promotion canonical published in the prior run."
+    - id: V3
+      type: FIRST_PARTY
+      publisher: Viettel Telecom
+      published_at: 2026-09-18
+      url: https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/khuyen-mai-hoan-100-phi-dang-ky-esim-khi-hoa-mang-moi-tren-app-viettel-tammi/12804412
+      verified_facts: "eSIM Tammi promotion is already owned by the eSIM fee canonical."
+    - id: V4
+      type: FIRST_PARTY
+      publisher: Viettel Telecom
+      published_at: 2026-09-17
+      url: https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/tam-biet-my-viettel-bat-dau-hanh-trinh-moi-cung-viettel-tammi/12026648
+      verified_facts: "Existing canonical owner covers the dated My Viettel to Tammi transition and states Tammi manages fixed Internet alongside mobile and TV."
+candidates:
+  - id: C1
+    query: "Viettel Tammi quản lý Internet / đổi số liên hệ hợp đồng / đổi địa chỉ lắp đặt"
+    intent: SUPPORT_INFORMATIONAL_FRESHNESS
+    entity: Viettel Tammi Internet Selfcare
+    cluster: my-viettel-tammi-transition
+    canonical_url_owner: /posts/my-viettel-1-10-2026-chuyen-sang-tammi/
+    content_type: freshness_support_guide
+    evidence: V1,V4
+    priority: P1
+    decision: UPDATE
+    reason: "Same migration/selfcare search job as the existing Tammi transition owner; same-day first-party evidence materially expands what Internet management on Tammi means. A new URL would fragment ownership."
+  - id: C2
+    query: "TV360 giảm 30% 2026"
+    intent: COMMERCIAL_FRESHNESS
+    entity: TV360 promotion
+    cluster: tv360-promotions
+    canonical_url_owner: /posts/tv360-giam-30-gia-goi-2026/
+    content_type: freshness_commercial_article
+    evidence: V2
+    priority: P1
+    decision: SKIP
+    reason: "Dedicated canonical owner was published in the immediately preceding run; no independent new job."
+  - id: C3
+    query: "eSIM Viettel Tammi hoàn phí"
+    intent: COMMERCIAL_TRANSACTIONAL
+    entity: Viettel eSIM
+    cluster: esim-fee
+    canonical_url_owner: /posts/phi-esim-viettel-2026/
+    content_type: support_commercial_article
+    evidence: V3
+    priority: P1
+    decision: SKIP
+    reason: "Existing canonical owner already covers current Tammi eSIM promotion facts."
+  - id: C4
+    query: "eSIM 5G Viettel thiết bị hỗ trợ"
+    intent: INFORMATIONAL_SUPPORT
+    entity: eSIM 5G compatibility
+    cluster: esim-5g-compatibility
+    canonical_url_owner: EXISTING_OWNER
+    content_type: support_article
+    evidence: "current repository route review + fresh SERP"
+    priority: P2
+    decision: SKIP
+    reason: "Existing eSIM/device compatibility coverage owns the job; no distinct same-day evidence justifies a new URL."
+  - id: C5
+    query: "Viettel roaming xác thực SIM chính chủ ở nước ngoài"
+    intent: SUPPORT
+    entity: roaming SIM verification
+    cluster: roaming-sim-verification
+    canonical_url_owner: EXISTING_OWNER
+    content_type: support_article
+    evidence: "first-party Viettel roaming source + repository ownership review"
+    priority: P2
+    decision: SKIP
+    reason: "Existing owner already covers this support job."
+  - id: C6
+    query: "USSD Viettel sau tắt 2G"
+    intent: SUPPORT
+    entity: USSD over IMS
+    cluster: ussd-after-2g
+    canonical_url_owner: /posts/ussd-viettel-qua-4g-volte-ims/
+    content_type: support_article
+    evidence: "existing first-party evidence + repository ownership review"
+    priority: P2
+    decision: SKIP
+    reason: "Existing canonical owner already covers the support job; no new independent sub-intent."
+selected:
+  action: UPDATE
+  primary_keyword: "Viettel Tammi quản lý Internet"
+  secondary_queries:
+    - "đổi số liên hệ hợp đồng Internet Viettel trên Tammi"
+    - "đổi địa chỉ lắp đặt Internet Viettel Tammi"
+    - "Tammi Selfcare Internet"
+    - "Viettel Tammi 2000 điểm Viettel++ Internet"
+  cluster: my-viettel-tammi-transition
+  intent: SUPPORT_INFORMATIONAL_FRESHNESS
+  target_url: /posts/my-viettel-1-10-2026-chuyen-sang-tammi/
+  title: "My Viettel từ 1/10/2026: chuyển sang Viettel Tammi thế nào?"
+  slug: my-viettel-1-10-2026-chuyen-sang-tammi
+  why_update: "The canonical already owns the My Viettel-to-Tammi transition and Internet-management scope. Same-day Selfcare evidence expands that exact job; a second URL would create avoidable cannibalization."
+  content_change: "Add dated first-party Internet Selfcare evidence, eligibility-bounded Viettel++ promotion facts, FAQ clarification, and source provenance."
+canonicalization:
+  duplicate_risk: PASS
+  cannibalization_result: PASS_UPDATE_EXISTING_OWNER_NO_NEW_URL
+  new_indexable_url_created: false
+metrics:
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking_position: UNKNOWN
+  traffic_potential: UNKNOWN
+  fabricated_metrics: false
+internal_link_plan:
+  preserve_existing_links: true
+  new_link_required: false
+k0_result: PASS
