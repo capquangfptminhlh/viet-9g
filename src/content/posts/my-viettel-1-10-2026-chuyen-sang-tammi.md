@@ -27,6 +27,17 @@ Theo Viettel, Tammi cho phép quản lý toàn bộ hệ sinh thái Viettel trê
 
 Viettel cũng đang dùng chính khu vực **My Viettel trên Tammi** cho các luồng dịch vụ mới. Ví dụ, chương trình eSIM tháng 9/2026 hướng dẫn người dùng vào tab My Viettel trên Tammi để chọn **Mua SIM - eSIM**.
 
+### Cập nhật 23/09: Tammi đã có thêm thao tác Selfcare cho Internet cố định
+
+Một thông báo mới của Viettel ngày **23/09/2026** cho thấy việc chuyển sang Tammi không chỉ là đổi tên ứng dụng. Với thuê bao Internet cố định đủ điều kiện, Viettel đang đưa các thao tác Selfcare vào mục **Tiện ích Internet** trên tab MyViettel của Tammi, gồm:
+
+- đổi số điện thoại liên hệ của hợp đồng;
+- đăng ký đổi địa chỉ lắp đặt của hợp đồng.
+
+Cùng thông báo này, Viettel triển khai chương trình từ **23/09 đến 31/12/2026** tặng **2.000 điểm Viettel++** cho khách hàng FTTH có tài khoản Tammi và phát sinh sử dụng một trong các tính năng Selfcare thuộc phạm vi chương trình. Mỗi khách hàng được cộng tối đa một lần cho mỗi tính năng; Viettel nêu thời gian cộng điểm sau 48 giờ kể từ khi khách hàng nhận điểm thành công và được hệ thống ghi nhận.
+
+Đây là **bằng chứng bổ sung cho phạm vi quản lý Internet trên Tammi**, không có nghĩa mọi thuê bao di động hoặc mọi thao tác trong Tammi đều được nhận 2.000 điểm. Điều kiện ưu đãi cần đối chiếu đúng chương trình Viettel đang công bố.
+
 ## Trước 01/10/2026 nên làm gì?
 
 Nếu bạn vẫn đang dùng My Viettel hằng ngày, có thể chuẩn bị theo thứ tự đơn giản sau:
@@ -73,7 +84,7 @@ Không có cơ sở trong thông báo ngày 17/09 để nói rằng việc chuy�
 
 ### Tammi quản lý được Internet Viettel không?
 
-Viettel nêu Tammi có thể đồng bộ **đường truyền Internet cố định** cùng số di động chính chủ và dịch vụ truyền hình trên một tài khoản.
+Có bằng chứng first-party rõ hơn từ ngày **23/09/2026**: ngoài việc Viettel nêu Tammi đồng bộ đường truyền Internet cố định, hãng còn công bố các thao tác Selfcare cho thuê bao Internet trên Tammi như đổi số liên hệ hợp đồng và đăng ký đổi địa chỉ lắp đặt. Khả năng hiển thị/thực hiện thực tế vẫn phụ thuộc dịch vụ và trạng thái tài khoản của khách hàng.
 
 ### Có thể mua eSIM trong Tammi không?
 
@@ -82,7 +93,8 @@ Có luồng first-party đã được Viettel công bố: trong chương trình 
 ## Nguồn kiểm chứng
 
 - [Viettel Telecom — Tạm biệt My Viettel - bắt đầu hành trình mới cùng Viettel Tammi](https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/tam-biet-my-viettel-bat-dau-hanh-trinh-moi-cung-viettel-tammi/12026648), công bố **17/09/2026**.
+- [Viettel Telecom — Tặng 2.000 điểm Viettel++ cho thuê bao Internet tương tác tính năng trên Viettel Tammi](https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/tang-2000-diem-viettel-cho-thue-bao-internet-tuong-tac-tinh-nang-tren-viettel-tammi/13012196), công bố **23/09/2026**.
 - [Viettel Telecom — Khuyến mãi hoàn 100% phí đăng ký eSIM khi hòa mạng mới trên App Viettel Tammi](https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/khuyen-mai-hoan-100-phi-dang-ky-esim-khi-hoa-mang-moi-tren-app-viettel-tammi/12804412), công bố **18/09/2026**.
 - [Viettel — Cập nhật phần mềm và thiết bị hỗ trợ USSD: Không lo gián đoạn dịch vụ khi tắt sóng 2G](https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320), công bố **03/07/2026**.
 
-**Phạm vi kiểm chứng:** mốc chuyển tiếp My Viettel → Tammi, phạm vi quản lý dịch vụ và các ví dụ luồng Tammi được lấy từ nguồn first-party Viettel. Search volume, KD, CPC, ranking và traffic potential không có dữ liệu xác minh trong lượt này và được giữ ở trạng thái `UNKNOWN`.
+**Phạm vi kiểm chứng:** mốc chuyển tiếp My Viettel → Tammi, phạm vi quản lý dịch vụ, ví dụ Selfcare Internet và các luồng Tammi được lấy từ nguồn first-party Viettel. Search volume, KD, CPC, ranking và traffic potential không có dữ liệu xác minh trong lượt này và được giữ ở trạng thái `UNKNOWN`.
