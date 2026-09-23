@@ -1,0 +1,155 @@
+version: 1.0.0
+decision: PASS
+observed_at: 2026-09-23T07:00:50+07:00
+slot: "07:00"
+website_os_bootstrap:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
+project_main_at_start: 5824ed460f22a209faca6d112f494169028c560a
+baseline_k0_decision: .website-os/evidence/k0-decision-record.yml
+production_invariants:
+  dns_domain_routing_changed: false
+  registration_cta_contract: "MÃ_GÓI GB -> 290"
+  registration_cta_changed: false
+  exact_main_vercel_required_before_live_claim: true
+research:
+  observed_at: 2026-09-23T07:00:50+07:00
+  same_day_search_performed: true
+  source_provenance:
+    - id: V1
+      type: FIRST_PARTY
+      publisher: Viettel Telecom
+      published_at: 2026-09-17
+      url: https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/tam-biet-my-viettel-bat-dau-hanh-trinh-moi-cung-viettel-tammi/12026648
+      verified_facts: "Viettel states My Viettel will 'hoàn thành sứ mệnh' on 01/10/2026 and familiar My Viettel services are integrated into Viettel Tammi; Tammi can manage owned mobile numbers, fixed Internet and TV under one account."
+    - id: V2
+      type: FIRST_PARTY
+      publisher: Viettel Telecom
+      published_at: 2026-09-18
+      url: https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/khuyen-mai-hoan-100-phi-dang-ky-esim-khi-hoa-mang-moi-tren-app-viettel-tammi/12804412
+      verified_facts: "Tammi My Viettel tab supports SIM/eSIM purchase flow; eSIM promotion facts are already owned by the eSIM fee canonical."
+    - id: V3
+      type: FIRST_PARTY
+      publisher: Viettel
+      published_at: 2026-07-03
+      url: https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-phan-mem-va-thiet-bi-ho-tro-ussd-khong-lo-gian-doan-dich-vu-khi-tat-song-2g/14894320
+      verified_facts: "USSD over IMS/device-update support exists and is already covered by the USSD canonical owner."
+    - id: D1
+      type: SERP_DEMAND
+      publisher: CellphoneS
+      published_at: 2026-09-21
+      url: https://cellphones.com.vn/sforum/cach-dang-ky-goi-cuoc-5gtammi
+      verified_facts: "Fresh third-party search demand exists for 5GTAMMI; commercial package facts are not accepted as source of truth."
+candidates:
+  - id: C1
+    query: "My Viettel 1/10/2026 chuyển sang Tammi / My Viettel còn dùng được không"
+    intent: SUPPORT_INFORMATIONAL_FRESHNESS
+    entity: My Viettel -> Viettel Tammi transition
+    cluster: my-viettel-tammi-transition
+    canonical_url_owner: /posts/my-viettel-1-10-2026-chuyen-sang-tammi/
+    content_type: freshness_support_guide
+    evidence: V1
+    priority: P1
+    decision: NEW
+    reason: "Distinct dated migration/support job; no existing repository article owns the 01/10/2026 My Viettel-to-Tammi transition."
+  - id: C2
+    query: "gói 5GTAMMI giá bao nhiêu / cách đăng ký"
+    intent: COMMERCIAL_TRANSACTIONAL
+    entity: 5GTAMMI
+    cluster: tammi-package
+    canonical_url_owner: HOLD
+    content_type: package_entity_page
+    evidence: D1
+    priority: HOLD
+    decision: SKIP
+    reason: "Fresh demand exists but current third-party sources conflict on price and no first-party package source was found; business facts cannot be fabricated or promoted from affiliate sources."
+  - id: C3
+    query: "5G130B Viettel"
+    intent: COMMERCIAL_TRANSACTIONAL
+    entity: 5G130B
+    cluster: 5g130b-package
+    canonical_url_owner: HOLD
+    content_type: package_entity_page
+    evidence: "fresh SERP observation"
+    priority: HOLD
+    decision: SKIP
+    reason: "Fresh SERP demand exists but no first-party Viettel package source was found in this run."
+  - id: C4
+    query: "USSD Viettel sau tắt 2G"
+    intent: SUPPORT
+    entity: USSD over IMS
+    cluster: ussd-after-2g
+    canonical_url_owner: /posts/ussd-viettel-qua-4g-volte-ims/
+    content_type: support_article
+    evidence: V3
+    priority: P1
+    decision: SKIP
+    reason: "Existing canonical owner already covers the same support job."
+  - id: C5
+    query: "eSIM Viettel Tammi hoàn phí"
+    intent: COMMERCIAL_SUPPORT_FRESHNESS
+    entity: eSIM Tammi promotion
+    cluster: esim-fees-pricing
+    canonical_url_owner: /posts/phi-esim-viettel-2026/
+    content_type: canonical_owner_update
+    evidence: V2
+    priority: P1
+    decision: SKIP
+    reason: "Existing canonical owner was recently expanded for this exact promotion/search job."
+  - id: C6
+    query: "Viettel có 4G nhưng không gọi được sau tắt 2G"
+    intent: SUPPORT
+    entity: VoLTE post-2G
+    cluster: post2g-volte-troubleshooting
+    canonical_url_owner: /posts/tat-song-2g-15-9-2026-viettel-volte/
+    content_type: support_article
+    evidence: "current repo owner + first-party VoLTE evidence"
+    priority: P1
+    decision: SKIP
+    reason: "Existing canonical owner already covers the same troubleshooting job."
+selected_candidate: C1
+mapping:
+  primary_keyword: "My Viettel 1/10/2026 chuyển sang Tammi"
+  secondary_queries:
+    - "My Viettel còn dùng được không"
+    - "My Viettel chuyển sang Tammi khi nào"
+    - "Viettel Tammi thay My Viettel"
+    - "quản lý thuê bao Viettel trên Tammi"
+    - "My Viettel 1/10/2026"
+  primary_intent: SUPPORT_INFORMATIONAL_FRESHNESS
+  cluster: my-viettel-tammi-transition
+  entity: My Viettel -> Viettel Tammi transition
+  canonical_url_owner: /posts/my-viettel-1-10-2026-chuyen-sang-tammi/
+  content_type: freshness_support_guide
+  priority: P1
+  why_new_url: "The dated My Viettel-to-Tammi service transition is a distinct support/freshness job from eSIM pricing, Tammi eSIM promotions, USSD troubleshooting and package registration content."
+  internal_link_plan:
+    - /posts/phi-esim-viettel-2026/
+    - /posts/ussd-viettel-qua-4g-volte-ims/
+    - /posts/kiem-tra-sim-viettel-chinh-chu/
+  image_requirement:
+    path: /images/my-viettel-tammi-transition-2026.svg
+    role: inline-primary
+    source_mode: NEW_GENERATED_IN_REPO_VECTOR
+    alt: "Minh họa chuyển các dịch vụ My Viettel sang Viettel Tammi từ 01/10/2026"
+metrics:
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking_position: UNKNOWN
+  traffic_potential: UNKNOWN
+  fabricated_metrics: false
+cannibalization:
+  result: PASS
+  duplicate_owner_found: false
+  checked_existing_tammi_content: true
+  resolution: "Create one new owner for the dated transition; keep eSIM, USSD, SIM verification and package jobs with their existing owners."
+source_of_truth:
+  business_facts: FIRST_PARTY_VIETTEL_ONLY
+  unsupported_package_facts: HOLD
+k0_result: PASS
