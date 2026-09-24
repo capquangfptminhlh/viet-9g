@@ -1,0 +1,164 @@
+version: 1.0.0
+decision: PASS
+observed_at: 2026-09-24T13:01:01+07:00
+slot: "13:00"
+website_os_bootstrap:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
+project_main_at_start: e9a98df8948b4369900b3300bb83ce82037504aa
+production_invariants:
+  dns_domain_routing_changed: false
+  registration_cta_contract: "MÃ_GÓI GB -> 290"
+  registration_cta_changed: false
+  exact_main_vercel_required_before_live_claim: true
+research:
+  same_day_search_performed: true
+  observed_at: 2026-09-24T13:01:01+07:00
+  source_provenance:
+    - id: V1
+      type: FIRST_PARTY
+      publisher: Viettel
+      published_at: 2026-09-24
+      url: https://www.viettel.vn/tin-tuc/chi-tiet/doc-quyen-khi-mua-esim-viettel-chi-125000d-co-10gbngay/11282684
+      verification_status: VERIFIED
+      verified_facts: "New eSIM 5G offer: 125,000 VND/30 days, 10GB/day high-speed data, exclusively for new eSIM activations; purchase via Viettel Tammi. Public article does not identify a package code in the verified text."
+    - id: V2
+      type: FIRST_PARTY
+      publisher: Viettel
+      published_at: 2026-09-22
+      url: https://098.viettel.vn/tin-tuc/chi-tiet/tv360-giam-30-gia-goi-cuoc-tan-huong-giai-tri-chi-tu-21000-dongthang/15965268
+      verification_status: VERIFIED
+      verified_facts: "TV360 price promotion already has its own canonical owner."
+    - id: V3
+      type: FIRST_PARTY
+      publisher: Viettel
+      published_at: 2026-06-18
+      url: https://www.viettel.vn/tin-tuc/chi-tiet/thong-bao-thue-bao-viettel-bi-chan-do-chua-xac-thuc-thong-tin-huong-dan-cach-xu-ly/15333972
+      verification_status: VERIFIED
+      verified_facts: "SIM identity-verification support already has repository ownership."
+    - id: V4
+      type: FIRST_PARTY
+      publisher: Viettel Telecom
+      published_at: 2026-06-30
+      url: https://www.vietteltelecom.vn/tin-tuc/chi-tiet/huong-dan-chi-tiet-5-buoc-doi-esim-tren-viettel-tammi-cuc-don-gian/18477972
+      verification_status: VERIFIED
+      verified_facts: "Physical-SIM to eSIM conversion is a separate existing support job."
+    - id: V5
+      type: FIRST_PARTY
+      publisher: Viettel
+      published_at: 2026-09-24
+      url: https://m.tv360.vn/
+      verification_status: VERIFIED
+      verified_facts: "TV360 currently surfaces live sports programming; sports-viewing intent already has separate ownership and was not selected for this run."
+candidates:
+  - id: C1
+    query: "eSIM Viettel 125000 10GB/ngày 2026"
+    intent: COMMERCIAL_FRESHNESS
+    entity: "new-activation Viettel eSIM 5G offer"
+    cluster: esim-new-activation-offer
+    canonical_url_owner: /posts/esim-viettel-125k-10gb-ngay-2026/
+    content_type: freshness_commercial_guide
+    evidence: [V1]
+    priority: P0
+    decision: NEW
+    reason: "Same-day first-party launch creates a distinct new-activation offer job. Existing eSIM owners cover fees, conversion, QR/device support or prior Tammi promotion, not this dated 125k/10GB-per-day offer."
+  - id: C2
+    query: "phí eSIM Viettel 2026"
+    intent: COMMERCIAL_SUPPORT
+    entity: "eSIM fees"
+    cluster: esim-fees
+    canonical_url_owner: /posts/phi-esim-viettel-2026/
+    content_type: commercial_support_guide
+    evidence: [V1, V4]
+    priority: P1
+    decision: SKIP
+    reason: "Existing canonical owns fee-by-operation job; new offer should link to it rather than replace it."
+  - id: C3
+    query: "đổi SIM vật lý sang eSIM Viettel Tammi"
+    intent: SUPPORT
+    entity: "eSIM conversion"
+    cluster: esim-conversion
+    canonical_url_owner: /posts/doi-esim-viettel-tren-my-viettel/
+    content_type: support_guide
+    evidence: [V4]
+    priority: P1
+    decision: SKIP
+    reason: "Existing canonical owner; materially different from new eSIM activation."
+  - id: C4
+    query: "TV360 giảm 30% 2026"
+    intent: COMMERCIAL_FRESHNESS
+    entity: "TV360 promotion"
+    cluster: tv360-promotions
+    canonical_url_owner: /posts/tv360-giam-30-gia-goi-2026/
+    content_type: freshness_commercial_article
+    evidence: [V2]
+    priority: P1
+    decision: SKIP
+    reason: "Existing canonical owner."
+  - id: C5
+    query: "SIM Viettel bị chặn chưa xác thực"
+    intent: SUPPORT
+    entity: "subscriber identity verification"
+    cluster: sim-identity-support
+    canonical_url_owner: EXISTING_OWNER
+    content_type: support_guide
+    evidence: [V3]
+    priority: P1
+    decision: SKIP
+    reason: "Existing support owner; no independent new job."
+  - id: C6
+    query: "xem thể thao trực tiếp TV360 24/09/2026"
+    intent: INFORMATIONAL_FRESHNESS
+    entity: "TV360 live sports schedule"
+    cluster: tv360-sports-content
+    canonical_url_owner: EXISTING_SPORTS_OWNER
+    content_type: freshness_schedule
+    evidence: [V5]
+    priority: P2
+    decision: SKIP
+    reason: "Sports-viewing cluster already has a canonical owner; a daily schedule URL would be thin/ephemeral without a stronger durable search job."
+selected:
+  action: NEW
+  primary_keyword: "eSIM Viettel 125000 10GB/ngày 2026"
+  secondary_queries:
+    - "eSIM Viettel 125k 10GB ngày"
+    - "eSIM Viettel hòa mạng mới 125000"
+    - "eSIM 5G Viettel 10GB ngày"
+    - "mua eSIM Viettel mới trên Tammi"
+    - "eSIM Viettel 125000 áp dụng cho ai"
+  cluster: esim-new-activation-offer
+  intent: COMMERCIAL_FRESHNESS
+  target_url: /posts/esim-viettel-125k-10gb-ngay-2026/
+  title: "eSIM Viettel 125.000đ có 10GB/ngày: ai được áp dụng?"
+  slug: esim-viettel-125k-10gb-ngay-2026
+  why_new_url: "Distinct same-day new-activation offer from fee, conversion, device-compatibility and QR-support intents."
+  source_set: [V1]
+  metrics:
+    search_volume: UNKNOWN
+    keyword_difficulty: UNKNOWN
+    cpc: UNKNOWN
+    ranking: UNKNOWN
+    traffic_potential: UNKNOWN
+canonical_ownership:
+  selected_owner: /posts/esim-viettel-125k-10gb-ngay-2026/
+  neighboring_owners:
+    - url: /posts/phi-esim-viettel-2026/
+      job: "eSIM fee by operation"
+    - url: /posts/doi-esim-viettel-tren-my-viettel/
+      job: "convert existing physical SIM to eSIM"
+    - url: /posts/esim-5g-kich-hoat-quet-qr/
+      job: "eSIM activation/QR support"
+  cannibalization_result: PASS_DISTINCT_INTENT
+internal_link_plan:
+  - /posts/phi-esim-viettel-2026/
+  - /posts/doi-esim-viettel-tren-my-viettel/
+  - /posts/esim-5g-kich-hoat-quet-qr/
+content_type_assignment:
+  type: freshness_commercial_guide
+  rationale: "A same-day official offer needs a durable eligibility/decision guide, while existing support pages remain owners for conversion, fees and activation."
+k0_result: PASS
