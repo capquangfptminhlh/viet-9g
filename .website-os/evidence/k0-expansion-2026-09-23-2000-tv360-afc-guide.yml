@@ -1,0 +1,155 @@
+version: 1.0.0
+decision: PASS
+observed_at: 2026-09-23T20:00:00+07:00
+slot: "20:00"
+website_os_bootstrap:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
+project_main_at_start: cf9f525cebe83692c63281a0df623aef02a5f63a
+production_invariants:
+  dns_domain_routing_changed: false
+  registration_cta_contract: "MÃ_GÓI GB -> 290"
+  registration_cta_changed: false
+  exact_main_vercel_required_before_live_claim: true
+research:
+  same_day_search_performed: true
+  observed_at: 2026-09-23T20:00:00+07:00
+  source_provenance:
+    - id: V1
+      type: FIRST_PARTY
+      publisher: Viettel Telecom
+      published_at: 2026-09-22
+      url: https://www.vietteltelecom.vn/tin-tuc/chi-tiet/tv360-so-huu-ban-quyen-hop-tac-vtv-tiep-song-giai-dau-afc-champions-league-elite-va-afc-champions-league-two/15946388
+      verification_status: VERIFIED
+      verified_facts: "TV360 holds broadcast rights for AFC Champions League Elite and AFC Champions League Two 2026/27 and cooperates with VTV for rebroadcast; TV360 supports Smart TV, smartphone, tablet and web; group stage started 14/09/2026; Viettel names The Cong Viettel and Cong an Ha Noi as Vietnamese representatives."
+    - id: V2
+      type: FIRST_PARTY
+      publisher: Viettel Telecom
+      published_at: 2026-09-23
+      url: https://www.vietteltelecom.vn/tin-tuc/chi-tiet/tang-2000-diem-viettel-cho-thue-bao-internet-tuong-tac-tinh-nang-tren-viettel-tammi/13012196
+      verification_status: VERIFIED
+      verified_facts: "Tammi Internet Selfcare and 2,000 Viettel++ promotion; already assigned to the My Viettel -> Tammi owner in the 13:00 update."
+    - id: V3
+      type: FIRST_PARTY
+      publisher: Viettel Telecom
+      published_at: 2026-09-22
+      url: https://www.vietteltelecom.vn/tin-tuc/chi-tiet/tv360-giam-30-gia-goi-cuoc-tan-huong-giai-tri-chi-tu-21000-dongthang/15965268
+      verification_status: VERIFIED
+      verified_facts: "TV360 30% promotion already has a dedicated commercial/freshness canonical owner."
+    - id: V4
+      type: FIRST_PARTY
+      publisher: Viettel Telecom
+      published_at: 2026-06-15
+      url: https://www.vietteltelecom.vn/tin-tuc/chi-tiet/thong-bao-quan-trong-quy-dinh-bat-buoc-xac-thuc-lai-khuon-mat-khi-thay-doi-dien-thoai-ap-dung-tu-15062026/19138832
+      verification_status: VERIFIED
+      verified_facts: "Device-change biometric verification support job already has repository ownership."
+    - id: V5
+      type: FIRST_PARTY
+      publisher: Viettel Telecom
+      published_at: 2026-06
+      url: https://www.vietteltelecom.vn/tin-tuc/chi-tiet/cung-viettel-roaming-xac-thuc-sim-chinh-chu-tai-nuoc-ngoai/16655608
+      verification_status: VERIFIED
+      verified_facts: "Roaming SIM identity verification abroad is an existing support intent and owner."
+candidates:
+  - id: C1
+    query: "xem AFC Champions League 2026 2027 trên TV360 VTV"
+    intent: INFORMATIONAL_FRESHNESS
+    entity: "TV360 AFC Champions League broadcast rights"
+    cluster: tv360-sports-content
+    canonical_url_owner: /posts/xem-afc-champions-league-tv360-vtv-2026-2027/
+    content_type: freshness_support_guide
+    evidence: V1
+    priority: P1
+    decision: NEW
+    reason: "Distinct sports-rights/viewing-location job; no existing article owns AFC viewing intent."
+  - id: C2
+    query: "Viettel Tammi 2000 điểm Internet"
+    intent: COMMERCIAL_SUPPORT_FRESHNESS
+    entity: "Tammi Internet Selfcare promotion"
+    cluster: my-viettel-tammi-transition
+    canonical_url_owner: /posts/my-viettel-1-10-2026-chuyen-sang-tammi/
+    content_type: support_freshness_update
+    evidence: V2
+    priority: P1
+    decision: SKIP
+    reason: "Same-day evidence already expanded the existing owner in the 13:00 run; do not duplicate it."
+  - id: C3
+    query: "TV360 giảm 30% giá gói 2026"
+    intent: COMMERCIAL_FRESHNESS
+    entity: "TV360 promotion"
+    cluster: tv360-promotions
+    canonical_url_owner: /posts/tv360-giam-30-gia-goi-2026/
+    content_type: news_freshness_commercial_guide
+    evidence: V3
+    priority: P0
+    decision: SKIP
+    reason: "Existing canonical published in the prior slot owns promotion price/timing intent."
+  - id: C4
+    query: "Viettel đổi SIM sang máy mới xác thực khuôn mặt"
+    intent: SUPPORT
+    entity: "SIM device-change biometric verification"
+    cluster: sim-verification
+    canonical_url_owner: EXISTING_SIM_VERIFICATION_OWNER
+    content_type: support_article
+    evidence: V4
+    priority: P1
+    decision: SKIP
+    reason: "Existing owner covers the same support job."
+  - id: C5
+    query: "Viettel xác thực SIM chính chủ ở nước ngoài"
+    intent: SUPPORT
+    entity: "roaming SIM identity verification"
+    cluster: viettel-roaming
+    canonical_url_owner: EXISTING_ROAMING_VERIFICATION_OWNER
+    content_type: support_article
+    evidence: V5
+    priority: P1
+    decision: SKIP
+    reason: "Existing country/roaming support ownership; new URL would cannibalize."
+  - id: C6
+    query: "Viettel 5G tốc độ tháng 8 2026"
+    intent: INFORMATIONAL_FRESHNESS
+    entity: "Viettel 5G speed benchmark"
+    cluster: 5g-network-performance
+    canonical_url_owner: HOLD
+    content_type: freshness_analysis
+    evidence: "same-day news citing VNNIC/i-Speed"
+    priority: HOLD
+    decision: SKIP
+    reason: "Fresh demand exists but direct primary measurement provenance was not verified in this run; do not publish a quantitative performance claim from secondary reporting."
+query_mapping:
+  query: "xem AFC Champions League 2026 2027 trên TV360 VTV"
+  primary_intent: INFORMATIONAL
+  secondary_intent: FRESHNESS
+  entity_topic: "TV360 / AFC Champions League Elite / AFC Champions League Two / VTV"
+  cluster: tv360-sports-content
+  canonical_url_owner: /posts/xem-afc-champions-league-tv360-vtv-2026-2027/
+  content_type: freshness_support_guide
+  evidence_refs: [V1]
+  priority: P1
+internal_link_plan:
+  related:
+    - /posts/tv360-viettel-co-ton-data-4g-5g-khong/
+    - /posts/tv360-giam-30-gia-goi-2026/
+metrics:
+  volume: UNKNOWN
+  kd: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+k0_decision:
+  decision: PASS
+  duplicate_risk: PASS
+  cannibalization_result: PASS
+  unsupported_metrics: 0
+  unsupported_business_facts: 0
+  why_new_url: "AFC viewing/broadcast-rights intent is materially different from TV360 promotion pricing and TV360 mobile-data policy; a new owner avoids overloading either existing canonical."
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_contract: "MÃ_GÓI GB -> 290"
