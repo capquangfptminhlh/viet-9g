@@ -1,0 +1,144 @@
+version: 1.0.0
+decision: PASS
+observed_at: 2026-09-27T07:00:00+07:00
+slot: "07:00"
+website_os_bootstrap:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_commit_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
+production_invariants:
+  dns_domain_routing_changed: false
+  registration_cta_contract: "MÃ_GÓI GB -> 290"
+  registration_cta_changed: false
+  exact_main_vercel_required_before_live_claim: true
+research:
+  same_day_search_performed: true
+  observed_at: 2026-09-27T07:00:00+07:00
+  source_provenance:
+    - id: V1
+      type: FIRST_PARTY
+      publisher: Viettel
+      url: https://098.viettel.vn/tin-tuc/chi-tiet/cap-nhat-2025-tong-hop-cac-goi-cuoc-viettel-4g-5g-150kthang-toc-do-cao/16918836
+      verification_status: VERIFIED
+      verified_facts: "SD150 150,000 VND/30 days, 90GB total, 3GB/day; SD150 renews after cycle."
+    - id: V2
+      type: FIRST_PARTY
+      publisher: Viettel Telecom
+      published_at: 2026-09-24
+      url: https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/doc-quyen-khi-mua-esim-viettel-chi-125000dd-co-10gbngay/11282684
+      verification_status: VERIFIED
+      verified_facts: "New eSIM 125,000 VND/30 days and 10GB/day already has a canonical owner."
+    - id: V3
+      type: FIRST_PARTY
+      publisher: TV360/Viettel Telecom
+      observed_at: 2026-09-27
+      url: https://m.tv360.vn/
+      verification_status: VERIFIED
+      verified_facts: "Daily sports schedule is freshness content under existing TV360 sports ownership."
+    - id: V4
+      type: SECONDARY_GOVERNMENT_PUBLISHER
+      publisher: Quang Ngai Government Portal / Viettel Quang Ngai
+      published_at: 2026-09-25
+      url: https://quangngai.gov.vn/tin-tuc/moi-phut-online-viettel-tammi-tang-1-phut-thoai-noi-mang-mien-phi.html
+      verification_status: HOLD_FOR_PRIMARY_BUSINESS_FACT
+      verified_facts: "Fresh Tammi promotion observed, but no Viettel Telecom primary page was found in this run."
+candidates:
+  - id: C1
+    query: "Viettel Tammi mỗi phút online tặng 1 phút gọi"
+    intent: COMMERCIAL_FRESHNESS
+    entity: Tammi calling reward
+    cluster: tammi-rewards
+    canonical_url_owner: UNRESOLVED
+    content_type: freshness_guide
+    evidence: [V4]
+    priority: P0
+    decision: HOLD
+    reason: "Business promotion lacks primary Viettel Telecom provenance in this run."
+  - id: C2
+    query: "eSIM Viettel 125000 10GB/ngày"
+    intent: COMMERCIAL_FRESHNESS
+    entity: new eSIM activation offer
+    cluster: esim-new-activation-offer
+    canonical_url_owner: /posts/esim-viettel-125k-10gb-ngay-2026/
+    content_type: freshness_commercial_guide
+    evidence: [V2]
+    priority: P0
+    decision: SKIP
+    reason: "Existing canonical owner; duplicate risk."
+  - id: C3
+    query: "TV360 lịch thể thao 27/9/2026"
+    intent: INFORMATIONAL_FRESHNESS
+    entity: TV360 sports schedule
+    cluster: tv360-sports-content
+    canonical_url_owner: EXISTING_OWNER
+    content_type: freshness_schedule
+    evidence: [V3]
+    priority: P1
+    decision: SKIP
+    reason: "Daily schedule does not justify another canonical owner."
+  - id: C4
+    query: "SIM Viettel đổi máy xác thực"
+    intent: SUPPORT
+    entity: SIM device-change verification
+    cluster: sim-device-change
+    canonical_url_owner: /posts/sim-viettel-lap-sang-may-moi-bi-chan-1-chieu/
+    content_type: support_article
+    evidence: [BASELINE_K0]
+    priority: P1
+    decision: SKIP
+    reason: "Existing canonical owner."
+  - id: C5
+    query: "roaming Viettel không có mạng"
+    intent: SUPPORT
+    entity: Viettel roaming
+    cluster: roaming-setup
+    canonical_url_owner: /posts/data-roaming-viettel-iphone-android/
+    content_type: support_article
+    evidence: [BASELINE_K0]
+    priority: P1
+    decision: SKIP
+    reason: "Existing canonical owner."
+  - id: C6
+    query: "SD150 Viettel phù hợp nhu cầu nào"
+    intent: COMMERCIAL_INFORMATIONAL
+    entity: SD150
+    cluster: sd150-review
+    canonical_url_owner: /posts/b4-review-09-a/
+    content_type: review_decision_guide
+    evidence: [V1]
+    priority: P1
+    decision: UPDATE
+    reason: "Existing review owner is thin and contains one English fact bullet; expand the same owner instead of creating a new URL."
+selected:
+  action: UPDATE
+  primary_keyword: "SD150 Viettel phù hợp nhu cầu nào"
+  secondary_queries:
+    - "SD150 90GB có đủ dùng"
+    - "SD150 3GB ngày"
+    - "SD150 khác SD120 SD135"
+    - "SD150 giá 150000"
+  cluster: sd150-review
+  intent: COMMERCIAL_INFORMATIONAL
+  canonical_url_owner: /posts/b4-review-09-a/
+  target_file: src/content/posts/b4-review-09-a.md
+  title: "SD150 Viettel phù hợp nhu cầu nào? 90GB/30 ngày có đủ dùng?"
+  slug: b4-review-09-a
+  why_update: "The current URL already owns SD150 review intent; a second URL would cannibalize it."
+k0:
+  result: PASS
+  duplicate_cannibalization: PASS_UPDATE_EXISTING_OWNER_NO_NEW_URL
+  metrics:
+    search_volume: UNKNOWN
+    keyword_difficulty: UNKNOWN
+    cpc: UNKNOWN
+    ranking_position: UNKNOWN
+    traffic_potential: UNKNOWN
+  fabricated_metrics: false
+internal_link_plan:
+  - /posts/b4-review-07-a/
+  - /posts/b4-review-08-a/
+content_type_assignment: review_decision_guide
