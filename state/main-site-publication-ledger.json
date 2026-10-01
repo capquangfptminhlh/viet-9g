@@ -11503,5 +11503,517 @@
     "contentHash": "4dbf3eeb2ab84151ddf02b82058acf6f2c4eee7c3907d4c3f5c416f20b2033e8",
     "status": "PUBLISHED",
     "createdAt": "2026-09-30T02:40:01.457Z"
+  },
+  {
+    "idempotencyKey": "522ab9dfcf4242967649a234d9444219b462140e776f5e1ad636c1d903dc5fa9:2026-10-01T02:44:12.129Z",
+    "topicId": "topic-b1-ussd-dich-vu-bi-anh-huong",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "5ea8b4a87a7bd1cea21c5bab2e5a6d4513bfdc848731ca2ba7d74804559f3239:2026-10-01T02:44:12.129Z",
+    "topicId": "topic-b1-android-kiem-tra-ussd-ims",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "e753c46cd79faf0c376e86b333a951d07c8b1f41f67f6428016e9d4d25c77915:2026-10-01T02:44:12.129Z",
+    "topicId": "topic-b1-android-thu-ussd-4g",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "d0858e65c51effd8c79aee9ffe47b382ae07283db79d17a02003f9188c3a6bd2:2026-10-01T02:44:12.129Z",
+    "topicId": "topic-b1-iphone-ussd-4g-volte",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "496fe563938397341e57676da14214f2b04eddf506b12d81a7cf17d092ed940d:2026-10-01T02:44:12.129Z",
+    "topicId": "topic-b1-iphone-kiem-tra-bieu-tuong-mang",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "809aeeb5bf2d5871f6f27f8fa191ce21ad727987fc2990915d0f5605e2a1b0c6:2026-10-01T02:44:12.129Z",
+    "topicId": "topic-b1-ios-181-ussd-ims",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "785a0e80faef51c17d4d8cd22cad015d6d10c92358f3081d52ed9141c21d8d6f:2026-10-01T02:44:12.129Z",
+    "topicId": "topic-b1-do-toc-do-4g-5g-speedtest-ping",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "d403dba9aeba6b8432e441c8a3343d490a53a9af21b11f7c5a12b76ffd3954a7:2026-10-01T02:44:12.129Z",
+    "topicId": "topic-b1-esim-khong-can-doi-sim-5g",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "1fc511816ac755a4a924a39c0403d8e4057d406d7a38b5d0f71981ca343a8060:2026-10-01T02:44:12.129Z",
+    "topicId": "topic-b1-roaming-chon-mang-iphone-android",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "abdec7f248c078644b325b97bb0af4ec20f28880686274dcc8188c0eefa82d90:2026-10-01T02:44:12.129Z",
+    "topicId": "b1-complete-01",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "9f247c31ba316f763c62653b6f26b0cdd41cf5855005212677e62cffa8307a18:2026-10-01T02:44:12.129Z",
+    "topicId": "b1-complete-02",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "030b3ae8c6d72362d6b8d082a6836d182e0c4e3520edd4e9ac765b11b974cb8a:2026-10-01T02:44:12.129Z",
+    "topicId": "b1-complete-03",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "a109a5fb6ffad6648555ad8fd4262aa477f43cc4d69907373b5e55766080f87d:2026-10-01T02:44:12.129Z",
+    "topicId": "b1-complete-04",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "0b293dac30cbcc85ba5622a659f4983da208a87a3d70505749d4875a778ab554:2026-10-01T02:44:12.129Z",
+    "topicId": "b1-complete-05",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "c0ba5dd0f2d599d88cc350e514756baec2eba4da734a47867f49e11baddb7939:2026-10-01T02:44:12.129Z",
+    "topicId": "b1-complete-06",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "fdab3e4921023807a9897a4334695bffc040a1a9d4c28f0f9f64d94f8ad0ce6b:2026-10-01T02:44:12.129Z",
+    "topicId": "topic-b2-kiem-tra-data-kttk-191",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "02b3225b02b815d36d6c89a8c13c300dd25bf55b0b508783b218ab11e51c6eb4:2026-10-01T02:44:12.129Z",
+    "topicId": "topic-b2-tra-cuu-goi-098",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "c100fefeb1065bc838a75d9639406073ba257b847d4807a3860fe7c0cf49f025:2026-10-01T02:44:12.129Z",
+    "topicId": "topic-b2-my-viettel-dung-luong-han-dung",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "93a68e636a014c3ac88bee71215b9f29da8008a7ffe59f62977a7b53f40a73d9:2026-10-01T02:44:12.129Z",
+    "topicId": "b2-complete-01",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "fc94d3cf0e022fe6ab43b5ee7353453a7d838a0718653eced2dba3b52095d66a:2026-10-01T02:44:12.129Z",
+    "topicId": "b2-complete-02",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "0c525e626f01ca4d2ddfd407667754bb760fc00c53c0e8ceb69047f6d9dcf4b5:2026-10-01T02:44:12.129Z",
+    "topicId": "b2-complete-03",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "633d75007f5f1289a63dc4c66882cddab671efd18079a5d4d2fcea328b48412f:2026-10-01T02:44:12.129Z",
+    "topicId": "b2-complete-05",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "f66aa5bd3f102c35923062a17d975d60dcb626a978a998ccea417326448da71d:2026-10-01T02:44:12.129Z",
+    "topicId": "b2-complete-06",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "1179be8ab2e7474470666680eaac939afd0b40dd8b536e4fd46fc1e30f7e015c:2026-10-01T02:44:12.129Z",
+    "topicId": "b2-complete-07",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "5711cf79f11ba12b3a2e57b84726876810eff1c91e832986cea3bd4418c34fce:2026-10-01T02:44:12.129Z",
+    "topicId": "b2-complete-08",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "4d4216870b15538ffe1ec37ae9c98cbd05091becedb1f445cdba667d47713c1d:2026-10-01T02:44:12.129Z",
+    "topicId": "b2-complete-09",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "cee346f96bf28f4d227e37c58e62ac671a4b6aa97f4ac0b44cdc273b94bbbeb3:2026-10-01T02:44:12.129Z",
+    "topicId": "b2-complete-10",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "42784a0ca5667d6d3b28d622117a94b58b7b276ab711120270afb05d5725ed9b:2026-10-01T02:44:12.129Z",
+    "topicId": "b2-complete-11",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "37616b94e419d65ea70a2b5c97ce11b4e4de5847dc93c98a522bc543dd69d6e4:2026-10-01T02:44:12.129Z",
+    "topicId": "b2-complete-12",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "84d1f3fe3c4ef69689d441111aee1127a59cff718ed66ba7ded497c011ecb233:2026-10-01T02:44:12.129Z",
+    "topicId": "b2-complete-13",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "e058ed6f4bf1b4078c7407ebb697c16af6ea652b38f679094b990ceb602642d0:2026-10-01T02:44:12.129Z",
+    "topicId": "b2-complete-14",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "3c0c78f73b7cdb3a616914d5866677cadbb0a03839ee1ab83e8370efa1649fa6:2026-10-01T02:44:12.129Z",
+    "topicId": "b2-complete-15",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "2053c3565923a091cb4088297b8bca4cb47027c1ed6bcefa524880194da33cef:2026-10-01T02:44:12.129Z",
+    "topicId": "b2-complete-16",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "7deceb92f7b561bd8fe0311c0d723e52c2ce53fe363fb62d381dd69a0c1fda4f:2026-10-01T02:44:12.129Z",
+    "topicId": "b2-complete-17",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "bcbba10290789a12de97db5966cd6ce93cd56edcb6f96e2007cbeb2988f32de7:2026-10-01T02:44:12.129Z",
+    "topicId": "b2-complete-18",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "b6095b9b0dbaf86601db40d62c8989a3fc765564f1c2b0cdc81bf02a330102b7:2026-10-01T02:44:12.129Z",
+    "topicId": "b2-complete-19",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "80ba7e7d7cdfca26e32addefb6b658e41542c2cc2677c6b058eb4856124344d4:2026-10-01T02:44:12.129Z",
+    "topicId": "b2-complete-20",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "79ac2f03aca3d78f5beb77fd1d7fd9331707ef8d2102b6bdca92a7dd871d7e73:2026-10-01T02:44:12.129Z",
+    "topicId": "b2-complete-21",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "af096301d9ef2bc24853807daf153a268d6b9810996db935a40edf92511fe4bd:2026-10-01T02:44:12.129Z",
+    "topicId": "b2-complete-22",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "3c09c17df9c05ea5599e9f474f310e8d030fb0d645878595d38a4106b7dc8ba8:2026-10-01T02:44:12.129Z",
+    "topicId": "b2-complete-23",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "fbfcfd5471b76f6c403cc738d936ed53445cca1528e69a7f841a7f417eb4a626:2026-10-01T02:44:12.129Z",
+    "topicId": "b2-complete-24",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "b8a97c597a9ef7fc0454f4dcf0308f3024c4c691f9e9eb91724e993c5f755d14:2026-10-01T02:44:12.129Z",
+    "topicId": "b2-complete-25",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "1de328e80b33b2d12b20ebb8bd4c717dedace015c566f95794dbc3c9724d66ee:2026-10-01T02:44:12.129Z",
+    "topicId": "b2-complete-26",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "c26eee38982082afe20595a3d1d7fa755a97c57c53565ae2bf002e47ead28cc0:2026-10-01T02:44:12.129Z",
+    "topicId": "topic-b3-tk-191-account",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "7ec47c4fdddb5aed3b4f7a3c4bd22a73a939c7f57db78b7cc99b403ded088ec7:2026-10-01T02:44:12.129Z",
+    "topicId": "topic-b3-198-support",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "50c184ab0ed6a74e6271d5cc77ca9df3061d6322695fbc94ee65b49a1d2493ca:2026-10-01T02:44:12.129Z",
+    "topicId": "topic-b3-web-traffic-check",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "0e817c508f8eef7b99a460dab9125080fe6bfeb20e887d390c46c99faa837c0d:2026-10-01T02:44:12.129Z",
+    "topicId": "topic-b3-gic70-renewal",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "08e46334826873b29f44ac145f7e606ebb81691d28ff4a57a6ee87c8a5ac67b2:2026-10-01T02:44:12.129Z",
+    "topicId": "topic-b3-gic70-stop-renewal",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "5cb540bd3b2258c70074ecda46050fcb745700c4364a1494f85a608ccf2a0458:2026-10-01T02:44:12.129Z",
+    "topicId": "topic-b3-yt7-renewal",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "38042af2202bf1b554a4d3a31fc18b8b27690df05de81d4addd7a82472f0c7b9:2026-10-01T02:44:12.129Z",
+    "topicId": "topic-b3-yt7-stop-renewal",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "92ba399675677db987c04c78f94ab15deb7c322c14d18a00c63b0781f2fe530e:2026-10-01T02:44:12.129Z",
+    "topicId": "topic-b3-yt7-cancel-package",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "0ab6f530c9cb6418c1344d105fe935e782233f62a61691f757403e86cbd7b74a:2026-10-01T02:44:12.129Z",
+    "topicId": "topic-b3-yt30-renewal",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "424c5393f5b0aecaec6bdb02bab5d7d1024b5de1a1aa443b551c9529a0ad1353:2026-10-01T02:44:12.129Z",
+    "topicId": "topic-b3-yt30-stop-renewal",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "b37746e840dcf62d186ff8bc8ce6d294edc6954b8291ecf5f86143901d8da0fa:2026-10-01T02:44:12.129Z",
+    "topicId": "topic-b3-yt30-cancel-package",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "9e3ab002ec012626f3646d12bb6f74beb14b365a23805c4826797d168939c0b8:2026-10-01T02:44:12.129Z",
+    "topicId": "topic-b3-st5km-cancel-package",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "e6c1f820ed30d664d2a2d1a3d1e5e9238adb38d4efa87be756d32f551a5e4db9:2026-10-01T02:44:12.129Z",
+    "topicId": "topic-b3-huy-vs-huydata",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "3776902376520ecc58f533fedfe6de99d467e22631a321e0efeb7bdfcb16bb06:2026-10-01T02:44:12.129Z",
+    "topicId": "blog3-exp-auto-renewal-varies-by-package",
+    "status": "HOLD",
+    "failureReason": "FACT_VALIDATION_REJECTED",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "8e6d6310a9a418c890c711a0f6570fd0e8a7823937a94261dd1fed9737209ec7:2026-10-01T02:44:12.129Z",
+    "topicId": "blog3-exp-fb7-renewal-versus-cancellation",
+    "status": "HOLD",
+    "failureReason": "FACT_VALIDATION_REJECTED",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "7b4714b3b076d8e6cfb1f666ff53638440e59f9e06e7b5e30dfb7da512db3048:2026-10-01T02:44:12.129Z",
+    "topicId": "blog3-exp-fb30-renewal-versus-cancellation",
+    "status": "HOLD",
+    "failureReason": "FACT_VALIDATION_REJECTED",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "3d911743bb4420a3095062ea167972d40408c56006ee92fcd2e9842371338d55:2026-10-01T02:44:12.129Z",
+    "topicId": "blog3-exp-fb30-restore-after-failed-renewal",
+    "status": "HOLD",
+    "failureReason": "FACT_VALIDATION_REJECTED",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "2d9e3bb1995a2d6b5790b1cd3743dfd0052af2c2b60fc543d3797531887f3c65:2026-10-01T02:44:12.129Z",
+    "topicId": "blog3-exp-yt1-stop-daily-renewal",
+    "status": "HOLD",
+    "failureReason": "FACT_VALIDATION_REJECTED",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "745619d02bcd2379854307f0527df663246ac033b8e705e32c28389e0dccdc8c:2026-10-01T02:44:12.129Z",
+    "topicId": "blog3-exp-1n-renewal-or-full-cancellation",
+    "status": "HOLD",
+    "failureReason": "FACT_VALIDATION_REJECTED",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "35381dae201f7006d013f85438327854d345b98841e380bb5bf389c9a7e22ea2:2026-10-01T02:44:12.129Z",
+    "topicId": "blog3-exp-st5km-confirm-cancellation",
+    "status": "HOLD",
+    "failureReason": "FACT_VALIDATION_REJECTED",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "c56c334a6be83cfc0507c5795480c6066b2cf7ca11c1006903776334d039f5e1:2026-10-01T02:44:12.129Z",
+    "topicId": "blog3-exp-postpaid-minutes-versus-data-check",
+    "status": "HOLD",
+    "failureReason": "FACT_VALIDATION_REJECTED",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "61d3aa6b9d66fe912917e914da7e22a06e16361c162a12944c172b745603fb37:2026-10-01T02:44:12.129Z",
+    "topicId": "blog3-exp-postpaid-cancellation-channels",
+    "status": "HOLD",
+    "failureReason": "FACT_VALIDATION_REJECTED",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "39c9804aa275620279549bb98689986d408b5ea7b31fa57dfce24694861984ea:2026-10-01T02:44:12.129Z",
+    "topicId": "blog3-exp-mxh100-long-cycle-renewal",
+    "status": "HOLD",
+    "failureReason": "FACT_VALIDATION_REJECTED",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "d51206014fbf31334546d3b7d7d22db04e2adc214ca922f3130fbb45049accd0:2026-10-01T02:44:12.129Z",
+    "topicId": "blog3-exp-check-unlimited-roaming-data",
+    "status": "HOLD",
+    "failureReason": "FACT_VALIDATION_REJECTED",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "18f9e748a5fadba69fb898a57e8feeef4ef14c2ad97c2ea0e39c25fdab059a37:2026-10-01T02:44:12.129Z",
+    "topicId": "blog3-exp-cancel-unlimited-roaming-data",
+    "status": "HOLD",
+    "failureReason": "FACT_VALIDATION_REJECTED",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "6bd8b4a8d28432ba027af7ef516fe621fa170c2c8281b543ef6fa4ac6dcc7492:2026-10-01T02:44:12.129Z",
+    "topicId": "blog3-exp-check-roaming-service-prerequisite",
+    "status": "HOLD",
+    "failureReason": "FACT_VALIDATION_REJECTED",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "50e8bbeda992ffddfc21b98f9f8a152ccba2b29c278819ed894d29ce75b45596:2026-10-01T02:44:12.129Z",
+    "topicId": "blog3-exp-estonia-roaming-no-auto-renewal",
+    "status": "HOLD",
+    "failureReason": "FACT_VALIDATION_REJECTED",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "270d32b7cde965e359957182b8fbc416ea3561f22e21dfe1020ac89fd250acac:2026-10-01T02:44:12.129Z",
+    "topicId": "b3-complete-01",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "0e9423e01cb92c9a84a48794ff790395a48e0731e3726a38cb0d7ba3ba2568ba:2026-10-01T02:44:12.129Z",
+    "topicId": "b3-complete-02",
+    "status": "HOLD",
+    "failureReason": "CANONICAL_OWNER_EXISTS_REQUIRES_GOVERNED_UPDATE",
+    "createdAt": "2026-10-01T02:44:12.129Z"
+  },
+  {
+    "idempotencyKey": "441134a6af317a47620de3609ba07bf2305fdfde864239162a3070e729543922",
+    "topicId": "b4-review-11-b",
+    "slug": "b4-review-11-b",
+    "contentHash": "e2f6a012a35fa25b9a6d147019fb6e8f0503630591dbefb0513b237c3e678bb0",
+    "status": "PUBLISHED",
+    "createdAt": "2026-10-01T02:44:12.129Z"
   }
 ]
