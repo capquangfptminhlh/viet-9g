@@ -1,0 +1,134 @@
+version: 1.0.0
+decision: PASS
+observed_at: 2026-10-07T09:13:00+07:00
+slot: "07:00"
+website_os_bootstrap:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  manifest_version: 1.3.0
+  mandatory_read_complete: true
+  project_rules_loaded: true
+  bootstrap_decision: PASS
+project_main_at_start: fd84689c2797a51b1214eedc8a4e846c5ea23330
+production_invariants:
+  dns_domain_routing_changed: false
+  registration_cta_contract: "MÃ_GÓI GB -> 290"
+  registration_cta_changed: false
+  exact_main_vercel_required_before_live_claim: true
+research:
+  same_day_search_performed: true
+  observed_at: 2026-10-07T09:13:00+07:00
+  source_provenance:
+    - id: V1
+      type: AUTHORITATIVE_SECONDARY
+      publisher: Bao Dien tu Chinh phu
+      published_at: 2026-10-04
+      url: https://baochinhphu.vn/
+      verification_status: VERIFIED
+      verified_facts: "Cites Viettel Telecom: from 2026-10-02 Viettel officially provides 5G packages integrated with genuine YouTube Premium accounts."
+    - id: V2
+      type: AUTHORITATIVE_SECONDARY
+      publisher: Cuc Ban quyen tac gia
+      published_at: 2026-10-06
+      url: https://banquyen.gov.vn/nha-mang-ban-goi-5g-kem-dich-vu-ban-quyen-948082339547148054.html
+      verification_status: VERIFIED
+      verified_facts: "YT150 is 150,000 VND/month; YT200 is 200,000 VND/month; both have 4GB/day and YouTube Premium; YT200 adds social-app and voice benefits."
+    - id: V3
+      type: FIRST_PARTY
+      publisher: Viettel Telecom
+      published_at: 2026-09-21
+      url: https://5g.vietteltelecom.vn/vx/tin-tuc/chi-tiet/tv360-giam-30-gia-goi-cuoc-tan-huong-giai-tri-chi-tu-21-000-dong-thang/15965268
+      verification_status: VERIFIED
+      verified_facts: "TV360 promotion already has a canonical owner and is not selected."
+    - id: V4
+      type: FIRST_PARTY
+      publisher: Viettel Telecom
+      published_at: 2026-09-17
+      url: https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/tam-biet-my-viettel-bat-dau-hanh-trinh-moi-cung-viettel-tammi/12026648
+      verification_status: VERIFIED
+      verified_facts: "My Viettel to Tammi transition already has a canonical owner."
+candidates:
+  - id: C1
+    query: "YT150 YT200 Viettel YouTube Premium"
+    intent: COMMERCIAL_FRESHNESS
+    entity: "Viettel YT150 YT200"
+    cluster: yt-youtube-premium
+    canonical_url_owner: /posts/yt150-yt200-viettel-youtube-premium/
+    content_type: freshness_commercial_guide
+    evidence: [V1, V2]
+    priority: P0
+    decision: NEW
+    reason: "New October 2026 product family with a distinct YouTube Premium search job; no existing repository canonical owner."
+  - id: C2
+    query: "TV360 giảm 30% 2026"
+    intent: COMMERCIAL_FRESHNESS
+    cluster: tv360-promotions
+    canonical_url_owner: /posts/tv360-giam-30-gia-goi-2026/
+    evidence: [V3]
+    priority: P1
+    decision: SKIP
+    reason: "Existing canonical owner."
+  - id: C3
+    query: "My Viettel chuyển sang Tammi"
+    intent: SUPPORT_FRESHNESS
+    cluster: tammi-transition
+    canonical_url_owner: /posts/my-viettel-1-10-2026-chuyen-sang-tammi/
+    evidence: [V4]
+    priority: P1
+    decision: SKIP
+    reason: "Existing canonical owner."
+  - id: C4
+    query: "eSIM Viettel 125k 10GB ngày"
+    intent: COMMERCIAL_FRESHNESS
+    cluster: esim-new-activation-offer
+    canonical_url_owner: /posts/esim-viettel-125k-10gb-ngay-2026/
+    priority: P1
+    decision: SKIP
+    reason: "Existing canonical owner."
+  - id: C5
+    query: "gói 5G Viettel CapCut"
+    intent: COMMERCIAL
+    cluster: 5g-capcut
+    canonical_url_owner: /posts/goi-5g-viettel-capcut/
+    priority: P1
+    decision: SKIP
+    reason: "Existing canonical owner; different licensed-service entity from YouTube Premium."
+selected:
+  action: NEW
+  primary_keyword: "YT150 YT200 Viettel YouTube Premium"
+  secondary_queries:
+    - "gói YT150 Viettel"
+    - "gói YT200 Viettel"
+    - "Viettel tặng YouTube Premium"
+    - "YT150 4GB ngày"
+    - "YT150 khác YT200"
+  cluster: yt-youtube-premium
+  intent: COMMERCIAL_FRESHNESS
+  target_url: /posts/yt150-yt200-viettel-youtube-premium/
+  title: "YT150 và YT200 Viettel: gói 5G kèm YouTube Premium có gì?"
+  slug: yt150-yt200-viettel-youtube-premium
+  why_new_url: "Distinct product family and licensed-service intent not owned by generic 5G, social-package, TV360 or CapCut pages."
+  source_set: [V1, V2]
+  metrics:
+    search_volume: UNKNOWN
+    keyword_difficulty: UNKNOWN
+    cpc: UNKNOWN
+    ranking: UNKNOWN
+    traffic_potential: UNKNOWN
+canonical_ownership:
+  selected_owner: /posts/yt150-yt200-viettel-youtube-premium/
+  neighboring_owners:
+    - url: /goi-cuoc/5g/
+      job: "generic Viettel 5G package discovery"
+    - url: /posts/goi-5g-viettel-capcut/
+      job: "5G plus CapCut licensed-service intent"
+    - url: /goi-cuoc/mang-xa-hoi/
+      job: "generic social package discovery"
+  cannibalization_result: PASS_DISTINCT_INTENT
+internal_link_plan:
+  - /posts/goi-5g-viettel-capcut/
+  - /goi-cuoc/5g/
+content_type_assignment:
+  type: freshness_commercial_guide
+  rationale: "Fresh product launch with durable package-family comparison and eligibility questions."
+k0_result: PASS
