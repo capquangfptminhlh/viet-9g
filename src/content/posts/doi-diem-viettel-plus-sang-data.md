@@ -1,10 +1,12 @@
 # Đổi điểm Viettel++ sang data 2026: tỷ lệ và cách đổi
 
+**Cập nhật kiểm chứng 08/10/2026:** Viettel Telecom thông báo từ **21/09/2026**, thao tác **đổi điểm Viettel++ chuyển từ kênh USSD `*098#` sang ứng dụng Viettel Tammi**. Đây là thay đổi về **kênh thực hiện đổi điểm**, không phải thông báo rằng mọi lệnh `*098#` đều ngừng hoạt động.
+
 Theo **thể lệ chương trình Viettel++ năm 2026** của Viettel, khách hàng di động/Dcom có thể dùng điểm tiêu dùng Viettel++ để đổi sang lưu lượng **Thoại/SMS/Data**. Với data, tài liệu 2026 hiện nêu hai hướng quy đổi VTID1 và VTID2, đồng thời quy định mức điểm đổi data tối thiểu là **1.000 điểm**.
 
 > **Trả lời nhanh:** trong chương trình Viettel++ áp dụng từ 01/01/2026 đến 31/12/2026, Viettel công bố **100 điểm = 10MB data (VTID1, hạn 30 ngày)** hoặc **100 điểm = 20MB data (VTID2, dùng trong ngày đổi)**. Riêng hướng đổi data yêu cầu tối thiểu **1.000 điểm**.
 
-**Meta description:** Cách đổi điểm Viettel++ sang data năm 2026: tỷ lệ VTID1/VTID2, mức tối thiểu 1.000 điểm, thời hạn data và các kênh đổi Viettel chính thức.
+**Meta description:** Đổi điểm Viettel++ sang data 2026: VTID1/VTID2, mức tối thiểu 1.000 điểm và thay đổi từ *098# sang Viettel Tammi từ 21/09/2026.
 
 ## Viettel++ có đổi điểm sang data được không?
 
@@ -49,17 +51,15 @@ Trước khi đổi, nên kiểm tra:
 - số điểm hiện có đủ mức tối thiểu cho hướng data;
 - lựa chọn data đang hiển thị là VTID1, VTID2 hoặc phương án hợp lệ khác do Viettel cập nhật trên hệ thống tại thời điểm thực hiện.
 
-### 2. Mở kênh đổi điểm Viettel chính thức
+### 2. Mở Viettel Tammi thay cho kênh đổi điểm `*098#`
 
-Thể lệ Viettel++ 2026 liệt kê các kênh cho hướng đổi Thoại/SMS/Data gồm:
+**Thông báo Viettel Telecom ngày 28/09/2026** xác nhận từ **21/09/2026**, khách hàng cần thực hiện **đổi điểm Viettel++ trên ứng dụng Viettel Tammi** thay cho tính năng đổi điểm trên `*098#`.
 
-- app/web của Viettel Telecom;
-- USSD `*098#`;
-- tổng đài `198`;
-- SMS;
-- ứng dụng Viettel Money.
+Nếu đang đọc hướng dẫn cũ yêu cầu bấm `*098#` để đổi điểm, hãy chuyển sang Tammi và đăng nhập đúng thuê bao. Tại chức năng đổi điểm Viettel++, kiểm tra danh sách ưu đãi đang hiển thị, lượng điểm cần sử dụng và hạn dùng trước khi xác nhận. Viettel cho biết Tammi còn hỗ trợ xem quà tặng và lịch sử đổi điểm.
 
-Giao diện và lựa chọn cụ thể có thể thay đổi theo từng thời điểm. Vì vậy, nếu app/web hiển thị phương án khác với một hướng dẫn cũ trên Internet, hãy ưu tiên thông tin đang được Viettel hiển thị chính thức cho thuê bao của bạn.
+**Phân biệt hai mốc tài liệu:** thể lệ Viettel++ năm 2026 từng liệt kê app/web, USSD, tổng đài 198, SMS và Viettel Money là các kênh tiêu điểm; nhưng thông báo mới hơn ngày 28/09 chỉ rõ **riêng tính năng đổi điểm trên `*098#` đã chuyển sang Tammi**. Bài này không tự khẳng định những kênh khác còn hoặc hết hỗ trợ cho từng hướng đổi nếu Viettel chưa xác nhận trạng thái hiện tại.
+
+Nếu không thấy VTID1/VTID2 trên Tammi, đừng suy đoán một cú pháp USSD thay thế; hãy kiểm tra ưu đãi đang được hiển thị hoặc liên hệ hỗ trợ Viettel.
 
 ### 3. Chọn đúng hướng data và kiểm tra thời hạn
 
@@ -106,7 +106,7 @@ Trong thể lệ 2026, VTID1 được nêu là **100 điểm = 10MB data, hạn 
 
 ### Có thể đổi Viettel++ bằng `*098#` không?
 
-Có. `*098#` nằm trong danh sách kênh đổi điểm được thể lệ 2026 liệt kê cho hướng Thoại/SMS/Data. Viettel cũng liệt kê app/web, 198, SMS và Viettel Money.
+**Không nên dùng hướng dẫn đổi điểm qua `*098#` cũ.** Viettel Telecom thông báo từ **21/09/2026** tính năng đổi điểm trên `*098#` đã được nâng cấp/chuyển sang **Viettel Tammi**. Thông báo này nói về **tính năng đổi điểm**, không khẳng định toàn bộ dịch vụ USSD `*098#` đã dừng. Hãy thực hiện đổi điểm trên Tammi và kiểm tra ưu đãi của thuê bao trước khi xác nhận.
 
 ### Tại sao tôi không thấy VTID1 hoặc VTID2 trên app?
 
@@ -119,6 +119,7 @@ Không nên mặc định như vậy. VTID1/VTID2 trong thể lệ là hướng 
 ## Nguồn kiểm chứng
 
 - **Viettel Telecom — Nội dung chương trình Cộng đồng Viettel++ năm 2026**, thời gian chương trình từ **01/01/2026 đến 31/12/2026**; mục “Các hướng tiêu điểm” ghi tỷ lệ VTID1/VTID2, mức tối thiểu 1.000 điểm cho data và các kênh đổi điểm.
-- Quan sát và đối chiếu nguồn chính thức ngày **22/08/2026**.
+- **Viettel Telecom — “Tính năng đổi điểm trên *098# đã được nâng cấp lên Viettel Tammi”**, công bố **28/09/2026**, xác nhận từ **21/09/2026** thao tác đổi điểm Viettel++ thực hiện trên Viettel Tammi thay kênh USSD `*098#`: https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/tinh-nang-doi-diem-tren-098-da-duoc-nang-cap-len-viettel-tammi/18325064
+- Quan sát và đối chiếu nguồn chính thức ngày **08/10/2026**. Tỷ lệ đổi điểm trong bài được dẫn theo thể lệ 2026; quyền lợi đang hiển thị trên thuê bao là nguồn kiểm tra cuối cùng.
 
-**Cập nhật:** 22/08/2026.
+**Cập nhật:** 08/10/2026.
