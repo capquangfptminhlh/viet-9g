@@ -32,3 +32,4 @@ data-per-day,61,HOLD,Attribute demand pattern exists but proposed clean landings
 comparisons,67,HOLD,Comparison SERPs exist; each proposed URL needs independent intent evidence and package-source freshness before approval.,SERP-CMP5G|SERP-CMPSD|SERP-MXH
 use-cases,55,HOLD,Audience/use-case SERPs observed but standalone pages need measurable information gain and official facts for recommendations.,SERP-STUDENT|SERP-GAMING|SERP-OFFICE|SERP-HOTSPOT
 duration,58,HOLD,Duration intent exists including first-party one-year evidence but inventory and canonical-owner evidence is incomplete.,SERP-DURATION|SERP-12M
+pkg-5gip200,67,P2,Qualitative priority for distinct historical exact-code offer guide; current sale unverified.,SERP-5GIP200-20261019

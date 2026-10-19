@@ -49,3 +49,4 @@ COMMERCIAL,hotspot use case,https://www.tracuugoicuoc.com/goi-cuoc/phat-hotspot/
 COMMERCIAL,1-day package,https://www.tracuugoicuoc.com/goi-cuoc/1-ngay/,NO,HOLD,HOLD,duration,Requires verified package inventory and independent SERP owner before indexing.
 COMMERCIAL,7-day package,https://www.tracuugoicuoc.com/goi-cuoc/7-ngay/,NO,HOLD,HOLD,duration,Requires verified package inventory and independent SERP owner before indexing.
 COMMERCIAL,12-month package,https://www.tracuugoicuoc.com/goi-cuoc/12-thang/,NO,HOLD,HOLD,duration,Official one-year intent exists but exact catalog/landing architecture needs verification before indexing.
+COMMERCIAL_ENTITY,5GIP200,https://www.tracuugoicuoc.com/posts/5gip200-viettel-iphone/,YES,INDEXABLE,PASS,pkg-5gip200,Distinct exact-code historical offer information.

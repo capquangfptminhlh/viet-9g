@@ -33,3 +33,4 @@ audience,gaming use case,Viettel package catalog,use case,gaming,suitability rel
 audience,office use case,Viettel package catalog,use case,office/work,suitability relation,UNKNOWN,UNVERIFIED,HOLD
 use_case,hotspot use case,Viettel data packages,use case,tethering/hotspot,suitability relation,UNKNOWN,UNVERIFIED,HOLD
 attribute,duration packages,Viettel package catalog,commercial segmentation,duration,1 day/7 days/12 months,https://098.viettel.vn/tin-tuc/chi-tiet/huong-dan-mua-sim-data-tron-goi-1-nam-tren-my-viettel/11818240/,UNVERIFIED,HOLD
+package,5GIP200,Viettel,5G mobile package,iPhone 17 announcement,8GB per day and historical offer,https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/viettel-ra-mat-goi-cuoc-5g-%E2%80%9Cchinh-hieu%E2%80%9D-cho-iphone-17/16102884/,VERIFIED,ACTIVE
