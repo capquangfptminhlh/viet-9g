@@ -35,6 +35,9 @@ const publishedTime = entry.data?.date instanceof Date ? entry.data.date.toISOSt
 // Hàm chọn ảnh minh họa cao cấp khớp chính xác với từng nội dung bài viết
 function getPostImage(slug: string, title: string) {
   const s = (slug + ' ' + title).toLowerCase();
+  if (slug === '5gip200-viettel-iphone') {
+    return '/images/5gip200-info-2026.svg';
+  }
   if (s.includes('dang-ky-multisim-viettel') || s.includes('apple watch')) {
     return '/images/blogger/topic-b1-esim-5g-tuong-thich-4435b941a4f9.svg';
   }
