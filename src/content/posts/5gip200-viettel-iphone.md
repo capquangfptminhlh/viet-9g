@@ -1,14 +1,16 @@
 ---
 title: "5GIP200 Viettel cho iPhone: 8GB/ngày, giá 200.000đ có gì?"
 description: "Gói 5GIP200 Viettel dành cho iPhone: giá 200.000đ/30 ngày, 8GB/ngày, phút gọi và TV360 theo công bố Viettel."
-date: 2026-10-07
+date: 2026-10-19
 ---
 
 # 5GIP200 Viettel cho iPhone: 8GB/ngày, giá 200.000đ có gì?
 
-**5GIP200** là gói 5G trả trước Viettel công bố cho người dùng iPhone. Theo thông tin chính thức của Viettel Telecom, gói có giá **200.000đ/30 ngày**, gồm **8GB data tốc độ cao/ngày**, ưu đãi thoại và TV360.
+**5GIP200** là gói 5G trả trước được Viettel công bố ngày 18/09/2025 cho chương trình iPhone 17. Bài viết ghi lại mức giá và quyền lợi tại thời điểm công bố; không khẳng định chương trình vẫn còn áp dụng cho mọi thuê bao vào tháng 10/2026. Theo thông tin chính thức của Viettel Telecom, gói có giá **200.000đ/30 ngày**, gồm **8GB data tốc độ cao/ngày**, ưu đãi thoại và TV360.
 
 > **Trả lời nhanh:** Viettel công bố 5GIP200 với 8GB/ngày, miễn phí gọi nội mạng theo điều kiện thời lượng cuộc gọi, 150 phút ngoại mạng và TV360. Khả năng đăng ký thực tế cần kiểm tra theo thuê bao.
+
+![Minh họa gói 5GIP200 dành cho iPhone theo công bố Viettel, 8GB mỗi ngày và 200.000 đồng cho 30 ngày](/images/5gip200-info-2026.svg)
 
 ## Giá và data của 5GIP200
 
@@ -53,6 +55,6 @@ Chưa có đủ bằng chứng để khẳng định. Hãy kiểm tra eligibilit
 
 ## Nguồn kiểm chứng
 
-- Viettel Telecom — **“Viettel ra mắt gói cước 5G ‘chính hiệu’ cho iPhone 17”**, đăng 18/09/2025: nguồn chính cho mã 5GIP200, giá, data, thoại và TV360.
+- [Viettel Telecom — “Viettel ra mắt gói cước 5G ‘chính hiệu’ cho iPhone 17”](https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/viettel-ra-mat-goi-cuoc-5g-%E2%80%9Cchinh-hieu%E2%80%9D-cho-iphone-17/16102884/), đăng 18/09/2025: nguồn chính cho mã 5GIP200, giá, data, thoại và TV360.
 
-**Đối chiếu lại ngày 07/10/2026.** Search volume, KD, CPC, ranking và traffic potential không có nguồn đo đáng tin cậy trong run này nên giữ **UNKNOWN**.
+**Đối chiếu lại nguồn chính thức ngày 19/10/2026.** Nguồn xác nhận nội dung công bố năm 2025, không xác nhận tình trạng mở bán hiện tại.  Search volume, KD, CPC, ranking và traffic potential không có nguồn đo đáng tin cậy trong run này nên giữ **UNKNOWN**.
