@@ -1,0 +1,6 @@
+decision: HOLD
+scope: ARTICLE_MAINTENANCE
+observation_date: 2026-10-19
+primary_keyword: 5GIP200 Viettel
+primary_intent: COMMERCIAL_ENTITY
+reason: Mobile template evidence and built HTML article-level validation are not yet verified.
