@@ -15,5 +15,5 @@ assert(/<link[^>]+rel=["']canonical["'][^>]*>/i.test(html), 'Canonical missing')
 assert(html.includes('/images/5gip200-info-2026.svg'), 'Article image missing');
 assert(existsSync('dist/images/5gip200-info-2026.svg'), 'Article image asset missing');
 assert(/<h1\b/i.test(html), 'Article H1 missing');
-assert(/<main\b/i.test(html), 'Article main region missing');
+assert(/<article\b/i.test(html), 'Article region missing');
 console.log('EDITORIAL HTML PASS', htmlPath, 'bytes', Buffer.byteLength(html));
