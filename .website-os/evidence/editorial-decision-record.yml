@@ -10,6 +10,8 @@ mobile_template:
   evidence: https://agent.tinyfish.ai/runs/3d72a4d1-df71-481b-8054-bc6b8fbffb0b
   observations: "Live article hero, header and breadcrumb rendered; no horizontal overflow observed. Body below fold not fully inspected."
 built_html:
-  result: HOLD
-  reason: "Exact article dist HTML and mobile checks are not yet verified by CI artifact."
-reason: "Mobile existing-template partially verified; article-level built HTML verification is still missing."
+  result: PASS
+  ci_run: https://github.com/capquangfptminhlh/viettel-4g-web/actions/runs/39552449238
+  source_head_sha: 78689985e773aa19e16803497867c739980836be
+  reason: "Actual built HTML, viewport, canonical, H1, article and image verified by CI."
+reason: "Built HTML CI PASS. Actual 390px mobile viewport remains unverified; Website OS editorial enforcement not yet PASS."
