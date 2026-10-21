@@ -1,6 +1,15 @@
 decision: HOLD
 scope: ARTICLE_MAINTENANCE
-observation_date: 2026-10-19
+observation_date: 2026-10-21
 primary_keyword: 5GIP200 Viettel
 primary_intent: COMMERCIAL_ENTITY
-reason: Mobile template evidence and built HTML article-level validation are not yet verified.
+mobile_template:
+  result: PARTIALLY_VERIFIED
+  existing_article_url: https://www.tracuugoicuoc.com/posts/cach-do-toc-do-4g-5g-viettel
+  observed_at: 2026-10-21T07:00:00+07:00
+  evidence: https://agent.tinyfish.ai/runs/3d72a4d1-df71-481b-8054-bc6b8fbffb0b
+  observations: "Live article hero, header and breadcrumb rendered; no horizontal overflow observed. Body below fold not fully inspected."
+built_html:
+  result: HOLD
+  reason: "Exact article dist HTML and mobile checks are not yet verified by CI artifact."
+reason: "Mobile existing-template partially verified; article-level built HTML verification is still missing."
