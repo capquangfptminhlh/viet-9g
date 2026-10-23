@@ -6,9 +6,11 @@ import { join } from 'node:path';
 const root = process.cwd();
 const evidence = readFileSync(join(root, '.website-os/evidence/editorial-decision-record.yml'), 'utf8');
 function field(name) {
-  const match = evidence.match(new RegExp('^' + name + ':\\s*["\\']?([^"\\'\\n]+)', 'm'));
-  assert(match, 'Missing editorial evidence field: ' + name);
-  return match[1].trim();
+  const line = evidence.split(/\r?\n/).find((entry) => entry.startsWith(name + ':'));
+  assert(line, 'Missing editorial evidence field: ' + name);
+  const value = line.slice(name.length + 1).trim();
+  assert(value, 'Empty editorial evidence field: ' + name);
+  return value.replace(/^["']|["']$/g, '');
 }
 const canonical = new URL(field('canonical_url'));
 const slug = canonical.pathname.split('/').filter(Boolean).at(-1);
@@ -27,7 +29,7 @@ const sourceTemplate = html('cach-do-toc-do-4g-5g-viettel');
 const sourceListing = firstExisting([join(root, 'dist/tin-tuc.html'), join(root, 'dist/tin-tuc/index.html')]);
 const sourceImage = join(root, 'dist', imagePath.slice(1));
 assert(existsSync(sourceImage), 'Built editorial image missing');
-const sitemapCandidates = readdirSync(join(root, 'dist')).filter(x => /^sitemap.*\\.xml$/.test(x)).map(x => join(root, 'dist', x));
+const sitemapCandidates = readdirSync(join(root, 'dist')).filter(x => /^sitemap.*\.xml$/.test(x)).map(x => join(root, 'dist', x));
 const sourceSitemap = sitemapCandidates.find(x => readFileSync(x, 'utf8').includes(canonical.pathname));
 assert(sourceSitemap, 'Built sitemap missing editorial canonical');
 const sources = [
