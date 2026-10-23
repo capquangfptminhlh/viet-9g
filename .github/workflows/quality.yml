@@ -41,3 +41,64 @@ jobs:
 
       - name: Prepare provenance from built editorial artifacts
         run: node scripts/prepare-editorial-evidence.mjs
+
+      - name: Require central Website OS access
+        shell: bash
+        env:
+          WEBSITE_OS_TOKEN: ${{ secrets.WEBSITE_OS_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [[ -z "${WEBSITE_OS_TOKEN:-}" ]]; then
+            echo "HOLD — WEBSITE_OS_TOKEN is missing; private seo-web governance cannot be enforced"
+            exit 1
+          fi
+
+      - name: Checkout central Website OS at main
+        uses: actions/checkout@v4
+        with:
+          repository: capquangfptminhlh/seo-web
+          ref: main
+          token: ${{ secrets.WEBSITE_OS_TOKEN }}
+          path: .website-os-governance
+          persist-credentials: false
+
+      - name: Set up Python for Website OS
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install central enforcement dependencies
+        run: python -m pip install -r .website-os-governance/engine/requirements.txt
+
+      - name: Verify central engine regression tests
+        run: python -m unittest discover -s .website-os-governance/engine/tests -v
+
+      - name: Enforce Website OS editorial maintenance (fail closed)
+        run: |
+          python .website-os-governance/engine/website_os_engine.py \
+            --project-root . \
+            --governance-root .website-os-governance \
+            --evidence-dir .website-os/evidence \
+            --gate editorial \
+            --out-dir .website-os/out
+
+      - name: Publish Website OS summary
+        if: always()
+        shell: bash
+        run: |
+          if [[ -f .website-os/out/website-os-summary.md ]]; then
+            cat .website-os/out/website-os-summary.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload Website OS enforcement evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: website-os-enforcement
+          path: |
+            .website-os/out/website-os-report.json
+            .website-os/out/website-os-summary.md
+            .website-os/out/website-os.sarif
+            .website-os/out/website-os-attestation.json
+            .website-os/out/editorial-artifact/provenance.json
+          if-no-files-found: warn
