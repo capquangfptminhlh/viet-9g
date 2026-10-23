@@ -1,0 +1,47 @@
+import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
+import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
+
+const root = process.cwd();
+const evidence = readFileSync(join(root, '.website-os/evidence/editorial-decision-record.yml'), 'utf8');
+function field(name) {
+  const match = evidence.match(new RegExp('^' + name + ':\\s*["\\']?([^"\\'\\n]+)', 'm'));
+  assert(match, 'Missing editorial evidence field: ' + name);
+  return match[1].trim();
+}
+const canonical = new URL(field('canonical_url'));
+const slug = canonical.pathname.split('/').filter(Boolean).at(-1);
+const imagePath = field('image_path');
+assert(imagePath.startsWith('/images/'), 'Editorial image must be an original local image');
+const out = join(root, '.website-os/out/editorial-artifact');
+mkdirSync(join(out, 'images'), { recursive: true });
+function firstExisting(candidates) {
+  const found = candidates.find(existsSync);
+  assert(found, 'Missing built artifact: ' + candidates.join(' OR '));
+  return found;
+}
+const html = (s) => firstExisting([join(root, 'dist/posts', s + '.html'), join(root, 'dist/posts', s, 'index.html')]);
+const sourceArticle = html(slug);
+const sourceTemplate = html('cach-do-toc-do-4g-5g-viettel');
+const sourceListing = firstExisting([join(root, 'dist/tin-tuc.html'), join(root, 'dist/tin-tuc/index.html')]);
+const sourceImage = join(root, 'dist', imagePath.slice(1));
+assert(existsSync(sourceImage), 'Built editorial image missing');
+const sitemapCandidates = readdirSync(join(root, 'dist')).filter(x => /^sitemap.*\\.xml$/.test(x)).map(x => join(root, 'dist', x));
+const sourceSitemap = sitemapCandidates.find(x => readFileSync(x, 'utf8').includes(canonical.pathname));
+assert(sourceSitemap, 'Built sitemap missing editorial canonical');
+const sources = [
+  [sourceArticle, join(out, 'article.html')],
+  [sourceTemplate, join(out, 'template.html')],
+  [sourceListing, join(out, 'listing.html')],
+  [sourceSitemap, join(out, 'sitemap.xml')],
+  [sourceImage, join(out, imagePath.slice(1))],
+];
+const sha256 = (file) => createHash('sha256').update(readFileSync(file)).digest('hex');
+const provenance = sources.map(([source, target]) => {
+  copyFileSync(source, target);
+  assert.equal(sha256(source), sha256(target), 'Evidence copy differs from actual build');
+  return { source: source.slice(root.length + 1), target: target.slice(root.length + 1), sha256: sha256(source) };
+});
+writeFileSync(join(out, 'provenance.json'), JSON.stringify({ observed_at: new Date().toISOString(), canonical_url: canonical.href, files: provenance }, null, 2) + '\n');
+console.log('EDITORIAL ARTIFACTS VERIFIED', JSON.stringify(provenance));
