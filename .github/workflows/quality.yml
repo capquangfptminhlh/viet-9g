@@ -38,3 +38,6 @@ jobs:
 
       - name: Verify built editorial HTML and image
         run: node scripts/verify-editorial-html.mjs
+
+      - name: Prepare provenance from built editorial artifacts
+        run: node scripts/prepare-editorial-evidence.mjs
