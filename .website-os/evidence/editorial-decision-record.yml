@@ -1,17 +1,40 @@
 decision: HOLD
 scope: ARTICLE_MAINTENANCE
-observation_date: 2026-10-21
+observation_date: 2026-10-23
 primary_keyword: 5GIP200 Viettel
 primary_intent: COMMERCIAL_ENTITY
+canonical_url: https://www.tracuugoicuoc.com/posts/5gip200-viettel-iphone
+article_file: .website-os/out/editorial-artifact/article.html
+template_file: .website-os/out/editorial-artifact/template.html
+listing_file: .website-os/out/editorial-artifact/listing.html
+sitemap_file: .website-os/out/editorial-artifact/sitemap.xml
+image_path: /images/5gip200-info-2026.svg
+existing_site_live: PASS
+existing_template_mobile_verified: false
+new_layout_or_interaction: false
+mobile_evidence_ref: https://agent.tinyfish.ai/runs/94f7a4c2-46fb-48b1-a477-4400c5bf26ed
 mobile_template:
   result: PARTIALLY_VERIFIED
-  existing_article_url: https://www.tracuugoicuoc.com/posts/cach-do-toc-do-4g-5g-viettel
-  observed_at: 2026-10-21T07:00:00+07:00
-  evidence: https://agent.tinyfish.ai/runs/3d72a4d1-df71-481b-8054-bc6b8fbffb0b
-  observations: "Live article hero, header and breadcrumb rendered; no horizontal overflow observed. Body below fold not fully inspected."
+  existing_article_url: https://www.tracuugoicuoc.com/posts/cach-do-toc-do-4g-5g-viettel/
+  observed_at: 2026-10-23T12:57:22+07:00
+  viewport: 390x844
+  no_horizontal_overflow: true
+  full_article_rendered: true
+  hotline_css_min_height_px: 44
+  other_cta_measured: false
+  reason: "Production template rendered at 390px without overflow; 44px hotline CTA is below 48px and other CTAs were not precisely measured. PR source changes 2 CTAs to 48px, but exact-head preview mobile still needs measurement."
 built_html:
   result: PASS
-  ci_run: https://github.com/capquangfptminhlh/viettel-4g-web/actions/runs/39552449238
-  source_head_sha: 78689985e773aa19e16803497867c739980836be
-  reason: "Actual built HTML, viewport, canonical, H1, article and image verified by CI."
-reason: "Built HTML CI PASS. Actual 390px mobile viewport remains unverified; Website OS editorial enforcement not yet PASS."
+  ci_run: https://github.com/capquangfptminhlh/viettel-4g-web/actions/runs/39908812112
+  source_head_sha: a35d12ff49217a6fe2c978b3dfbf3d62726efaea
+  reason: "Exact-head CI build and verify-editorial-html completed successfully; full Website OS engine has not run."
+quality_reviews:
+  keyword_intent: PASS
+  factual_sources: PASS
+  original_value: PASS
+  cannibalization: PASS
+  internal_links: PASS
+  mobile: HOLD
+source_references:
+  - https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/viettel-ra-mat-goi-cuoc-5g-%E2%80%9Cchinh-hieu%E2%80%9D-cho-iphone-17/16102884/
+reason: "Fail closed: existing production template has 44px hotline CTA, exact-head 390px preview CTA measurements are unverified, and Website OS editorial enforcement has not PASSed."
