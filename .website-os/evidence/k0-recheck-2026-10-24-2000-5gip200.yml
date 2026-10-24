@@ -1,0 +1,103 @@
+version: 1.0.0
+observed_at: "2026-10-24T20:00:47+07:00"
+run_scope: "Editorial review of open PRs before new publication; official-source refresh; no fabricated search metrics"
+website_os:
+  source_repo: "capquangfptminhlh/seo-web"
+  source_ref: main
+  source_sha: "54047b92ee9aa83a9c0d182006119f501794af4b"
+  manifest_version: "1.3.1"
+  mandatory_read_order: COMPLETE
+  project_rules_read: ["AGENTS.md", "anti-mock-rules.md", ".agents/ORIGINAL_REQUEST.md", "state/k0-decision.json", ".website-os/evidence/k0-decision-record.yml"]
+primary:
+  pr: 141
+  article: "src/content/posts/5gip200-viettel-iphone.md"
+  canonical_owner: "/posts/5gip200-viettel-iphone/"
+  intent: COMMERCIAL_ENTITY
+  cluster: pkg-5gip200
+  status: HOLD_EXISTING_PR
+  official_source: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/viettel-ra-mat-goi-cuoc-5g-%E2%80%9Cchinh-hieu%E2%80%9D-cho-iphone-17/16102884/"
+  source_published_at: "2025-09-18"
+  source_observed_at: "2026-10-24T20:00:47+07:00"
+  historical_facts: "Viettel's 2025 announcement describes 5GIP200 at 200000 VND/30 days, 8GB/day and 150 off-net minutes."
+  current_eligibility: UNKNOWN
+  current_registration_availability: UNKNOWN
+candidates:
+  - query: "5GIP200 Viettel iPhone 17"
+    intent: COMMERCIAL_ENTITY
+    cluster: pkg-5gip200
+    owner: "/posts/5gip200-viettel-iphone/"
+    cannibalization: "PR #141 proposed unique exact-code owner; do not create second URL."
+    decision: PRIORITIZE_PR_141
+    source: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/viettel-ra-mat-goi-cuoc-5g-%E2%80%9Cchinh-hieu%E2%80%9D-cho-iphone-17/16102884/"
+  - query: "5G125IP Viettel iPhone Duo eSIM nhân đôi data"
+    intent: COMMERCIAL_ENTITY
+    cluster: pkg-5g125ip-iphone-duo
+    owner: UNKNOWN_PENDING_URL_INVENTORY
+    cannibalization: "Distinct exact code from 5GIP200; must inspect existing eSIM and package URLs."
+    decision: HOLD
+    source: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/duo-dung-nghia-mua-esim-viettel-nhan-doi-data-moi-ngay/12156644"
+    source_published_at: "2026-10-23"
+  - query: "TV360 Box DV9587 giá mới tháng 10 2026"
+    intent: INFORMATIONAL_PRODUCT
+    cluster: tv360-box-new-hardware
+    owner: UNKNOWN_PENDING_URL_INVENTORY
+    cannibalization: "Check existing TV360 and price update articles before new owner."
+    decision: HOLD
+    source: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/tv360-cap-nhat-gia-cuoc-dich-vu-va-cung-cap-thiet-bi-box-moi-tu-thang-102026/17437316"
+    source_published_at: "2026-10-13"
+  - query: "đổi điểm Viettel++ *098# sang Tammi"
+    intent: SUPPORT_PROCEDURE
+    cluster: viettel-plus-redemption-channel
+    owner: UNKNOWN_PENDING_URL_INVENTORY
+    cannibalization: "Check PR #137 and existing Viettel++ guides."
+    decision: HOLD
+    source: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/tinh-nang-doi-diem-tren-098-da-duoc-nang-cap-len-viettel-tammi/18325064"
+    source_published_at: "2026-09-28"
+  - query: "hoàn phí eSIM Viettel Tammi đến 31/12/2026"
+    intent: COMMERCIAL_ELIGIBILITY
+    cluster: esim-fee-refund
+    owner: EXISTING_ESIM_OWNER_REVIEW_REQUIRED
+    cannibalization: "Possible overlap with existing eSIM promotional pages."
+    decision: HOLD
+    source: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/khuyen-mai-hoan-100-phi-dang-ky-esim-khi-hoa-mang-moi-tren-app-viettel-tammi/12804412"
+    source_published_at: "2026-09-18"
+  - query: "đổi SIM vật lý sang eSIM Viettel phí Tammi"
+    intent: SUPPORT_PROCEDURE
+    cluster: esim-physical-conversion
+    owner: EXISTING_ESIM_OWNER_REVIEW_REQUIRED
+    cannibalization: "Different from new eSIM refund, but overlaps with existing conversion guides."
+    decision: HOLD
+    source: "https://5g.vietteltelecom.vn/vx/tin-tuc/chi-tiet/viettel-giam-toi-hon-50-phi-chuyen-doi-esim-uu-dai-cao-hon-tren-ung-dung-viettel-tammi/17076372"
+    source_published_at: "2026-07-02"
+demand_evidence:
+  method: "Current indexed web discovery and official Viettel announcements; no GSC query-page export or measured search demand."
+  observed_search_intent: "Exact-code commercial, product information, and support procedure query families are distinct hypotheses, not quantified demand."
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+  gsc_query_page_export: UNAVAILABLE
+quality_snapshot_before_this_evidence_commit:
+  pr_head: "a9296b77c9f2757532ff9fd4369cd9371d455ff3"
+  workflow_run: "https://github.com/capquangfptminhlh/viettel-4g-web/actions/runs/40042513868"
+  tests: PASS
+  k0_check: PASS
+  build: PASS
+  built_html: PASS
+  website_os_enforcement: BLOCKED_MISSING_WEBSITE_OS_TOKEN
+  exact_head_preview: READY
+  exact_head_mobile_390px: UNVERIFIED
+  production_main_sha: "b9b34c336d4f52f7e197c1ef942afe638e74b077"
+  production_deployment: READY_OLD_MAIN
+  production_url_http_status: 404
+  production_http_observed_at: "2026-10-24T20:00:47+07:00"
+publication:
+  merged_prs: 0
+  new_articles: 0
+  live_verified: false
+  decision: "HOLD — central Website OS secret missing and mobile Preview evidence incomplete. Keep scheduled runs enabled."
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  quality_gates_bypassed: false
