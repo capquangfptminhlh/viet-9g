@@ -114,3 +114,34 @@ invariants:
   registration_cta_changed: false
   registration_cta: "MÃ_GÓI GB -> 290"
   bypassed_gates: false
+
+followup_live_verification_2026_10_25:
+  observed_at: "2026-10-25"
+  source_observed_at: "2026-10-25"
+  official_source: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/viettel-ra-mat-goi-cuoc-5g-%E2%80%9Cchinh-hieu%E2%80%9D-cho-iphone-17/16102884/"
+  official_source_published_at: "2025-09-18"
+  historical_5gip200_claim: VERIFIED_AS_PUBLISHED_IN_2025
+  current_package_eligibility: UNKNOWN
+  production_url: "https://www.tracuugoicuoc.com/posts/5gip200-viettel-iphone/"
+  production_http_status: 404
+  production_http_source: FIRECRAWL_LIVE_SCRAPE
+  production_scrape_id: "01a17060-f242-7528-a806-333c159d58ea"
+  production_response_title: "404 - Không Tìm Thấy Trang | Tra cứu gói cước Viettel"
+  production_status_interpretation: NOT_LIVE
+  preview_exact_head_sha: "d7f71780ee4e390ed2e9102b5f7b733e1a5c1f96"
+  preview_deployment_id: "dpl_buJcJxGi6LsniGiEJZvUz7gWRS1w"
+  preview_deployment_state: READY
+  preview_page_http_observation: VERCEL_LOGIN_REDIRECT
+  preview_scrape_id: "01a17060-faa3-75dc-b6fb-a1c801d253db"
+  preview_mobile_390px: UNVERIFIED_PROTECTED_DEPLOYMENT
+  github_ci_run: "https://github.com/capquangfptminhlh/viettel-4g-web/actions/runs/40144993274"
+  github_ci_head_sha: "d7f71780ee4e390ed2e9102b5f7b733e1a5c1f96"
+  github_ci_tests: "234/234 PASS"
+  github_ci_k0: PASS
+  github_ci_build_and_audit: PASS
+  github_ci_website_os: BLOCKED_MISSING_WEBSITE_OS_TOKEN
+  github_ci_overall: FAIL
+  decision: HOLD_DO_NOT_MERGE
+  schedule: KEEP_ENABLED
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
