@@ -1,0 +1,109 @@
+version: 1.0.0
+decision: PASS
+observed_at: 2026-08-16T20:04:43+07:00
+website_os_source_repo: capquangfptminhlh/seo-web
+website_os_source_ref: main
+website_os_source_commit: 271928de181040a5c4234a4d5386e362b8b7a0a1
+website_os_manifest_version: 1.2.0
+project_repo: capquangfptminhlh/viettel-4g-web
+project_main_at_start: ea0a695d821e6f59832072ca5c2b7010eb2df351
+operation_slot: "20:00"
+
+research_chain:
+  - candidate: "same-day Viettel 4G/5G/eSIM/SIM breaking update on 2026-08-16"
+    disposition: SKIP_NO_MATERIAL_PRIMARY_SOURCE_UPDATE
+    reason: "Fresh same-day search did not surface a materially new Viettel primary-source announcement that justified a new freshness owner. Continued to fallback chain."
+  - candidate: "SIM Viettel bị chặn 2 chiều do chưa xác thực"
+    disposition: SKIP_EXISTING_OWNER
+    reason: "Published owner /posts/sim-viettel-bi-chan-2-chieu-chua-xac-thuc/ already owns this recovery/freshness job."
+  - candidate: "đổi SIM vật lý sang eSIM trên Viettel Tammi / phí đổi eSIM"
+    disposition: SKIP_EXISTING_OWNER
+    reason: "Existing /posts/esim-5g-kich-hoat-quet-qr/ was refreshed with the June/July 2026 Tammi flow and fee-program context."
+  - candidate: "5G150E Viettel dành cho eSIM"
+    disposition: HOLD_REGISTRATION_EVIDENCE
+    reason: "Official Viettel verifies the package family and official 191 path, but the project's approved affiliate MÃ_GÓI GB -> 290 path is not independently verified for 5G150E. No commercial owner created."
+  - candidate: "mất/cấp lại mã QR eSIM Viettel"
+    disposition: SKIP_EXISTING_OWNER
+    reason: "Existing /posts/esim-viettel-doi-may-quet-lai-qr/ and the broader eSIM QR owner already cover QR recovery/device-change handling; a new URL would overlap."
+  - candidate: "APN Viettel khi roaming / có sóng nhưng không vào mạng ở nước ngoài"
+    disposition: SELECT
+    reason: "Current Viettel roaming guidance identifies APN v-internet as required for roaming data and current SERP evidence shows a distinct troubleshooting job. Repository has a Japan-specific roaming owner and manual-network owner, but no general APN-focused owner."
+
+selected_target:
+  primary_keyword: "APN Viettel roaming"
+  secondary_queries:
+    - "cài APN Viettel khi roaming"
+    - "APN Viettel ở nước ngoài"
+    - "v-internet Viettel roaming"
+    - "roaming Viettel có sóng nhưng không vào mạng"
+    - "cài APN v-internet iPhone Android"
+  primary_intent: SUPPORT
+  secondary_intent: INFORMATIONAL
+  entity_type: network_configuration
+  entity_name: "Viettel roaming APN v-internet"
+  parent_cluster: "roaming-support"
+  cluster_id: "roaming-apn-v-internet"
+  content_type: support_article
+  canonical_owner: "https://www.tracuugoicuoc.com/posts/cai-apn-viettel-khi-roaming/"
+  indexability: index
+  priority_tier: P1
+  why_new_url: >-
+    Existing roaming content owns Japan-specific no-network troubleshooting and manual network selection. This target owns the cross-country configuration job where roaming has signal or service registration but mobile data fails because APN/data-roaming/VPN settings need checking. It is materially narrower than a generic roaming guide and broader than the Japan-only article.
+
+serp_evidence:
+  dominant_intent: SUPPORT_INFORMATIONAL
+  dominant_page_types:
+    - official_carrier_roaming_guide
+    - official_carrier_apn_document
+    - troubleshooting_article
+  evidence:
+    - id: VIETTEL-ROAMING-APN-GUIDE
+      source: "https://media.vietteltelecom.vn/upload/InternationalMessagePrice/eb/57/7e/42cb2491ef4e4c0327c3803c78cd9e5f19294bc2.pdf"
+      source_type: OFFICIAL_VIETTEL
+      observed_at: 2026-08-16T20:04:43+07:00
+      finding: "Viettel's roaming APN guide specifies APN v-internet for iOS and Android to use roaming data."
+    - id: VIETTEL-ROAMING-USAGE-GUIDE
+      source: "https://media.vietteltelecom.vn/upload/InternationalMessagePrice/6e/45/56/3058b7cd54357dfd30b65ed70cd67ee5c32f3034.pdf"
+      source_type: OFFICIAL_VIETTEL
+      observed_at: 2026-08-16T20:04:43+07:00
+      finding: "Current Viettel roaming guidance tells users who enabled Data Roaming but still cannot use service to check manual network selection, APN and unnecessary VPN."
+    - id: VIETTEL-JAPAN-ROAMING-2026
+      source: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/di-nhat-ban-khong-co-mang-huong-dan-bat-4g5g-va-roaming-viettel-chi-tiet/16239800"
+      source_type: OFFICIAL_VIETTEL
+      observed_at: 2026-08-16T20:04:43+07:00
+      finding: "Viettel's April 2026 Japan troubleshooting article explicitly identifies APN configuration as a cause of roaming data failure and specifies v-internet."
+
+cannibalization:
+  decision: PASS
+  compared_urls:
+    - url: "https://www.tracuugoicuoc.com/posts/viettel-roaming-nhat-ban-khong-co-mang/"
+      relationship: COUNTRY_SPECIFIC_SIBLING
+      differentiation: "Owns Japan-specific 4G/5G/roaming troubleshooting; new owner is cross-country APN configuration and diagnosis."
+    - url: "https://www.tracuugoicuoc.com/posts/chon-mang-thu-cong-roaming-viettel/"
+      relationship: SUPPORTING_SIBLING
+      differentiation: "Owns manual network selection; new owner handles APN/data configuration after or alongside network registration."
+  internal_link_plan:
+    - from: "new owner"
+      to: "/posts/viettel-roaming-nhat-ban-khong-co-mang/"
+      purpose: "Route Japan-specific users to the country owner."
+    - from: "new owner"
+      to: "/posts/chon-mang-thu-cong-roaming-viettel/"
+      purpose: "Route users whose phone cannot register on a partner network to the manual-selection owner."
+
+factual_policy:
+  business_facts_source_of_truth: OFFICIAL_VIETTEL
+  package_price_claims_added: false
+  package_benefit_claims_added: false
+  affiliate_registration_claims_added: false
+  fabricated_metrics: false
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking_position: UNKNOWN
+  traffic_potential: UNKNOWN
+
+invariants:
+  dns_or_domain_change: false
+  registration_cta_contract_changed: false
+  approved_registration_contract: "MÃ_GÓI GB sent to 290"
+  production_claim_requires_exact_main_vercel_ready_and_http_200: true
