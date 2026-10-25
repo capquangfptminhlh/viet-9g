@@ -1,0 +1,153 @@
+version: 1
+observed_at: "2026-10-25T13:08:50.517Z"
+run_scope: "2026-10-25 20:00 Asia/Ho_Chi_Minh — review existing PRs before selecting new SEO content"
+website_os:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_sha: 54047b92ee9aa83a9c0d182006119f501794af4b
+  manifest_version: 1.3.1
+  mandatory_read_order: COMPLETE
+  project_rules_read:
+    - AGENTS.md
+    - anti-mock-rules.md
+    - .agents/ORIGINAL_REQUEST.md
+    - state/k0-decision.json
+    - .website-os/evidence/k0-decision-record.yml
+    - .website-os/evidence/url-ownership-map.csv
+    - .website-os/evidence/cannibalization-register.csv
+priority_pr:
+  number: 141
+  head_checked: c4beeb670ca103964d63ef0e6cff303f1fc3d623
+  article: src/content/posts/5gip200-viettel-iphone.md
+  canonical_owner: https://www.tracuugoicuoc.com/posts/5gip200-viettel-iphone
+  intent: COMMERCIAL_ENTITY
+  cluster: pkg-5gip200
+  k0_retained_architecture: PASS
+  k0_article_owner: PASS
+  editorial_decision_record: HOLD
+  source: https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/viettel-ra-mat-goi-cuoc-5g-%E2%80%9Cchinh-hieu%E2%80%9D-cho-iphone-17/16102884/
+  source_published_at: "2025-09-18"
+  source_observed_at: "2026-10-25T13:08:50.517Z"
+  historical_price_and_benefits: "Viettel published 200000 VND/30 days, 8GB/day, 150 off-network minutes, TV360."
+  current_eligibility: UNKNOWN
+  current_registration_availability: UNKNOWN
+  decision: HOLD_EXISTING_PR_NO_DUPLICATE
+candidate_review:
+  - topic: "5GIP200 Viettel iPhone 17"
+    intent: COMMERCIAL_ENTITY
+    cluster: pkg-5gip200
+    existing_owner: /posts/5gip200-viettel-iphone/
+    owner_state: OPEN_PR_141_NOT_PRODUCTION
+    cannibalization: "Separate exact-code entity intent from generic /goi-cuoc/5g/ hub."
+    decision: HOLD_RELEASE_EXISTING_PR_141
+    source: https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/viettel-ra-mat-goi-cuoc-5g-%E2%80%9Cchinh-hieu%E2%80%9D-cho-iphone-17/16102884/
+    observed_at: "2026-10-25T13:08:50.517Z"
+  - topic: "5G125IP iPhone Duo conditional double-data promotion"
+    intent: COMMERCIAL_PROMOTION
+    cluster: esim-125k-iphone-duo
+    existing_owner: /posts/esim-viettel-125k-10gb-ngay-2026/
+    existing_owner_http_status: 200
+    cannibalization: "Existing eSIM 125k 10GB/day owner is live; new conditional iPhone Duo double-data claim may warrant a verified update, not an unreviewed second general 125k landing."
+    decision: HOLD_OWNER_UPDATE_REQUIRES_SEPARATE_K0_AND_SOURCE_CHECK
+    source: https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/duo-dung-nghia-mua-esim-viettel-nhan-doi-data-moi-ngay/12156644
+    source_published_at: "2026-10-23"
+    observed_at: "2026-10-25T13:08:50.517Z"
+  - topic: "TV360 Box DV9587 and October 2026 tariff update"
+    intent: INFORMATIONAL_PRODUCT
+    cluster: tv360-box-dv9587
+    existing_owner: UNKNOWN_PENDING_FULL_TV360_URL_REVIEW
+    cannibalization: "Distinct device/product intent possible; compare existing TV360 data-policy, discount owners and PR #137 before any new URL."
+    decision: HOLD
+    source: https://shop.viettel.vn/tin-tuc/chi-tiet/tv360-cap-nhat-gia-cuoc-dich-vu-va-cung-cap-thiet-bi-box-moi-tu-thang-102026/17437316
+    source_published_at: "2026-10-13"
+    observed_at: "2026-10-25T13:08:50.517Z"
+  - topic: "Tammi refund eSIM activation fee 2026"
+    intent: COMMERCIAL_ELIGIBILITY
+    cluster: esim-fee-refund
+    existing_owner: /posts/phi-esim-viettel-2026/
+    existing_owner_http_status: 200
+    cannibalization: "Live canonical owner already covers 50k Viettel++ prepaid and 60k postpaid refund conditions. Reject duplicate."
+    decision: RETAIN_EXISTING_OWNER_NO_NEW_ARTICLE
+    source: https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/khuyen-mai-hoan-100-phi-dang-ky-esim-khi-hoa-mang-moi-tren-app-viettel-tammi/12804412
+    source_published_at: "2026-09-18"
+    observed_at: "2026-10-25T13:08:50.517Z"
+  - topic: "5G150E Viettel eSIM"
+    intent: COMMERCIAL_ENTITY
+    cluster: pkg-5g150e-esim
+    existing_owner: /posts/goi-5g150e-viettel-esim/
+    existing_owner_http_status: 200
+    cannibalization: "Live article already owns exact 5G150E, 3T5G150E and 6T5G150E entity information. Earlier UNKNOWN_PENDING_PACKAGE_URL_REVIEW corrected from main repo and live URL."
+    decision: RETAIN_EXISTING_OWNER_NO_NEW_ARTICLE
+    source: https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/hoa-mang-esim-tan-huong-5g-sieu-toc-voi-uu-dai-len-den-200gb-datathang/19892340
+    source_published_at: "2026-06-09"
+    observed_at: "2026-10-25T13:08:50.517Z"
+  - topic: "TV360 30 percent discount through December 2026"
+    intent: COMMERCIAL_PROMOTION
+    cluster: tv360-2026-discount
+    existing_owner: /posts/tv360-giam-30-gia-goi-2026/
+    existing_owner_http_status: 200
+    cannibalization: "Live canonical owner already covers Standard/VIP Mobile/VSport/VCine promotion; separate from PR #137 Viettel++ points redemption."
+    decision: RETAIN_EXISTING_OWNER_NO_NEW_ARTICLE
+    source: https://shop.viettel.vn/tin-tuc/chi-tiet/tv360-giam-30-gia-goi-cuoc-tan-huong-giai-tri-chi-tu-21000-dongthang/15965268
+    source_published_at: "2026-09-22"
+    observed_at: "2026-10-25T13:08:50.517Z"
+demand:
+  observed_at: "2026-10-25T13:08:50.517Z"
+  method: "Fresh web query discovery for six independent intents; official Viettel first-party facts; repo main route inventory; live production URL verification."
+  queries:
+    - "5GIP200 Viettel iPhone giá đăng ký"
+    - "5G125IP Viettel eSIM đăng ký"
+    - "TV360 Box DV9587 giá Viettel"
+    - "hoàn phí eSIM Viettel Tammi 2026"
+    - "5G150E Viettel eSIM 200GB"
+    - "TV360 giảm 30% gói cước 2026"
+  gsc_query_page_export: UNAVAILABLE
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+verification_before_evidence_commit:
+  ci_run: https://github.com/capquangfptminhlh/viettel-4g-web/actions/runs/40167522341
+  ci_head_sha: c4beeb670ca103964d63ef0e6cff303f1fc3d623
+  unit_and_policy_tests: PASS
+  k0_check: PASS
+  build_and_audit: PASS
+  editorial_html_and_provenance: PASS
+  overall_ci: FAIL
+  website_os_enforcement: BLOCKED_MISSING_WEBSITE_OS_TOKEN
+  central_engine_tests: SKIPPED
+  preview_deployment: dpl_56VzoCPSZnBPFGPzaBtMijEEP7jn
+  preview_head_sha: c4beeb670ca103964d63ef0e6cff303f1fc3d623
+  preview_state: READY
+  preview_mobile_390x844: UNVERIFIED
+  production_deployment: dpl_BrG6WsKB76vqDqBPpgjyLGFhbJGE
+  production_main_sha: b9b34c336d4f52f7e197c1ef942afe638e74b077
+  production_state: READY_OLD_MAIN
+  production_url: https://www.tracuugoicuoc.com/posts/5gip200-viettel-iphone/
+  production_http_status: 404
+  production_http_source: FIRECRAWL_LIVE_SCRAPE
+  production_scrape_id: 01a1732b-d0e9-7736-9828-eda6dc815ded
+  live_owner_http_statuses:
+    /posts/esim-viettel-125k-10gb-ngay-2026/: 200
+    /posts/phi-esim-viettel-2026/: 200
+    /posts/goi-5g150e-viettel-esim/: 200
+    /posts/tv360-giam-30-gia-goi-2026/: 200
+  other_open_prs:
+    137: "Old CI success but lacks central Website OS enforcement; NOT release-approved."
+    26: "CI failed; not release-approved."
+    10: "CI failed, mergeable false; not release-approved."
+    8: "CI failed, mergeable false; not release-approved."
+release:
+  decision: HOLD_DO_NOT_MERGE
+  new_articles: 0
+  merged_prs: 0
+  live_verified: false
+  blocker: "GitHub Actions secret WEBSITE_OS_TOKEN missing; editorial enforcement skipped; real exact-head mobile 390x844 CTA measurements unavailable."
+  next_action: "Provision read-only WEBSITE_OS_TOKEN in GitHub Actions; rerun exact-head CI/Website OS engine; verify 390px Preview tap targets before merge."
+  keep_schedule_enabled: true
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_cta: "MÃ_GÓI GB -> 290"
+  bypassed_gates: false
