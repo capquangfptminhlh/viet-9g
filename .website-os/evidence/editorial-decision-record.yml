@@ -39,27 +39,6 @@ source_references:
   - https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/viettel-ra-mat-goi-cuoc-5g-%E2%80%9Cchinh-hieu%E2%80%9D-cho-iphone-17/16102884/
 reason: "Fail closed: existing production template has 44px hotline CTA, exact-head 390px preview CTA measurements are unverified, and Website OS editorial enforcement has not PASSed."
 
-# Explicit, source-backed fields for Website OS v1.2 editorial engine.
-# HOLD remains mandatory until the exact mobile viewport and enforcement pass.
-existing_site_live: PASS
-existing_template_mobile_verified: UNVERIFIED
-new_layout_or_interaction: false
-mobile_evidence_ref: https://agent.tinyfish.ai/runs/13efc234-067f-43eb-9a0e-8aa9ce80e78a
-article_file: .website-os/out/editorial-artifact/article.html
-template_file: .website-os/out/editorial-artifact/template.html
-listing_file: .website-os/out/editorial-artifact/listing.html
-sitemap_file: .website-os/out/editorial-artifact/sitemap.xml
-canonical_url: https://www.tracuugoicuoc.com/posts/5gip200-viettel-iphone
-image_path: /images/5gip200-info-2026.svg
-source_references:
-  - https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/viettel-ra-mat-goi-cuoc-5g-%E2%80%9Cchinh-hieu%E2%80%9D-cho-iphone-17/16102884/
-quality_reviews:
-  keyword_intent: PASS
-  factual_sources: PASS
-  original_value: PASS
-  cannibalization: PASS
-  internal_links: PASS
-  mobile: HOLD
 mobile_2026_10_23:
   result: UNVERIFIED
   observed_at: 2026-10-23T06:02:51.151Z
