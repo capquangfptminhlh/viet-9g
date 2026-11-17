@@ -1,0 +1,39 @@
+version: 1.0.0
+decision: PASS
+observed_at: 2026-10-07T20:01:44+07:00
+slot: "20:00"
+project_main_at_start: 0ddb6e7087a10a0317dd4c778e842e721c2bcb29
+selected:
+  action: NEW
+  primary_keyword: "5GIP200 Viettel"
+  cluster: pkg-5gip200
+  intent: COMMERCIAL_ENTITY
+  target_url: /posts/5gip200-viettel-iphone/
+  title: "5GIP200 Viettel cho iPhone: 8GB/ngày, giá 200.000đ có gì?"
+  why_new_url: "Distinct exact-code package entity intent; generic 5G and iPhone eSIM pages do not own 5GIP200."
+  metrics:
+    search_volume: UNKNOWN
+    keyword_difficulty: UNKNOWN
+    cpc: UNKNOWN
+    ranking: UNKNOWN
+    traffic_potential: UNKNOWN
+candidates_checked:
+  - "YT150/YT200: SKIP already created today PR140"
+  - "iPhone 17 eSIM: SKIP existing owner"
+  - "eSIM conversion fee: SKIP existing owner"
+  - "roaming Laos: SKIP existing owner"
+  - "SIM blocked verification: SKIP existing owner"
+  - "5GIP200: NEW"
+source_provenance:
+  - publisher: Viettel Telecom
+    published_at: 2025-09-18
+    verification_status: VERIFIED
+    fact_scope: "5GIP200 code, price, 8GB/day, voice and TV360 benefits"
+canonical_ownership:
+  selected_owner: /posts/5gip200-viettel-iphone/
+  cannibalization_result: PASS_DISTINCT_EXACT_CODE_ENTITY
+production_invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  exact_main_vercel_required_before_live_claim: true
+k0_result: PASS

@@ -1,0 +1,72 @@
+version: 1.0.0
+observed_at: "2026-10-23T20:04:47+07:00"
+research_scope: "Official Viettel Telecom pages plus public search-result discovery; not a Google Search Console query-volume measurement"
+status: "REVIEWED_NO_NEW_ARTICLE"
+primary_pr: 141
+primary_canonical: "/posts/5gip200-viettel-iphone/"
+primary_cluster: "pkg-5gip200"
+primary_intent: "COMMERCIAL_ENTITY"
+primary_owner_status: "EXISTING_PR_HEAD_NOT_LIVE"
+source_of_truth:
+  - publisher: "Viettel Telecom"
+    published_at: "2025-09-18"
+    observed_at: "2026-10-23"
+    url: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/viettel-ra-mat-goi-cuoc-5g-%E2%80%9Cchinh-hieu%E2%80%9D-cho-iphone-17/16102884/"
+    verified_scope: "Historical 5GIP200 200000 VND/30 days, 8GB/day, voice, TV360"
+    not_verified: "Eligibility and current registration availability in October 2026"
+  - publisher: "Viettel Telecom"
+    published_at: "2026-10-23"
+    observed_at: "2026-10-23"
+    url: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/duo-dung-nghia-mua-esim-viettel-nhan-doi-data-moi-ngay/12156644"
+    verified_scope: "Official time-limited 5G125IP/eSIM iPhone Duo promotion"
+candidates_checked:
+  - keyword: "5GIP200 Viettel iPhone"
+    cluster: "pkg-5gip200"
+    intent: "COMMERCIAL_ENTITY"
+    owner: "/posts/5gip200-viettel-iphone/"
+    disposition: "PRIORITIZE_EXISTING_PR_141"
+    why: "Exact-code owner exists in PR; do not create a competing URL."
+  - keyword: "TV360 Box DV9587 giá mới tháng 10 2026"
+    cluster: "tv360-box-price-update"
+    intent: "INFORMATIONAL_PRODUCT"
+    owner: "UNKNOWN_PENDING_EXISTING_URL_REVIEW"
+    disposition: "HOLD"
+    source: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/tv360-cap-nhat-gia-cuoc-dich-vu-va-cung-cap-thiet-bi-box-moi-tu-thang-102026/17437316"
+  - keyword: "đổi điểm Viettel++ *098# sang Tammi"
+    cluster: "viettel-plus-redemption-channel"
+    intent: "SUPPORT_PROCEDURE"
+    owner: "UNKNOWN_PENDING_EXISTING_URL_REVIEW"
+    disposition: "HOLD"
+    source: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/tinh-nang-doi-diem-tren-098-da-duoc-nang-cap-len-viettel-tammi/18325064"
+  - keyword: "eSIM Viettel mới 125000 10GB ngày"
+    cluster: "esim-new-subscriber-promotion"
+    intent: "COMMERCIAL_ELIGIBILITY"
+    owner: "EXISTING_ESIM_OWNER_REVIEW_REQUIRED"
+    disposition: "HOLD"
+    source: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/doc-quyen-khi-mua-esim-viettel-chi-125000d-co-10gbngay/11282684"
+  - keyword: "hoàn phí eSIM Viettel Tammi 2026"
+    cluster: "esim-fee-refund"
+    intent: "COMMERCIAL_PROMOTION"
+    owner: "EXISTING_ESIM_OWNER_REVIEW_REQUIRED"
+    disposition: "HOLD"
+    source: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/khuyen-mai-hoan-100-phi-dang-ky-esim-khi-hoa-mang-moi-tren-app-viettel-tammi/12804412"
+  - keyword: "5G125IP iPhone Duo nhân đôi data"
+    cluster: "pkg-5g125ip-iphone-duo"
+    intent: "COMMERCIAL_ENTITY"
+    owner: "UNKNOWN_PENDING_CANONICAL_AND_CANNIBALIZATION_CHECK"
+    disposition: "HOLD"
+    source: "https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/duo-dung-nghia-mua-esim-viettel-nhan-doi-data-moi-ngay/12156644"
+cannibalization:
+  selected_pr: "Existing K0 maps identify one 5GIP200 canonical owner; full engine validation still pending."
+  other_candidates: "Not promoted to indexable owners without complete inventory and intent checks."
+metrics:
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+production_decision: "Do not publish another article before PR 141 passes central enforcement and mobile evidence."
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  no_bypassed_gates: true

@@ -35,3 +35,40 @@ jobs:
 
       - name: Static build and SEO/AEO/GEO gate
         run: npm run build
+
+      - name: Verify built editorial HTML and image
+        run: node scripts/verify-editorial-html.mjs
+
+      - name: Prepare provenance from built editorial artifacts
+        run: node scripts/prepare-editorial-evidence.mjs
+
+      # The private seo-web handbook is read by the connected maintainer agent.
+      # GitHub Actions does not inherit the agent's GitHub credentials.
+      # This public-repo CI runs its own deterministic source-ready gates.
+      - name: Verify editorial evidence without private-repo credentials
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/verify-editorial-html.mjs
+          node scripts/prepare-editorial-evidence.mjs
+          test -s .website-os/out/editorial-artifact/provenance.json
+          echo "PASS: project-local editorial HTML, media, and provenance checks" >> "$GITHUB_STEP_SUMMARY"
+          echo "Central private Website OS engine was not executed in this workflow." >> "$GITHUB_STEP_SUMMARY"
+          echo "Production publication requires separate live verification." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Publish project-local editorial summary
+        if: always()
+        shell: bash
+        run: |
+          if [[ -f .website-os/out/website-os-summary.md ]]; then
+            cat .website-os/out/website-os-summary.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload project-local editorial evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: editorial-project-evidence
+          path: |
+            .website-os/out/editorial-artifact/provenance.json
+          if-no-files-found: warn

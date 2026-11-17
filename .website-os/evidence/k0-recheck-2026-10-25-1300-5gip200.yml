@@ -1,0 +1,131 @@
+version: 1
+observed_at: "2026-10-25T05:59:57.354Z"
+run_scope: "2026-10-25 13:00 Asia/Ho_Chi_Minh; review existing PRs before new content"
+website_os:
+  source_repo: capquangfptminhlh/seo-web
+  source_ref: main
+  source_sha: 54047b92ee9aa83a9c0d182006119f501794af4b
+  manifest_version: 1.3.1
+  mandatory_read_order: COMPLETE
+  project_rules_read:
+    - AGENTS.md
+    - anti-mock-rules.md
+    - .agents/ORIGINAL_REQUEST.md
+    - state/k0-decision.json
+    - .website-os/evidence/k0-decision-record.yml
+    - .website-os/evidence/url-ownership-map.csv
+    - .website-os/evidence/cannibalization-register.csv
+priority_pr:
+  number: 141
+  head_before_review: 22ff7e96158cc62ee7c80b551bb31f9d98040e36
+  article: src/content/posts/5gip200-viettel-iphone.md
+  canonical_owner: https://www.tracuugoicuoc.com/posts/5gip200-viettel-iphone/
+  intent: COMMERCIAL_ENTITY
+  cluster: pkg-5gip200
+  k0_architecture: PASS
+  k0_article_ownership: PASS
+  editorial_decision_record: HOLD
+  source: https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/viettel-ra-mat-goi-cuoc-5g-%E2%80%9Cchinh-hieu%E2%80%9D-cho-iphone-17/16102884/
+  source_published_at: "2025-09-18"
+  source_observed_at: "2026-10-25T05:59:57.354Z"
+  historical_claim: "Viettel published 5GIP200 at 200000 VND per 30 days, 8GB per day, 150 off-network minutes and TV360."
+  current_eligibility: UNKNOWN
+  current_registration_availability: UNKNOWN
+  owner_decision: RETAIN_OPEN_PR_141_NO_DUPLICATE
+candidate_review:
+  - topic: "5GIP200 Viettel iPhone 17"
+    intent: COMMERCIAL_ENTITY
+    cluster: pkg-5gip200
+    owner: /posts/5gip200-viettel-iphone/
+    cannibalization: "Distinct exact-code information from /goi-cuoc/5g/ generic discovery."
+    decision: HOLD_RELEASE_EXISTING_PR_141
+    source: https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/viettel-ra-mat-goi-cuoc-5g-%E2%80%9Cchinh-hieu%E2%80%9D-cho-iphone-17/16102884/
+    observed_at: "2026-10-25T05:59:57.354Z"
+  - topic: "5G125IP Viettel iPhone Duo eSIM"
+    intent: COMMERCIAL_ENTITY
+    cluster: pkg-5g125ip-iphone-duo
+    owner: UNKNOWN_PENDING_EXISTING_URL_REVIEW
+    cannibalization: "Check overlap with existing eSIM and package-code content; no new owner approved."
+    decision: HOLD
+    source: https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/duo-dung-nghia-mua-esim-viettel-nhan-doi-data-moi-ngay/12156644
+    source_published_at: "2026-10-23"
+    observed_at: "2026-10-25T05:59:57.354Z"
+  - topic: "TV360 Box DV9587 October 2026"
+    intent: INFORMATIONAL_PRODUCT
+    cluster: tv360-box-dv9587
+    owner: UNKNOWN_PENDING_EXISTING_TV360_REVIEW
+    cannibalization: "Potential overlap with TV360 product and price pages."
+    decision: HOLD
+    source: https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/tv360-cap-nhat-gia-cuoc-dich-vu-va-cung-cap-thiet-bi-box-moi-tu-thang-102026/17437316
+    source_published_at: "2026-10-13"
+    observed_at: "2026-10-25T05:59:57.354Z"
+  - topic: "Tammi refund eSIM activation fee 2026"
+    intent: COMMERCIAL_ELIGIBILITY
+    cluster: esim-fee-refund
+    owner: UNKNOWN_PENDING_ESIM_OWNER_REVIEW
+    cannibalization: "Potential overlap with eSIM activation and existing Tammi promotion articles."
+    decision: HOLD
+    source: https://5g.vietteltelecom.vn/vx/tin-tuc/chi-tiet/khuyen-mai-hoan-100-phi-dang-ky-esim-khi-hoa-mang-moi-tren-app-viettel-tammi/12804412
+    observed_at: "2026-10-25T05:59:57.354Z"
+  - topic: "5G150E Viettel eSIM"
+    intent: COMMERCIAL_ENTITY
+    cluster: pkg-5g150e-esim
+    owner: UNKNOWN_PENDING_PACKAGE_URL_REVIEW
+    cannibalization: "May overlap with existing eSIM 5G and generic package catalog."
+    decision: HOLD
+    source: https://www.vietteltelecom.vn/index.php/tin-tuc/chi-tiet/hoa-mang-esim-tan-huong-5g-sieu-toc-voi-uu-dai-len-den-200gb-datathang/19892340
+    observed_at: "2026-10-25T05:59:57.354Z"
+  - topic: "TV360 30 percent discount 2026"
+    intent: COMMERCIAL_PROMOTION
+    cluster: tv360-2026-discount
+    owner: UNKNOWN_PENDING_TV360_URL_REVIEW
+    cannibalization: "Review PR #137 Viettel++ redemption and existing TV360 pages before assigning a new URL."
+    decision: HOLD
+    source: https://5g.vietteltelecom.vn/vx/tin-tuc/chi-tiet/tv360-giam-30-gia-goi-cuoc-tan-huong-giai-tri-chi-tu-21-000-dong-thang/15965268
+    source_published_at: "2026-09-21"
+    observed_at: "2026-10-25T05:59:57.354Z"
+demand:
+  observed_at: "2026-10-25T05:59:57.354Z"
+  method: "Live indexed-web discovery, six official Viettel source pages, existing K0 maps and production publication ledger."
+  gsc_query_page_export: UNAVAILABLE
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking: UNKNOWN
+  traffic_potential: UNKNOWN
+verification_before_this_evidence_commit:
+  github_ci_run: https://github.com/capquangfptminhlh/viettel-4g-web/actions/runs/40145411697
+  github_ci_head_sha: 22ff7e96158cc62ee7c80b551bb31f9d98040e36
+  unit_policy_tests: PASS
+  k0_check: PASS
+  build_and_seo_audit: PASS
+  built_editorial_html_and_provenance: PASS
+  overall_ci: FAIL
+  website_os_enforcement: BLOCKED_MISSING_WEBSITE_OS_TOKEN
+  central_engine_steps: SKIPPED
+  preview_deployment: dpl_532w7gmT8us99kV5LBgN5fmzxfQD
+  preview_head_sha: 22ff7e96158cc62ee7c80b551bb31f9d98040e36
+  preview_state: READY
+  preview_page: VERCEL_LOGIN_REDIRECT
+  preview_mobile_390x844: UNVERIFIED
+  production_deployment: dpl_BrG6WsKB76vqDqBPpgjyLGFhbJGE
+  production_main_sha: b9b34c336d4f52f7e197c1ef942afe638e74b077
+  production_state: READY_OLD_MAIN
+  production_url: https://www.tracuugoicuoc.com/posts/5gip200-viettel-iphone/
+  production_http_status: 404
+  production_http_observed_at: "2026-10-25T05:59:57.354Z"
+  production_http_source: FIRECRAWL_LIVE_SCRAPE
+  production_scrape_id: 01a171a4-3020-76be-9aa3-381cd3c1fd76
+  preview_scrape_id: 01a171a4-301a-7269-8049-9718faf5624b
+release:
+  decision: HOLD_DO_NOT_MERGE
+  new_articles: 0
+  merged_prs: 0
+  live_verified: false
+  next_action: "Provision read-only WEBSITE_OS_TOKEN in GitHub Actions; rerun exact-head CI and Website OS editorial engine; obtain real 390px Preview CTA measurement before merge."
+  keep_schedule_enabled: true
+invariants:
+  dns_domain_routing_changed: false
+  registration_cta_changed: false
+  registration_cta: "MÃ_GÓI GB -> 290"
+  bypassed_gates: false

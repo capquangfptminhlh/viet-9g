@@ -32,3 +32,4 @@ data-per-day,Gói theo data mỗi ngày,commercial-expansion,COMMERCIAL,HOLD,dat
 comparisons,So sánh gói cước,commercial-expansion,COMPARISON,HOLD,package comparisons,COMMERCIAL,supporting,https://www.tracuugoicuoc.com/goi-cuoc/,package entities,HOLD
 use-cases,Gói theo nhu cầu,commercial-expansion,COMMERCIAL,HOLD,user use cases,INFORMATIONAL,money,https://www.tracuugoicuoc.com/goi-cuoc/,finder and package entities,HOLD
 duration,Gói theo chu kỳ,commercial-expansion,COMMERCIAL,HOLD,duration attributes,TRANSACTIONAL,money,https://www.tracuugoicuoc.com/goi-cuoc/,package entities,HOLD
+pkg-5gip200,5GIP200 Viettel,fiveg-packages,COMMERCIAL_ENTITY,https://www.tracuugoicuoc.com/posts/5gip200-viettel-iphone/,5GIP200,INFORMATIONAL,article,https://www.tracuugoicuoc.com/goi-cuoc/5g/,iPhone eSIM guides,ACTIVE
