@@ -10,8 +10,6 @@ date: 2026-10-19
 
 > **Trả lời nhanh:** Viettel công bố 5GIP200 với 8GB/ngày, miễn phí gọi nội mạng theo điều kiện thời lượng cuộc gọi, 150 phút ngoại mạng và TV360. Khả năng đăng ký thực tế cần kiểm tra theo thuê bao.
 
-![Minh họa gói 5GIP200 dành cho iPhone theo công bố Viettel, 8GB mỗi ngày và 200.000 đồng cho 30 ngày](/images/5gip200-info-2026.svg)
-
 ## Giá và data của 5GIP200
 
 Mức giá công bố là **200.000đ/30 ngày** và hạn mức data là **8GB/ngày**. Nếu dùng đủ mỗi ngày trong chu kỳ 30 ngày, tổng dung lượng lý thuyết là 240GB, nhưng quyền lợi được cấp theo ngày nên không nên hiểu đây là một khối 240GB dùng tùy ý cả tháng.
