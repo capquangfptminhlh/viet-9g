@@ -21,6 +21,10 @@ describe('editorial thumbnail selection', () => {
     expect(findFirstLocalIllustration(body)).toBe('/images/local.svg');
   });
 
+  it('rejects local path traversal rather than selecting an unsafe asset', () => {
+    expect(findFirstLocalIllustration('![secret](/images/../secrets.json)')).toBeNull();
+  });
+
   it('returns null when no illustrated image exists', () => {
     expect(findFirstLocalIllustration('# Heading\n\nNo image.')).toBeNull();
   });
