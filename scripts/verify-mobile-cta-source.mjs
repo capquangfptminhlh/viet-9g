@@ -5,9 +5,14 @@ import { readFileSync } from 'node:fs';
 
 function ensureTapTarget(file, href, label) {
   const source = readFileSync(file, 'utf8');
-  const anchor = source.match(new RegExp('<a\\s+href="' + href.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '"[^>]*>', 'i'))?.[0];
+  const pattern = new RegExp('<a\\\\s+href="' + href.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\  const anchor = source.match(new RegExp('<a\\s+href="' + href.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '"[^>]*>', 'i'))?.[0];
   assert(anchor, 'Missing ' + label + ' action in ' + file);
-  assert(anchor.includes('min-h-[48px]'), 'HOLD: ' + label + ' must have at least 48px min height');
+  assert(anchor.includes('min-h-[48px]'), 'HOLD: ' + label + ' must have at least 48px min height');') + '"[^>]*>', 'gi');
+  const anchors = [...source.matchAll(pattern)].map(match => match[0]);
+  assert(anchors.length > 0, 'Missing ' + label + ' action in ' + file);
+  // The same destination can appear in tiny breadcrumb navigation. Check the CTA,
+  // not the first breadcrumb anchor that happens to share an href.
+  assert(anchors.some(anchor => anchor.includes('min-h-[48px]')), 'HOLD: ' + label + ' CTA must have at least 48px min height');
 }
 
 const article = 'src/pages/posts/[slug].astro';
