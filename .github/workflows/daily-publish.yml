@@ -56,7 +56,19 @@ jobs:
           mapfile -t NEW_POSTS < <(git ls-files --others --exclude-standard -- 'src/content/posts/*.md')
           if [ "${#NEW_POSTS[@]}" -eq 0 ]; then
             echo 'generated=false' >> "$GITHUB_OUTPUT"
-            echo 'NO_ELIGIBLE_TOPIC — all queued topics are already owned, held or lack current facts/media. This is not a workflow error.' >> "$GITHUB_STEP_SUMMARY"
+            CREATION=".website-os/out/ai-editorial-creation.json"
+            test -s "$CREATION" || { echo "::error::AI decision evidence missing"; exit 1; }
+            STATUS="$(node -e 'const r=require("./"+process.argv[1]); console.log(r.status||"UNKNOWN")' "$CREATION")"
+            REASON="$(node -e 'const r=require("./"+process.argv[1]); console.log(r.reason||"UNKNOWN")' "$CREATION")"
+            if [ "$STATUS" != "HOLD" ]; then
+              echo "::error::No draft generated despite AI status $STATUS"
+              exit 1
+            fi
+            echo "HOLD_AI_EDITORIAL — $REASON (not published, no fabricated content)" >> "$GITHUB_STEP_SUMMARY"
+            if [ "$REASON" = "GEMINI_API_KEY_SECRET_MISSING" ]; then
+              echo "::error::Missing required GitHub Actions secret GEMINI_API_KEY"
+              exit 1
+            fi
             exit 0
           fi
           if [ "${#NEW_POSTS[@]}" -ne 1 ]; then
