@@ -44,6 +44,9 @@ jobs:
       - name: Verify built editorial HTML and image
         run: node scripts/verify-editorial-html.mjs
 
+      - name: Verify original news card thumbnails and prevent cropping regressions
+        run: node scripts/verify-news-card-thumbnails.mjs
+
       - name: Verify mobile CTA source contract
         run: node scripts/verify-mobile-cta-source.mjs
 
