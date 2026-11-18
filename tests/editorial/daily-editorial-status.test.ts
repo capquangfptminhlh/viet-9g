@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { assessArticle, auditDailyReadiness, sourcePostsForLocalDay } from '../../scripts/daily-editorial-status.mjs';
+import { assessArticle, auditDailyReadiness, sourcePostsForLocalDay, hasCorrectArticleCanonical } from '../../scripts/daily-editorial-status.mjs';
 
 describe('daily editorial release reliability (actual repository data)', () => {
   it('identifies an existing substantive article as ready for quality review', () => {
@@ -22,6 +22,13 @@ describe('daily editorial release reliability (actual repository data)', () => {
     const assessment = assessArticle('');
     expect(assessment.passed).toBe(false);
     expect(assessment.findings).toContain('ARTICLE_HEADINGS_MISSING');
+  });
+
+  it('accepts a correct self-referential production canonical only', () => {
+    expect(hasCorrectArticleCanonical('<link rel="canonical" href="https://www.tracuugoicuoc.com/posts/valid-guide">', 'valid-guide')).toBe(true);
+    expect(hasCorrectArticleCanonical('<link rel="canonical" href="https://www.tracuugoicuoc.com/posts/different">', 'valid-guide')).toBe(false);
+    expect(hasCorrectArticleCanonical('<link rel="canonical" href="https://example.com/posts/valid-guide">', 'valid-guide')).toBe(false);
+    expect(hasCorrectArticleCanonical('<h1>valid-guide</h1>', 'valid-guide')).toBe(false);
   });
 
   it('derives same-day publication candidates from real article dates', () => {
