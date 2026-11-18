@@ -122,6 +122,57 @@ export function auditDailyReadiness(now = new Date()) {
   };
 }
 
+function vietnamDate(value) {
+  const parts = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Asia/Ho_Chi_Minh', year: 'numeric', month: '2-digit', day: '2-digit',
+  }).formatToParts(value);
+  const read = kind => parts.find(part => part.type === kind)?.value;
+  return read('year') + '-' + read('month') + '-' + read('day');
+}
+
+export function sourcePostsForLocalDay(today = new Date()) {
+  const date = vietnamDate(today);
+  return readdirSync(join(ROOT, 'src/content/posts'))
+    .filter(file => file.endsWith('.md'))
+    .flatMap(file => {
+      const markdown = readFileSync(join(ROOT, 'src/content/posts', file), 'utf8');
+      const dateLine = markdown.match(/^date:\s*["']?([^\s"']+)/mu)?.[1];
+      const time = dateLine ? new Date(dateLine) : null;
+      return time && !Number.isNaN(time.getTime()) && vietnamDate(time) === date
+        ? [file.slice(0, -3)] : [];
+    });
+}
+
+export async function checkDailyLive(now = new Date()) {
+  const slugCandidates = sourcePostsForLocalDay(now);
+  const results = [];
+  for (const slug of slugCandidates.slice(0, 5)) {
+    const url = 'https://www.tracuugoicuoc.com/posts/' + encodeURIComponent(slug);
+    try {
+      const response = await fetch(url, {
+        method: 'GET', redirect: 'follow', signal: AbortSignal.timeout(12000),
+      });
+      const html = response.ok ? await response.text() : '';
+      const hasCanonical = /<link\b[^>]*rel=["']canonical["'][^>]*>/iu.test(html) &&
+        html.includes('/posts/' + slug);
+      results.push({
+        url, status: response.status,
+        liveVerified: response.status === 200 && hasCanonical,
+      });
+    } catch (error) {
+      results.push({ url, status: 'UNKNOWN', liveVerified: false, error: error.message });
+    }
+  }
+  return {
+    observedAt: now.toISOString(),
+    localDate: vietnamDate(now),
+    eligibleSourcePostCount: slugCandidates.length,
+    checked: results,
+    publishedTodayVerified: results.some(result => result.liveVerified),
+    note: 'HTTP 200 and canonical are production visibility checks, not Google indexing evidence.',
+  };
+}
+
 function writeSummary(text) {
   if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, text + '\n');
 }
@@ -152,9 +203,26 @@ async function main() {
     if (!report.passed) process.exitCode = 2;
     return;
   }
+  if (mode === 'live') {
+    const report = await checkDailyLive();
+    const file = join(ROOT, '.website-os/out/daily-live-publication.json');
+    mkdirSync(dirname(file), { recursive: true });
+    writeFileSync(file, JSON.stringify(report, null, 2) + '\n');
+    const value = report.publishedTodayVerified ? 'PUBLISHED_TODAY_VERIFIED' : 'NOT_VERIFIED';
+    console.log('DAILY_LIVE_PUBLICATION=' + value);
+    writeSummary('### Production publication watchdog\n' +
+      '- Vietnam day: ' + report.localDate + '\n' +
+      '- Live publication: **' + value + '**\n' +
+      '- URLs checked: ' + report.checked.map(item =>
+        item.url + ' (' + item.status + ')').join(', '));
+    return;
+  }
   if (mode === 'notify') {
     const data = existsSync(REPORT_PATH) ? readJson(REPORT_PATH) : null;
-    const status = process.env.EDITORIAL_JOB_STATUS === 'success'
+    const live = existsSync('.website-os/out/daily-live-publication.json')
+      ? readJson('.website-os/out/daily-live-publication.json') : null;
+    const status = live?.publishedTodayVerified ? 'PUBLISHED_TODAY_VERIFIED'
+      : process.env.EDITORIAL_JOB_STATUS === 'success'
       ? (process.env.EDITORIAL_PR_STATE === 'NEW_PR' ? 'STAGED_FOR_REVIEW'
         : process.env.EDITORIAL_PR_STATE === 'OPEN_REVIEW' ? 'EXISTING_PR_AWAITING_REVIEW'
         : process.env.EDITORIAL_QUALITY_READY === 'false' ? 'HOLD_EDITORIAL_QUALITY'
@@ -166,7 +234,8 @@ async function main() {
     const lines = [
       '📋 SEO Viettel — báo cáo lịch chạy',
       'Trạng thái: ' + status,
-      'Đã đăng lên website: CHƯA XÁC MINH (workflow này chỉ tạo PR).',
+      'Đã đăng trên website hôm nay: ' + (live?.publishedTodayVerified ? 'ĐÃ KIỂM CHỨNG URL LIVE' : 'CHƯA XÁC MINH'),
+      'Kiểm tra URL live: ' + (live?.checked?.map(x => x.url + ' (' + x.status + ')').join(', ') || 'Chưa có bài ngày hôm nay trong mã nguồn'),
       'Chủ đề QUEUE: ' + (data?.queue ?? 'UNKNOWN') +
         '; blocked: ' + (data?.blockedTopics ?? 'UNKNOWN') +
         '; nghiên cứu tiếp: ' + (data?.provisionalTopics ?? 'UNKNOWN'),
@@ -178,7 +247,7 @@ async function main() {
     const token = process.env.TELEGRAM_BOT_TOKEN;
     const chat = process.env.TELEGRAM_CHAT_ID;
     writeSummary('### Daily publishing decision: ' + status + '\n' +
-      '- Production publication: NOT VERIFIED\n' +
+      '- Production publication: ' + (live?.publishedTodayVerified ? 'VERIFIED_LIVE' : 'NOT_VERIFIED') + '\n' +
       '- Run: ' + runUrl + '\n' +
       '- PR: ' + (process.env.EDITORIAL_PR_URL || 'none'));
     if (!token || !chat) throw new Error('TELEGRAM_STATUS_NOT_SENT: credentials unavailable');
@@ -191,7 +260,7 @@ async function main() {
     console.log('DAILY_EDITORIAL_STATUS_SENT=' + status);
     return;
   }
-  throw new Error('Usage: daily-editorial-status.mjs audit | quality ARTICLE | notify');
+  throw new Error('Usage: daily-editorial-status.mjs audit | quality ARTICLE | live | notify');
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch(error => {
