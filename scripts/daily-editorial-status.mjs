@@ -143,6 +143,20 @@ export function sourcePostsForLocalDay(today = new Date()) {
     });
 }
 
+export function hasCorrectArticleCanonical(html, slug) {
+  const tags = html.match(/<link\b[^>]*>/giu) ?? [];
+  const canonical = tags.find(tag => /\brel=["']canonical["']/iu.test(tag));
+  const href = canonical?.match(/\bhref=["']([^"']+)["']/iu)?.[1];
+  if (!href) return false;
+  try {
+    const url = new URL(href, 'https://www.tracuugoicuoc.com');
+    return url.origin === 'https://www.tracuugoicuoc.com' &&
+      decodeURIComponent(url.pathname).replace(/\/$/u, '') === '/posts/' + slug;
+  } catch {
+    return false;
+  }
+}
+
 export async function checkDailyLive(now = new Date()) {
   const slugCandidates = sourcePostsForLocalDay(now);
   const results = [];
@@ -153,8 +167,7 @@ export async function checkDailyLive(now = new Date()) {
         method: 'GET', redirect: 'follow', signal: AbortSignal.timeout(12000),
       });
       const html = response.ok ? await response.text() : '';
-      const hasCanonical = /<link\b[^>]*rel=["']canonical["'][^>]*>/iu.test(html) &&
-        html.includes('/posts/' + slug);
+      const hasCanonical = hasCorrectArticleCanonical(html, slug);
       results.push({
         url, status: response.status,
         liveVerified: response.status === 200 && hasCanonical,
