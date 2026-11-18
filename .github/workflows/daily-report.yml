@@ -2,13 +2,17 @@ name: Daily GSC Ranking Report
 
 on:
   schedule:
-    # Run every day at 01:00 UTC (08:00 ICT)
+    # Keep the previous daily schedule. GitHub scheduled workflows may be delayed.
     - cron: '0 1 * * *'
-  workflow_dispatch: # Cho phép chạy thủ công
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   report:
     runs-on: ubuntu-latest
+    timeout-minutes: 12
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -17,15 +21,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+          cache: npm
 
       - name: Install dependencies
-        run: npm ci || npm install
+        run: npm ci
 
-      - name: Run GSC Report Script
+      - name: Compare GSC 28-day windows and privately deliver report
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
-        run: |
-          echo "$GSC_SERVICE_ACCOUNT_JSON" > gsc-service-account.json
-          node scripts/gsc-report.js
+        run: node scripts/gsc-report.js
