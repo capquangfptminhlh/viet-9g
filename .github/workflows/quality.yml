@@ -38,6 +38,9 @@ jobs:
       - name: Static build and SEO/AEO/GEO gate
         run: npm run build
 
+      - name: Verify newest SEO article is visible on homepage and first in news listing
+        run: node scripts/verify-latest-editorial-links.mjs
+
       - name: Verify built editorial HTML and image
         run: node scripts/verify-editorial-html.mjs
 
