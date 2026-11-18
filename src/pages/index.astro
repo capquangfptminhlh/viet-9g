@@ -9,7 +9,7 @@ import { newestPostsFirst } from '../lib/editorial-order';
 const packages = getVerifiedPackages(loadPackageCatalog());
 const latestPosts = newestPostsFirst(await getCollection('posts')).slice(0, 3).map((entry) => ({
   slug: entry.slug,
-  title: entry.data.title ?? entry.slug.replace(/-/g, ' '),
+  title: entry.body?.match(/^#\s+(.+)$/m)?.[1] ?? entry.slug.replace(/-/g, ' '),
   dateLabel: entry.data.date?.toISOString().slice(0, 10).split('-').reverse().join('/') ?? '',
 }));
 ---
