@@ -95,8 +95,14 @@ const formattedPosts: FormattedPost[] = posts.map((post: { slug: string; body?: 
     }
   }
 
-  const originalImage = findFirstLocalIllustration(content);
-  // Markdown may reference assets that were never checked in; never ship a broken card image.
+  const declaredImage = (post.data as { image?: string }).image;
+  const verifiedDeclared = declaredImage &&
+    /^\/images\/editorial\/[a-z0-9-]+\.svg$/.test(declaredImage) &&
+    existsSync(join(process.cwd(), 'public', declaredImage.slice(1)))
+      ? declaredImage
+      : null;
+  const originalImage = verifiedDeclared ?? findFirstLocalIllustration(content);
+  // Only use first-party images that are actually bundled; never ship a broken card asset.
   const image = originalImage && existsSync(join(process.cwd(), 'public', originalImage.slice(1)))
     ? originalImage
     : getPostImage(post.slug, title);
