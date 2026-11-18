@@ -46,8 +46,8 @@ jobs:
 
       - name: Install headless Chromium for real mobile measurement
         run: |
-          npm install --no-save --no-package-lock playwright@1.55.0
-          npx playwright install chromium
+          npm install --global --no-audit --no-fund playwright@1.55.0
+          playwright install chromium
 
       - name: Measure real 390x844 mobile layout and CTA targets
         shell: bash
@@ -59,7 +59,7 @@ jobs:
             sleep 1
           done
           curl -fsS -o /dev/null http://127.0.0.1:4321/posts/5gip200-viettel-iphone
-          node scripts/verify-mobile-runtime.mjs
+          PLAYWRIGHT_MODULE_PATH="$(npm root -g)/playwright" node scripts/verify-mobile-runtime.mjs
 
       - name: Upload browser-measured mobile evidence
         if: always()
