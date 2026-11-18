@@ -1,0 +1,198 @@
+import { appendFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+
+const ROOT = process.cwd();
+const REPORT_PATH = '.website-os/out/daily-editorial-readiness.json';
+const APPROVED_SOURCE_DOMAINS = ['viettel.vn', 'vietteltelecom.vn', '098.viettel.vn'];
+
+function readJson(path) {
+  return JSON.parse(readFileSync(join(ROOT, path), 'utf8'));
+}
+
+function officialSource(url) {
+  try {
+    const parsed = new URL(url);
+    return parsed.protocol === 'https:' &&
+      APPROVED_SOURCE_DOMAINS.some(domain =>
+        parsed.hostname === domain || parsed.hostname.endsWith('.' + domain));
+  } catch {
+    return false;
+  }
+}
+
+function normalizePath(url) {
+  if (typeof url !== 'string' || !url.startsWith('/')) return '';
+  try {
+    return decodeURIComponent(url.split(/[?#]/)[0]).replace(/\/$/, '');
+  } catch {
+    return '';
+  }
+}
+
+function resolveOwner(target, redirects) {
+  let current = normalizePath(target);
+  const seen = new Set();
+  for (let depth = 0; depth < 8; depth++) {
+    if (!current || seen.has(current)) break;
+    seen.add(current);
+    const rule = redirects.find(rule => normalizePath(rule.source) === current);
+    if (!rule || !String(rule.destination).startsWith('/')) break;
+    current = normalizePath(rule.destination);
+  }
+  return current;
+}
+
+export function assessArticle(markdown) {
+  const body = markdown.replace(/^---\s*\n[\s\S]*?\n---\s*\n/u, '')
+    .replace(/!\[[^\]]*\]\([^)]+\)/gu, '')
+    .replace(/\[[^\]]+\]\([^)]+\)/gu, 'source')
+    .replace(/[#*|>]/gu, ' ');
+  const words = body.trim().split(/\s+/u).filter(Boolean).length;
+  const findings = [];
+  if (words < 250) findings.push('THIN_ARTICLE_UNDER_250_WORDS');
+  if (markdown.includes('Bài viết tổng hợp thông tin theo nguồn công bố của Viettel.')) {
+    findings.push('GENERIC_UNEDITED_CONTENT_TEMPLATE');
+  }
+  if (!/^#\s+\S/mu.test(markdown) || !/^##\s+\S/mu.test(markdown)) {
+    findings.push('ARTICLE_HEADINGS_MISSING');
+  }
+  if (!/https:\/\/(?:[\w.-]+\.)?(?:viettel\.vn|vietteltelecom\.vn)\//iu.test(markdown)) {
+    findings.push('VIETTEL_SOURCE_LINK_MISSING');
+  }
+  return { passed: findings.length === 0, words, findings };
+}
+
+export function auditDailyReadiness(now = new Date()) {
+  const topics = readJson('config/topics.json');
+  const facts = new Map(readJson('data/facts.json').map(fact => [fact.id, fact]));
+  const media = new Map(readJson('state/media-manifest.json').assets.map(asset => [asset.topicId, asset]));
+  const ledger = readJson('state/main-site-publication-ledger.json');
+  const redirects = readJson('vercel.json').redirects ?? [];
+  const postFiles = new Set(readdirSync(join(ROOT, 'src/content/posts')));
+  const finished = new Set(ledger
+    .filter(entry => entry.status === 'PUBLISHED' || entry.status === 'STAGED')
+    .map(entry => entry.topicId));
+
+  const queue = topics.filter(topic => topic.status === 'QUEUE');
+  const blockedReasons = {};
+  let blockedTopics = 0;
+  let provisionalTopics = 0;
+
+  for (const topic of queue) {
+    const reasons = new Set();
+    if (finished.has(topic.topicId)) reasons.add('ALREADY_PUBLISHED_OR_STAGED');
+    const referenced = topic.sourceFactIds.map(id => facts.get(id));
+    if (referenced.length === 0 || referenced.some(fact =>
+      !fact || !fact.expiresAt ||
+      !Number.isFinite(Date.parse(fact.expiresAt)) ||
+      Date.parse(fact.expiresAt) < now.getTime())) {
+      reasons.add('FACT_MISSING_OR_EXPIRED');
+    }
+    if (referenced.some(fact => !officialSource(fact?.sourceUrl))) {
+      reasons.add('UNVERIFIED_SOURCE_DOMAIN');
+    }
+    const illustration = media.get(topic.topicId);
+    if (!illustration || typeof illustration.publicUrl !== 'string' ||
+        !illustration.publicUrl.startsWith('https://')) {
+      reasons.add('MEDIA_MANIFEST_UNAVAILABLE');
+    }
+    const canonical = resolveOwner(topic.targetUrlPath, redirects);
+    if (canonical.startsWith('/posts/') &&
+        postFiles.has(canonical.slice('/posts/'.length) + '.md')) {
+      reasons.add('CANONICAL_OWNER_EXISTS');
+    }
+    if (postFiles.has(topic.topicId + '.md')) reasons.add('ARTICLE_SLUG_EXISTS');
+    if (reasons.size) {
+      blockedTopics++;
+      for (const reason of reasons) blockedReasons[reason] = (blockedReasons[reason] ?? 0) + 1;
+    } else {
+      provisionalTopics++;
+    }
+  }
+  return {
+    observedAt: now.toISOString(),
+    status: 'RESEARCH_ONLY_NOT_APPROVED_FOR_PUBLICATION',
+    queue: queue.length,
+    blockedTopics,
+    provisionalTopics,
+    blockedReasons,
+    publishedToProduction: false,
+    note: 'Preliminary eligibility is not a fresh source check, independent intent proof, editorial PASS or owner release approval.',
+  };
+}
+
+function writeSummary(text) {
+  if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, text + '\n');
+}
+
+async function main() {
+  const mode = process.argv[2];
+  if (mode === 'audit') {
+    const report = auditDailyReadiness();
+    const file = join(ROOT, REPORT_PATH);
+    mkdirSync(dirname(file), { recursive: true });
+    writeFileSync(file, JSON.stringify(report, null, 2) + '\n');
+    console.log('DAILY_EDITORIAL_READINESS=' + JSON.stringify(report));
+    writeSummary('### Viettel daily editorial readiness (source queue only)\n' +
+      '- QUEUE: ' + report.queue + '; blocked: ' + report.blockedTopics +
+      '; provisional research topics: ' + report.provisionalTopics + '\n' +
+      '- Reasons: ' + JSON.stringify(report.blockedReasons) + '\n' +
+      '- Publication verdict: NOT VERIFIED; no production release approved.');
+    return;
+  }
+  if (mode === 'quality') {
+    const path = process.argv[3];
+    if (!path || !/^src\/content\/posts\/[a-zA-Z0-9-]+\.md$/u.test(path) ||
+        !existsSync(join(ROOT, path))) {
+      throw new Error('ARTICLE_SOURCE_MISSING_OR_UNSAFE');
+    }
+    const report = assessArticle(readFileSync(join(ROOT, path), 'utf8'));
+    console.log('STAGED_ARTICLE_QUALITY=' + JSON.stringify({ path, ...report }));
+    if (!report.passed) process.exitCode = 2;
+    return;
+  }
+  if (mode === 'notify') {
+    const data = existsSync(REPORT_PATH) ? readJson(REPORT_PATH) : null;
+    const status = process.env.EDITORIAL_JOB_STATUS === 'success'
+      ? (process.env.EDITORIAL_PR_STATE === 'NEW_PR' ? 'STAGED_FOR_REVIEW'
+        : process.env.EDITORIAL_PR_STATE === 'OPEN_REVIEW' ? 'EXISTING_PR_AWAITING_REVIEW'
+        : process.env.EDITORIAL_QUALITY_READY === 'false' ? 'HOLD_EDITORIAL_QUALITY'
+        : process.env.EDITORIAL_CANDIDATE_GENERATED === 'false' ? 'NO_ELIGIBLE_TOPIC'
+        : 'NO_VERIFIED_PUBLICATION')
+      : 'ERROR_WORKFLOW_FAILED';
+    const runUrl = 'https://github.com/' + (process.env.GITHUB_REPOSITORY || 'capquangfptminhlh/viet-9g') +
+      '/actions/runs/' + (process.env.GITHUB_RUN_ID || 'UNKNOWN');
+    const lines = [
+      '📋 SEO Viettel — báo cáo lịch chạy',
+      'Trạng thái: ' + status,
+      'Đã đăng lên website: CHƯA XÁC MINH (workflow này chỉ tạo PR).',
+      'Chủ đề QUEUE: ' + (data?.queue ?? 'UNKNOWN') +
+        '; blocked: ' + (data?.blockedTopics ?? 'UNKNOWN') +
+        '; nghiên cứu tiếp: ' + (data?.provisionalTopics ?? 'UNKNOWN'),
+      'Nguyên nhân: ' + JSON.stringify(data?.blockedReasons ?? {}),
+      'PR: ' + (process.env.EDITORIAL_PR_URL || 'Không có PR mới'),
+      'Lượt chạy: ' + runUrl,
+      'Bài mới chỉ được đăng sau khi PASS các gate, 2 human reviews, owner approval và xác minh URL live.',
+    ];
+    const token = process.env.TELEGRAM_BOT_TOKEN;
+    const chat = process.env.TELEGRAM_CHAT_ID;
+    writeSummary('### Daily publishing decision: ' + status + '\n' +
+      '- Production publication: NOT VERIFIED\n' +
+      '- Run: ' + runUrl + '\n' +
+      '- PR: ' + (process.env.EDITORIAL_PR_URL || 'none'));
+    if (!token || !chat) throw new Error('TELEGRAM_STATUS_NOT_SENT: credentials unavailable');
+    const response = await fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: chat, text: lines.join('\n').slice(0, 3900) }),
+    });
+    if (!response.ok) throw new Error('TELEGRAM_STATUS_NOT_SENT: HTTP ' + response.status);
+    console.log('DAILY_EDITORIAL_STATUS_SENT=' + status);
+    return;
+  }
+  throw new Error('Usage: daily-editorial-status.mjs audit | quality ARTICLE | notify');
+}
+main().catch(error => {
+  console.error('DAILY_EDITORIAL_STATUS_ERROR=' + error.message);
+  process.exitCode = 1;
+});
