@@ -13,10 +13,12 @@ concurrency:
 
 jobs:
   quality:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # Playwright 1.55 Chromium supports Ubuntu 24.04; latest runner is 26.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -38,6 +40,40 @@ jobs:
 
       - name: Verify built editorial HTML and image
         run: node scripts/verify-editorial-html.mjs
+
+      - name: Verify mobile CTA source contract
+        run: node scripts/verify-mobile-cta-source.mjs
+
+      - name: Install headless Chromium for real mobile measurement
+        run: |
+          npm install --global --no-audit --no-fund playwright@1.55.0
+          playwright install chromium
+
+      - name: Measure real 390x844 mobile layout and CTA targets
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run preview -- --host 127.0.0.1 --port 4321 > /tmp/viettel-preview.log 2>&1 &
+          for i in {1..30}; do
+            if curl -fsS -o /dev/null http://127.0.0.1:4321/tin-tuc; then break; fi
+            sleep 1
+          done
+          curl -fsS -o /dev/null http://127.0.0.1:4321/posts/5gip200-viettel-iphone
+          PLAYWRIGHT_MODULE_PATH="$(npm root -g)/playwright" node scripts/verify-mobile-runtime.mjs
+
+      - name: Upload browser-measured mobile evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: editorial-mobile-390x844
+          path: .website-os/out/mobile-390x844.json
+          if-no-files-found: warn
+
+      - name: Gate any newly generated or modified article on editorial evidence
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: node scripts/verify-article-release.mjs
 
       - name: Prepare provenance from built editorial artifacts
         run: node scripts/prepare-editorial-evidence.mjs
