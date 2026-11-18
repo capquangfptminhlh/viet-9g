@@ -5,6 +5,8 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { newestPostsFirst } from '../lib/editorial-order';
 import { findFirstLocalIllustration } from '../lib/editorial-thumbnail';
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
 
 // Astro collections have no guaranteed chronological order; show recent posts first.
 const posts = newestPostsFirst(await getCollection('posts'));
@@ -93,7 +95,11 @@ const formattedPosts: FormattedPost[] = posts.map((post: { slug: string; body?: 
     }
   }
 
-  const image = findFirstLocalIllustration(content) ?? getPostImage(post.slug, title);
+  const originalImage = findFirstLocalIllustration(content);
+  // Markdown may reference assets that were never checked in; never ship a broken card image.
+  const image = originalImage && existsSync(join(process.cwd(), 'public', originalImage.slice(1)))
+    ? originalImage
+    : getPostImage(post.slug, title);
 
   return {
     slug: post.slug,
