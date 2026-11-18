@@ -30,6 +30,10 @@ jobs:
           cache: npm
       - name: Install locked dependencies
         run: npm ci
+      - name: Fetch real official Viettel article and verify custom SVG rendering
+        run: |
+          node scripts/verify-viettel-source-svg.mjs
+          python3 -c 'import xml.etree.ElementTree as ET; ET.parse(".website-os/out/source-smoke/illustration.svg"); print("SVG_XML_WELL_FORMED=PASS")'
       - name: Run live Viettel research, real Gemini and original SVG creation
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -49,6 +53,7 @@ jobs:
           name: ai-original-editorial-live-smoke
           path: |
             .website-os/out/ai-editorial-creation.json
+            .website-os/out/source-smoke/*
             src/content/posts/*.md
             public/images/editorial/*.svg
           retention-days: 2
