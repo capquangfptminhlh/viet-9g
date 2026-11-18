@@ -1,7 +1,8 @@
 /** Consistent newest-first order for all editorial surfaces. */
 export type DatedEditorialPost = {
   slug: string;
-  data: { date?: Date };
+  body?: string;
+  data: { date?: Date; title?: string };
 };
 
 function publicationTime(post: DatedEditorialPost): number {
