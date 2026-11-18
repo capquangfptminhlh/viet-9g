@@ -38,7 +38,7 @@ function parseTitle(html) {
     { allowedTags: [], allowedAttributes: {} }).replace(/\s+/gu, ' ').trim();
 }
 
-function parseOfficialArticle(html, sourceUrl, observedAt) {
+export function parseOfficialArticle(html, sourceUrl, observedAt) {
   const title = parseTitle(html);
   const rawText = sanitizeHtml(html, { allowedTags: [], allowedAttributes: {} })
     .replace(/\r/gu, '').replace(/[ \t]+/gu, ' ');
@@ -60,7 +60,7 @@ function parseOfficialArticle(html, sourceUrl, observedAt) {
   };
 }
 
-async function retrieveOfficialArticle(url, now) {
+export async function retrieveOfficialArticle(url, now) {
   if (!isOfficialViettelUrl(url)) throw new Error('SOURCE_DOMAIN_NOT_OFFICIAL');
   const response = await fetch(url, {
     headers: { 'User-Agent': 'ViettelEditorialResearch/1.0 (original sourced guide)' },
