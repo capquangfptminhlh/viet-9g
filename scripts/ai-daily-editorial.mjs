@@ -1,7 +1,7 @@
 import { GoogleGenAI } from '@google/genai';
 import sanitizeHtml from 'sanitize-html';
 import { createHash } from 'node:crypto';
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { appendFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
@@ -21,7 +21,6 @@ function jsonReport(result) {
   writeFileSync(file, JSON.stringify({ observedAt: new Date().toISOString(), ...result }, null, 2) + '\n');
   console.log('ORIGINAL_EDITORIAL=' + JSON.stringify(result));
   if (process.env.GITHUB_STEP_SUMMARY) {
-    const { appendFileSync } = requireFromFs();
     appendFileSync(process.env.GITHUB_STEP_SUMMARY,
       '### Original article + original illustration\n' +
       '- Creation status: ' + result.status + '\n' +
@@ -32,15 +31,6 @@ function jsonReport(result) {
       '- Production release: NOT AUTHORIZED; human editorial and owner gates remain mandatory.\n');
   }
   return result;
-}
-
-function requireFromFs() {
-  return { appendFileSync: (...args) => fsAppend(...args) };
-}
-
-function fsAppend(...args) {
-  // Imported dynamically in the caller path to keep no file writes in pure helpers.
-  return import('node:fs').then(mod => mod.appendFileSync(...args));
 }
 
 function parseTitle(html) {
@@ -209,7 +199,7 @@ async function main() {
         visualSteps: draft.visualSteps,
       });
       const markdown = renderArticle(draft, source, now, imagePath);
-      if (existsSync(articlePath) || existsSync('public' + imagePath)) {
+      if (existsSync(join(ROOT, articlePath)) || existsSync(join(ROOT, 'public' + imagePath))) {
         failures.push('EDITORIAL_ASSET_ALREADY_EXISTS');
         continue;
       }
