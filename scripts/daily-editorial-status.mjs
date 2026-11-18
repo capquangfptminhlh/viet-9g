@@ -241,6 +241,7 @@ async function main() {
       ? (process.env.EDITORIAL_PR_STATE === 'NEW_PR' ? 'STAGED_FOR_REVIEW'
         : process.env.EDITORIAL_PR_STATE === 'OPEN_REVIEW' ? 'EXISTING_PR_AWAITING_REVIEW'
         : process.env.EDITORIAL_QUALITY_READY === 'false' ? 'HOLD_EDITORIAL_QUALITY'
+        : aiCreation?.status === 'HOLD' ? 'HOLD_AI_EDITORIAL'
         : process.env.EDITORIAL_CANDIDATE_GENERATED === 'false' ? 'NO_ELIGIBLE_TOPIC'
         : 'NO_VERIFIED_PUBLICATION')
       : 'ERROR_WORKFLOW_FAILED';
