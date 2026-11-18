@@ -232,45 +232,36 @@ async function main() {
   }
   if (mode === 'notify') {
     const data = existsSync(REPORT_PATH) ? readJson(REPORT_PATH) : null;
-    const aiCreation = existsSync('.website-os/out/ai-editorial-creation.json')
-      ? readJson('.website-os/out/ai-editorial-creation.json') : null;
     const live = existsSync('.website-os/out/daily-live-publication.json')
       ? readJson('.website-os/out/daily-live-publication.json') : null;
-    const status = live?.publishedTodayVerified ? 'PUBLISHED_TODAY_VERIFIED'
-      : process.env.EDITORIAL_JOB_STATUS === 'success'
-      ? (process.env.EDITORIAL_PR_STATE === 'NEW_PR' ? 'STAGED_FOR_REVIEW'
-        : process.env.EDITORIAL_PR_STATE === 'OPEN_REVIEW' ? 'EXISTING_PR_AWAITING_REVIEW'
-        : process.env.EDITORIAL_QUALITY_READY === 'false' ? 'HOLD_EDITORIAL_QUALITY'
-        : aiCreation?.status === 'HOLD' ? 'HOLD_AI_EDITORIAL'
-        : process.env.EDITORIAL_CANDIDATE_GENERATED === 'false' ? 'NO_ELIGIBLE_TOPIC'
-        : 'NO_VERIFIED_PUBLICATION')
-      : 'ERROR_WORKFLOW_FAILED';
-    const runUrl = 'https://github.com/' + (process.env.GITHUB_REPOSITORY || 'capquangfptminhlh/viet-9g') +
+    const status = process.env.EDITORIAL_JOB_STATUS !== 'success'
+      ? 'ERROR_HEALTH_MONITOR'
+      : live?.publishedTodayVerified
+        ? 'LIVE_ARTICLE_VERIFIED_TODAY'
+        : 'NO_NEW_ARTICLE_VERIFIED_AS_OF_CHECK';
+    const runUrl = 'https://github.com/' +
+      (process.env.GITHUB_REPOSITORY || 'capquangfptminhlh/viet-9g') +
       '/actions/runs/' + (process.env.GITHUB_RUN_ID || 'UNKNOWN');
     const lines = [
-      '📋 SEO Viettel — báo cáo lịch chạy',
+      '📋 SEO Viettel — giám sát website (không phải AI đăng bài)',
       'Trạng thái: ' + status,
-      'Đã đăng trên website hôm nay: ' + (live?.publishedTodayVerified ? 'ĐÃ KIỂM CHỨNG URL LIVE' : 'CHƯA XÁC MINH'),
-      'Kiểm tra URL live: ' + (live?.checked?.map(x => x.url + ' (' + x.status + ')').join(', ') || 'Chưa có bài ngày hôm nay trong mã nguồn'),
+      'Đã đăng bài hôm nay: ' + (live?.publishedTodayVerified ? 'ĐÃ KIỂM CHỨNG URL LIVE' : 'CHƯA XÁC MINH'),
+      'URL đã thử: ' + (live?.checked?.map(x => x.url + ' (' + x.status + ')').join(', ') || 'Chưa có bài mới'),
       'Chủ đề QUEUE: ' + (data?.queue ?? 'UNKNOWN') +
-        '; blocked: ' + (data?.blockedTopics ?? 'UNKNOWN') +
-        '; nghiên cứu tiếp: ' + (data?.provisionalTopics ?? 'UNKNOWN'),
-      'Nguyên nhân: ' + JSON.stringify(data?.blockedReasons ?? {}),
-      'Tự tìm nguồn/viết bài/vẽ ảnh: ' + (aiCreation?.status || 'CHƯA CHẠY') +
-        (aiCreation?.reason ? ' (' + aiCreation.reason.slice(0, 180) + ')' : ''),
-      'Nguồn Viettel: ' + (aiCreation?.sourceUrl || 'CHƯA CÓ'),
-      'Ảnh minh họa: ' + (aiCreation?.image || 'CHƯA CÓ'),
-      'PR: ' + (process.env.EDITORIAL_PR_URL || 'Không có PR mới'),
-      'Lượt chạy: ' + runUrl,
-      'Bài mới chỉ được đăng sau khi PASS các gate, 2 human reviews, owner approval và xác minh URL live.',
+        '; bị chặn: ' + (data?.blockedTopics ?? 'UNKNOWN') +
+        '; cần nghiên cứu: ' + (data?.provisionalTopics ?? 'UNKNOWN'),
+      'Nhóm lỗi: ' + JSON.stringify(data?.blockedReasons ?? {}),
+      'Người tạo bài và ảnh: ChatGPT qua tác vụ SEO Viettel, không dùng Gemini API trong GitHub Actions.',
+      'Lượt kiểm tra: ' + runUrl,
+      'Chỉ xuất bản sau khi nguồn, K0, CI, hai human reviews và chủ site duyệt theo quy tắc SEO.',
     ];
+    writeSummary('### Production SEO publication monitor\n' +
+      '- Monitoring status: ' + status + '\n' +
+      '- Production URL proof: ' + (live?.publishedTodayVerified ? 'VERIFIED_LIVE' : 'NOT_VERIFIED') + '\n' +
+      '- ChatGPT authoring is managed by the separate existing SEO automation, not GitHub Actions.\n' +
+      '- Run: ' + runUrl);
     const token = process.env.TELEGRAM_BOT_TOKEN;
     const chat = process.env.TELEGRAM_CHAT_ID;
-    writeSummary('### Daily publishing decision: ' + status + '\n' +
-      '- Production publication: ' + (live?.publishedTodayVerified ? 'VERIFIED_LIVE' : 'NOT_VERIFIED') + '\n' +
-      '- AI original content: ' + (aiCreation?.status ?? 'NOT_RUN') + '\n' +
-      '- Run: ' + runUrl + '\n' +
-      '- PR: ' + (process.env.EDITORIAL_PR_URL || 'none'));
     if (!token || !chat) throw new Error('TELEGRAM_STATUS_NOT_SENT: credentials unavailable');
     const response = await fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
       method: 'POST',
@@ -278,7 +269,7 @@ async function main() {
       body: JSON.stringify({ chat_id: chat, text: lines.join('\n').slice(0, 3900) }),
     });
     if (!response.ok) throw new Error('TELEGRAM_STATUS_NOT_SENT: HTTP ' + response.status);
-    console.log('DAILY_EDITORIAL_STATUS_SENT=' + status);
+    console.log('DAILY_EDITORIAL_MONITOR_STATUS_SENT=' + status);
     return;
   }
   throw new Error('Usage: daily-editorial-status.mjs audit | quality ARTICLE | live | notify');
