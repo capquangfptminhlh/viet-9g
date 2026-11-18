@@ -44,6 +44,31 @@ jobs:
       - name: Verify mobile CTA source contract
         run: node scripts/verify-mobile-cta-source.mjs
 
+      - name: Install headless Chromium for real mobile measurement
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install chromium
+
+      - name: Measure real 390x844 mobile layout and CTA targets
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run preview -- --host 127.0.0.1 --port 4321 > /tmp/viettel-preview.log 2>&1 &
+          for i in {1..30}; do
+            if curl -fsS -o /dev/null http://127.0.0.1:4321/tin-tuc; then break; fi
+            sleep 1
+          done
+          curl -fsS -o /dev/null http://127.0.0.1:4321/posts/5gip200-viettel-iphone
+          node scripts/verify-mobile-runtime.mjs
+
+      - name: Upload browser-measured mobile evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: editorial-mobile-390x844
+          path: .website-os/out/mobile-390x844.json
+          if-no-files-found: warn
+
       - name: Gate any newly generated or modified article on editorial evidence
         env:
           PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
