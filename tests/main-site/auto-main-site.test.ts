@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
-import { runAutoMainSite } from '../../scripts/auto-main-site';
+import { runAutoMainSite, type AutoMainSiteOptions } from '../../scripts/auto-main-site';
 import type { AutomationPolicy } from '../../packages/policy-engine/automation-policy';
 
 const directories: string[] = [];
@@ -143,7 +143,7 @@ describe('auto main-site publication', () => {
     directories.push(outputDir);
     fs.writeFileSync(path.join(outputDir, 'canonical-owner.md'), '# Existing canonical owner\n', 'utf8');
     const ledger: any[] = [];
-    const options = {
+    const options: AutoMainSiteOptions = {
       outputDir,
       topics: [{ topicId: 'another-topic', title: 'Duplicate guide', status: 'QUEUE', intent: 'informational', targetUrlPath: '/posts/canonical-owner', sourceFactIds: ['verified-fact'] }],
       facts: [{ id: 'verified-fact', claim: 'Thông tin đã được xác minh.', sourceUrl: 'https://www.vietteltelecom.vn/', expiresAt: '2026-12-31T23:59:59Z' }],
@@ -151,7 +151,7 @@ describe('auto main-site publication', () => {
       automationPolicy: policy,
       ledgerStore: { async load() { return ledger; }, async save(entries: any[]) { ledger.splice(0, ledger.length, ...structuredClone(entries)); } },
       now: new Date('2026-11-18T09:20:00Z'),
-    } as const;
+    };
     const first = await runAutoMainSite(options);
     const second = await runAutoMainSite(options);
     expect(first.status).toBe('NO_ELIGIBLE_TOPIC');
@@ -166,7 +166,7 @@ describe('auto main-site publication', () => {
     const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'main-site-'));
     directories.push(outputDir);
     const ledger: any[] = [];
-    const options = {
+    const options: AutoMainSiteOptions = {
       outputDir,
       topics: [{ topicId: 'fresh-guide', title: 'Hướng dẫn độc lập', status: 'QUEUE', intent: 'informational', sourceFactIds: ['one'] }],
       facts: [{ id: 'one', claim: 'Thông tin hướng dẫn từ Viettel.', sourceUrl: 'https://www.vietteltelecom.vn/', expiresAt: '2026-12-31T23:59:59Z' }],
@@ -174,7 +174,7 @@ describe('auto main-site publication', () => {
       automationPolicy: policy,
       ledgerStore: { async load() { return ledger; }, async save(entries: any[]) { ledger.splice(0, ledger.length, ...structuredClone(entries)); } },
       now: new Date('2026-11-18T09:20:00Z'),
-    } as const;
+    };
     const first = await runAutoMainSite(options);
     const second = await runAutoMainSite(options);
     expect(first.status).toBe('STAGED');
