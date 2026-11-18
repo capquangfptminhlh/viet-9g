@@ -42,12 +42,15 @@ jobs:
           npm test -- tests/main-site tests/blogger
           npm run k0:check
 
-      - name: Generate at most one verified-fact candidate
+      - name: Research official Viettel, write original guide and create original SVG
         id: candidate
         shell: bash
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_EDITORIAL_MODEL: ${{ vars.GEMINI_EDITORIAL_MODEL }}
         run: |
           set -euo pipefail
-          npx tsx scripts/auto-main-site.ts
+          node scripts/ai-daily-editorial.mjs
           mapfile -t NEW_POSTS < <(git ls-files --others --exclude-standard -- 'src/content/posts/*.md')
           if [ "${#NEW_POSTS[@]}" -eq 0 ]; then
             echo 'generated=false' >> "$GITHUB_OUTPUT"
@@ -60,7 +63,15 @@ jobs:
           fi
           echo 'generated=true' >> "$GITHUB_OUTPUT"
           echo "article=${NEW_POSTS[0]}" >> "$GITHUB_OUTPUT"
-          echo "slug=$(basename "${NEW_POSTS[0]}" .md)" >> "$GITHUB_OUTPUT"
+          SLUG="$(basename "${NEW_POSTS[0]}" .md)"
+          IMAGE="public/images/editorial/$SLUG.svg"
+          test -s "$IMAGE" || { echo "::error::Original SVG missing: $IMAGE"; exit 1; }
+          CREATION=".website-os/out/ai-editorial-creation.json"
+          test -s "$CREATION" || { echo "::error::Creation evidence missing"; exit 1; }
+          SOURCE_URL="$(node -e 'const fs=require("fs"); const r=JSON.parse(fs.readFileSync(process.argv[1], "utf8")); if(r.status!=="STAGED_FOR_REVIEW"||!r.sourceUrl)process.exit(2); console.log(r.sourceUrl)' "$CREATION")"
+          echo "slug=$SLUG" >> "$GITHUB_OUTPUT"
+          echo "image=$IMAGE" >> "$GITHUB_OUTPUT"
+          echo "source_url=$SOURCE_URL" >> "$GITHUB_OUTPUT"
 
       - name: Reject thin or unedited candidate content before creating a PR
         if: steps.candidate.outputs.generated == 'true'
@@ -91,14 +102,20 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           ARTICLE: ${{ steps.candidate.outputs.article }}
+          IMAGE: ${{ steps.candidate.outputs.image }}
           SLUG: ${{ steps.candidate.outputs.slug }}
+          SOURCE_URL: ${{ steps.candidate.outputs.source_url }}
         run: |
           set -euo pipefail
           # Avoid parallel draft PRs for the same canonical owner.
-          OPEN_COUNT="$(gh pr list --state open --search "$SLUG in:title" --json number --jq 'length')"
+          # Dedupe by proposed URL AND official source: don't spawn new PRs every day.
+          MATCHES="$(gh pr list --state open --limit 100 --json title,body,url |
+            jq --arg slug "$SLUG" --arg source "$SOURCE_URL" '[.[] |
+              select((.title | contains($slug)) or ((.body // "") | contains($source)))]')"
+          OPEN_COUNT="$(echo "$MATCHES" | jq 'length')"
           if [ "$OPEN_COUNT" != '0' ]; then
             echo 'state=OPEN_REVIEW' >> "$GITHUB_OUTPUT"
-            gh pr list --state open --search "$SLUG in:title" --json url --jq '.[0].url' | while IFS= read -r url; do echo "url=$url" >> "$GITHUB_OUTPUT"; done
+            echo "$MATCHES" | jq -r '.[0].url' | while IFS= read -r url; do echo "url=$url" >> "$GITHUB_OUTPUT"; done
             echo "HOLD — an open editorial PR for $SLUG already exists" >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
@@ -106,13 +123,13 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git checkout -b "$BRANCH"
-          git add -- "$ARTICLE" state/main-site-publication-ledger.json
+          git add -- "$ARTICLE" "$IMAGE"
           git diff --cached --quiet && { echo 'NO_ELIGIBLE_TOPIC — nothing to propose' >> "$GITHUB_STEP_SUMMARY"; exit 0; }
           git commit -m "docs(seo): stage fact-verified editorial candidate $SLUG"
           git push origin "$BRANCH"
           PR_URL="$(gh pr create --draft --base main --head "$BRANCH" \
             --title "SEO candidate: $SLUG (REVIEW REQUIRED)" \
-            --body "Generated fact-backed draft; NOT published. Recheck primary source, originality and canonical owner; no automatic release. Run Article/K0/SEO Alpha gates; obtain required review and site-owner approval before merge. Update any thin/template-only text before release.")"
+            --body "AI-written original guide with original SVG image. Source: $SOURCE_URL . NOT published. Read original official source, verify claims and that the independent canonical intent is approved. Run Article/K0/SEO Alpha gates and obtain TWO independent human reviews plus owner release approval before merge. Do not skip source/evidence or required content review.")"
           echo 'state=NEW_PR' >> "$GITHUB_OUTPUT"
           echo "url=$PR_URL" >> "$GITHUB_OUTPUT"
           echo "STAGED — created review PR $PR_URL for $SLUG; NOT live published" >> "$GITHUB_STEP_SUMMARY"
@@ -129,6 +146,7 @@ jobs:
           path: |
             .website-os/out/daily-editorial-readiness.json
             .website-os/out/daily-live-publication.json
+            .website-os/out/ai-editorial-creation.json
           if-no-files-found: warn
 
       - name: Notify honest daily editorial status
