@@ -1,176 +1,55 @@
-name: Daily SEO Editorial Candidate
+name: Daily SEO production monitor (ChatGPT authors content)
 
 on:
   schedule:
-    # 07:00 Asia/Ho_Chi_Minh. No publishing to main without review.
+    # 07:00 Asia/Ho_Chi_Minh: verify site/article status without generating templated articles.
     - cron: '0 0 * * *'
   workflow_dispatch:
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
 
 concurrency:
-  group: seo-editorial-candidate-main
+  group: seo-editorial-monitor-main
   cancel-in-progress: false
 
 jobs:
-  propose:
-    # Manual dispatch on a PR branch is a read/write-to-runner integration test only.
-    # The candidate PR push step remains disabled unless running on reviewed main.
-    if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
+  monitor:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 20
     steps:
-      - name: Checkout reviewed main
+      - name: Checkout production main (read-only)
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '22'
           cache: npm
-
       - name: Install dependencies
         run: npm ci
-
-      - name: Audit real topic eligibility and historical blockers
-        run: node scripts/daily-editorial-status.mjs audit
-
-      - name: Validate editorial and keyword rules
+      - name: Verify editorial monitor unit tests and approved K0
         run: |
-          npm test -- tests/main-site tests/blogger
+          npm test -- tests/editorial/daily-editorial-status.test.ts
           npm run k0:check
-
-      - name: Research official Viettel, write original guide and create original SVG
-        id: candidate
-        shell: bash
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GEMINI_EDITORIAL_MODEL: ${{ vars.GEMINI_EDITORIAL_MODEL }}
-        run: |
-          set -euo pipefail
-          node scripts/ai-daily-editorial.mjs
-          mapfile -t NEW_POSTS < <(git ls-files --others --exclude-standard -- 'src/content/posts/*.md')
-          if [ "${#NEW_POSTS[@]}" -eq 0 ]; then
-            echo 'generated=false' >> "$GITHUB_OUTPUT"
-            CREATION=".website-os/out/ai-editorial-creation.json"
-            test -s "$CREATION" || { echo "::error::AI decision evidence missing"; exit 1; }
-            STATUS="$(node -e 'const r=require("./"+process.argv[1]); console.log(r.status||"UNKNOWN")' "$CREATION")"
-            REASON="$(node -e 'const r=require("./"+process.argv[1]); console.log(r.reason||"UNKNOWN")' "$CREATION")"
-            if [ "$STATUS" != "HOLD" ]; then
-              echo "::error::No draft generated despite AI status $STATUS"
-              exit 1
-            fi
-            echo "HOLD_AI_EDITORIAL — $REASON (not published, no fabricated content)" >> "$GITHUB_STEP_SUMMARY"
-            if [ "$REASON" = "GEMINI_API_KEY_SECRET_MISSING" ]; then
-              echo "::error::Missing required GitHub Actions secret GEMINI_API_KEY"
-              exit 1
-            fi
-            exit 0
-          fi
-          if [ "${#NEW_POSTS[@]}" -ne 1 ]; then
-            echo "::error::Expected only one proposed article; found ${#NEW_POSTS[@]}"
-            exit 1
-          fi
-          echo 'generated=true' >> "$GITHUB_OUTPUT"
-          echo "article=${NEW_POSTS[0]}" >> "$GITHUB_OUTPUT"
-          SLUG="$(basename "${NEW_POSTS[0]}" .md)"
-          IMAGE="public/images/editorial/$SLUG.svg"
-          test -s "$IMAGE" || { echo "::error::Original SVG missing: $IMAGE"; exit 1; }
-          CREATION=".website-os/out/ai-editorial-creation.json"
-          test -s "$CREATION" || { echo "::error::Creation evidence missing"; exit 1; }
-          SOURCE_URL="$(node -e 'const fs=require("fs"); const r=JSON.parse(fs.readFileSync(process.argv[1], "utf8")); if(r.status!=="STAGED_FOR_REVIEW"||!r.sourceUrl)process.exit(2); console.log(r.sourceUrl)' "$CREATION")"
-          echo "slug=$SLUG" >> "$GITHUB_OUTPUT"
-          echo "image=$IMAGE" >> "$GITHUB_OUTPUT"
-          echo "source_url=$SOURCE_URL" >> "$GITHUB_OUTPUT"
-
-      - name: Reject thin or unedited candidate content before creating a PR
-        if: steps.candidate.outputs.generated == 'true'
-        id: article_quality
-        shell: bash
-        env:
-          ARTICLE: ${{ steps.candidate.outputs.article }}
-        run: |
-          set -euo pipefail
-          if node scripts/daily-editorial-status.mjs quality "$ARTICLE"; then
-            echo 'ready=true' >> "$GITHUB_OUTPUT"
-          else
-            echo 'ready=false' >> "$GITHUB_OUTPUT"
-            echo 'HOLD_EDITORIAL_QUALITY — article needs substantive original research and human editing; not submitted for publication.' >> "$GITHUB_STEP_SUMMARY"
-          fi
-
-      - name: Verify candidate builds into static site
-        if: steps.article_quality.outputs.ready == 'true'
-        run: |
-          npm run build
-          node scripts/verify-editorial-html.mjs
-          node scripts/prepare-editorial-evidence.mjs
-
-      - name: Create draft PR instead of pushing directly to production
-        id: proposal
-        if: steps.article_quality.outputs.ready == 'true' && github.ref == 'refs/heads/main'
-        shell: bash
-        env:
-          GH_TOKEN: ${{ github.token }}
-          ARTICLE: ${{ steps.candidate.outputs.article }}
-          IMAGE: ${{ steps.candidate.outputs.image }}
-          SLUG: ${{ steps.candidate.outputs.slug }}
-          SOURCE_URL: ${{ steps.candidate.outputs.source_url }}
-        run: |
-          set -euo pipefail
-          # Avoid parallel draft PRs for the same canonical owner.
-          # Dedupe by proposed URL AND official source: don't spawn new PRs every day.
-          MATCHES="$(gh pr list --state open --limit 100 --json title,body,url |
-            jq --arg slug "$SLUG" --arg source "$SOURCE_URL" '[.[] |
-              select((.title | contains($slug)) or ((.body // "") | contains($source)))]')"
-          OPEN_COUNT="$(echo "$MATCHES" | jq 'length')"
-          if [ "$OPEN_COUNT" != '0' ]; then
-            echo 'state=OPEN_REVIEW' >> "$GITHUB_OUTPUT"
-            echo "$MATCHES" | jq -r '.[0].url' | while IFS= read -r url; do echo "url=$url" >> "$GITHUB_OUTPUT"; done
-            echo "HOLD — an open editorial PR for $SLUG already exists" >> "$GITHUB_STEP_SUMMARY"
-            exit 0
-          fi
-          BRANCH="seo/candidate-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git checkout -b "$BRANCH"
-          git add -- "$ARTICLE" "$IMAGE"
-          git diff --cached --quiet && { echo 'NO_ELIGIBLE_TOPIC — nothing to propose' >> "$GITHUB_STEP_SUMMARY"; exit 0; }
-          git commit -m "docs(seo): stage fact-verified editorial candidate $SLUG"
-          git push origin "$BRANCH"
-          PR_URL="$(gh pr create --draft --base main --head "$BRANCH" \
-            --title "SEO candidate: $SLUG (REVIEW REQUIRED)" \
-            --body "AI-written original guide with original SVG image. Source: $SOURCE_URL . NOT published. Read original official source, verify claims and that the independent canonical intent is approved. Run Article/K0/SEO Alpha gates and obtain TWO independent human reviews plus owner release approval before merge. Do not skip source/evidence or required content review.")"
-          echo 'state=NEW_PR' >> "$GITHUB_OUTPUT"
-          echo "url=$PR_URL" >> "$GITHUB_OUTPUT"
-          echo "STAGED — created review PR $PR_URL for $SLUG; NOT live published" >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Check whether a same-day article is actually live on production
+      - name: Audit pending sources and canonical ownership
+        run: node scripts/daily-editorial-status.mjs audit
+      - name: Check real production article URLs
         if: always()
         run: node scripts/daily-editorial-status.mjs live
-
-      - name: Upload daily editorial readiness evidence
+      - name: Upload auditable readiness evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: daily-editorial-readiness
+          name: daily-editorial-monitor
           path: |
             .website-os/out/daily-editorial-readiness.json
             .website-os/out/daily-live-publication.json
-            .website-os/out/ai-editorial-creation.json
           if-no-files-found: warn
-
-      - name: Notify honest daily editorial status
+      - name: Notify actual status (ChatGPT task handles content separately)
         if: always()
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           EDITORIAL_JOB_STATUS: ${{ job.status }}
-          EDITORIAL_CANDIDATE_GENERATED: ${{ steps.candidate.outputs.generated }}
-          EDITORIAL_QUALITY_READY: ${{ steps.article_quality.outputs.ready }}
-          EDITORIAL_PR_STATE: ${{ steps.proposal.outputs.state }}
-          EDITORIAL_PR_URL: ${{ steps.proposal.outputs.url }}
         run: node scripts/daily-editorial-status.mjs notify
