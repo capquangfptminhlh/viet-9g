@@ -5,13 +5,14 @@ website_os_entrypoint: AGENTS.md
 project_name: viettel-4g-web
 project_repo: capquangfptminhlh/viet-9g
 compliance_status: REQUIRED
-observed_at: 2026-11-18T00:13:28.407+07:00
-source_commit_sha: 65b2a30e0982c7f5f49252c7401f760df90c6c50
-manifest_version: 1.3.1
+observed_at: 2026-11-18T09:04:44Z
+source_commit_sha: 6d0b7c7c4d8458746f552704ce8d6fe517d9c847
+manifest_version: 1.4.0
 mandatory_read_complete: true
 project_rules_loaded: true
-bootstrap_decision: PASS
+bootstrap_decision: HOLD
 enforcement_target: auto
 evidence_dir: .website-os/evidence
 local_seo: false
 workflow_mode: EDITORIAL_MAINTENANCE
+# Bootstrap source and SEO Alpha reads refreshed 2026-11-18. This HOLD is not a claim that the full Website OS engine, K0, editorial/mobile or release gates passed.
