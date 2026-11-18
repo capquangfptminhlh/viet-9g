@@ -18,6 +18,7 @@ jobs:
   propose:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Checkout reviewed main
         uses: actions/checkout@v4
@@ -32,6 +33,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Audit real topic eligibility and historical blockers
+        run: node scripts/daily-editorial-status.mjs audit
 
       - name: Validate editorial and keyword rules
         run: |
@@ -58,15 +62,31 @@ jobs:
           echo "article=${NEW_POSTS[0]}" >> "$GITHUB_OUTPUT"
           echo "slug=$(basename "${NEW_POSTS[0]}" .md)" >> "$GITHUB_OUTPUT"
 
-      - name: Verify candidate builds into static site
+      - name: Reject thin or unedited candidate content before creating a PR
         if: steps.candidate.outputs.generated == 'true'
+        id: article_quality
+        shell: bash
+        env:
+          ARTICLE: ${{ steps.candidate.outputs.article }}
+        run: |
+          set -euo pipefail
+          if node scripts/daily-editorial-status.mjs quality "$ARTICLE"; then
+            echo 'ready=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'ready=false' >> "$GITHUB_OUTPUT"
+            echo 'HOLD_EDITORIAL_QUALITY — article needs substantive original research and human editing; not submitted for publication.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Verify candidate builds into static site
+        if: steps.article_quality.outputs.ready == 'true'
         run: |
           npm run build
           node scripts/verify-editorial-html.mjs
           node scripts/prepare-editorial-evidence.mjs
 
       - name: Create draft PR instead of pushing directly to production
-        if: steps.candidate.outputs.generated == 'true'
+        id: proposal
+        if: steps.article_quality.outputs.ready == 'true'
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
@@ -77,6 +97,8 @@ jobs:
           # Avoid parallel draft PRs for the same canonical owner.
           OPEN_COUNT="$(gh pr list --state open --search "$SLUG in:title" --json number --jq 'length')"
           if [ "$OPEN_COUNT" != '0' ]; then
+            echo 'state=OPEN_REVIEW' >> "$GITHUB_OUTPUT"
+            gh pr list --state open --search "$SLUG in:title" --json url --jq '.[0].url' | while IFS= read -r url; do echo "url=$url" >> "$GITHUB_OUTPUT"; done
             echo "HOLD — an open editorial PR for $SLUG already exists" >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
@@ -88,7 +110,29 @@ jobs:
           git diff --cached --quiet && { echo 'NO_ELIGIBLE_TOPIC — nothing to propose' >> "$GITHUB_STEP_SUMMARY"; exit 0; }
           git commit -m "docs(seo): stage fact-verified editorial candidate $SLUG"
           git push origin "$BRANCH"
-          gh pr create --draft --base main --head "$BRANCH" \
+          PR_URL="$(gh pr create --draft --base main --head "$BRANCH" \
             --title "SEO candidate: $SLUG (REVIEW REQUIRED)" \
-            --body "Generated fact-backed draft; NOT published. Recheck primary source, originality and canonical owner; no automatic release. Run Article/K0/SEO Alpha gates; obtain required review and site-owner approval before merge. Update any thin/template-only text before release."
-          echo "STAGED — created review PR for $SLUG; NOT live published" >> "$GITHUB_STEP_SUMMARY"
+            --body "Generated fact-backed draft; NOT published. Recheck primary source, originality and canonical owner; no automatic release. Run Article/K0/SEO Alpha gates; obtain required review and site-owner approval before merge. Update any thin/template-only text before release.")"
+          echo 'state=NEW_PR' >> "$GITHUB_OUTPUT"
+          echo "url=$PR_URL" >> "$GITHUB_OUTPUT"
+          echo "STAGED — created review PR $PR_URL for $SLUG; NOT live published" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload daily editorial readiness evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-editorial-readiness
+          path: .website-os/out/daily-editorial-readiness.json
+          if-no-files-found: warn
+
+      - name: Notify honest daily editorial status
+        if: always()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          EDITORIAL_JOB_STATUS: ${{ job.status }}
+          EDITORIAL_CANDIDATE_GENERATED: ${{ steps.candidate.outputs.generated }}
+          EDITORIAL_QUALITY_READY: ${{ steps.article_quality.outputs.ready }}
+          EDITORIAL_PR_STATE: ${{ steps.proposal.outputs.state }}
+          EDITORIAL_PR_URL: ${{ steps.proposal.outputs.url }}
+        run: node scripts/daily-editorial-status.mjs notify
