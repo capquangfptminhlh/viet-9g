@@ -117,12 +117,18 @@ jobs:
           echo "url=$PR_URL" >> "$GITHUB_OUTPUT"
           echo "STAGED — created review PR $PR_URL for $SLUG; NOT live published" >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Check whether a same-day article is actually live on production
+        if: always()
+        run: node scripts/daily-editorial-status.mjs live
+
       - name: Upload daily editorial readiness evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: daily-editorial-readiness
-          path: .website-os/out/daily-editorial-readiness.json
+          path: |
+            .website-os/out/daily-editorial-readiness.json
+            .website-os/out/daily-live-publication.json
           if-no-files-found: warn
 
       - name: Notify honest daily editorial status
