@@ -3,13 +3,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import HomeApp from '../components/HomeApp';
 import { loadPackageCatalog } from '../data/package-catalog';
 import { getVerifiedPackages } from '../data/verified-package';
+import { getCollection } from 'astro:content';
+import { newestPostsFirst } from '../lib/editorial-order';
 
 const packages = getVerifiedPackages(loadPackageCatalog());
+const latestPosts = newestPostsFirst(await getCollection('posts')).slice(0, 3).map((entry) => ({
+  slug: entry.slug,
+  title: entry.data.title ?? entry.slug.replace(/-/g, ' '),
+  dateLabel: entry.data.date?.toISOString().slice(0, 10).split('-').reverse().join('/') ?? '',
+}));
 ---
 <BaseLayout
   title="Gói Cước Viettel 4G/5G: Tra Cứu Data, Giá & Đăng Ký"
   description="Tra cứu gói cước Viettel 4G/5G theo giá, dung lượng và nhu cầu sử dụng. Xem điều kiện áp dụng, nguồn tham khảo và đăng ký bằng cú pháp MÃ_GÓI GB gửi 290."
   canonical="/"
 >
-  <HomeApp packages={packages} client:load />
+  <HomeApp packages={packages} latestPosts={latestPosts} client:load />
 </BaseLayout>
