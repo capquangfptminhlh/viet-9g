@@ -66,6 +66,11 @@ try {
     { label: 'Xem tất cả hướng dẫn Viettel', pathname: '/tin-tuc' },
     { label: 'Gọi tổng đài Viettel', href: 'tel:18008098' },
   ], true);
+  await verify('/posts/iphone-viettel-khong-thay-cuoc-goi-wifi-calling', [
+    { label: 'Xem danh mục gói', pathname: '/goi-cuoc' },
+    { label: 'Xem tất cả hướng dẫn Viettel', pathname: '/tin-tuc' },
+    { label: 'Gọi tổng đài Viettel', href: 'tel:18008098' },
+  ], true);
   await verify('/tin-tuc', [
     { label: 'Đọc chi tiết', pathname: '/posts/5gip200-viettel-iphone' },
     { label: 'Về trang tra cứu gói cước', pathname: '/' },
