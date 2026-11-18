@@ -3,7 +3,7 @@ export function findFirstLocalIllustration(body: string): string | null {
   const imagePattern = /!\[[^\]]*\]\(\s*(?:<([^>]+)>|([^\s)]+))(?:\s+(?:"[^"]*"|'[^']*'))?\s*\)/g;
   for (const match of body.matchAll(imagePattern)) {
     const source = (match[1] ?? match[2] ?? '').trim();
-    if (source.startsWith('/images/') && !source.startsWith('//')) {
+    if (source.startsWith('/images/') && !source.split('/').includes('..')) {
       return source.split(/[?#]/, 1)[0];
     }
     try {
