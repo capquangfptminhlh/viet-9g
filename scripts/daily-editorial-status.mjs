@@ -1,5 +1,6 @@
 import { appendFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 
 const ROOT = process.cwd();
 const REPORT_PATH = '.website-os/out/daily-editorial-readiness.json';
@@ -192,7 +193,9 @@ async function main() {
   }
   throw new Error('Usage: daily-editorial-status.mjs audit | quality ARTICLE | notify');
 }
-main().catch(error => {
-  console.error('DAILY_EDITORIAL_STATUS_ERROR=' + error.message);
-  process.exitCode = 1;
-});
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch(error => {
+    console.error('DAILY_EDITORIAL_STATUS_ERROR=' + error.message);
+    process.exitCode = 1;
+  });
+}
