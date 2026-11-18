@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -38,6 +40,15 @@ jobs:
 
       - name: Verify built editorial HTML and image
         run: node scripts/verify-editorial-html.mjs
+
+      - name: Verify mobile CTA source contract
+        run: node scripts/verify-mobile-cta-source.mjs
+
+      - name: Gate any newly generated or modified article on editorial evidence
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: node scripts/verify-article-release.mjs
 
       - name: Prepare provenance from built editorial artifacts
         run: node scripts/prepare-editorial-evidence.mjs
