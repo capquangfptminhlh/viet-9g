@@ -10,9 +10,12 @@ source_commit_sha: 6d0b7c7c4d8458746f552704ce8d6fe517d9c847
 manifest_version: 1.4.0
 mandatory_read_complete: true
 project_rules_loaded: true
-bootstrap_decision: HOLD
+bootstrap_decision: PASS
+seo_alpha_read_attestation: .website-os/evidence/seo-alpha-bootstrap.yml
+website_os_engine_status: NOT_RUN
+editorial_publication_gate_status: HOLD
 enforcement_target: auto
 evidence_dir: .website-os/evidence
 local_seo: false
 workflow_mode: EDITORIAL_MAINTENANCE
-# Bootstrap source and SEO Alpha reads refreshed 2026-11-18. This HOLD is not a claim that the full Website OS engine, K0, editorial/mobile or release gates passed.
+# Read-only central document bootstrap PASS, verified against current central files. Website OS engine, editorial release and mobile evidence remain independent HOLD gates.
