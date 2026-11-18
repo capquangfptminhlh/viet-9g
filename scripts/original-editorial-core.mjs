@@ -69,7 +69,13 @@ export function validateOriginalDraft(draft, sourceText, sourceUrl, existingTitl
   if (/Bài viết tổng hợp thông tin theo nguồn công bố|Thông tin đã đối chiếu/iu.test(markdown)) {
     problems.push('UNEDITED_TEMPLATE');
   }
-  if (/<script|<iframe|javascript:/iu.test(markdown)) problems.push('UNSAFE_MARKDOWN');
+  if (/<\s*\/?[a-z][^>]*>/iu.test(markdown) || /javascript:/iu.test(markdown)) {
+    problems.push('UNSAFE_MARKDOWN_HTML');
+  }
+  const externalLinks = [...markdown.matchAll(/\]\((https?:\/\/[^\s)]+)\)/giu)]
+    .map(match => match[1]);
+  if (externalLinks.some(url => url !== sourceUrl)) problems.push('EXTERNAL_LINK_NOT_GROUNDED');
+
   if (/(?:\d[\d.,]*\s*(?:đ|vnd|đồng|gb\/ngày))/iu.test(markdown)) {
     problems.push('NUMERIC_OFFER_REQUIRES_SEPARATE_VERIFICATION');
   }
@@ -84,7 +90,7 @@ export function validateOriginalDraft(draft, sourceText, sourceUrl, existingTitl
     }
   }
   if (!Array.isArray(draft.visualSteps) || draft.visualSteps.length !== 3 ||
-      draft.visualSteps.some(step => typeof step !== 'string' || step.length < 6 || step.length > 40)) {
+      draft.visualSteps.some(step => typeof step !== 'string' || step.length < 6 || step.length > 24)) {
     problems.push('ILLUSTRATION_STEPS_INVALID');
   }
   return [...new Set(problems)];
