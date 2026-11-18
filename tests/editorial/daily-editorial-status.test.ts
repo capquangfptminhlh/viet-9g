@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { assessArticle, auditDailyReadiness } from '../../scripts/daily-editorial-status.mjs';
+import { assessArticle, auditDailyReadiness, sourcePostsForLocalDay } from '../../scripts/daily-editorial-status.mjs';
 
 describe('daily editorial release reliability (actual repository data)', () => {
   it('identifies an existing substantive article as ready for quality review', () => {
@@ -22,6 +22,16 @@ describe('daily editorial release reliability (actual repository data)', () => {
     const assessment = assessArticle('');
     expect(assessment.passed).toBe(false);
     expect(assessment.findings).toContain('ARTICLE_HEADINGS_MISSING');
+  });
+
+  it('derives same-day publication candidates from real article dates', () => {
+    const sources = sourcePostsForLocalDay(new Date('2026-11-18T16:38:00Z'));
+    expect(sources).toContain('iphone-viettel-khong-thay-cuoc-goi-wifi-calling');
+    expect(sources.every(slug => !slug.endsWith('.md'))).toBe(true);
+  });
+
+  it('does not invent article publication for a day with no source entry', () => {
+    expect(sourcePostsForLocalDay(new Date('2025-01-01T07:00:00Z'))).toEqual([]);
   });
 
   it('records real queued topics and source/ownership blockers, not fake production success', () => {
