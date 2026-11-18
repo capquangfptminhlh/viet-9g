@@ -95,7 +95,7 @@ const formattedPosts: FormattedPost[] = posts.map((post: { slug: string; body?: 
     }
   }
 
-  const declaredImage = (post.data as { image?: string }).image;
+  const declaredImage = (post as unknown as { data?: { image?: string } }).data?.image;
   const verifiedDeclared = declaredImage &&
     /^\/images\/editorial\/[a-z0-9-]+\.svg$/.test(declaredImage) &&
     existsSync(join(process.cwd(), 'public', declaredImage.slice(1)))
