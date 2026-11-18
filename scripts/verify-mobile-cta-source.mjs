@@ -19,6 +19,6 @@ const listing = 'src/pages/tin-tuc.astro';
 ensureTapTarget(listing, '/', 'listing footer back navigation');
 // The article cards have dynamic href values; inspect their CSS class directly.
 const source = readFileSync(listing, 'utf8');
-const detailLink = source.match(/<a[\s\S]*?href=\{`\/posts\/\$\{item\.slug\}`\}[\s\S]*?>/g)?.at(-1);
+const detailLink = source.match(/<a\b[^>]*href=\{`\/posts\/\$\{item\.slug\}`\}[^>]*>/g)?.at(-1);
 assert(detailLink?.includes('min-h-[48px]'), 'HOLD: article-card detail CTA smaller than 48px');
 console.log('PASS — template and listing CTA minimum-height source contracts (browser measurements still required)');
