@@ -89,7 +89,7 @@ describe('homepage verified package source', () => {
     const page = fs.readFileSync(path.join(root, 'src/pages/index.astro'), 'utf8');
 
     expect(page).toMatch(/const\s+packages\s*=\s*getVerifiedPackages\s*\(\s*loadPackageCatalog\s*\(\s*\)\s*\)/);
-    expect(page).toMatch(/<HomeApp\s+packages=\{packages\}\s+client:load\s*\/>/);
+    expect(page).toMatch(/<HomeApp\s+packages=\{packages\}\s+latestPosts=\{latestPosts\}\s+client:load\s*\/>/);
   });
 
   it('uses neutral independent-site defaults for BaseLayout metadata and Open Graph', () => {

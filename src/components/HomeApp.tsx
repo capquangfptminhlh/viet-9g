@@ -11,9 +11,10 @@ import PackageModal from './PackageModal';
 
 interface HomeAppProps {
   packages: VerifiedPackage[];
+  latestPosts: { slug: string; title: string; dateLabel: string }[];
 }
 
-export default function HomeApp({ packages }: HomeAppProps) {
+export default function HomeApp({ packages, latestPosts }: HomeAppProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedPkgId, setSelectedPkgId] = useState<string | null>(null);
@@ -61,6 +62,15 @@ export default function HomeApp({ packages }: HomeAppProps) {
               <a href="/goi-cuoc/mang-xa-hoi" className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-bold text-slate-800 transition hover:border-red-200 hover:text-red-700">Gói mạng xã hội</a>
               <a href="/goi-cuoc/combo" className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-bold text-slate-800 transition hover:border-red-200 hover:text-red-700">Gói combo</a>
             </nav>
+            {latestPosts[0] && (
+              <div className="mt-5 flex flex-wrap items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm" aria-label="Bài SEO mới nhất">
+                <span className="font-bold text-slate-700">Bài mới nhất{latestPosts[0].dateLabel ? ` · ${latestPosts[0].dateLabel}` : ''}:</span>
+                <a href={`/posts/${latestPosts[0].slug}`} className="font-semibold text-red-700 underline underline-offset-4 hover:text-red-800">
+                  {latestPosts[0].title}
+                </a>
+                <a href="/tin-tuc" className="ml-auto font-semibold text-slate-600 hover:text-red-700">Xem tin tức</a>
+              </div>
+            )}
           </div>
         </section>
         <HeroCarousel packages={packages} onSelectPackage={selectPackage} />

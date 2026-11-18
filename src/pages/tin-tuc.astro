@@ -3,8 +3,10 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { newestPostsFirst } from '../lib/editorial-order';
 
-const posts = await getCollection('posts');
+// Astro collections have no guaranteed chronological order; show recent posts first.
+const posts = newestPostsFirst(await getCollection('posts'));
 
 // Hàm chọn ảnh minh họa theo chủ đề bài viết khớp chính xác nội dung
 function getPostImage(slug: string, title: string) {
