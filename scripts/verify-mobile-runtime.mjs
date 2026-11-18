@@ -17,7 +17,7 @@ async function verify(path, ctas, imageRequired) {
     const observed = await page.evaluate(({ctaSpecs, requireImage}) => {
       const a = Array.from(document.querySelectorAll('a'));
       const actions = ctaSpecs.map(spec => {
-        const match = a.find(el => el.textContent?.includes(spec.label) && new URL(el.href).pathname === spec.pathname);
+        const match = a.find(el => el.textContent?.includes(spec.label) && (spec.href ? el.getAttribute('href') === spec.href : new URL(el.href).pathname === spec.pathname));
         if (!match) return { label: spec.label, found: false };
         match.scrollIntoView({ block: 'center' });
         const box = match.getBoundingClientRect();
@@ -60,7 +60,7 @@ try {
   await verify('/posts/5gip200-viettel-iphone', [
     { label: 'Xem danh mục gói', pathname: '/goi-cuoc' },
     { label: 'Xem tất cả hướng dẫn Viettel', pathname: '/tin-tuc' },
-    { label: 'Gọi tổng đài Viettel', pathname: '/posts/5gip200-viettel-iphone' },
+    { label: 'Gọi tổng đài Viettel', href: 'tel:18008098' },
   ], true);
   await verify('/tin-tuc', [
     { label: 'Đọc chi tiết', pathname: '/posts/5gip200-viettel-iphone' },
