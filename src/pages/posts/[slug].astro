@@ -35,6 +35,9 @@ const publishedTime = entry.data?.date instanceof Date ? entry.data.date.toISOSt
 // Hàm chọn ảnh minh họa cao cấp khớp chính xác với từng nội dung bài viết
 function getPostImage(slug: string, title: string) {
   const s = (slug + ' ' + title).toLowerCase();
+  if (slug === 'iphone-viettel-khong-thay-cuoc-goi-wifi-calling') {
+    return '/images/iphone-viettel-wifi-calling-check.svg';
+  }
   if (slug === '5gip200-viettel-iphone') {
     return '/images/5gip200-info-2026.svg';
   }
