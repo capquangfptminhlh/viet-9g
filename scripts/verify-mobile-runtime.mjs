@@ -2,7 +2,11 @@
 // Browser-measured mobile release regression. Uses the exact built Astro preview.
 import assert from 'node:assert/strict';
 import { mkdirSync, writeFileSync } from 'node:fs';
-import { chromium } from 'playwright';
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+const playwrightLocation = process.env.PLAYWRIGHT_MODULE_PATH;
+assert(playwrightLocation, 'HOLD: global browser test module path not set');
+const { chromium } = require(playwrightLocation);
 
 const origin = process.env.SITE_PREVIEW_ORIGIN || 'http://127.0.0.1:4321';
 const browser = await chromium.launch({ headless: true });
