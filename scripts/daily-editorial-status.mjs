@@ -232,6 +232,8 @@ async function main() {
   }
   if (mode === 'notify') {
     const data = existsSync(REPORT_PATH) ? readJson(REPORT_PATH) : null;
+    const aiCreation = existsSync('.website-os/out/ai-editorial-creation.json')
+      ? readJson('.website-os/out/ai-editorial-creation.json') : null;
     const live = existsSync('.website-os/out/daily-live-publication.json')
       ? readJson('.website-os/out/daily-live-publication.json') : null;
     const status = live?.publishedTodayVerified ? 'PUBLISHED_TODAY_VERIFIED'
@@ -253,6 +255,10 @@ async function main() {
         '; blocked: ' + (data?.blockedTopics ?? 'UNKNOWN') +
         '; nghiên cứu tiếp: ' + (data?.provisionalTopics ?? 'UNKNOWN'),
       'Nguyên nhân: ' + JSON.stringify(data?.blockedReasons ?? {}),
+      'Tự tìm nguồn/viết bài/vẽ ảnh: ' + (aiCreation?.status || 'CHƯA CHẠY') +
+        (aiCreation?.reason ? ' (' + aiCreation.reason.slice(0, 180) + ')' : ''),
+      'Nguồn Viettel: ' + (aiCreation?.sourceUrl || 'CHƯA CÓ'),
+      'Ảnh minh họa: ' + (aiCreation?.image || 'CHƯA CÓ'),
       'PR: ' + (process.env.EDITORIAL_PR_URL || 'Không có PR mới'),
       'Lượt chạy: ' + runUrl,
       'Bài mới chỉ được đăng sau khi PASS các gate, 2 human reviews, owner approval và xác minh URL live.',
@@ -261,6 +267,7 @@ async function main() {
     const chat = process.env.TELEGRAM_CHAT_ID;
     writeSummary('### Daily publishing decision: ' + status + '\n' +
       '- Production publication: ' + (live?.publishedTodayVerified ? 'VERIFIED_LIVE' : 'NOT_VERIFIED') + '\n' +
+      '- AI original content: ' + (aiCreation?.status ?? 'NOT_RUN') + '\n' +
       '- Run: ' + runUrl + '\n' +
       '- PR: ' + (process.env.EDITORIAL_PR_URL || 'none'));
     if (!token || !chat) throw new Error('TELEGRAM_STATUS_NOT_SENT: credentials unavailable');
