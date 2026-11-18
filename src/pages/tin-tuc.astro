@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { newestPostsFirst } from '../lib/editorial-order';
+import { findFirstLocalIllustration } from '../lib/editorial-thumbnail';
 
 // Astro collections have no guaranteed chronological order; show recent posts first.
 const posts = newestPostsFirst(await getCollection('posts'));
@@ -92,7 +93,7 @@ const formattedPosts: FormattedPost[] = posts.map((post: { slug: string; body?: 
     }
   }
 
-  const image = getPostImage(post.slug, title);
+  const image = findFirstLocalIllustration(content) ?? getPostImage(post.slug, title);
 
   return {
     slug: post.slug,
@@ -131,7 +132,7 @@ const formattedPosts: FormattedPost[] = posts.map((post: { slug: string; body?: 
               <img 
                 src={item.image} 
                 alt={item.title}
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                class="w-full h-full object-contain bg-gray-50" 
                 loading="lazy"
               />
               <span class="absolute top-3 left-3 bg-red-600/90 text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider shadow-sm">
