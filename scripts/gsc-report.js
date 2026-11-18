@@ -1,138 +1,118 @@
 import { google } from 'googleapis';
-import fs from 'fs';
-import path from 'path';
+import { appendFileSync, existsSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { deltaPercent, normalizeTotals, reportWindows } from './gsc-report-window.js';
 
-// Define the site URL as registered in Google Search Console
 const SITE_URL = 'sc-domain:tracuugoicuoc.com';
 
-async function getGscReport() {
-  try {
-    const keyPath = path.resolve('gsc-service-account.json');
-    if (!fs.existsSync(keyPath)) {
-      console.error('❌ Error: gsc-service-account.json not found in project root!');
-      process.exit(1);
+function getCredentials() {
+  const secret = process.env.GSC_SERVICE_ACCOUNT_JSON?.trim();
+  if (secret) {
+    try {
+      return { credentials: JSON.parse(secret) };
+    } catch {
+      throw new Error('GSC_SERVICE_ACCOUNT_JSON is not valid JSON');
     }
+  }
+  const keyPath = resolve('gsc-service-account.json');
+  if (existsSync(keyPath)) return { keyFile: keyPath };
+  throw new Error('GSC credentials missing; GSC KPIs are UNKNOWN (no fallback traffic=0)');
+}
 
-    const auth = new google.auth.GoogleAuth({
-      keyFile: keyPath,
-      scopes: ['https://www.googleapis.com/auth/webmasters.readonly'],
-    });
+function printable(value, suffix = '') {
+  return value === null || value === undefined ? 'UNKNOWN' : String(value) + suffix;
+}
 
-    const searchconsole = google.searchconsole({ version: 'v1', auth });
+function diffLine(name, recent, prior, field, suffix = '') {
+  if (!recent || !prior) return name + ': UNKNOWN (missing verified GSC totals)';
+  const absolute = +(recent[field] - prior[field]).toFixed(2);
+  const change = deltaPercent(recent[field], prior[field]);
+  return name + ': ' + printable(recent[field], suffix) +
+    ' | trước ' + printable(prior[field], suffix) +
+    ' | Δ ' + printable(absolute, suffix) +
+    ' | Δ% ' + printable(change, '%');
+}
 
-    // Calculate date range: last 7 days
-    const endDate = new Date();
-    endDate.setDate(endDate.getDate() - 2); // GSC data is usually 2 days delayed
-    const startDate = new Date();
-    startDate.setDate(endDate.getDate() - 90);
-
-    const formatDate = (d) => d.toISOString().split('T')[0];
-
-    console.log(`📊 Đang lấy báo cáo từ khóa GSC cho ${SITE_URL}`);
-    console.log(`📅 Thời gian: ${formatDate(startDate)} đến ${formatDate(endDate)}`);
-    console.log('--------------------------------------------------');
-
-    const res = await searchconsole.searchanalytics.query({
+async function main() {
+  const auth = new google.auth.GoogleAuth({
+    ...getCredentials(),
+    scopes: ['https://www.googleapis.com/auth/webmasters.readonly'],
+  });
+  const api = google.searchconsole({ version: 'v1', auth });
+  const windows = reportWindows();
+  const query = async (period, dimensions = []) => {
+    const response = await api.searchanalytics.query({
       siteUrl: SITE_URL,
       requestBody: {
-        startDate: formatDate(startDate),
-        endDate: formatDate(endDate),
-        dimensions: ['query'],
-        rowLimit: 15, // Top 15 keywords
+        ...period,
+        type: 'web',
+        dimensions,
+        rowLimit: dimensions.length ? 10 : 1,
       },
     });
+    return response.data.rows ?? [];
+  };
+  const currentRows = await query(windows.current);
+  const previousRows = await query(windows.previous);
+  const current = normalizeTotals(currentRows[0]);
+  const previous = normalizeTotals(previousRows[0]);
+  const status = current && previous ? 'VERIFIED' : 'UNKNOWN';
+  const topQueries = await query(windows.current, ['query']);
+  const topPages = await query(windows.current, ['page']);
 
-    if (!res.data.rows || res.data.rows.length === 0) {
-      console.log('⚠️ Không có dữ liệu từ khóa nào trong khoảng thời gian này.');
-      
-      const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-      const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
-      if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
-        console.log('Sending fallback telegram message...');
-        const tgUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
-        const resp = await fetch(tgUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            chat_id: TELEGRAM_CHAT_ID,
-            text: `📊 *Báo Cáo Thực Hạng GSC*\n\n⚠️ Hiện tại website chưa có dữ liệu từ khóa (Traffic = 0) trên Google Search Console trong 90 ngày qua.\n_Có thể do website còn mới hoặc chưa được index đủ sâu._`,
-            parse_mode: 'Markdown'
-          })
-        });
-        const resText = await resp.text();
-        console.log('Telegram response:', resText);
-      } else {
-        console.log('Missing TELEGRAM config in env!');
-      }
-      return;
-    }
+  console.log('GSC_28D_REPORT_STATUS=' + status);
+  console.log('GSC_28D_CURRENT=' + windows.current.startDate + '..' + windows.current.endDate);
+  console.log('GSC_28D_PREVIOUS=' + windows.previous.startDate + '..' + windows.previous.endDate);
+  console.log('INDEXING_STATUS=UNKNOWN (Search Analytics is not the index coverage API)');
 
-    let reportMessage = `📊 *Báo Cáo Thứ Hạng GSC (${SITE_URL})*\n`;
-    reportMessage += `📅 Từ: ${formatDate(startDate)} đến ${formatDate(endDate)}\n\n`;
-    
-    console.log(
-      'Hạng | Từ khóa'.padEnd(45) + ' | Clicks | Hiển thị | CTR    | Vị trí TB'
-    );
-    console.log('-'.repeat(80));
-
-    res.data.rows.forEach((row, index) => {
-      const keyword = row.keys[0];
-      const clicks = row.clicks.toString();
-      const impressions = row.impressions.toString();
-      const ctr = (row.ctr * 100).toFixed(2) + '%';
-      const position = row.position.toFixed(1);
-
-      console.log(
-        `${(index + 1).toString().padEnd(4)} | ${keyword.padEnd(38)} | ${clicks.padEnd(6)} | ${impressions.padEnd(8)} | ${ctr.padEnd(6)} | ${position}`
-      );
-      
-      reportMessage += `*${index + 1}.* \`${keyword}\`\n`;
-      reportMessage += `👉 Vị trí: *${position}* | Click: ${clicks} | Hiển thị: ${impressions}\n`;
-    });
-    
-    console.log('-'.repeat(80));
-    console.log('✅ Báo cáo hoàn tất ra Console.');
-
-    // Gửi qua Telegram nếu có cấu hình
-    const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-    const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
-    
-    if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
-      console.log('🚀 Đang gửi báo cáo qua Telegram...');
-      const tgUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
-      const tgResponse = await fetch(tgUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id: TELEGRAM_CHAT_ID,
-          text: reportMessage,
-          parse_mode: 'Markdown'
-        })
-      });
-      if (tgResponse.ok) {
-        console.log('✅ Đã gửi báo cáo Telegram thành công!');
-      } else {
-        console.error('❌ Lỗi khi gửi Telegram:', await tgResponse.text());
-      }
-    } else {
-      console.log('⚠️ Không tìm thấy TELEGRAM_BOT_TOKEN hoặc TELEGRAM_CHAT_ID trong .env. Bỏ qua gửi báo cáo.');
-    }
-  } catch (error) {
-    console.error('❌ Lỗi khi lấy dữ liệu GSC:', error.message);
+  if (process.env.GITHUB_STEP_SUMMARY) {
+    appendFileSync(process.env.GITHUB_STEP_SUMMARY,
+      '### GSC first-party reporting\n' +
+      '- Source: Google Search Console Search Analytics (service account)\n' +
+      '- 28-day comparison status: **' + status + '**\n' +
+      '- Current: ' + windows.current.startDate + '–' + windows.current.endDate + '\n' +
+      '- Previous: ' + windows.previous.startDate + '–' + windows.previous.endDate + '\n' +
+      '- Detailed private KPI report: Telegram notification; not printed to public CI logs\n' +
+      '- Indexed URL count: UNKNOWN (requires separate index-coverage evidence)\n');
   }
-}
 
-// Load env before running
-const envPath = path.join(path.resolve(), '.env');
-if (fs.existsSync(envPath)) {
-  const envContent = fs.readFileSync(envPath, 'utf-8');
-  envContent.split('\n').forEach(line => {
-    const trimmed = line.trim();
-    if (!trimmed || trimmed.startsWith('#')) return;
-    const parts = trimmed.split('=');
-    const key = parts[0].trim();
-    if (key) process.env[key] = parts.slice(1).join('=').trim();
+  const lines = [
+    '📊 GSC VIETTEL — nguồn Google Search Console thật',
+    'Trạng thái: ' + status,
+    '28 ngày mới: ' + windows.current.startDate + ' đến ' + windows.current.endDate,
+    '28 ngày trước: ' + windows.previous.startDate + ' đến ' + windows.previous.endDate,
+    '',
+    diffLine('Clicks', current, previous, 'clicks'),
+    diffLine('Impressions', current, previous, 'impressions'),
+    diffLine('CTR', current, previous, 'ctrPercent', '%'),
+    diffLine('Vị trí trung bình', current, previous, 'averagePosition'),
+    '',
+    'Indexing: UNKNOWN (cần kiểm tra báo cáo Page indexing riêng).',
+    '',
+    'Top queries (28 ngày mới):',
+    ...topQueries.slice(0, 5).map((row, i) => (i + 1) + '. ' +
+      String(row.keys?.[0] ?? '').slice(0, 90) + ' | ' +
+      printable(row.clicks) + ' click | ' + printable(row.impressions) + ' impressions'),
+    '',
+    'Top pages (28 ngày mới):',
+    ...topPages.slice(0, 5).map((row, i) => (i + 1) + '. ' +
+      String(row.keys?.[0] ?? '').slice(0, 110) + ' | ' +
+      printable(row.clicks) + ' click'),
+  ];
+
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+  if (!token || !chatId) throw new Error('Telegram delivery is not configured; GSC report cannot be delivered');
+  const response = await fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ chat_id: chatId, text: lines.join('\n').slice(0, 3900) }),
   });
+  if (!response.ok) throw new Error('Telegram delivery HTTP ' + response.status);
+  console.log('GSC_28D_TELEGRAM_DELIVERED=true');
 }
 
-getGscReport();
+main().catch((error) => {
+  console.error('GSC_REPORT_FAILED: ' + error.message);
+  process.exitCode = 1;
+});
