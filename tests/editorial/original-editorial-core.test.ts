@@ -8,13 +8,14 @@ import {
 } from '../../scripts/original-editorial-core.mjs';
 
 const officialUrl = 'https://098.viettel.vn/tin-tuc/chi-tiet/huong-dan-moi-nhat-cach-bat-mang-5g-viettel-cho-dien-thoai-smartphone/16290128';
-const quoteA = 'Trên giao diện di động click vào sim Viettel rồi chọn Thoại và dữ liệu';
-const quoteB = 'Đối với các dòng máy khác, Quý khách vui lòng bật chế độ 5G trên máy';
+const quoteA = 'Trên giao diện di động click vào sim “Viettel” →Chọn “Thoại & dữ liệu” → Chọn “5G tự động”.';
+const quoteB = 'Đối với các dòng máy khác, Quý khách vui lòng bật chế độ 5G trên máy, thao tác trong mục “Cài đặt thiết bị”';
 
 function substantiveDraft() {
   const markdown = readFileSync(
     'src/content/posts/iphone-viettel-khong-thay-cuoc-goi-wifi-calling.md', 'utf8',
-  ) + '\n\n[Nguồn chính thức](' + officialUrl + ')';
+  ).replace(/\[([^\]]+)\]\(https?:\/\/[^)]+\)/gu, '$1') +
+    '\n\n[Nguồn chính thức](' + officialUrl + ')';
   return {
     title: 'Hướng dẫn xác định tùy chọn mạng trong điện thoại khi sử dụng Viettel',
     slug: 'huong-dan-xac-dinh-tuy-chon-mang-viettel',
@@ -56,6 +57,15 @@ describe('AI editorial original-content and owned-image policy', () => {
     expect(issues).toContain('THIN_ORIGINAL_ARTICLE');
     expect(issues).toContain('NUMERIC_OFFER_REQUIRES_SEPARATE_VERIFICATION');
     expect(issues).toContain('EVIDENCE_NOT_FOUND_VERBATIM');
+  });
+
+  it('blocks ungrounded external links and raw HTML in an AI draft', () => {
+    const draft = substantiveDraft();
+    draft.markdown += '\n[Website lạ](https://untrusted.example/guide)';
+    draft.markdown += '\n<img src=x onerror=alert(1)>';
+    const issues = validateOriginalDraft(draft, sourceText, officialUrl);
+    expect(issues).toContain('EXTERNAL_LINK_NOT_GROUNDED');
+    expect(issues).toContain('UNSAFE_MARKDOWN_HTML');
   });
 
   it('rejects near-duplicate titles rather than fabricating new intent', () => {
