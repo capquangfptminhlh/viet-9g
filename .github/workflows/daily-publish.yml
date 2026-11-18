@@ -16,7 +16,9 @@ concurrency:
 
 jobs:
   propose:
-    if: github.ref == 'refs/heads/main'
+    # Manual dispatch on a PR branch is a read/write-to-runner integration test only.
+    # The candidate PR push step remains disabled unless running on reviewed main.
+    if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -97,7 +99,7 @@ jobs:
 
       - name: Create draft PR instead of pushing directly to production
         id: proposal
-        if: steps.article_quality.outputs.ready == 'true'
+        if: steps.article_quality.outputs.ready == 'true' && github.ref == 'refs/heads/main'
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
