@@ -16,6 +16,7 @@ for (const card of cards) {
 for (const { slug, expectedImage } of [
   { slug: 'b4-review-15-a', expectedImage: '/images/blogger/b4-review-15-a-62687e31c087.svg' },
   { slug: 'b4-review-15-b', expectedImage: '/images/blogger/b4-review-15-b-7af4073ef629.svg' },
+  { slug: 'bat-5g-viettel-xiaomi-oppo-huawei', expectedImage: '/images/editorial/bat-5g-viettel-xiaomi-oppo-huawei.svg' },
 ]) {
   const card = cards.find(item => item.includes('href="/posts/' + slug + '"'));
   assert(card, 'Missing indexed news card for ' + slug);
