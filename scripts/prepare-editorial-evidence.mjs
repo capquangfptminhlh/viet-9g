@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
 
 const root = process.cwd();
 function selectEvidencePath() {
@@ -56,6 +56,7 @@ const sources = [
 ];
 const sha256 = (file) => createHash('sha256').update(readFileSync(file)).digest('hex');
 const provenance = sources.map(([source, target]) => {
+  mkdirSync(dirname(target), { recursive: true });
   copyFileSync(source, target);
   assert.equal(sha256(source), sha256(target), 'Evidence copy differs from actual build');
   return { source: source.slice(root.length + 1), target: target.slice(root.length + 1), sha256: sha256(source) };
