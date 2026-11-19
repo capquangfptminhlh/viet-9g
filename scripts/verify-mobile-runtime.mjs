@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Browser-measured mobile release regression. Uses the exact built Astro preview.
 import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
@@ -12,7 +13,7 @@ const origin = process.env.SITE_PREVIEW_ORIGIN || 'http://127.0.0.1:4321';
 const browser = await chromium.launch({ headless: true });
 const records = [];
 
-async function verify(path, ctas, imageRequired) {
+async function verify(path, ctas, imageRequired, expectedImage = null) {
   const page = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1 });
   try {
     const response = await page.goto(origin + path, { waitUntil: 'domcontentloaded', timeout: 60000 });
@@ -34,7 +35,7 @@ async function verify(path, ctas, imageRequired) {
         viewportWidth: innerWidth, viewportHeight: innerHeight,
         documentWidth: document.documentElement.scrollWidth,
         h1: document.querySelector('h1')?.textContent?.trim(),
-        hero: requireImage ? { found: Boolean(hero), complete: Boolean(hero?.complete), naturalWidth: hero?.naturalWidth || 0 } : null,
+        hero: requireImage ? { found: Boolean(hero), complete: Boolean(hero?.complete), naturalWidth: hero?.naturalWidth || 0, src: hero?.getAttribute('src'), objectFit: hero ? getComputedStyle(hero).objectFit : null } : null,
         ctas: actions,
       };
     }, { ctaSpecs: ctas, requireImage: imageRequired });
@@ -49,6 +50,10 @@ async function verify(path, ctas, imageRequired) {
     if (imageRequired) {
       assert(observed.hero?.found && observed.hero?.complete && observed.hero?.naturalWidth > 0,
         'HOLD: editorial hero image did not actually render');
+    }
+    if (expectedImage) {
+      assert.equal(observed.hero?.src, expectedImage, 'HOLD: wrong original illustration in article hero');
+      assert.equal(observed.hero?.objectFit, 'contain', 'HOLD: original article image is being cropped');
     }
     records.push({ path, status: 'PASS', ...observed });
     return page;
@@ -75,6 +80,21 @@ try {
     { label: 'Đọc chi tiết', pathname: '/posts/5gip200-viettel-iphone' },
     { label: 'Về trang tra cứu gói cước', pathname: '/' },
   ], false);
+  const base = process.env.PR_BASE_SHA;
+  const head = process.env.PR_HEAD_SHA;
+  if (base && head) {
+    const changed = execFileSync('git', [
+      'diff', '--name-only', '--diff-filter=AM', base, head, '--', 'src/content/posts',
+    ], { encoding: 'utf8' }).split(/\r?\n/u).filter(file => file.endsWith('.md'));
+    assert(changed.length <= 1, 'HOLD: only one editorial article per PR');
+    if (changed.length === 1) {
+      const slug = changed[0].split('/').at(-1).replace(/\.md$/u, '');
+      await verify('/posts/' + slug, [
+        { label: 'Xem danh mục gói', pathname: '/goi-cuoc' },
+        { label: 'Xem tất cả hướng dẫn Viettel', pathname: '/tin-tuc' },
+      ], true, '/images/editorial/' + slug + '.svg');
+    }
+  }
 } finally {
   await browser.close();
   mkdirSync('.website-os/out', { recursive: true });
