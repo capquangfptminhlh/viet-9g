@@ -1,10 +1,25 @@
 import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const root = process.cwd();
-const evidence = readFileSync(join(root, '.website-os/evidence/editorial-decision-record.yml'), 'utf8');
+function selectEvidencePath() {
+  const base = process.env.PR_BASE_SHA;
+  const head = process.env.PR_HEAD_SHA;
+  if (!base || !head) return '.website-os/evidence/editorial-decision-record.yml';
+  const candidates = execFileSync('git', [
+    'diff', '--name-only', '--diff-filter=AM', base, head, '--', 'src/content/posts',
+  ], { encoding: 'utf8' }).split(/\r?\n/u).filter(file => file.endsWith('.md'));
+  if (candidates.length === 0) return '.website-os/evidence/editorial-decision-record.yml';
+  assert.equal(candidates.length, 1, 'HOLD: exactly one article review at a time');
+  const slug = candidates[0].split('/').at(-1).replace(/\.md$/u, '');
+  return '.website-os/evidence/editorial-decisions/' + slug + '.yml';
+}
+const selectedEvidence = selectEvidencePath();
+assert(existsSync(join(root, selectedEvidence)), 'HOLD: missing current article-specific evidence: ' + selectedEvidence);
+const evidence = readFileSync(join(root, selectedEvidence), 'utf8');
 function field(name) {
   const line = evidence.split(/\r?\n/).find((entry) => entry.startsWith(name + ':'));
   assert(line, 'Missing editorial evidence field: ' + name);
