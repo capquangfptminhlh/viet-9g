@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import os from 'node:os';
 import { execSync } from 'node:child_process';
 import { describe, expect, it } from 'vitest';
 import catalogJson from '../../data/package-catalog.v1.json';
@@ -82,13 +83,23 @@ describe('package catalog migration', () => {
   });
 
   it('does not report catalog drift when a Windows checkout uses CRLF line endings', () => {
+    // A shared production JSON file must never be overwritten by a Vitest worker:
+    // another test may parse it while the CRLF fixture is being written.
     const before = fs.readFileSync(catalogPath, 'utf8');
+    const fixtureDir = fs.mkdtempSync(path.join(os.tmpdir(), 'viettel-catalog-crlf-'));
+    const fixturePath = path.join(fixtureDir, 'package-catalog.v1.json');
     try {
-      fs.writeFileSync(catalogPath, before.replace(/\n/g, '\r\n'), 'utf8');
-      const output = execSync('npx tsx scripts/migrate-package-catalog.ts --check', { cwd: root, encoding: 'utf8' });
+      const crlf = before.replace(/\n/g, '\r\n');
+      fs.writeFileSync(fixturePath, crlf, 'utf8');
+      const output = execSync('npx tsx scripts/migrate-package-catalog.ts --check', {
+        cwd: root, encoding: 'utf8',
+        env: { ...process.env, CATALOG_CHECK_FIXTURE_PATH: fixturePath },
+      });
       expect(output).toMatch(/OK|unchanged|stable/i);
+      expect(fs.readFileSync(fixturePath, 'utf8')).toBe(crlf);
+      expect(fs.readFileSync(catalogPath, 'utf8')).toBe(before);
     } finally {
-      fs.writeFileSync(catalogPath, before, 'utf8');
+      fs.rmSync(fixtureDir, { recursive: true, force: true });
     }
   });
 
