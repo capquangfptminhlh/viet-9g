@@ -19,8 +19,11 @@ if (changed.length === 0) {
   process.exit(0);
 }
 
-const evidencePath = '.website-os/evidence/editorial-decision-record.yml';
-assert(existsSync(evidencePath), 'HOLD: editorial decision record missing');
+const articles = changed.filter(path => existsSync(path));
+assert(articles.length === 1, 'HOLD: only one reviewed article change per release');
+const reviewSlug = articles[0].split('/').at(-1).replace(/\\.md$/, '');
+const evidencePath = '.website-os/evidence/editorial-decisions/' + reviewSlug + '.yml';
+assert(existsSync(evidencePath), 'HOLD: per-article editorial review decision missing: ' + evidencePath);
 const evidence = readFileSync(evidencePath, 'utf8');
 const field = name => evidence.match(new RegExp('^' + name + ':\\s*(.+)$', 'm'))?.[1]?.trim().replace(/^["']|["']$/g, '');
 assert.equal(field('decision'), 'PASS', 'HOLD: article-specific editorial gate is not PASS');
@@ -28,8 +31,6 @@ assert.equal(field('scope'), 'ARTICLE_MAINTENANCE', 'HOLD: editorial record scop
 assert.equal(field('existing_template_mobile_verified'), 'true', 'HOLD: mobile template needs exact-head verification');
 assert.match(evidence, /source_references:\s*\n\s*- https:\/\//, 'HOLD: a verifiable primary source is required');
 
-const articles = changed.filter(path => existsSync(path));
-assert(articles.length === 1, 'HOLD: only one reviewed article change per release');
 const path = articles[0];
 const slug = path.split('/').at(-1).replace(/\.md$/, '');
 const canonical = new URL(field('canonical_url'));
@@ -50,6 +51,12 @@ assert.match(html, /<h1\b/i, 'HOLD: H1 missing');
 assert.match(html, /<meta[^>]+name=["']description["']/i, 'HOLD: meta description missing');
 assert.match(html, /<link[^>]+rel=["']canonical["']/i, 'HOLD: canonical missing');
 assert(html.includes('/posts/' + slug), 'HOLD: target URL not rendered');
+const image = markdown.match(/^image:\\s*["']?(\\/images\\/editorial\\/[a-z0-9-]+\\.svg)["']?\\s*$/mu)?.[1];
+assert(image === '/images/editorial/' + slug + '.svg',
+  'HOLD: missing or incorrect per-article original image frontmatter');
+assert(existsSync('dist' + image), 'HOLD: original image was not included in dist');
+assert(html.includes(image), 'HOLD: original image missing from rendered article');
+
 const listing = [ 'dist/tin-tuc.html', 'dist/tin-tuc/index.html' ].find(existsSync);
 assert(listing && readFileSync(listing, 'utf8').includes('/posts/' + slug), 'HOLD: article not listed');
 const { readdirSync } = await import('node:fs');
