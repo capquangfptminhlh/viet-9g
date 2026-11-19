@@ -21,7 +21,7 @@ if (changed.length === 0) {
 
 const articles = changed.filter(path => existsSync(path));
 assert(articles.length === 1, 'HOLD: only one reviewed article change per release');
-const reviewSlug = articles[0].split('/').at(-1).replace(/\\.md$/, '');
+const reviewSlug = articles[0].split('/').at(-1).replace(/\.md$/, '');
 const evidencePath = '.website-os/evidence/editorial-decisions/' + reviewSlug + '.yml';
 assert(existsSync(evidencePath), 'HOLD: per-article editorial review decision missing: ' + evidencePath);
 const evidence = readFileSync(evidencePath, 'utf8');
@@ -51,7 +51,7 @@ assert.match(html, /<h1\b/i, 'HOLD: H1 missing');
 assert.match(html, /<meta[^>]+name=["']description["']/i, 'HOLD: meta description missing');
 assert.match(html, /<link[^>]+rel=["']canonical["']/i, 'HOLD: canonical missing');
 assert(html.includes('/posts/' + slug), 'HOLD: target URL not rendered');
-const image = markdown.match(/^image:\\s*["']?(\\/images\\/editorial\\/[a-z0-9-]+\\.svg)["']?\\s*$/mu)?.[1];
+const image = markdown.match(/^image:\s*["']?(\/images\/editorial\/[a-z0-9-]+\.svg)["']?\s*$/mu)?.[1];
 assert(image === '/images/editorial/' + slug + '.svg',
   'HOLD: missing or incorrect per-article original image frontmatter');
 assert(existsSync('dist' + image), 'HOLD: original image was not included in dist');
