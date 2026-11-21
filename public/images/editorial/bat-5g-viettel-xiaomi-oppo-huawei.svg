@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">Minh họa tự thiết kế: bật 5G Viettel trên Xiaomi, OPPO và Huawei</title>
+  <desc id="description">Ba thẻ hướng dẫn các đường dẫn cài đặt 5G trên Android, phân biệt chế độ SIM và SIM dữ liệu mặc định. Không phải ảnh chụp màn hình thực tế.</desc>
+  <defs>
+    <linearGradient id="canvas" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07182D"/>
+      <stop offset="0.56" stop-color="#122E4F"/>
+      <stop offset="1" stop-color="#172F50"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="0.85" y2="1">
+      <stop offset="0" stop-color="#D9F7FF"/>
+      <stop offset="1" stop-color="#8CC9F7"/>
+    </linearGradient>
+    <filter id="shadow" x="-15%" y="-20%" width="130%" height="160%">
+      <feDropShadow dx="0" dy="13" stdDeviation="12" flood-color="#020A16" flood-opacity=".28"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#canvas)"/>
+  <circle cx="1160" cy="-36" r="260" fill="#3A82D4" opacity=".11"/>
+  <circle cx="-40" cy="630" r="230" fill="#0DAFA3" opacity=".08"/>
+  <g font-family="Arial, 'DejaVu Sans', sans-serif">
+    <rect x="50" y="38" width="183" height="37" rx="18.5" fill="#0DAB9A"/>
+    <text x="141.5" y="63" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">CẨM NANG 5G</text>
+    <text x="50" y="121" fill="#F5FAFF" font-size="47" font-weight="800">BẬT 5G VIETTEL TRÊN ANDROID</text>
+    <text x="51" y="157" fill="#A8C8E9" font-size="21">3 hãng điện thoại, 3 đường dẫn cài đặt khác nhau</text>
+
+    <g filter="url(#shadow)">
+      <rect x="50" y="185" width="344" height="359" rx="27" fill="#F7FAFF"/>
+      <rect x="427" y="185" width="344" height="359" rx="27" fill="#F7FAFF"/>
+      <rect x="804" y="185" width="344" height="359" rx="27" fill="#F7FAFF"/>
+    </g>
+    <rect x="50" y="185" width="344" height="9" rx="4.5" fill="#15A78B"/>
+    <rect x="427" y="185" width="344" height="9" rx="4.5" fill="#E46A32"/>
+    <rect x="804" y="185" width="344" height="9" rx="4.5" fill="#316FD6"/>
+
+    <g>
+      <text x="77" y="231" fill="#0F243C" font-size="29" font-weight="800">Xiaomi</text>
+      <text x="454" y="231" fill="#0F243C" font-size="29" font-weight="800">OPPO</text>
+      <text x="831" y="231" fill="#0F243C" font-size="29" font-weight="800">Huawei</text>
+    </g>
+
+    <g transform="translate(293 215)">
+      <rect x="0" y="0" width="76" height="125" rx="15" fill="#192A43"/>
+      <rect x="5" y="6" width="66" height="112" rx="10" fill="url(#screen)"/>
+      <circle cx="38" cy="112" r="3.5" fill="#527CA7"/>
+      <text x="38" y="61" font-size="25" font-weight="800" text-anchor="middle" fill="#0E4A79">5G</text>
+      <path d="M23 82 l10 -9 8 5 11 -13" fill="none" stroke="#0D8F85" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g transform="translate(670 215)">
+      <rect x="0" y="0" width="76" height="125" rx="15" fill="#192A43"/>
+      <rect x="5" y="6" width="66" height="112" rx="10" fill="url(#screen)"/>
+      <circle cx="38" cy="112" r="3.5" fill="#527CA7"/>
+      <text x="38" y="61" font-size="25" font-weight="800" text-anchor="middle" fill="#0E4A79">5G</text>
+      <path d="M23 82 l10 -9 8 5 11 -13" fill="none" stroke="#E46A32" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g transform="translate(1047 215)">
+      <rect x="0" y="0" width="76" height="125" rx="15" fill="#192A43"/>
+      <rect x="5" y="6" width="66" height="112" rx="10" fill="url(#screen)"/>
+      <circle cx="38" cy="112" r="3.5" fill="#527CA7"/>
+      <text x="38" y="61" font-size="25" font-weight="800" text-anchor="middle" fill="#0E4A79">5G</text>
+      <path d="M23 82 l10 -9 8 5 11 -13" fill="none" stroke="#316FD6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <g fill="#4C5F72" font-size="17">
+      <text x="78" y="285">1. Mạng di động</text>
+      <text x="78" y="318">2. Chọn SIM Viettel</text>
+      <text x="78" y="351">3. Loại mạng ưu tiên</text>
+      <text x="455" y="285">1. Mạng di động</text>
+      <text x="455" y="318">2. SIM 1 hoặc SIM 2</text>
+      <text x="455" y="351">3. Kiểu mạng ưu tiên</text>
+      <text x="832" y="285">1. Quản lý SIM</text>
+      <text x="832" y="318">2. SIM dữ liệu mặc định</text>
+      <text x="832" y="351">3. Chế độ mạng ưu tiên</text>
+    </g>
+    <g>
+      <rect x="76" y="381" width="290" height="69" rx="15" fill="#D8F5EE"/>
+      <rect x="453" y="381" width="290" height="69" rx="15" fill="#FFF0E8"/>
+      <rect x="830" y="381" width="290" height="69" rx="15" fill="#E5EFFF"/>
+      <text x="221" y="425" text-anchor="middle" font-size="23" font-weight="800" fill="#0C796C">Ưu tiên 5G</text>
+      <text x="598" y="425" text-anchor="middle" font-size="22" font-weight="800" fill="#B64F1E">5G / 4G tự động</text>
+      <text x="975" y="425" text-anchor="middle" font-size="22" font-weight="800" fill="#1F5DB0">5G / 4G tự động</text>
+    </g>
+    <g fill="#536777" font-size="15.5">
+      <text x="77" y="484">Chọn đúng đường dây dữ liệu.</text>
+      <text x="454" y="484">Tên mục tùy phiên bản máy.</text>
+      <text x="831" y="484">Ưu tiên đúng SIM dùng data.</text>
+      <text x="77" y="511">Có tùy chọn 5G nếu máy hỗ trợ.</text>
+      <text x="454" y="511">Không ép máy luôn hiện 5G.</text>
+      <text x="831" y="511">Không đổi cấu hình nâng cao.</text>
+    </g>
+    <text x="52" y="588" fill="#E2ECF7" font-size="20" font-weight="700">Ảnh minh họa gốc do ban biên tập tự thiết kế</text>
+    <text x="52" y="611" fill="#9FB8D2" font-size="14">Đối chiếu Viettel Telecom 13/11/2026 • Giao diện thực tế có thể khác theo thiết bị và bản phần mềm</text>
+  </g>
+</svg>

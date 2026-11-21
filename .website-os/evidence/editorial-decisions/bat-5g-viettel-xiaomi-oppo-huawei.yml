@@ -1,0 +1,52 @@
+version: 1
+decision: PASS
+scope: ARTICLE_MAINTENANCE
+observation_date: "2026-11-19"
+primary_keyword: "bật 5G Viettel trên Xiaomi OPPO Huawei"
+primary_intent: SUPPORT
+canonical_url: https://www.tracuugoicuoc.com/posts/bat-5g-viettel-xiaomi-oppo-huawei
+article_file: .website-os/out/editorial-artifact/article.html
+template_file: .website-os/out/editorial-artifact/template.html
+listing_file: .website-os/out/editorial-artifact/listing.html
+sitemap_file: .website-os/out/editorial-artifact/sitemap.xml
+image_path: /images/editorial/bat-5g-viettel-xiaomi-oppo-huawei.svg
+existing_site_live: PASS
+existing_template_mobile_verified: true
+new_layout_or_interaction: false
+mobile_template:
+  verified_viewport: 390x844
+  verified_source_run: https://github.com/capquangfptminhlh/viet-9g/actions/runs/44361807169
+  existing_template_reused: true
+  new_article_mobile_ci_required: true
+  new_article_production_viewport: NOT_VERIFIED
+quality_reviews:
+  keyword_intent: PASS
+  factual_sources: PASS
+  original_value: PASS
+  cannibalization: PASS
+  internal_links: PASS
+  image_source: PASS
+  mobile_runtime: PENDING_CI
+source_references:
+  - https://098.viettel.vn/tin-tuc/chi-tiet/huong-dan-moi-nhat-cach-bat-mang-5g-viettel-cho-dien-thoai-smartphone/16290128
+seo_research:
+  official_source_published_at: "2026-11-13"
+  official_source_read_at: "2026-11-19"
+  existing_repository_post_inventory_checked: true
+  existing_intent_owner: "Android OEM-specific 5G menu navigation, not iPhone VoLTE or data package"
+  new_canonical_owner_row: .website-os/evidence/url-ownership-map.csv
+  keyword_intent_row: .website-os/evidence/keyword-intent-map.csv
+  gsc_90_day_baseline: UNKNOWN
+  query_volume: UNKNOWN
+  seo_alpha_experiment: false
+  google_core_update_status: UNKNOWN
+  editorial_lane: routine_informational_no_price_no_promotion
+release:
+  reviewers_required: 2
+  human_reviews_observed: 0
+  owner_release_approval: RECEIVED_CONDITIONAL
+  owner_release_approval_recorded_at: "2026-11-21"
+  owner_release_approval_evidence: "https://github.com/capquangfptminhlh/viet-9g/pull/149#issuecomment-7064428255"
+  owner_release_approval_scope: "Owner authorized release after all mandatory checks, independent reviews and freeze conditions pass; does not waive gates"
+  production_publication: HOLD
+reason: "Original Vietnamese support guide and original local SVG created by ChatGPT; official Viettel source 13/11/2026 verified manually. Editorial facts and independent OEM-menu intent assessed; new article build and mobile runtime must pass CI. PASS is the editorial source/intent decision only, not human release approval."

@@ -44,6 +44,9 @@ jobs:
       - name: Verify built editorial HTML and image
         run: node scripts/verify-editorial-html.mjs
 
+      - name: Verify original news card thumbnails and prevent cropping regressions
+        run: node scripts/verify-news-card-thumbnails.mjs
+
       - name: Verify mobile CTA source contract
         run: node scripts/verify-mobile-cta-source.mjs
 
@@ -53,6 +56,9 @@ jobs:
           playwright install chromium
 
       - name: Measure real 390x844 mobile layout and CTA targets
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         shell: bash
         run: |
           set -euo pipefail
@@ -79,12 +85,18 @@ jobs:
         run: node scripts/verify-article-release.mjs
 
       - name: Prepare provenance from built editorial artifacts
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: node scripts/prepare-editorial-evidence.mjs
 
       # The private seo-web handbook is read by the connected maintainer agent.
       # GitHub Actions does not inherit the agent's GitHub credentials.
       # This public-repo CI runs its own deterministic source-ready gates.
       - name: Verify editorial evidence without private-repo credentials
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         shell: bash
         run: |
           set -euo pipefail
