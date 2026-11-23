@@ -1,33 +1,25 @@
 version: 1
 decision: PASS
 scope: ARTICLE_MAINTENANCE
-observation_date: "2026-11-18"
-primary_keyword: "iPhone Viettel không thấy Cuộc gọi Wi-Fi"
+observation_date: "2026-11-23"
+primary_keyword: "bật 5G Viettel trên Xiaomi OPPO Huawei"
 primary_intent: SUPPORT
-canonical_url: https://www.tracuugoicuoc.com/posts/iphone-viettel-khong-thay-cuoc-goi-wifi-calling
+canonical_url: https://www.tracuugoicuoc.com/posts/bat-5g-viettel-xiaomi-oppo-huawei
 article_file: .website-os/out/editorial-artifact/article.html
 template_file: .website-os/out/editorial-artifact/template.html
 listing_file: .website-os/out/editorial-artifact/listing.html
 sitemap_file: .website-os/out/editorial-artifact/sitemap.xml
-image_path: /images/iphone-viettel-wifi-calling-check.svg
+image_path: /images/editorial/bat-5g-viettel-xiaomi-oppo-huawei.svg
 existing_site_live: PASS
 existing_template_mobile_verified: true
 new_layout_or_interaction: false
-mobile_evidence_ref: https://github.com/capquangfptminhlh/viet-9g/actions/runs/44282755978
+mobile_evidence_ref: https://github.com/capquangfptminhlh/viet-9g/actions/runs/44935136258
 mobile_template:
   verified_viewport: 390x844
-  verified_source_run: https://github.com/capquangfptminhlh/viet-9g/actions/runs/44282755978
+  verified_source_run: https://github.com/capquangfptminhlh/viet-9g/actions/runs/44935136258
   reused_template_unchanged: true
-  new_article_viewport_result: PASS
-  new_article_ci_run: https://github.com/capquangfptminhlh/viet-9g/actions/runs/44287620833
-  new_article_built_preview_checked_at: "2026-11-18T10:41:24Z"
-  observed_viewport: 390x844
-  document_width_px: 390
-  hero_loaded: true
-  hero_natural_width_px: 1200
-  package_list_cta_height_px: 48
-  article_list_cta_height_px: 48
-  hotline_cta_height_px: 48
+  mobile_runtime_ci_step: PASS
+  new_article_production_viewport: NOT_VERIFIED
 quality_reviews:
   keyword_intent: PASS
   factual_sources: PASS
@@ -36,20 +28,22 @@ quality_reviews:
   internal_links: PASS
   mobile: PASS
 source_references:
-  - https://support.apple.com/vi-vn/108066
-  - https://support.apple.com/vi-vn/109324
-  - https://shop.viettel.vn/tin-tuc/chi-tiet/nguyen-nhan-va-cach-khac-phuc-mang-5g-cham-hieu-qua/16939076
-  - https://viettelstore.vn/tin-tuc/wi-fi-calling-la-gi-cach-kich-hoat-wi-fi-calling-tren-android-va-ios
+  - https://098.viettel.vn/tin-tuc/chi-tiet/huong-dan-moi-nhat-cach-bat-mang-5g-viettel-cho-dien-thoai-smartphone/16290128
 seo_research:
-  serp_checked_at: "2026-11-18"
+  official_source_published_at: "2026-11-13"
+  official_source_rechecked_at: "2026-11-23"
   existing_repository_post_inventory_checked: true
-  existing_intent_owner: "VoLTE and 5G connectivity guides own separate jobs"
   new_canonical_owner_row: .website-os/evidence/url-ownership-map.csv
   keyword_intent_row: .website-os/evidence/keyword-intent-map.csv
   gsc_90_day_baseline: UNKNOWN
   query_volume: UNKNOWN
-  editorial_lane: routine_informational_no_price_no_promotion
   seo_alpha_experiment: false
+  editorial_lane: routine_informational_no_price_no_promotion
   google_core_update_active: true
-  owner_direct_instruction: "Publish one new test article today in this conversation"
-reason: "Article source-review PASS using dated Apple/Viettel sources, independent K0 intent owner, actual preview HTML and Chromium 390x844 measurements from GitHub Actions run 44287620833. Central private engine, merge decision, deployment and live URL must still be checked separately."
+release:
+  reviewers_required: 2
+  human_reviews_observed: 0
+  owner_release_approval: RECEIVED_CONDITIONAL
+  owner_release_approval_evidence: https://github.com/capquangfptminhlh/viet-9g/pull/149#issuecomment-7064428255
+  production_publication: HOLD
+reason: "Article-specific editorial source/intent evidence updated for PR #149; mobile Chromium CI at 390x844 succeeded in run 44935136258. This is source-ready only, NOT central Website OS engine PASS, independent human approval, or live production verification."
