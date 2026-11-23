@@ -2,7 +2,7 @@ version: 1
 decision: PASS
 scope: ARTICLE_MAINTENANCE
 observation_date: "2026-11-19"
-primary_keyword: "bật 5G Viettel trên Xiaomi OPPO Huawei"
+primary_keyword: "bật 5G Viettel Xiaomi OPPO Huawei"
 primary_intent: SUPPORT
 canonical_url: https://www.tracuugoicuoc.com/posts/bat-5g-viettel-xiaomi-oppo-huawei
 article_file: .website-os/out/editorial-artifact/article.html
