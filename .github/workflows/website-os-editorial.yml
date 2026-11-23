@@ -1,0 +1,107 @@
+name: Website OS editorial release gate (private central policy)
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: website-os-editorial-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  governed-editorial:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Checkout Viettel project
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Require read-only access to private central governance
+        env:
+          CENTRAL_TOKEN_PRESENT: ${{ secrets.SEO_ALPHA_CENTRAL_READ_TOKEN != '' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$CENTRAL_TOKEN_PRESENT" != "true" ]]; then
+            echo "::error::HOLD: configure SEO_ALPHA_CENTRAL_READ_TOKEN with Contents:Read only for capquangfptminhlh/seo-web to run the mandatory enforcement engine. No gate is bypassed."
+            exit 1
+          fi
+
+      - name: Checkout current private Website OS governance
+        uses: actions/checkout@v4
+        with:
+          repository: capquangfptminhlh/seo-web
+          ref: main
+          token: ${{ secrets.SEO_ALPHA_CENTRAL_READ_TOKEN }}
+          path: .website-os-governance
+          persist-credentials: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install and build real editorial artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm ci
+          npm test
+          npm run k0:check
+          npm run build
+          node scripts/verify-editorial-html.mjs
+          node scripts/prepare-editorial-evidence.mjs
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install private central engine requirements
+        run: python -m pip install -r .website-os-governance/engine/requirements.txt
+
+      - name: Verify current SEO Alpha attestation against private central sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          python .website-os-governance/scripts/verify-seo-alpha-contract.py --project-root . --central-root .website-os-governance
+
+      - name: Run mandatory Website OS editorial enforcement
+        shell: bash
+        run: |
+          set -euo pipefail
+          python .website-os-governance/engine/website_os_engine.py \
+            --project-root . \
+            --governance-root .website-os-governance \
+            --evidence-dir .website-os/evidence \
+            --gate editorial \
+            --out-dir .website-os/out
+
+      - name: Publish engine verdict
+        if: always()
+        shell: bash
+        run: |
+          if [[ -f .website-os/out/website-os-summary.md ]]; then
+            cat .website-os/out/website-os-summary.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "HOLD: Website OS engine did not produce an auditable verdict." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload actual governance evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: website-os-editorial-enforcement
+          path: |
+            .website-os/out/website-os-report.json
+            .website-os/out/website-os-summary.md
+            .website-os/out/website-os.sarif
+            .website-os/out/website-os-attestation.json
+          if-no-files-found: warn
