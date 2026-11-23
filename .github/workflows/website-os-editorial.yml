@@ -24,12 +24,12 @@ jobs:
 
       - name: Require read-only access to private central governance
         env:
-          CENTRAL_TOKEN_PRESENT: ${{ secrets.SEO_ALPHA_CENTRAL_READ_TOKEN != '' }}
+          CENTRAL_TOKEN_PRESENT: ${{ secrets.SEO_ALPHA_CENTRAL_READ_TOKEN != '' || secrets.WEBSITE_OS_TOKEN != '' }}
         shell: bash
         run: |
           set -euo pipefail
           if [[ "$CENTRAL_TOKEN_PRESENT" != "true" ]]; then
-            echo "::error::HOLD: configure SEO_ALPHA_CENTRAL_READ_TOKEN with Contents:Read only for capquangfptminhlh/seo-web to run the mandatory enforcement engine. No gate is bypassed."
+            echo "::error::HOLD: neither SEO_ALPHA_CENTRAL_READ_TOKEN nor existing WEBSITE_OS_TOKEN can read private capquangfptminhlh/seo-web; provide read-only central governance access to run the mandatory engine. No gate is bypassed."
             exit 1
           fi
 
@@ -38,7 +38,7 @@ jobs:
         with:
           repository: capquangfptminhlh/seo-web
           ref: main
-          token: ${{ secrets.SEO_ALPHA_CENTRAL_READ_TOKEN }}
+          token: ${{ secrets.SEO_ALPHA_CENTRAL_READ_TOKEN || secrets.WEBSITE_OS_TOKEN }}
           path: .website-os-governance
           persist-credentials: false
 
