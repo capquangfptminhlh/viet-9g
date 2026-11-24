@@ -1,94 +1,55 @@
-name: Daily SEO Editorial Candidate
+name: Daily SEO production monitor (ChatGPT authors content)
 
 on:
   schedule:
-    # 07:00 Asia/Ho_Chi_Minh. No publishing to main without review.
+    # 07:00 Asia/Ho_Chi_Minh: verify site/article status without generating templated articles.
     - cron: '0 0 * * *'
   workflow_dispatch:
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
 
 concurrency:
-  group: seo-editorial-candidate-main
+  group: seo-editorial-monitor-main
   cancel-in-progress: false
 
 jobs:
-  propose:
+  monitor:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
-      - name: Checkout reviewed main
+      - name: Checkout production main (read-only)
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '22'
           cache: npm
-
       - name: Install dependencies
         run: npm ci
-
-      - name: Validate editorial and keyword rules
+      - name: Verify editorial monitor unit tests and approved K0
         run: |
-          npm test -- tests/main-site tests/blogger
+          npm test -- tests/editorial/daily-editorial-status.test.ts
           npm run k0:check
-
-      - name: Generate at most one verified-fact candidate
-        id: candidate
-        shell: bash
-        run: |
-          set -euo pipefail
-          npx tsx scripts/auto-main-site.ts
-          mapfile -t NEW_POSTS < <(git ls-files --others --exclude-standard -- 'src/content/posts/*.md')
-          if [ "${#NEW_POSTS[@]}" -eq 0 ]; then
-            echo 'generated=false' >> "$GITHUB_OUTPUT"
-            echo 'NO_ELIGIBLE_TOPIC — all queued topics are already owned, held or lack current facts/media. This is not a workflow error.' >> "$GITHUB_STEP_SUMMARY"
-            exit 0
-          fi
-          if [ "${#NEW_POSTS[@]}" -ne 1 ]; then
-            echo "::error::Expected only one proposed article; found ${#NEW_POSTS[@]}"
-            exit 1
-          fi
-          echo 'generated=true' >> "$GITHUB_OUTPUT"
-          echo "article=${NEW_POSTS[0]}" >> "$GITHUB_OUTPUT"
-          echo "slug=$(basename "${NEW_POSTS[0]}" .md)" >> "$GITHUB_OUTPUT"
-
-      - name: Verify candidate builds into static site
-        if: steps.candidate.outputs.generated == 'true'
-        run: |
-          npm run build
-          node scripts/verify-editorial-html.mjs
-          node scripts/prepare-editorial-evidence.mjs
-
-      - name: Create draft PR instead of pushing directly to production
-        if: steps.candidate.outputs.generated == 'true'
-        shell: bash
+      - name: Audit pending sources and canonical ownership
+        run: node scripts/daily-editorial-status.mjs audit
+      - name: Check real production article URLs
+        if: always()
+        run: node scripts/daily-editorial-status.mjs live
+      - name: Upload auditable readiness evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-editorial-monitor
+          path: |
+            .website-os/out/daily-editorial-readiness.json
+            .website-os/out/daily-live-publication.json
+          if-no-files-found: warn
+      - name: Notify actual status (ChatGPT task handles content separately)
+        if: always()
         env:
-          GH_TOKEN: ${{ github.token }}
-          ARTICLE: ${{ steps.candidate.outputs.article }}
-          SLUG: ${{ steps.candidate.outputs.slug }}
-        run: |
-          set -euo pipefail
-          # Avoid parallel draft PRs for the same canonical owner.
-          OPEN_COUNT="$(gh pr list --state open --search "$SLUG in:title" --json number --jq 'length')"
-          if [ "$OPEN_COUNT" != '0' ]; then
-            echo "HOLD — an open editorial PR for $SLUG already exists" >> "$GITHUB_STEP_SUMMARY"
-            exit 0
-          fi
-          BRANCH="seo/candidate-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git checkout -b "$BRANCH"
-          git add -- "$ARTICLE" state/main-site-publication-ledger.json
-          git diff --cached --quiet && { echo 'NO_ELIGIBLE_TOPIC — nothing to propose' >> "$GITHUB_STEP_SUMMARY"; exit 0; }
-          git commit -m "docs(seo): stage fact-verified editorial candidate $SLUG"
-          git push origin "$BRANCH"
-          gh pr create --draft --base main --head "$BRANCH" \
-            --title "SEO candidate: $SLUG (REVIEW REQUIRED)" \
-            --body "Generated fact-backed draft; NOT published. Recheck primary source, originality and canonical owner; no automatic release. Run Article/K0/SEO Alpha gates; obtain required review and site-owner approval before merge. Update any thin/template-only text before release."
-          echo "STAGED — created review PR for $SLUG; NOT live published" >> "$GITHUB_STEP_SUMMARY"
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          EDITORIAL_JOB_STATUS: ${{ job.status }}
+        run: node scripts/daily-editorial-status.mjs notify

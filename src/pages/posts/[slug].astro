@@ -1,5 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -107,7 +109,12 @@ function getPostImage(slug: string, title: string) {
   return '/images/viettel-4g-speed-banner.jpg';
 }
 
-const heroImage = getPostImage(entry.slug, displayTitle);
+const declaredIllustration = entry.data?.image;
+const heroImage = typeof declaredIllustration === 'string' &&
+  /^\/images\/editorial\/[a-z0-9-]+\.svg$/.test(declaredIllustration) &&
+  existsSync(join(process.cwd(), 'public', declaredIllustration.slice(1)))
+    ? declaredIllustration
+    : getPostImage(entry.slug, displayTitle);
 ---
 <BaseLayout
   title={`${seoTitle} | TraCuuGoiCuoc.com`}

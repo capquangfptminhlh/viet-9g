@@ -9,7 +9,9 @@ export { LEGACY_PACKAGE_SOURCE };
 const root = process.cwd();
 const sourcePath = path.resolve(root, 'src/data/packages.ts');
 const factsPath = path.resolve(root, 'data/facts.json');
-const outputPath = path.resolve(root, 'data/package-catalog.v1.json');
+// Test-only alternate input for --check, never a production write destination.
+const fixture = process.argv.includes('--check') ? process.env.CATALOG_CHECK_FIXTURE_PATH?.trim() : undefined;
+const outputPath = fixture ? path.resolve(fixture) : path.resolve(root, 'data/package-catalog.v1.json');
 
 function stable(value: unknown): string {
   if (Array.isArray(value)) return `[${value.map(stable).join(',')}]`;
